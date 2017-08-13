@@ -1,166 +1,29 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: AWS UGS Todo list
-Mappings:
-  RegionMap:
-    'eu-central-1':
-      S3Endpoint: '.s3-website.eu-central-1.amazonaws.com'
-    'eu-west-1':
-      S3Endpoint: '.s3-website-eu-west-1.amazonaws.com'
+Description: Alexa Skill https://developer.amazon.com/alexa-skills-kit
 Resources:
-  TodoTable:
-    Type: AWS::Serverless::SimpleTable
-    Properties:
-      PrimaryKey:
-        Name: id
-        Type: String
-      ProvisionedThroughput:
-        ReadCapacityUnits: 1
-        WriteCapacityUnits: 1
-
-  ApiListTodosFunction:
+  AlexaSkillFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.apiGetTodos
-      Runtime: nodejs6.10
-      Timeout: 10
-      MemorySize: 512
-      CodeUri: ./backend
-      Policies:
-        Statement:
-          - Effect: "Allow"
-            Action: "dynamodb:Scan"
-            Resource:
-              - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${TodoTable}
-              - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${TodoTable}/index/*
-      Environment:
+      CodeUri: s3://<bucket>/alexa_skill.zip
+      Handler: index.handler
+      Runtime: nodejs
+      Environment: 
         Variables:
-          TABLE_NAME: !Ref TodoTable
-      Events:
-        ListDevices:
-          Type: Api
-          Properties:
-            Path: /todos
-            Method: get
-  ApiUpdateTodoFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: index.apiUpdateTodo
-      Runtime: nodejs6.10
-      Timeout: 10
-      MemorySize: 512
-      CodeUri: ./backend
-      Policies:
-        Statement:
-          - Effect: "Allow"
-            Action: "dynamodb:PutItem"
-            Resource:
-            - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${TodoTable}
-            - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${TodoTable}/index/*
-      Environment:
-        Variables:
-          TABLE_NAME: !Ref TodoTable
-      Events:
-        ListDevices:
-          Type: Api
-          Properties:
-            Path: /todos/{id}
-            Method: put
-  ApiAddTodoFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: index.apiAddTodo
-      Runtime: nodejs6.10
-      Timeout: 10
-      MemorySize: 512
-      CodeUri: ./backend
-      Policies:
-        Statement:
-          - Effect: "Allow"
-            Action: "dynamodb:PutItem"
-            Resource:
-            - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${TodoTable}
-            - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${TodoTable}/index/*
-      Environment:
-        Variables:
-          TABLE_NAME: !Ref TodoTable
-      Events:
-        ListDevices:
-          Type: Api
-          Properties:
-            Path: /todos
-            Method: post
+          BASE_64_SIMPLE: !Base64 "123456"
+          # TODO More Base64
+          # TODO Conditionals
+          # TODO FindInMap
+          GET_ATT: 
+            "Fn::GetAtt": [ "SomeResource", "AndParameter" ]
+          # TODO ImportValue
+          # TODO Join
+          # TODO Select
+          # TODO Split
+          SUB_SIMPLE: !Sub "${AWS::Region}-test"
+          SUB_FULL: 
+            "Fn::Sub":
+              - "Some full text with ${AWS::Region} parameters and ${CustomParams}"
+              - { "CustomParams": "${SomeOtherResource}" }
 
-  WebappBucket:
-    Type: 'AWS::S3::Bucket'
-    Properties:
-      WebsiteConfiguration:
-        IndexDocument: index.html
-  S3BucketPolicy:
-    Type: 'AWS::S3::BucketPolicy'
-    Properties:
-      Bucket: !Ref WebappBucket
-      PolicyDocument:
-        Statement:
-          - Action: 's3:GetObject'
-            Effect: Allow
-            Resource: !Sub arn:aws:s3:::${WebappBucket}/*
-            Principal: '*'
-  CloudFrontDistribution:
-    Type: 'AWS::CloudFront::Distribution'
-    Properties:
-      DistributionConfig:
-        Comment: AWS UGS Todo
-        Origins:
-          - DomainName: !Join ['', [!Ref WebappBucket, !FindInMap [RegionMap, !Ref 'AWS::Region', S3Endpoint]]]
-            Id: s3origin
-            CustomOriginConfig:
-              OriginProtocolPolicy: http-only
-          - DomainName: !Sub ${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com
-            OriginPath: /Prod
-            Id: apiOrigin
-            CustomOriginConfig:
-              OriginProtocolPolicy: https-only
-        DefaultCacheBehavior:
-          AllowedMethods:
-            - GET
-            - HEAD
-            - OPTIONS
-          DefaultTTL: 0
-          MinTTL: 0
-          MaxTTL: 0
-          ForwardedValues:
-            QueryString: 'false'
-            Cookies:
-              Forward: none
-          TargetOriginId: s3origin
-          ViewerProtocolPolicy: redirect-to-https
-        CacheBehaviors:
-          - AllowedMethods:
-            - GET
-            - PUT
-            - POST
-            - HEAD
-            - DELETE
-            - OPTIONS
-            - PATCH
-            TargetOriginId: apiOrigin
-            DefaultTTL: 0
-            MinTTL: 0
-            MaxTTL: 0
-            ForwardedValues:
-              QueryString: 'true'
-              Cookies:
-                Forward: none
-            ViewerProtocolPolicy: redirect-to-https
-            PathPattern: /todos*
-        Enabled: true
-        PriceClass: PriceClass_All
 
-Outputs:
-  ApiUrl:
-    Description: URL of the API endpoint
-    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod'
-  WebUrl:
-    Description: URL of the Web endpoint
-    Value: !Sub 'https://${CloudFrontDistribution.DomainName}'
