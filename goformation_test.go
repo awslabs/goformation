@@ -52,4 +52,12 @@ var _ = Describe("Goformation", func() {
 			Expect(getFunctionClass.Handler()).To(Equal("index.get"))
 		})
 	})
+
+	Context("With a function that contains intrinsic functions", func() {
+		template, _, err := goformation.Open("test-resources/sam/templates/intrinsic.yaml")
+		It("should successfully parse the template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+	})
 })

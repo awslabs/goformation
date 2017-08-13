@@ -157,7 +157,7 @@ var _ = Describe("Sam", func() {
 			Context("with a !Ref lookup variable", func() {
 				It("should have an environment variable named REF_ENV_VAR", func() {
 					Expect(f3.EnvironmentVariables()).To(HaveLen(1))
-					Expect(f3.EnvironmentVariables()).To(HaveKeyWithValue("REF_ENV_VAR", ""))
+					Expect(f3.EnvironmentVariables()).To(HaveKeyWithValue("REF_ENV_VAR", "ExampleParameter"))
 				})
 			})
 
@@ -173,7 +173,7 @@ var _ = Describe("Sam", func() {
 			Context("with a !Sub variable value that contains a non-existant reference", func() {
 				It("should have an environment variable named SUB_REF_ENV_VAR", func() {
 					Expect(f5.EnvironmentVariables()).To(HaveLen(1))
-					Expect(f5.EnvironmentVariables()).To(HaveKeyWithValue("SUB_REF_ENV_VAR", "Hello-"))
+					Expect(f5.EnvironmentVariables()).To(HaveKeyWithValue("SUB_REF_ENV_VAR", "Hello-${ThisReferenceDoesntExist}"))
 				})
 			})
 
