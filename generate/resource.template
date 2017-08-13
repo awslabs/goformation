@@ -1,0 +1,22 @@
+package resources
+
+// {{.Name}} AWS CloudFormation Resource
+// See: {{.Resource.Documentation}}
+type {{.StructName}} struct {
+    {{range $name, $property := .Resource.Properties}}
+    // {{$name}} AWS CloudFormation Property
+    // Required: {{$property.Required}}
+    // See: {{$property.Documentation}}
+    {{$name}} {{if $property.IsMap}}map[string]{{end}}{{if $property.IsList}}[]{{end}}{{if not $property.IsPrimitive}}{{$.StructName}}{{end}}{{$property.PropertyType}} `json:"{{$name}}"`
+    {{end}}
+}
+
+// AWSCloudFormationType returns the AWS CloudFormation resource type
+func (r *{{.StructName}}) AWSCloudFormationType() string {
+    return "{{.Name}}"
+}
+
+// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
+func (r *{{.StructName}}) AWSCloudFormationSpecificationVersion() string {
+    return "{{.Version}}"
+}
