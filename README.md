@@ -6,7 +6,15 @@ GoFormation is a CloudFormation parser written in Golang. By using GoFormation i
 	- [Installation](#installation)
 	- [Usage](#usage)
 		- [Opening the template file](#opening-the-template-file)
-		- [Parsing template contents]()
+		- [Parsing template contents](#parsing-template-contents)
+		- [Using the parsed template](#using-the-parsed-template)
+		- [Resources](#resources)
+			- [Template-centric interfaces](#template-centric-interfaces)
+				- [Template](#template)
+				- [Resource](#resource)
+				- [Property](#property)
+			- [Resource-centric interfaces](#resource-centric-interfaces)
+				- [AWSServerlessFunction](#awsserverlessfunction)
 
 ## Installation
 
