@@ -34,7 +34,7 @@ func main() {
 
 ### Parsing template's contents
 
-If you rather use directly the contents of a template, then you should use `goformation.Parse("template contents...")`:
+If you rather use directly the contents of a template, then you should use `goformation.Parse("template-contents")`:
 
 ```
 // my_file.go
@@ -44,7 +44,7 @@ import "github.com/awslabs/goformation"
 
 func main() {
 	var textTemplate []byte = ... // Get your template's contents somewhere
-	template, errors, logs := goformation.Open(textTemplate)
+	template, errors, logs := goformation.Parse(textTemplate)
 	// Do something with your template parsed.
 }
 ```
