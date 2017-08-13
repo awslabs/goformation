@@ -24,9 +24,12 @@ func unmarshal(input []byte) (Template, error) {
 	util.LogDebug(-1, "Unmarshalling", "Storing line numbers for the components")
 
 	// Process and store line numbers for giving comprehensive error messages.
-	lineAnalysis := ProcessLineNumbers(source)
-	template._lineNumbers = lineAnalysis
+	lineAnalysis, error := ProcessLineNumbers(source)
+	if error != nil {
+		return nil, error
+	}
 
+	template._lineNumbers = lineAnalysis
 	return template, error
 }
 

@@ -2,7 +2,6 @@ package resources
 
 import (
 	"errors"
-	"log"
 	"regexp"
 )
 
@@ -10,9 +9,11 @@ var (
 	// ErrNoIntrinsicFunctionFound Launched when calling param processor without intrinsic.
 	// This Doesn't propagate, and it just tells the marshaller to stop attempting to resolve.
 	ErrNoIntrinsicFunctionFound = errors.New("No intrinsic function found")
+
+	ErrInvalidIndentationFound = errors.New("Invalid indentation found on the template.")
 )
 
-func ProcessLineNumbers(input []byte) LineDictionary {
+func ProcessLineNumbers(input []byte) (LineDictionary, error) {
 	level0Regex := regexp.MustCompile(`(Parameters|Resources|Outputs):`)
 	keyValueRegex := regexp.MustCompile(`([\w]+):\s*(.*)`)
 	awsFnValueRegex := regexp.MustCompile(`(Fn::)(Base64|FindInMap|GetAtt|GetAZs|ImportValue|Join|Select|Split|Sub):\s*(.*)`)
@@ -113,7 +114,7 @@ func ProcessLineNumbers(input []byte) LineDictionary {
 			// The parent has to change to this current, and the previous needs to be marked as End.
 			openedParent, openedParentOk := parentHierarchy[indentLevel-1]
 			if !openedParentOk {
-				log.Panicf("PANIC: YAML contains malformed structures")
+				return nil, ErrInvalidIndentationFound
 			}
 
 			currentParent = openedParent
@@ -190,7 +191,7 @@ func ProcessLineNumbers(input []byte) LineDictionary {
 		}
 	}
 
-	return RootObj
+	return RootObj, nil
 }
 
 // BEGIN lineDictionary definition
