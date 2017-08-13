@@ -1,6 +1,12 @@
-# AWS GoFormation
+# AWS GoFormation (Beta)
 
-TODO Definition
+GoFormation is a CloudFormation parser written in Golang. By using GoFormation in your project, you can parse CloudFormation templates and use their information in your app.
+
+- [GoFormation (Beta)](#aws-goformation-beta)
+	- [Installation](#installation)
+	- [Usage](#usage)
+		- [Opening the template file](#opening-the-template-file)
+		- [Parsing template contents]()
 
 ## Installation
 
@@ -32,7 +38,7 @@ func main() {
 }
 ```
 
-### Parsing template's contents
+### Parsing template contents
 
 If you rather use directly the contents of a template, then you should use `goformation.Parse("template-contents")`:
 
@@ -80,34 +86,82 @@ func main() {
 }
 ```
 
-## Documentation
+### Resources
 
-TODO
+The inner package `resource` contains exported interfaces that are useful for working with GoFormation-parsed templates:
 
-### Parsing mechanism
+#### Template-centric interfaces
 
-TODO
+These interfaces give you means to access your template's information, and reflects the same structure that you can see on your JSON/YAML template. Once the template is parsed, these interfaces would also return computed outputs, by linking resources via Intrinsic Functions:
 
-#### Unmarshalling
+##### Template
 
-TODO
+```
+type Template interface {
+	Version() string
+	Transform() []string
+	Parameters() map[string]Parameter
+	Resources() map[string]Resource
+	Outputs() map[string]Output
 
-##### Line detection
+	GetResourcesByType(resourceType string) map[string]Resource
+}
+```
 
-TODO
+##### Resource
 
-#### Scaffold
+```
+type Resource interface {
+	Type() string
+	Properties() map[string]Property
+	ReturnValues() map[string]string
+}
+```
 
-TODO
+##### Property
 
-#### Post process
+type Property interface {
+	Value() interface{}
+	Original() interface{}
+	HasFn() bool
+}
 
-TODO
+#### Resource-centric interfaces
 
-## Project Status
+While the template-specific interfaces give you enough capabilities for accessing all of your template's information, the way it does is somewhat generic, and sometimes you'd rather do some actions with certain specific kinds of resources. The resource-centric interfaces give you access to the resource's capabilities directly.
 
-TODO
+Once your template is parsed, you can access any resource type with the function `template.GetResourcesByType("AWS::Resource::Name")`. During [post processing](#post-processing), every interpretable resource is casted to be compliant to its own interface. A simple type assertion would hence give you the capabilities described here:
 
-## Contributing
+##### AWSServerlessFunction
 
-TODO
+`AWSServerlessFunction` is the resource that defines a `AWS::Serverless::Function` resources. Once you make the type assertion, you can leverage all of its parameters:
+
+```
+// Interface definition
+type AWSServerlessFunction interface {
+	Handler() string
+	Runtime() string
+	CodeURI() AWSCommonStringOrS3Location
+	FunctionName() string
+	Description() string
+	MemorySize() int
+	Timeout() int
+	Role() interface{}
+	Policies() []string
+	EnvironmentVariables() map[string]string
+	Endpoints() ([]AWSServerlessFunctionEndpoint, error)
+}
+```
+
+_EXAMPLE:_
+
+```
+...
+// Use an AWSServerlessFunction
+functions := template.GetResourcesByType("AWS::Serverless::Function")
+for _, fn := range functions {
+	function := fn.(AWSServerlessFunction)
+}
+...
+
+```
