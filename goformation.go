@@ -1,3 +1,3 @@
 package goformation
 
-// go:generate go run generate/main.go
+//go:generate generate/generate.sh

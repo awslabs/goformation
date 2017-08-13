@@ -59,7 +59,7 @@ func generate(name string, resource Resource, spec *CloudFormationResourceSpecif
 	}
 
 	// Create the file for the generated struct
-	fn := "generated/" + filename(name)
+	fn := "resources/" + filename(name)
 	f, err := os.Create(fn)
 	if err != nil {
 		fmt.Printf("Error: Failed to create %s\n%s\n", fn, err)
