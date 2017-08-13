@@ -1,8 +1,8 @@
-# AWS GoFormation (Beta)
+# AWS GoFormation (Alpha)
 
 GoFormation is a CloudFormation parser written in Golang. By using GoFormation in your project, you can parse CloudFormation templates and use their information in your app.
 
-- [GoFormation (Beta)](#aws-goformation-beta)
+- [GoFormation (Alpha)](#aws-goformation-alpha)
 	- [Installation](#installation)
 	- [Usage](#usage)
 		- [Opening the template file](#opening-the-template-file)
