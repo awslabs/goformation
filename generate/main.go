@@ -54,6 +54,8 @@ func main() {
 
 }
 
+// generateResources generates Go structs for all of the resources and custom property types
+// found in a CloudformationResourceSpecification
 func generateResources(name string, resource Resource, spec *CloudFormationResourceSpecification) {
 
 	// Open the resource template
@@ -99,6 +101,8 @@ func generateResources(name string, resource Resource, spec *CloudFormationResou
 
 }
 
+// generateResources generates a JSON Schema for all of the resources and custom property types
+// found in a CloudformationResourceSpecification
 func generateSchema(spec *CloudFormationResourceSpecification) {
 
 	// Open the schema template and setup a counter function that will
