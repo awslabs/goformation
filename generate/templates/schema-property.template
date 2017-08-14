@@ -1,7 +1,7 @@
 "{{.Name}}": {
 
     {{if .Property.IsCustomType}}
-        "$ref": "{{.Parent}}.{{.Property.Type}}"
+        "$ref": "#/definitions/{{.Parent}}.{{.Property.Type}}"
     {{end}}
 
     {{if .Property.IsPrimitive}}
@@ -19,7 +19,7 @@
         {{else}}
         "patternProperties": {
             "^[a-zA-Z0-9]+$": {
-                "type": { "$ref": "{{.Parent}}.{{.Property.Type}}" }
+                "$ref": "#/definitions/{{.Parent}}.{{.Property.Type}}" 
             }
         }
         {{end}}
@@ -32,7 +32,9 @@
             "type": "{{.Property.GetJSONPrimitiveType}}"
         }
         {{else}}
-        "items": { "$ref": "{{.Parent}}.{{.Property.Type}}" }
+        "items": { 
+            "$ref": "#/definitions/{{.Parent}}.{{.Property.Type}}" 
+        }
         {{end}}
     {{end}}
 
