@@ -2,20 +2,21 @@ package resources
 
 // AWS::SSM::Association.ParameterValues AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
-type AWSSSMAssociationParameterValues struct {
+type AWSSSMAssociation_ParameterValues struct {
 
 	// ParameterValues AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
-	ParameterValues []AWSSSMAssociationParameterValuesstring `json:"ParameterValues"`
+
+	ParameterValues []string `json:"ParameterValues"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSSSMAssociationParameterValues) AWSCloudFormationType() string {
+func (r *AWSSSMAssociation_ParameterValues) AWSCloudFormationType() string {
 	return "AWS::SSM::Association.ParameterValues"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSSSMAssociationParameterValues) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSSSMAssociation_ParameterValues) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

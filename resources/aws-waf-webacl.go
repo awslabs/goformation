@@ -7,22 +7,26 @@ type AWSWAFWebACL struct {
 	// DefaultAction AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-defaultaction
-	DefaultAction AWSWAFWebACLWafAction `json:"DefaultAction"`
+
+	DefaultAction AWSWAFWebACL_WafAction `json:"DefaultAction"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-metricname
+
 	MetricName string `json:"MetricName"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-name
+
 	Name string `json:"Name"`
 
 	// Rules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-rules
-	Rules []AWSWAFWebACLActivatedRule `json:"Rules"`
+
+	Rules []AWSWAFWebACL_ActivatedRule `json:"Rules"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

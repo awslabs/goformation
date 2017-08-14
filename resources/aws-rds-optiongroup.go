@@ -7,27 +7,32 @@ type AWSRDSOptionGroup struct {
 	// EngineName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-enginename
+
 	EngineName string `json:"EngineName"`
 
 	// MajorEngineVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-majorengineversion
+
 	MajorEngineVersion string `json:"MajorEngineVersion"`
 
 	// OptionConfigurations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optionconfigurations
-	OptionConfigurations []AWSRDSOptionGroupOptionConfiguration `json:"OptionConfigurations"`
+
+	OptionConfigurations []AWSRDSOptionGroup_OptionConfiguration `json:"OptionConfigurations"`
 
 	// OptionGroupDescription AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optiongroupdescription
+
 	OptionGroupDescription string `json:"OptionGroupDescription"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-tags
-	Tags []AWSRDSOptionGroupTag `json:"Tags"`
+
+	Tags []Tag `json:"Tags"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

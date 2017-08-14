@@ -7,11 +7,13 @@ type AWSEC2SubnetCidrBlock struct {
 	// Ipv6CidrBlock AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6cidrblock
+
 	Ipv6CidrBlock string `json:"Ipv6CidrBlock"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-subnetid
+
 	SubnetId string `json:"SubnetId"`
 }
 

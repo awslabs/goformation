@@ -2,70 +2,81 @@ package resources
 
 // AWS::IoT::TopicRule.Action AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html
-type AWSIoTTopicRuleAction struct {
+type AWSIoTTopicRule_Action struct {
 
 	// CloudwatchAlarm AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-cloudwatchalarm
-	CloudwatchAlarm AWSIoTTopicRuleActionCloudwatchAlarmAction `json:"CloudwatchAlarm"`
+
+	CloudwatchAlarm AWSIoTTopicRule_CloudwatchAlarmAction `json:"CloudwatchAlarm"`
 
 	// CloudwatchMetric AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-cloudwatchmetric
-	CloudwatchMetric AWSIoTTopicRuleActionCloudwatchMetricAction `json:"CloudwatchMetric"`
+
+	CloudwatchMetric AWSIoTTopicRule_CloudwatchMetricAction `json:"CloudwatchMetric"`
 
 	// DynamoDB AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-dynamodb
-	DynamoDB AWSIoTTopicRuleActionDynamoDBAction `json:"DynamoDB"`
+
+	DynamoDB AWSIoTTopicRule_DynamoDBAction `json:"DynamoDB"`
 
 	// Elasticsearch AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-elasticsearch
-	Elasticsearch AWSIoTTopicRuleActionElasticsearchAction `json:"Elasticsearch"`
+
+	Elasticsearch AWSIoTTopicRule_ElasticsearchAction `json:"Elasticsearch"`
 
 	// Firehose AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-firehose
-	Firehose AWSIoTTopicRuleActionFirehoseAction `json:"Firehose"`
+
+	Firehose AWSIoTTopicRule_FirehoseAction `json:"Firehose"`
 
 	// Kinesis AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-kinesis
-	Kinesis AWSIoTTopicRuleActionKinesisAction `json:"Kinesis"`
+
+	Kinesis AWSIoTTopicRule_KinesisAction `json:"Kinesis"`
 
 	// Lambda AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-lambda
-	Lambda AWSIoTTopicRuleActionLambdaAction `json:"Lambda"`
+
+	Lambda AWSIoTTopicRule_LambdaAction `json:"Lambda"`
 
 	// Republish AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-republish
-	Republish AWSIoTTopicRuleActionRepublishAction `json:"Republish"`
+
+	Republish AWSIoTTopicRule_RepublishAction `json:"Republish"`
 
 	// S3 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-s3
-	S3 AWSIoTTopicRuleActionS3Action `json:"S3"`
+
+	S3 AWSIoTTopicRule_S3Action `json:"S3"`
 
 	// Sns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-sns
-	Sns AWSIoTTopicRuleActionSnsAction `json:"Sns"`
+
+	Sns AWSIoTTopicRule_SnsAction `json:"Sns"`
 
 	// Sqs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-sqs
-	Sqs AWSIoTTopicRuleActionSqsAction `json:"Sqs"`
+
+	Sqs AWSIoTTopicRule_SqsAction `json:"Sqs"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSIoTTopicRuleAction) AWSCloudFormationType() string {
+func (r *AWSIoTTopicRule_Action) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.Action"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRuleAction) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSIoTTopicRule_Action) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

@@ -7,12 +7,14 @@ type AWSRoute53HealthCheck struct {
 	// HealthCheckConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-	HealthCheckConfig AWSRoute53HealthCheckHealthCheckConfig `json:"HealthCheckConfig"`
+
+	HealthCheckConfig AWSRoute53HealthCheck_HealthCheckConfig `json:"HealthCheckConfig"`
 
 	// HealthCheckTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-	HealthCheckTags []AWSRoute53HealthCheckHealthCheckTag `json:"HealthCheckTags"`
+
+	HealthCheckTags []AWSRoute53HealthCheck_HealthCheckTag `json:"HealthCheckTags"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -7,6 +7,7 @@ type AWSEC2EgressOnlyInternetGateway struct {
 	// VpcId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+
 	VpcId string `json:"VpcId"`
 }
 

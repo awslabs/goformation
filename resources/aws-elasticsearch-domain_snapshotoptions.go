@@ -2,20 +2,21 @@ package resources
 
 // AWS::Elasticsearch::Domain.SnapshotOptions AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html
-type AWSElasticsearchDomainSnapshotOptions struct {
+type AWSElasticsearchDomain_SnapshotOptions struct {
 
 	// AutomatedSnapshotStartHour AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html#cfn-elasticsearch-domain-snapshotoptions-automatedsnapshotstarthour
+
 	AutomatedSnapshotStartHour int64 `json:"AutomatedSnapshotStartHour"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSElasticsearchDomainSnapshotOptions) AWSCloudFormationType() string {
+func (r *AWSElasticsearchDomain_SnapshotOptions) AWSCloudFormationType() string {
 	return "AWS::Elasticsearch::Domain.SnapshotOptions"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSElasticsearchDomainSnapshotOptions) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSElasticsearchDomain_SnapshotOptions) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

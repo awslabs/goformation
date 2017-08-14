@@ -7,26 +7,31 @@ type AWSBatchJobDefinition struct {
 	// ContainerProperties AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties
-	ContainerProperties AWSBatchJobDefinitionContainerProperties `json:"ContainerProperties"`
+
+	ContainerProperties AWSBatchJobDefinition_ContainerProperties `json:"ContainerProperties"`
 
 	// JobDefinitionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-jobdefinitionname
+
 	JobDefinitionName string `json:"JobDefinitionName"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
-	Parameters object `json:"Parameters"`
+
+	Parameters interface{} `json:"Parameters"`
 
 	// RetryStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
-	RetryStrategy AWSBatchJobDefinitionRetryStrategy `json:"RetryStrategy"`
+
+	RetryStrategy AWSBatchJobDefinition_RetryStrategy `json:"RetryStrategy"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type
+
 	Type string `json:"Type"`
 }
 

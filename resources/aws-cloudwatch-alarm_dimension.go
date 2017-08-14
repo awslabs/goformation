@@ -2,25 +2,27 @@ package resources
 
 // AWS::CloudWatch::Alarm.Dimension AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html
-type AWSCloudWatchAlarmDimension struct {
+type AWSCloudWatchAlarm_Dimension struct {
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html#cfn-cloudwatch-alarm-dimension-name
+
 	Name string `json:"Name"`
 
 	// Value AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html#cfn-cloudwatch-alarm-dimension-value
+
 	Value string `json:"Value"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSCloudWatchAlarmDimension) AWSCloudFormationType() string {
+func (r *AWSCloudWatchAlarm_Dimension) AWSCloudFormationType() string {
 	return "AWS::CloudWatch::Alarm.Dimension"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCloudWatchAlarmDimension) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSCloudWatchAlarm_Dimension) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

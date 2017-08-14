@@ -7,26 +7,31 @@ type AWSApiGatewayUsagePlan struct {
 	// ApiStages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
-	ApiStages []AWSApiGatewayUsagePlanApiStage `json:"ApiStages"`
+
+	ApiStages []AWSApiGatewayUsagePlan_ApiStage `json:"ApiStages"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+
 	Description string `json:"Description"`
 
 	// Quota AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
-	Quota AWSApiGatewayUsagePlanQuotaSettings `json:"Quota"`
+
+	Quota AWSApiGatewayUsagePlan_QuotaSettings `json:"Quota"`
 
 	// Throttle AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
-	Throttle AWSApiGatewayUsagePlanThrottleSettings `json:"Throttle"`
+
+	Throttle AWSApiGatewayUsagePlan_ThrottleSettings `json:"Throttle"`
 
 	// UsagePlanName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+
 	UsagePlanName string `json:"UsagePlanName"`
 }
 

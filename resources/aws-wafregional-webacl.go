@@ -7,22 +7,26 @@ type AWSWAFRegionalWebACL struct {
 	// DefaultAction AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction
-	DefaultAction AWSWAFRegionalWebACLAction `json:"DefaultAction"`
+
+	DefaultAction AWSWAFRegionalWebACL_Action `json:"DefaultAction"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname
+
 	MetricName string `json:"MetricName"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name
+
 	Name string `json:"Name"`
 
 	// Rules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules
-	Rules []AWSWAFRegionalWebACLRule `json:"Rules"`
+
+	Rules []AWSWAFRegionalWebACL_Rule `json:"Rules"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

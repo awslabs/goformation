@@ -7,21 +7,25 @@ type AWSElasticLoadBalancingV2ListenerRule struct {
 	// Actions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-	Actions []AWSElasticLoadBalancingV2ListenerRuleAction `json:"Actions"`
+
+	Actions []AWSElasticLoadBalancingV2ListenerRule_Action `json:"Actions"`
 
 	// Conditions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-	Conditions []AWSElasticLoadBalancingV2ListenerRuleRuleCondition `json:"Conditions"`
+
+	Conditions []AWSElasticLoadBalancingV2ListenerRule_RuleCondition `json:"Conditions"`
 
 	// ListenerArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
+
 	ListenerArn string `json:"ListenerArn"`
 
 	// Priority AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
+
 	Priority int64 `json:"Priority"`
 }
 

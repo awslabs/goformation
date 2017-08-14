@@ -7,12 +7,14 @@ type AWSECRRepository struct {
 	// RepositoryName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+
 	RepositoryName string `json:"RepositoryName"`
 
 	// RepositoryPolicyText AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-	RepositoryPolicyText object `json:"RepositoryPolicyText"`
+
+	RepositoryPolicyText interface{} `json:"RepositoryPolicyText"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

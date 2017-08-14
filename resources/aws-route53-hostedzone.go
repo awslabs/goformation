@@ -7,22 +7,26 @@ type AWSRoute53HostedZone struct {
 	// HostedZoneConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-	HostedZoneConfig AWSRoute53HostedZoneHostedZoneConfig `json:"HostedZoneConfig"`
+
+	HostedZoneConfig AWSRoute53HostedZone_HostedZoneConfig `json:"HostedZoneConfig"`
 
 	// HostedZoneTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-	HostedZoneTags []AWSRoute53HostedZoneHostedZoneTag `json:"HostedZoneTags"`
+
+	HostedZoneTags []AWSRoute53HostedZone_HostedZoneTag `json:"HostedZoneTags"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+
 	Name string `json:"Name"`
 
 	// VPCs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-	VPCs []AWSRoute53HostedZoneVPC `json:"VPCs"`
+
+	VPCs []AWSRoute53HostedZone_VPC `json:"VPCs"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

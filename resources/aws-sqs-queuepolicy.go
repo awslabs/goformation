@@ -7,12 +7,14 @@ type AWSSQSQueuePolicy struct {
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc
-	PolicyDocument object `json:"PolicyDocument"`
+
+	PolicyDocument interface{} `json:"PolicyDocument"`
 
 	// Queues AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues
-	Queues []AWSSQSQueuePolicystring `json:"Queues"`
+
+	Queues []string `json:"Queues"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -7,22 +7,26 @@ type AWSCertificateManagerCertificate struct {
 	// DomainName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname
+
 	DomainName string `json:"DomainName"`
 
 	// DomainValidationOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions
-	DomainValidationOptions []AWSCertificateManagerCertificateDomainValidationOption `json:"DomainValidationOptions"`
+
+	DomainValidationOptions []AWSCertificateManagerCertificate_DomainValidationOption `json:"DomainValidationOptions"`
 
 	// SubjectAlternativeNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames
-	SubjectAlternativeNames []AWSCertificateManagerCertificatestring `json:"SubjectAlternativeNames"`
+
+	SubjectAlternativeNames []string `json:"SubjectAlternativeNames"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags
-	Tags []AWSCertificateManagerCertificateTag `json:"Tags"`
+
+	Tags []Tag `json:"Tags"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

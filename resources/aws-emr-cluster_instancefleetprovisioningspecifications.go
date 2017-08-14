@@ -2,20 +2,21 @@ package resources
 
 // AWS::EMR::Cluster.InstanceFleetProvisioningSpecifications AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html
-type AWSEMRClusterInstanceFleetProvisioningSpecifications struct {
+type AWSEMRCluster_InstanceFleetProvisioningSpecifications struct {
 
 	// SpotSpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
-	SpotSpecification AWSEMRClusterInstanceFleetProvisioningSpecificationsSpotProvisioningSpecification `json:"SpotSpecification"`
+
+	SpotSpecification AWSEMRCluster_SpotProvisioningSpecification `json:"SpotSpecification"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSEMRClusterInstanceFleetProvisioningSpecifications) AWSCloudFormationType() string {
+func (r *AWSEMRCluster_InstanceFleetProvisioningSpecifications) AWSCloudFormationType() string {
 	return "AWS::EMR::Cluster.InstanceFleetProvisioningSpecifications"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSEMRClusterInstanceFleetProvisioningSpecifications) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSEMRCluster_InstanceFleetProvisioningSpecifications) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

@@ -2,20 +2,21 @@ package resources
 
 // AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions.html
-type AWSKinesisFirehoseDeliveryStreamElasticsearchRetryOptions struct {
+type AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions struct {
 
 	// DurationInSeconds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions-durationinseconds
+
 	DurationInSeconds int64 `json:"DurationInSeconds"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSKinesisFirehoseDeliveryStreamElasticsearchRetryOptions) AWSCloudFormationType() string {
+func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStreamElasticsearchRetryOptions) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

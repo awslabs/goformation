@@ -7,22 +7,26 @@ type AWSRoute53RecordSetGroup struct {
 	// Comment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-comment
+
 	Comment string `json:"Comment"`
 
 	// HostedZoneId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-hostedzoneid
+
 	HostedZoneId string `json:"HostedZoneId"`
 
 	// HostedZoneName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-hostedzonename
+
 	HostedZoneName string `json:"HostedZoneName"`
 
 	// RecordSets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-recordsets
-	RecordSets []AWSRoute53RecordSetGroupRecordSet `json:"RecordSets"`
+
+	RecordSets []AWSRoute53RecordSetGroup_RecordSet `json:"RecordSets"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

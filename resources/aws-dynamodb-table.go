@@ -7,36 +7,43 @@ type AWSDynamoDBTable struct {
 	// AttributeDefinitions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
-	AttributeDefinitions []AWSDynamoDBTableAttributeDefinition `json:"AttributeDefinitions"`
+
+	AttributeDefinitions []AWSDynamoDBTable_AttributeDefinition `json:"AttributeDefinitions"`
 
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
-	GlobalSecondaryIndexes []AWSDynamoDBTableGlobalSecondaryIndex `json:"GlobalSecondaryIndexes"`
+
+	GlobalSecondaryIndexes []AWSDynamoDBTable_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema
-	KeySchema []AWSDynamoDBTableKeySchema `json:"KeySchema"`
+
+	KeySchema []AWSDynamoDBTable_KeySchema `json:"KeySchema"`
 
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi
-	LocalSecondaryIndexes []AWSDynamoDBTableLocalSecondaryIndex `json:"LocalSecondaryIndexes"`
+
+	LocalSecondaryIndexes []AWSDynamoDBTable_LocalSecondaryIndex `json:"LocalSecondaryIndexes"`
 
 	// ProvisionedThroughput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
-	ProvisionedThroughput AWSDynamoDBTableProvisionedThroughput `json:"ProvisionedThroughput"`
+
+	ProvisionedThroughput AWSDynamoDBTable_ProvisionedThroughput `json:"ProvisionedThroughput"`
 
 	// StreamSpecification AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
-	StreamSpecification AWSDynamoDBTableStreamSpecification `json:"StreamSpecification"`
+
+	StreamSpecification AWSDynamoDBTable_StreamSpecification `json:"StreamSpecification"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
+
 	TableName string `json:"TableName"`
 }
 

@@ -7,11 +7,13 @@ type AWSWAFRegionalIPSet struct {
 	// IPSetDescriptors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-ipsetdescriptors
-	IPSetDescriptors []AWSWAFRegionalIPSetIPSetDescriptor `json:"IPSetDescriptors"`
+
+	IPSetDescriptors []AWSWAFRegionalIPSet_IPSetDescriptor `json:"IPSetDescriptors"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-name
+
 	Name string `json:"Name"`
 }
 

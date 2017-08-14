@@ -7,12 +7,14 @@ type AWSCodeDeployDeploymentConfig struct {
 	// DeploymentConfigName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-deploymentconfigname
+
 	DeploymentConfigName string `json:"DeploymentConfigName"`
 
 	// MinimumHealthyHosts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts
-	MinimumHealthyHosts AWSCodeDeployDeploymentConfigMinimumHealthyHosts `json:"MinimumHealthyHosts"`
+
+	MinimumHealthyHosts AWSCodeDeployDeploymentConfig_MinimumHealthyHosts `json:"MinimumHealthyHosts"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

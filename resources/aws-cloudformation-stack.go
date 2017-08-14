@@ -7,26 +7,31 @@ type AWSCloudFormationStack struct {
 	// NotificationARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
-	NotificationARNs []AWSCloudFormationStackstring `json:"NotificationARNs"`
+
+	NotificationARNs []string `json:"NotificationARNs"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters
-	Parameters map[string]AWSCloudFormationStackstring `json:"Parameters"`
+
+	Parameters map[string]string `json:"Parameters"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-tags
-	Tags []AWSCloudFormationStackTag `json:"Tags"`
+
+	Tags []Tag `json:"Tags"`
 
 	// TemplateURL AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-templateurl
+
 	TemplateURL string `json:"TemplateURL"`
 
 	// TimeoutInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
+
 	TimeoutInMinutes int64 `json:"TimeoutInMinutes"`
 }
 

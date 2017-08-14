@@ -2,20 +2,21 @@ package resources
 
 // AWS::KinesisAnalytics::Application.JSONMappingParameters AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-jsonmappingparameters.html
-type AWSKinesisAnalyticsApplicationJSONMappingParameters struct {
+type AWSKinesisAnalyticsApplication_JSONMappingParameters struct {
 
 	// RecordRowPath AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-jsonmappingparameters.html#cfn-kinesisanalytics-application-jsonmappingparameters-recordrowpath
+
 	RecordRowPath string `json:"RecordRowPath"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSKinesisAnalyticsApplicationJSONMappingParameters) AWSCloudFormationType() string {
+func (r *AWSKinesisAnalyticsApplication_JSONMappingParameters) AWSCloudFormationType() string {
 	return "AWS::KinesisAnalytics::Application.JSONMappingParameters"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisAnalyticsApplicationJSONMappingParameters) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSKinesisAnalyticsApplication_JSONMappingParameters) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

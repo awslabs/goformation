@@ -30,7 +30,7 @@ func structName(input string) string {
 	output := strings.Replace(input, "::", "", -1)
 
 	// Remove .
-	output = strings.Replace(output, ".", "", -1)
+	output = strings.Replace(output, ".", "_", -1)
 
 	return output
 

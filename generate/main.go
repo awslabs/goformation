@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 	"text/template"
 )
 
@@ -68,14 +69,20 @@ func generateResources(name string, resource Resource, spec *CloudFormationResou
 	}
 
 	// Pass in the following information into the template
+	sname := structName(name)
+	structNameParts := strings.Split(name, ".")
+	basename := structName(structNameParts[0])
+
 	templateData := struct {
 		Name       string
 		StructName string
+		Basename   string
 		Resource   Resource
 		Version    string
 	}{
 		Name:       name,
-		StructName: structName(name),
+		StructName: sname,
+		Basename:   basename,
 		Resource:   resource,
 		Version:    spec.ResourceSpecificationVersion,
 	}

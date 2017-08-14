@@ -7,6 +7,7 @@ type AWSApiGatewayAccount struct {
 	// CloudWatchRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+
 	CloudWatchRoleArn string `json:"CloudWatchRoleArn"`
 }
 

@@ -7,16 +7,19 @@ type AWSConfigConfigurationRecorder struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-name
+
 	Name string `json:"Name"`
 
 	// RecordingGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordinggroup
-	RecordingGroup AWSConfigConfigurationRecorderRecordingGroup `json:"RecordingGroup"`
+
+	RecordingGroup AWSConfigConfigurationRecorder_RecordingGroup `json:"RecordingGroup"`
 
 	// RoleARN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
+
 	RoleARN string `json:"RoleARN"`
 }
 

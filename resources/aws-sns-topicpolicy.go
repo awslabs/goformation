@@ -7,12 +7,14 @@ type AWSSNSTopicPolicy struct {
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument
-	PolicyDocument object `json:"PolicyDocument"`
+
+	PolicyDocument interface{} `json:"PolicyDocument"`
 
 	// Topics AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics
-	Topics []AWSSNSTopicPolicystring `json:"Topics"`
+
+	Topics []string `json:"Topics"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

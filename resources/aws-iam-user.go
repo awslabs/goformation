@@ -7,31 +7,37 @@ type AWSIAMUser struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
-	Groups []AWSIAMUserstring `json:"Groups"`
+
+	Groups []string `json:"Groups"`
 
 	// LoginProfile AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-loginprofile
-	LoginProfile AWSIAMUserLoginProfile `json:"LoginProfile"`
+
+	LoginProfile AWSIAMUser_LoginProfile `json:"LoginProfile"`
 
 	// ManagedPolicyArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-managepolicyarns
-	ManagedPolicyArns []AWSIAMUserstring `json:"ManagedPolicyArns"`
+
+	ManagedPolicyArns []string `json:"ManagedPolicyArns"`
 
 	// Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path
+
 	Path string `json:"Path"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-policies
-	Policies []AWSIAMUserPolicy `json:"Policies"`
+
+	Policies []AWSIAMUser_Policy `json:"Policies"`
 
 	// UserName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-username
+
 	UserName string `json:"UserName"`
 }
 

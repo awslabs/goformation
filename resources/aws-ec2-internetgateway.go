@@ -7,7 +7,8 @@ type AWSEC2InternetGateway struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-	Tags []AWSEC2InternetGatewayTag `json:"Tags"`
+
+	Tags []Tag `json:"Tags"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

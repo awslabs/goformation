@@ -2,50 +2,57 @@ package resources
 
 // AWS::OpsWorks::Instance.TimeBasedAutoScaling AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html
-type AWSOpsWorksInstanceTimeBasedAutoScaling struct {
+type AWSOpsWorksInstance_TimeBasedAutoScaling struct {
 
 	// Friday AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-friday
-	Friday map[string]AWSOpsWorksInstanceTimeBasedAutoScalingstring `json:"Friday"`
+
+	Friday map[string]string `json:"Friday"`
 
 	// Monday AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-monday
-	Monday map[string]AWSOpsWorksInstanceTimeBasedAutoScalingstring `json:"Monday"`
+
+	Monday map[string]string `json:"Monday"`
 
 	// Saturday AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-saturday
-	Saturday map[string]AWSOpsWorksInstanceTimeBasedAutoScalingstring `json:"Saturday"`
+
+	Saturday map[string]string `json:"Saturday"`
 
 	// Sunday AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-sunday
-	Sunday map[string]AWSOpsWorksInstanceTimeBasedAutoScalingstring `json:"Sunday"`
+
+	Sunday map[string]string `json:"Sunday"`
 
 	// Thursday AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-thursday
-	Thursday map[string]AWSOpsWorksInstanceTimeBasedAutoScalingstring `json:"Thursday"`
+
+	Thursday map[string]string `json:"Thursday"`
 
 	// Tuesday AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-tuesday
-	Tuesday map[string]AWSOpsWorksInstanceTimeBasedAutoScalingstring `json:"Tuesday"`
+
+	Tuesday map[string]string `json:"Tuesday"`
 
 	// Wednesday AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-wednesday
-	Wednesday map[string]AWSOpsWorksInstanceTimeBasedAutoScalingstring `json:"Wednesday"`
+
+	Wednesday map[string]string `json:"Wednesday"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSOpsWorksInstanceTimeBasedAutoScaling) AWSCloudFormationType() string {
+func (r *AWSOpsWorksInstance_TimeBasedAutoScaling) AWSCloudFormationType() string {
 	return "AWS::OpsWorks::Instance.TimeBasedAutoScaling"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSOpsWorksInstanceTimeBasedAutoScaling) AWSCloudFormationSpecificationVersion() string {
+func (r *AWSOpsWorksInstance_TimeBasedAutoScaling) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }

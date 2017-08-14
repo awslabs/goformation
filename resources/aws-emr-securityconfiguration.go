@@ -7,12 +7,14 @@ type AWSEMRSecurityConfiguration struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-name
+
 	Name string `json:"Name"`
 
 	// SecurityConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-securityconfiguration
-	SecurityConfiguration object `json:"SecurityConfiguration"`
+
+	SecurityConfiguration interface{} `json:"SecurityConfiguration"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

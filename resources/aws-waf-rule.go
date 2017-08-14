@@ -7,17 +7,20 @@ type AWSWAFRule struct {
 	// MetricName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-metricname
+
 	MetricName string `json:"MetricName"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-name
+
 	Name string `json:"Name"`
 
 	// Predicates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-predicates
-	Predicates []AWSWAFRulePredicate `json:"Predicates"`
+
+	Predicates []AWSWAFRule_Predicate `json:"Predicates"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

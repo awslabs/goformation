@@ -7,11 +7,13 @@ type AWSWAFRegionalByteMatchSet struct {
 	// ByteMatchTuples AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-bytematchtuples
-	ByteMatchTuples []AWSWAFRegionalByteMatchSetByteMatchTuple `json:"ByteMatchTuples"`
+
+	ByteMatchTuples []AWSWAFRegionalByteMatchSet_ByteMatchTuple `json:"ByteMatchTuples"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-name
+
 	Name string `json:"Name"`
 }
 

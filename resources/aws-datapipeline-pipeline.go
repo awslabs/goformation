@@ -7,37 +7,44 @@ type AWSDataPipelinePipeline struct {
 	// Activate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-activate
+
 	Activate bool `json:"Activate"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description
+
 	Description string `json:"Description"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-name
+
 	Name string `json:"Name"`
 
 	// ParameterObjects AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
-	ParameterObjects []AWSDataPipelinePipelineParameterObject `json:"ParameterObjects"`
+
+	ParameterObjects []AWSDataPipelinePipeline_ParameterObject `json:"ParameterObjects"`
 
 	// ParameterValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
-	ParameterValues []AWSDataPipelinePipelineParameterValue `json:"ParameterValues"`
+
+	ParameterValues []AWSDataPipelinePipeline_ParameterValue `json:"ParameterValues"`
 
 	// PipelineObjects AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects
-	PipelineObjects []AWSDataPipelinePipelinePipelineObject `json:"PipelineObjects"`
+
+	PipelineObjects []AWSDataPipelinePipeline_PipelineObject `json:"PipelineObjects"`
 
 	// PipelineTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags
-	PipelineTags []AWSDataPipelinePipelinePipelineTag `json:"PipelineTags"`
+
+	PipelineTags []AWSDataPipelinePipeline_PipelineTag `json:"PipelineTags"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

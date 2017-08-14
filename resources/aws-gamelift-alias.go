@@ -7,17 +7,20 @@ type AWSGameLiftAlias struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+
 	Description string `json:"Description"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+
 	Name string `json:"Name"`
 
 	// RoutingStrategy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
-	RoutingStrategy AWSGameLiftAliasRoutingStrategy `json:"RoutingStrategy"`
+
+	RoutingStrategy AWSGameLiftAlias_RoutingStrategy `json:"RoutingStrategy"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

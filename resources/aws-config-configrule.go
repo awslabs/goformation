@@ -7,32 +7,38 @@ type AWSConfigConfigRule struct {
 	// ConfigRuleName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-configrulename
+
 	ConfigRuleName string `json:"ConfigRuleName"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description
+
 	Description string `json:"Description"`
 
 	// InputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-inputparameters
-	InputParameters object `json:"InputParameters"`
+
+	InputParameters interface{} `json:"InputParameters"`
 
 	// MaximumExecutionFrequency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-maximumexecutionfrequency
+
 	MaximumExecutionFrequency string `json:"MaximumExecutionFrequency"`
 
 	// Scope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-scope
-	Scope AWSConfigConfigRuleScope `json:"Scope"`
+
+	Scope AWSConfigConfigRule_Scope `json:"Scope"`
 
 	// Source AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source
-	Source AWSConfigConfigRuleSource `json:"Source"`
+
+	Source AWSConfigConfigRule_Source `json:"Source"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
