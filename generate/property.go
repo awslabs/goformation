@@ -99,6 +99,25 @@ func (p Property) PropertyType() string {
 
 }
 
+// JSONSchemaPropertyType determins which JSON Schema type the property should be represented as
+func (p Property) JSONSchemaPropertyType() string {
+
+	if p.PrimitiveType != "" {
+		// This is a primitive type
+		return getJSONSchemaPrimitiveType(p.PrimitiveType)
+	}
+
+	switch p.Type {
+	case "List":
+	case "Map":
+	default:
+		return p.Type
+	}
+
+	// This must be a custom type
+	return p.Type
+}
+
 func getPrimitiveType(pt string) string {
 	switch pt {
 	case "String":
@@ -114,7 +133,28 @@ func getPrimitiveType(pt string) string {
 	case "Timestamp":
 		return "time.Time"
 	case "Json":
+		return "object"
+	default:
+		return ""
+	}
+}
+
+func getJSONSchemaPrimitiveType(pt string) string {
+	switch pt {
+	case "String":
 		return "string"
+	case "Long":
+		return "number"
+	case "Integer":
+		return "number"
+	case "Double":
+		return "number"
+	case "Boolean":
+		return "boolean"
+	case "Timestamp":
+		return "string"
+	case "Json":
+		return "object"
 	default:
 		return ""
 	}

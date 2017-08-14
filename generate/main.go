@@ -1,12 +1,14 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
-	"html/template"
+	"go/format"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"text/template"
 )
 
 // SpecURL is the HTTP URL of the latest AWS CloudFormation Resource Specification
@@ -38,18 +40,21 @@ func main() {
 	// Write all of the resources, using a template
 	for name, resource := range spec.Resources {
 		fmt.Printf("Generating Resource: %s\n", name)
-		generate(name, resource, spec)
+		generateResources(name, resource, spec)
 	}
 
 	// Write all of the custom properties, using a template
 	for name, property := range spec.Properties {
 		fmt.Printf("Generating Custom Property: %s\n", name)
-		generate(name, property, spec)
+		generateResources(name, property, spec)
 	}
+
+	// Generate the JSON-Schema
+	generateSchema(spec)
 
 }
 
-func generate(name string, resource Resource, spec *CloudFormationResourceSpecification) {
+func generateResources(name string, resource Resource, spec *CloudFormationResourceSpecification) {
 
 	// Open the resource template
 	tmpl, err := template.ParseFiles("resource.template")
@@ -57,15 +62,6 @@ func generate(name string, resource Resource, spec *CloudFormationResourceSpecif
 		fmt.Printf("Error: Failed to load resource template\n%s\n", err)
 		os.Exit(1)
 	}
-
-	// Create the file for the generated struct
-	fn := "resources/" + filename(name)
-	f, err := os.Create(fn)
-	if err != nil {
-		fmt.Printf("Error: Failed to create %s\n%s\n", fn, err)
-		os.Exit(1)
-	}
-	defer f.Close()
 
 	// Pass in the following information into the template
 	templateData := struct {
@@ -81,10 +77,75 @@ func generate(name string, resource Resource, spec *CloudFormationResourceSpecif
 	}
 
 	// Execute the template, writing it to file
-	err = tmpl.Execute(f, templateData)
+	var buf bytes.Buffer
+	err = tmpl.Execute(&buf, templateData)
 	if err != nil {
-		fmt.Printf("Error: Failed to generate resource %s\n%s\n", fn, err)
+		fmt.Printf("Error: Failed to generate resource %s\n%s\n", name, err)
 		os.Exit(1)
 	}
 
+	// Format the generated Go file with gofmt
+	formatted, err := format.Source(buf.Bytes())
+	if err != nil {
+		fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
+		os.Exit(1)
+	}
+
+	// Write the file out
+	if err := ioutil.WriteFile("resources/"+filename(name), formatted, 0644); err != nil {
+		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
+		os.Exit(1)
+	}
+
+}
+
+func generateSchema(spec *CloudFormationResourceSpecification) {
+
+	// Open the schema template and setup a counter function that will
+	// available in the template to be used to detect when trailing commas
+	// are required in the JSON when looping through maps
+	tmpl, err := template.New("schema.template").Funcs(template.FuncMap{
+		"counter": counter,
+	}).ParseFiles("schema.template")
+
+	var buf bytes.Buffer
+
+	// Execute the template, writing it to file
+	err = tmpl.Execute(&buf, spec)
+	if err != nil {
+		fmt.Printf("Error: Failed to generate JSON Schema\n%s\n", err)
+		os.Exit(1)
+	}
+
+	// Parse it to JSON objects and back again to format it
+	var j interface{}
+	if err := json.Unmarshal(buf.Bytes(), &j); err != nil {
+		fmt.Printf("Error: Failed to unmarhal JSON Schema\n%s\n", err)
+		os.Exit(1)
+	}
+
+	formatted, err := json.MarshalIndent(j, "", "    ")
+	if err != nil {
+		fmt.Printf("Error: Failed to marshal JSON Schema\n%s\n", err)
+		os.Exit(1)
+	}
+
+	if err := ioutil.WriteFile("resources/json.schema", formatted, 0644); err != nil {
+		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("Generated JSON Schema: resources/json.schema\n")
+
+}
+
+// counter is used within the JSON Schema template to determin whether or not
+// to put a comma after a JSON resource (i.e. if it's the last element, then no comma)
+// see: http://android.wekeepcoding.com/article/10126058/Go+template+remove+the+last+comma+in+range+loop
+func counter(length int) func() int {
+	i := length
+	return func() int {
+		i--
+		return i
+	}
 }

@@ -1,0 +1,8 @@
+"{{.Name}}": {
+    "type": "object",
+    "properties": {
+        {{$length := len .Resource.Properties}}{{$pc := counter $length}}{{range $name, $property := .Resource.Properties}}"{{$name}}": {
+        }{{if call $pc}},{{end}}
+        {{end}}
+    }
+}
