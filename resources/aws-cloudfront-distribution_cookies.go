@@ -12,7 +12,7 @@ type AWSCloudFrontDistributionCookies struct {
 	// WhitelistedNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html#cfn-cloudfront-forwardedvalues-cookies-whitelistednames
-	WhitelistedNames []string `json:"WhitelistedNames"`
+	WhitelistedNames []AWSCloudFrontDistributionCookiesstring `json:"WhitelistedNames"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

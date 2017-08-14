@@ -27,12 +27,12 @@ type AWSElasticLoadBalancingV2LoadBalancer struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
-	SecurityGroups []string `json:"SecurityGroups"`
+	SecurityGroups []AWSElasticLoadBalancingV2LoadBalancerstring `json:"SecurityGroups"`
 
 	// Subnets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
-	Subnets []string `json:"Subnets"`
+	Subnets []AWSElasticLoadBalancingV2LoadBalancerstring `json:"Subnets"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

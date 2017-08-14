@@ -7,12 +7,12 @@ type AWSCloudFrontDistributionDefaultCacheBehavior struct {
 	// AllowedMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-allowedmethods
-	AllowedMethods []string `json:"AllowedMethods"`
+	AllowedMethods []AWSCloudFrontDistributionDefaultCacheBehaviorstring `json:"AllowedMethods"`
 
 	// CachedMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-cachedmethods
-	CachedMethods []string `json:"CachedMethods"`
+	CachedMethods []AWSCloudFrontDistributionDefaultCacheBehaviorstring `json:"CachedMethods"`
 
 	// Compress AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type AWSCloudFrontDistributionDefaultCacheBehavior struct {
 	// TrustedSigners AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-trustedsigners
-	TrustedSigners []string `json:"TrustedSigners"`
+	TrustedSigners []AWSCloudFrontDistributionDefaultCacheBehaviorstring `json:"TrustedSigners"`
 
 	// ViewerProtocolPolicy AWS CloudFormation Property
 	// Required: true

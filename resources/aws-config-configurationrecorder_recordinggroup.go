@@ -17,7 +17,7 @@ type AWSConfigConfigurationRecorderRecordingGroup struct {
 	// ResourceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
-	ResourceTypes []string `json:"ResourceTypes"`
+	ResourceTypes []AWSConfigConfigurationRecorderRecordingGroupstring `json:"ResourceTypes"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

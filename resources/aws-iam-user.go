@@ -7,7 +7,7 @@ type AWSIAMUser struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
-	Groups []string `json:"Groups"`
+	Groups []AWSIAMUserstring `json:"Groups"`
 
 	// LoginProfile AWS CloudFormation Property
 	// Required: false
@@ -17,7 +17,7 @@ type AWSIAMUser struct {
 	// ManagedPolicyArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-managepolicyarns
-	ManagedPolicyArns []string `json:"ManagedPolicyArns"`
+	ManagedPolicyArns []AWSIAMUserstring `json:"ManagedPolicyArns"`
 
 	// Path AWS CloudFormation Property
 	// Required: false

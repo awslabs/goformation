@@ -7,7 +7,7 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
-	AvailabilityZones []string `json:"AvailabilityZones"`
+	AvailabilityZones []AWSAutoScalingAutoScalingGroupstring `json:"AvailabilityZones"`
 
 	// Cooldown AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// LoadBalancerNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
-	LoadBalancerNames []string `json:"LoadBalancerNames"`
+	LoadBalancerNames []AWSAutoScalingAutoScalingGroupstring `json:"LoadBalancerNames"`
 
 	// MaxSize AWS CloudFormation Property
 	// Required: true
@@ -77,17 +77,17 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// TargetGroupARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
-	TargetGroupARNs []string `json:"TargetGroupARNs"`
+	TargetGroupARNs []AWSAutoScalingAutoScalingGroupstring `json:"TargetGroupARNs"`
 
 	// TerminationPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-termpolicy
-	TerminationPolicies []string `json:"TerminationPolicies"`
+	TerminationPolicies []AWSAutoScalingAutoScalingGroupstring `json:"TerminationPolicies"`
 
 	// VPCZoneIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
-	VPCZoneIdentifier []string `json:"VPCZoneIdentifier"`
+	VPCZoneIdentifier []AWSAutoScalingAutoScalingGroupstring `json:"VPCZoneIdentifier"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

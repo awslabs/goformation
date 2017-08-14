@@ -22,7 +22,7 @@ type AWSCloudFrontDistributionCustomOriginConfig struct {
 	// OriginSSLProtocols AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-originsslprotocols
-	OriginSSLProtocols []string `json:"OriginSSLProtocols"`
+	OriginSSLProtocols []AWSCloudFrontDistributionCustomOriginConfigstring `json:"OriginSSLProtocols"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

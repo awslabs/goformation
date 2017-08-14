@@ -72,7 +72,7 @@ type AWSDMSReplicationInstance struct {
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-vpcsecuritygroupids
-	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds"`
+	VpcSecurityGroupIds []AWSDMSReplicationInstancestring `json:"VpcSecurityGroupIds"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

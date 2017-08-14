@@ -12,7 +12,7 @@ type AWSOpsWorksApp struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-attributes
-	Attributes map[string]string `json:"Attributes"`
+	Attributes map[string]AWSOpsWorksAppstring `json:"Attributes"`
 
 	// DataSources AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type AWSOpsWorksApp struct {
 	// Domains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-domains
-	Domains []string `json:"Domains"`
+	Domains []AWSOpsWorksAppstring `json:"Domains"`
 
 	// EnableSsl AWS CloudFormation Property
 	// Required: false

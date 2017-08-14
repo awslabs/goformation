@@ -27,7 +27,7 @@ type AWSRedshiftCluster struct {
 	// ClusterSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
-	ClusterSecurityGroups []string `json:"ClusterSecurityGroups"`
+	ClusterSecurityGroups []AWSRedshiftClusterstring `json:"ClusterSecurityGroups"`
 
 	// ClusterSubnetGroupName AWS CloudFormation Property
 	// Required: false
@@ -72,7 +72,7 @@ type AWSRedshiftCluster struct {
 	// IamRoles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
-	IamRoles []string `json:"IamRoles"`
+	IamRoles []AWSRedshiftClusterstring `json:"IamRoles"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
@@ -142,7 +142,7 @@ type AWSRedshiftCluster struct {
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
-	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds"`
+	VpcSecurityGroupIds []AWSRedshiftClusterstring `json:"VpcSecurityGroupIds"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

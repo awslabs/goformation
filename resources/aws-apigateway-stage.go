@@ -47,7 +47,7 @@ type AWSApiGatewayStage struct {
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-variables
-	Variables map[string]string `json:"Variables"`
+	Variables map[string]AWSApiGatewayStagestring `json:"Variables"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -7,12 +7,12 @@ type AWSApiGatewayMethodMethodResponse struct {
 	// ResponseModels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
-	ResponseModels map[string]string `json:"ResponseModels"`
+	ResponseModels map[string]AWSApiGatewayMethodMethodResponsestring `json:"ResponseModels"`
 
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
-	ResponseParameters map[string]bool `json:"ResponseParameters"`
+	ResponseParameters map[string]AWSApiGatewayMethodMethodResponsebool `json:"ResponseParameters"`
 
 	// StatusCode AWS CloudFormation Property
 	// Required: false

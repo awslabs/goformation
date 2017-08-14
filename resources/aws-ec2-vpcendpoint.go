@@ -12,7 +12,7 @@ type AWSEC2VPCEndpoint struct {
 	// RouteTableIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
-	RouteTableIds []string `json:"RouteTableIds"`
+	RouteTableIds []AWSEC2VPCEndpointstring `json:"RouteTableIds"`
 
 	// ServiceName AWS CloudFormation Property
 	// Required: true

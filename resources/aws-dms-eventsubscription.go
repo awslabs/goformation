@@ -12,7 +12,7 @@ type AWSDMSEventSubscription struct {
 	// EventCategories AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-eventcategories
-	EventCategories []string `json:"EventCategories"`
+	EventCategories []AWSDMSEventSubscriptionstring `json:"EventCategories"`
 
 	// SnsTopicArn AWS CloudFormation Property
 	// Required: true
@@ -22,7 +22,7 @@ type AWSDMSEventSubscription struct {
 	// SourceIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourceids
-	SourceIds []string `json:"SourceIds"`
+	SourceIds []AWSDMSEventSubscriptionstring `json:"SourceIds"`
 
 	// SourceType AWS CloudFormation Property
 	// Required: false

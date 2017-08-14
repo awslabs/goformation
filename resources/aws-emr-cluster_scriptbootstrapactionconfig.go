@@ -7,7 +7,7 @@ type AWSEMRClusterScriptBootstrapActionConfig struct {
 	// Args AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig-scriptbootstrapactionconfig.html#cfn-emr-cluster-bootstrapactionconfig-scriptbootstrapaction-args
-	Args []string `json:"Args"`
+	Args []AWSEMRClusterScriptBootstrapActionConfigstring `json:"Args"`
 
 	// Path AWS CloudFormation Property
 	// Required: true

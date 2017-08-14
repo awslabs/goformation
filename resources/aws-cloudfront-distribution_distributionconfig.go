@@ -7,7 +7,7 @@ type AWSCloudFrontDistributionDistributionConfig struct {
 	// Aliases AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html#cfn-cloudfront-distributionconfig-aliases
-	Aliases []string `json:"Aliases"`
+	Aliases []AWSCloudFrontDistributionDistributionConfigstring `json:"Aliases"`
 
 	// CacheBehaviors AWS CloudFormation Property
 	// Required: false

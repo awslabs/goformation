@@ -7,12 +7,12 @@ type AWSCloudFormationStack struct {
 	// NotificationARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
-	NotificationARNs []string `json:"NotificationARNs"`
+	NotificationARNs []AWSCloudFormationStackstring `json:"NotificationARNs"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters
-	Parameters map[string]string `json:"Parameters"`
+	Parameters map[string]AWSCloudFormationStackstring `json:"Parameters"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

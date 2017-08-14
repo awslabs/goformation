@@ -27,7 +27,7 @@ type AWSElastiCacheReplicationGroup struct {
 	// CacheSecurityGroupNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesecuritygroupnames
-	CacheSecurityGroupNames []string `json:"CacheSecurityGroupNames"`
+	CacheSecurityGroupNames []AWSElastiCacheReplicationGroupstring `json:"CacheSecurityGroupNames"`
 
 	// CacheSubnetGroupName AWS CloudFormation Property
 	// Required: false
@@ -72,7 +72,7 @@ type AWSElastiCacheReplicationGroup struct {
 	// PreferredCacheClusterAZs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredcacheclusterazs
-	PreferredCacheClusterAZs []string `json:"PreferredCacheClusterAZs"`
+	PreferredCacheClusterAZs []AWSElastiCacheReplicationGroupstring `json:"PreferredCacheClusterAZs"`
 
 	// PreferredMaintenanceWindow AWS CloudFormation Property
 	// Required: false
@@ -102,12 +102,12 @@ type AWSElastiCacheReplicationGroup struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds"`
+	SecurityGroupIds []AWSElastiCacheReplicationGroupstring `json:"SecurityGroupIds"`
 
 	// SnapshotArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotarns
-	SnapshotArns []string `json:"SnapshotArns"`
+	SnapshotArns []AWSElastiCacheReplicationGroupstring `json:"SnapshotArns"`
 
 	// SnapshotName AWS CloudFormation Property
 	// Required: false

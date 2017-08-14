@@ -12,7 +12,7 @@ type AWSIAMGroup struct {
 	// ManagedPolicyArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-managepolicyarns
-	ManagedPolicyArns []string `json:"ManagedPolicyArns"`
+	ManagedPolicyArns []AWSIAMGroupstring `json:"ManagedPolicyArns"`
 
 	// Path AWS CloudFormation Property
 	// Required: false

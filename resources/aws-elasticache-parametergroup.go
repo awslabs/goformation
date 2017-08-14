@@ -17,7 +17,7 @@ type AWSElastiCacheParameterGroup struct {
 	// Properties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html#cfn-elasticache-parametergroup-properties
-	Properties map[string]string `json:"Properties"`
+	Properties map[string]AWSElastiCacheParameterGroupstring `json:"Properties"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

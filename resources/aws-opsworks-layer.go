@@ -7,7 +7,7 @@ type AWSOpsWorksLayer struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-attributes
-	Attributes map[string]string `json:"Attributes"`
+	Attributes map[string]AWSOpsWorksLayerstring `json:"Attributes"`
 
 	// AutoAssignElasticIps AWS CloudFormation Property
 	// Required: true
@@ -37,7 +37,7 @@ type AWSOpsWorksLayer struct {
 	// CustomSecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-customsecuritygroupids
-	CustomSecurityGroupIds []string `json:"CustomSecurityGroupIds"`
+	CustomSecurityGroupIds []AWSOpsWorksLayerstring `json:"CustomSecurityGroupIds"`
 
 	// EnableAutoHealing AWS CloudFormation Property
 	// Required: true
@@ -67,7 +67,7 @@ type AWSOpsWorksLayer struct {
 	// Packages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-packages
-	Packages []string `json:"Packages"`
+	Packages []AWSOpsWorksLayerstring `json:"Packages"`
 
 	// Shortname AWS CloudFormation Property
 	// Required: true

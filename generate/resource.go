@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"strings"
 	"text/template"
 )
 
@@ -47,4 +48,15 @@ func (r Resource) Schema(name string) string {
 
 	return buf.String()
 
+}
+
+// Required returns a comma separated list of the required properties for this resource
+func (r Resource) Required() string {
+	required := []string{}
+	for name, property := range r.Properties {
+		if property.Required {
+			required = append(required, `"`+name+`"`)
+		}
+	}
+	return strings.Join(required, ", ")
 }

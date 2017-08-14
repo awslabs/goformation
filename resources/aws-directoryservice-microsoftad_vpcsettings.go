@@ -7,7 +7,7 @@ type AWSDirectoryServiceMicrosoftADVpcSettings struct {
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-subnetids
-	SubnetIds []string `json:"SubnetIds"`
+	SubnetIds []AWSDirectoryServiceMicrosoftADVpcSettingsstring `json:"SubnetIds"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: true

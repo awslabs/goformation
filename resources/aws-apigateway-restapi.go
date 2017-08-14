@@ -7,7 +7,7 @@ type AWSApiGatewayRestApi struct {
 	// BinaryMediaTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
-	BinaryMediaTypes []string `json:"BinaryMediaTypes"`
+	BinaryMediaTypes []AWSApiGatewayRestApistring `json:"BinaryMediaTypes"`
 
 	// Body AWS CloudFormation Property
 	// Required: false
@@ -47,7 +47,7 @@ type AWSApiGatewayRestApi struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters
-	Parameters map[string]string `json:"Parameters"`
+	Parameters map[string]AWSApiGatewayRestApistring `json:"Parameters"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -12,7 +12,7 @@ type AWSIAMRole struct {
 	// ManagedPolicyArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
-	ManagedPolicyArns []string `json:"ManagedPolicyArns"`
+	ManagedPolicyArns []AWSIAMRolestring `json:"ManagedPolicyArns"`
 
 	// Path AWS CloudFormation Property
 	// Required: false

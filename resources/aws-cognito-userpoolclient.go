@@ -12,7 +12,7 @@ type AWSCognitoUserPoolClient struct {
 	// ExplicitAuthFlows AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-explicitauthflows
-	ExplicitAuthFlows []string `json:"ExplicitAuthFlows"`
+	ExplicitAuthFlows []AWSCognitoUserPoolClientstring `json:"ExplicitAuthFlows"`
 
 	// GenerateSecret AWS CloudFormation Property
 	// Required: false
@@ -22,7 +22,7 @@ type AWSCognitoUserPoolClient struct {
 	// ReadAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-readattributes
-	ReadAttributes []string `json:"ReadAttributes"`
+	ReadAttributes []AWSCognitoUserPoolClientstring `json:"ReadAttributes"`
 
 	// RefreshTokenValidity AWS CloudFormation Property
 	// Required: false
@@ -37,7 +37,7 @@ type AWSCognitoUserPoolClient struct {
 	// WriteAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-writeattributes
-	WriteAttributes []string `json:"WriteAttributes"`
+	WriteAttributes []AWSCognitoUserPoolClientstring `json:"WriteAttributes"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

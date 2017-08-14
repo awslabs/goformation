@@ -17,7 +17,7 @@ type AWSIAMInstanceProfile struct {
 	// Roles AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
-	Roles []string `json:"Roles"`
+	Roles []AWSIAMInstanceProfilestring `json:"Roles"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

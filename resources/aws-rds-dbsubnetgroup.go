@@ -12,7 +12,7 @@ type AWSRDSDBSubnetGroup struct {
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-subnetids
-	SubnetIds []string `json:"SubnetIds"`
+	SubnetIds []AWSRDSDBSubnetGroupstring `json:"SubnetIds"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

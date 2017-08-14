@@ -17,7 +17,7 @@ type AWSRDSDBParameterGroup struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html#cfn-rds-dbparametergroup-parameters
-	Parameters map[string]string `json:"Parameters"`
+	Parameters map[string]AWSRDSDBParameterGroupstring `json:"Parameters"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

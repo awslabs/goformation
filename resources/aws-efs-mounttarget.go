@@ -17,7 +17,7 @@ type AWSEFSMountTarget struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
-	SecurityGroups []string `json:"SecurityGroups"`
+	SecurityGroups []AWSEFSMountTargetstring `json:"SecurityGroups"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: true

@@ -12,7 +12,7 @@ type AWSRoute53HealthCheckHealthCheckConfig struct {
 	// ChildHealthChecks AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
-	ChildHealthChecks []string `json:"ChildHealthChecks"`
+	ChildHealthChecks []AWSRoute53HealthCheckHealthCheckConfigstring `json:"ChildHealthChecks"`
 
 	// EnableSNI AWS CloudFormation Property
 	// Required: false

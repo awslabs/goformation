@@ -39,18 +39,20 @@ func main() {
 
 	// Write all of the resources, using a template
 	for name, resource := range spec.Resources {
-		fmt.Printf("Generating Resource: %s\n", name)
 		generateResources(name, resource, spec)
+		fmt.Printf("Generated resource: %s\n", name)
 	}
 
 	// Write all of the custom properties, using a template
 	for name, property := range spec.Properties {
-		fmt.Printf("Generating Custom Property: %s\n", name)
 		generateResources(name, property, spec)
+		fmt.Printf("Generated custom property type: %s\n", name)
 	}
 
 	// Generate the JSON-Schema
-	generateSchema(spec)
+	schema := "resources/json.schema"
+	generateSchema(spec, schema)
+	fmt.Printf("Generated JSON Schema: %s\n", schema)
 
 }
 
@@ -103,7 +105,7 @@ func generateResources(name string, resource Resource, spec *CloudFormationResou
 
 // generateResources generates a JSON Schema for all of the resources and custom property types
 // found in a CloudformationResourceSpecification
-func generateSchema(spec *CloudFormationResourceSpecification) {
+func generateSchema(spec *CloudFormationResourceSpecification, filename string) {
 
 	// Open the schema template and setup a counter function that will
 	// available in the template to be used to detect when trailing commas
@@ -134,12 +136,10 @@ func generateSchema(spec *CloudFormationResourceSpecification) {
 		os.Exit(1)
 	}
 
-	if err := ioutil.WriteFile("resources/json.schema", formatted, 0644); err != nil {
+	if err := ioutil.WriteFile(filename, formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
 		os.Exit(1)
 	}
-
-	fmt.Printf("Generated JSON Schema: resources/json.schema\n")
 
 }
 

@@ -7,7 +7,7 @@ type AWSIAMPolicy struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-groups
-	Groups []string `json:"Groups"`
+	Groups []AWSIAMPolicystring `json:"Groups"`
 
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
@@ -22,12 +22,12 @@ type AWSIAMPolicy struct {
 	// Roles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-roles
-	Roles []string `json:"Roles"`
+	Roles []AWSIAMPolicystring `json:"Roles"`
 
 	// Users AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-users
-	Users []string `json:"Users"`
+	Users []AWSIAMPolicystring `json:"Users"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

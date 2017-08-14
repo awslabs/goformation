@@ -1,8 +1,9 @@
 "{{.Name}}": {
     "type": "object",
     "properties": {
-        {{$length := len .Resource.Properties}}{{$pc := counter $length}}{{range $name, $property := .Resource.Properties}}"{{$name}}": {
-        }{{if call $pc}},{{end}}
+        {{$length := len .Resource.Properties}}{{$pc := counter $length}}{{range $name, $property := .Resource.Properties}}
+        {{$property.Schema $name $.Name}}{{if call $pc}},{{end}}
         {{end}}
-    }
+    },
+    "required": [{{.Resource.Required}}]
 }

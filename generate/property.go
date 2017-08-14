@@ -1,5 +1,13 @@
 package main
 
+import (
+	"bytes"
+	"fmt"
+	"os"
+	"strings"
+	"text/template"
+)
+
 // Property represents an AWS CloudFormation resource property
 type Property struct {
 
@@ -52,18 +60,43 @@ type Property struct {
 	UpdateType string `json:"UpdateType"`
 }
 
+// Schema returns a JSON Schema for the resource (as a string)
+func (p Property) Schema(name, parent string) string {
+
+	// Open the schema template and setup a counter function that will
+	// available in the template to be used to detect when trailing commas
+	// are required in the JSON when looping through maps
+	tmpl, err := template.New("schema-property.template").Funcs(template.FuncMap{
+		"counter": counter,
+	}).ParseFiles("schema-property.template")
+
+	var buf bytes.Buffer
+	parentpaths := strings.Split(parent, ".")
+
+	templateData := struct {
+		Name     string
+		Parent   string
+		Property Property
+	}{
+		Name:     name,
+		Parent:   parentpaths[0],
+		Property: p,
+	}
+
+	// Execute the template, writing it to the buffer
+	err = tmpl.Execute(&buf, templateData)
+	if err != nil {
+		fmt.Printf("Error: Failed to generate property %s\n%s\n", name, err)
+		os.Exit(1)
+	}
+
+	return buf.String()
+
+}
+
 // IsPrimitive checks whether a property is a primitive type
 func (p Property) IsPrimitive() bool {
-
-	if p.PrimitiveType != "" {
-		return true
-	}
-
-	if p.PrimitiveItemType != "" {
-		return true
-	}
-
-	return false
+	return p.PrimitiveType != ""
 }
 
 // IsMap checks whether a property should be a map (map[string]...)
@@ -71,9 +104,24 @@ func (p Property) IsMap() bool {
 	return p.Type == "Map"
 }
 
+// IsMapOfPrimitives checks whether a map contains primitive values
+func (p Property) IsMapOfPrimitives() bool {
+	return p.IsMap() && p.PrimitiveItemType != ""
+}
+
 // IsList checks whether a property should be a list ([]...)
 func (p Property) IsList() bool {
 	return p.Type == "List"
+}
+
+// IsListOfPrimitives checks whether a list containers primitive values
+func (p Property) IsListOfPrimitives() bool {
+	return p.IsList() && p.PrimitiveItemType != ""
+}
+
+// IsCustomType checks wither a property is a custom type
+func (p Property) IsCustomType() bool {
+	return p.PrimitiveType == "" && p.ItemType == "" && p.PrimitiveItemType == ""
 }
 
 // PropertyType determins which Go type the property should be represented as
@@ -99,25 +147,6 @@ func (p Property) PropertyType() string {
 
 }
 
-// JSONSchemaPropertyType determins which JSON Schema type the property should be represented as
-func (p Property) JSONSchemaPropertyType() string {
-
-	if p.PrimitiveType != "" {
-		// This is a primitive type
-		return getJSONSchemaPrimitiveType(p.PrimitiveType)
-	}
-
-	switch p.Type {
-	case "List":
-	case "Map":
-	default:
-		return p.Type
-	}
-
-	// This must be a custom type
-	return p.Type
-}
-
 func getPrimitiveType(pt string) string {
 	switch pt {
 	case "String":
@@ -139,8 +168,28 @@ func getPrimitiveType(pt string) string {
 	}
 }
 
-func getJSONSchemaPrimitiveType(pt string) string {
-	switch pt {
+// GetJSONPrimitiveType returns the correct primitive property type for a JSON Schema.
+// If the property is a list/map, then it will return the type of the items.
+func (p Property) GetJSONPrimitiveType() string {
+
+	if p.IsPrimitive() {
+		return convertTypeToJSON(p.PrimitiveType)
+	}
+
+	if p.IsMap() && p.IsMapOfPrimitives() {
+		return convertTypeToJSON(p.PrimitiveItemType)
+	}
+
+	if p.IsList() && p.IsListOfPrimitives() {
+		return convertTypeToJSON(p.PrimitiveItemType)
+	}
+
+	return "unknown"
+
+}
+
+func convertTypeToJSON(name string) string {
+	switch name {
 	case "String":
 		return "string"
 	case "Long":
@@ -156,6 +205,6 @@ func getJSONSchemaPrimitiveType(pt string) string {
 	case "Json":
 		return "object"
 	default:
-		return ""
+		return "unknown"
 	}
 }

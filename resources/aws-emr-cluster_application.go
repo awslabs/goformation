@@ -7,12 +7,12 @@ type AWSEMRClusterApplication struct {
 	// AdditionalInfo AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-additionalinfo
-	AdditionalInfo map[string]string `json:"AdditionalInfo"`
+	AdditionalInfo map[string]AWSEMRClusterApplicationstring `json:"AdditionalInfo"`
 
 	// Args AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-args
-	Args []string `json:"Args"`
+	Args []AWSEMRClusterApplicationstring `json:"Args"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

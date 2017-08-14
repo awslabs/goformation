@@ -42,7 +42,7 @@ type AWSOpsWorksInstance struct {
 	// ElasticIps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-elasticips
-	ElasticIps []string `json:"ElasticIps"`
+	ElasticIps []AWSOpsWorksInstancestring `json:"ElasticIps"`
 
 	// Hostname AWS CloudFormation Property
 	// Required: false
@@ -62,7 +62,7 @@ type AWSOpsWorksInstance struct {
 	// LayerIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-layerids
-	LayerIds []string `json:"LayerIds"`
+	LayerIds []AWSOpsWorksInstancestring `json:"LayerIds"`
 
 	// Os AWS CloudFormation Property
 	// Required: false
@@ -107,7 +107,7 @@ type AWSOpsWorksInstance struct {
 	// Volumes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-volumes
-	Volumes []string `json:"Volumes"`
+	Volumes []AWSOpsWorksInstancestring `json:"Volumes"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

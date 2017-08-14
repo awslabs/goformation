@@ -7,7 +7,7 @@ type AWSLambdaFunctionEnvironment struct {
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
-	Variables map[string]string `json:"Variables"`
+	Variables map[string]AWSLambdaFunctionEnvironmentstring `json:"Variables"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

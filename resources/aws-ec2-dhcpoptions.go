@@ -12,12 +12,12 @@ type AWSEC2DHCPOptions struct {
 	// DomainNameServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-domainnameservers
-	DomainNameServers []string `json:"DomainNameServers"`
+	DomainNameServers []AWSEC2DHCPOptionsstring `json:"DomainNameServers"`
 
 	// NetbiosNameServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnameservers
-	NetbiosNameServers []string `json:"NetbiosNameServers"`
+	NetbiosNameServers []AWSEC2DHCPOptionsstring `json:"NetbiosNameServers"`
 
 	// NetbiosNodeType AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type AWSEC2DHCPOptions struct {
 	// NtpServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-ntpservers
-	NtpServers []string `json:"NtpServers"`
+	NtpServers []AWSEC2DHCPOptionsstring `json:"NtpServers"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

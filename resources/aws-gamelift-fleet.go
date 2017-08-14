@@ -32,7 +32,7 @@ type AWSGameLiftFleet struct {
 	// LogPaths AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
-	LogPaths []string `json:"LogPaths"`
+	LogPaths []AWSGameLiftFleetstring `json:"LogPaths"`
 
 	// MaxSize AWS CloudFormation Property
 	// Required: false

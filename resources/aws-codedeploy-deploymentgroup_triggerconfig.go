@@ -7,7 +7,7 @@ type AWSCodeDeployDeploymentGroupTriggerConfig struct {
 	// TriggerEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggerevents
-	TriggerEvents []string `json:"TriggerEvents"`
+	TriggerEvents []AWSCodeDeployDeploymentGroupTriggerConfigstring `json:"TriggerEvents"`
 
 	// TriggerName AWS CloudFormation Property
 	// Required: false

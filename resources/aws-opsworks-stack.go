@@ -12,7 +12,7 @@ type AWSOpsWorksStack struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-attributes
-	Attributes map[string]string `json:"Attributes"`
+	Attributes map[string]AWSOpsWorksStackstring `json:"Attributes"`
 
 	// ChefConfiguration AWS CloudFormation Property
 	// Required: false
@@ -22,7 +22,7 @@ type AWSOpsWorksStack struct {
 	// CloneAppIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-cloneappids
-	CloneAppIds []string `json:"CloneAppIds"`
+	CloneAppIds []AWSOpsWorksStackstring `json:"CloneAppIds"`
 
 	// ClonePermissions AWS CloudFormation Property
 	// Required: false

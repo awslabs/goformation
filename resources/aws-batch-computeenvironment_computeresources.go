@@ -32,7 +32,7 @@ type AWSBatchComputeEnvironmentComputeResources struct {
 	// InstanceTypes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes
-	InstanceTypes []string `json:"InstanceTypes"`
+	InstanceTypes []AWSBatchComputeEnvironmentComputeResourcesstring `json:"InstanceTypes"`
 
 	// MaxvCpus AWS CloudFormation Property
 	// Required: true
@@ -47,7 +47,7 @@ type AWSBatchComputeEnvironmentComputeResources struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds"`
+	SecurityGroupIds []AWSBatchComputeEnvironmentComputeResourcesstring `json:"SecurityGroupIds"`
 
 	// SpotIamFleetRole AWS CloudFormation Property
 	// Required: false
@@ -57,7 +57,7 @@ type AWSBatchComputeEnvironmentComputeResources struct {
 	// Subnets AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-subnets
-	Subnets []string `json:"Subnets"`
+	Subnets []AWSBatchComputeEnvironmentComputeResourcesstring `json:"Subnets"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

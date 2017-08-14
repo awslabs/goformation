@@ -12,7 +12,7 @@ type AWSEC2NetworkInterface struct {
 	// GroupSet AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-groupset
-	GroupSet []string `json:"GroupSet"`
+	GroupSet []AWSEC2NetworkInterfacestring `json:"GroupSet"`
 
 	// InterfaceType AWS CloudFormation Property
 	// Required: false

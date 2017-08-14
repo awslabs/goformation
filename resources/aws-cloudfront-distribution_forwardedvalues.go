@@ -12,7 +12,7 @@ type AWSCloudFrontDistributionForwardedValues struct {
 	// Headers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-headers
-	Headers []string `json:"Headers"`
+	Headers []AWSCloudFrontDistributionForwardedValuesstring `json:"Headers"`
 
 	// QueryString AWS CloudFormation Property
 	// Required: true
@@ -22,7 +22,7 @@ type AWSCloudFrontDistributionForwardedValues struct {
 	// QueryStringCacheKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-querystringcachekeys
-	QueryStringCacheKeys []string `json:"QueryStringCacheKeys"`
+	QueryStringCacheKeys []AWSCloudFrontDistributionForwardedValuesstring `json:"QueryStringCacheKeys"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

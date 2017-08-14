@@ -7,7 +7,7 @@ type AWSEMRStepHadoopJarStepConfig struct {
 	// Args AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html#cfn-elasticmapreduce-step-hadoopjarstepconfig-args
-	Args []string `json:"Args"`
+	Args []AWSEMRStepHadoopJarStepConfigstring `json:"Args"`
 
 	// Jar AWS CloudFormation Property
 	// Required: true

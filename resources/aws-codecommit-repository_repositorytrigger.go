@@ -7,7 +7,7 @@ type AWSCodeCommitRepositoryRepositoryTrigger struct {
 	// Branches AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-branches
-	Branches []string `json:"Branches"`
+	Branches []AWSCodeCommitRepositoryRepositoryTriggerstring `json:"Branches"`
 
 	// CustomData AWS CloudFormation Property
 	// Required: false
@@ -22,7 +22,7 @@ type AWSCodeCommitRepositoryRepositoryTrigger struct {
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-events
-	Events []string `json:"Events"`
+	Events []AWSCodeCommitRepositoryRepositoryTriggerstring `json:"Events"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

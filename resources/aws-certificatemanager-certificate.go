@@ -17,7 +17,7 @@ type AWSCertificateManagerCertificate struct {
 	// SubjectAlternativeNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames
-	SubjectAlternativeNames []string `json:"SubjectAlternativeNames"`
+	SubjectAlternativeNames []AWSCertificateManagerCertificatestring `json:"SubjectAlternativeNames"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

@@ -7,12 +7,12 @@ type AWSEMRClusterJobFlowInstancesConfig struct {
 	// AdditionalMasterSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-additionalmastersecuritygroups
-	AdditionalMasterSecurityGroups []string `json:"AdditionalMasterSecurityGroups"`
+	AdditionalMasterSecurityGroups []AWSEMRClusterJobFlowInstancesConfigstring `json:"AdditionalMasterSecurityGroups"`
 
 	// AdditionalSlaveSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-additionalslavesecuritygroups
-	AdditionalSlaveSecurityGroups []string `json:"AdditionalSlaveSecurityGroups"`
+	AdditionalSlaveSecurityGroups []AWSEMRClusterJobFlowInstancesConfigstring `json:"AdditionalSlaveSecurityGroups"`
 
 	// CoreInstanceFleet AWS CloudFormation Property
 	// Required: false

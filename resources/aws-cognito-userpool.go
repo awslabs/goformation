@@ -12,12 +12,12 @@ type AWSCognitoUserPool struct {
 	// AliasAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-aliasattributes
-	AliasAttributes []string `json:"AliasAttributes"`
+	AliasAttributes []AWSCognitoUserPoolstring `json:"AliasAttributes"`
 
 	// AutoVerifiedAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-autoverifiedattributes
-	AutoVerifiedAttributes []string `json:"AutoVerifiedAttributes"`
+	AutoVerifiedAttributes []AWSCognitoUserPoolstring `json:"AutoVerifiedAttributes"`
 
 	// DeviceConfiguration AWS CloudFormation Property
 	// Required: false

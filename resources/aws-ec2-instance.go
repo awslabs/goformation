@@ -107,12 +107,12 @@ type AWSEC2Instance struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds"`
+	SecurityGroupIds []AWSEC2Instancestring `json:"SecurityGroupIds"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroups
-	SecurityGroups []string `json:"SecurityGroups"`
+	SecurityGroups []AWSEC2Instancestring `json:"SecurityGroups"`
 
 	// SourceDestCheck AWS CloudFormation Property
 	// Required: false

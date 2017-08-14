@@ -52,7 +52,7 @@ type AWSRoute53RecordSetGroupRecordSet struct {
 	// ResourceRecords AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-resourcerecords
-	ResourceRecords []string `json:"ResourceRecords"`
+	ResourceRecords []AWSRoute53RecordSetGroupRecordSetstring `json:"ResourceRecords"`
 
 	// SetIdentifier AWS CloudFormation Property
 	// Required: false

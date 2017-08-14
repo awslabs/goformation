@@ -22,7 +22,7 @@ type AWSAutoScalingLaunchConfiguration struct {
 	// ClassicLinkVPCSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcsecuritygroups
-	ClassicLinkVPCSecurityGroups []string `json:"ClassicLinkVPCSecurityGroups"`
+	ClassicLinkVPCSecurityGroups []AWSAutoScalingLaunchConfigurationstring `json:"ClassicLinkVPCSecurityGroups"`
 
 	// EbsOptimized AWS CloudFormation Property
 	// Required: false
@@ -77,7 +77,7 @@ type AWSAutoScalingLaunchConfiguration struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups
-	SecurityGroups []string `json:"SecurityGroups"`
+	SecurityGroups []AWSAutoScalingLaunchConfigurationstring `json:"SecurityGroups"`
 
 	// SpotPrice AWS CloudFormation Property
 	// Required: false

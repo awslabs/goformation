@@ -12,7 +12,7 @@ type AWSRedshiftClusterSubnetGroup struct {
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-subnetids
-	SubnetIds []string `json:"SubnetIds"`
+	SubnetIds []AWSRedshiftClusterSubnetGroupstring `json:"SubnetIds"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

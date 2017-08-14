@@ -12,7 +12,7 @@ type AWSElasticLoadBalancingV2ListenerRuleRuleCondition struct {
 	// Values AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
-	Values []string `json:"Values"`
+	Values []AWSElasticLoadBalancingV2ListenerRuleRuleConditionstring `json:"Values"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -27,7 +27,7 @@ type AWSEC2InstanceNetworkInterface struct {
 	// GroupSet AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-groupset
-	GroupSet []string `json:"GroupSet"`
+	GroupSet []AWSEC2InstanceNetworkInterfacestring `json:"GroupSet"`
 
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false

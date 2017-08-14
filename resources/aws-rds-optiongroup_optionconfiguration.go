@@ -7,7 +7,7 @@ type AWSRDSOptionGroupOptionConfiguration struct {
 	// DBSecurityGroupMemberships AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
-	DBSecurityGroupMemberships []string `json:"DBSecurityGroupMemberships"`
+	DBSecurityGroupMemberships []AWSRDSOptionGroupOptionConfigurationstring `json:"DBSecurityGroupMemberships"`
 
 	// OptionName AWS CloudFormation Property
 	// Required: true
@@ -27,7 +27,7 @@ type AWSRDSOptionGroupOptionConfiguration struct {
 	// VpcSecurityGroupMemberships AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
-	VpcSecurityGroupMemberships []string `json:"VpcSecurityGroupMemberships"`
+	VpcSecurityGroupMemberships []AWSRDSOptionGroupOptionConfigurationstring `json:"VpcSecurityGroupMemberships"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

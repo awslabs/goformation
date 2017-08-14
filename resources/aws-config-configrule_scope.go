@@ -12,7 +12,7 @@ type AWSConfigConfigRuleScope struct {
 	// ComplianceResourceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
-	ComplianceResourceTypes []string `json:"ComplianceResourceTypes"`
+	ComplianceResourceTypes []AWSConfigConfigRuleScopestring `json:"ComplianceResourceTypes"`
 
 	// TagKey AWS CloudFormation Property
 	// Required: false

@@ -27,7 +27,7 @@ type AWSEC2SpotFleetInstanceNetworkInterfaceSpecification struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
-	Groups []string `json:"Groups"`
+	Groups []AWSEC2SpotFleetInstanceNetworkInterfaceSpecificationstring `json:"Groups"`
 
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false

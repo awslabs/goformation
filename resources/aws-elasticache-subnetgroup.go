@@ -17,7 +17,7 @@ type AWSElastiCacheSubnetGroup struct {
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-subnetids
-	SubnetIds []string `json:"SubnetIds"`
+	SubnetIds []AWSElastiCacheSubnetGroupstring `json:"SubnetIds"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

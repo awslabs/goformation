@@ -17,7 +17,7 @@ type AWSDMSReplicationSubnetGroup struct {
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-subnetids
-	SubnetIds []string `json:"SubnetIds"`
+	SubnetIds []AWSDMSReplicationSubnetGroupstring `json:"SubnetIds"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

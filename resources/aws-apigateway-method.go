@@ -37,12 +37,12 @@ type AWSApiGatewayMethod struct {
 	// RequestModels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels
-	RequestModels map[string]string `json:"RequestModels"`
+	RequestModels map[string]AWSApiGatewayMethodstring `json:"RequestModels"`
 
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters
-	RequestParameters map[string]bool `json:"RequestParameters"`
+	RequestParameters map[string]AWSApiGatewayMethodbool `json:"RequestParameters"`
 
 	// ResourceId AWS CloudFormation Property
 	// Required: false

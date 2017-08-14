@@ -12,7 +12,7 @@ type AWSEC2InstanceAssociationParameter struct {
 	// Value AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-value
-	Value []string `json:"Value"`
+	Value []AWSEC2InstanceAssociationParameterstring `json:"Value"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

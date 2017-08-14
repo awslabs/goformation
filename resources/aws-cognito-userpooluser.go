@@ -7,7 +7,7 @@ type AWSCognitoUserPoolUser struct {
 	// DesiredDeliveryMediums AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-desireddeliverymediums
-	DesiredDeliveryMediums []string `json:"DesiredDeliveryMediums"`
+	DesiredDeliveryMediums []AWSCognitoUserPoolUserstring `json:"DesiredDeliveryMediums"`
 
 	// ForceAliasCreation AWS CloudFormation Property
 	// Required: false

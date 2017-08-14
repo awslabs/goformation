@@ -17,7 +17,7 @@ type AWSCodeDeployDeploymentGroup struct {
 	// AutoScalingGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups
-	AutoScalingGroups []string `json:"AutoScalingGroups"`
+	AutoScalingGroups []AWSCodeDeployDeploymentGroupstring `json:"AutoScalingGroups"`
 
 	// Deployment AWS CloudFormation Property
 	// Required: false

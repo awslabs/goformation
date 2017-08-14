@@ -7,7 +7,7 @@ type AWSApiGatewayMethodIntegration struct {
 	// CacheKeyParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
-	CacheKeyParameters []string `json:"CacheKeyParameters"`
+	CacheKeyParameters []AWSApiGatewayMethodIntegrationstring `json:"CacheKeyParameters"`
 
 	// CacheNamespace AWS CloudFormation Property
 	// Required: false
@@ -37,12 +37,12 @@ type AWSApiGatewayMethodIntegration struct {
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
-	RequestParameters map[string]string `json:"RequestParameters"`
+	RequestParameters map[string]AWSApiGatewayMethodIntegrationstring `json:"RequestParameters"`
 
 	// RequestTemplates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
-	RequestTemplates map[string]string `json:"RequestTemplates"`
+	RequestTemplates map[string]AWSApiGatewayMethodIntegrationstring `json:"RequestTemplates"`
 
 	// Type AWS CloudFormation Property
 	// Required: false

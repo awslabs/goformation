@@ -77,7 +77,7 @@ type AWSApiGatewayDeploymentStageDescription struct {
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
-	Variables map[string]string `json:"Variables"`
+	Variables map[string]AWSApiGatewayDeploymentStageDescriptionstring `json:"Variables"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

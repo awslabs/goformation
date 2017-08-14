@@ -17,7 +17,7 @@ type AWSElasticLoadBalancingLoadBalancer struct {
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-availabilityzones
-	AvailabilityZones []string `json:"AvailabilityZones"`
+	AvailabilityZones []AWSElasticLoadBalancingLoadBalancerstring `json:"AvailabilityZones"`
 
 	// ConnectionDrainingPolicy AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type AWSElasticLoadBalancingLoadBalancer struct {
 	// Instances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-instances
-	Instances []string `json:"Instances"`
+	Instances []AWSElasticLoadBalancingLoadBalancerstring `json:"Instances"`
 
 	// LBCookieStickinessPolicy AWS CloudFormation Property
 	// Required: false
@@ -72,12 +72,12 @@ type AWSElasticLoadBalancingLoadBalancer struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-securitygroups
-	SecurityGroups []string `json:"SecurityGroups"`
+	SecurityGroups []AWSElasticLoadBalancingLoadBalancerstring `json:"SecurityGroups"`
 
 	// Subnets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-subnets
-	Subnets []string `json:"Subnets"`
+	Subnets []AWSElasticLoadBalancingLoadBalancerstring `json:"Subnets"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

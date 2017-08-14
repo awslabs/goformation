@@ -67,7 +67,7 @@ type AWSRDSDBInstance struct {
 	// DBSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups
-	DBSecurityGroups []string `json:"DBSecurityGroups"`
+	DBSecurityGroups []AWSRDSDBInstancestring `json:"DBSecurityGroups"`
 
 	// DBSnapshotIdentifier AWS CloudFormation Property
 	// Required: false
@@ -192,7 +192,7 @@ type AWSRDSDBInstance struct {
 	// VPCSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups
-	VPCSecurityGroups []string `json:"VPCSecurityGroups"`
+	VPCSecurityGroups []AWSRDSDBInstancestring `json:"VPCSecurityGroups"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

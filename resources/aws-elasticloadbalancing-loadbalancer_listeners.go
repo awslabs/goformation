@@ -22,7 +22,7 @@ type AWSElasticLoadBalancingLoadBalancerListeners struct {
 	// PolicyNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames
-	PolicyNames []string `json:"PolicyNames"`
+	PolicyNames []AWSElasticLoadBalancingLoadBalancerListenersstring `json:"PolicyNames"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true

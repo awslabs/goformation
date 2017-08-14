@@ -12,7 +12,7 @@ type AWSElasticsearchDomain struct {
 	// AdvancedOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions
-	AdvancedOptions map[string]string `json:"AdvancedOptions"`
+	AdvancedOptions map[string]AWSElasticsearchDomainstring `json:"AdvancedOptions"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: false

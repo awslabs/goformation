@@ -7,7 +7,7 @@ type AWSBatchJobDefinitionContainerProperties struct {
 	// Command AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-command
-	Command []string `json:"Command"`
+	Command []AWSBatchJobDefinitionContainerPropertiesstring `json:"Command"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false

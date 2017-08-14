@@ -12,7 +12,7 @@ type AWSRDSEventSubscription struct {
 	// EventCategories AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-eventcategories
-	EventCategories []string `json:"EventCategories"`
+	EventCategories []AWSRDSEventSubscriptionstring `json:"EventCategories"`
 
 	// SnsTopicArn AWS CloudFormation Property
 	// Required: true
@@ -22,7 +22,7 @@ type AWSRDSEventSubscription struct {
 	// SourceIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourceids
-	SourceIds []string `json:"SourceIds"`
+	SourceIds []AWSRDSEventSubscriptionstring `json:"SourceIds"`
 
 	// SourceType AWS CloudFormation Property
 	// Required: false

@@ -12,7 +12,7 @@ type AWSEMRClusterConfiguration struct {
 	// ConfigurationProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurationproperties
-	ConfigurationProperties map[string]string `json:"ConfigurationProperties"`
+	ConfigurationProperties map[string]AWSEMRClusterConfigurationstring `json:"ConfigurationProperties"`
 
 	// Configurations AWS CloudFormation Property
 	// Required: false

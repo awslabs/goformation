@@ -7,7 +7,7 @@ type AWSECSTaskDefinitionContainerDefinition struct {
 	// Command AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
-	Command []string `json:"Command"`
+	Command []AWSECSTaskDefinitionContainerDefinitionstring `json:"Command"`
 
 	// Cpu AWS CloudFormation Property
 	// Required: false
@@ -22,27 +22,27 @@ type AWSECSTaskDefinitionContainerDefinition struct {
 	// DnsSearchDomains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
-	DnsSearchDomains []string `json:"DnsSearchDomains"`
+	DnsSearchDomains []AWSECSTaskDefinitionContainerDefinitionstring `json:"DnsSearchDomains"`
 
 	// DnsServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
-	DnsServers []string `json:"DnsServers"`
+	DnsServers []AWSECSTaskDefinitionContainerDefinitionstring `json:"DnsServers"`
 
 	// DockerLabels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
-	DockerLabels map[string]string `json:"DockerLabels"`
+	DockerLabels map[string]AWSECSTaskDefinitionContainerDefinitionstring `json:"DockerLabels"`
 
 	// DockerSecurityOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
-	DockerSecurityOptions []string `json:"DockerSecurityOptions"`
+	DockerSecurityOptions []AWSECSTaskDefinitionContainerDefinitionstring `json:"DockerSecurityOptions"`
 
 	// EntryPoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
-	EntryPoint []string `json:"EntryPoint"`
+	EntryPoint []AWSECSTaskDefinitionContainerDefinitionstring `json:"EntryPoint"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
@@ -72,7 +72,7 @@ type AWSECSTaskDefinitionContainerDefinition struct {
 	// Links AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
-	Links []string `json:"Links"`
+	Links []AWSECSTaskDefinitionContainerDefinitionstring `json:"Links"`
 
 	// LogConfiguration AWS CloudFormation Property
 	// Required: false

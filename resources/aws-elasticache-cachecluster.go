@@ -27,7 +27,7 @@ type AWSElastiCacheCacheCluster struct {
 	// CacheSecurityGroupNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesecuritygroupnames
-	CacheSecurityGroupNames []string `json:"CacheSecurityGroupNames"`
+	CacheSecurityGroupNames []AWSElastiCacheCacheClusterstring `json:"CacheSecurityGroupNames"`
 
 	// CacheSubnetGroupName AWS CloudFormation Property
 	// Required: false
@@ -72,7 +72,7 @@ type AWSElastiCacheCacheCluster struct {
 	// PreferredAvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzones
-	PreferredAvailabilityZones []string `json:"PreferredAvailabilityZones"`
+	PreferredAvailabilityZones []AWSElastiCacheCacheClusterstring `json:"PreferredAvailabilityZones"`
 
 	// PreferredMaintenanceWindow AWS CloudFormation Property
 	// Required: false
@@ -82,7 +82,7 @@ type AWSElastiCacheCacheCluster struct {
 	// SnapshotArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotarns
-	SnapshotArns []string `json:"SnapshotArns"`
+	SnapshotArns []AWSElastiCacheCacheClusterstring `json:"SnapshotArns"`
 
 	// SnapshotName AWS CloudFormation Property
 	// Required: false
@@ -107,7 +107,7 @@ type AWSElastiCacheCacheCluster struct {
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-vpcsecuritygroupids
-	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds"`
+	VpcSecurityGroupIds []AWSElastiCacheCacheClusterstring `json:"VpcSecurityGroupIds"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
