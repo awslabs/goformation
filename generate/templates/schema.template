@@ -1,6 +1,5 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "https://aws.amazon.com/cloudformation/#{{.ResourceSpecificationVersion}}",
     "type": "object",
     "properties": {
 

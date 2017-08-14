@@ -19,7 +19,11 @@
         {{else}}
         "patternProperties": {
             "^[a-zA-Z0-9]+$": {
-                "$ref": "#/definitions/{{.Parent}}.{{.Property.Type}}" 
+                {{ if eq .Property.ItemType "Tag" }}
+                    "$ref": "#/definitions/Tag" 
+                {{else}}
+                    "$ref": "#/definitions/{{.Parent}}.{{.Property.ItemType}}" 
+                {{end}}
             }
         }
         {{end}}
@@ -33,7 +37,11 @@
         }
         {{else}}
         "items": { 
-            "$ref": "#/definitions/{{.Parent}}.{{.Property.Type}}" 
+            {{ if eq .Property.ItemType "Tag" }}
+                "$ref": "#/definitions/Tag" 
+             {{else}}
+                "$ref": "#/definitions/{{.Parent}}.{{.Property.ItemType}}"  
+            {{end}}
         }
         {{end}}
     {{end}}

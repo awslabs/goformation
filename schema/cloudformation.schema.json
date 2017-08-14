@@ -22,7 +22,7 @@
                 },
                 "StageKeys": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApiGateway::ApiKey.List"
+                        "$ref": "#/definitions/AWS::ApiGateway::ApiKey.StageKey"
                     },
                     "type": "array"
                 }
@@ -186,7 +186,7 @@
                 },
                 "MethodSettings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApiGateway::Deployment.List"
+                        "$ref": "#/definitions/AWS::ApiGateway::Deployment.MethodSetting"
                     },
                     "type": "array"
                 },
@@ -247,7 +247,7 @@
                 },
                 "MethodResponses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApiGateway::Method.List"
+                        "$ref": "#/definitions/AWS::ApiGateway::Method.MethodResponse"
                     },
                     "type": "array"
                 },
@@ -298,7 +298,7 @@
                 },
                 "IntegrationResponses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApiGateway::Method.List"
+                        "$ref": "#/definitions/AWS::ApiGateway::Method.IntegrationResponse"
                     },
                     "type": "array"
                 },
@@ -499,7 +499,7 @@
                 },
                 "MethodSettings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApiGateway::Stage.List"
+                        "$ref": "#/definitions/AWS::ApiGateway::Stage.MethodSetting"
                     },
                     "type": "array"
                 },
@@ -559,7 +559,7 @@
             "properties": {
                 "ApiStages": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApiGateway::UsagePlan.List"
+                        "$ref": "#/definitions/AWS::ApiGateway::UsagePlan.ApiStage"
                     },
                     "type": "array"
                 },
@@ -655,12 +655,12 @@
                 }
             },
             "required": [
-                "RoleARN",
-                "ScalableDimension",
-                "ServiceNamespace",
                 "MaxCapacity",
                 "MinCapacity",
-                "ResourceId"
+                "ResourceId",
+                "RoleARN",
+                "ScalableDimension",
+                "ServiceNamespace"
             ],
             "type": "object"
         },
@@ -692,8 +692,8 @@
                 }
             },
             "required": [
-                "PolicyName",
-                "PolicyType"
+                "PolicyType",
+                "PolicyName"
             ],
             "type": "object"
         },
@@ -701,7 +701,7 @@
             "properties": {
                 "Dimensions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApplicationAutoScaling::ScalingPolicy.List"
+                        "$ref": "#/definitions/AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension"
                     },
                     "type": "array"
                 },
@@ -787,7 +787,7 @@
                 },
                 "StepAdjustments": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ApplicationAutoScaling::ScalingPolicy.List"
+                        "$ref": "#/definitions/AWS::ApplicationAutoScaling::ScalingPolicy.StepAdjustment"
                     },
                     "type": "array"
                 }
@@ -854,7 +854,7 @@
                 },
                 "MetricsCollection": {
                     "items": {
-                        "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.List"
+                        "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.MetricsCollection"
                     },
                     "type": "array"
                 },
@@ -863,7 +863,7 @@
                 },
                 "NotificationConfigurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.List"
+                        "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration"
                     },
                     "type": "array"
                 },
@@ -872,7 +872,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.List"
+                        "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.TagProperty"
                     },
                     "type": "array"
                 },
@@ -896,8 +896,8 @@
                 }
             },
             "required": [
-                "MaxSize",
-                "MinSize"
+                "MinSize",
+                "MaxSize"
             ],
             "type": "object"
         },
@@ -961,7 +961,7 @@
                 },
                 "BlockDeviceMappings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::AutoScaling::LaunchConfiguration.List"
+                        "$ref": "#/definitions/AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping"
                     },
                     "type": "array"
                 },
@@ -1091,8 +1091,8 @@
                 }
             },
             "required": [
-                "LifecycleTransition",
-                "AutoScalingGroupName"
+                "AutoScalingGroupName",
+                "LifecycleTransition"
             ],
             "type": "object"
         },
@@ -1124,14 +1124,14 @@
                 },
                 "StepAdjustments": {
                     "items": {
-                        "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.List"
+                        "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.StepAdjustment"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "AutoScalingGroupName",
-                "AdjustmentType"
+                "AdjustmentType",
+                "AutoScalingGroupName"
             ],
             "type": "object"
         },
@@ -1200,9 +1200,9 @@
                 }
             },
             "required": [
-                "ComputeResources",
                 "Type",
-                "ServiceRole"
+                "ServiceRole",
+                "ComputeResources"
             ],
             "type": "object"
         },
@@ -1258,13 +1258,13 @@
                 }
             },
             "required": [
+                "MaxvCpus",
+                "MinvCpus",
                 "Subnets",
                 "Type",
                 "InstanceRole",
                 "InstanceTypes",
-                "MaxvCpus",
-                "SecurityGroupIds",
-                "MinvCpus"
+                "SecurityGroupIds"
             ],
             "type": "object"
         },
@@ -1302,7 +1302,7 @@
                 },
                 "Environment": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Batch::JobDefinition.List"
+                        "$ref": "#/definitions/AWS::Batch::JobDefinition.Environment"
                     },
                     "type": "array"
                 },
@@ -1317,7 +1317,7 @@
                 },
                 "MountPoints": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Batch::JobDefinition.List"
+                        "$ref": "#/definitions/AWS::Batch::JobDefinition.MountPoints"
                     },
                     "type": "array"
                 },
@@ -1329,7 +1329,7 @@
                 },
                 "Ulimits": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Batch::JobDefinition.List"
+                        "$ref": "#/definitions/AWS::Batch::JobDefinition.Ulimit"
                     },
                     "type": "array"
                 },
@@ -1341,15 +1341,15 @@
                 },
                 "Volumes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Batch::JobDefinition.List"
+                        "$ref": "#/definitions/AWS::Batch::JobDefinition.Volumes"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "Memory",
                 "Vcpus",
-                "Image"
+                "Image",
+                "Memory"
             ],
             "type": "object"
         },
@@ -1399,9 +1399,9 @@
                 }
             },
             "required": [
+                "SoftLimit",
                 "HardLimit",
-                "Name",
-                "SoftLimit"
+                "Name"
             ],
             "type": "object"
         },
@@ -1428,7 +1428,7 @@
             "properties": {
                 "ComputeEnvironmentOrder": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Batch::JobQueue.List"
+                        "$ref": "#/definitions/AWS::Batch::JobQueue.ComputeEnvironmentOrder"
                     },
                     "type": "array"
                 },
@@ -1470,7 +1470,7 @@
                 },
                 "DomainValidationOptions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CertificateManager::Certificate.List"
+                        "$ref": "#/definitions/AWS::CertificateManager::Certificate.DomainValidationOption"
                     },
                     "type": "array"
                 },
@@ -1482,7 +1482,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CertificateManager::Certificate.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -1536,7 +1536,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CloudFormation::Stack.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -1565,8 +1565,8 @@
                 }
             },
             "required": [
-                "Handle",
-                "Timeout"
+                "Timeout",
+                "Handle"
             ],
             "type": "object"
         },
@@ -1634,9 +1634,9 @@
                 }
             },
             "required": [
+                "TargetOriginId",
                 "ForwardedValues",
                 "PathPattern",
-                "TargetOriginId",
                 "ViewerProtocolPolicy"
             ],
             "type": "object"
@@ -1747,9 +1747,9 @@
                 }
             },
             "required": [
+                "ForwardedValues",
                 "TargetOriginId",
-                "ViewerProtocolPolicy",
-                "ForwardedValues"
+                "ViewerProtocolPolicy"
             ],
             "type": "object"
         },
@@ -1763,7 +1763,7 @@
                 },
                 "CacheBehaviors": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CloudFront::Distribution.List"
+                        "$ref": "#/definitions/AWS::CloudFront::Distribution.CacheBehavior"
                     },
                     "type": "array"
                 },
@@ -1772,7 +1772,7 @@
                 },
                 "CustomErrorResponses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CloudFront::Distribution.List"
+                        "$ref": "#/definitions/AWS::CloudFront::Distribution.CustomErrorResponse"
                     },
                     "type": "array"
                 },
@@ -1793,7 +1793,7 @@
                 },
                 "Origins": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CloudFront::Distribution.List"
+                        "$ref": "#/definitions/AWS::CloudFront::Distribution.Origin"
                     },
                     "type": "array"
                 },
@@ -1811,9 +1811,9 @@
                 }
             },
             "required": [
-                "DefaultCacheBehavior",
                 "Origins",
-                "Enabled"
+                "Enabled",
+                "DefaultCacheBehavior"
             ],
             "type": "object"
         },
@@ -1890,7 +1890,7 @@
                 },
                 "OriginCustomHeaders": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CloudFront::Distribution.List"
+                        "$ref": "#/definitions/AWS::CloudFront::Distribution.OriginCustomHeader"
                     },
                     "type": "array"
                 },
@@ -1917,8 +1917,8 @@
                 }
             },
             "required": [
-                "HeaderValue",
-                "HeaderName"
+                "HeaderName",
+                "HeaderValue"
             ],
             "type": "object"
         },
@@ -1995,7 +1995,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CloudTrail::Trail.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -2004,8 +2004,8 @@
                 }
             },
             "required": [
-                "IsLogging",
-                "S3BucketName"
+                "S3BucketName",
+                "IsLogging"
             ],
             "type": "object"
         },
@@ -2031,7 +2031,7 @@
                 },
                 "Dimensions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CloudWatch::Alarm.List"
+                        "$ref": "#/definitions/AWS::CloudWatch::Alarm.Dimension"
                     },
                     "type": "array"
                 },
@@ -2079,12 +2079,12 @@
                 }
             },
             "required": [
-                "Period",
-                "ComparisonOperator",
-                "MetricName",
                 "EvaluationPeriods",
                 "Namespace",
-                "Threshold"
+                "Period",
+                "Threshold",
+                "ComparisonOperator",
+                "MetricName"
             ],
             "type": "object"
         },
@@ -2098,8 +2098,8 @@
                 }
             },
             "required": [
-                "Name",
-                "Value"
+                "Value",
+                "Name"
             ],
             "type": "object"
         },
@@ -2142,7 +2142,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodeBuild::Project.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -2151,10 +2151,10 @@
                 }
             },
             "required": [
-                "Artifacts",
-                "ServiceRole",
                 "Environment",
-                "Source"
+                "Source",
+                "Artifacts",
+                "ServiceRole"
             ],
             "type": "object"
         },
@@ -2191,7 +2191,7 @@
                 },
                 "EnvironmentVariables": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodeBuild::Project.List"
+                        "$ref": "#/definitions/AWS::CodeBuild::Project.EnvironmentVariable"
                     },
                     "type": "array"
                 },
@@ -2271,7 +2271,7 @@
                 },
                 "Triggers": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodeCommit::Repository.List"
+                        "$ref": "#/definitions/AWS::CodeCommit::Repository.RepositoryTrigger"
                     },
                     "type": "array"
                 }
@@ -2366,13 +2366,13 @@
                 },
                 "Ec2TagFilters": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.List"
+                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.EC2TagFilter"
                     },
                     "type": "array"
                 },
                 "OnPremisesInstanceTagFilters": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.List"
+                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.TagFilter"
                     },
                     "type": "array"
                 },
@@ -2381,14 +2381,14 @@
                 },
                 "TriggerConfigurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.List"
+                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.TriggerConfig"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "ApplicationName",
-                "ServiceRoleArn"
+                "ServiceRoleArn",
+                "ApplicationName"
             ],
             "type": "object"
         },
@@ -2404,7 +2404,7 @@
             "properties": {
                 "Alarms": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.List"
+                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.Alarm"
                     },
                     "type": "array"
                 },
@@ -2539,7 +2539,7 @@
                 },
                 "ConfigurationProperties": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodePipeline::CustomActionType.List"
+                        "$ref": "#/definitions/AWS::CodePipeline::CustomActionType.ConfigurationProperties"
                     },
                     "type": "array"
                 },
@@ -2560,10 +2560,10 @@
                 }
             },
             "required": [
-                "InputArtifactDetails",
-                "OutputArtifactDetails",
                 "Provider",
-                "Category"
+                "Category",
+                "InputArtifactDetails",
+                "OutputArtifactDetails"
             ],
             "type": "object"
         },
@@ -2638,7 +2638,7 @@
                 },
                 "DisableInboundStageTransitions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.StageTransition"
                     },
                     "type": "array"
                 },
@@ -2653,15 +2653,15 @@
                 },
                 "Stages": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.StageDeclaration"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "ArtifactStore",
                 "RoleArn",
-                "Stages"
+                "Stages",
+                "ArtifactStore"
             ],
             "type": "object"
         },
@@ -2675,7 +2675,7 @@
                 },
                 "InputArtifacts": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.InputArtifact"
                     },
                     "type": "array"
                 },
@@ -2684,7 +2684,7 @@
                 },
                 "OutputArtifacts": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.OutputArtifact"
                     },
                     "type": "array"
                 },
@@ -2696,8 +2696,8 @@
                 }
             },
             "required": [
-                "ActionTypeId",
-                "Name"
+                "Name",
+                "ActionTypeId"
             ],
             "type": "object"
         },
@@ -2798,13 +2798,13 @@
             "properties": {
                 "Actions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.ActionDeclaration"
                     },
                     "type": "array"
                 },
                 "Blockers": {
                     "items": {
-                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::CodePipeline::Pipeline.BlockerDeclaration"
                     },
                     "type": "array"
                 },
@@ -2843,7 +2843,7 @@
                 },
                 "CognitoIdentityProviders": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Cognito::IdentityPool.List"
+                        "$ref": "#/definitions/AWS::Cognito::IdentityPool.CognitoIdentityProvider"
                     },
                     "type": "array"
                 },
@@ -2955,10 +2955,10 @@
                 }
             },
             "required": [
-                "Value",
-                "Claim",
                 "RoleARN",
-                "MatchType"
+                "MatchType",
+                "Value",
+                "Claim"
             ],
             "type": "object"
         },
@@ -3023,7 +3023,7 @@
                 },
                 "Schema": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Cognito::UserPool.List"
+                        "$ref": "#/definitions/AWS::Cognito::UserPool.SchemaAttribute"
                     },
                     "type": "array"
                 },
@@ -3288,7 +3288,7 @@
                 },
                 "UserAttributes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Cognito::UserPoolUser.List"
+                        "$ref": "#/definitions/AWS::Cognito::UserPoolUser.AttributeType"
                     },
                     "type": "array"
                 },
@@ -3300,7 +3300,7 @@
                 },
                 "ValidationData": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Cognito::UserPoolUser.List"
+                        "$ref": "#/definitions/AWS::Cognito::UserPoolUser.AttributeType"
                     },
                     "type": "array"
                 }
@@ -3393,7 +3393,7 @@
                 },
                 "SourceDetails": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Config::ConfigRule.List"
+                        "$ref": "#/definitions/AWS::Config::ConfigRule.SourceDetail"
                     },
                     "type": "array"
                 },
@@ -3550,7 +3550,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DMS::Endpoint.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -3664,7 +3664,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DMS::EventSubscription.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -3714,7 +3714,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DMS::ReplicationInstance.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -3746,14 +3746,14 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DMS::ReplicationSubnetGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "SubnetIds",
-                "ReplicationSubnetGroupDescription"
+                "ReplicationSubnetGroupDescription",
+                "SubnetIds"
             ],
             "type": "object"
         },
@@ -3782,7 +3782,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DMS::ReplicationTask.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -3792,10 +3792,10 @@
             },
             "required": [
                 "TableMappings",
-                "TargetEndpointArn",
                 "SourceEndpointArn",
+                "ReplicationInstanceArn",
                 "MigrationType",
-                "ReplicationInstanceArn"
+                "TargetEndpointArn"
             ],
             "type": "object"
         },
@@ -3812,25 +3812,25 @@
                 },
                 "ParameterObjects": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.ParameterObject"
                     },
                     "type": "array"
                 },
                 "ParameterValues": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.ParameterValue"
                     },
                     "type": "array"
                 },
                 "PipelineObjects": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.PipelineObject"
                     },
                     "type": "array"
                 },
                 "PipelineTags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.PipelineTag"
                     },
                     "type": "array"
                 }
@@ -3877,7 +3877,7 @@
             "properties": {
                 "Attributes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.ParameterAttribute"
                     },
                     "type": "array"
                 },
@@ -3886,8 +3886,8 @@
                 }
             },
             "required": [
-                "Attributes",
-                "Id"
+                "Id",
+                "Attributes"
             ],
             "type": "object"
         },
@@ -3901,8 +3901,8 @@
                 }
             },
             "required": [
-                "Id",
-                "StringValue"
+                "StringValue",
+                "Id"
             ],
             "type": "object"
         },
@@ -3910,7 +3910,7 @@
             "properties": {
                 "Fields": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.List"
+                        "$ref": "#/definitions/AWS::DataPipeline::Pipeline.Field"
                     },
                     "type": "array"
                 },
@@ -3922,9 +3922,9 @@
                 }
             },
             "required": [
-                "Fields",
                 "Id",
-                "Name"
+                "Name",
+                "Fields"
             ],
             "type": "object"
         },
@@ -4046,25 +4046,25 @@
             "properties": {
                 "AttributeDefinitions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DynamoDB::Table.List"
+                        "$ref": "#/definitions/AWS::DynamoDB::Table.AttributeDefinition"
                     },
                     "type": "array"
                 },
                 "GlobalSecondaryIndexes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DynamoDB::Table.List"
+                        "$ref": "#/definitions/AWS::DynamoDB::Table.GlobalSecondaryIndex"
                     },
                     "type": "array"
                 },
                 "KeySchema": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DynamoDB::Table.List"
+                        "$ref": "#/definitions/AWS::DynamoDB::Table.KeySchema"
                     },
                     "type": "array"
                 },
                 "LocalSecondaryIndexes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DynamoDB::Table.List"
+                        "$ref": "#/definitions/AWS::DynamoDB::Table.LocalSecondaryIndex"
                     },
                     "type": "array"
                 },
@@ -4079,9 +4079,9 @@
                 }
             },
             "required": [
+                "ProvisionedThroughput",
                 "AttributeDefinitions",
-                "KeySchema",
-                "ProvisionedThroughput"
+                "KeySchema"
             ],
             "type": "object"
         },
@@ -4095,8 +4095,8 @@
                 }
             },
             "required": [
-                "AttributeType",
-                "AttributeName"
+                "AttributeName",
+                "AttributeType"
             ],
             "type": "object"
         },
@@ -4107,7 +4107,7 @@
                 },
                 "KeySchema": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DynamoDB::Table.List"
+                        "$ref": "#/definitions/AWS::DynamoDB::Table.KeySchema"
                     },
                     "type": "array"
                 },
@@ -4148,7 +4148,7 @@
                 },
                 "KeySchema": {
                     "items": {
-                        "$ref": "#/definitions/AWS::DynamoDB::Table.List"
+                        "$ref": "#/definitions/AWS::DynamoDB::Table.KeySchema"
                     },
                     "type": "array"
                 },
@@ -4213,7 +4213,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::CustomerGateway.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -4256,7 +4256,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::DHCPOptions.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -4363,7 +4363,7 @@
                 },
                 "BlockDeviceMappings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.BlockDeviceMapping"
                     },
                     "type": "array"
                 },
@@ -4393,7 +4393,7 @@
                 },
                 "Ipv6Addresses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.InstanceIpv6Address"
                     },
                     "type": "array"
                 },
@@ -4408,7 +4408,7 @@
                 },
                 "NetworkInterfaces": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.NetworkInterface"
                     },
                     "type": "array"
                 },
@@ -4438,7 +4438,7 @@
                 },
                 "SsmAssociations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.SsmAssociation"
                     },
                     "type": "array"
                 },
@@ -4447,7 +4447,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -4459,7 +4459,7 @@
                 },
                 "Volumes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.Volume"
                     },
                     "type": "array"
                 }
@@ -4482,8 +4482,8 @@
                 }
             },
             "required": [
-                "Key",
-                "Value"
+                "Value",
+                "Key"
             ],
             "type": "object"
         },
@@ -4566,7 +4566,7 @@
                 },
                 "Ipv6Addresses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.InstanceIpv6Address"
                     },
                     "type": "array"
                 },
@@ -4578,7 +4578,7 @@
                 },
                 "PrivateIpAddresses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.PrivateIpAddressSpecification"
                     },
                     "type": "array"
                 },
@@ -4617,7 +4617,7 @@
             "properties": {
                 "AssociationParameters": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Instance.List"
+                        "$ref": "#/definitions/AWS::EC2::Instance.AssociationParameter"
                     },
                     "type": "array"
                 },
@@ -4649,7 +4649,7 @@
             "properties": {
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::InternetGateway.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -4675,7 +4675,7 @@
             "properties": {
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::NetworkAcl.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -4720,8 +4720,8 @@
             },
             "required": [
                 "Protocol",
-                "RuleNumber",
                 "CidrBlock",
+                "RuleNumber",
                 "NetworkAclId",
                 "RuleAction"
             ],
@@ -4774,7 +4774,7 @@
                 },
                 "PrivateIpAddresses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::NetworkInterface.List"
+                        "$ref": "#/definitions/AWS::EC2::NetworkInterface.PrivateIpAddressSpecification"
                     },
                     "type": "array"
                 },
@@ -4789,7 +4789,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::NetworkInterface.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -4841,9 +4841,9 @@
                 }
             },
             "required": [
+                "NetworkInterfaceId",
                 "DeviceIndex",
-                "InstanceId",
-                "NetworkInterfaceId"
+                "InstanceId"
             ],
             "type": "object"
         },
@@ -4910,7 +4910,7 @@
             "properties": {
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::RouteTable.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -4933,19 +4933,19 @@
                 },
                 "SecurityGroupEgress": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SecurityGroup.List"
+                        "$ref": "#/definitions/AWS::EC2::SecurityGroup.Egress"
                     },
                     "type": "array"
                 },
                 "SecurityGroupIngress": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SecurityGroup.List"
+                        "$ref": "#/definitions/AWS::EC2::SecurityGroup.Ingress"
                     },
                     "type": "array"
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SecurityGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -5047,8 +5047,8 @@
                 }
             },
             "required": [
-                "GroupId",
-                "IpProtocol"
+                "IpProtocol",
+                "GroupId"
             ],
             "type": "object"
         },
@@ -5199,7 +5199,7 @@
                 },
                 "Ipv6Addresses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SpotFleet.List"
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.InstanceIpv6Address"
                     },
                     "type": "array"
                 },
@@ -5208,7 +5208,7 @@
                 },
                 "PrivateIpAddresses": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SpotFleet.List"
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.PrivateIpAddressSpecification"
                     },
                     "type": "array"
                 },
@@ -5239,7 +5239,7 @@
             "properties": {
                 "BlockDeviceMappings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SpotFleet.List"
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.BlockDeviceMapping"
                     },
                     "type": "array"
                 },
@@ -5266,7 +5266,7 @@
                 },
                 "NetworkInterfaces": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SpotFleet.List"
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.InstanceNetworkInterfaceSpecification"
                     },
                     "type": "array"
                 },
@@ -5278,7 +5278,7 @@
                 },
                 "SecurityGroups": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SpotFleet.List"
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.GroupIdentifier"
                     },
                     "type": "array"
                 },
@@ -5322,7 +5322,7 @@
                 },
                 "LaunchSpecifications": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::SpotFleet.List"
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.SpotFleetLaunchSpecification"
                     },
                     "type": "array"
                 },
@@ -5374,7 +5374,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Subnet.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -5383,8 +5383,8 @@
                 }
             },
             "required": [
-                "CidrBlock",
-                "VpcId"
+                "VpcId",
+                "CidrBlock"
             ],
             "type": "object"
         },
@@ -5470,7 +5470,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::VPC.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -5563,7 +5563,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::VPCPeeringConnection.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -5572,8 +5572,8 @@
                 }
             },
             "required": [
-                "VpcId",
-                "PeerVpcId"
+                "PeerVpcId",
+                "VpcId"
             ],
             "type": "object"
         },
@@ -5587,7 +5587,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::VPNConnection.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -5599,9 +5599,9 @@
                 }
             },
             "required": [
-                "CustomerGatewayId",
                 "Type",
-                "VpnGatewayId"
+                "VpnGatewayId",
+                "CustomerGatewayId"
             ],
             "type": "object"
         },
@@ -5624,7 +5624,7 @@
             "properties": {
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::VPNGateway.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -5680,7 +5680,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EC2::Volume.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -5744,19 +5744,19 @@
                 },
                 "LoadBalancers": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::Service.List"
+                        "$ref": "#/definitions/AWS::ECS::Service.LoadBalancer"
                     },
                     "type": "array"
                 },
                 "PlacementConstraints": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::Service.List"
+                        "$ref": "#/definitions/AWS::ECS::Service.PlacementConstraint"
                     },
                     "type": "array"
                 },
                 "PlacementStrategies": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::Service.List"
+                        "$ref": "#/definitions/AWS::ECS::Service.PlacementStrategy"
                     },
                     "type": "array"
                 },
@@ -5838,7 +5838,7 @@
             "properties": {
                 "ContainerDefinitions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.ContainerDefinition"
                     },
                     "type": "array"
                 },
@@ -5850,7 +5850,7 @@
                 },
                 "PlacementConstraints": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.TaskDefinitionPlacementConstraint"
                     },
                     "type": "array"
                 },
@@ -5859,7 +5859,7 @@
                 },
                 "Volumes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.Volume"
                     },
                     "type": "array"
                 }
@@ -5914,7 +5914,7 @@
                 },
                 "Environment": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.KeyValuePair"
                     },
                     "type": "array"
                 },
@@ -5923,7 +5923,7 @@
                 },
                 "ExtraHosts": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.HostEntry"
                     },
                     "type": "array"
                 },
@@ -5950,7 +5950,7 @@
                 },
                 "MountPoints": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.MountPoint"
                     },
                     "type": "array"
                 },
@@ -5959,7 +5959,7 @@
                 },
                 "PortMappings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.PortMapping"
                     },
                     "type": "array"
                 },
@@ -5971,7 +5971,7 @@
                 },
                 "Ulimits": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.Ulimit"
                     },
                     "type": "array"
                 },
@@ -5980,7 +5980,7 @@
                 },
                 "VolumesFrom": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.List"
+                        "$ref": "#/definitions/AWS::ECS::TaskDefinition.VolumeFrom"
                     },
                     "type": "array"
                 },
@@ -6130,7 +6130,7 @@
             "properties": {
                 "FileSystemTags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EFS::FileSystem.List"
+                        "$ref": "#/definitions/AWS::EFS::FileSystem.ElasticFileSystemTag"
                     },
                     "type": "array"
                 },
@@ -6150,8 +6150,8 @@
                 }
             },
             "required": [
-                "Value",
-                "Key"
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -6174,9 +6174,9 @@
                 }
             },
             "required": [
+                "SubnetId",
                 "FileSystemId",
-                "SecurityGroups",
-                "SubnetId"
+                "SecurityGroups"
             ],
             "type": "object"
         },
@@ -6187,7 +6187,7 @@
                 },
                 "Applications": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.Application"
                     },
                     "type": "array"
                 },
@@ -6196,13 +6196,13 @@
                 },
                 "BootstrapActions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.BootstrapActionConfig"
                     },
                     "type": "array"
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.Configuration"
                     },
                     "type": "array"
                 },
@@ -6232,7 +6232,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -6241,10 +6241,10 @@
                 }
             },
             "required": [
-                "JobFlowRole",
-                "Name",
+                "Instances",
                 "ServiceRole",
-                "Instances"
+                "JobFlowRole",
+                "Name"
             ],
             "type": "object"
         },
@@ -6280,7 +6280,7 @@
                 },
                 "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.ScalingRule"
                     },
                     "type": "array"
                 }
@@ -6301,8 +6301,8 @@
                 }
             },
             "required": [
-                "Name",
-                "ScriptBootstrapAction"
+                "ScriptBootstrapAction",
+                "Name"
             ],
             "type": "object"
         },
@@ -6313,7 +6313,7 @@
                 },
                 "Dimensions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.MetricDimension"
                     },
                     "type": "array"
                 },
@@ -6340,9 +6340,9 @@
                 }
             },
             "required": [
-                "Period",
                 "ComparisonOperator",
                 "MetricName",
+                "Period",
                 "Threshold"
             ],
             "type": "object"
@@ -6362,7 +6362,7 @@
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.Configuration"
                     },
                     "type": "array"
                 }
@@ -6387,7 +6387,7 @@
             "properties": {
                 "EbsBlockDeviceConfigs": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.EbsBlockDeviceConfig"
                     },
                     "type": "array"
                 },
@@ -6401,7 +6401,7 @@
             "properties": {
                 "InstanceTypeConfigs": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.InstanceTypeConfig"
                     },
                     "type": "array"
                 },
@@ -6441,7 +6441,7 @@
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.Configuration"
                     },
                     "type": "array"
                 },
@@ -6477,7 +6477,7 @@
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Cluster.List"
+                        "$ref": "#/definitions/AWS::EMR::Cluster.Configuration"
                     },
                     "type": "array"
                 },
@@ -6559,8 +6559,8 @@
                 }
             },
             "required": [
-                "Key",
-                "Value"
+                "Value",
+                "Key"
             ],
             "type": "object"
         },
@@ -6717,7 +6717,7 @@
                 },
                 "InstanceTypeConfigs": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.InstanceTypeConfig"
                     },
                     "type": "array"
                 },
@@ -6755,7 +6755,7 @@
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.Configuration"
                     },
                     "type": "array"
                 }
@@ -6780,7 +6780,7 @@
             "properties": {
                 "EbsBlockDeviceConfigs": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.EbsBlockDeviceConfig"
                     },
                     "type": "array"
                 },
@@ -6811,7 +6811,7 @@
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceFleetConfig.Configuration"
                     },
                     "type": "array"
                 },
@@ -6861,8 +6861,8 @@
                 }
             },
             "required": [
-                "VolumeType",
-                "SizeInGB"
+                "SizeInGB",
+                "VolumeType"
             ],
             "type": "object"
         },
@@ -6876,7 +6876,7 @@
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.Configuration"
                     },
                     "type": "array"
                 },
@@ -6903,10 +6903,10 @@
                 }
             },
             "required": [
-                "InstanceType",
                 "InstanceCount",
                 "JobFlowId",
-                "InstanceRole"
+                "InstanceRole",
+                "InstanceType"
             ],
             "type": "object"
         },
@@ -6917,14 +6917,14 @@
                 },
                 "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.ScalingRule"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "Constraints",
-                "Rules"
+                "Rules",
+                "Constraints"
             ],
             "type": "object"
         },
@@ -6935,7 +6935,7 @@
                 },
                 "Dimensions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.MetricDimension"
                     },
                     "type": "array"
                 },
@@ -6962,10 +6962,10 @@
                 }
             },
             "required": [
-                "ComparisonOperator",
+                "Period",
                 "Threshold",
-                "MetricName",
-                "Period"
+                "ComparisonOperator",
+                "MetricName"
             ],
             "type": "object"
         },
@@ -6984,7 +6984,7 @@
                 },
                 "Configurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.Configuration"
                     },
                     "type": "array"
                 }
@@ -7009,7 +7009,7 @@
             "properties": {
                 "EbsBlockDeviceConfigs": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.List"
+                        "$ref": "#/definitions/AWS::EMR::InstanceGroupConfig.EbsBlockDeviceConfig"
                     },
                     "type": "array"
                 },
@@ -7058,8 +7058,8 @@
                 }
             },
             "required": [
-                "MinCapacity",
-                "MaxCapacity"
+                "MaxCapacity",
+                "MinCapacity"
             ],
             "type": "object"
         },
@@ -7079,9 +7079,9 @@
                 }
             },
             "required": [
+                "Name",
                 "Trigger",
-                "Action",
-                "Name"
+                "Action"
             ],
             "type": "object"
         },
@@ -7161,10 +7161,10 @@
                 }
             },
             "required": [
-                "Name",
                 "ActionOnFailure",
                 "HadoopJarStep",
-                "JobFlowId"
+                "JobFlowId",
+                "Name"
             ],
             "type": "object"
         },
@@ -7184,7 +7184,7 @@
                 },
                 "StepProperties": {
                     "items": {
-                        "$ref": "#/definitions/AWS::EMR::Step.List"
+                        "$ref": "#/definitions/AWS::EMR::Step.KeyValue"
                     },
                     "type": "array"
                 }
@@ -7275,7 +7275,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElastiCache::CacheCluster.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -7347,7 +7347,7 @@
                 },
                 "NodeGroupConfiguration": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElastiCache::ReplicationGroup.List"
+                        "$ref": "#/definitions/AWS::ElastiCache::ReplicationGroup.NodeGroupConfiguration"
                     },
                     "type": "array"
                 },
@@ -7410,7 +7410,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElastiCache::ReplicationGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -7464,8 +7464,8 @@
                 }
             },
             "required": [
-                "CacheSecurityGroupName",
-                "EC2SecurityGroupName"
+                "EC2SecurityGroupName",
+                "CacheSecurityGroupName"
             ],
             "type": "object"
         },
@@ -7514,8 +7514,8 @@
                 }
             },
             "required": [
-                "ApplicationName",
-                "SourceBundle"
+                "SourceBundle",
+                "ApplicationName"
             ],
             "type": "object"
         },
@@ -7547,7 +7547,7 @@
                 },
                 "OptionSettings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticBeanstalk::ConfigurationTemplate.List"
+                        "$ref": "#/definitions/AWS::ElasticBeanstalk::ConfigurationTemplate.ConfigurationOptionSetting"
                     },
                     "type": "array"
                 },
@@ -7613,7 +7613,7 @@
                 },
                 "OptionSettings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticBeanstalk::Environment.List"
+                        "$ref": "#/definitions/AWS::ElasticBeanstalk::Environment.OptionSettings"
                     },
                     "type": "array"
                 },
@@ -7622,7 +7622,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticBeanstalk::Environment.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -7654,9 +7654,9 @@
                 }
             },
             "required": [
+                "Namespace",
                 "OptionName",
-                "Value",
-                "Namespace"
+                "Value"
             ],
             "type": "object"
         },
@@ -7681,7 +7681,7 @@
                 },
                 "AppCookieStickinessPolicy": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.AppCookieStickinessPolicy"
                     },
                     "type": "array"
                 },
@@ -7711,13 +7711,13 @@
                 },
                 "LBCookieStickinessPolicy": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.LBCookieStickinessPolicy"
                     },
                     "type": "array"
                 },
                 "Listeners": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.Listeners"
                     },
                     "type": "array"
                 },
@@ -7726,7 +7726,7 @@
                 },
                 "Policies": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.Policies"
                     },
                     "type": "array"
                 },
@@ -7747,7 +7747,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancing::LoadBalancer.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -7773,8 +7773,8 @@
                 }
             },
             "required": [
-                "S3BucketName",
-                "Enabled"
+                "Enabled",
+                "S3BucketName"
             ],
             "type": "object"
         },
@@ -7788,8 +7788,8 @@
                 }
             },
             "required": [
-                "CookieName",
-                "PolicyName"
+                "PolicyName",
+                "CookieName"
             ],
             "type": "object"
         },
@@ -7837,11 +7837,11 @@
                 }
             },
             "required": [
+                "UnhealthyThreshold",
                 "HealthyThreshold",
                 "Interval",
                 "Target",
-                "Timeout",
-                "UnhealthyThreshold"
+                "Timeout"
             ],
             "type": "object"
         },
@@ -7925,13 +7925,13 @@
             "properties": {
                 "Certificates": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.Certificate"
                     },
                     "type": "array"
                 },
                 "DefaultActions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.Action"
                     },
                     "type": "array"
                 },
@@ -7983,13 +7983,13 @@
             "properties": {
                 "Actions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.Action"
                     },
                     "type": "array"
                 },
                 "Conditions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.RuleCondition"
                     },
                     "type": "array"
                 },
@@ -8044,7 +8044,7 @@
                 },
                 "LoadBalancerAttributes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::LoadBalancer.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttribute"
                     },
                     "type": "array"
                 },
@@ -8068,7 +8068,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::LoadBalancer.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -8120,19 +8120,19 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::TargetGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
                 "TargetGroupAttributes": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::TargetGroup.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::TargetGroup.TargetGroupAttribute"
                     },
                     "type": "array"
                 },
                 "Targets": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::TargetGroup.List"
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::TargetGroup.TargetDescription"
                     },
                     "type": "array"
                 },
@@ -8144,9 +8144,9 @@
                 }
             },
             "required": [
-                "Protocol",
+                "Port",
                 "VpcId",
-                "Port"
+                "Protocol"
             ],
             "type": "object"
         },
@@ -8216,7 +8216,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Elasticsearch::Domain.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -8293,7 +8293,7 @@
                 },
                 "Targets": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Events::Rule.List"
+                        "$ref": "#/definitions/AWS::Events::Rule.Target"
                     },
                     "type": "array"
                 }
@@ -8337,8 +8337,8 @@
                 }
             },
             "required": [
-                "Name",
-                "RoutingStrategy"
+                "RoutingStrategy",
+                "Name"
             ],
             "type": "object"
         },
@@ -8386,9 +8386,9 @@
                 }
             },
             "required": [
+                "RoleArn",
                 "Bucket",
-                "Key",
-                "RoleArn"
+                "Key"
             ],
             "type": "object"
         },
@@ -8405,7 +8405,7 @@
                 },
                 "EC2InboundPermissions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::GameLift::Fleet.List"
+                        "$ref": "#/definitions/AWS::GameLift::Fleet.IpPermission"
                     },
                     "type": "array"
                 },
@@ -8435,11 +8435,11 @@
                 }
             },
             "required": [
-                "EC2InstanceType",
-                "Name",
                 "ServerLaunchPath",
                 "BuildId",
-                "DesiredEC2Instances"
+                "DesiredEC2Instances",
+                "Name",
+                "EC2InstanceType"
             ],
             "type": "object"
         },
@@ -8459,10 +8459,10 @@
                 }
             },
             "required": [
+                "FromPort",
                 "IpRange",
                 "Protocol",
-                "ToPort",
-                "FromPort"
+                "ToPort"
             ],
             "type": "object"
         },
@@ -8499,7 +8499,7 @@
                 },
                 "Policies": {
                     "items": {
-                        "$ref": "#/definitions/AWS::IAM::Group.List"
+                        "$ref": "#/definitions/AWS::IAM::Group.Policy"
                     },
                     "type": "array"
                 }
@@ -8516,8 +8516,8 @@
                 }
             },
             "required": [
-                "PolicyDocument",
-                "PolicyName"
+                "PolicyName",
+                "PolicyDocument"
             ],
             "type": "object"
         },
@@ -8628,7 +8628,7 @@
                 },
                 "Policies": {
                     "items": {
-                        "$ref": "#/definitions/AWS::IAM::Role.List"
+                        "$ref": "#/definitions/AWS::IAM::Role.Policy"
                     },
                     "type": "array"
                 },
@@ -8678,7 +8678,7 @@
                 },
                 "Policies": {
                     "items": {
-                        "$ref": "#/definitions/AWS::IAM::User.List"
+                        "$ref": "#/definitions/AWS::IAM::User.Policy"
                     },
                     "type": "array"
                 },
@@ -8730,8 +8730,8 @@
                 }
             },
             "required": [
-                "GroupName",
-                "Users"
+                "Users",
+                "GroupName"
             ],
             "type": "object"
         },
@@ -8745,8 +8745,8 @@
                 }
             },
             "required": [
-                "CertificateSigningRequest",
-                "Status"
+                "Status",
+                "CertificateSigningRequest"
             ],
             "type": "object"
         },
@@ -8915,11 +8915,11 @@
                 }
             },
             "required": [
-                "RoleArn",
-                "MetricName",
                 "MetricNamespace",
                 "MetricUnit",
-                "MetricValue"
+                "MetricValue",
+                "RoleArn",
+                "MetricName"
             ],
             "type": "object"
         },
@@ -8948,12 +8948,12 @@
                 }
             },
             "required": [
-                "RoleArn",
-                "TableName",
                 "HashKeyField",
                 "HashKeyValue",
                 "RangeKeyField",
-                "RangeKeyValue"
+                "RangeKeyValue",
+                "RoleArn",
+                "TableName"
             ],
             "type": "object"
         },
@@ -8976,11 +8976,11 @@
                 }
             },
             "required": [
-                "Id",
-                "Index",
                 "RoleArn",
                 "Type",
-                "Endpoint"
+                "Endpoint",
+                "Id",
+                "Index"
             ],
             "type": "object"
         },
@@ -9041,8 +9041,8 @@
                 }
             },
             "required": [
-                "Topic",
-                "RoleArn"
+                "RoleArn",
+                "Topic"
             ],
             "type": "object"
         },
@@ -9105,7 +9105,7 @@
             "properties": {
                 "Actions": {
                     "items": {
-                        "$ref": "#/definitions/AWS::IoT::TopicRule.List"
+                        "$ref": "#/definitions/AWS::IoT::TopicRule.Action"
                     },
                     "type": "array"
                 },
@@ -9123,9 +9123,9 @@
                 }
             },
             "required": [
-                "Actions",
                 "RuleDisabled",
-                "Sql"
+                "Sql",
+                "Actions"
             ],
             "type": "object"
         },
@@ -9180,7 +9180,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Kinesis::Stream.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -9203,7 +9203,7 @@
                 },
                 "Inputs": {
                     "items": {
-                        "$ref": "#/definitions/AWS::KinesisAnalytics::Application.List"
+                        "$ref": "#/definitions/AWS::KinesisAnalytics::Application.Input"
                     },
                     "type": "array"
                 }
@@ -9223,8 +9223,8 @@
                 }
             },
             "required": [
-                "RecordColumnDelimiter",
-                "RecordRowDelimiter"
+                "RecordRowDelimiter",
+                "RecordColumnDelimiter"
             ],
             "type": "object"
         },
@@ -9264,7 +9264,7 @@
             "properties": {
                 "RecordColumns": {
                     "items": {
-                        "$ref": "#/definitions/AWS::KinesisAnalytics::Application.List"
+                        "$ref": "#/definitions/AWS::KinesisAnalytics::Application.RecordColumn"
                     },
                     "type": "array"
                 },
@@ -9375,8 +9375,8 @@
                 }
             },
             "required": [
-                "ApplicationName",
-                "Output"
+                "Output",
+                "ApplicationName"
             ],
             "type": "object"
         },
@@ -9398,8 +9398,8 @@
                 }
             },
             "required": [
-                "ResourceARN",
-                "RoleARN"
+                "RoleARN",
+                "ResourceARN"
             ],
             "type": "object"
         },
@@ -9448,8 +9448,8 @@
                 }
             },
             "required": [
-                "ApplicationName",
-                "ReferenceDataSource"
+                "ReferenceDataSource",
+                "ApplicationName"
             ],
             "type": "object"
         },
@@ -9543,7 +9543,7 @@
             "properties": {
                 "RecordColumns": {
                     "items": {
-                        "$ref": "#/definitions/AWS::KinesisAnalytics::ApplicationReferenceDataSource.List"
+                        "$ref": "#/definitions/AWS::KinesisAnalytics::ApplicationReferenceDataSource.RecordColumn"
                     },
                     "type": "array"
                 },
@@ -9573,9 +9573,9 @@
                 }
             },
             "required": [
+                "ReferenceRoleARN",
                 "BucketARN",
-                "FileKey",
-                "ReferenceRoleARN"
+                "FileKey"
             ],
             "type": "object"
         },
@@ -9652,8 +9652,8 @@
                 }
             },
             "required": [
-                "IntervalInSeconds",
-                "SizeInMBs"
+                "SizeInMBs",
+                "IntervalInSeconds"
             ],
             "type": "object"
         },
@@ -9692,13 +9692,13 @@
             },
             "required": [
                 "BufferingHints",
+                "DomainARN",
+                "RetryOptions",
                 "RoleARN",
                 "S3Configuration",
                 "TypeName",
-                "DomainARN",
                 "IndexName",
                 "IndexRotationPeriod",
-                "RetryOptions",
                 "S3BackupMode"
             ],
             "type": "object"
@@ -9844,9 +9844,9 @@
                 }
             },
             "required": [
-                "EventSourceArn",
                 "FunctionName",
-                "StartingPosition"
+                "StartingPosition",
+                "EventSourceArn"
             ],
             "type": "object"
         },
@@ -9884,7 +9884,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Lambda::Function.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -9899,10 +9899,10 @@
                 }
             },
             "required": [
-                "Runtime",
-                "Role",
+                "Handler",
                 "Code",
-                "Handler"
+                "Runtime",
+                "Role"
             ],
             "type": "object"
         },
@@ -9992,9 +9992,9 @@
                 }
             },
             "required": [
+                "Principal",
                 "Action",
-                "FunctionName",
-                "Principal"
+                "FunctionName"
             ],
             "type": "object"
         },
@@ -10073,15 +10073,15 @@
                 },
                 "MetricTransformations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Logs::MetricFilter.List"
+                        "$ref": "#/definitions/AWS::Logs::MetricFilter.MetricTransformation"
                     },
                     "type": "array"
                 }
             },
             "required": [
+                "FilterPattern",
                 "LogGroupName",
-                "MetricTransformations",
-                "FilterPattern"
+                "MetricTransformations"
             ],
             "type": "object"
         },
@@ -10098,9 +10098,9 @@
                 }
             },
             "required": [
+                "MetricValue",
                 "MetricName",
-                "MetricNamespace",
-                "MetricValue"
+                "MetricNamespace"
             ],
             "type": "object"
         },
@@ -10120,9 +10120,9 @@
                 }
             },
             "required": [
+                "LogGroupName",
                 "DestinationArn",
-                "FilterPattern",
-                "LogGroupName"
+                "FilterPattern"
             ],
             "type": "object"
         },
@@ -10141,7 +10141,7 @@
                 },
                 "DataSources": {
                     "items": {
-                        "$ref": "#/definitions/AWS::OpsWorks::App.List"
+                        "$ref": "#/definitions/AWS::OpsWorks::App.DataSource"
                     },
                     "type": "array"
                 },
@@ -10159,7 +10159,7 @@
                 },
                 "Environment": {
                     "items": {
-                        "$ref": "#/definitions/AWS::OpsWorks::App.List"
+                        "$ref": "#/definitions/AWS::OpsWorks::App.EnvironmentVariable"
                     },
                     "type": "array"
                 },
@@ -10289,7 +10289,7 @@
                 },
                 "BlockDeviceMappings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::OpsWorks::Instance.List"
+                        "$ref": "#/definitions/AWS::OpsWorks::Instance.BlockDeviceMapping"
                     },
                     "type": "array"
                 },
@@ -10519,19 +10519,19 @@
                 },
                 "VolumeConfigurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::OpsWorks::Layer.List"
+                        "$ref": "#/definitions/AWS::OpsWorks::Layer.VolumeConfiguration"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "EnableAutoHealing",
-                "Name",
-                "Shortname",
-                "AutoAssignElasticIps",
-                "AutoAssignPublicIps",
                 "Type",
-                "StackId"
+                "Name",
+                "StackId",
+                "EnableAutoHealing",
+                "AutoAssignPublicIps",
+                "AutoAssignElasticIps",
+                "Shortname"
             ],
             "type": "object"
         },
@@ -10706,7 +10706,7 @@
                 },
                 "ElasticIps": {
                     "items": {
-                        "$ref": "#/definitions/AWS::OpsWorks::Stack.List"
+                        "$ref": "#/definitions/AWS::OpsWorks::Stack.ElasticIp"
                     },
                     "type": "array"
                 },
@@ -10718,7 +10718,7 @@
                 },
                 "RdsDbInstances": {
                     "items": {
-                        "$ref": "#/definitions/AWS::OpsWorks::Stack.List"
+                        "$ref": "#/definitions/AWS::OpsWorks::Stack.RdsDbInstance"
                     },
                     "type": "array"
                 },
@@ -10740,8 +10740,8 @@
             },
             "required": [
                 "DefaultInstanceProfileArn",
-                "ServiceRoleArn",
-                "Name"
+                "Name",
+                "ServiceRoleArn"
             ],
             "type": "object"
         },
@@ -10916,7 +10916,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::DBCluster.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -10945,7 +10945,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::DBClusterParameterGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -11069,7 +11069,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::DBInstance.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -11106,7 +11106,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::DBParameterGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -11121,7 +11121,7 @@
             "properties": {
                 "DBSecurityGroupIngress": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::DBSecurityGroup.List"
+                        "$ref": "#/definitions/AWS::RDS::DBSecurityGroup.Ingress"
                     },
                     "type": "array"
                 },
@@ -11133,7 +11133,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::DBSecurityGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -11197,7 +11197,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::DBSubnetGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -11247,7 +11247,7 @@
                 },
                 "OptionConfigurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::OptionGroup.List"
+                        "$ref": "#/definitions/AWS::RDS::OptionGroup.OptionConfiguration"
                     },
                     "type": "array"
                 },
@@ -11256,16 +11256,16 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::RDS::OptionGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
             },
             "required": [
+                "MajorEngineVersion",
                 "OptionConfigurations",
                 "OptionGroupDescription",
-                "EngineName",
-                "MajorEngineVersion"
+                "EngineName"
             ],
             "type": "object"
         },
@@ -11397,7 +11397,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Redshift::Cluster.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -11409,11 +11409,11 @@
                 }
             },
             "required": [
-                "MasterUserPassword",
-                "MasterUsername",
-                "NodeType",
                 "ClusterType",
-                "DBName"
+                "MasterUserPassword",
+                "NodeType",
+                "DBName",
+                "MasterUsername"
             ],
             "type": "object"
         },
@@ -11441,20 +11441,20 @@
                 },
                 "Parameters": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Redshift::ClusterParameterGroup.List"
+                        "$ref": "#/definitions/AWS::Redshift::ClusterParameterGroup.Parameter"
                     },
                     "type": "array"
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Redshift::ClusterParameterGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "Description",
-                "ParameterGroupFamily"
+                "ParameterGroupFamily",
+                "Description"
             ],
             "type": "object"
         },
@@ -11480,7 +11480,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Redshift::ClusterSecurityGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
@@ -11523,14 +11523,14 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Redshift::ClusterSubnetGroup.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "SubnetIds",
-                "Description"
+                "Description",
+                "SubnetIds"
             ],
             "type": "object"
         },
@@ -11541,7 +11541,7 @@
                 },
                 "HealthCheckTags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Route53::HealthCheck.List"
+                        "$ref": "#/definitions/AWS::Route53::HealthCheck.HealthCheckTag"
                     },
                     "type": "array"
                 }
@@ -11644,7 +11644,7 @@
                 },
                 "HostedZoneTags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Route53::HostedZone.List"
+                        "$ref": "#/definitions/AWS::Route53::HostedZone.HostedZoneTag"
                     },
                     "type": "array"
                 },
@@ -11653,7 +11653,7 @@
                 },
                 "VPCs": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Route53::HostedZone.List"
+                        "$ref": "#/definitions/AWS::Route53::HostedZone.VPC"
                     },
                     "type": "array"
                 }
@@ -11800,7 +11800,7 @@
                 },
                 "RecordSets": {
                     "items": {
-                        "$ref": "#/definitions/AWS::Route53::RecordSetGroup.List"
+                        "$ref": "#/definitions/AWS::Route53::RecordSetGroup.RecordSet"
                     },
                     "type": "array"
                 }
@@ -11820,8 +11820,8 @@
                 }
             },
             "required": [
-                "HostedZoneId",
-                "DNSName"
+                "DNSName",
+                "HostedZoneId"
             ],
             "type": "object"
         },
@@ -11888,8 +11888,8 @@
                 }
             },
             "required": [
-                "Type",
-                "Name"
+                "Name",
+                "Type"
             ],
             "type": "object"
         },
@@ -11918,7 +11918,7 @@
                 },
                 "Tags": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
                 },
@@ -11935,7 +11935,7 @@
             "properties": {
                 "CorsRules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.CorsRule"
                     },
                     "type": "array"
                 }
@@ -12021,7 +12021,7 @@
             "properties": {
                 "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.Rule"
                     },
                     "type": "array"
                 }
@@ -12061,19 +12061,19 @@
             "properties": {
                 "LambdaConfigurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.LambdaConfiguration"
                     },
                     "type": "array"
                 },
                 "QueueConfigurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.QueueConfiguration"
                     },
                     "type": "array"
                 },
                 "TopicConfigurations": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.TopicConfiguration"
                     },
                     "type": "array"
                 }
@@ -12150,7 +12150,7 @@
                 },
                 "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.ReplicationRule"
                     },
                     "type": "array"
                 }
@@ -12264,7 +12264,7 @@
             "properties": {
                 "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.FilterRule"
                     },
                     "type": "array"
                 }
@@ -12333,7 +12333,7 @@
                 },
                 "RoutingRules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::S3::Bucket.List"
+                        "$ref": "#/definitions/AWS::S3::Bucket.RoutingRule"
                     },
                     "type": "array"
                 }
@@ -12384,7 +12384,7 @@
                 },
                 "Subscription": {
                     "items": {
-                        "$ref": "#/definitions/AWS::SNS::Topic.List"
+                        "$ref": "#/definitions/AWS::SNS::Topic.Subscription"
                     },
                     "type": "array"
                 },
@@ -12491,7 +12491,7 @@
                 "Parameters": {
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
-                            "$ref": "#/definitions/AWS::SSM::Association.Map"
+                            "$ref": "#/definitions/AWS::SSM::Association.ParameterValues"
                         }
                     },
                     "type": "object"
@@ -12501,7 +12501,7 @@
                 },
                 "Targets": {
                     "items": {
-                        "$ref": "#/definitions/AWS::SSM::Association.List"
+                        "$ref": "#/definitions/AWS::SSM::Association.Target"
                     },
                     "type": "array"
                 }
@@ -12608,7 +12608,7 @@
             "properties": {
                 "ByteMatchTuples": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAF::ByteMatchSet.List"
+                        "$ref": "#/definitions/AWS::WAF::ByteMatchSet.ByteMatchTuple"
                     },
                     "type": "array"
                 },
@@ -12640,9 +12640,9 @@
                 }
             },
             "required": [
+                "PositionalConstraint",
                 "TextTransformation",
-                "FieldToMatch",
-                "PositionalConstraint"
+                "FieldToMatch"
             ],
             "type": "object"
         },
@@ -12664,7 +12664,7 @@
             "properties": {
                 "IPSetDescriptors": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAF::IPSet.List"
+                        "$ref": "#/definitions/AWS::WAF::IPSet.IPSetDescriptor"
                     },
                     "type": "array"
                 },
@@ -12702,7 +12702,7 @@
                 },
                 "Predicates": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAF::Rule.List"
+                        "$ref": "#/definitions/AWS::WAF::Rule.Predicate"
                     },
                     "type": "array"
                 }
@@ -12739,7 +12739,7 @@
                 },
                 "SizeConstraints": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAF::SizeConstraintSet.List"
+                        "$ref": "#/definitions/AWS::WAF::SizeConstraintSet.SizeConstraint"
                     },
                     "type": "array"
                 }
@@ -12780,10 +12780,10 @@
                 }
             },
             "required": [
-                "ComparisonOperator",
-                "FieldToMatch",
                 "Size",
-                "TextTransformation"
+                "TextTransformation",
+                "ComparisonOperator",
+                "FieldToMatch"
             ],
             "type": "object"
         },
@@ -12794,7 +12794,7 @@
                 },
                 "SqlInjectionMatchTuples": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAF::SqlInjectionMatchSet.List"
+                        "$ref": "#/definitions/AWS::WAF::SqlInjectionMatchSet.SqlInjectionMatchTuple"
                     },
                     "type": "array"
                 }
@@ -12846,7 +12846,7 @@
                 },
                 "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAF::WebACL.List"
+                        "$ref": "#/definitions/AWS::WAF::WebACL.ActivatedRule"
                     },
                     "type": "array"
                 }
@@ -12895,7 +12895,7 @@
                 },
                 "XssMatchTuples": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAF::XssMatchSet.List"
+                        "$ref": "#/definitions/AWS::WAF::XssMatchSet.XssMatchTuple"
                     },
                     "type": "array"
                 }
@@ -12930,8 +12930,8 @@
                 }
             },
             "required": [
-                "TextTransformation",
-                "FieldToMatch"
+                "FieldToMatch",
+                "TextTransformation"
             ],
             "type": "object"
         },
@@ -12939,7 +12939,7 @@
             "properties": {
                 "ByteMatchTuples": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFRegional::ByteMatchSet.List"
+                        "$ref": "#/definitions/AWS::WAFRegional::ByteMatchSet.ByteMatchTuple"
                     },
                     "type": "array"
                 },
@@ -12995,7 +12995,7 @@
             "properties": {
                 "IPSetDescriptors": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFRegional::IPSet.List"
+                        "$ref": "#/definitions/AWS::WAFRegional::IPSet.IPSetDescriptor"
                     },
                     "type": "array"
                 },
@@ -13033,7 +13033,7 @@
                 },
                 "Predicates": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFRegional::Rule.List"
+                        "$ref": "#/definitions/AWS::WAFRegional::Rule.Predicate"
                     },
                     "type": "array"
                 }
@@ -13057,9 +13057,9 @@
                 }
             },
             "required": [
+                "Negated",
                 "Type",
-                "DataId",
-                "Negated"
+                "DataId"
             ],
             "type": "object"
         },
@@ -13070,7 +13070,7 @@
                 },
                 "SizeConstraints": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFRegional::SizeConstraintSet.List"
+                        "$ref": "#/definitions/AWS::WAFRegional::SizeConstraintSet.SizeConstraint"
                     },
                     "type": "array"
                 }
@@ -13124,7 +13124,7 @@
                 },
                 "SqlInjectionMatchTuples": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFRegional::SqlInjectionMatchSet.List"
+                        "$ref": "#/definitions/AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple"
                     },
                     "type": "array"
                 }
@@ -13176,15 +13176,15 @@
                 },
                 "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFRegional::WebACL.List"
+                        "$ref": "#/definitions/AWS::WAFRegional::WebACL.Rule"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "Name",
                 "MetricName",
-                "DefaultAction"
+                "DefaultAction",
+                "Name"
             ],
             "type": "object"
         },
@@ -13212,9 +13212,9 @@
                 }
             },
             "required": [
+                "RuleId",
                 "Action",
-                "Priority",
-                "RuleId"
+                "Priority"
             ],
             "type": "object"
         },
@@ -13240,7 +13240,7 @@
                 },
                 "XssMatchTuples": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFRegional::XssMatchSet.List"
+                        "$ref": "#/definitions/AWS::WAFRegional::XssMatchSet.XssMatchTuple"
                     },
                     "type": "array"
                 }
@@ -13301,9 +13301,9 @@
                 }
             },
             "required": [
+                "UserName",
                 "BundleId",
-                "DirectoryId",
-                "UserName"
+                "DirectoryId"
             ],
             "type": "object"
         },
@@ -13390,7 +13390,6 @@
             "type": "object"
         }
     },
-    "id": "https://aws.amazon.com/cloudformation/#1.4.2",
     "properties": {
         "AWSTemplateFormatVersion": {
             "enum": [
