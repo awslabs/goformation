@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EC2::NetworkInterface AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html
 type AWSEC2NetworkInterface struct {
@@ -79,4 +85,33 @@ func (r *AWSEC2NetworkInterface) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NetworkInterface) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEC2NetworkInterfaceResources retrieves all AWSEC2NetworkInterface items from a CloudFormation template
+func GetAllAWSEC2NetworkInterface(template *Template) map[string]*AWSEC2NetworkInterface {
+
+	results := map[string]*AWSEC2NetworkInterface{}
+	for name, resource := range template.Resources {
+		result := &AWSEC2NetworkInterface{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEC2NetworkInterfaceWithName retrieves all AWSEC2NetworkInterface items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEC2NetworkInterface(name string, template *Template) (*AWSEC2NetworkInterface, error) {
+
+	result := &AWSEC2NetworkInterface{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEC2NetworkInterface{}, errors.New("resource not found")
+
 }

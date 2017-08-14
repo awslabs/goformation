@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Cognito::UserPool.LambdaConfig AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html
 type AWSCognitoUserPool_LambdaConfig struct {
@@ -61,4 +67,33 @@ func (r *AWSCognitoUserPool_LambdaConfig) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoUserPool_LambdaConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCognitoUserPool_LambdaConfigResources retrieves all AWSCognitoUserPool_LambdaConfig items from a CloudFormation template
+func GetAllAWSCognitoUserPool_LambdaConfig(template *Template) map[string]*AWSCognitoUserPool_LambdaConfig {
+
+	results := map[string]*AWSCognitoUserPool_LambdaConfig{}
+	for name, resource := range template.Resources {
+		result := &AWSCognitoUserPool_LambdaConfig{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCognitoUserPool_LambdaConfigWithName retrieves all AWSCognitoUserPool_LambdaConfig items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCognitoUserPool_LambdaConfig(name string, template *Template) (*AWSCognitoUserPool_LambdaConfig, error) {
+
+	result := &AWSCognitoUserPool_LambdaConfig{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCognitoUserPool_LambdaConfig{}, errors.New("resource not found")
+
 }

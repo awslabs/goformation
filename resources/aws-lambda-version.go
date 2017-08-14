@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Lambda::Version AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
 type AWSLambdaVersion struct {
@@ -31,4 +37,33 @@ func (r *AWSLambdaVersion) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLambdaVersion) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSLambdaVersionResources retrieves all AWSLambdaVersion items from a CloudFormation template
+func GetAllAWSLambdaVersion(template *Template) map[string]*AWSLambdaVersion {
+
+	results := map[string]*AWSLambdaVersion{}
+	for name, resource := range template.Resources {
+		result := &AWSLambdaVersion{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSLambdaVersionWithName retrieves all AWSLambdaVersion items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSLambdaVersion(name string, template *Template) (*AWSLambdaVersion, error) {
+
+	result := &AWSLambdaVersion{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSLambdaVersion{}, errors.New("resource not found")
+
 }

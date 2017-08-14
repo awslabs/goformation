@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::IoT::TopicRule.Action AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html
 type AWSIoTTopicRule_Action struct {
@@ -79,4 +85,33 @@ func (r *AWSIoTTopicRule_Action) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTTopicRule_Action) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSIoTTopicRule_ActionResources retrieves all AWSIoTTopicRule_Action items from a CloudFormation template
+func GetAllAWSIoTTopicRule_Action(template *Template) map[string]*AWSIoTTopicRule_Action {
+
+	results := map[string]*AWSIoTTopicRule_Action{}
+	for name, resource := range template.Resources {
+		result := &AWSIoTTopicRule_Action{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSIoTTopicRule_ActionWithName retrieves all AWSIoTTopicRule_Action items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSIoTTopicRule_Action(name string, template *Template) (*AWSIoTTopicRule_Action, error) {
+
+	result := &AWSIoTTopicRule_Action{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSIoTTopicRule_Action{}, errors.New("resource not found")
+
 }

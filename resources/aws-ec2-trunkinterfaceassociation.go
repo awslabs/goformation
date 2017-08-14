@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EC2::TrunkInterfaceAssociation AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html
 type AWSEC2TrunkInterfaceAssociation struct {
@@ -37,4 +43,33 @@ func (r *AWSEC2TrunkInterfaceAssociation) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2TrunkInterfaceAssociation) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEC2TrunkInterfaceAssociationResources retrieves all AWSEC2TrunkInterfaceAssociation items from a CloudFormation template
+func GetAllAWSEC2TrunkInterfaceAssociation(template *Template) map[string]*AWSEC2TrunkInterfaceAssociation {
+
+	results := map[string]*AWSEC2TrunkInterfaceAssociation{}
+	for name, resource := range template.Resources {
+		result := &AWSEC2TrunkInterfaceAssociation{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEC2TrunkInterfaceAssociationWithName retrieves all AWSEC2TrunkInterfaceAssociation items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEC2TrunkInterfaceAssociation(name string, template *Template) (*AWSEC2TrunkInterfaceAssociation, error) {
+
+	result := &AWSEC2TrunkInterfaceAssociation{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEC2TrunkInterfaceAssociation{}, errors.New("resource not found")
+
 }

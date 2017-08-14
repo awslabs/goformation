@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Cognito::UserPoolClient AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html
 type AWSCognitoUserPoolClient struct {
@@ -55,4 +61,33 @@ func (r *AWSCognitoUserPoolClient) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoUserPoolClient) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCognitoUserPoolClientResources retrieves all AWSCognitoUserPoolClient items from a CloudFormation template
+func GetAllAWSCognitoUserPoolClient(template *Template) map[string]*AWSCognitoUserPoolClient {
+
+	results := map[string]*AWSCognitoUserPoolClient{}
+	for name, resource := range template.Resources {
+		result := &AWSCognitoUserPoolClient{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCognitoUserPoolClientWithName retrieves all AWSCognitoUserPoolClient items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCognitoUserPoolClient(name string, template *Template) (*AWSCognitoUserPoolClient, error) {
+
+	result := &AWSCognitoUserPoolClient{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCognitoUserPoolClient{}, errors.New("resource not found")
+
 }

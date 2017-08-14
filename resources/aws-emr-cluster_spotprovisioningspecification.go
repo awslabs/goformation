@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EMR::Cluster.SpotProvisioningSpecification AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html
 type AWSEMRCluster_SpotProvisioningSpecification struct {
@@ -31,4 +37,33 @@ func (r *AWSEMRCluster_SpotProvisioningSpecification) AWSCloudFormationType() st
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRCluster_SpotProvisioningSpecification) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEMRCluster_SpotProvisioningSpecificationResources retrieves all AWSEMRCluster_SpotProvisioningSpecification items from a CloudFormation template
+func GetAllAWSEMRCluster_SpotProvisioningSpecification(template *Template) map[string]*AWSEMRCluster_SpotProvisioningSpecification {
+
+	results := map[string]*AWSEMRCluster_SpotProvisioningSpecification{}
+	for name, resource := range template.Resources {
+		result := &AWSEMRCluster_SpotProvisioningSpecification{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEMRCluster_SpotProvisioningSpecificationWithName retrieves all AWSEMRCluster_SpotProvisioningSpecification items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEMRCluster_SpotProvisioningSpecification(name string, template *Template) (*AWSEMRCluster_SpotProvisioningSpecification, error) {
+
+	result := &AWSEMRCluster_SpotProvisioningSpecification{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEMRCluster_SpotProvisioningSpecification{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::CloudFormation::Stack AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
 type AWSCloudFormationStack struct {
@@ -43,4 +49,33 @@ func (r *AWSCloudFormationStack) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCloudFormationStack) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCloudFormationStackResources retrieves all AWSCloudFormationStack items from a CloudFormation template
+func GetAllAWSCloudFormationStack(template *Template) map[string]*AWSCloudFormationStack {
+
+	results := map[string]*AWSCloudFormationStack{}
+	for name, resource := range template.Resources {
+		result := &AWSCloudFormationStack{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCloudFormationStackWithName retrieves all AWSCloudFormationStack items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCloudFormationStack(name string, template *Template) (*AWSCloudFormationStack, error) {
+
+	result := &AWSCloudFormationStack{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCloudFormationStack{}, errors.New("resource not found")
+
 }

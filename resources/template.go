@@ -1,4 +1,4 @@
-package goformation
+package resources
 
 // Template represents an AWS CloudFormation template
 type Template struct {

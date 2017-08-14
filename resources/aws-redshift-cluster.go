@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Redshift::Cluster AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
 type AWSRedshiftCluster struct {
@@ -181,4 +187,33 @@ func (r *AWSRedshiftCluster) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRedshiftCluster) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSRedshiftClusterResources retrieves all AWSRedshiftCluster items from a CloudFormation template
+func GetAllAWSRedshiftCluster(template *Template) map[string]*AWSRedshiftCluster {
+
+	results := map[string]*AWSRedshiftCluster{}
+	for name, resource := range template.Resources {
+		result := &AWSRedshiftCluster{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSRedshiftClusterWithName retrieves all AWSRedshiftCluster items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSRedshiftCluster(name string, template *Template) (*AWSRedshiftCluster, error) {
+
+	result := &AWSRedshiftCluster{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSRedshiftCluster{}, errors.New("resource not found")
+
 }

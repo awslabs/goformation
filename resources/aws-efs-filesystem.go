@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EFS::FileSystem AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 type AWSEFSFileSystem struct {
@@ -25,4 +31,33 @@ func (r *AWSEFSFileSystem) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEFSFileSystem) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEFSFileSystemResources retrieves all AWSEFSFileSystem items from a CloudFormation template
+func GetAllAWSEFSFileSystem(template *Template) map[string]*AWSEFSFileSystem {
+
+	results := map[string]*AWSEFSFileSystem{}
+	for name, resource := range template.Resources {
+		result := &AWSEFSFileSystem{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEFSFileSystemWithName retrieves all AWSEFSFileSystem items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEFSFileSystem(name string, template *Template) (*AWSEFSFileSystem, error) {
+
+	result := &AWSEFSFileSystem{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEFSFileSystem{}, errors.New("resource not found")
+
 }

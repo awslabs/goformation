@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Logs::MetricFilter AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
 type AWSLogsMetricFilter struct {
@@ -31,4 +37,33 @@ func (r *AWSLogsMetricFilter) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLogsMetricFilter) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSLogsMetricFilterResources retrieves all AWSLogsMetricFilter items from a CloudFormation template
+func GetAllAWSLogsMetricFilter(template *Template) map[string]*AWSLogsMetricFilter {
+
+	results := map[string]*AWSLogsMetricFilter{}
+	for name, resource := range template.Resources {
+		result := &AWSLogsMetricFilter{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSLogsMetricFilterWithName retrieves all AWSLogsMetricFilter items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSLogsMetricFilter(name string, template *Template) (*AWSLogsMetricFilter, error) {
+
+	result := &AWSLogsMetricFilter{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSLogsMetricFilter{}, errors.New("resource not found")
+
 }

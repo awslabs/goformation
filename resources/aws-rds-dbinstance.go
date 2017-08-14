@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::RDS::DBInstance AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
 type AWSRDSDBInstance struct {
@@ -241,4 +247,33 @@ func (r *AWSRDSDBInstance) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRDSDBInstance) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSRDSDBInstanceResources retrieves all AWSRDSDBInstance items from a CloudFormation template
+func GetAllAWSRDSDBInstance(template *Template) map[string]*AWSRDSDBInstance {
+
+	results := map[string]*AWSRDSDBInstance{}
+	for name, resource := range template.Resources {
+		result := &AWSRDSDBInstance{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSRDSDBInstanceWithName retrieves all AWSRDSDBInstance items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSRDSDBInstance(name string, template *Template) (*AWSRDSDBInstance, error) {
+
+	result := &AWSRDSDBInstance{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSRDSDBInstance{}, errors.New("resource not found")
+
 }

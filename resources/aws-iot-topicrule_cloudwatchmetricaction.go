@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::IoT::TopicRule.CloudwatchMetricAction AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html
 type AWSIoTTopicRule_CloudwatchMetricAction struct {
@@ -49,4 +55,33 @@ func (r *AWSIoTTopicRule_CloudwatchMetricAction) AWSCloudFormationType() string 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTTopicRule_CloudwatchMetricAction) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSIoTTopicRule_CloudwatchMetricActionResources retrieves all AWSIoTTopicRule_CloudwatchMetricAction items from a CloudFormation template
+func GetAllAWSIoTTopicRule_CloudwatchMetricAction(template *Template) map[string]*AWSIoTTopicRule_CloudwatchMetricAction {
+
+	results := map[string]*AWSIoTTopicRule_CloudwatchMetricAction{}
+	for name, resource := range template.Resources {
+		result := &AWSIoTTopicRule_CloudwatchMetricAction{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSIoTTopicRule_CloudwatchMetricActionWithName retrieves all AWSIoTTopicRule_CloudwatchMetricAction items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSIoTTopicRule_CloudwatchMetricAction(name string, template *Template) (*AWSIoTTopicRule_CloudwatchMetricAction, error) {
+
+	result := &AWSIoTTopicRule_CloudwatchMetricAction{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSIoTTopicRule_CloudwatchMetricAction{}, errors.New("resource not found")
+
 }

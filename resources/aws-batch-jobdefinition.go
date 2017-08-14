@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Batch::JobDefinition AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
 type AWSBatchJobDefinition struct {
@@ -43,4 +49,33 @@ func (r *AWSBatchJobDefinition) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSBatchJobDefinition) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSBatchJobDefinitionResources retrieves all AWSBatchJobDefinition items from a CloudFormation template
+func GetAllAWSBatchJobDefinition(template *Template) map[string]*AWSBatchJobDefinition {
+
+	results := map[string]*AWSBatchJobDefinition{}
+	for name, resource := range template.Resources {
+		result := &AWSBatchJobDefinition{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSBatchJobDefinitionWithName retrieves all AWSBatchJobDefinition items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSBatchJobDefinition(name string, template *Template) (*AWSBatchJobDefinition, error) {
+
+	result := &AWSBatchJobDefinition{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSBatchJobDefinition{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EMR::Cluster.CloudWatchAlarmDefinition AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html
 type AWSEMRCluster_CloudWatchAlarmDefinition struct {
@@ -67,4 +73,33 @@ func (r *AWSEMRCluster_CloudWatchAlarmDefinition) AWSCloudFormationType() string
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRCluster_CloudWatchAlarmDefinition) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEMRCluster_CloudWatchAlarmDefinitionResources retrieves all AWSEMRCluster_CloudWatchAlarmDefinition items from a CloudFormation template
+func GetAllAWSEMRCluster_CloudWatchAlarmDefinition(template *Template) map[string]*AWSEMRCluster_CloudWatchAlarmDefinition {
+
+	results := map[string]*AWSEMRCluster_CloudWatchAlarmDefinition{}
+	for name, resource := range template.Resources {
+		result := &AWSEMRCluster_CloudWatchAlarmDefinition{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEMRCluster_CloudWatchAlarmDefinitionWithName retrieves all AWSEMRCluster_CloudWatchAlarmDefinition items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEMRCluster_CloudWatchAlarmDefinition(name string, template *Template) (*AWSEMRCluster_CloudWatchAlarmDefinition, error) {
+
+	result := &AWSEMRCluster_CloudWatchAlarmDefinition{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEMRCluster_CloudWatchAlarmDefinition{}, errors.New("resource not found")
+
 }

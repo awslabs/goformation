@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::AutoScaling::ScheduledAction AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
 type AWSAutoScalingScheduledAction struct {
@@ -55,4 +61,33 @@ func (r *AWSAutoScalingScheduledAction) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSAutoScalingScheduledAction) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSAutoScalingScheduledActionResources retrieves all AWSAutoScalingScheduledAction items from a CloudFormation template
+func GetAllAWSAutoScalingScheduledAction(template *Template) map[string]*AWSAutoScalingScheduledAction {
+
+	results := map[string]*AWSAutoScalingScheduledAction{}
+	for name, resource := range template.Resources {
+		result := &AWSAutoScalingScheduledAction{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSAutoScalingScheduledActionWithName retrieves all AWSAutoScalingScheduledAction items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSAutoScalingScheduledAction(name string, template *Template) (*AWSAutoScalingScheduledAction, error) {
+
+	result := &AWSAutoScalingScheduledAction{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSAutoScalingScheduledAction{}, errors.New("resource not found")
+
 }

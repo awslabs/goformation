@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ApiGateway::Method AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html
 type AWSApiGatewayMethod struct {
@@ -73,4 +79,33 @@ func (r *AWSApiGatewayMethod) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayMethod) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSApiGatewayMethodResources retrieves all AWSApiGatewayMethod items from a CloudFormation template
+func GetAllAWSApiGatewayMethod(template *Template) map[string]*AWSApiGatewayMethod {
+
+	results := map[string]*AWSApiGatewayMethod{}
+	for name, resource := range template.Resources {
+		result := &AWSApiGatewayMethod{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSApiGatewayMethodWithName retrieves all AWSApiGatewayMethod items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSApiGatewayMethod(name string, template *Template) (*AWSApiGatewayMethod, error) {
+
+	result := &AWSApiGatewayMethod{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSApiGatewayMethod{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::DataPipeline::Pipeline AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
 type AWSDataPipelinePipeline struct {
@@ -55,4 +61,33 @@ func (r *AWSDataPipelinePipeline) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDataPipelinePipeline) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSDataPipelinePipelineResources retrieves all AWSDataPipelinePipeline items from a CloudFormation template
+func GetAllAWSDataPipelinePipeline(template *Template) map[string]*AWSDataPipelinePipeline {
+
+	results := map[string]*AWSDataPipelinePipeline{}
+	for name, resource := range template.Resources {
+		result := &AWSDataPipelinePipeline{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSDataPipelinePipelineWithName retrieves all AWSDataPipelinePipeline items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSDataPipelinePipeline(name string, template *Template) (*AWSDataPipelinePipeline, error) {
+
+	result := &AWSDataPipelinePipeline{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSDataPipelinePipeline{}, errors.New("resource not found")
+
 }

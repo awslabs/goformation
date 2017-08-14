@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Lambda::Function AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
 type AWSLambdaFunction struct {
@@ -97,4 +103,33 @@ func (r *AWSLambdaFunction) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLambdaFunction) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSLambdaFunctionResources retrieves all AWSLambdaFunction items from a CloudFormation template
+func GetAllAWSLambdaFunction(template *Template) map[string]*AWSLambdaFunction {
+
+	results := map[string]*AWSLambdaFunction{}
+	for name, resource := range template.Resources {
+		result := &AWSLambdaFunction{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSLambdaFunctionWithName retrieves all AWSLambdaFunction items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSLambdaFunction(name string, template *Template) (*AWSLambdaFunction, error) {
+
+	result := &AWSLambdaFunction{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSLambdaFunction{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Lambda::Permission AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 type AWSLambdaPermission struct {
@@ -43,4 +49,33 @@ func (r *AWSLambdaPermission) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLambdaPermission) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSLambdaPermissionResources retrieves all AWSLambdaPermission items from a CloudFormation template
+func GetAllAWSLambdaPermission(template *Template) map[string]*AWSLambdaPermission {
+
+	results := map[string]*AWSLambdaPermission{}
+	for name, resource := range template.Resources {
+		result := &AWSLambdaPermission{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSLambdaPermissionWithName retrieves all AWSLambdaPermission items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSLambdaPermission(name string, template *Template) (*AWSLambdaPermission, error) {
+
+	result := &AWSLambdaPermission{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSLambdaPermission{}, errors.New("resource not found")
+
 }

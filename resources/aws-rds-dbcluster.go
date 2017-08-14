@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::RDS::DBCluster AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
 type AWSRDSDBCluster struct {
@@ -121,4 +127,33 @@ func (r *AWSRDSDBCluster) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRDSDBCluster) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSRDSDBClusterResources retrieves all AWSRDSDBCluster items from a CloudFormation template
+func GetAllAWSRDSDBCluster(template *Template) map[string]*AWSRDSDBCluster {
+
+	results := map[string]*AWSRDSDBCluster{}
+	for name, resource := range template.Resources {
+		result := &AWSRDSDBCluster{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSRDSDBClusterWithName retrieves all AWSRDSDBCluster items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSRDSDBCluster(name string, template *Template) (*AWSRDSDBCluster, error) {
+
+	result := &AWSRDSDBCluster{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSRDSDBCluster{}, errors.New("resource not found")
+
 }

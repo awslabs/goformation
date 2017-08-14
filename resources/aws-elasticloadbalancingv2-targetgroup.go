@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ElasticLoadBalancingV2::TargetGroup AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html
 type AWSElasticLoadBalancingV2TargetGroup struct {
@@ -103,4 +109,33 @@ func (r *AWSElasticLoadBalancingV2TargetGroup) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticLoadBalancingV2TargetGroup) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSElasticLoadBalancingV2TargetGroupResources retrieves all AWSElasticLoadBalancingV2TargetGroup items from a CloudFormation template
+func GetAllAWSElasticLoadBalancingV2TargetGroup(template *Template) map[string]*AWSElasticLoadBalancingV2TargetGroup {
+
+	results := map[string]*AWSElasticLoadBalancingV2TargetGroup{}
+	for name, resource := range template.Resources {
+		result := &AWSElasticLoadBalancingV2TargetGroup{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSElasticLoadBalancingV2TargetGroupWithName retrieves all AWSElasticLoadBalancingV2TargetGroup items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSElasticLoadBalancingV2TargetGroup(name string, template *Template) (*AWSElasticLoadBalancingV2TargetGroup, error) {
+
+	result := &AWSElasticLoadBalancingV2TargetGroup{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSElasticLoadBalancingV2TargetGroup{}, errors.New("resource not found")
+
 }

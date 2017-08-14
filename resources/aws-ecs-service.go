@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ECS::Service AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 type AWSECSService struct {
@@ -67,4 +73,33 @@ func (r *AWSECSService) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSECSService) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSECSServiceResources retrieves all AWSECSService items from a CloudFormation template
+func GetAllAWSECSService(template *Template) map[string]*AWSECSService {
+
+	results := map[string]*AWSECSService{}
+	for name, resource := range template.Resources {
+		result := &AWSECSService{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSECSServiceWithName retrieves all AWSECSService items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSECSService(name string, template *Template) (*AWSECSService, error) {
+
+	result := &AWSECSService{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSECSService{}, errors.New("resource not found")
+
 }

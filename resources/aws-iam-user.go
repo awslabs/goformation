@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::IAM::User AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
 type AWSIAMUser struct {
@@ -49,4 +55,33 @@ func (r *AWSIAMUser) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMUser) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSIAMUserResources retrieves all AWSIAMUser items from a CloudFormation template
+func GetAllAWSIAMUser(template *Template) map[string]*AWSIAMUser {
+
+	results := map[string]*AWSIAMUser{}
+	for name, resource := range template.Resources {
+		result := &AWSIAMUser{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSIAMUserWithName retrieves all AWSIAMUser items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSIAMUser(name string, template *Template) (*AWSIAMUser, error) {
+
+	result := &AWSIAMUser{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSIAMUser{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Lambda::Function.Code AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
 type AWSLambdaFunction_Code struct {
@@ -37,4 +43,33 @@ func (r *AWSLambdaFunction_Code) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLambdaFunction_Code) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSLambdaFunction_CodeResources retrieves all AWSLambdaFunction_Code items from a CloudFormation template
+func GetAllAWSLambdaFunction_Code(template *Template) map[string]*AWSLambdaFunction_Code {
+
+	results := map[string]*AWSLambdaFunction_Code{}
+	for name, resource := range template.Resources {
+		result := &AWSLambdaFunction_Code{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSLambdaFunction_CodeWithName retrieves all AWSLambdaFunction_Code items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSLambdaFunction_Code(name string, template *Template) (*AWSLambdaFunction_Code, error) {
+
+	result := &AWSLambdaFunction_Code{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSLambdaFunction_Code{}, errors.New("resource not found")
+
 }

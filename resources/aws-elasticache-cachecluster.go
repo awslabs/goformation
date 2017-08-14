@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ElastiCache::CacheCluster AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html
 type AWSElastiCacheCacheCluster struct {
@@ -139,4 +145,33 @@ func (r *AWSElastiCacheCacheCluster) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElastiCacheCacheCluster) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSElastiCacheCacheClusterResources retrieves all AWSElastiCacheCacheCluster items from a CloudFormation template
+func GetAllAWSElastiCacheCacheCluster(template *Template) map[string]*AWSElastiCacheCacheCluster {
+
+	results := map[string]*AWSElastiCacheCacheCluster{}
+	for name, resource := range template.Resources {
+		result := &AWSElastiCacheCacheCluster{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSElastiCacheCacheClusterWithName retrieves all AWSElastiCacheCacheCluster items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSElastiCacheCacheCluster(name string, template *Template) (*AWSElastiCacheCacheCluster, error) {
+
+	result := &AWSElastiCacheCacheCluster{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSElastiCacheCacheCluster{}, errors.New("resource not found")
+
 }

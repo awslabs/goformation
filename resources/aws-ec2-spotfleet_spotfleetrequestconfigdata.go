@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EC2::SpotFleet.SpotFleetRequestConfigData AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html
 type AWSEC2SpotFleet_SpotFleetRequestConfigData struct {
@@ -67,4 +73,33 @@ func (r *AWSEC2SpotFleet_SpotFleetRequestConfigData) AWSCloudFormationType() str
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2SpotFleet_SpotFleetRequestConfigData) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEC2SpotFleet_SpotFleetRequestConfigDataResources retrieves all AWSEC2SpotFleet_SpotFleetRequestConfigData items from a CloudFormation template
+func GetAllAWSEC2SpotFleet_SpotFleetRequestConfigData(template *Template) map[string]*AWSEC2SpotFleet_SpotFleetRequestConfigData {
+
+	results := map[string]*AWSEC2SpotFleet_SpotFleetRequestConfigData{}
+	for name, resource := range template.Resources {
+		result := &AWSEC2SpotFleet_SpotFleetRequestConfigData{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEC2SpotFleet_SpotFleetRequestConfigDataWithName retrieves all AWSEC2SpotFleet_SpotFleetRequestConfigData items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEC2SpotFleet_SpotFleetRequestConfigData(name string, template *Template) (*AWSEC2SpotFleet_SpotFleetRequestConfigData, error) {
+
+	result := &AWSEC2SpotFleet_SpotFleetRequestConfigData{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEC2SpotFleet_SpotFleetRequestConfigData{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ElastiCache::ReplicationGroup AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
 type AWSElastiCacheReplicationGroup struct {
@@ -169,4 +175,33 @@ func (r *AWSElastiCacheReplicationGroup) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElastiCacheReplicationGroup) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSElastiCacheReplicationGroupResources retrieves all AWSElastiCacheReplicationGroup items from a CloudFormation template
+func GetAllAWSElastiCacheReplicationGroup(template *Template) map[string]*AWSElastiCacheReplicationGroup {
+
+	results := map[string]*AWSElastiCacheReplicationGroup{}
+	for name, resource := range template.Resources {
+		result := &AWSElastiCacheReplicationGroup{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSElastiCacheReplicationGroupWithName retrieves all AWSElastiCacheReplicationGroup items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSElastiCacheReplicationGroup(name string, template *Template) (*AWSElastiCacheReplicationGroup, error) {
+
+	result := &AWSElastiCacheReplicationGroup{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSElastiCacheReplicationGroup{}, errors.New("resource not found")
+
 }

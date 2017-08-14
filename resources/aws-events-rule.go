@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Events::Rule AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
 type AWSEventsRule struct {
@@ -55,4 +61,33 @@ func (r *AWSEventsRule) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEventsRule) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEventsRuleResources retrieves all AWSEventsRule items from a CloudFormation template
+func GetAllAWSEventsRule(template *Template) map[string]*AWSEventsRule {
+
+	results := map[string]*AWSEventsRule{}
+	for name, resource := range template.Resources {
+		result := &AWSEventsRule{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEventsRuleWithName retrieves all AWSEventsRule items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEventsRule(name string, template *Template) (*AWSEventsRule, error) {
+
+	result := &AWSEventsRule{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEventsRule{}, errors.New("resource not found")
+
 }

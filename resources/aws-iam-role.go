@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::IAM::Role AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
 type AWSIAMRole struct {
@@ -43,4 +49,33 @@ func (r *AWSIAMRole) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMRole) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSIAMRoleResources retrieves all AWSIAMRole items from a CloudFormation template
+func GetAllAWSIAMRole(template *Template) map[string]*AWSIAMRole {
+
+	results := map[string]*AWSIAMRole{}
+	for name, resource := range template.Resources {
+		result := &AWSIAMRole{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSIAMRoleWithName retrieves all AWSIAMRole items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSIAMRole(name string, template *Template) (*AWSIAMRole, error) {
+
+	result := &AWSIAMRole{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSIAMRole{}, errors.New("resource not found")
+
 }

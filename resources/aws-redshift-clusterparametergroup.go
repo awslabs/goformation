@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Redshift::ClusterParameterGroup AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
 type AWSRedshiftClusterParameterGroup struct {
@@ -37,4 +43,33 @@ func (r *AWSRedshiftClusterParameterGroup) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRedshiftClusterParameterGroup) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSRedshiftClusterParameterGroupResources retrieves all AWSRedshiftClusterParameterGroup items from a CloudFormation template
+func GetAllAWSRedshiftClusterParameterGroup(template *Template) map[string]*AWSRedshiftClusterParameterGroup {
+
+	results := map[string]*AWSRedshiftClusterParameterGroup{}
+	for name, resource := range template.Resources {
+		result := &AWSRedshiftClusterParameterGroup{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSRedshiftClusterParameterGroupWithName retrieves all AWSRedshiftClusterParameterGroup items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSRedshiftClusterParameterGroup(name string, template *Template) (*AWSRedshiftClusterParameterGroup, error) {
+
+	result := &AWSRedshiftClusterParameterGroup{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSRedshiftClusterParameterGroup{}, errors.New("resource not found")
+
 }

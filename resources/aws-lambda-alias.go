@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Lambda::Alias AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
 type AWSLambdaAlias struct {
@@ -37,4 +43,33 @@ func (r *AWSLambdaAlias) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLambdaAlias) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSLambdaAliasResources retrieves all AWSLambdaAlias items from a CloudFormation template
+func GetAllAWSLambdaAlias(template *Template) map[string]*AWSLambdaAlias {
+
+	results := map[string]*AWSLambdaAlias{}
+	for name, resource := range template.Resources {
+		result := &AWSLambdaAlias{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSLambdaAliasWithName retrieves all AWSLambdaAlias items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSLambdaAlias(name string, template *Template) (*AWSLambdaAlias, error) {
+
+	result := &AWSLambdaAlias{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSLambdaAlias{}, errors.New("resource not found")
+
 }

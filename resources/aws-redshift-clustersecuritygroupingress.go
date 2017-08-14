@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Redshift::ClusterSecurityGroupIngress AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html
 type AWSRedshiftClusterSecurityGroupIngress struct {
@@ -37,4 +43,33 @@ func (r *AWSRedshiftClusterSecurityGroupIngress) AWSCloudFormationType() string 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRedshiftClusterSecurityGroupIngress) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSRedshiftClusterSecurityGroupIngressResources retrieves all AWSRedshiftClusterSecurityGroupIngress items from a CloudFormation template
+func GetAllAWSRedshiftClusterSecurityGroupIngress(template *Template) map[string]*AWSRedshiftClusterSecurityGroupIngress {
+
+	results := map[string]*AWSRedshiftClusterSecurityGroupIngress{}
+	for name, resource := range template.Resources {
+		result := &AWSRedshiftClusterSecurityGroupIngress{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSRedshiftClusterSecurityGroupIngressWithName retrieves all AWSRedshiftClusterSecurityGroupIngress items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSRedshiftClusterSecurityGroupIngress(name string, template *Template) (*AWSRedshiftClusterSecurityGroupIngress, error) {
+
+	result := &AWSRedshiftClusterSecurityGroupIngress{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSRedshiftClusterSecurityGroupIngress{}, errors.New("resource not found")
+
 }

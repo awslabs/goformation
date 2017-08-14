@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Route53::RecordSetGroup.RecordSet AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
 type AWSRoute53RecordSetGroup_RecordSet struct {
@@ -97,4 +103,33 @@ func (r *AWSRoute53RecordSetGroup_RecordSet) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRoute53RecordSetGroup_RecordSet) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSRoute53RecordSetGroup_RecordSetResources retrieves all AWSRoute53RecordSetGroup_RecordSet items from a CloudFormation template
+func GetAllAWSRoute53RecordSetGroup_RecordSet(template *Template) map[string]*AWSRoute53RecordSetGroup_RecordSet {
+
+	results := map[string]*AWSRoute53RecordSetGroup_RecordSet{}
+	for name, resource := range template.Resources {
+		result := &AWSRoute53RecordSetGroup_RecordSet{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSRoute53RecordSetGroup_RecordSetWithName retrieves all AWSRoute53RecordSetGroup_RecordSet items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSRoute53RecordSetGroup_RecordSet(name string, template *Template) (*AWSRoute53RecordSetGroup_RecordSet, error) {
+
+	result := &AWSRoute53RecordSetGroup_RecordSet{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSRoute53RecordSetGroup_RecordSet{}, errors.New("resource not found")
+
 }

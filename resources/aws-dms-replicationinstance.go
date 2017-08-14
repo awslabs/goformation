@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::DMS::ReplicationInstance AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html
 type AWSDMSReplicationInstance struct {
@@ -97,4 +103,33 @@ func (r *AWSDMSReplicationInstance) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDMSReplicationInstance) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSDMSReplicationInstanceResources retrieves all AWSDMSReplicationInstance items from a CloudFormation template
+func GetAllAWSDMSReplicationInstance(template *Template) map[string]*AWSDMSReplicationInstance {
+
+	results := map[string]*AWSDMSReplicationInstance{}
+	for name, resource := range template.Resources {
+		result := &AWSDMSReplicationInstance{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSDMSReplicationInstanceWithName retrieves all AWSDMSReplicationInstance items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSDMSReplicationInstance(name string, template *Template) (*AWSDMSReplicationInstance, error) {
+
+	result := &AWSDMSReplicationInstance{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSDMSReplicationInstance{}, errors.New("resource not found")
+
 }

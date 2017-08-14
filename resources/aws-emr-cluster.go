@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EMR::Cluster AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html
 type AWSEMRCluster struct {
@@ -103,4 +109,33 @@ func (r *AWSEMRCluster) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRCluster) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEMRClusterResources retrieves all AWSEMRCluster items from a CloudFormation template
+func GetAllAWSEMRCluster(template *Template) map[string]*AWSEMRCluster {
+
+	results := map[string]*AWSEMRCluster{}
+	for name, resource := range template.Resources {
+		result := &AWSEMRCluster{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEMRClusterWithName retrieves all AWSEMRCluster items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEMRCluster(name string, template *Template) (*AWSEMRCluster, error) {
+
+	result := &AWSEMRCluster{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEMRCluster{}, errors.New("resource not found")
+
 }

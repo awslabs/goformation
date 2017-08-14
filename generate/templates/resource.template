@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // {{.Name}} AWS CloudFormation Resource
 // See: {{.Resource.Documentation}}
 type {{.StructName}} struct {
@@ -7,7 +13,6 @@ type {{.StructName}} struct {
     // {{$name}} AWS CloudFormation Property
     // Required: {{$property.Required}}
     // See: {{$property.Documentation}}
-    
         {{if $property.IsMap}}
             {{if $property.IsMapOfPrimitives}}
                 {{$name}} map[string]{{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
@@ -19,7 +24,6 @@ type {{.StructName}} struct {
                 {{end}}
             {{end}}
         {{end}}
-
         {{if $property.IsList}}
             {{if $property.IsListOfPrimitives}}
                 {{$name}} []{{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
@@ -31,11 +35,9 @@ type {{.StructName}} struct {
                 {{end}}
             {{end}}
         {{end}}
-
         {{if $property.IsCustomType}}
             {{$name}} {{$.Basename}}_{{$property.Type}} `json:"{{$name}}"`
         {{end}}
-
         {{if $property.IsPrimitive}}
             {{$name}} {{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
         {{end}}
@@ -50,4 +52,33 @@ func (r *{{.StructName}}) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *{{.StructName}}) AWSCloudFormationSpecificationVersion() string {
     return "{{.Version}}"
+}
+
+// GetAll{{.StructName}}Resources retrieves all {{.StructName}} items from a CloudFormation template
+func GetAll{{.StructName}} (template *Template) map[string]*{{.StructName}} {
+
+    results := map[string]*{{.StructName}}{}
+	for name, resource := range template.Resources {
+		result := &{{.StructName}}{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// Get{{.StructName}}WithName retrieves all {{.StructName}} items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithName{{.StructName}} (name string, template *Template) (*{{.StructName}}, error) {
+
+    result := &{{.StructName}}{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+    return &{{.StructName}}{}, errors.New("resource not found")
+
 }

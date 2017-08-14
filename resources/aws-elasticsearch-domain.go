@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Elasticsearch::Domain AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
 type AWSElasticsearchDomain struct {
@@ -61,4 +67,33 @@ func (r *AWSElasticsearchDomain) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticsearchDomain) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSElasticsearchDomainResources retrieves all AWSElasticsearchDomain items from a CloudFormation template
+func GetAllAWSElasticsearchDomain(template *Template) map[string]*AWSElasticsearchDomain {
+
+	results := map[string]*AWSElasticsearchDomain{}
+	for name, resource := range template.Resources {
+		result := &AWSElasticsearchDomain{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSElasticsearchDomainWithName retrieves all AWSElasticsearchDomain items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSElasticsearchDomain(name string, template *Template) (*AWSElasticsearchDomain, error) {
+
+	result := &AWSElasticsearchDomain{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSElasticsearchDomain{}, errors.New("resource not found")
+
 }

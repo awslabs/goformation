@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::AutoScaling::LaunchConfiguration AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
 type AWSAutoScalingLaunchConfiguration struct {
@@ -115,4 +121,33 @@ func (r *AWSAutoScalingLaunchConfiguration) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSAutoScalingLaunchConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSAutoScalingLaunchConfigurationResources retrieves all AWSAutoScalingLaunchConfiguration items from a CloudFormation template
+func GetAllAWSAutoScalingLaunchConfiguration(template *Template) map[string]*AWSAutoScalingLaunchConfiguration {
+
+	results := map[string]*AWSAutoScalingLaunchConfiguration{}
+	for name, resource := range template.Resources {
+		result := &AWSAutoScalingLaunchConfiguration{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSAutoScalingLaunchConfigurationWithName retrieves all AWSAutoScalingLaunchConfiguration items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSAutoScalingLaunchConfiguration(name string, template *Template) (*AWSAutoScalingLaunchConfiguration, error) {
+
+	result := &AWSAutoScalingLaunchConfiguration{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSAutoScalingLaunchConfiguration{}, errors.New("resource not found")
+
 }

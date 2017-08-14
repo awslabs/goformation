@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Lambda::EventSourceMapping AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
 type AWSLambdaEventSourceMapping struct {
@@ -43,4 +49,33 @@ func (r *AWSLambdaEventSourceMapping) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLambdaEventSourceMapping) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSLambdaEventSourceMappingResources retrieves all AWSLambdaEventSourceMapping items from a CloudFormation template
+func GetAllAWSLambdaEventSourceMapping(template *Template) map[string]*AWSLambdaEventSourceMapping {
+
+	results := map[string]*AWSLambdaEventSourceMapping{}
+	for name, resource := range template.Resources {
+		result := &AWSLambdaEventSourceMapping{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSLambdaEventSourceMappingWithName retrieves all AWSLambdaEventSourceMapping items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSLambdaEventSourceMapping(name string, template *Template) (*AWSLambdaEventSourceMapping, error) {
+
+	result := &AWSLambdaEventSourceMapping{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSLambdaEventSourceMapping{}, errors.New("resource not found")
+
 }

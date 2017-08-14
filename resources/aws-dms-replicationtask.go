@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::DMS::ReplicationTask AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html
 type AWSDMSReplicationTask struct {
@@ -67,4 +73,33 @@ func (r *AWSDMSReplicationTask) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDMSReplicationTask) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSDMSReplicationTaskResources retrieves all AWSDMSReplicationTask items from a CloudFormation template
+func GetAllAWSDMSReplicationTask(template *Template) map[string]*AWSDMSReplicationTask {
+
+	results := map[string]*AWSDMSReplicationTask{}
+	for name, resource := range template.Resources {
+		result := &AWSDMSReplicationTask{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSDMSReplicationTaskWithName retrieves all AWSDMSReplicationTask items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSDMSReplicationTask(name string, template *Template) (*AWSDMSReplicationTask, error) {
+
+	result := &AWSDMSReplicationTask{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSDMSReplicationTask{}, errors.New("resource not found")
+
 }

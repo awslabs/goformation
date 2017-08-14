@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ApiGateway::RestApi AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 type AWSApiGatewayRestApi struct {
@@ -67,4 +73,33 @@ func (r *AWSApiGatewayRestApi) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayRestApi) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSApiGatewayRestApiResources retrieves all AWSApiGatewayRestApi items from a CloudFormation template
+func GetAllAWSApiGatewayRestApi(template *Template) map[string]*AWSApiGatewayRestApi {
+
+	results := map[string]*AWSApiGatewayRestApi{}
+	for name, resource := range template.Resources {
+		result := &AWSApiGatewayRestApi{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSApiGatewayRestApiWithName retrieves all AWSApiGatewayRestApi items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSApiGatewayRestApi(name string, template *Template) (*AWSApiGatewayRestApi, error) {
+
+	result := &AWSApiGatewayRestApi{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSApiGatewayRestApi{}, errors.New("resource not found")
+
 }

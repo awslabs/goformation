@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::OpsWorks::Stack AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html
 type AWSOpsWorksStack struct {
@@ -157,4 +163,33 @@ func (r *AWSOpsWorksStack) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSOpsWorksStack) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSOpsWorksStackResources retrieves all AWSOpsWorksStack items from a CloudFormation template
+func GetAllAWSOpsWorksStack(template *Template) map[string]*AWSOpsWorksStack {
+
+	results := map[string]*AWSOpsWorksStack{}
+	for name, resource := range template.Resources {
+		result := &AWSOpsWorksStack{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSOpsWorksStackWithName retrieves all AWSOpsWorksStack items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSOpsWorksStack(name string, template *Template) (*AWSOpsWorksStack, error) {
+
+	result := &AWSOpsWorksStack{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSOpsWorksStack{}, errors.New("resource not found")
+
 }

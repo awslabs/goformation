@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::SNS::TopicPolicy AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
 type AWSSNSTopicPolicy struct {
@@ -25,4 +31,33 @@ func (r *AWSSNSTopicPolicy) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSNSTopicPolicy) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSSNSTopicPolicyResources retrieves all AWSSNSTopicPolicy items from a CloudFormation template
+func GetAllAWSSNSTopicPolicy(template *Template) map[string]*AWSSNSTopicPolicy {
+
+	results := map[string]*AWSSNSTopicPolicy{}
+	for name, resource := range template.Resources {
+		result := &AWSSNSTopicPolicy{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSSNSTopicPolicyWithName retrieves all AWSSNSTopicPolicy items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSSNSTopicPolicy(name string, template *Template) (*AWSSNSTopicPolicy, error) {
+
+	result := &AWSSNSTopicPolicy{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSSNSTopicPolicy{}, errors.New("resource not found")
+
 }

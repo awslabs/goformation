@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::WAF::IPSet AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
 type AWSWAFIPSet struct {
@@ -25,4 +31,33 @@ func (r *AWSWAFIPSet) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFIPSet) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSWAFIPSetResources retrieves all AWSWAFIPSet items from a CloudFormation template
+func GetAllAWSWAFIPSet(template *Template) map[string]*AWSWAFIPSet {
+
+	results := map[string]*AWSWAFIPSet{}
+	for name, resource := range template.Resources {
+		result := &AWSWAFIPSet{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSWAFIPSetWithName retrieves all AWSWAFIPSet items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSWAFIPSet(name string, template *Template) (*AWSWAFIPSet, error) {
+
+	result := &AWSWAFIPSet{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSWAFIPSet{}, errors.New("resource not found")
+
 }

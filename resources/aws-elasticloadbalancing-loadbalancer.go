@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ElasticLoadBalancing::LoadBalancer AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
 type AWSElasticLoadBalancingLoadBalancer struct {
@@ -109,4 +115,33 @@ func (r *AWSElasticLoadBalancingLoadBalancer) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticLoadBalancingLoadBalancer) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSElasticLoadBalancingLoadBalancerResources retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
+func GetAllAWSElasticLoadBalancingLoadBalancer(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer {
+
+	results := map[string]*AWSElasticLoadBalancingLoadBalancer{}
+	for name, resource := range template.Resources {
+		result := &AWSElasticLoadBalancingLoadBalancer{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSElasticLoadBalancingLoadBalancerWithName retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSElasticLoadBalancingLoadBalancer(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer, error) {
+
+	result := &AWSElasticLoadBalancingLoadBalancer{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSElasticLoadBalancingLoadBalancer{}, errors.New("resource not found")
+
 }

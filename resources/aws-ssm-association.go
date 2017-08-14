@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::SSM::Association AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
 type AWSSSMAssociation struct {
@@ -49,4 +55,33 @@ func (r *AWSSSMAssociation) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSSMAssociation) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSSSMAssociationResources retrieves all AWSSSMAssociation items from a CloudFormation template
+func GetAllAWSSSMAssociation(template *Template) map[string]*AWSSSMAssociation {
+
+	results := map[string]*AWSSSMAssociation{}
+	for name, resource := range template.Resources {
+		result := &AWSSSMAssociation{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSSSMAssociationWithName retrieves all AWSSSMAssociation items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSSSMAssociation(name string, template *Template) (*AWSSSMAssociation, error) {
+
+	result := &AWSSSMAssociation{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSSSMAssociation{}, errors.New("resource not found")
+
 }

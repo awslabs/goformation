@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EMR::Cluster.JobFlowInstancesConfig AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html
 type AWSEMRCluster_JobFlowInstancesConfig struct {
@@ -97,4 +103,33 @@ func (r *AWSEMRCluster_JobFlowInstancesConfig) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRCluster_JobFlowInstancesConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEMRCluster_JobFlowInstancesConfigResources retrieves all AWSEMRCluster_JobFlowInstancesConfig items from a CloudFormation template
+func GetAllAWSEMRCluster_JobFlowInstancesConfig(template *Template) map[string]*AWSEMRCluster_JobFlowInstancesConfig {
+
+	results := map[string]*AWSEMRCluster_JobFlowInstancesConfig{}
+	for name, resource := range template.Resources {
+		result := &AWSEMRCluster_JobFlowInstancesConfig{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEMRCluster_JobFlowInstancesConfigWithName retrieves all AWSEMRCluster_JobFlowInstancesConfig items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEMRCluster_JobFlowInstancesConfig(name string, template *Template) (*AWSEMRCluster_JobFlowInstancesConfig, error) {
+
+	result := &AWSEMRCluster_JobFlowInstancesConfig{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEMRCluster_JobFlowInstancesConfig{}, errors.New("resource not found")
+
 }

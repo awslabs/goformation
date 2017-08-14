@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Cognito::UserPool.PasswordPolicy AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html
 type AWSCognitoUserPool_PasswordPolicy struct {
@@ -43,4 +49,33 @@ func (r *AWSCognitoUserPool_PasswordPolicy) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoUserPool_PasswordPolicy) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCognitoUserPool_PasswordPolicyResources retrieves all AWSCognitoUserPool_PasswordPolicy items from a CloudFormation template
+func GetAllAWSCognitoUserPool_PasswordPolicy(template *Template) map[string]*AWSCognitoUserPool_PasswordPolicy {
+
+	results := map[string]*AWSCognitoUserPool_PasswordPolicy{}
+	for name, resource := range template.Resources {
+		result := &AWSCognitoUserPool_PasswordPolicy{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCognitoUserPool_PasswordPolicyWithName retrieves all AWSCognitoUserPool_PasswordPolicy items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCognitoUserPool_PasswordPolicy(name string, template *Template) (*AWSCognitoUserPool_PasswordPolicy, error) {
+
+	result := &AWSCognitoUserPool_PasswordPolicy{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCognitoUserPool_PasswordPolicy{}, errors.New("resource not found")
+
 }

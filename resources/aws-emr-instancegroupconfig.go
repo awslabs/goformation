@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EMR::InstanceGroupConfig AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
 type AWSEMRInstanceGroupConfig struct {
@@ -73,4 +79,33 @@ func (r *AWSEMRInstanceGroupConfig) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRInstanceGroupConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEMRInstanceGroupConfigResources retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
+func GetAllAWSEMRInstanceGroupConfig(template *Template) map[string]*AWSEMRInstanceGroupConfig {
+
+	results := map[string]*AWSEMRInstanceGroupConfig{}
+	for name, resource := range template.Resources {
+		result := &AWSEMRInstanceGroupConfig{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEMRInstanceGroupConfigWithName retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEMRInstanceGroupConfig(name string, template *Template) (*AWSEMRInstanceGroupConfig, error) {
+
+	result := &AWSEMRInstanceGroupConfig{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEMRInstanceGroupConfig{}, errors.New("resource not found")
+
 }

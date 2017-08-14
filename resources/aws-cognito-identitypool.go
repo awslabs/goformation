@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Cognito::IdentityPool AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html
 type AWSCognitoIdentityPool struct {
@@ -73,4 +79,33 @@ func (r *AWSCognitoIdentityPool) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoIdentityPool) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCognitoIdentityPoolResources retrieves all AWSCognitoIdentityPool items from a CloudFormation template
+func GetAllAWSCognitoIdentityPool(template *Template) map[string]*AWSCognitoIdentityPool {
+
+	results := map[string]*AWSCognitoIdentityPool{}
+	for name, resource := range template.Resources {
+		result := &AWSCognitoIdentityPool{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCognitoIdentityPoolWithName retrieves all AWSCognitoIdentityPool items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCognitoIdentityPool(name string, template *Template) (*AWSCognitoIdentityPool, error) {
+
+	result := &AWSCognitoIdentityPool{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCognitoIdentityPool{}, errors.New("resource not found")
+
 }

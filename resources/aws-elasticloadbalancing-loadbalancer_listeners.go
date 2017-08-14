@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ElasticLoadBalancing::LoadBalancer.Listeners AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html
 type AWSElasticLoadBalancingLoadBalancer_Listeners struct {
@@ -49,4 +55,33 @@ func (r *AWSElasticLoadBalancingLoadBalancer_Listeners) AWSCloudFormationType() 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticLoadBalancingLoadBalancer_Listeners) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSElasticLoadBalancingLoadBalancer_ListenersResources retrieves all AWSElasticLoadBalancingLoadBalancer_Listeners items from a CloudFormation template
+func GetAllAWSElasticLoadBalancingLoadBalancer_Listeners(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer_Listeners {
+
+	results := map[string]*AWSElasticLoadBalancingLoadBalancer_Listeners{}
+	for name, resource := range template.Resources {
+		result := &AWSElasticLoadBalancingLoadBalancer_Listeners{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSElasticLoadBalancingLoadBalancer_ListenersWithName retrieves all AWSElasticLoadBalancingLoadBalancer_Listeners items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSElasticLoadBalancingLoadBalancer_Listeners(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer_Listeners, error) {
+
+	result := &AWSElasticLoadBalancingLoadBalancer_Listeners{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSElasticLoadBalancingLoadBalancer_Listeners{}, errors.New("resource not found")
+
 }

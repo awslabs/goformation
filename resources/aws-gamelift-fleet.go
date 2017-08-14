@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::GameLift::Fleet AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
 type AWSGameLiftFleet struct {
@@ -79,4 +85,33 @@ func (r *AWSGameLiftFleet) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSGameLiftFleet) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSGameLiftFleetResources retrieves all AWSGameLiftFleet items from a CloudFormation template
+func GetAllAWSGameLiftFleet(template *Template) map[string]*AWSGameLiftFleet {
+
+	results := map[string]*AWSGameLiftFleet{}
+	for name, resource := range template.Resources {
+		result := &AWSGameLiftFleet{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSGameLiftFleetWithName retrieves all AWSGameLiftFleet items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSGameLiftFleet(name string, template *Template) (*AWSGameLiftFleet, error) {
+
+	result := &AWSGameLiftFleet{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSGameLiftFleet{}, errors.New("resource not found")
+
 }

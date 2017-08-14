@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EC2::SecurityGroupEgress AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html
 type AWSEC2SecurityGroupEgress struct {
@@ -61,4 +67,33 @@ func (r *AWSEC2SecurityGroupEgress) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2SecurityGroupEgress) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEC2SecurityGroupEgressResources retrieves all AWSEC2SecurityGroupEgress items from a CloudFormation template
+func GetAllAWSEC2SecurityGroupEgress(template *Template) map[string]*AWSEC2SecurityGroupEgress {
+
+	results := map[string]*AWSEC2SecurityGroupEgress{}
+	for name, resource := range template.Resources {
+		result := &AWSEC2SecurityGroupEgress{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEC2SecurityGroupEgressWithName retrieves all AWSEC2SecurityGroupEgress items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEC2SecurityGroupEgress(name string, template *Template) (*AWSEC2SecurityGroupEgress, error) {
+
+	result := &AWSEC2SecurityGroupEgress{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEC2SecurityGroupEgress{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::AutoScaling::ScalingPolicy AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html
 type AWSAutoScalingScalingPolicy struct {
@@ -67,4 +73,33 @@ func (r *AWSAutoScalingScalingPolicy) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSAutoScalingScalingPolicy) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSAutoScalingScalingPolicyResources retrieves all AWSAutoScalingScalingPolicy items from a CloudFormation template
+func GetAllAWSAutoScalingScalingPolicy(template *Template) map[string]*AWSAutoScalingScalingPolicy {
+
+	results := map[string]*AWSAutoScalingScalingPolicy{}
+	for name, resource := range template.Resources {
+		result := &AWSAutoScalingScalingPolicy{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSAutoScalingScalingPolicyWithName retrieves all AWSAutoScalingScalingPolicy items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSAutoScalingScalingPolicy(name string, template *Template) (*AWSAutoScalingScalingPolicy, error) {
+
+	result := &AWSAutoScalingScalingPolicy{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSAutoScalingScalingPolicy{}, errors.New("resource not found")
+
 }

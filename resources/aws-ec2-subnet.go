@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EC2::Subnet AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
 type AWSEC2Subnet struct {
@@ -43,4 +49,33 @@ func (r *AWSEC2Subnet) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2Subnet) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEC2SubnetResources retrieves all AWSEC2Subnet items from a CloudFormation template
+func GetAllAWSEC2Subnet(template *Template) map[string]*AWSEC2Subnet {
+
+	results := map[string]*AWSEC2Subnet{}
+	for name, resource := range template.Resources {
+		result := &AWSEC2Subnet{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEC2SubnetWithName retrieves all AWSEC2Subnet items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEC2Subnet(name string, template *Template) (*AWSEC2Subnet, error) {
+
+	result := &AWSEC2Subnet{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEC2Subnet{}, errors.New("resource not found")
+
 }

@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Config::ConfigurationRecorder AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
 type AWSConfigConfigurationRecorder struct {
@@ -31,4 +37,33 @@ func (r *AWSConfigConfigurationRecorder) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSConfigConfigurationRecorder) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSConfigConfigurationRecorderResources retrieves all AWSConfigConfigurationRecorder items from a CloudFormation template
+func GetAllAWSConfigConfigurationRecorder(template *Template) map[string]*AWSConfigConfigurationRecorder {
+
+	results := map[string]*AWSConfigConfigurationRecorder{}
+	for name, resource := range template.Resources {
+		result := &AWSConfigConfigurationRecorder{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSConfigConfigurationRecorderWithName retrieves all AWSConfigConfigurationRecorder items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSConfigConfigurationRecorder(name string, template *Template) (*AWSConfigConfigurationRecorder, error) {
+
+	result := &AWSConfigConfigurationRecorder{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSConfigConfigurationRecorder{}, errors.New("resource not found")
+
 }

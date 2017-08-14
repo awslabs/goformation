@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::CodePipeline::Pipeline.ArtifactStore AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html
 type AWSCodePipelinePipeline_ArtifactStore struct {
@@ -31,4 +37,33 @@ func (r *AWSCodePipelinePipeline_ArtifactStore) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodePipelinePipeline_ArtifactStore) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCodePipelinePipeline_ArtifactStoreResources retrieves all AWSCodePipelinePipeline_ArtifactStore items from a CloudFormation template
+func GetAllAWSCodePipelinePipeline_ArtifactStore(template *Template) map[string]*AWSCodePipelinePipeline_ArtifactStore {
+
+	results := map[string]*AWSCodePipelinePipeline_ArtifactStore{}
+	for name, resource := range template.Resources {
+		result := &AWSCodePipelinePipeline_ArtifactStore{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCodePipelinePipeline_ArtifactStoreWithName retrieves all AWSCodePipelinePipeline_ArtifactStore items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCodePipelinePipeline_ArtifactStore(name string, template *Template) (*AWSCodePipelinePipeline_ArtifactStore, error) {
+
+	result := &AWSCodePipelinePipeline_ArtifactStore{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCodePipelinePipeline_ArtifactStore{}, errors.New("resource not found")
+
 }

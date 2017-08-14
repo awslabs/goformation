@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::SQS::Queue AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html
 type AWSSQSQueue struct {
@@ -67,4 +73,33 @@ func (r *AWSSQSQueue) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSQSQueue) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSSQSQueueResources retrieves all AWSSQSQueue items from a CloudFormation template
+func GetAllAWSSQSQueue(template *Template) map[string]*AWSSQSQueue {
+
+	results := map[string]*AWSSQSQueue{}
+	for name, resource := range template.Resources {
+		result := &AWSSQSQueue{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSSQSQueueWithName retrieves all AWSSQSQueue items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSSQSQueue(name string, template *Template) (*AWSSQSQueue, error) {
+
+	result := &AWSSQSQueue{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSSQSQueue{}, errors.New("resource not found")
+
 }

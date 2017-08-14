@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::WorkSpaces::Workspace AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
 type AWSWorkSpacesWorkspace struct {
@@ -49,4 +55,33 @@ func (r *AWSWorkSpacesWorkspace) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWorkSpacesWorkspace) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSWorkSpacesWorkspaceResources retrieves all AWSWorkSpacesWorkspace items from a CloudFormation template
+func GetAllAWSWorkSpacesWorkspace(template *Template) map[string]*AWSWorkSpacesWorkspace {
+
+	results := map[string]*AWSWorkSpacesWorkspace{}
+	for name, resource := range template.Resources {
+		result := &AWSWorkSpacesWorkspace{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSWorkSpacesWorkspaceWithName retrieves all AWSWorkSpacesWorkspace items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSWorkSpacesWorkspace(name string, template *Template) (*AWSWorkSpacesWorkspace, error) {
+
+	result := &AWSWorkSpacesWorkspace{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSWorkSpacesWorkspace{}, errors.New("resource not found")
+
 }

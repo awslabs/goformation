@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EMR::InstanceFleetConfig AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
 type AWSEMRInstanceFleetConfig struct {
@@ -55,4 +61,33 @@ func (r *AWSEMRInstanceFleetConfig) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRInstanceFleetConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEMRInstanceFleetConfigResources retrieves all AWSEMRInstanceFleetConfig items from a CloudFormation template
+func GetAllAWSEMRInstanceFleetConfig(template *Template) map[string]*AWSEMRInstanceFleetConfig {
+
+	results := map[string]*AWSEMRInstanceFleetConfig{}
+	for name, resource := range template.Resources {
+		result := &AWSEMRInstanceFleetConfig{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEMRInstanceFleetConfigWithName retrieves all AWSEMRInstanceFleetConfig items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEMRInstanceFleetConfig(name string, template *Template) (*AWSEMRInstanceFleetConfig, error) {
+
+	result := &AWSEMRInstanceFleetConfig{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEMRInstanceFleetConfig{}, errors.New("resource not found")
+
 }

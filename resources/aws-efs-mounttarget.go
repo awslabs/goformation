@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EFS::MountTarget AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
 type AWSEFSMountTarget struct {
@@ -37,4 +43,33 @@ func (r *AWSEFSMountTarget) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEFSMountTarget) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEFSMountTargetResources retrieves all AWSEFSMountTarget items from a CloudFormation template
+func GetAllAWSEFSMountTarget(template *Template) map[string]*AWSEFSMountTarget {
+
+	results := map[string]*AWSEFSMountTarget{}
+	for name, resource := range template.Resources {
+		result := &AWSEFSMountTarget{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEFSMountTargetWithName retrieves all AWSEFSMountTarget items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEFSMountTarget(name string, template *Template) (*AWSEFSMountTarget, error) {
+
+	result := &AWSEFSMountTarget{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEFSMountTarget{}, errors.New("resource not found")
+
 }

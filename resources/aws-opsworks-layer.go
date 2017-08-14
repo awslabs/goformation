@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::OpsWorks::Layer AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
 type AWSOpsWorksLayer struct {
@@ -121,4 +127,33 @@ func (r *AWSOpsWorksLayer) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSOpsWorksLayer) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSOpsWorksLayerResources retrieves all AWSOpsWorksLayer items from a CloudFormation template
+func GetAllAWSOpsWorksLayer(template *Template) map[string]*AWSOpsWorksLayer {
+
+	results := map[string]*AWSOpsWorksLayer{}
+	for name, resource := range template.Resources {
+		result := &AWSOpsWorksLayer{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSOpsWorksLayerWithName retrieves all AWSOpsWorksLayer items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSOpsWorksLayer(name string, template *Template) (*AWSOpsWorksLayer, error) {
+
+	result := &AWSOpsWorksLayer{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSOpsWorksLayer{}, errors.New("resource not found")
+
 }

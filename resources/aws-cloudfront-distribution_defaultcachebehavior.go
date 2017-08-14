@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::CloudFront::Distribution.DefaultCacheBehavior AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html
 type AWSCloudFrontDistribution_DefaultCacheBehavior struct {
@@ -79,4 +85,33 @@ func (r *AWSCloudFrontDistribution_DefaultCacheBehavior) AWSCloudFormationType()
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCloudFrontDistribution_DefaultCacheBehavior) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCloudFrontDistribution_DefaultCacheBehaviorResources retrieves all AWSCloudFrontDistribution_DefaultCacheBehavior items from a CloudFormation template
+func GetAllAWSCloudFrontDistribution_DefaultCacheBehavior(template *Template) map[string]*AWSCloudFrontDistribution_DefaultCacheBehavior {
+
+	results := map[string]*AWSCloudFrontDistribution_DefaultCacheBehavior{}
+	for name, resource := range template.Resources {
+		result := &AWSCloudFrontDistribution_DefaultCacheBehavior{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCloudFrontDistribution_DefaultCacheBehaviorWithName retrieves all AWSCloudFrontDistribution_DefaultCacheBehavior items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCloudFrontDistribution_DefaultCacheBehavior(name string, template *Template) (*AWSCloudFrontDistribution_DefaultCacheBehavior, error) {
+
+	result := &AWSCloudFrontDistribution_DefaultCacheBehavior{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCloudFrontDistribution_DefaultCacheBehavior{}, errors.New("resource not found")
+
 }

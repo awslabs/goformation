@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::RDS::DBSecurityGroupIngress AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html
 type AWSRDSDBSecurityGroupIngress struct {
@@ -43,4 +49,33 @@ func (r *AWSRDSDBSecurityGroupIngress) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRDSDBSecurityGroupIngress) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSRDSDBSecurityGroupIngressResources retrieves all AWSRDSDBSecurityGroupIngress items from a CloudFormation template
+func GetAllAWSRDSDBSecurityGroupIngress(template *Template) map[string]*AWSRDSDBSecurityGroupIngress {
+
+	results := map[string]*AWSRDSDBSecurityGroupIngress{}
+	for name, resource := range template.Resources {
+		result := &AWSRDSDBSecurityGroupIngress{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSRDSDBSecurityGroupIngressWithName retrieves all AWSRDSDBSecurityGroupIngress items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSRDSDBSecurityGroupIngress(name string, template *Template) (*AWSRDSDBSecurityGroupIngress, error) {
+
+	result := &AWSRDSDBSecurityGroupIngress{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSRDSDBSecurityGroupIngress{}, errors.New("resource not found")
+
 }

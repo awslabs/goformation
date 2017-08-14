@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ApiGateway::Deployment.StageDescription AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html
 type AWSApiGatewayDeployment_StageDescription struct {
@@ -103,4 +109,33 @@ func (r *AWSApiGatewayDeployment_StageDescription) AWSCloudFormationType() strin
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayDeployment_StageDescription) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSApiGatewayDeployment_StageDescriptionResources retrieves all AWSApiGatewayDeployment_StageDescription items from a CloudFormation template
+func GetAllAWSApiGatewayDeployment_StageDescription(template *Template) map[string]*AWSApiGatewayDeployment_StageDescription {
+
+	results := map[string]*AWSApiGatewayDeployment_StageDescription{}
+	for name, resource := range template.Resources {
+		result := &AWSApiGatewayDeployment_StageDescription{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSApiGatewayDeployment_StageDescriptionWithName retrieves all AWSApiGatewayDeployment_StageDescription items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSApiGatewayDeployment_StageDescription(name string, template *Template) (*AWSApiGatewayDeployment_StageDescription, error) {
+
+	result := &AWSApiGatewayDeployment_StageDescription{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSApiGatewayDeployment_StageDescription{}, errors.New("resource not found")
+
 }

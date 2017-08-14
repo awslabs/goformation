@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EC2::NetworkInterfaceAttachment AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html
 type AWSEC2NetworkInterfaceAttachment struct {
@@ -37,4 +43,33 @@ func (r *AWSEC2NetworkInterfaceAttachment) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NetworkInterfaceAttachment) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEC2NetworkInterfaceAttachmentResources retrieves all AWSEC2NetworkInterfaceAttachment items from a CloudFormation template
+func GetAllAWSEC2NetworkInterfaceAttachment(template *Template) map[string]*AWSEC2NetworkInterfaceAttachment {
+
+	results := map[string]*AWSEC2NetworkInterfaceAttachment{}
+	for name, resource := range template.Resources {
+		result := &AWSEC2NetworkInterfaceAttachment{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEC2NetworkInterfaceAttachmentWithName retrieves all AWSEC2NetworkInterfaceAttachment items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEC2NetworkInterfaceAttachment(name string, template *Template) (*AWSEC2NetworkInterfaceAttachment, error) {
+
+	result := &AWSEC2NetworkInterfaceAttachment{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEC2NetworkInterfaceAttachment{}, errors.New("resource not found")
+
 }

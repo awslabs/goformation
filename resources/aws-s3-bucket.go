@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::S3::Bucket AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
 type AWSS3Bucket struct {
@@ -73,4 +79,33 @@ func (r *AWSS3Bucket) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSS3Bucket) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSS3BucketResources retrieves all AWSS3Bucket items from a CloudFormation template
+func GetAllAWSS3Bucket(template *Template) map[string]*AWSS3Bucket {
+
+	results := map[string]*AWSS3Bucket{}
+	for name, resource := range template.Resources {
+		result := &AWSS3Bucket{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSS3BucketWithName retrieves all AWSS3Bucket items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSS3Bucket(name string, template *Template) (*AWSS3Bucket, error) {
+
+	result := &AWSS3Bucket{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSS3Bucket{}, errors.New("resource not found")
+
 }

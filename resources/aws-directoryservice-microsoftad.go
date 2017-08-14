@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::DirectoryService::MicrosoftAD AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
 type AWSDirectoryServiceMicrosoftAD struct {
@@ -49,4 +55,33 @@ func (r *AWSDirectoryServiceMicrosoftAD) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDirectoryServiceMicrosoftAD) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSDirectoryServiceMicrosoftADResources retrieves all AWSDirectoryServiceMicrosoftAD items from a CloudFormation template
+func GetAllAWSDirectoryServiceMicrosoftAD(template *Template) map[string]*AWSDirectoryServiceMicrosoftAD {
+
+	results := map[string]*AWSDirectoryServiceMicrosoftAD{}
+	for name, resource := range template.Resources {
+		result := &AWSDirectoryServiceMicrosoftAD{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSDirectoryServiceMicrosoftADWithName retrieves all AWSDirectoryServiceMicrosoftAD items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSDirectoryServiceMicrosoftAD(name string, template *Template) (*AWSDirectoryServiceMicrosoftAD, error) {
+
+	result := &AWSDirectoryServiceMicrosoftAD{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSDirectoryServiceMicrosoftAD{}, errors.New("resource not found")
+
 }
