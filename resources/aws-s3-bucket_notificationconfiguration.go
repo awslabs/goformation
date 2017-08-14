@@ -1,0 +1,31 @@
+package resources
+
+// AWS::S3::Bucket.NotificationConfiguration AWS CloudFormation Resource
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
+type AWSS3BucketNotificationConfiguration struct {
+
+	// LambdaConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
+	LambdaConfigurations []AWSS3BucketNotificationConfigurationLambdaConfiguration `json:"LambdaConfigurations"`
+
+	// QueueConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
+	QueueConfigurations []AWSS3BucketNotificationConfigurationQueueConfiguration `json:"QueueConfigurations"`
+
+	// TopicConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
+	TopicConfigurations []AWSS3BucketNotificationConfigurationTopicConfiguration `json:"TopicConfigurations"`
+}
+
+// AWSCloudFormationType returns the AWS CloudFormation resource type
+func (r *AWSS3BucketNotificationConfiguration) AWSCloudFormationType() string {
+	return "AWS::S3::Bucket.NotificationConfiguration"
+}
+
+// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
+func (r *AWSS3BucketNotificationConfiguration) AWSCloudFormationSpecificationVersion() string {
+	return "1.4.2"
+}
