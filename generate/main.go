@@ -50,7 +50,7 @@ func main() {
 	}
 
 	// Generate the JSON-Schema
-	schema := "resources/json.schema"
+	schema := "schema/cloudformation.schema.json"
 	generateSchema(spec, schema)
 	fmt.Printf("Generated JSON Schema: %s\n", schema)
 
@@ -61,7 +61,7 @@ func main() {
 func generateResources(name string, resource Resource, spec *CloudFormationResourceSpecification) {
 
 	// Open the resource template
-	tmpl, err := template.ParseFiles("resource.template")
+	tmpl, err := template.ParseFiles("generate/templates/resource.template")
 	if err != nil {
 		fmt.Printf("Error: Failed to load resource template\n%s\n", err)
 		os.Exit(1)
@@ -112,7 +112,7 @@ func generateSchema(spec *CloudFormationResourceSpecification, filename string) 
 	// are required in the JSON when looping through maps
 	tmpl, err := template.New("schema.template").Funcs(template.FuncMap{
 		"counter": counter,
-	}).ParseFiles("schema.template")
+	}).ParseFiles("generate/templates/schema.template")
 
 	var buf bytes.Buffer
 

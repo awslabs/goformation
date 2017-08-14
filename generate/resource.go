@@ -27,7 +27,7 @@ func (r Resource) Schema(name string) string {
 	// are required in the JSON when looping through maps
 	tmpl, err := template.New("schema-resource.template").Funcs(template.FuncMap{
 		"counter": counter,
-	}).ParseFiles("schema-resource.template")
+	}).ParseFiles("generate/templates/schema-resource.template")
 
 	var buf bytes.Buffer
 
