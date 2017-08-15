@@ -45,32 +45,3 @@ func (r *AWSOpsWorksInstance_EbsBlockDevice) AWSCloudFormationType() string {
 func (r *AWSOpsWorksInstance_EbsBlockDevice) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSOpsWorksInstance_EbsBlockDeviceResources retrieves all AWSOpsWorksInstance_EbsBlockDevice items from a CloudFormation template
-func GetAllAWSOpsWorksInstance_EbsBlockDevice(template *Template) map[string]*AWSOpsWorksInstance_EbsBlockDevice {
-
-	results := map[string]*AWSOpsWorksInstance_EbsBlockDevice{}
-	for name, resource := range template.Resources {
-		result := &AWSOpsWorksInstance_EbsBlockDevice{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSOpsWorksInstance_EbsBlockDeviceWithName retrieves all AWSOpsWorksInstance_EbsBlockDevice items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksInstance_EbsBlockDevice(name string, template *Template) (*AWSOpsWorksInstance_EbsBlockDevice, error) {
-
-	result := &AWSOpsWorksInstance_EbsBlockDevice{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSOpsWorksInstance_EbsBlockDevice{}, errors.New("resource not found")
-
-}

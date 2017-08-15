@@ -42,7 +42,7 @@ func (r *AWSRoute53HostedZone) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRoute53HostedZoneResources retrieves all AWSRoute53HostedZone items from a CloudFormation template
-func GetAllAWSRoute53HostedZone(template *Template) map[string]*AWSRoute53HostedZone {
+func GetAllAWSRoute53HostedZoneResources(template *Template) map[string]*AWSRoute53HostedZone {
 
 	results := map[string]*AWSRoute53HostedZone{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSRoute53HostedZone(template *Template) map[string]*AWSRoute53Hosted
 
 // GetAWSRoute53HostedZoneWithName retrieves all AWSRoute53HostedZone items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRoute53HostedZone(name string, template *Template) (*AWSRoute53HostedZone, error) {
+func GetAWSRoute53HostedZoneWithName(name string, template *Template) (*AWSRoute53HostedZone, error) {
 
 	result := &AWSRoute53HostedZone{}
 	if resource, ok := template.Resources[name]; ok {

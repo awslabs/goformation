@@ -35,32 +35,3 @@ func (r *AWSCodeDeployDeploymentGroup_Deployment) AWSCloudFormationType() string
 func (r *AWSCodeDeployDeploymentGroup_Deployment) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCodeDeployDeploymentGroup_DeploymentResources retrieves all AWSCodeDeployDeploymentGroup_Deployment items from a CloudFormation template
-func GetAllAWSCodeDeployDeploymentGroup_Deployment(template *Template) map[string]*AWSCodeDeployDeploymentGroup_Deployment {
-
-	results := map[string]*AWSCodeDeployDeploymentGroup_Deployment{}
-	for name, resource := range template.Resources {
-		result := &AWSCodeDeployDeploymentGroup_Deployment{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCodeDeployDeploymentGroup_DeploymentWithName retrieves all AWSCodeDeployDeploymentGroup_Deployment items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeDeployDeploymentGroup_Deployment(name string, template *Template) (*AWSCodeDeployDeploymentGroup_Deployment, error) {
-
-	result := &AWSCodeDeployDeploymentGroup_Deployment{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCodeDeployDeploymentGroup_Deployment{}, errors.New("resource not found")
-
-}

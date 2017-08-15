@@ -40,13 +40,13 @@ func main() {
 
 	// Write all of the resources, using a template
 	for name, resource := range spec.Resources {
-		generateResources(name, resource, spec)
+		generateResources(name, resource, false, spec)
 		fmt.Printf("Generated resource: %s\n", name)
 	}
 
 	// Write all of the custom properties, using a template
 	for name, property := range spec.Properties {
-		generateResources(name, property, spec)
+		generateResources(name, property, true, spec)
 		fmt.Printf("Generated custom property type: %s\n", name)
 	}
 
@@ -59,7 +59,7 @@ func main() {
 
 // generateResources generates Go structs for all of the resources and custom property types
 // found in a CloudformationResourceSpecification
-func generateResources(name string, resource Resource, spec *CloudFormationResourceSpecification) {
+func generateResources(name string, resource Resource, isCustomProperty bool, spec *CloudFormationResourceSpecification) {
 
 	// Open the resource template
 	tmpl, err := template.ParseFiles("generate/templates/resource.template")
@@ -74,17 +74,19 @@ func generateResources(name string, resource Resource, spec *CloudFormationResou
 	basename := structName(structNameParts[0])
 
 	templateData := struct {
-		Name       string
-		StructName string
-		Basename   string
-		Resource   Resource
-		Version    string
+		Name             string
+		StructName       string
+		Basename         string
+		Resource         Resource
+		IsCustomProperty bool
+		Version          string
 	}{
-		Name:       name,
-		StructName: sname,
-		Basename:   basename,
-		Resource:   resource,
-		Version:    spec.ResourceSpecificationVersion,
+		Name:             name,
+		StructName:       sname,
+		Basename:         basename,
+		Resource:         resource,
+		IsCustomProperty: isCustomProperty,
+		Version:          spec.ResourceSpecificationVersion,
 	}
 
 	// Execute the template, writing it to file

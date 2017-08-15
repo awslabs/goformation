@@ -45,32 +45,3 @@ func (r *AWSElasticLoadBalancingLoadBalancer_HealthCheck) AWSCloudFormationType(
 func (r *AWSElasticLoadBalancingLoadBalancer_HealthCheck) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElasticLoadBalancingLoadBalancer_HealthCheckResources retrieves all AWSElasticLoadBalancingLoadBalancer_HealthCheck items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingLoadBalancer_HealthCheck(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer_HealthCheck {
-
-	results := map[string]*AWSElasticLoadBalancingLoadBalancer_HealthCheck{}
-	for name, resource := range template.Resources {
-		result := &AWSElasticLoadBalancingLoadBalancer_HealthCheck{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElasticLoadBalancingLoadBalancer_HealthCheckWithName retrieves all AWSElasticLoadBalancingLoadBalancer_HealthCheck items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingLoadBalancer_HealthCheck(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer_HealthCheck, error) {
-
-	result := &AWSElasticLoadBalancingLoadBalancer_HealthCheck{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElasticLoadBalancingLoadBalancer_HealthCheck{}, errors.New("resource not found")
-
-}

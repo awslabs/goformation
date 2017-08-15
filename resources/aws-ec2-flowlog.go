@@ -47,7 +47,7 @@ func (r *AWSEC2FlowLog) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2FlowLogResources retrieves all AWSEC2FlowLog items from a CloudFormation template
-func GetAllAWSEC2FlowLog(template *Template) map[string]*AWSEC2FlowLog {
+func GetAllAWSEC2FlowLogResources(template *Template) map[string]*AWSEC2FlowLog {
 
 	results := map[string]*AWSEC2FlowLog{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSEC2FlowLog(template *Template) map[string]*AWSEC2FlowLog {
 
 // GetAWSEC2FlowLogWithName retrieves all AWSEC2FlowLog items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2FlowLog(name string, template *Template) (*AWSEC2FlowLog, error) {
+func GetAWSEC2FlowLogWithName(name string, template *Template) (*AWSEC2FlowLog, error) {
 
 	result := &AWSEC2FlowLog{}
 	if resource, ok := template.Resources[name]; ok {

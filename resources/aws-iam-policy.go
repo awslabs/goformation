@@ -47,7 +47,7 @@ func (r *AWSIAMPolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMPolicyResources retrieves all AWSIAMPolicy items from a CloudFormation template
-func GetAllAWSIAMPolicy(template *Template) map[string]*AWSIAMPolicy {
+func GetAllAWSIAMPolicyResources(template *Template) map[string]*AWSIAMPolicy {
 
 	results := map[string]*AWSIAMPolicy{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSIAMPolicy(template *Template) map[string]*AWSIAMPolicy {
 
 // GetAWSIAMPolicyWithName retrieves all AWSIAMPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMPolicy(name string, template *Template) (*AWSIAMPolicy, error) {
+func GetAWSIAMPolicyWithName(name string, template *Template) (*AWSIAMPolicy, error) {
 
 	result := &AWSIAMPolicy{}
 	if resource, ok := template.Resources[name]; ok {

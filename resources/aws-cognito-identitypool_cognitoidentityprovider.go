@@ -35,32 +35,3 @@ func (r *AWSCognitoIdentityPool_CognitoIdentityProvider) AWSCloudFormationType()
 func (r *AWSCognitoIdentityPool_CognitoIdentityProvider) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCognitoIdentityPool_CognitoIdentityProviderResources retrieves all AWSCognitoIdentityPool_CognitoIdentityProvider items from a CloudFormation template
-func GetAllAWSCognitoIdentityPool_CognitoIdentityProvider(template *Template) map[string]*AWSCognitoIdentityPool_CognitoIdentityProvider {
-
-	results := map[string]*AWSCognitoIdentityPool_CognitoIdentityProvider{}
-	for name, resource := range template.Resources {
-		result := &AWSCognitoIdentityPool_CognitoIdentityProvider{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCognitoIdentityPool_CognitoIdentityProviderWithName retrieves all AWSCognitoIdentityPool_CognitoIdentityProvider items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCognitoIdentityPool_CognitoIdentityProvider(name string, template *Template) (*AWSCognitoIdentityPool_CognitoIdentityProvider, error) {
-
-	result := &AWSCognitoIdentityPool_CognitoIdentityProvider{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCognitoIdentityPool_CognitoIdentityProvider{}, errors.New("resource not found")
-
-}

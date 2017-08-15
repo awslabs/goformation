@@ -35,32 +35,3 @@ func (r *AWSEMRCluster_Configuration) AWSCloudFormationType() string {
 func (r *AWSEMRCluster_Configuration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRCluster_ConfigurationResources retrieves all AWSEMRCluster_Configuration items from a CloudFormation template
-func GetAllAWSEMRCluster_Configuration(template *Template) map[string]*AWSEMRCluster_Configuration {
-
-	results := map[string]*AWSEMRCluster_Configuration{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRCluster_Configuration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRCluster_ConfigurationWithName retrieves all AWSEMRCluster_Configuration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRCluster_Configuration(name string, template *Template) (*AWSEMRCluster_Configuration, error) {
-
-	result := &AWSEMRCluster_Configuration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRCluster_Configuration{}, errors.New("resource not found")
-
-}

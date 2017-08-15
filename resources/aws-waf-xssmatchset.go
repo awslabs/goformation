@@ -32,7 +32,7 @@ func (r *AWSWAFXssMatchSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFXssMatchSetResources retrieves all AWSWAFXssMatchSet items from a CloudFormation template
-func GetAllAWSWAFXssMatchSet(template *Template) map[string]*AWSWAFXssMatchSet {
+func GetAllAWSWAFXssMatchSetResources(template *Template) map[string]*AWSWAFXssMatchSet {
 
 	results := map[string]*AWSWAFXssMatchSet{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSWAFXssMatchSet(template *Template) map[string]*AWSWAFXssMatchSet {
 
 // GetAWSWAFXssMatchSetWithName retrieves all AWSWAFXssMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFXssMatchSet(name string, template *Template) (*AWSWAFXssMatchSet, error) {
+func GetAWSWAFXssMatchSetWithName(name string, template *Template) (*AWSWAFXssMatchSet, error) {
 
 	result := &AWSWAFXssMatchSet{}
 	if resource, ok := template.Resources[name]; ok {

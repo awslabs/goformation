@@ -212,7 +212,7 @@ func (r *AWSRDSDBInstance) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBInstanceResources retrieves all AWSRDSDBInstance items from a CloudFormation template
-func GetAllAWSRDSDBInstance(template *Template) map[string]*AWSRDSDBInstance {
+func GetAllAWSRDSDBInstanceResources(template *Template) map[string]*AWSRDSDBInstance {
 
 	results := map[string]*AWSRDSDBInstance{}
 	for name, resource := range template.Resources {
@@ -227,7 +227,7 @@ func GetAllAWSRDSDBInstance(template *Template) map[string]*AWSRDSDBInstance {
 
 // GetAWSRDSDBInstanceWithName retrieves all AWSRDSDBInstance items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBInstance(name string, template *Template) (*AWSRDSDBInstance, error) {
+func GetAWSRDSDBInstanceWithName(name string, template *Template) (*AWSRDSDBInstance, error) {
 
 	result := &AWSRDSDBInstance{}
 	if resource, ok := template.Resources[name]; ok {

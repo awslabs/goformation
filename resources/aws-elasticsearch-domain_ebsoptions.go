@@ -40,32 +40,3 @@ func (r *AWSElasticsearchDomain_EBSOptions) AWSCloudFormationType() string {
 func (r *AWSElasticsearchDomain_EBSOptions) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElasticsearchDomain_EBSOptionsResources retrieves all AWSElasticsearchDomain_EBSOptions items from a CloudFormation template
-func GetAllAWSElasticsearchDomain_EBSOptions(template *Template) map[string]*AWSElasticsearchDomain_EBSOptions {
-
-	results := map[string]*AWSElasticsearchDomain_EBSOptions{}
-	for name, resource := range template.Resources {
-		result := &AWSElasticsearchDomain_EBSOptions{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElasticsearchDomain_EBSOptionsWithName retrieves all AWSElasticsearchDomain_EBSOptions items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticsearchDomain_EBSOptions(name string, template *Template) (*AWSElasticsearchDomain_EBSOptions, error) {
-
-	result := &AWSElasticsearchDomain_EBSOptions{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElasticsearchDomain_EBSOptions{}, errors.New("resource not found")
-
-}

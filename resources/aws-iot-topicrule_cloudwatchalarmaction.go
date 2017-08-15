@@ -40,32 +40,3 @@ func (r *AWSIoTTopicRule_CloudwatchAlarmAction) AWSCloudFormationType() string {
 func (r *AWSIoTTopicRule_CloudwatchAlarmAction) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSIoTTopicRule_CloudwatchAlarmActionResources retrieves all AWSIoTTopicRule_CloudwatchAlarmAction items from a CloudFormation template
-func GetAllAWSIoTTopicRule_CloudwatchAlarmAction(template *Template) map[string]*AWSIoTTopicRule_CloudwatchAlarmAction {
-
-	results := map[string]*AWSIoTTopicRule_CloudwatchAlarmAction{}
-	for name, resource := range template.Resources {
-		result := &AWSIoTTopicRule_CloudwatchAlarmAction{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSIoTTopicRule_CloudwatchAlarmActionWithName retrieves all AWSIoTTopicRule_CloudwatchAlarmAction items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTTopicRule_CloudwatchAlarmAction(name string, template *Template) (*AWSIoTTopicRule_CloudwatchAlarmAction, error) {
-
-	result := &AWSIoTTopicRule_CloudwatchAlarmAction{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSIoTTopicRule_CloudwatchAlarmAction{}, errors.New("resource not found")
-
-}

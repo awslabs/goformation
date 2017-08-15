@@ -35,32 +35,3 @@ func (r *AWSConfigConfigRule_Source) AWSCloudFormationType() string {
 func (r *AWSConfigConfigRule_Source) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSConfigConfigRule_SourceResources retrieves all AWSConfigConfigRule_Source items from a CloudFormation template
-func GetAllAWSConfigConfigRule_Source(template *Template) map[string]*AWSConfigConfigRule_Source {
-
-	results := map[string]*AWSConfigConfigRule_Source{}
-	for name, resource := range template.Resources {
-		result := &AWSConfigConfigRule_Source{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSConfigConfigRule_SourceWithName retrieves all AWSConfigConfigRule_Source items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSConfigConfigRule_Source(name string, template *Template) (*AWSConfigConfigRule_Source, error) {
-
-	result := &AWSConfigConfigRule_Source{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSConfigConfigRule_Source{}, errors.New("resource not found")
-
-}

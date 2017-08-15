@@ -57,7 +57,7 @@ func (r *AWSEMRInstanceFleetConfig) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSEMRInstanceFleetConfigResources retrieves all AWSEMRInstanceFleetConfig items from a CloudFormation template
-func GetAllAWSEMRInstanceFleetConfig(template *Template) map[string]*AWSEMRInstanceFleetConfig {
+func GetAllAWSEMRInstanceFleetConfigResources(template *Template) map[string]*AWSEMRInstanceFleetConfig {
 
 	results := map[string]*AWSEMRInstanceFleetConfig{}
 	for name, resource := range template.Resources {
@@ -72,7 +72,7 @@ func GetAllAWSEMRInstanceFleetConfig(template *Template) map[string]*AWSEMRInsta
 
 // GetAWSEMRInstanceFleetConfigWithName retrieves all AWSEMRInstanceFleetConfig items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceFleetConfig(name string, template *Template) (*AWSEMRInstanceFleetConfig, error) {
+func GetAWSEMRInstanceFleetConfigWithName(name string, template *Template) (*AWSEMRInstanceFleetConfig, error) {
 
 	result := &AWSEMRInstanceFleetConfig{}
 	if resource, ok := template.Resources[name]; ok {

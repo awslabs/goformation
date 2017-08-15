@@ -27,7 +27,7 @@ func (r *AWSEC2InternetGateway) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2InternetGatewayResources retrieves all AWSEC2InternetGateway items from a CloudFormation template
-func GetAllAWSEC2InternetGateway(template *Template) map[string]*AWSEC2InternetGateway {
+func GetAllAWSEC2InternetGatewayResources(template *Template) map[string]*AWSEC2InternetGateway {
 
 	results := map[string]*AWSEC2InternetGateway{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSEC2InternetGateway(template *Template) map[string]*AWSEC2InternetG
 
 // GetAWSEC2InternetGatewayWithName retrieves all AWSEC2InternetGateway items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2InternetGateway(name string, template *Template) (*AWSEC2InternetGateway, error) {
+func GetAWSEC2InternetGatewayWithName(name string, template *Template) (*AWSEC2InternetGateway, error) {
 
 	result := &AWSEC2InternetGateway{}
 	if resource, ok := template.Resources[name]; ok {

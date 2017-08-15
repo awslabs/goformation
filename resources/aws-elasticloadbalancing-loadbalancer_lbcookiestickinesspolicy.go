@@ -30,32 +30,3 @@ func (r *AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy) AWSCloudF
 func (r *AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicyResources retrieves all AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy {
-
-	results := map[string]*AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy{}
-	for name, resource := range template.Resources {
-		result := &AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicyWithName retrieves all AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy, error) {
-
-	result := &AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy{}, errors.New("resource not found")
-
-}

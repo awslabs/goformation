@@ -32,7 +32,7 @@ func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) AWSCloudFormationSpe
 }
 
 // GetAllAWSKinesisAnalyticsApplicationReferenceDataSourceResources retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource items from a CloudFormation template
-func GetAllAWSKinesisAnalyticsApplicationReferenceDataSource(template *Template) map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource {
+func GetAllAWSKinesisAnalyticsApplicationReferenceDataSourceResources(template *Template) map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource {
 
 	results := map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSKinesisAnalyticsApplicationReferenceDataSource(template *Template)
 
 // GetAWSKinesisAnalyticsApplicationReferenceDataSourceWithName retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisAnalyticsApplicationReferenceDataSource(name string, template *Template) (*AWSKinesisAnalyticsApplicationReferenceDataSource, error) {
+func GetAWSKinesisAnalyticsApplicationReferenceDataSourceWithName(name string, template *Template) (*AWSKinesisAnalyticsApplicationReferenceDataSource, error) {
 
 	result := &AWSKinesisAnalyticsApplicationReferenceDataSource{}
 	if resource, ok := template.Resources[name]; ok {

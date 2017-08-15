@@ -37,7 +37,7 @@ func (r *AWSIAMAccessKey) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMAccessKeyResources retrieves all AWSIAMAccessKey items from a CloudFormation template
-func GetAllAWSIAMAccessKey(template *Template) map[string]*AWSIAMAccessKey {
+func GetAllAWSIAMAccessKeyResources(template *Template) map[string]*AWSIAMAccessKey {
 
 	results := map[string]*AWSIAMAccessKey{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSIAMAccessKey(template *Template) map[string]*AWSIAMAccessKey {
 
 // GetAWSIAMAccessKeyWithName retrieves all AWSIAMAccessKey items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMAccessKey(name string, template *Template) (*AWSIAMAccessKey, error) {
+func GetAWSIAMAccessKeyWithName(name string, template *Template) (*AWSIAMAccessKey, error) {
 
 	result := &AWSIAMAccessKey{}
 	if resource, ok := template.Resources[name]; ok {

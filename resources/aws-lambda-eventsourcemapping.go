@@ -47,7 +47,7 @@ func (r *AWSLambdaEventSourceMapping) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSLambdaEventSourceMappingResources retrieves all AWSLambdaEventSourceMapping items from a CloudFormation template
-func GetAllAWSLambdaEventSourceMapping(template *Template) map[string]*AWSLambdaEventSourceMapping {
+func GetAllAWSLambdaEventSourceMappingResources(template *Template) map[string]*AWSLambdaEventSourceMapping {
 
 	results := map[string]*AWSLambdaEventSourceMapping{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSLambdaEventSourceMapping(template *Template) map[string]*AWSLambda
 
 // GetAWSLambdaEventSourceMappingWithName retrieves all AWSLambdaEventSourceMapping items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLambdaEventSourceMapping(name string, template *Template) (*AWSLambdaEventSourceMapping, error) {
+func GetAWSLambdaEventSourceMappingWithName(name string, template *Template) (*AWSLambdaEventSourceMapping, error) {
 
 	result := &AWSLambdaEventSourceMapping{}
 	if resource, ok := template.Resources[name]; ok {

@@ -97,7 +97,7 @@ func (r *AWSElasticLoadBalancingV2TargetGroup) AWSCloudFormationSpecificationVer
 }
 
 // GetAllAWSElasticLoadBalancingV2TargetGroupResources retrieves all AWSElasticLoadBalancingV2TargetGroup items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2TargetGroup(template *Template) map[string]*AWSElasticLoadBalancingV2TargetGroup {
+func GetAllAWSElasticLoadBalancingV2TargetGroupResources(template *Template) map[string]*AWSElasticLoadBalancingV2TargetGroup {
 
 	results := map[string]*AWSElasticLoadBalancingV2TargetGroup{}
 	for name, resource := range template.Resources {
@@ -112,7 +112,7 @@ func GetAllAWSElasticLoadBalancingV2TargetGroup(template *Template) map[string]*
 
 // GetAWSElasticLoadBalancingV2TargetGroupWithName retrieves all AWSElasticLoadBalancingV2TargetGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingV2TargetGroup(name string, template *Template) (*AWSElasticLoadBalancingV2TargetGroup, error) {
+func GetAWSElasticLoadBalancingV2TargetGroupWithName(name string, template *Template) (*AWSElasticLoadBalancingV2TargetGroup, error) {
 
 	result := &AWSElasticLoadBalancingV2TargetGroup{}
 	if resource, ok := template.Resources[name]; ok {

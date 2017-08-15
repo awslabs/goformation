@@ -102,7 +102,7 @@ func (r *AWSElasticLoadBalancingLoadBalancer) AWSCloudFormationSpecificationVers
 }
 
 // GetAllAWSElasticLoadBalancingLoadBalancerResources retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingLoadBalancer(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer {
+func GetAllAWSElasticLoadBalancingLoadBalancerResources(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer {
 
 	results := map[string]*AWSElasticLoadBalancingLoadBalancer{}
 	for name, resource := range template.Resources {
@@ -117,7 +117,7 @@ func GetAllAWSElasticLoadBalancingLoadBalancer(template *Template) map[string]*A
 
 // GetAWSElasticLoadBalancingLoadBalancerWithName retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingLoadBalancer(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer, error) {
+func GetAWSElasticLoadBalancingLoadBalancerWithName(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer, error) {
 
 	result := &AWSElasticLoadBalancingLoadBalancer{}
 	if resource, ok := template.Resources[name]; ok {

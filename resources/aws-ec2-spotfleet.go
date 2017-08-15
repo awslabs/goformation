@@ -27,7 +27,7 @@ func (r *AWSEC2SpotFleet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2SpotFleetResources retrieves all AWSEC2SpotFleet items from a CloudFormation template
-func GetAllAWSEC2SpotFleet(template *Template) map[string]*AWSEC2SpotFleet {
+func GetAllAWSEC2SpotFleetResources(template *Template) map[string]*AWSEC2SpotFleet {
 
 	results := map[string]*AWSEC2SpotFleet{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSEC2SpotFleet(template *Template) map[string]*AWSEC2SpotFleet {
 
 // GetAWSEC2SpotFleetWithName retrieves all AWSEC2SpotFleet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SpotFleet(name string, template *Template) (*AWSEC2SpotFleet, error) {
+func GetAWSEC2SpotFleetWithName(name string, template *Template) (*AWSEC2SpotFleet, error) {
 
 	result := &AWSEC2SpotFleet{}
 	if resource, ok := template.Resources[name]; ok {

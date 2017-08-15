@@ -42,7 +42,7 @@ func (r *AWSKinesisFirehoseDeliveryStream) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSKinesisFirehoseDeliveryStreamResources retrieves all AWSKinesisFirehoseDeliveryStream items from a CloudFormation template
-func GetAllAWSKinesisFirehoseDeliveryStream(template *Template) map[string]*AWSKinesisFirehoseDeliveryStream {
+func GetAllAWSKinesisFirehoseDeliveryStreamResources(template *Template) map[string]*AWSKinesisFirehoseDeliveryStream {
 
 	results := map[string]*AWSKinesisFirehoseDeliveryStream{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSKinesisFirehoseDeliveryStream(template *Template) map[string]*AWSK
 
 // GetAWSKinesisFirehoseDeliveryStreamWithName retrieves all AWSKinesisFirehoseDeliveryStream items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisFirehoseDeliveryStream(name string, template *Template) (*AWSKinesisFirehoseDeliveryStream, error) {
+func GetAWSKinesisFirehoseDeliveryStreamWithName(name string, template *Template) (*AWSKinesisFirehoseDeliveryStream, error) {
 
 	result := &AWSKinesisFirehoseDeliveryStream{}
 	if resource, ok := template.Resources[name]; ok {

@@ -27,7 +27,7 @@ func (r *AWSCodeDeployApplication) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSCodeDeployApplicationResources retrieves all AWSCodeDeployApplication items from a CloudFormation template
-func GetAllAWSCodeDeployApplication(template *Template) map[string]*AWSCodeDeployApplication {
+func GetAllAWSCodeDeployApplicationResources(template *Template) map[string]*AWSCodeDeployApplication {
 
 	results := map[string]*AWSCodeDeployApplication{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSCodeDeployApplication(template *Template) map[string]*AWSCodeDeplo
 
 // GetAWSCodeDeployApplicationWithName retrieves all AWSCodeDeployApplication items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeDeployApplication(name string, template *Template) (*AWSCodeDeployApplication, error) {
+func GetAWSCodeDeployApplicationWithName(name string, template *Template) (*AWSCodeDeployApplication, error) {
 
 	result := &AWSCodeDeployApplication{}
 	if resource, ok := template.Resources[name]; ok {

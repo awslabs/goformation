@@ -32,7 +32,7 @@ func (r *AWSSNSTopicPolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSNSTopicPolicyResources retrieves all AWSSNSTopicPolicy items from a CloudFormation template
-func GetAllAWSSNSTopicPolicy(template *Template) map[string]*AWSSNSTopicPolicy {
+func GetAllAWSSNSTopicPolicyResources(template *Template) map[string]*AWSSNSTopicPolicy {
 
 	results := map[string]*AWSSNSTopicPolicy{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSSNSTopicPolicy(template *Template) map[string]*AWSSNSTopicPolicy {
 
 // GetAWSSNSTopicPolicyWithName retrieves all AWSSNSTopicPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSNSTopicPolicy(name string, template *Template) (*AWSSNSTopicPolicy, error) {
+func GetAWSSNSTopicPolicyWithName(name string, template *Template) (*AWSSNSTopicPolicy, error) {
 
 	result := &AWSSNSTopicPolicy{}
 	if resource, ok := template.Resources[name]; ok {

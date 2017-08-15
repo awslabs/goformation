@@ -32,7 +32,7 @@ func (r *AWSSQSQueuePolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSQSQueuePolicyResources retrieves all AWSSQSQueuePolicy items from a CloudFormation template
-func GetAllAWSSQSQueuePolicy(template *Template) map[string]*AWSSQSQueuePolicy {
+func GetAllAWSSQSQueuePolicyResources(template *Template) map[string]*AWSSQSQueuePolicy {
 
 	results := map[string]*AWSSQSQueuePolicy{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSSQSQueuePolicy(template *Template) map[string]*AWSSQSQueuePolicy {
 
 // GetAWSSQSQueuePolicyWithName retrieves all AWSSQSQueuePolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSQSQueuePolicy(name string, template *Template) (*AWSSQSQueuePolicy, error) {
+func GetAWSSQSQueuePolicyWithName(name string, template *Template) (*AWSSQSQueuePolicy, error) {
 
 	result := &AWSSQSQueuePolicy{}
 	if resource, ok := template.Resources[name]; ok {

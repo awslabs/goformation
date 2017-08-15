@@ -30,32 +30,3 @@ func (r *AWSDataPipelinePipeline_ParameterAttribute) AWSCloudFormationType() str
 func (r *AWSDataPipelinePipeline_ParameterAttribute) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSDataPipelinePipeline_ParameterAttributeResources retrieves all AWSDataPipelinePipeline_ParameterAttribute items from a CloudFormation template
-func GetAllAWSDataPipelinePipeline_ParameterAttribute(template *Template) map[string]*AWSDataPipelinePipeline_ParameterAttribute {
-
-	results := map[string]*AWSDataPipelinePipeline_ParameterAttribute{}
-	for name, resource := range template.Resources {
-		result := &AWSDataPipelinePipeline_ParameterAttribute{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSDataPipelinePipeline_ParameterAttributeWithName retrieves all AWSDataPipelinePipeline_ParameterAttribute items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDataPipelinePipeline_ParameterAttribute(name string, template *Template) (*AWSDataPipelinePipeline_ParameterAttribute, error) {
-
-	result := &AWSDataPipelinePipeline_ParameterAttribute{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSDataPipelinePipeline_ParameterAttribute{}, errors.New("resource not found")
-
-}

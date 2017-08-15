@@ -62,7 +62,7 @@ func (r *AWSEC2Route) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2RouteResources retrieves all AWSEC2Route items from a CloudFormation template
-func GetAllAWSEC2Route(template *Template) map[string]*AWSEC2Route {
+func GetAllAWSEC2RouteResources(template *Template) map[string]*AWSEC2Route {
 
 	results := map[string]*AWSEC2Route{}
 	for name, resource := range template.Resources {
@@ -77,7 +77,7 @@ func GetAllAWSEC2Route(template *Template) map[string]*AWSEC2Route {
 
 // GetAWSEC2RouteWithName retrieves all AWSEC2Route items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2Route(name string, template *Template) (*AWSEC2Route, error) {
+func GetAWSEC2RouteWithName(name string, template *Template) (*AWSEC2Route, error) {
 
 	result := &AWSEC2Route{}
 	if resource, ok := template.Resources[name]; ok {

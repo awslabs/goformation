@@ -37,7 +37,7 @@ func (r *AWSCloudFormationWaitCondition) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSCloudFormationWaitConditionResources retrieves all AWSCloudFormationWaitCondition items from a CloudFormation template
-func GetAllAWSCloudFormationWaitCondition(template *Template) map[string]*AWSCloudFormationWaitCondition {
+func GetAllAWSCloudFormationWaitConditionResources(template *Template) map[string]*AWSCloudFormationWaitCondition {
 
 	results := map[string]*AWSCloudFormationWaitCondition{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSCloudFormationWaitCondition(template *Template) map[string]*AWSClo
 
 // GetAWSCloudFormationWaitConditionWithName retrieves all AWSCloudFormationWaitCondition items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFormationWaitCondition(name string, template *Template) (*AWSCloudFormationWaitCondition, error) {
+func GetAWSCloudFormationWaitConditionWithName(name string, template *Template) (*AWSCloudFormationWaitCondition, error) {
 
 	result := &AWSCloudFormationWaitCondition{}
 	if resource, ok := template.Resources[name]; ok {

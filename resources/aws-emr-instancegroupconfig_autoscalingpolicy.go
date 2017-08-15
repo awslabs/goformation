@@ -30,32 +30,3 @@ func (r *AWSEMRInstanceGroupConfig_AutoScalingPolicy) AWSCloudFormationType() st
 func (r *AWSEMRInstanceGroupConfig_AutoScalingPolicy) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceGroupConfig_AutoScalingPolicyResources retrieves all AWSEMRInstanceGroupConfig_AutoScalingPolicy items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig_AutoScalingPolicy(template *Template) map[string]*AWSEMRInstanceGroupConfig_AutoScalingPolicy {
-
-	results := map[string]*AWSEMRInstanceGroupConfig_AutoScalingPolicy{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceGroupConfig_AutoScalingPolicy{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceGroupConfig_AutoScalingPolicyWithName retrieves all AWSEMRInstanceGroupConfig_AutoScalingPolicy items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig_AutoScalingPolicy(name string, template *Template) (*AWSEMRInstanceGroupConfig_AutoScalingPolicy, error) {
-
-	result := &AWSEMRInstanceGroupConfig_AutoScalingPolicy{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceGroupConfig_AutoScalingPolicy{}, errors.New("resource not found")
-
-}

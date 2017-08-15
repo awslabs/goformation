@@ -35,32 +35,3 @@ func (r *AWSCloudFrontDistribution_Logging) AWSCloudFormationType() string {
 func (r *AWSCloudFrontDistribution_Logging) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCloudFrontDistribution_LoggingResources retrieves all AWSCloudFrontDistribution_Logging items from a CloudFormation template
-func GetAllAWSCloudFrontDistribution_Logging(template *Template) map[string]*AWSCloudFrontDistribution_Logging {
-
-	results := map[string]*AWSCloudFrontDistribution_Logging{}
-	for name, resource := range template.Resources {
-		result := &AWSCloudFrontDistribution_Logging{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCloudFrontDistribution_LoggingWithName retrieves all AWSCloudFrontDistribution_Logging items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFrontDistribution_Logging(name string, template *Template) (*AWSCloudFrontDistribution_Logging, error) {
-
-	result := &AWSCloudFrontDistribution_Logging{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCloudFrontDistribution_Logging{}, errors.New("resource not found")
-
-}

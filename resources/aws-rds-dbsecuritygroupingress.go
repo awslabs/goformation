@@ -47,7 +47,7 @@ func (r *AWSRDSDBSecurityGroupIngress) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSRDSDBSecurityGroupIngressResources retrieves all AWSRDSDBSecurityGroupIngress items from a CloudFormation template
-func GetAllAWSRDSDBSecurityGroupIngress(template *Template) map[string]*AWSRDSDBSecurityGroupIngress {
+func GetAllAWSRDSDBSecurityGroupIngressResources(template *Template) map[string]*AWSRDSDBSecurityGroupIngress {
 
 	results := map[string]*AWSRDSDBSecurityGroupIngress{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSRDSDBSecurityGroupIngress(template *Template) map[string]*AWSRDSDB
 
 // GetAWSRDSDBSecurityGroupIngressWithName retrieves all AWSRDSDBSecurityGroupIngress items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBSecurityGroupIngress(name string, template *Template) (*AWSRDSDBSecurityGroupIngress, error) {
+func GetAWSRDSDBSecurityGroupIngressWithName(name string, template *Template) (*AWSRDSDBSecurityGroupIngress, error) {
 
 	result := &AWSRDSDBSecurityGroupIngress{}
 	if resource, ok := template.Resources[name]; ok {

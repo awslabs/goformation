@@ -37,7 +37,7 @@ func (r *AWSElastiCacheParameterGroup) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSElastiCacheParameterGroupResources retrieves all AWSElastiCacheParameterGroup items from a CloudFormation template
-func GetAllAWSElastiCacheParameterGroup(template *Template) map[string]*AWSElastiCacheParameterGroup {
+func GetAllAWSElastiCacheParameterGroupResources(template *Template) map[string]*AWSElastiCacheParameterGroup {
 
 	results := map[string]*AWSElastiCacheParameterGroup{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSElastiCacheParameterGroup(template *Template) map[string]*AWSElast
 
 // GetAWSElastiCacheParameterGroupWithName retrieves all AWSElastiCacheParameterGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElastiCacheParameterGroup(name string, template *Template) (*AWSElastiCacheParameterGroup, error) {
+func GetAWSElastiCacheParameterGroupWithName(name string, template *Template) (*AWSElastiCacheParameterGroup, error) {
 
 	result := &AWSElastiCacheParameterGroup{}
 	if resource, ok := template.Resources[name]; ok {

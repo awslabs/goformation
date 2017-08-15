@@ -27,7 +27,7 @@ func (r *AWSEC2EgressOnlyInternetGateway) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSEC2EgressOnlyInternetGatewayResources retrieves all AWSEC2EgressOnlyInternetGateway items from a CloudFormation template
-func GetAllAWSEC2EgressOnlyInternetGateway(template *Template) map[string]*AWSEC2EgressOnlyInternetGateway {
+func GetAllAWSEC2EgressOnlyInternetGatewayResources(template *Template) map[string]*AWSEC2EgressOnlyInternetGateway {
 
 	results := map[string]*AWSEC2EgressOnlyInternetGateway{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSEC2EgressOnlyInternetGateway(template *Template) map[string]*AWSEC
 
 // GetAWSEC2EgressOnlyInternetGatewayWithName retrieves all AWSEC2EgressOnlyInternetGateway items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2EgressOnlyInternetGateway(name string, template *Template) (*AWSEC2EgressOnlyInternetGateway, error) {
+func GetAWSEC2EgressOnlyInternetGatewayWithName(name string, template *Template) (*AWSEC2EgressOnlyInternetGateway, error) {
 
 	result := &AWSEC2EgressOnlyInternetGateway{}
 	if resource, ok := template.Resources[name]; ok {

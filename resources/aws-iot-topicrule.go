@@ -32,7 +32,7 @@ func (r *AWSIoTTopicRule) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIoTTopicRuleResources retrieves all AWSIoTTopicRule items from a CloudFormation template
-func GetAllAWSIoTTopicRule(template *Template) map[string]*AWSIoTTopicRule {
+func GetAllAWSIoTTopicRuleResources(template *Template) map[string]*AWSIoTTopicRule {
 
 	results := map[string]*AWSIoTTopicRule{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSIoTTopicRule(template *Template) map[string]*AWSIoTTopicRule {
 
 // GetAWSIoTTopicRuleWithName retrieves all AWSIoTTopicRule items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTTopicRule(name string, template *Template) (*AWSIoTTopicRule, error) {
+func GetAWSIoTTopicRuleWithName(name string, template *Template) (*AWSIoTTopicRule, error) {
 
 	result := &AWSIoTTopicRule{}
 	if resource, ok := template.Resources[name]; ok {

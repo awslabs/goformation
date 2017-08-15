@@ -32,7 +32,7 @@ func (r *AWSRedshiftClusterSecurityGroup) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSRedshiftClusterSecurityGroupResources retrieves all AWSRedshiftClusterSecurityGroup items from a CloudFormation template
-func GetAllAWSRedshiftClusterSecurityGroup(template *Template) map[string]*AWSRedshiftClusterSecurityGroup {
+func GetAllAWSRedshiftClusterSecurityGroupResources(template *Template) map[string]*AWSRedshiftClusterSecurityGroup {
 
 	results := map[string]*AWSRedshiftClusterSecurityGroup{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSRedshiftClusterSecurityGroup(template *Template) map[string]*AWSRe
 
 // GetAWSRedshiftClusterSecurityGroupWithName retrieves all AWSRedshiftClusterSecurityGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRedshiftClusterSecurityGroup(name string, template *Template) (*AWSRedshiftClusterSecurityGroup, error) {
+func GetAWSRedshiftClusterSecurityGroupWithName(name string, template *Template) (*AWSRedshiftClusterSecurityGroup, error) {
 
 	result := &AWSRedshiftClusterSecurityGroup{}
 	if resource, ok := template.Resources[name]; ok {

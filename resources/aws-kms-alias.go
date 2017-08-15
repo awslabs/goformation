@@ -32,7 +32,7 @@ func (r *AWSKMSAlias) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSKMSAliasResources retrieves all AWSKMSAlias items from a CloudFormation template
-func GetAllAWSKMSAlias(template *Template) map[string]*AWSKMSAlias {
+func GetAllAWSKMSAliasResources(template *Template) map[string]*AWSKMSAlias {
 
 	results := map[string]*AWSKMSAlias{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSKMSAlias(template *Template) map[string]*AWSKMSAlias {
 
 // GetAWSKMSAliasWithName retrieves all AWSKMSAlias items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKMSAlias(name string, template *Template) (*AWSKMSAlias, error) {
+func GetAWSKMSAliasWithName(name string, template *Template) (*AWSKMSAlias, error) {
 
 	result := &AWSKMSAlias{}
 	if resource, ok := template.Resources[name]; ok {

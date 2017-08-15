@@ -47,7 +47,7 @@ func (r *AWSCloudFormationStack) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSCloudFormationStackResources retrieves all AWSCloudFormationStack items from a CloudFormation template
-func GetAllAWSCloudFormationStack(template *Template) map[string]*AWSCloudFormationStack {
+func GetAllAWSCloudFormationStackResources(template *Template) map[string]*AWSCloudFormationStack {
 
 	results := map[string]*AWSCloudFormationStack{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSCloudFormationStack(template *Template) map[string]*AWSCloudFormat
 
 // GetAWSCloudFormationStackWithName retrieves all AWSCloudFormationStack items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFormationStack(name string, template *Template) (*AWSCloudFormationStack, error) {
+func GetAWSCloudFormationStackWithName(name string, template *Template) (*AWSCloudFormationStack, error) {
 
 	result := &AWSCloudFormationStack{}
 	if resource, ok := template.Resources[name]; ok {

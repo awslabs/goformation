@@ -67,7 +67,7 @@ func (r *AWSECSService) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSECSServiceResources retrieves all AWSECSService items from a CloudFormation template
-func GetAllAWSECSService(template *Template) map[string]*AWSECSService {
+func GetAllAWSECSServiceResources(template *Template) map[string]*AWSECSService {
 
 	results := map[string]*AWSECSService{}
 	for name, resource := range template.Resources {
@@ -82,7 +82,7 @@ func GetAllAWSECSService(template *Template) map[string]*AWSECSService {
 
 // GetAWSECSServiceWithName retrieves all AWSECSService items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSService(name string, template *Template) (*AWSECSService, error) {
+func GetAWSECSServiceWithName(name string, template *Template) (*AWSECSService, error) {
 
 	result := &AWSECSService{}
 	if resource, ok := template.Resources[name]; ok {

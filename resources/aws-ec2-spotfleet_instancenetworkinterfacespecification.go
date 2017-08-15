@@ -75,32 +75,3 @@ func (r *AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification) AWSCloudFormatio
 func (r *AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEC2SpotFleet_InstanceNetworkInterfaceSpecificationResources retrieves all AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification items from a CloudFormation template
-func GetAllAWSEC2SpotFleet_InstanceNetworkInterfaceSpecification(template *Template) map[string]*AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification {
-
-	results := map[string]*AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification{}
-	for name, resource := range template.Resources {
-		result := &AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEC2SpotFleet_InstanceNetworkInterfaceSpecificationWithName retrieves all AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SpotFleet_InstanceNetworkInterfaceSpecification(name string, template *Template) (*AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification, error) {
-
-	result := &AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification{}, errors.New("resource not found")
-
-}

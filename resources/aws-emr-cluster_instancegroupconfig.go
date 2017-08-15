@@ -60,32 +60,3 @@ func (r *AWSEMRCluster_InstanceGroupConfig) AWSCloudFormationType() string {
 func (r *AWSEMRCluster_InstanceGroupConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRCluster_InstanceGroupConfigResources retrieves all AWSEMRCluster_InstanceGroupConfig items from a CloudFormation template
-func GetAllAWSEMRCluster_InstanceGroupConfig(template *Template) map[string]*AWSEMRCluster_InstanceGroupConfig {
-
-	results := map[string]*AWSEMRCluster_InstanceGroupConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRCluster_InstanceGroupConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRCluster_InstanceGroupConfigWithName retrieves all AWSEMRCluster_InstanceGroupConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRCluster_InstanceGroupConfig(name string, template *Template) (*AWSEMRCluster_InstanceGroupConfig, error) {
-
-	result := &AWSEMRCluster_InstanceGroupConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRCluster_InstanceGroupConfig{}, errors.New("resource not found")
-
-}

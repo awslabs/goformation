@@ -45,32 +45,3 @@ func (r *AWSWAFByteMatchSet_ByteMatchTuple) AWSCloudFormationType() string {
 func (r *AWSWAFByteMatchSet_ByteMatchTuple) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSWAFByteMatchSet_ByteMatchTupleResources retrieves all AWSWAFByteMatchSet_ByteMatchTuple items from a CloudFormation template
-func GetAllAWSWAFByteMatchSet_ByteMatchTuple(template *Template) map[string]*AWSWAFByteMatchSet_ByteMatchTuple {
-
-	results := map[string]*AWSWAFByteMatchSet_ByteMatchTuple{}
-	for name, resource := range template.Resources {
-		result := &AWSWAFByteMatchSet_ByteMatchTuple{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSWAFByteMatchSet_ByteMatchTupleWithName retrieves all AWSWAFByteMatchSet_ByteMatchTuple items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFByteMatchSet_ByteMatchTuple(name string, template *Template) (*AWSWAFByteMatchSet_ByteMatchTuple, error) {
-
-	result := &AWSWAFByteMatchSet_ByteMatchTuple{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSWAFByteMatchSet_ByteMatchTuple{}, errors.New("resource not found")
-
-}

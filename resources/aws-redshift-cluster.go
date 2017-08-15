@@ -162,7 +162,7 @@ func (r *AWSRedshiftCluster) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRedshiftClusterResources retrieves all AWSRedshiftCluster items from a CloudFormation template
-func GetAllAWSRedshiftCluster(template *Template) map[string]*AWSRedshiftCluster {
+func GetAllAWSRedshiftClusterResources(template *Template) map[string]*AWSRedshiftCluster {
 
 	results := map[string]*AWSRedshiftCluster{}
 	for name, resource := range template.Resources {
@@ -177,7 +177,7 @@ func GetAllAWSRedshiftCluster(template *Template) map[string]*AWSRedshiftCluster
 
 // GetAWSRedshiftClusterWithName retrieves all AWSRedshiftCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRedshiftCluster(name string, template *Template) (*AWSRedshiftCluster, error) {
+func GetAWSRedshiftClusterWithName(name string, template *Template) (*AWSRedshiftCluster, error) {
 
 	result := &AWSRedshiftCluster{}
 	if resource, ok := template.Resources[name]; ok {

@@ -42,7 +42,7 @@ func (r *AWSRedshiftClusterParameterGroup) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSRedshiftClusterParameterGroupResources retrieves all AWSRedshiftClusterParameterGroup items from a CloudFormation template
-func GetAllAWSRedshiftClusterParameterGroup(template *Template) map[string]*AWSRedshiftClusterParameterGroup {
+func GetAllAWSRedshiftClusterParameterGroupResources(template *Template) map[string]*AWSRedshiftClusterParameterGroup {
 
 	results := map[string]*AWSRedshiftClusterParameterGroup{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSRedshiftClusterParameterGroup(template *Template) map[string]*AWSR
 
 // GetAWSRedshiftClusterParameterGroupWithName retrieves all AWSRedshiftClusterParameterGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRedshiftClusterParameterGroup(name string, template *Template) (*AWSRedshiftClusterParameterGroup, error) {
+func GetAWSRedshiftClusterParameterGroupWithName(name string, template *Template) (*AWSRedshiftClusterParameterGroup, error) {
 
 	result := &AWSRedshiftClusterParameterGroup{}
 	if resource, ok := template.Resources[name]; ok {

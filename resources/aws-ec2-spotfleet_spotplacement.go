@@ -30,32 +30,3 @@ func (r *AWSEC2SpotFleet_SpotPlacement) AWSCloudFormationType() string {
 func (r *AWSEC2SpotFleet_SpotPlacement) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEC2SpotFleet_SpotPlacementResources retrieves all AWSEC2SpotFleet_SpotPlacement items from a CloudFormation template
-func GetAllAWSEC2SpotFleet_SpotPlacement(template *Template) map[string]*AWSEC2SpotFleet_SpotPlacement {
-
-	results := map[string]*AWSEC2SpotFleet_SpotPlacement{}
-	for name, resource := range template.Resources {
-		result := &AWSEC2SpotFleet_SpotPlacement{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEC2SpotFleet_SpotPlacementWithName retrieves all AWSEC2SpotFleet_SpotPlacement items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SpotFleet_SpotPlacement(name string, template *Template) (*AWSEC2SpotFleet_SpotPlacement, error) {
-
-	result := &AWSEC2SpotFleet_SpotPlacement{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEC2SpotFleet_SpotPlacement{}, errors.New("resource not found")
-
-}

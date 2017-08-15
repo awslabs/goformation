@@ -37,7 +37,7 @@ func (r *AWSLogsMetricFilter) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsMetricFilterResources retrieves all AWSLogsMetricFilter items from a CloudFormation template
-func GetAllAWSLogsMetricFilter(template *Template) map[string]*AWSLogsMetricFilter {
+func GetAllAWSLogsMetricFilterResources(template *Template) map[string]*AWSLogsMetricFilter {
 
 	results := map[string]*AWSLogsMetricFilter{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSLogsMetricFilter(template *Template) map[string]*AWSLogsMetricFilt
 
 // GetAWSLogsMetricFilterWithName retrieves all AWSLogsMetricFilter items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLogsMetricFilter(name string, template *Template) (*AWSLogsMetricFilter, error) {
+func GetAWSLogsMetricFilterWithName(name string, template *Template) (*AWSLogsMetricFilter, error) {
 
 	result := &AWSLogsMetricFilter{}
 	if resource, ok := template.Resources[name]; ok {

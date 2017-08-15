@@ -92,7 +92,7 @@ func (r *AWSRoute53RecordSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRoute53RecordSetResources retrieves all AWSRoute53RecordSet items from a CloudFormation template
-func GetAllAWSRoute53RecordSet(template *Template) map[string]*AWSRoute53RecordSet {
+func GetAllAWSRoute53RecordSetResources(template *Template) map[string]*AWSRoute53RecordSet {
 
 	results := map[string]*AWSRoute53RecordSet{}
 	for name, resource := range template.Resources {
@@ -107,7 +107,7 @@ func GetAllAWSRoute53RecordSet(template *Template) map[string]*AWSRoute53RecordS
 
 // GetAWSRoute53RecordSetWithName retrieves all AWSRoute53RecordSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRoute53RecordSet(name string, template *Template) (*AWSRoute53RecordSet, error) {
+func GetAWSRoute53RecordSetWithName(name string, template *Template) (*AWSRoute53RecordSet, error) {
 
 	result := &AWSRoute53RecordSet{}
 	if resource, ok := template.Resources[name]; ok {

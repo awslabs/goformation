@@ -30,32 +30,3 @@ func (r *AWSCodePipelinePipeline_StageTransition) AWSCloudFormationType() string
 func (r *AWSCodePipelinePipeline_StageTransition) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCodePipelinePipeline_StageTransitionResources retrieves all AWSCodePipelinePipeline_StageTransition items from a CloudFormation template
-func GetAllAWSCodePipelinePipeline_StageTransition(template *Template) map[string]*AWSCodePipelinePipeline_StageTransition {
-
-	results := map[string]*AWSCodePipelinePipeline_StageTransition{}
-	for name, resource := range template.Resources {
-		result := &AWSCodePipelinePipeline_StageTransition{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCodePipelinePipeline_StageTransitionWithName retrieves all AWSCodePipelinePipeline_StageTransition items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodePipelinePipeline_StageTransition(name string, template *Template) (*AWSCodePipelinePipeline_StageTransition, error) {
-
-	result := &AWSCodePipelinePipeline_StageTransition{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCodePipelinePipeline_StageTransition{}, errors.New("resource not found")
-
-}

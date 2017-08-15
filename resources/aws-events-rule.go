@@ -57,7 +57,7 @@ func (r *AWSEventsRule) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEventsRuleResources retrieves all AWSEventsRule items from a CloudFormation template
-func GetAllAWSEventsRule(template *Template) map[string]*AWSEventsRule {
+func GetAllAWSEventsRuleResources(template *Template) map[string]*AWSEventsRule {
 
 	results := map[string]*AWSEventsRule{}
 	for name, resource := range template.Resources {
@@ -72,7 +72,7 @@ func GetAllAWSEventsRule(template *Template) map[string]*AWSEventsRule {
 
 // GetAWSEventsRuleWithName retrieves all AWSEventsRule items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEventsRule(name string, template *Template) (*AWSEventsRule, error) {
+func GetAWSEventsRuleWithName(name string, template *Template) (*AWSEventsRule, error) {
 
 	result := &AWSEventsRule{}
 	if resource, ok := template.Resources[name]; ok {

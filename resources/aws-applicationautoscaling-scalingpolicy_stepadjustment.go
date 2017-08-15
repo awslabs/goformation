@@ -35,32 +35,3 @@ func (r *AWSApplicationAutoScalingScalingPolicy_StepAdjustment) AWSCloudFormatio
 func (r *AWSApplicationAutoScalingScalingPolicy_StepAdjustment) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSApplicationAutoScalingScalingPolicy_StepAdjustmentResources retrieves all AWSApplicationAutoScalingScalingPolicy_StepAdjustment items from a CloudFormation template
-func GetAllAWSApplicationAutoScalingScalingPolicy_StepAdjustment(template *Template) map[string]*AWSApplicationAutoScalingScalingPolicy_StepAdjustment {
-
-	results := map[string]*AWSApplicationAutoScalingScalingPolicy_StepAdjustment{}
-	for name, resource := range template.Resources {
-		result := &AWSApplicationAutoScalingScalingPolicy_StepAdjustment{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSApplicationAutoScalingScalingPolicy_StepAdjustmentWithName retrieves all AWSApplicationAutoScalingScalingPolicy_StepAdjustment items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApplicationAutoScalingScalingPolicy_StepAdjustment(name string, template *Template) (*AWSApplicationAutoScalingScalingPolicy_StepAdjustment, error) {
-
-	result := &AWSApplicationAutoScalingScalingPolicy_StepAdjustment{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSApplicationAutoScalingScalingPolicy_StepAdjustment{}, errors.New("resource not found")
-
-}

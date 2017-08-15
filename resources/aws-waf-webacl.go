@@ -42,7 +42,7 @@ func (r *AWSWAFWebACL) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFWebACLResources retrieves all AWSWAFWebACL items from a CloudFormation template
-func GetAllAWSWAFWebACL(template *Template) map[string]*AWSWAFWebACL {
+func GetAllAWSWAFWebACLResources(template *Template) map[string]*AWSWAFWebACL {
 
 	results := map[string]*AWSWAFWebACL{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSWAFWebACL(template *Template) map[string]*AWSWAFWebACL {
 
 // GetAWSWAFWebACLWithName retrieves all AWSWAFWebACL items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFWebACL(name string, template *Template) (*AWSWAFWebACL, error) {
+func GetAWSWAFWebACLWithName(name string, template *Template) (*AWSWAFWebACL, error) {
 
 	result := &AWSWAFWebACL{}
 	if resource, ok := template.Resources[name]; ok {

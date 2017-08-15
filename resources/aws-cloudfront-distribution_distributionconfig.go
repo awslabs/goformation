@@ -90,32 +90,3 @@ func (r *AWSCloudFrontDistribution_DistributionConfig) AWSCloudFormationType() s
 func (r *AWSCloudFrontDistribution_DistributionConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCloudFrontDistribution_DistributionConfigResources retrieves all AWSCloudFrontDistribution_DistributionConfig items from a CloudFormation template
-func GetAllAWSCloudFrontDistribution_DistributionConfig(template *Template) map[string]*AWSCloudFrontDistribution_DistributionConfig {
-
-	results := map[string]*AWSCloudFrontDistribution_DistributionConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSCloudFrontDistribution_DistributionConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCloudFrontDistribution_DistributionConfigWithName retrieves all AWSCloudFrontDistribution_DistributionConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFrontDistribution_DistributionConfig(name string, template *Template) (*AWSCloudFrontDistribution_DistributionConfig, error) {
-
-	result := &AWSCloudFrontDistribution_DistributionConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCloudFrontDistribution_DistributionConfig{}, errors.New("resource not found")
-
-}

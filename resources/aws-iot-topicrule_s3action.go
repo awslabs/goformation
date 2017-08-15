@@ -35,32 +35,3 @@ func (r *AWSIoTTopicRule_S3Action) AWSCloudFormationType() string {
 func (r *AWSIoTTopicRule_S3Action) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSIoTTopicRule_S3ActionResources retrieves all AWSIoTTopicRule_S3Action items from a CloudFormation template
-func GetAllAWSIoTTopicRule_S3Action(template *Template) map[string]*AWSIoTTopicRule_S3Action {
-
-	results := map[string]*AWSIoTTopicRule_S3Action{}
-	for name, resource := range template.Resources {
-		result := &AWSIoTTopicRule_S3Action{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSIoTTopicRule_S3ActionWithName retrieves all AWSIoTTopicRule_S3Action items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTTopicRule_S3Action(name string, template *Template) (*AWSIoTTopicRule_S3Action, error) {
-
-	result := &AWSIoTTopicRule_S3Action{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSIoTTopicRule_S3Action{}, errors.New("resource not found")
-
-}

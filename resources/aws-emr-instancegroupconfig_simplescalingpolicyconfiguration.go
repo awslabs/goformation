@@ -35,32 +35,3 @@ func (r *AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration) AWSCloudFor
 func (r *AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceGroupConfig_SimpleScalingPolicyConfigurationResources retrieves all AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration(template *Template) map[string]*AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration {
-
-	results := map[string]*AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceGroupConfig_SimpleScalingPolicyConfigurationWithName retrieves all AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration(name string, template *Template) (*AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration, error) {
-
-	result := &AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration{}, errors.New("resource not found")
-
-}

@@ -35,32 +35,3 @@ func (r *AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema) AWSC
 func (r *AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchemaResources retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema items from a CloudFormation template
-func GetAllAWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema(template *Template) map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema {
-
-	results := map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema{}
-	for name, resource := range template.Resources {
-		result := &AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchemaWithName retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema(name string, template *Template) (*AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema, error) {
-
-	result := &AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema{}, errors.New("resource not found")
-
-}

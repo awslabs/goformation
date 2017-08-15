@@ -52,7 +52,7 @@ func (r *AWSEC2SecurityGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2SecurityGroupResources retrieves all AWSEC2SecurityGroup items from a CloudFormation template
-func GetAllAWSEC2SecurityGroup(template *Template) map[string]*AWSEC2SecurityGroup {
+func GetAllAWSEC2SecurityGroupResources(template *Template) map[string]*AWSEC2SecurityGroup {
 
 	results := map[string]*AWSEC2SecurityGroup{}
 	for name, resource := range template.Resources {
@@ -67,7 +67,7 @@ func GetAllAWSEC2SecurityGroup(template *Template) map[string]*AWSEC2SecurityGro
 
 // GetAWSEC2SecurityGroupWithName retrieves all AWSEC2SecurityGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SecurityGroup(name string, template *Template) (*AWSEC2SecurityGroup, error) {
+func GetAWSEC2SecurityGroupWithName(name string, template *Template) (*AWSEC2SecurityGroup, error) {
 
 	result := &AWSEC2SecurityGroup{}
 	if resource, ok := template.Resources[name]; ok {

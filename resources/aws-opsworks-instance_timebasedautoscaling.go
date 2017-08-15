@@ -55,32 +55,3 @@ func (r *AWSOpsWorksInstance_TimeBasedAutoScaling) AWSCloudFormationType() strin
 func (r *AWSOpsWorksInstance_TimeBasedAutoScaling) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSOpsWorksInstance_TimeBasedAutoScalingResources retrieves all AWSOpsWorksInstance_TimeBasedAutoScaling items from a CloudFormation template
-func GetAllAWSOpsWorksInstance_TimeBasedAutoScaling(template *Template) map[string]*AWSOpsWorksInstance_TimeBasedAutoScaling {
-
-	results := map[string]*AWSOpsWorksInstance_TimeBasedAutoScaling{}
-	for name, resource := range template.Resources {
-		result := &AWSOpsWorksInstance_TimeBasedAutoScaling{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSOpsWorksInstance_TimeBasedAutoScalingWithName retrieves all AWSOpsWorksInstance_TimeBasedAutoScaling items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksInstance_TimeBasedAutoScaling(name string, template *Template) (*AWSOpsWorksInstance_TimeBasedAutoScaling, error) {
-
-	result := &AWSOpsWorksInstance_TimeBasedAutoScaling{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSOpsWorksInstance_TimeBasedAutoScaling{}, errors.New("resource not found")
-
-}

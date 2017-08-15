@@ -40,32 +40,3 @@ func (r *AWSCodePipelinePipeline_ActionTypeId) AWSCloudFormationType() string {
 func (r *AWSCodePipelinePipeline_ActionTypeId) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCodePipelinePipeline_ActionTypeIdResources retrieves all AWSCodePipelinePipeline_ActionTypeId items from a CloudFormation template
-func GetAllAWSCodePipelinePipeline_ActionTypeId(template *Template) map[string]*AWSCodePipelinePipeline_ActionTypeId {
-
-	results := map[string]*AWSCodePipelinePipeline_ActionTypeId{}
-	for name, resource := range template.Resources {
-		result := &AWSCodePipelinePipeline_ActionTypeId{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCodePipelinePipeline_ActionTypeIdWithName retrieves all AWSCodePipelinePipeline_ActionTypeId items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodePipelinePipeline_ActionTypeId(name string, template *Template) (*AWSCodePipelinePipeline_ActionTypeId, error) {
-
-	result := &AWSCodePipelinePipeline_ActionTypeId{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCodePipelinePipeline_ActionTypeId{}, errors.New("resource not found")
-
-}

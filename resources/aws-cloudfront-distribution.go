@@ -27,7 +27,7 @@ func (r *AWSCloudFrontDistribution) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSCloudFrontDistributionResources retrieves all AWSCloudFrontDistribution items from a CloudFormation template
-func GetAllAWSCloudFrontDistribution(template *Template) map[string]*AWSCloudFrontDistribution {
+func GetAllAWSCloudFrontDistributionResources(template *Template) map[string]*AWSCloudFrontDistribution {
 
 	results := map[string]*AWSCloudFrontDistribution{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSCloudFrontDistribution(template *Template) map[string]*AWSCloudFro
 
 // GetAWSCloudFrontDistributionWithName retrieves all AWSCloudFrontDistribution items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFrontDistribution(name string, template *Template) (*AWSCloudFrontDistribution, error) {
+func GetAWSCloudFrontDistributionWithName(name string, template *Template) (*AWSCloudFrontDistribution, error) {
 
 	result := &AWSCloudFrontDistribution{}
 	if resource, ok := template.Resources[name]; ok {

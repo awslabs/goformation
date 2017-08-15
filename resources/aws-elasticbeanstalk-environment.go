@@ -72,7 +72,7 @@ func (r *AWSElasticBeanstalkEnvironment) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSElasticBeanstalkEnvironmentResources retrieves all AWSElasticBeanstalkEnvironment items from a CloudFormation template
-func GetAllAWSElasticBeanstalkEnvironment(template *Template) map[string]*AWSElasticBeanstalkEnvironment {
+func GetAllAWSElasticBeanstalkEnvironmentResources(template *Template) map[string]*AWSElasticBeanstalkEnvironment {
 
 	results := map[string]*AWSElasticBeanstalkEnvironment{}
 	for name, resource := range template.Resources {
@@ -87,7 +87,7 @@ func GetAllAWSElasticBeanstalkEnvironment(template *Template) map[string]*AWSEla
 
 // GetAWSElasticBeanstalkEnvironmentWithName retrieves all AWSElasticBeanstalkEnvironment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticBeanstalkEnvironment(name string, template *Template) (*AWSElasticBeanstalkEnvironment, error) {
+func GetAWSElasticBeanstalkEnvironmentWithName(name string, template *Template) (*AWSElasticBeanstalkEnvironment, error) {
 
 	result := &AWSElasticBeanstalkEnvironment{}
 	if resource, ok := template.Resources[name]; ok {

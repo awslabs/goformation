@@ -37,7 +37,7 @@ func (r *AWSGameLiftAlias) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSGameLiftAliasResources retrieves all AWSGameLiftAlias items from a CloudFormation template
-func GetAllAWSGameLiftAlias(template *Template) map[string]*AWSGameLiftAlias {
+func GetAllAWSGameLiftAliasResources(template *Template) map[string]*AWSGameLiftAlias {
 
 	results := map[string]*AWSGameLiftAlias{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSGameLiftAlias(template *Template) map[string]*AWSGameLiftAlias {
 
 // GetAWSGameLiftAliasWithName retrieves all AWSGameLiftAlias items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSGameLiftAlias(name string, template *Template) (*AWSGameLiftAlias, error) {
+func GetAWSGameLiftAliasWithName(name string, template *Template) (*AWSGameLiftAlias, error) {
 
 	result := &AWSGameLiftAlias{}
 	if resource, ok := template.Resources[name]; ok {

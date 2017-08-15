@@ -57,7 +57,7 @@ func (r *AWSAutoScalingScheduledAction) AWSCloudFormationSpecificationVersion() 
 }
 
 // GetAllAWSAutoScalingScheduledActionResources retrieves all AWSAutoScalingScheduledAction items from a CloudFormation template
-func GetAllAWSAutoScalingScheduledAction(template *Template) map[string]*AWSAutoScalingScheduledAction {
+func GetAllAWSAutoScalingScheduledActionResources(template *Template) map[string]*AWSAutoScalingScheduledAction {
 
 	results := map[string]*AWSAutoScalingScheduledAction{}
 	for name, resource := range template.Resources {
@@ -72,7 +72,7 @@ func GetAllAWSAutoScalingScheduledAction(template *Template) map[string]*AWSAuto
 
 // GetAWSAutoScalingScheduledActionWithName retrieves all AWSAutoScalingScheduledAction items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSAutoScalingScheduledAction(name string, template *Template) (*AWSAutoScalingScheduledAction, error) {
+func GetAWSAutoScalingScheduledActionWithName(name string, template *Template) (*AWSAutoScalingScheduledAction, error) {
 
 	result := &AWSAutoScalingScheduledAction{}
 	if resource, ok := template.Resources[name]; ok {

@@ -42,7 +42,7 @@ func (r *AWSRDSDBClusterParameterGroup) AWSCloudFormationSpecificationVersion() 
 }
 
 // GetAllAWSRDSDBClusterParameterGroupResources retrieves all AWSRDSDBClusterParameterGroup items from a CloudFormation template
-func GetAllAWSRDSDBClusterParameterGroup(template *Template) map[string]*AWSRDSDBClusterParameterGroup {
+func GetAllAWSRDSDBClusterParameterGroupResources(template *Template) map[string]*AWSRDSDBClusterParameterGroup {
 
 	results := map[string]*AWSRDSDBClusterParameterGroup{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSRDSDBClusterParameterGroup(template *Template) map[string]*AWSRDSD
 
 // GetAWSRDSDBClusterParameterGroupWithName retrieves all AWSRDSDBClusterParameterGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBClusterParameterGroup(name string, template *Template) (*AWSRDSDBClusterParameterGroup, error) {
+func GetAWSRDSDBClusterParameterGroupWithName(name string, template *Template) (*AWSRDSDBClusterParameterGroup, error) {
 
 	result := &AWSRDSDBClusterParameterGroup{}
 	if resource, ok := template.Resources[name]; ok {

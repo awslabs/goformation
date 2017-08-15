@@ -30,32 +30,3 @@ func (r *AWSOpsWorksLayer_ShutdownEventConfiguration) AWSCloudFormationType() st
 func (r *AWSOpsWorksLayer_ShutdownEventConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSOpsWorksLayer_ShutdownEventConfigurationResources retrieves all AWSOpsWorksLayer_ShutdownEventConfiguration items from a CloudFormation template
-func GetAllAWSOpsWorksLayer_ShutdownEventConfiguration(template *Template) map[string]*AWSOpsWorksLayer_ShutdownEventConfiguration {
-
-	results := map[string]*AWSOpsWorksLayer_ShutdownEventConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSOpsWorksLayer_ShutdownEventConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSOpsWorksLayer_ShutdownEventConfigurationWithName retrieves all AWSOpsWorksLayer_ShutdownEventConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksLayer_ShutdownEventConfiguration(name string, template *Template) (*AWSOpsWorksLayer_ShutdownEventConfiguration, error) {
-
-	result := &AWSOpsWorksLayer_ShutdownEventConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSOpsWorksLayer_ShutdownEventConfiguration{}, errors.New("resource not found")
-
-}

@@ -32,7 +32,7 @@ func (r *AWSStepFunctionsStateMachine) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSStepFunctionsStateMachineResources retrieves all AWSStepFunctionsStateMachine items from a CloudFormation template
-func GetAllAWSStepFunctionsStateMachine(template *Template) map[string]*AWSStepFunctionsStateMachine {
+func GetAllAWSStepFunctionsStateMachineResources(template *Template) map[string]*AWSStepFunctionsStateMachine {
 
 	results := map[string]*AWSStepFunctionsStateMachine{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSStepFunctionsStateMachine(template *Template) map[string]*AWSStepF
 
 // GetAWSStepFunctionsStateMachineWithName retrieves all AWSStepFunctionsStateMachine items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSStepFunctionsStateMachine(name string, template *Template) (*AWSStepFunctionsStateMachine, error) {
+func GetAWSStepFunctionsStateMachineWithName(name string, template *Template) (*AWSStepFunctionsStateMachine, error) {
 
 	result := &AWSStepFunctionsStateMachine{}
 	if resource, ok := template.Resources[name]; ok {

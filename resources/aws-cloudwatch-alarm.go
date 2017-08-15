@@ -112,7 +112,7 @@ func (r *AWSCloudWatchAlarm) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSCloudWatchAlarmResources retrieves all AWSCloudWatchAlarm items from a CloudFormation template
-func GetAllAWSCloudWatchAlarm(template *Template) map[string]*AWSCloudWatchAlarm {
+func GetAllAWSCloudWatchAlarmResources(template *Template) map[string]*AWSCloudWatchAlarm {
 
 	results := map[string]*AWSCloudWatchAlarm{}
 	for name, resource := range template.Resources {
@@ -127,7 +127,7 @@ func GetAllAWSCloudWatchAlarm(template *Template) map[string]*AWSCloudWatchAlarm
 
 // GetAWSCloudWatchAlarmWithName retrieves all AWSCloudWatchAlarm items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudWatchAlarm(name string, template *Template) (*AWSCloudWatchAlarm, error) {
+func GetAWSCloudWatchAlarmWithName(name string, template *Template) (*AWSCloudWatchAlarm, error) {
 
 	result := &AWSCloudWatchAlarm{}
 	if resource, ok := template.Resources[name]; ok {

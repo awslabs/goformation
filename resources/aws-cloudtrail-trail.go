@@ -82,7 +82,7 @@ func (r *AWSCloudTrailTrail) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSCloudTrailTrailResources retrieves all AWSCloudTrailTrail items from a CloudFormation template
-func GetAllAWSCloudTrailTrail(template *Template) map[string]*AWSCloudTrailTrail {
+func GetAllAWSCloudTrailTrailResources(template *Template) map[string]*AWSCloudTrailTrail {
 
 	results := map[string]*AWSCloudTrailTrail{}
 	for name, resource := range template.Resources {
@@ -97,7 +97,7 @@ func GetAllAWSCloudTrailTrail(template *Template) map[string]*AWSCloudTrailTrail
 
 // GetAWSCloudTrailTrailWithName retrieves all AWSCloudTrailTrail items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudTrailTrail(name string, template *Template) (*AWSCloudTrailTrail, error) {
+func GetAWSCloudTrailTrailWithName(name string, template *Template) (*AWSCloudTrailTrail, error) {
 
 	result := &AWSCloudTrailTrail{}
 	if resource, ok := template.Resources[name]; ok {

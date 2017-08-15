@@ -65,32 +65,3 @@ func (r *AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition) AWSCloudFormationT
 func (r *AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceGroupConfig_CloudWatchAlarmDefinitionResources retrieves all AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition(template *Template) map[string]*AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition {
-
-	results := map[string]*AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceGroupConfig_CloudWatchAlarmDefinitionWithName retrieves all AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition(name string, template *Template) (*AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition, error) {
-
-	result := &AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition{}, errors.New("resource not found")
-
-}

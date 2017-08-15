@@ -70,32 +70,3 @@ func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration)
 func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfigurationResources retrieves all AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration items from a CloudFormation template
-func GetAllAWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration(template *Template) map[string]*AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration {
-
-	results := map[string]*AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfigurationWithName retrieves all AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration(name string, template *Template) (*AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration, error) {
-
-	result := &AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration{}, errors.New("resource not found")
-
-}

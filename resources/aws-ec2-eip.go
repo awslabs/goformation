@@ -32,7 +32,7 @@ func (r *AWSEC2EIP) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2EIPResources retrieves all AWSEC2EIP items from a CloudFormation template
-func GetAllAWSEC2EIP(template *Template) map[string]*AWSEC2EIP {
+func GetAllAWSEC2EIPResources(template *Template) map[string]*AWSEC2EIP {
 
 	results := map[string]*AWSEC2EIP{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSEC2EIP(template *Template) map[string]*AWSEC2EIP {
 
 // GetAWSEC2EIPWithName retrieves all AWSEC2EIP items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2EIP(name string, template *Template) (*AWSEC2EIP, error) {
+func GetAWSEC2EIPWithName(name string, template *Template) (*AWSEC2EIP, error) {
 
 	result := &AWSEC2EIP{}
 	if resource, ok := template.Resources[name]; ok {

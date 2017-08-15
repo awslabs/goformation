@@ -55,32 +55,3 @@ func (r *AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration) AWSC
 func (r *AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfigurationResources retrieves all AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration items from a CloudFormation template
-func GetAllAWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration(template *Template) map[string]*AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration {
-
-	results := map[string]*AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfigurationWithName retrieves all AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration(name string, template *Template) (*AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration, error) {
-
-	result := &AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration{}, errors.New("resource not found")
-
-}

@@ -32,7 +32,7 @@ func (r *AWSWAFRegionalSizeConstraintSet) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSWAFRegionalSizeConstraintSetResources retrieves all AWSWAFRegionalSizeConstraintSet items from a CloudFormation template
-func GetAllAWSWAFRegionalSizeConstraintSet(template *Template) map[string]*AWSWAFRegionalSizeConstraintSet {
+func GetAllAWSWAFRegionalSizeConstraintSetResources(template *Template) map[string]*AWSWAFRegionalSizeConstraintSet {
 
 	results := map[string]*AWSWAFRegionalSizeConstraintSet{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSWAFRegionalSizeConstraintSet(template *Template) map[string]*AWSWA
 
 // GetAWSWAFRegionalSizeConstraintSetWithName retrieves all AWSWAFRegionalSizeConstraintSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalSizeConstraintSet(name string, template *Template) (*AWSWAFRegionalSizeConstraintSet, error) {
+func GetAWSWAFRegionalSizeConstraintSetWithName(name string, template *Template) (*AWSWAFRegionalSizeConstraintSet, error) {
 
 	result := &AWSWAFRegionalSizeConstraintSet{}
 	if resource, ok := template.Resources[name]; ok {

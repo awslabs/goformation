@@ -80,32 +80,3 @@ func (r *AWSBatchJobDefinition_ContainerProperties) AWSCloudFormationType() stri
 func (r *AWSBatchJobDefinition_ContainerProperties) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSBatchJobDefinition_ContainerPropertiesResources retrieves all AWSBatchJobDefinition_ContainerProperties items from a CloudFormation template
-func GetAllAWSBatchJobDefinition_ContainerProperties(template *Template) map[string]*AWSBatchJobDefinition_ContainerProperties {
-
-	results := map[string]*AWSBatchJobDefinition_ContainerProperties{}
-	for name, resource := range template.Resources {
-		result := &AWSBatchJobDefinition_ContainerProperties{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSBatchJobDefinition_ContainerPropertiesWithName retrieves all AWSBatchJobDefinition_ContainerProperties items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSBatchJobDefinition_ContainerProperties(name string, template *Template) (*AWSBatchJobDefinition_ContainerProperties, error) {
-
-	result := &AWSBatchJobDefinition_ContainerProperties{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSBatchJobDefinition_ContainerProperties{}, errors.New("resource not found")
-
-}

@@ -152,7 +152,7 @@ func (r *AWSElastiCacheReplicationGroup) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSElastiCacheReplicationGroupResources retrieves all AWSElastiCacheReplicationGroup items from a CloudFormation template
-func GetAllAWSElastiCacheReplicationGroup(template *Template) map[string]*AWSElastiCacheReplicationGroup {
+func GetAllAWSElastiCacheReplicationGroupResources(template *Template) map[string]*AWSElastiCacheReplicationGroup {
 
 	results := map[string]*AWSElastiCacheReplicationGroup{}
 	for name, resource := range template.Resources {
@@ -167,7 +167,7 @@ func GetAllAWSElastiCacheReplicationGroup(template *Template) map[string]*AWSEla
 
 // GetAWSElastiCacheReplicationGroupWithName retrieves all AWSElastiCacheReplicationGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElastiCacheReplicationGroup(name string, template *Template) (*AWSElastiCacheReplicationGroup, error) {
+func GetAWSElastiCacheReplicationGroupWithName(name string, template *Template) (*AWSElastiCacheReplicationGroup, error) {
 
 	result := &AWSElastiCacheReplicationGroup{}
 	if resource, ok := template.Resources[name]; ok {

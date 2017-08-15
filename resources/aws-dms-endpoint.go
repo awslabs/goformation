@@ -102,7 +102,7 @@ func (r *AWSDMSEndpoint) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSDMSEndpointResources retrieves all AWSDMSEndpoint items from a CloudFormation template
-func GetAllAWSDMSEndpoint(template *Template) map[string]*AWSDMSEndpoint {
+func GetAllAWSDMSEndpointResources(template *Template) map[string]*AWSDMSEndpoint {
 
 	results := map[string]*AWSDMSEndpoint{}
 	for name, resource := range template.Resources {
@@ -117,7 +117,7 @@ func GetAllAWSDMSEndpoint(template *Template) map[string]*AWSDMSEndpoint {
 
 // GetAWSDMSEndpointWithName retrieves all AWSDMSEndpoint items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDMSEndpoint(name string, template *Template) (*AWSDMSEndpoint, error) {
+func GetAWSDMSEndpointWithName(name string, template *Template) (*AWSDMSEndpoint, error) {
 
 	result := &AWSDMSEndpoint{}
 	if resource, ok := template.Resources[name]; ok {

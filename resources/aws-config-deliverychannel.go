@@ -47,7 +47,7 @@ func (r *AWSConfigDeliveryChannel) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSConfigDeliveryChannelResources retrieves all AWSConfigDeliveryChannel items from a CloudFormation template
-func GetAllAWSConfigDeliveryChannel(template *Template) map[string]*AWSConfigDeliveryChannel {
+func GetAllAWSConfigDeliveryChannelResources(template *Template) map[string]*AWSConfigDeliveryChannel {
 
 	results := map[string]*AWSConfigDeliveryChannel{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSConfigDeliveryChannel(template *Template) map[string]*AWSConfigDel
 
 // GetAWSConfigDeliveryChannelWithName retrieves all AWSConfigDeliveryChannel items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSConfigDeliveryChannel(name string, template *Template) (*AWSConfigDeliveryChannel, error) {
+func GetAWSConfigDeliveryChannelWithName(name string, template *Template) (*AWSConfigDeliveryChannel, error) {
 
 	result := &AWSConfigDeliveryChannel{}
 	if resource, ok := template.Resources[name]; ok {

@@ -42,7 +42,7 @@ func (r *AWSEC2TrunkInterfaceAssociation) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSEC2TrunkInterfaceAssociationResources retrieves all AWSEC2TrunkInterfaceAssociation items from a CloudFormation template
-func GetAllAWSEC2TrunkInterfaceAssociation(template *Template) map[string]*AWSEC2TrunkInterfaceAssociation {
+func GetAllAWSEC2TrunkInterfaceAssociationResources(template *Template) map[string]*AWSEC2TrunkInterfaceAssociation {
 
 	results := map[string]*AWSEC2TrunkInterfaceAssociation{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSEC2TrunkInterfaceAssociation(template *Template) map[string]*AWSEC
 
 // GetAWSEC2TrunkInterfaceAssociationWithName retrieves all AWSEC2TrunkInterfaceAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2TrunkInterfaceAssociation(name string, template *Template) (*AWSEC2TrunkInterfaceAssociation, error) {
+func GetAWSEC2TrunkInterfaceAssociationWithName(name string, template *Template) (*AWSEC2TrunkInterfaceAssociation, error) {
 
 	result := &AWSEC2TrunkInterfaceAssociation{}
 	if resource, ok := template.Resources[name]; ok {

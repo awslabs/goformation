@@ -37,7 +37,7 @@ func (r *AWSDMSCertificate) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSDMSCertificateResources retrieves all AWSDMSCertificate items from a CloudFormation template
-func GetAllAWSDMSCertificate(template *Template) map[string]*AWSDMSCertificate {
+func GetAllAWSDMSCertificateResources(template *Template) map[string]*AWSDMSCertificate {
 
 	results := map[string]*AWSDMSCertificate{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSDMSCertificate(template *Template) map[string]*AWSDMSCertificate {
 
 // GetAWSDMSCertificateWithName retrieves all AWSDMSCertificate items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDMSCertificate(name string, template *Template) (*AWSDMSCertificate, error) {
+func GetAWSDMSCertificateWithName(name string, template *Template) (*AWSDMSCertificate, error) {
 
 	result := &AWSDMSCertificate{}
 	if resource, ok := template.Resources[name]; ok {

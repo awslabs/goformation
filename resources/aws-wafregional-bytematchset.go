@@ -32,7 +32,7 @@ func (r *AWSWAFRegionalByteMatchSet) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSWAFRegionalByteMatchSetResources retrieves all AWSWAFRegionalByteMatchSet items from a CloudFormation template
-func GetAllAWSWAFRegionalByteMatchSet(template *Template) map[string]*AWSWAFRegionalByteMatchSet {
+func GetAllAWSWAFRegionalByteMatchSetResources(template *Template) map[string]*AWSWAFRegionalByteMatchSet {
 
 	results := map[string]*AWSWAFRegionalByteMatchSet{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSWAFRegionalByteMatchSet(template *Template) map[string]*AWSWAFRegi
 
 // GetAWSWAFRegionalByteMatchSetWithName retrieves all AWSWAFRegionalByteMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalByteMatchSet(name string, template *Template) (*AWSWAFRegionalByteMatchSet, error) {
+func GetAWSWAFRegionalByteMatchSetWithName(name string, template *Template) (*AWSWAFRegionalByteMatchSet, error) {
 
 	result := &AWSWAFRegionalByteMatchSet{}
 	if resource, ok := template.Resources[name]; ok {

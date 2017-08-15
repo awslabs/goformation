@@ -25,32 +25,3 @@ func (r *AWSWAFRegionalWebACL_Action) AWSCloudFormationType() string {
 func (r *AWSWAFRegionalWebACL_Action) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSWAFRegionalWebACL_ActionResources retrieves all AWSWAFRegionalWebACL_Action items from a CloudFormation template
-func GetAllAWSWAFRegionalWebACL_Action(template *Template) map[string]*AWSWAFRegionalWebACL_Action {
-
-	results := map[string]*AWSWAFRegionalWebACL_Action{}
-	for name, resource := range template.Resources {
-		result := &AWSWAFRegionalWebACL_Action{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSWAFRegionalWebACL_ActionWithName retrieves all AWSWAFRegionalWebACL_Action items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalWebACL_Action(name string, template *Template) (*AWSWAFRegionalWebACL_Action, error) {
-
-	result := &AWSWAFRegionalWebACL_Action{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSWAFRegionalWebACL_Action{}, errors.New("resource not found")
-
-}

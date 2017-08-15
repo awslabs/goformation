@@ -45,32 +45,3 @@ func (r *AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfi
 func (r *AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfigurationResources retrieves all AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration items from a CloudFormation template
-func GetAllAWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration(template *Template) map[string]*AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration {
-
-	results := map[string]*AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfigurationWithName retrieves all AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration(name string, template *Template) (*AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration, error) {
-
-	result := &AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration{}, errors.New("resource not found")
-
-}

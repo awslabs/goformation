@@ -42,7 +42,7 @@ func (r *AWSRDSDBSecurityGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBSecurityGroupResources retrieves all AWSRDSDBSecurityGroup items from a CloudFormation template
-func GetAllAWSRDSDBSecurityGroup(template *Template) map[string]*AWSRDSDBSecurityGroup {
+func GetAllAWSRDSDBSecurityGroupResources(template *Template) map[string]*AWSRDSDBSecurityGroup {
 
 	results := map[string]*AWSRDSDBSecurityGroup{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSRDSDBSecurityGroup(template *Template) map[string]*AWSRDSDBSecurit
 
 // GetAWSRDSDBSecurityGroupWithName retrieves all AWSRDSDBSecurityGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBSecurityGroup(name string, template *Template) (*AWSRDSDBSecurityGroup, error) {
+func GetAWSRDSDBSecurityGroupWithName(name string, template *Template) (*AWSRDSDBSecurityGroup, error) {
 
 	result := &AWSRDSDBSecurityGroup{}
 	if resource, ok := template.Resources[name]; ok {

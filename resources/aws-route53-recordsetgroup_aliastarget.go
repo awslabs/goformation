@@ -35,32 +35,3 @@ func (r *AWSRoute53RecordSetGroup_AliasTarget) AWSCloudFormationType() string {
 func (r *AWSRoute53RecordSetGroup_AliasTarget) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSRoute53RecordSetGroup_AliasTargetResources retrieves all AWSRoute53RecordSetGroup_AliasTarget items from a CloudFormation template
-func GetAllAWSRoute53RecordSetGroup_AliasTarget(template *Template) map[string]*AWSRoute53RecordSetGroup_AliasTarget {
-
-	results := map[string]*AWSRoute53RecordSetGroup_AliasTarget{}
-	for name, resource := range template.Resources {
-		result := &AWSRoute53RecordSetGroup_AliasTarget{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSRoute53RecordSetGroup_AliasTargetWithName retrieves all AWSRoute53RecordSetGroup_AliasTarget items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRoute53RecordSetGroup_AliasTarget(name string, template *Template) (*AWSRoute53RecordSetGroup_AliasTarget, error) {
-
-	result := &AWSRoute53RecordSetGroup_AliasTarget{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSRoute53RecordSetGroup_AliasTarget{}, errors.New("resource not found")
-
-}

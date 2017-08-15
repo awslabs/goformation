@@ -37,7 +37,7 @@ func (r *AWSEC2VolumeAttachment) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSEC2VolumeAttachmentResources retrieves all AWSEC2VolumeAttachment items from a CloudFormation template
-func GetAllAWSEC2VolumeAttachment(template *Template) map[string]*AWSEC2VolumeAttachment {
+func GetAllAWSEC2VolumeAttachmentResources(template *Template) map[string]*AWSEC2VolumeAttachment {
 
 	results := map[string]*AWSEC2VolumeAttachment{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSEC2VolumeAttachment(template *Template) map[string]*AWSEC2VolumeAt
 
 // GetAWSEC2VolumeAttachmentWithName retrieves all AWSEC2VolumeAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2VolumeAttachment(name string, template *Template) (*AWSEC2VolumeAttachment, error) {
+func GetAWSEC2VolumeAttachmentWithName(name string, template *Template) (*AWSEC2VolumeAttachment, error) {
 
 	result := &AWSEC2VolumeAttachment{}
 	if resource, ok := template.Resources[name]; ok {

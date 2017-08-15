@@ -32,7 +32,7 @@ func (r *AWSIoTThingPrincipalAttachment) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSIoTThingPrincipalAttachmentResources retrieves all AWSIoTThingPrincipalAttachment items from a CloudFormation template
-func GetAllAWSIoTThingPrincipalAttachment(template *Template) map[string]*AWSIoTThingPrincipalAttachment {
+func GetAllAWSIoTThingPrincipalAttachmentResources(template *Template) map[string]*AWSIoTThingPrincipalAttachment {
 
 	results := map[string]*AWSIoTThingPrincipalAttachment{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSIoTThingPrincipalAttachment(template *Template) map[string]*AWSIoT
 
 // GetAWSIoTThingPrincipalAttachmentWithName retrieves all AWSIoTThingPrincipalAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTThingPrincipalAttachment(name string, template *Template) (*AWSIoTThingPrincipalAttachment, error) {
+func GetAWSIoTThingPrincipalAttachmentWithName(name string, template *Template) (*AWSIoTThingPrincipalAttachment, error) {
 
 	result := &AWSIoTThingPrincipalAttachment{}
 	if resource, ok := template.Resources[name]; ok {

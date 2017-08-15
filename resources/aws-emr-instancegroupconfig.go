@@ -72,7 +72,7 @@ func (r *AWSEMRInstanceGroupConfig) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSEMRInstanceGroupConfigResources retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig(template *Template) map[string]*AWSEMRInstanceGroupConfig {
+func GetAllAWSEMRInstanceGroupConfigResources(template *Template) map[string]*AWSEMRInstanceGroupConfig {
 
 	results := map[string]*AWSEMRInstanceGroupConfig{}
 	for name, resource := range template.Resources {
@@ -87,7 +87,7 @@ func GetAllAWSEMRInstanceGroupConfig(template *Template) map[string]*AWSEMRInsta
 
 // GetAWSEMRInstanceGroupConfigWithName retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig(name string, template *Template) (*AWSEMRInstanceGroupConfig, error) {
+func GetAWSEMRInstanceGroupConfigWithName(name string, template *Template) (*AWSEMRInstanceGroupConfig, error) {
 
 	result := &AWSEMRInstanceGroupConfig{}
 	if resource, ok := template.Resources[name]; ok {

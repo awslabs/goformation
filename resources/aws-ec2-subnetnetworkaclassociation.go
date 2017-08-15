@@ -32,7 +32,7 @@ func (r *AWSEC2SubnetNetworkAclAssociation) AWSCloudFormationSpecificationVersio
 }
 
 // GetAllAWSEC2SubnetNetworkAclAssociationResources retrieves all AWSEC2SubnetNetworkAclAssociation items from a CloudFormation template
-func GetAllAWSEC2SubnetNetworkAclAssociation(template *Template) map[string]*AWSEC2SubnetNetworkAclAssociation {
+func GetAllAWSEC2SubnetNetworkAclAssociationResources(template *Template) map[string]*AWSEC2SubnetNetworkAclAssociation {
 
 	results := map[string]*AWSEC2SubnetNetworkAclAssociation{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSEC2SubnetNetworkAclAssociation(template *Template) map[string]*AWS
 
 // GetAWSEC2SubnetNetworkAclAssociationWithName retrieves all AWSEC2SubnetNetworkAclAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SubnetNetworkAclAssociation(name string, template *Template) (*AWSEC2SubnetNetworkAclAssociation, error) {
+func GetAWSEC2SubnetNetworkAclAssociationWithName(name string, template *Template) (*AWSEC2SubnetNetworkAclAssociation, error) {
 
 	result := &AWSEC2SubnetNetworkAclAssociation{}
 	if resource, ok := template.Resources[name]; ok {

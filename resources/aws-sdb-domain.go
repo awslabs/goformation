@@ -27,7 +27,7 @@ func (r *AWSSDBDomain) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSDBDomainResources retrieves all AWSSDBDomain items from a CloudFormation template
-func GetAllAWSSDBDomain(template *Template) map[string]*AWSSDBDomain {
+func GetAllAWSSDBDomainResources(template *Template) map[string]*AWSSDBDomain {
 
 	results := map[string]*AWSSDBDomain{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSSDBDomain(template *Template) map[string]*AWSSDBDomain {
 
 // GetAWSSDBDomainWithName retrieves all AWSSDBDomain items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSDBDomain(name string, template *Template) (*AWSSDBDomain, error) {
+func GetAWSSDBDomainWithName(name string, template *Template) (*AWSSDBDomain, error) {
 
 	result := &AWSSDBDomain{}
 	if resource, ok := template.Resources[name]; ok {

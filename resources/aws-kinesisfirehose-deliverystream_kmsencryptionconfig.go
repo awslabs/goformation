@@ -25,32 +25,3 @@ func (r *AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig) AWSCloudFormation
 func (r *AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSKinesisFirehoseDeliveryStream_KMSEncryptionConfigResources retrieves all AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig items from a CloudFormation template
-func GetAllAWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig(template *Template) map[string]*AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig {
-
-	results := map[string]*AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSKinesisFirehoseDeliveryStream_KMSEncryptionConfigWithName retrieves all AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig(name string, template *Template) (*AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig, error) {
-
-	result := &AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig{}, errors.New("resource not found")
-
-}

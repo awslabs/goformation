@@ -62,7 +62,7 @@ func (r *AWSApplicationAutoScalingScalingPolicy) AWSCloudFormationSpecificationV
 }
 
 // GetAllAWSApplicationAutoScalingScalingPolicyResources retrieves all AWSApplicationAutoScalingScalingPolicy items from a CloudFormation template
-func GetAllAWSApplicationAutoScalingScalingPolicy(template *Template) map[string]*AWSApplicationAutoScalingScalingPolicy {
+func GetAllAWSApplicationAutoScalingScalingPolicyResources(template *Template) map[string]*AWSApplicationAutoScalingScalingPolicy {
 
 	results := map[string]*AWSApplicationAutoScalingScalingPolicy{}
 	for name, resource := range template.Resources {
@@ -77,7 +77,7 @@ func GetAllAWSApplicationAutoScalingScalingPolicy(template *Template) map[string
 
 // GetAWSApplicationAutoScalingScalingPolicyWithName retrieves all AWSApplicationAutoScalingScalingPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApplicationAutoScalingScalingPolicy(name string, template *Template) (*AWSApplicationAutoScalingScalingPolicy, error) {
+func GetAWSApplicationAutoScalingScalingPolicyWithName(name string, template *Template) (*AWSApplicationAutoScalingScalingPolicy, error) {
 
 	result := &AWSApplicationAutoScalingScalingPolicy{}
 	if resource, ok := template.Resources[name]; ok {

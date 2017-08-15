@@ -30,32 +30,3 @@ func (r *AWSCodePipelinePipeline_EncryptionKey) AWSCloudFormationType() string {
 func (r *AWSCodePipelinePipeline_EncryptionKey) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCodePipelinePipeline_EncryptionKeyResources retrieves all AWSCodePipelinePipeline_EncryptionKey items from a CloudFormation template
-func GetAllAWSCodePipelinePipeline_EncryptionKey(template *Template) map[string]*AWSCodePipelinePipeline_EncryptionKey {
-
-	results := map[string]*AWSCodePipelinePipeline_EncryptionKey{}
-	for name, resource := range template.Resources {
-		result := &AWSCodePipelinePipeline_EncryptionKey{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCodePipelinePipeline_EncryptionKeyWithName retrieves all AWSCodePipelinePipeline_EncryptionKey items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodePipelinePipeline_EncryptionKey(name string, template *Template) (*AWSCodePipelinePipeline_EncryptionKey, error) {
-
-	result := &AWSCodePipelinePipeline_EncryptionKey{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCodePipelinePipeline_EncryptionKey{}, errors.New("resource not found")
-
-}

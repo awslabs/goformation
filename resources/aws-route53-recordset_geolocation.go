@@ -35,32 +35,3 @@ func (r *AWSRoute53RecordSet_GeoLocation) AWSCloudFormationType() string {
 func (r *AWSRoute53RecordSet_GeoLocation) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSRoute53RecordSet_GeoLocationResources retrieves all AWSRoute53RecordSet_GeoLocation items from a CloudFormation template
-func GetAllAWSRoute53RecordSet_GeoLocation(template *Template) map[string]*AWSRoute53RecordSet_GeoLocation {
-
-	results := map[string]*AWSRoute53RecordSet_GeoLocation{}
-	for name, resource := range template.Resources {
-		result := &AWSRoute53RecordSet_GeoLocation{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSRoute53RecordSet_GeoLocationWithName retrieves all AWSRoute53RecordSet_GeoLocation items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRoute53RecordSet_GeoLocation(name string, template *Template) (*AWSRoute53RecordSet_GeoLocation, error) {
-
-	result := &AWSRoute53RecordSet_GeoLocation{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSRoute53RecordSet_GeoLocation{}, errors.New("resource not found")
-
-}

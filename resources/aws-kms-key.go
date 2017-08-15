@@ -47,7 +47,7 @@ func (r *AWSKMSKey) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSKMSKeyResources retrieves all AWSKMSKey items from a CloudFormation template
-func GetAllAWSKMSKey(template *Template) map[string]*AWSKMSKey {
+func GetAllAWSKMSKeyResources(template *Template) map[string]*AWSKMSKey {
 
 	results := map[string]*AWSKMSKey{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSKMSKey(template *Template) map[string]*AWSKMSKey {
 
 // GetAWSKMSKeyWithName retrieves all AWSKMSKey items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKMSKey(name string, template *Template) (*AWSKMSKey, error) {
+func GetAWSKMSKeyWithName(name string, template *Template) (*AWSKMSKey, error) {
 
 	result := &AWSKMSKey{}
 	if resource, ok := template.Resources[name]; ok {

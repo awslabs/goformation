@@ -77,7 +77,7 @@ func (r *AWSGameLiftFleet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSGameLiftFleetResources retrieves all AWSGameLiftFleet items from a CloudFormation template
-func GetAllAWSGameLiftFleet(template *Template) map[string]*AWSGameLiftFleet {
+func GetAllAWSGameLiftFleetResources(template *Template) map[string]*AWSGameLiftFleet {
 
 	results := map[string]*AWSGameLiftFleet{}
 	for name, resource := range template.Resources {
@@ -92,7 +92,7 @@ func GetAllAWSGameLiftFleet(template *Template) map[string]*AWSGameLiftFleet {
 
 // GetAWSGameLiftFleetWithName retrieves all AWSGameLiftFleet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSGameLiftFleet(name string, template *Template) (*AWSGameLiftFleet, error) {
+func GetAWSGameLiftFleetWithName(name string, template *Template) (*AWSGameLiftFleet, error) {
 
 	result := &AWSGameLiftFleet{}
 	if resource, ok := template.Resources[name]; ok {

@@ -35,32 +35,3 @@ func (r *AWSS3Bucket_LambdaConfiguration) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_LambdaConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_LambdaConfigurationResources retrieves all AWSS3Bucket_LambdaConfiguration items from a CloudFormation template
-func GetAllAWSS3Bucket_LambdaConfiguration(template *Template) map[string]*AWSS3Bucket_LambdaConfiguration {
-
-	results := map[string]*AWSS3Bucket_LambdaConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_LambdaConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_LambdaConfigurationWithName retrieves all AWSS3Bucket_LambdaConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_LambdaConfiguration(name string, template *Template) (*AWSS3Bucket_LambdaConfiguration, error) {
-
-	result := &AWSS3Bucket_LambdaConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_LambdaConfiguration{}, errors.New("resource not found")
-
-}

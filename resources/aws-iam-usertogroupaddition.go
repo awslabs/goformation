@@ -32,7 +32,7 @@ func (r *AWSIAMUserToGroupAddition) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSIAMUserToGroupAdditionResources retrieves all AWSIAMUserToGroupAddition items from a CloudFormation template
-func GetAllAWSIAMUserToGroupAddition(template *Template) map[string]*AWSIAMUserToGroupAddition {
+func GetAllAWSIAMUserToGroupAdditionResources(template *Template) map[string]*AWSIAMUserToGroupAddition {
 
 	results := map[string]*AWSIAMUserToGroupAddition{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSIAMUserToGroupAddition(template *Template) map[string]*AWSIAMUserT
 
 // GetAWSIAMUserToGroupAdditionWithName retrieves all AWSIAMUserToGroupAddition items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMUserToGroupAddition(name string, template *Template) (*AWSIAMUserToGroupAddition, error) {
+func GetAWSIAMUserToGroupAdditionWithName(name string, template *Template) (*AWSIAMUserToGroupAddition, error) {
 
 	result := &AWSIAMUserToGroupAddition{}
 	if resource, ok := template.Resources[name]; ok {

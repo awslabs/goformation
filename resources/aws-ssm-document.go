@@ -32,7 +32,7 @@ func (r *AWSSSMDocument) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSSMDocumentResources retrieves all AWSSSMDocument items from a CloudFormation template
-func GetAllAWSSSMDocument(template *Template) map[string]*AWSSSMDocument {
+func GetAllAWSSSMDocumentResources(template *Template) map[string]*AWSSSMDocument {
 
 	results := map[string]*AWSSSMDocument{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSSSMDocument(template *Template) map[string]*AWSSSMDocument {
 
 // GetAWSSSMDocumentWithName retrieves all AWSSSMDocument items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSSMDocument(name string, template *Template) (*AWSSSMDocument, error) {
+func GetAWSSSMDocumentWithName(name string, template *Template) (*AWSSSMDocument, error) {
 
 	result := &AWSSSMDocument{}
 	if resource, ok := template.Resources[name]; ok {

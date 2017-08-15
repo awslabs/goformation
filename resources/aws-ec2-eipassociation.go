@@ -47,7 +47,7 @@ func (r *AWSEC2EIPAssociation) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2EIPAssociationResources retrieves all AWSEC2EIPAssociation items from a CloudFormation template
-func GetAllAWSEC2EIPAssociation(template *Template) map[string]*AWSEC2EIPAssociation {
+func GetAllAWSEC2EIPAssociationResources(template *Template) map[string]*AWSEC2EIPAssociation {
 
 	results := map[string]*AWSEC2EIPAssociation{}
 	for name, resource := range template.Resources {
@@ -62,7 +62,7 @@ func GetAllAWSEC2EIPAssociation(template *Template) map[string]*AWSEC2EIPAssocia
 
 // GetAWSEC2EIPAssociationWithName retrieves all AWSEC2EIPAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2EIPAssociation(name string, template *Template) (*AWSEC2EIPAssociation, error) {
+func GetAWSEC2EIPAssociationWithName(name string, template *Template) (*AWSEC2EIPAssociation, error) {
 
 	result := &AWSEC2EIPAssociation{}
 	if resource, ok := template.Resources[name]; ok {

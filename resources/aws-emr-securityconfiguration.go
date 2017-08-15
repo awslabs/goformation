@@ -32,7 +32,7 @@ func (r *AWSEMRSecurityConfiguration) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSEMRSecurityConfigurationResources retrieves all AWSEMRSecurityConfiguration items from a CloudFormation template
-func GetAllAWSEMRSecurityConfiguration(template *Template) map[string]*AWSEMRSecurityConfiguration {
+func GetAllAWSEMRSecurityConfigurationResources(template *Template) map[string]*AWSEMRSecurityConfiguration {
 
 	results := map[string]*AWSEMRSecurityConfiguration{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSEMRSecurityConfiguration(template *Template) map[string]*AWSEMRSec
 
 // GetAWSEMRSecurityConfigurationWithName retrieves all AWSEMRSecurityConfiguration items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRSecurityConfiguration(name string, template *Template) (*AWSEMRSecurityConfiguration, error) {
+func GetAWSEMRSecurityConfigurationWithName(name string, template *Template) (*AWSEMRSecurityConfiguration, error) {
 
 	result := &AWSEMRSecurityConfiguration{}
 	if resource, ok := template.Resources[name]; ok {

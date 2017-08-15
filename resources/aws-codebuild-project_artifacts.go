@@ -50,32 +50,3 @@ func (r *AWSCodeBuildProject_Artifacts) AWSCloudFormationType() string {
 func (r *AWSCodeBuildProject_Artifacts) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCodeBuildProject_ArtifactsResources retrieves all AWSCodeBuildProject_Artifacts items from a CloudFormation template
-func GetAllAWSCodeBuildProject_Artifacts(template *Template) map[string]*AWSCodeBuildProject_Artifacts {
-
-	results := map[string]*AWSCodeBuildProject_Artifacts{}
-	for name, resource := range template.Resources {
-		result := &AWSCodeBuildProject_Artifacts{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCodeBuildProject_ArtifactsWithName retrieves all AWSCodeBuildProject_Artifacts items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeBuildProject_Artifacts(name string, template *Template) (*AWSCodeBuildProject_Artifacts, error) {
-
-	result := &AWSCodeBuildProject_Artifacts{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCodeBuildProject_Artifacts{}, errors.New("resource not found")
-
-}

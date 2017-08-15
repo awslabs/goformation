@@ -25,32 +25,3 @@ func (r *AWSLambdaFunction_Environment) AWSCloudFormationType() string {
 func (r *AWSLambdaFunction_Environment) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSLambdaFunction_EnvironmentResources retrieves all AWSLambdaFunction_Environment items from a CloudFormation template
-func GetAllAWSLambdaFunction_Environment(template *Template) map[string]*AWSLambdaFunction_Environment {
-
-	results := map[string]*AWSLambdaFunction_Environment{}
-	for name, resource := range template.Resources {
-		result := &AWSLambdaFunction_Environment{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSLambdaFunction_EnvironmentWithName retrieves all AWSLambdaFunction_Environment items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLambdaFunction_Environment(name string, template *Template) (*AWSLambdaFunction_Environment, error) {
-
-	result := &AWSLambdaFunction_Environment{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSLambdaFunction_Environment{}, errors.New("resource not found")
-
-}

@@ -57,7 +57,7 @@ func (r *AWSAutoScalingLifecycleHook) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSAutoScalingLifecycleHookResources retrieves all AWSAutoScalingLifecycleHook items from a CloudFormation template
-func GetAllAWSAutoScalingLifecycleHook(template *Template) map[string]*AWSAutoScalingLifecycleHook {
+func GetAllAWSAutoScalingLifecycleHookResources(template *Template) map[string]*AWSAutoScalingLifecycleHook {
 
 	results := map[string]*AWSAutoScalingLifecycleHook{}
 	for name, resource := range template.Resources {
@@ -72,7 +72,7 @@ func GetAllAWSAutoScalingLifecycleHook(template *Template) map[string]*AWSAutoSc
 
 // GetAWSAutoScalingLifecycleHookWithName retrieves all AWSAutoScalingLifecycleHook items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSAutoScalingLifecycleHook(name string, template *Template) (*AWSAutoScalingLifecycleHook, error) {
+func GetAWSAutoScalingLifecycleHookWithName(name string, template *Template) (*AWSAutoScalingLifecycleHook, error) {
 
 	result := &AWSAutoScalingLifecycleHook{}
 	if resource, ok := template.Resources[name]; ok {

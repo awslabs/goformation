@@ -150,32 +150,3 @@ func (r *AWSECSTaskDefinition_ContainerDefinition) AWSCloudFormationType() strin
 func (r *AWSECSTaskDefinition_ContainerDefinition) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSECSTaskDefinition_ContainerDefinitionResources retrieves all AWSECSTaskDefinition_ContainerDefinition items from a CloudFormation template
-func GetAllAWSECSTaskDefinition_ContainerDefinition(template *Template) map[string]*AWSECSTaskDefinition_ContainerDefinition {
-
-	results := map[string]*AWSECSTaskDefinition_ContainerDefinition{}
-	for name, resource := range template.Resources {
-		result := &AWSECSTaskDefinition_ContainerDefinition{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSECSTaskDefinition_ContainerDefinitionWithName retrieves all AWSECSTaskDefinition_ContainerDefinition items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSTaskDefinition_ContainerDefinition(name string, template *Template) (*AWSECSTaskDefinition_ContainerDefinition, error) {
-
-	result := &AWSECSTaskDefinition_ContainerDefinition{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSECSTaskDefinition_ContainerDefinition{}, errors.New("resource not found")
-
-}

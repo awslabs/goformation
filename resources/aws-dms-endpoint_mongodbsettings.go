@@ -75,32 +75,3 @@ func (r *AWSDMSEndpoint_MongoDbSettings) AWSCloudFormationType() string {
 func (r *AWSDMSEndpoint_MongoDbSettings) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSDMSEndpoint_MongoDbSettingsResources retrieves all AWSDMSEndpoint_MongoDbSettings items from a CloudFormation template
-func GetAllAWSDMSEndpoint_MongoDbSettings(template *Template) map[string]*AWSDMSEndpoint_MongoDbSettings {
-
-	results := map[string]*AWSDMSEndpoint_MongoDbSettings{}
-	for name, resource := range template.Resources {
-		result := &AWSDMSEndpoint_MongoDbSettings{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSDMSEndpoint_MongoDbSettingsWithName retrieves all AWSDMSEndpoint_MongoDbSettings items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDMSEndpoint_MongoDbSettings(name string, template *Template) (*AWSDMSEndpoint_MongoDbSettings, error) {
-
-	result := &AWSDMSEndpoint_MongoDbSettings{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSDMSEndpoint_MongoDbSettings{}, errors.New("resource not found")
-
-}

@@ -25,32 +25,3 @@ func (r *AWSEC2SpotFleet_IamInstanceProfileSpecification) AWSCloudFormationType(
 func (r *AWSEC2SpotFleet_IamInstanceProfileSpecification) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEC2SpotFleet_IamInstanceProfileSpecificationResources retrieves all AWSEC2SpotFleet_IamInstanceProfileSpecification items from a CloudFormation template
-func GetAllAWSEC2SpotFleet_IamInstanceProfileSpecification(template *Template) map[string]*AWSEC2SpotFleet_IamInstanceProfileSpecification {
-
-	results := map[string]*AWSEC2SpotFleet_IamInstanceProfileSpecification{}
-	for name, resource := range template.Resources {
-		result := &AWSEC2SpotFleet_IamInstanceProfileSpecification{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEC2SpotFleet_IamInstanceProfileSpecificationWithName retrieves all AWSEC2SpotFleet_IamInstanceProfileSpecification items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SpotFleet_IamInstanceProfileSpecification(name string, template *Template) (*AWSEC2SpotFleet_IamInstanceProfileSpecification, error) {
-
-	result := &AWSEC2SpotFleet_IamInstanceProfileSpecification{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEC2SpotFleet_IamInstanceProfileSpecification{}, errors.New("resource not found")
-
-}

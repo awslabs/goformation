@@ -30,32 +30,3 @@ func (r *AWSDynamoDBTable_AttributeDefinition) AWSCloudFormationType() string {
 func (r *AWSDynamoDBTable_AttributeDefinition) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSDynamoDBTable_AttributeDefinitionResources retrieves all AWSDynamoDBTable_AttributeDefinition items from a CloudFormation template
-func GetAllAWSDynamoDBTable_AttributeDefinition(template *Template) map[string]*AWSDynamoDBTable_AttributeDefinition {
-
-	results := map[string]*AWSDynamoDBTable_AttributeDefinition{}
-	for name, resource := range template.Resources {
-		result := &AWSDynamoDBTable_AttributeDefinition{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSDynamoDBTable_AttributeDefinitionWithName retrieves all AWSDynamoDBTable_AttributeDefinition items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDynamoDBTable_AttributeDefinition(name string, template *Template) (*AWSDynamoDBTable_AttributeDefinition, error) {
-
-	result := &AWSDynamoDBTable_AttributeDefinition{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSDynamoDBTable_AttributeDefinition{}, errors.New("resource not found")
-
-}

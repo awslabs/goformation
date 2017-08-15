@@ -32,7 +32,7 @@ func (r *AWSWAFRegionalXssMatchSet) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSWAFRegionalXssMatchSetResources retrieves all AWSWAFRegionalXssMatchSet items from a CloudFormation template
-func GetAllAWSWAFRegionalXssMatchSet(template *Template) map[string]*AWSWAFRegionalXssMatchSet {
+func GetAllAWSWAFRegionalXssMatchSetResources(template *Template) map[string]*AWSWAFRegionalXssMatchSet {
 
 	results := map[string]*AWSWAFRegionalXssMatchSet{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSWAFRegionalXssMatchSet(template *Template) map[string]*AWSWAFRegio
 
 // GetAWSWAFRegionalXssMatchSetWithName retrieves all AWSWAFRegionalXssMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalXssMatchSet(name string, template *Template) (*AWSWAFRegionalXssMatchSet, error) {
+func GetAWSWAFRegionalXssMatchSetWithName(name string, template *Template) (*AWSWAFRegionalXssMatchSet, error) {
 
 	result := &AWSWAFRegionalXssMatchSet{}
 	if resource, ok := template.Resources[name]; ok {

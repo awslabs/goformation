@@ -40,32 +40,3 @@ func (r *AWSECSService_LoadBalancer) AWSCloudFormationType() string {
 func (r *AWSECSService_LoadBalancer) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSECSService_LoadBalancerResources retrieves all AWSECSService_LoadBalancer items from a CloudFormation template
-func GetAllAWSECSService_LoadBalancer(template *Template) map[string]*AWSECSService_LoadBalancer {
-
-	results := map[string]*AWSECSService_LoadBalancer{}
-	for name, resource := range template.Resources {
-		result := &AWSECSService_LoadBalancer{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSECSService_LoadBalancerWithName retrieves all AWSECSService_LoadBalancer items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSService_LoadBalancer(name string, template *Template) (*AWSECSService_LoadBalancer, error) {
-
-	result := &AWSECSService_LoadBalancer{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSECSService_LoadBalancer{}, errors.New("resource not found")
-
-}

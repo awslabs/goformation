@@ -32,7 +32,7 @@ func (r *AWSWAFRegionalIPSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFRegionalIPSetResources retrieves all AWSWAFRegionalIPSet items from a CloudFormation template
-func GetAllAWSWAFRegionalIPSet(template *Template) map[string]*AWSWAFRegionalIPSet {
+func GetAllAWSWAFRegionalIPSetResources(template *Template) map[string]*AWSWAFRegionalIPSet {
 
 	results := map[string]*AWSWAFRegionalIPSet{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSWAFRegionalIPSet(template *Template) map[string]*AWSWAFRegionalIPS
 
 // GetAWSWAFRegionalIPSetWithName retrieves all AWSWAFRegionalIPSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalIPSet(name string, template *Template) (*AWSWAFRegionalIPSet, error) {
+func GetAWSWAFRegionalIPSetWithName(name string, template *Template) (*AWSWAFRegionalIPSet, error) {
 
 	result := &AWSWAFRegionalIPSet{}
 	if resource, ok := template.Resources[name]; ok {

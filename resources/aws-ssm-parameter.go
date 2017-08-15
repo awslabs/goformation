@@ -42,7 +42,7 @@ func (r *AWSSSMParameter) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSSMParameterResources retrieves all AWSSSMParameter items from a CloudFormation template
-func GetAllAWSSSMParameter(template *Template) map[string]*AWSSSMParameter {
+func GetAllAWSSSMParameterResources(template *Template) map[string]*AWSSSMParameter {
 
 	results := map[string]*AWSSSMParameter{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSSSMParameter(template *Template) map[string]*AWSSSMParameter {
 
 // GetAWSSSMParameterWithName retrieves all AWSSSMParameter items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSSMParameter(name string, template *Template) (*AWSSSMParameter, error) {
+func GetAWSSSMParameterWithName(name string, template *Template) (*AWSSSMParameter, error) {
 
 	result := &AWSSSMParameter{}
 	if resource, ok := template.Resources[name]; ok {

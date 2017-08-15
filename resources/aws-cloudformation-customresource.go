@@ -27,7 +27,7 @@ func (r *AWSCloudFormationCustomResource) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSCloudFormationCustomResourceResources retrieves all AWSCloudFormationCustomResource items from a CloudFormation template
-func GetAllAWSCloudFormationCustomResource(template *Template) map[string]*AWSCloudFormationCustomResource {
+func GetAllAWSCloudFormationCustomResourceResources(template *Template) map[string]*AWSCloudFormationCustomResource {
 
 	results := map[string]*AWSCloudFormationCustomResource{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSCloudFormationCustomResource(template *Template) map[string]*AWSCl
 
 // GetAWSCloudFormationCustomResourceWithName retrieves all AWSCloudFormationCustomResource items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFormationCustomResource(name string, template *Template) (*AWSCloudFormationCustomResource, error) {
+func GetAWSCloudFormationCustomResourceWithName(name string, template *Template) (*AWSCloudFormationCustomResource, error) {
 
 	result := &AWSCloudFormationCustomResource{}
 	if resource, ok := template.Resources[name]; ok {
