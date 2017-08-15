@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DataPipeline::Pipeline.ParameterObject AWS CloudFormation Resource
+// AWSDataPipelinePipeline_ParameterObject AWS CloudFormation Resource (AWS::DataPipeline::Pipeline.ParameterObject)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html
 type AWSDataPipelinePipeline_ParameterObject struct {
 

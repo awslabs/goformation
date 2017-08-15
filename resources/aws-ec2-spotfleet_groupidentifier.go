@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.GroupIdentifier AWS CloudFormation Resource
+// AWSEC2SpotFleet_GroupIdentifier AWS CloudFormation Resource (AWS::EC2::SpotFleet.GroupIdentifier)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html
 type AWSEC2SpotFleet_GroupIdentifier struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Redshift::ClusterSubnetGroup AWS CloudFormation Resource
+// AWSRedshiftClusterSubnetGroup AWS CloudFormation Resource (AWS::Redshift::ClusterSubnetGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
 type AWSRedshiftClusterSubnetGroup struct {
 

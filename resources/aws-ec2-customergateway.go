@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::CustomerGateway AWS CloudFormation Resource
+// AWSEC2CustomerGateway AWS CloudFormation Resource (AWS::EC2::CustomerGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html
 type AWSEC2CustomerGateway struct {
 

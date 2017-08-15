@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle AWS CloudFormation Resource
+// AWSElasticBeanstalkApplicationVersion_SourceBundle AWS CloudFormation Resource (AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html
 type AWSElasticBeanstalkApplicationVersion_SourceBundle struct {
 

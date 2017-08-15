@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.VersioningConfiguration AWS CloudFormation Resource
+// AWSS3Bucket_VersioningConfiguration AWS CloudFormation Resource (AWS::S3::Bucket.VersioningConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html
 type AWSS3Bucket_VersioningConfiguration struct {
 

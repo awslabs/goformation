@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CertificateManager::Certificate.DomainValidationOption AWS CloudFormation Resource
+// AWSCertificateManagerCertificate_DomainValidationOption AWS CloudFormation Resource (AWS::CertificateManager::Certificate.DomainValidationOption)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html
 type AWSCertificateManagerCertificate_DomainValidationOption struct {
 

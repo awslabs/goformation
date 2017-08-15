@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.SpotFleetLaunchSpecification AWS CloudFormation Resource
+// AWSEC2SpotFleet_SpotFleetLaunchSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.SpotFleetLaunchSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
 type AWSEC2SpotFleet_SpotFleetLaunchSpecification struct {
 

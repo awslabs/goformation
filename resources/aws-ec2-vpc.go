@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::VPC AWS CloudFormation Resource
+// AWSEC2VPC AWS CloudFormation Resource (AWS::EC2::VPC)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
 type AWSEC2VPC struct {
 

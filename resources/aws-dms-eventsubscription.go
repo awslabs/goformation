@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DMS::EventSubscription AWS CloudFormation Resource
+// AWSDMSEventSubscription AWS CloudFormation Resource (AWS::DMS::EventSubscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html
 type AWSDMSEventSubscription struct {
 

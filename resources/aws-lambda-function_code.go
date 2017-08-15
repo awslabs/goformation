@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Lambda::Function.Code AWS CloudFormation Resource
+// AWSLambdaFunction_Code AWS CloudFormation Resource (AWS::Lambda::Function.Code)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
 type AWSLambdaFunction_Code struct {
 

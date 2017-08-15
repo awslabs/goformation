@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancingV2::TargetGroup.TargetDescription AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2TargetGroup_TargetDescription AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::TargetGroup.TargetDescription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html
 type AWSElasticLoadBalancingV2TargetGroup_TargetDescription struct {
 

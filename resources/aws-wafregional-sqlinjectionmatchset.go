@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAFRegional::SqlInjectionMatchSet AWS CloudFormation Resource
+// AWSWAFRegionalSqlInjectionMatchSet AWS CloudFormation Resource (AWS::WAFRegional::SqlInjectionMatchSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html
 type AWSWAFRegionalSqlInjectionMatchSet struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApiGateway::Stage.MethodSetting AWS CloudFormation Resource
+// AWSApiGatewayStage_MethodSetting AWS CloudFormation Resource (AWS::ApiGateway::Stage.MethodSetting)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
 type AWSApiGatewayStage_MethodSetting struct {
 

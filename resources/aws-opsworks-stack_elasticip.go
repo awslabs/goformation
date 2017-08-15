@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Stack.ElasticIp AWS CloudFormation Resource
+// AWSOpsWorksStack_ElasticIp AWS CloudFormation Resource (AWS::OpsWorks::Stack.ElasticIp)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html
 type AWSOpsWorksStack_ElasticIp struct {
 

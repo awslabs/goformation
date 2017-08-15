@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::UserToGroupAddition AWS CloudFormation Resource
+// AWSIAMUserToGroupAddition AWS CloudFormation Resource (AWS::IAM::UserToGroupAddition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
 type AWSIAMUserToGroupAddition struct {
 

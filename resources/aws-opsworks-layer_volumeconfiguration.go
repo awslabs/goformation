@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Layer.VolumeConfiguration AWS CloudFormation Resource
+// AWSOpsWorksLayer_VolumeConfiguration AWS CloudFormation Resource (AWS::OpsWorks::Layer.VolumeConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html
 type AWSOpsWorksLayer_VolumeConfiguration struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.MountPoint AWS CloudFormation Resource
+// AWSECSTaskDefinition_MountPoint AWS CloudFormation Resource (AWS::ECS::TaskDefinition.MountPoint)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
 type AWSECSTaskDefinition_MountPoint struct {
 

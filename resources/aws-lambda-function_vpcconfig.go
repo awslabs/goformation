@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Lambda::Function.VpcConfig AWS CloudFormation Resource
+// AWSLambdaFunction_VpcConfig AWS CloudFormation Resource (AWS::Lambda::Function.VpcConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
 type AWSLambdaFunction_VpcConfig struct {
 

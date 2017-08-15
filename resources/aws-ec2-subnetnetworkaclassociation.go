@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::SubnetNetworkAclAssociation AWS CloudFormation Resource
+// AWSEC2SubnetNetworkAclAssociation AWS CloudFormation Resource (AWS::EC2::SubnetNetworkAclAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html
 type AWSEC2SubnetNetworkAclAssociation struct {
 

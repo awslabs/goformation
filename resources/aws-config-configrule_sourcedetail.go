@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Config::ConfigRule.SourceDetail AWS CloudFormation Resource
+// AWSConfigConfigRule_SourceDetail AWS CloudFormation Resource (AWS::Config::ConfigRule.SourceDetail)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html
 type AWSConfigConfigRule_SourceDetail struct {
 

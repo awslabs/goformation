@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.ViewerCertificate AWS CloudFormation Resource
+// AWSCloudFrontDistribution_ViewerCertificate AWS CloudFormation Resource (AWS::CloudFront::Distribution.ViewerCertificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html
 type AWSCloudFrontDistribution_ViewerCertificate struct {
 

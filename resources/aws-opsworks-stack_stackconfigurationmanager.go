@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Stack.StackConfigurationManager AWS CloudFormation Resource
+// AWSOpsWorksStack_StackConfigurationManager AWS CloudFormation Resource (AWS::OpsWorks::Stack.StackConfigurationManager)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-stackconfigmanager.html
 type AWSOpsWorksStack_StackConfigurationManager struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.Policies AWS CloudFormation Resource
+// AWSCognitoUserPool_Policies AWS CloudFormation Resource (AWS::Cognito::UserPool.Policies)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html
 type AWSCognitoUserPool_Policies struct {
 

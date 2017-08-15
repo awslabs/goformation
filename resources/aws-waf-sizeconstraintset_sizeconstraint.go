@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::SizeConstraintSet.SizeConstraint AWS CloudFormation Resource
+// AWSWAFSizeConstraintSet_SizeConstraint AWS CloudFormation Resource (AWS::WAF::SizeConstraintSet.SizeConstraint)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html
 type AWSWAFSizeConstraintSet_SizeConstraint struct {
 

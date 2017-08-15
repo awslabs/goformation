@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Layer.LifecycleEventConfiguration AWS CloudFormation Resource
+// AWSOpsWorksLayer_LifecycleEventConfiguration AWS CloudFormation Resource (AWS::OpsWorks::Layer.LifecycleEventConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html
 type AWSOpsWorksLayer_LifecycleEventConfiguration struct {
 

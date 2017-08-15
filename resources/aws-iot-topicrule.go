@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IoT::TopicRule AWS CloudFormation Resource
+// AWSIoTTopicRule AWS CloudFormation Resource (AWS::IoT::TopicRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
 type AWSIoTTopicRule struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.InstanceFleetProvisioningSpecifications AWS CloudFormation Resource
+// AWSEMRCluster_InstanceFleetProvisioningSpecifications AWS CloudFormation Resource (AWS::EMR::Cluster.InstanceFleetProvisioningSpecifications)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html
 type AWSEMRCluster_InstanceFleetProvisioningSpecifications struct {
 

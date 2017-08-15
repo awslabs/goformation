@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::ByteMatchSet.ByteMatchTuple AWS CloudFormation Resource
+// AWSWAFByteMatchSet_ByteMatchTuple AWS CloudFormation Resource (AWS::WAF::ByteMatchSet.ByteMatchTuple)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html
 type AWSWAFByteMatchSet_ByteMatchTuple struct {
 

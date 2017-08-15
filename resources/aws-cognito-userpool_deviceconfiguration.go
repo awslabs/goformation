@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.DeviceConfiguration AWS CloudFormation Resource
+// AWSCognitoUserPool_DeviceConfiguration AWS CloudFormation Resource (AWS::Cognito::UserPool.DeviceConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html
 type AWSCognitoUserPool_DeviceConfiguration struct {
 

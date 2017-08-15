@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::AutoScaling::LifecycleHook AWS CloudFormation Resource
+// AWSAutoScalingLifecycleHook AWS CloudFormation Resource (AWS::AutoScaling::LifecycleHook)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
 type AWSAutoScalingLifecycleHook struct {
 

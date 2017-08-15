@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SQS::Queue AWS CloudFormation Resource
+// AWSSQSQueue AWS CloudFormation Resource (AWS::SQS::Queue)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html
 type AWSSQSQueue struct {
 

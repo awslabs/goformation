@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.ActionDeclaration AWS CloudFormation Resource
+// AWSCodePipelinePipeline_ActionDeclaration AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.ActionDeclaration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html
 type AWSCodePipelinePipeline_ActionDeclaration struct {
 

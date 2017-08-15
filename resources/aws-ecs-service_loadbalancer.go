@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::Service.LoadBalancer AWS CloudFormation Resource
+// AWSECSService_LoadBalancer AWS CloudFormation Resource (AWS::ECS::Service.LoadBalancer)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html
 type AWSECSService_LoadBalancer struct {
 

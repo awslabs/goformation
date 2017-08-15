@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Step.HadoopJarStepConfig AWS CloudFormation Resource
+// AWSEMRStep_HadoopJarStepConfig AWS CloudFormation Resource (AWS::EMR::Step.HadoopJarStepConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html
 type AWSEMRStep_HadoopJarStepConfig struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::KinesisFirehose::DeliveryStream AWS CloudFormation Resource
+// AWSKinesisFirehoseDeliveryStream AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 type AWSKinesisFirehoseDeliveryStream struct {
 

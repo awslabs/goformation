@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::SecurityConfiguration AWS CloudFormation Resource
+// AWSEMRSecurityConfiguration AWS CloudFormation Resource (AWS::EMR::SecurityConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html
 type AWSEMRSecurityConfiguration struct {
 

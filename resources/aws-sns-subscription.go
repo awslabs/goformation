@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SNS::Subscription AWS CloudFormation Resource
+// AWSSNSSubscription AWS CloudFormation Resource (AWS::SNS::Subscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
 type AWSSNSSubscription struct {
 

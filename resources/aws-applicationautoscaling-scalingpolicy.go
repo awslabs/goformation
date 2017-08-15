@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApplicationAutoScaling::ScalingPolicy AWS CloudFormation Resource
+// AWSApplicationAutoScalingScalingPolicy AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalingPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
 type AWSApplicationAutoScalingScalingPolicy struct {
 

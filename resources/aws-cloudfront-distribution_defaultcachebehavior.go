@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.DefaultCacheBehavior AWS CloudFormation Resource
+// AWSCloudFrontDistribution_DefaultCacheBehavior AWS CloudFormation Resource (AWS::CloudFront::Distribution.DefaultCacheBehavior)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html
 type AWSCloudFrontDistribution_DefaultCacheBehavior struct {
 

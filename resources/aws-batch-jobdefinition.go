@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Batch::JobDefinition AWS CloudFormation Resource
+// AWSBatchJobDefinition AWS CloudFormation Resource (AWS::Batch::JobDefinition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
 type AWSBatchJobDefinition struct {
 

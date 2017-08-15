@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Route53::RecordSet.AliasTarget AWS CloudFormation Resource
+// AWSRoute53RecordSet_AliasTarget AWS CloudFormation Resource (AWS::Route53::RecordSet.AliasTarget)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html
 type AWSRoute53RecordSet_AliasTarget struct {
 

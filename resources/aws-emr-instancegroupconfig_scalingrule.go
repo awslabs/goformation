@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceGroupConfig.ScalingRule AWS CloudFormation Resource
+// AWSEMRInstanceGroupConfig_ScalingRule AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig.ScalingRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html
 type AWSEMRInstanceGroupConfig_ScalingRule struct {
 

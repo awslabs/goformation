@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.LogConfiguration AWS CloudFormation Resource
+// AWSECSTaskDefinition_LogConfiguration AWS CloudFormation Resource (AWS::ECS::TaskDefinition.LogConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
 type AWSECSTaskDefinition_LogConfiguration struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::ApplicationReferenceDataSource.JSONMappingParameters AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationReferenceDataSource_JSONMappingParameters AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource.JSONMappingParameters)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource_JSONMappingParameters struct {
 

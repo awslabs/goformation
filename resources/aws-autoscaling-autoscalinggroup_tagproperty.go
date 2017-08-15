@@ -1,6 +1,6 @@
 package resources
 
-// AWS::AutoScaling::AutoScalingGroup.TagProperty AWS CloudFormation Resource
+// AWSAutoScalingAutoScalingGroup_TagProperty AWS CloudFormation Resource (AWS::AutoScaling::AutoScalingGroup.TagProperty)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html
 type AWSAutoScalingAutoScalingGroup_TagProperty struct {
 

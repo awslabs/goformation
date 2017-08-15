@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.SpotFleetRequestConfigData AWS CloudFormation Resource
+// AWSEC2SpotFleet_SpotFleetRequestConfigData AWS CloudFormation Resource (AWS::EC2::SpotFleet.SpotFleetRequestConfigData)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html
 type AWSEC2SpotFleet_SpotFleetRequestConfigData struct {
 

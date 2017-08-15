@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeDeploy::DeploymentGroup.AlarmConfiguration AWS CloudFormation Resource
+// AWSCodeDeployDeploymentGroup_AlarmConfiguration AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.AlarmConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html
 type AWSCodeDeployDeploymentGroup_AlarmConfiguration struct {
 

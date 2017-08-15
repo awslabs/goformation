@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::WebACL AWS CloudFormation Resource
+// AWSWAFWebACL AWS CloudFormation Resource (AWS::WAF::WebACL)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html
 type AWSWAFWebACL struct {
 

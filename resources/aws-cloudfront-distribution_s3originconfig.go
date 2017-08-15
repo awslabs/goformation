@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.S3OriginConfig AWS CloudFormation Resource
+// AWSCloudFrontDistribution_S3OriginConfig AWS CloudFormation Resource (AWS::CloudFront::Distribution.S3OriginConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-s3origin.html
 type AWSCloudFrontDistribution_S3OriginConfig struct {
 

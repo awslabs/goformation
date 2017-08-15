@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::GameLift::Fleet AWS CloudFormation Resource
+// AWSGameLiftFleet AWS CloudFormation Resource (AWS::GameLift::Fleet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
 type AWSGameLiftFleet struct {
 

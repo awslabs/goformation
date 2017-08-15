@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHosts AWS CloudFormation Resource
+// AWSCodeDeployDeploymentConfig_MinimumHealthyHosts AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHosts)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html
 type AWSCodeDeployDeploymentConfig_MinimumHealthyHosts struct {
 

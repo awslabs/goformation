@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.ScalingAction AWS CloudFormation Resource
+// AWSEMRCluster_ScalingAction AWS CloudFormation Resource (AWS::EMR::Cluster.ScalingAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html
 type AWSEMRCluster_ScalingAction struct {
 

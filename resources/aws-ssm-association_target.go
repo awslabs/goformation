@@ -1,6 +1,6 @@
 package resources
 
-// AWS::SSM::Association.Target AWS CloudFormation Resource
+// AWSSSMAssociation_Target AWS CloudFormation Resource (AWS::SSM::Association.Target)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
 type AWSSSMAssociation_Target struct {
 

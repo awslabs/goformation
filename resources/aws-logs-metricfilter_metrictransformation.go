@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Logs::MetricFilter.MetricTransformation AWS CloudFormation Resource
+// AWSLogsMetricFilter_MetricTransformation AWS CloudFormation Resource (AWS::Logs::MetricFilter.MetricTransformation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html
 type AWSLogsMetricFilter_MetricTransformation struct {
 

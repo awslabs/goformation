@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DynamoDB::Table.LocalSecondaryIndex AWS CloudFormation Resource
+// AWSDynamoDBTable_LocalSecondaryIndex AWS CloudFormation Resource (AWS::DynamoDB::Table.LocalSecondaryIndex)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html
 type AWSDynamoDBTable_LocalSecondaryIndex struct {
 

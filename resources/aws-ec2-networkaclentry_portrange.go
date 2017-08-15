@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::NetworkAclEntry.PortRange AWS CloudFormation Resource
+// AWSEC2NetworkAclEntry_PortRange AWS CloudFormation Resource (AWS::EC2::NetworkAclEntry.PortRange)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html
 type AWSEC2NetworkAclEntry_PortRange struct {
 

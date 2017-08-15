@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::Resource AWS CloudFormation Resource
+// AWSApiGatewayResource AWS CloudFormation Resource (AWS::ApiGateway::Resource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
 type AWSApiGatewayResource struct {
 

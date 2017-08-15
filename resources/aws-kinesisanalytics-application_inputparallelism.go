@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::Application.InputParallelism AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplication_InputParallelism AWS CloudFormation Resource (AWS::KinesisAnalytics::Application.InputParallelism)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputparallelism.html
 type AWSKinesisAnalyticsApplication_InputParallelism struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::Instance.Ebs AWS CloudFormation Resource
+// AWSEC2Instance_Ebs AWS CloudFormation Resource (AWS::EC2::Instance.Ebs)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html
 type AWSEC2Instance_Ebs struct {
 

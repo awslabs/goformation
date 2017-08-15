@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Route53::RecordSet AWS CloudFormation Resource
+// AWSRoute53RecordSet AWS CloudFormation Resource (AWS::Route53::RecordSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
 type AWSRoute53RecordSet struct {
 

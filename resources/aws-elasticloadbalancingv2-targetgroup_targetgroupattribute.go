@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancingV2::TargetGroup.TargetGroupAttribute AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2TargetGroup_TargetGroupAttribute AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::TargetGroup.TargetGroupAttribute)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattributes.html
 type AWSElasticLoadBalancingV2TargetGroup_TargetGroupAttribute struct {
 

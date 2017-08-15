@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.ArtifactStore AWS CloudFormation Resource
+// AWSCodePipelinePipeline_ArtifactStore AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.ArtifactStore)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html
 type AWSCodePipelinePipeline_ArtifactStore struct {
 

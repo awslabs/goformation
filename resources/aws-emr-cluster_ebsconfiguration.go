@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.EbsConfiguration AWS CloudFormation Resource
+// AWSEMRCluster_EbsConfiguration AWS CloudFormation Resource (AWS::EMR::Cluster.EbsConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html
 type AWSEMRCluster_EbsConfiguration struct {
 

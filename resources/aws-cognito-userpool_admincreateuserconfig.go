@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.AdminCreateUserConfig AWS CloudFormation Resource
+// AWSCognitoUserPool_AdminCreateUserConfig AWS CloudFormation Resource (AWS::Cognito::UserPool.AdminCreateUserConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html
 type AWSCognitoUserPool_AdminCreateUserConfig struct {
 

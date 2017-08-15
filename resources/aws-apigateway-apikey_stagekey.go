@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApiGateway::ApiKey.StageKey AWS CloudFormation Resource
+// AWSApiGatewayApiKey_StageKey AWS CloudFormation Resource (AWS::ApiGateway::ApiKey.StageKey)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-apikey-stagekey.html
 type AWSApiGatewayApiKey_StageKey struct {
 

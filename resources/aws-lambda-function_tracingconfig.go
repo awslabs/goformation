@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Lambda::Function.TracingConfig AWS CloudFormation Resource
+// AWSLambdaFunction_TracingConfig AWS CloudFormation Resource (AWS::Lambda::Function.TracingConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html
 type AWSLambdaFunction_TracingConfig struct {
 

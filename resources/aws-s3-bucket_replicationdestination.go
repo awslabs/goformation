@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.ReplicationDestination AWS CloudFormation Resource
+// AWSS3Bucket_ReplicationDestination AWS CloudFormation Resource (AWS::S3::Bucket.ReplicationDestination)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html
 type AWSS3Bucket_ReplicationDestination struct {
 

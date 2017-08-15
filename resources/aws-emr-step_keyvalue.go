@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Step.KeyValue AWS CloudFormation Resource
+// AWSEMRStep_KeyValue AWS CloudFormation Resource (AWS::EMR::Step.KeyValue)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-keyvalue.html
 type AWSEMRStep_KeyValue struct {
 

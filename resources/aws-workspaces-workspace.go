@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WorkSpaces::Workspace AWS CloudFormation Resource
+// AWSWorkSpacesWorkspace AWS CloudFormation Resource (AWS::WorkSpaces::Workspace)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
 type AWSWorkSpacesWorkspace struct {
 

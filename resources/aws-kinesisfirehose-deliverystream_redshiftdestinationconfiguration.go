@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration AWS CloudFormation Resource
+// AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration.html
 type AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration struct {
 

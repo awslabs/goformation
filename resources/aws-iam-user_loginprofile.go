@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IAM::User.LoginProfile AWS CloudFormation Resource
+// AWSIAMUser_LoginProfile AWS CloudFormation Resource (AWS::IAM::User.LoginProfile)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html
 type AWSIAMUser_LoginProfile struct {
 

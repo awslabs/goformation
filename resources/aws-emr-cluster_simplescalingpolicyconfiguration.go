@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.SimpleScalingPolicyConfiguration AWS CloudFormation Resource
+// AWSEMRCluster_SimpleScalingPolicyConfiguration AWS CloudFormation Resource (AWS::EMR::Cluster.SimpleScalingPolicyConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html
 type AWSEMRCluster_SimpleScalingPolicyConfiguration struct {
 

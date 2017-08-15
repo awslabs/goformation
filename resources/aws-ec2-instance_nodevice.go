@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::Instance.NoDevice AWS CloudFormation Resource
+// AWSEC2Instance_NoDevice AWS CloudFormation Resource (AWS::EC2::Instance.NoDevice)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-nodevice.html
 type AWSEC2Instance_NoDevice struct {
 }

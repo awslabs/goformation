@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.ContainerDefinition AWS CloudFormation Resource
+// AWSECSTaskDefinition_ContainerDefinition AWS CloudFormation Resource (AWS::ECS::TaskDefinition.ContainerDefinition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
 type AWSECSTaskDefinition_ContainerDefinition struct {
 

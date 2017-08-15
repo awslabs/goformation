@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IoT::Policy AWS CloudFormation Resource
+// AWSIoTPolicy AWS CloudFormation Resource (AWS::IoT::Policy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
 type AWSIoTPolicy struct {
 

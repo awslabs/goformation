@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.SnsAction AWS CloudFormation Resource
+// AWSIoTTopicRule_SnsAction AWS CloudFormation Resource (AWS::IoT::TopicRule.SnsAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sns.html
 type AWSIoTTopicRule_SnsAction struct {
 

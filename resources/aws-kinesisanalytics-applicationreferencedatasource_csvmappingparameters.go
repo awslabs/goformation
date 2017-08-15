@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::ApplicationReferenceDataSource.CSVMappingParameters AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource.CSVMappingParameters)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-csvmappingparameters.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters struct {
 

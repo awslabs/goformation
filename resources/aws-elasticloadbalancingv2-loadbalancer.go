@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElasticLoadBalancingV2::LoadBalancer AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2LoadBalancer AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::LoadBalancer)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 type AWSElasticLoadBalancingV2LoadBalancer struct {
 

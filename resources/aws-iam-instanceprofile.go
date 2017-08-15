@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::InstanceProfile AWS CloudFormation Resource
+// AWSIAMInstanceProfile AWS CloudFormation Resource (AWS::IAM::InstanceProfile)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
 type AWSIAMInstanceProfile struct {
 

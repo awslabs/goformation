@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApplicationAutoScaling::ScalingPolicy.StepScalingPolicyConfiguration AWS CloudFormation Resource
+// AWSApplicationAutoScalingScalingPolicy_StepScalingPolicyConfiguration AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalingPolicy.StepScalingPolicyConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html
 type AWSApplicationAutoScalingScalingPolicy_StepScalingPolicyConfiguration struct {
 

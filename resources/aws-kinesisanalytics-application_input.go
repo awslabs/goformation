@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::Application.Input AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplication_Input AWS CloudFormation Resource (AWS::KinesisAnalytics::Application.Input)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html
 type AWSKinesisAnalyticsApplication_Input struct {
 

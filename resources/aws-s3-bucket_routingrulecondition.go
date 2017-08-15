@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.RoutingRuleCondition AWS CloudFormation Resource
+// AWSS3Bucket_RoutingRuleCondition AWS CloudFormation Resource (AWS::S3::Bucket.RoutingRuleCondition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html
 type AWSS3Bucket_RoutingRuleCondition struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceFleetConfig.SpotProvisioningSpecification AWS CloudFormation Resource
+// AWSEMRInstanceFleetConfig_SpotProvisioningSpecification AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig.SpotProvisioningSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html
 type AWSEMRInstanceFleetConfig_SpotProvisioningSpecification struct {
 

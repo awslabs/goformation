@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::RestApi AWS CloudFormation Resource
+// AWSApiGatewayRestApi AWS CloudFormation Resource (AWS::ApiGateway::RestApi)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 type AWSApiGatewayRestApi struct {
 

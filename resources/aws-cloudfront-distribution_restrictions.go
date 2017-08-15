@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.Restrictions AWS CloudFormation Resource
+// AWSCloudFrontDistribution_Restrictions AWS CloudFormation Resource (AWS::CloudFront::Distribution.Restrictions)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions.html
 type AWSCloudFrontDistribution_Restrictions struct {
 

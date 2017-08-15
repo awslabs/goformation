@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElasticLoadBalancingV2::TargetGroup AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2TargetGroup AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::TargetGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html
 type AWSElasticLoadBalancingV2TargetGroup struct {
 

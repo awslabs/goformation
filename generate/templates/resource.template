@@ -8,7 +8,7 @@ import (
 )
 {{end}}
 
-// {{.Name}} AWS CloudFormation Resource
+// {{.StructName}} AWS CloudFormation Resource ({{.Name}})
 // See: {{.Resource.Documentation}}
 type {{.StructName}} struct {
     {{range $name, $property := .Resource.Properties}}

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::VolumeAttachment AWS CloudFormation Resource
+// AWSEC2VolumeAttachment AWS CloudFormation Resource (AWS::EC2::VolumeAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html
 type AWSEC2VolumeAttachment struct {
 

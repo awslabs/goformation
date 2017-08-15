@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElastiCache::CacheCluster AWS CloudFormation Resource
+// AWSElastiCacheCacheCluster AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html
 type AWSElastiCacheCacheCluster struct {
 

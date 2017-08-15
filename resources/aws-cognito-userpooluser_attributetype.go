@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPoolUser.AttributeType AWS CloudFormation Resource
+// AWSCognitoUserPoolUser_AttributeType AWS CloudFormation Resource (AWS::Cognito::UserPoolUser.AttributeType)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html
 type AWSCognitoUserPoolUser_AttributeType struct {
 

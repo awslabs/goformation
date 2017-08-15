@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.JobFlowInstancesConfig AWS CloudFormation Resource
+// AWSEMRCluster_JobFlowInstancesConfig AWS CloudFormation Resource (AWS::EMR::Cluster.JobFlowInstancesConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html
 type AWSEMRCluster_JobFlowInstancesConfig struct {
 

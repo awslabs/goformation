@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.Volume AWS CloudFormation Resource
+// AWSECSTaskDefinition_Volume AWS CloudFormation Resource (AWS::ECS::TaskDefinition.Volume)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
 type AWSECSTaskDefinition_Volume struct {
 

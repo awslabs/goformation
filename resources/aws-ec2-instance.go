@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::Instance AWS CloudFormation Resource
+// AWSEC2Instance AWS CloudFormation Resource (AWS::EC2::Instance)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
 type AWSEC2Instance struct {
 

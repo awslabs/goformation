@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Kinesis::Stream AWS CloudFormation Resource
+// AWSKinesisStream AWS CloudFormation Resource (AWS::Kinesis::Stream)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
 type AWSKinesisStream struct {
 

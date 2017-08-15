@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Elasticsearch::Domain.SnapshotOptions AWS CloudFormation Resource
+// AWSElasticsearchDomain_SnapshotOptions AWS CloudFormation Resource (AWS::Elasticsearch::Domain.SnapshotOptions)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html
 type AWSElasticsearchDomain_SnapshotOptions struct {
 

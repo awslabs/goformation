@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceFleetConfig.EbsBlockDeviceConfig AWS CloudFormation Resource
+// AWSEMRInstanceFleetConfig_EbsBlockDeviceConfig AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig.EbsBlockDeviceConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig.html
 type AWSEMRInstanceFleetConfig_EbsBlockDeviceConfig struct {
 

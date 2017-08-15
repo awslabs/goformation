@@ -1,6 +1,6 @@
 package resources
 
-// AWS::SNS::Topic.Subscription AWS CloudFormation Resource
+// AWSSNSTopic_Subscription AWS CloudFormation Resource (AWS::SNS::Topic.Subscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html
 type AWSSNSTopic_Subscription struct {
 

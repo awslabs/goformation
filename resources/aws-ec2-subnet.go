@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::Subnet AWS CloudFormation Resource
+// AWSEC2Subnet AWS CloudFormation Resource (AWS::EC2::Subnet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
 type AWSEC2Subnet struct {
 

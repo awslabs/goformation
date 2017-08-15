@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.LambdaAction AWS CloudFormation Resource
+// AWSIoTTopicRule_LambdaAction AWS CloudFormation Resource (AWS::IoT::TopicRule.LambdaAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-lambda.html
 type AWSIoTTopicRule_LambdaAction struct {
 

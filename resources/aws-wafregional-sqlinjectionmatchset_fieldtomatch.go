@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch AWS CloudFormation Resource
+// AWSWAFRegionalSqlInjectionMatchSet_FieldToMatch AWS CloudFormation Resource (AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-fieldtomatch.html
 type AWSWAFRegionalSqlInjectionMatchSet_FieldToMatch struct {
 

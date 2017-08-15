@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.ScalingRule AWS CloudFormation Resource
+// AWSEMRCluster_ScalingRule AWS CloudFormation Resource (AWS::EMR::Cluster.ScalingRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingrule.html
 type AWSEMRCluster_ScalingRule struct {
 

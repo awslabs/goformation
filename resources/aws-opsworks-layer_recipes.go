@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Layer.Recipes AWS CloudFormation Resource
+// AWSOpsWorksLayer_Recipes AWS CloudFormation Resource (AWS::OpsWorks::Layer.Recipes)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html
 type AWSOpsWorksLayer_Recipes struct {
 

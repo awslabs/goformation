@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAFRegional::WebACL.Action AWS CloudFormation Resource
+// AWSWAFRegionalWebACL_Action AWS CloudFormation Resource (AWS::WAFRegional::WebACL.Action)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html
 type AWSWAFRegionalWebACL_Action struct {
 

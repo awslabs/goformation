@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancingV2::Listener.Action AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2Listener_Action AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::Listener.Action)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html
 type AWSElasticLoadBalancingV2Listener_Action struct {
 

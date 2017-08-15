@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.EncryptionKey AWS CloudFormation Resource
+// AWSCodePipelinePipeline_EncryptionKey AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.EncryptionKey)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html
 type AWSCodePipelinePipeline_EncryptionKey struct {
 

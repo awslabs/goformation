@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SSM::Association AWS CloudFormation Resource
+// AWSSSMAssociation AWS CloudFormation Resource (AWS::SSM::Association)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
 type AWSSSMAssociation struct {
 

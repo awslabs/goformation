@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::EventSubscription AWS CloudFormation Resource
+// AWSRDSEventSubscription AWS CloudFormation Resource (AWS::RDS::EventSubscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html
 type AWSRDSEventSubscription struct {
 

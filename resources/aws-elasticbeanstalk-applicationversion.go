@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElasticBeanstalk::ApplicationVersion AWS CloudFormation Resource
+// AWSElasticBeanstalkApplicationVersion AWS CloudFormation Resource (AWS::ElasticBeanstalk::ApplicationVersion)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html
 type AWSElasticBeanstalkApplicationVersion struct {
 

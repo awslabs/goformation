@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions AWS CloudFormation Resource
+// AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions.html
 type AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions struct {
 

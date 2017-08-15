@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::Service.PlacementConstraint AWS CloudFormation Resource
+// AWSECSService_PlacementConstraint AWS CloudFormation Resource (AWS::ECS::Service.PlacementConstraint)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html
 type AWSECSService_PlacementConstraint struct {
 

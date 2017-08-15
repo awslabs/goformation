@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::IdentityPoolRoleAttachment.RoleMapping AWS CloudFormation Resource
+// AWSCognitoIdentityPoolRoleAttachment_RoleMapping AWS CloudFormation Resource (AWS::Cognito::IdentityPoolRoleAttachment.RoleMapping)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html
 type AWSCognitoIdentityPoolRoleAttachment_RoleMapping struct {
 

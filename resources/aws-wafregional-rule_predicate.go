@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAFRegional::Rule.Predicate AWS CloudFormation Resource
+// AWSWAFRegionalRule_Predicate AWS CloudFormation Resource (AWS::WAFRegional::Rule.Predicate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html
 type AWSWAFRegionalRule_Predicate struct {
 

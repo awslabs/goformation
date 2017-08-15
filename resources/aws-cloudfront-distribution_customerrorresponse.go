@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.CustomErrorResponse AWS CloudFormation Resource
+// AWSCloudFrontDistribution_CustomErrorResponse AWS CloudFormation Resource (AWS::CloudFront::Distribution.CustomErrorResponse)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html
 type AWSCloudFrontDistribution_CustomErrorResponse struct {
 

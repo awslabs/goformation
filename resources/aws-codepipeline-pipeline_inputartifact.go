@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.InputArtifact AWS CloudFormation Resource
+// AWSCodePipelinePipeline_InputArtifact AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.InputArtifact)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-inputartifacts.html
 type AWSCodePipelinePipeline_InputArtifact struct {
 

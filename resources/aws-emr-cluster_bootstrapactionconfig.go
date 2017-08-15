@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.BootstrapActionConfig AWS CloudFormation Resource
+// AWSEMRCluster_BootstrapActionConfig AWS CloudFormation Resource (AWS::EMR::Cluster.BootstrapActionConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html
 type AWSEMRCluster_BootstrapActionConfig struct {
 

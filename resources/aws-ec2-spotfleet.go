@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::SpotFleet AWS CloudFormation Resource
+// AWSEC2SpotFleet AWS CloudFormation Resource (AWS::EC2::SpotFleet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
 type AWSEC2SpotFleet struct {
 

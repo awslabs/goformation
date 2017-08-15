@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CodeCommit::Repository AWS CloudFormation Resource
+// AWSCodeCommitRepository AWS CloudFormation Resource (AWS::CodeCommit::Repository)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
 type AWSCodeCommitRepository struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::Thing.AttributePayload AWS CloudFormation Resource
+// AWSIoTThing_AttributePayload AWS CloudFormation Resource (AWS::IoT::Thing.AttributePayload)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
 type AWSIoTThing_AttributePayload struct {
 

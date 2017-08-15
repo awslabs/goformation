@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Cognito::IdentityPoolRoleAttachment AWS CloudFormation Resource
+// AWSCognitoIdentityPoolRoleAttachment AWS CloudFormation Resource (AWS::Cognito::IdentityPoolRoleAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
 type AWSCognitoIdentityPoolRoleAttachment struct {
 

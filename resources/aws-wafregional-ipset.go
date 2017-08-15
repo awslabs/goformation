@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAFRegional::IPSet AWS CloudFormation Resource
+// AWSWAFRegionalIPSet AWS CloudFormation Resource (AWS::WAFRegional::IPSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html
 type AWSWAFRegionalIPSet struct {
 

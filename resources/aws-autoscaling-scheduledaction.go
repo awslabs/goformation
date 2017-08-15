@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::AutoScaling::ScheduledAction AWS CloudFormation Resource
+// AWSAutoScalingScheduledAction AWS CloudFormation Resource (AWS::AutoScaling::ScheduledAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
 type AWSAutoScalingScheduledAction struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeBuild::Project.EnvironmentVariable AWS CloudFormation Resource
+// AWSCodeBuildProject_EnvironmentVariable AWS CloudFormation Resource (AWS::CodeBuild::Project.EnvironmentVariable)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html
 type AWSCodeBuildProject_EnvironmentVariable struct {
 

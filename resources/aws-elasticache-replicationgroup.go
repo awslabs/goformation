@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElastiCache::ReplicationGroup AWS CloudFormation Resource
+// AWSElastiCacheReplicationGroup AWS CloudFormation Resource (AWS::ElastiCache::ReplicationGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
 type AWSElastiCacheReplicationGroup struct {
 

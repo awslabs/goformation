@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ECS::Service AWS CloudFormation Resource
+// AWSECSService AWS CloudFormation Resource (AWS::ECS::Service)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 type AWSECSService struct {
 

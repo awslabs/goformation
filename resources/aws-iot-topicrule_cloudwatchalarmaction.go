@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.CloudwatchAlarmAction AWS CloudFormation Resource
+// AWSIoTTopicRule_CloudwatchAlarmAction AWS CloudFormation Resource (AWS::IoT::TopicRule.CloudwatchAlarmAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html
 type AWSIoTTopicRule_CloudwatchAlarmAction struct {
 

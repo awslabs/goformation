@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Redshift::Cluster.LoggingProperties AWS CloudFormation Resource
+// AWSRedshiftCluster_LoggingProperties AWS CloudFormation Resource (AWS::Redshift::Cluster.LoggingProperties)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html
 type AWSRedshiftCluster_LoggingProperties struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApplicationAutoScaling::ScalableTarget AWS CloudFormation Resource
+// AWSApplicationAutoScalingScalableTarget AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalableTarget)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
 type AWSApplicationAutoScalingScalableTarget struct {
 

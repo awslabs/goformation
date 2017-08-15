@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.ReplicationRule AWS CloudFormation Resource
+// AWSS3Bucket_ReplicationRule AWS CloudFormation Resource (AWS::S3::Bucket.ReplicationRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html
 type AWSS3Bucket_ReplicationRule struct {
 

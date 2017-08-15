@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.SpotProvisioningSpecification AWS CloudFormation Resource
+// AWSEMRCluster_SpotProvisioningSpecification AWS CloudFormation Resource (AWS::EMR::Cluster.SpotProvisioningSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html
 type AWSEMRCluster_SpotProvisioningSpecification struct {
 

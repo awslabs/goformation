@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DataPipeline::Pipeline AWS CloudFormation Resource
+// AWSDataPipelinePipeline AWS CloudFormation Resource (AWS::DataPipeline::Pipeline)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
 type AWSDataPipelinePipeline struct {
 

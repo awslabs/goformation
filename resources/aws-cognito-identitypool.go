@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Cognito::IdentityPool AWS CloudFormation Resource
+// AWSCognitoIdentityPool AWS CloudFormation Resource (AWS::Cognito::IdentityPool)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html
 type AWSCognitoIdentityPool struct {
 

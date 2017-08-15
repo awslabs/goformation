@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElastiCache::ParameterGroup AWS CloudFormation Resource
+// AWSElastiCacheParameterGroup AWS CloudFormation Resource (AWS::ElastiCache::ParameterGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html
 type AWSElastiCacheParameterGroup struct {
 

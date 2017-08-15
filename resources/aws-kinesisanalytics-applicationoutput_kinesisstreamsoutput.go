@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::ApplicationOutput.KinesisStreamsOutput AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationOutput_KinesisStreamsOutput AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationOutput.KinesisStreamsOutput)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisstreamsoutput.html
 type AWSKinesisAnalyticsApplicationOutput_KinesisStreamsOutput struct {
 

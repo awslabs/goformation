@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.CustomOriginConfig AWS CloudFormation Resource
+// AWSCloudFrontDistribution_CustomOriginConfig AWS CloudFormation Resource (AWS::CloudFront::Distribution.CustomOriginConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-customorigin.html
 type AWSCloudFrontDistribution_CustomOriginConfig struct {
 

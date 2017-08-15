@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Batch::JobDefinition.VolumesHost AWS CloudFormation Resource
+// AWSBatchJobDefinition_VolumesHost AWS CloudFormation Resource (AWS::Batch::JobDefinition.VolumesHost)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumeshost.html
 type AWSBatchJobDefinition_VolumesHost struct {
 

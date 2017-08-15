@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAFRegional::WebACL.Rule AWS CloudFormation Resource
+// AWSWAFRegionalWebACL_Rule AWS CloudFormation Resource (AWS::WAFRegional::WebACL.Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html
 type AWSWAFRegionalWebACL_Rule struct {
 

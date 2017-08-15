@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DMS::ReplicationTask AWS CloudFormation Resource
+// AWSDMSReplicationTask AWS CloudFormation Resource (AWS::DMS::ReplicationTask)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html
 type AWSDMSReplicationTask struct {
 

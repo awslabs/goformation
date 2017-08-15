@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::Alias AWS CloudFormation Resource
+// AWSLambdaAlias AWS CloudFormation Resource (AWS::Lambda::Alias)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
 type AWSLambdaAlias struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::OpsWorks::Stack AWS CloudFormation Resource
+// AWSOpsWorksStack AWS CloudFormation Resource (AWS::OpsWorks::Stack)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html
 type AWSOpsWorksStack struct {
 

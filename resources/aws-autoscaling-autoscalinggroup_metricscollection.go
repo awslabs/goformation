@@ -1,6 +1,6 @@
 package resources
 
-// AWS::AutoScaling::AutoScalingGroup.MetricsCollection AWS CloudFormation Resource
+// AWSAutoScalingAutoScalingGroup_MetricsCollection AWS CloudFormation Resource (AWS::AutoScaling::AutoScalingGroup.MetricsCollection)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html
 type AWSAutoScalingAutoScalingGroup_MetricsCollection struct {
 

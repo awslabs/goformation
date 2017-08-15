@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Config::ConfigRule.Scope AWS CloudFormation Resource
+// AWSConfigConfigRule_Scope AWS CloudFormation Resource (AWS::Config::ConfigRule.Scope)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
 type AWSConfigConfigRule_Scope struct {
 

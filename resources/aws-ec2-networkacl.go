@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::NetworkAcl AWS CloudFormation Resource
+// AWSEC2NetworkAcl AWS CloudFormation Resource (AWS::EC2::NetworkAcl)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl.html
 type AWSEC2NetworkAcl struct {
 

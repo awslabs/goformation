@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.KinesisAction AWS CloudFormation Resource
+// AWSIoTTopicRule_KinesisAction AWS CloudFormation Resource (AWS::IoT::TopicRule.KinesisAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-kinesis.html
 type AWSIoTTopicRule_KinesisAction struct {
 

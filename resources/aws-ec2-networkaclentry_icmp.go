@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::NetworkAclEntry.Icmp AWS CloudFormation Resource
+// AWSEC2NetworkAclEntry_Icmp AWS CloudFormation Resource (AWS::EC2::NetworkAclEntry.Icmp)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html
 type AWSEC2NetworkAclEntry_Icmp struct {
 

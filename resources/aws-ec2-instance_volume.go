@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::Instance.Volume AWS CloudFormation Resource
+// AWSEC2Instance_Volume AWS CloudFormation Resource (AWS::EC2::Instance.Volume)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html
 type AWSEC2Instance_Volume struct {
 

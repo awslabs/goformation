@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.CloudwatchMetricAction AWS CloudFormation Resource
+// AWSIoTTopicRule_CloudwatchMetricAction AWS CloudFormation Resource (AWS::IoT::TopicRule.CloudwatchMetricAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html
 type AWSIoTTopicRule_CloudwatchMetricAction struct {
 

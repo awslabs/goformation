@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::S3::Bucket AWS CloudFormation Resource
+// AWSS3Bucket AWS CloudFormation Resource (AWS::S3::Bucket)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
 type AWSS3Bucket struct {
 

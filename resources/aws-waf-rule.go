@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::Rule AWS CloudFormation Resource
+// AWSWAFRule AWS CloudFormation Resource (AWS::WAF::Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
 type AWSWAFRule struct {
 

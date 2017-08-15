@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SDB::Domain AWS CloudFormation Resource
+// AWSSDBDomain AWS CloudFormation Resource (AWS::SDB::Domain)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simpledb.html
 type AWSSDBDomain struct {
 

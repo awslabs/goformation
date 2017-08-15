@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.Application AWS CloudFormation Resource
+// AWSEMRCluster_Application AWS CloudFormation Resource (AWS::EMR::Cluster.Application)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html
 type AWSEMRCluster_Application struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::OpsWorks::Volume AWS CloudFormation Resource
+// AWSOpsWorksVolume AWS CloudFormation Resource (AWS::OpsWorks::Volume)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
 type AWSOpsWorksVolume struct {
 

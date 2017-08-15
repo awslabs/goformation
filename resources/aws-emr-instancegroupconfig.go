@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::InstanceGroupConfig AWS CloudFormation Resource
+// AWSEMRInstanceGroupConfig AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
 type AWSEMRInstanceGroupConfig struct {
 

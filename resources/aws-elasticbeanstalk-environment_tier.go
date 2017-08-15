@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticBeanstalk::Environment.Tier AWS CloudFormation Resource
+// AWSElasticBeanstalkEnvironment_Tier AWS CloudFormation Resource (AWS::ElasticBeanstalk::Environment.Tier)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html
 type AWSElasticBeanstalkEnvironment_Tier struct {
 

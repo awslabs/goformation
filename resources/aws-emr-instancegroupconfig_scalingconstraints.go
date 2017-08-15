@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceGroupConfig.ScalingConstraints AWS CloudFormation Resource
+// AWSEMRInstanceGroupConfig_ScalingConstraints AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig.ScalingConstraints)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingconstraints.html
 type AWSEMRInstanceGroupConfig_ScalingConstraints struct {
 

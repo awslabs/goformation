@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Route53::HostedZone AWS CloudFormation Resource
+// AWSRoute53HostedZone AWS CloudFormation Resource (AWS::Route53::HostedZone)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
 type AWSRoute53HostedZone struct {
 

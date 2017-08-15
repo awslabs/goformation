@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::IdentityPool.CognitoStreams AWS CloudFormation Resource
+// AWSCognitoIdentityPool_CognitoStreams AWS CloudFormation Resource (AWS::Cognito::IdentityPool.CognitoStreams)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html
 type AWSCognitoIdentityPool_CognitoStreams struct {
 

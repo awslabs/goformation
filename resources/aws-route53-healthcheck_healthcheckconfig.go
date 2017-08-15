@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Route53::HealthCheck.HealthCheckConfig AWS CloudFormation Resource
+// AWSRoute53HealthCheck_HealthCheckConfig AWS CloudFormation Resource (AWS::Route53::HealthCheck.HealthCheckConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html
 type AWSRoute53HealthCheck_HealthCheckConfig struct {
 

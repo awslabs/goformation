@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::AutoScaling::LaunchConfiguration AWS CloudFormation Resource
+// AWSAutoScalingLaunchConfiguration AWS CloudFormation Resource (AWS::AutoScaling::LaunchConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
 type AWSAutoScalingLaunchConfiguration struct {
 

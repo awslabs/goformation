@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.SchemaAttribute AWS CloudFormation Resource
+// AWSCognitoUserPool_SchemaAttribute AWS CloudFormation Resource (AWS::Cognito::UserPool.SchemaAttribute)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html
 type AWSCognitoUserPool_SchemaAttribute struct {
 

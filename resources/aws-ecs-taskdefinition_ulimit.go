@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.Ulimit AWS CloudFormation Resource
+// AWSECSTaskDefinition_Ulimit AWS CloudFormation Resource (AWS::ECS::TaskDefinition.Ulimit)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html
 type AWSECSTaskDefinition_Ulimit struct {
 

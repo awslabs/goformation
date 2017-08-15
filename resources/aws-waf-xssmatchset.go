@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::XssMatchSet AWS CloudFormation Resource
+// AWSWAFXssMatchSet AWS CloudFormation Resource (AWS::WAF::XssMatchSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html
 type AWSWAFXssMatchSet struct {
 

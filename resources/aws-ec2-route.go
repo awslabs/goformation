@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::Route AWS CloudFormation Resource
+// AWSEC2Route AWS CloudFormation Resource (AWS::EC2::Route)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
 type AWSEC2Route struct {
 

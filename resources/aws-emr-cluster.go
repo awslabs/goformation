@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::Cluster AWS CloudFormation Resource
+// AWSEMRCluster AWS CloudFormation Resource (AWS::EMR::Cluster)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html
 type AWSEMRCluster struct {
 

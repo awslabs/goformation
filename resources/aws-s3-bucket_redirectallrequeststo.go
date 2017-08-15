@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.RedirectAllRequestsTo AWS CloudFormation Resource
+// AWSS3Bucket_RedirectAllRequestsTo AWS CloudFormation Resource (AWS::S3::Bucket.RedirectAllRequestsTo)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html
 type AWSS3Bucket_RedirectAllRequestsTo struct {
 

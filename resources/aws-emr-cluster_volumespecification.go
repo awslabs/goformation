@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.VolumeSpecification AWS CloudFormation Resource
+// AWSEMRCluster_VolumeSpecification AWS CloudFormation Resource (AWS::EMR::Cluster.VolumeSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html
 type AWSEMRCluster_VolumeSpecification struct {
 

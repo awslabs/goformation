@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudTrail::Trail AWS CloudFormation Resource
+// AWSCloudTrailTrail AWS CloudFormation Resource (AWS::CloudTrail::Trail)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html
 type AWSCloudTrailTrail struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.NumberAttributeConstraints AWS CloudFormation Resource
+// AWSCognitoUserPool_NumberAttributeConstraints AWS CloudFormation Resource (AWS::Cognito::UserPool.NumberAttributeConstraints)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html
 type AWSCognitoUserPool_NumberAttributeConstraints struct {
 

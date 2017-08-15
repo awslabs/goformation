@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudWatch::Dashboard AWS CloudFormation Resource
+// AWSCloudWatchDashboard AWS CloudFormation Resource (AWS::CloudWatch::Dashboard)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
 type AWSCloudWatchDashboard struct {
 

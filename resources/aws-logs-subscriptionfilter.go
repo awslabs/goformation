@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::SubscriptionFilter AWS CloudFormation Resource
+// AWSLogsSubscriptionFilter AWS CloudFormation Resource (AWS::Logs::SubscriptionFilter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html
 type AWSLogsSubscriptionFilter struct {
 

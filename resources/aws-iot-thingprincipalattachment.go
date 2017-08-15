@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IoT::ThingPrincipalAttachment AWS CloudFormation Resource
+// AWSIoTThingPrincipalAttachment AWS CloudFormation Resource (AWS::IoT::ThingPrincipalAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
 type AWSIoTThingPrincipalAttachment struct {
 

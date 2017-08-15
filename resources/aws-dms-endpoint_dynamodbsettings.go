@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DMS::Endpoint.DynamoDbSettings AWS CloudFormation Resource
+// AWSDMSEndpoint_DynamoDbSettings AWS CloudFormation Resource (AWS::DMS::Endpoint.DynamoDbSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html
 type AWSDMSEndpoint_DynamoDbSettings struct {
 

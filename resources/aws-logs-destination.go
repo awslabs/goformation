@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::Destination AWS CloudFormation Resource
+// AWSLogsDestination AWS CloudFormation Resource (AWS::Logs::Destination)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
 type AWSLogsDestination struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Batch::ComputeEnvironment.ComputeResources AWS CloudFormation Resource
+// AWSBatchComputeEnvironment_ComputeResources AWS CloudFormation Resource (AWS::Batch::ComputeEnvironment.ComputeResources)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html
 type AWSBatchComputeEnvironment_ComputeResources struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Route53::HostedZone.VPC AWS CloudFormation Resource
+// AWSRoute53HostedZone_VPC AWS CloudFormation Resource (AWS::Route53::HostedZone.VPC)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
 type AWSRoute53HostedZone_VPC struct {
 

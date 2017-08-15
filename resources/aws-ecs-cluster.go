@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ECS::Cluster AWS CloudFormation Resource
+// AWSECSCluster AWS CloudFormation Resource (AWS::ECS::Cluster)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
 type AWSECSCluster struct {
 

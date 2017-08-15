@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::SqlInjectionMatchSet.SqlInjectionMatchTuple AWS CloudFormation Resource
+// AWSWAFSqlInjectionMatchSet_SqlInjectionMatchTuple AWS CloudFormation Resource (AWS::WAF::SqlInjectionMatchSet.SqlInjectionMatchTuple)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples.html
 type AWSWAFSqlInjectionMatchSet_SqlInjectionMatchTuple struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.StringAttributeConstraints AWS CloudFormation Resource
+// AWSCognitoUserPool_StringAttributeConstraints AWS CloudFormation Resource (AWS::Cognito::UserPool.StringAttributeConstraints)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html
 type AWSCognitoUserPool_StringAttributeConstraints struct {
 

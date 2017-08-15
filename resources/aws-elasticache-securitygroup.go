@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElastiCache::SecurityGroup AWS CloudFormation Resource
+// AWSElastiCacheSecurityGroup AWS CloudFormation Resource (AWS::ElastiCache::SecurityGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html
 type AWSElastiCacheSecurityGroup struct {
 

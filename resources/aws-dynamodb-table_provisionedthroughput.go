@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DynamoDB::Table.ProvisionedThroughput AWS CloudFormation Resource
+// AWSDynamoDBTable_ProvisionedThroughput AWS CloudFormation Resource (AWS::DynamoDB::Table.ProvisionedThroughput)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
 type AWSDynamoDBTable_ProvisionedThroughput struct {
 

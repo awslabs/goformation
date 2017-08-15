@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceGroupConfig.Configuration AWS CloudFormation Resource
+// AWSEMRInstanceGroupConfig_Configuration AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig.Configuration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
 type AWSEMRInstanceGroupConfig_Configuration struct {
 

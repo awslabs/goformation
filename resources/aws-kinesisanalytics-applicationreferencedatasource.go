@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::KinesisAnalytics::ApplicationReferenceDataSource AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationReferenceDataSource AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource struct {
 

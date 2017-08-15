@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::WebACL.WafAction AWS CloudFormation Resource
+// AWSWAFWebACL_WafAction AWS CloudFormation Resource (AWS::WAF::WebACL.WafAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-action.html
 type AWSWAFWebACL_WafAction struct {
 

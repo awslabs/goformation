@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::AutoScaling::AutoScalingGroup AWS CloudFormation Resource
+// AWSAutoScalingAutoScalingGroup AWS CloudFormation Resource (AWS::AutoScaling::AutoScalingGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
 type AWSAutoScalingAutoScalingGroup struct {
 

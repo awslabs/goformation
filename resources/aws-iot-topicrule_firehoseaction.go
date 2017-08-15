@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.FirehoseAction AWS CloudFormation Resource
+// AWSIoTTopicRule_FirehoseAction AWS CloudFormation Resource (AWS::IoT::TopicRule.FirehoseAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html
 type AWSIoTTopicRule_FirehoseAction struct {
 

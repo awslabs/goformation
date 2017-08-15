@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Cognito::UserPoolGroup AWS CloudFormation Resource
+// AWSCognitoUserPoolGroup AWS CloudFormation Resource (AWS::Cognito::UserPoolGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
 type AWSCognitoUserPoolGroup struct {
 

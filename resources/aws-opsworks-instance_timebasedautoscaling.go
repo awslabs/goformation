@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Instance.TimeBasedAutoScaling AWS CloudFormation Resource
+// AWSOpsWorksInstance_TimeBasedAutoScaling AWS CloudFormation Resource (AWS::OpsWorks::Instance.TimeBasedAutoScaling)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html
 type AWSOpsWorksInstance_TimeBasedAutoScaling struct {
 

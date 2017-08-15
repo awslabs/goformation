@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::KinesisAnalytics::Application AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplication AWS CloudFormation Resource (AWS::KinesisAnalytics::Application)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html
 type AWSKinesisAnalyticsApplication struct {
 

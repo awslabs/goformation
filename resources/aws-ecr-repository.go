@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ECR::Repository AWS CloudFormation Resource
+// AWSECRRepository AWS CloudFormation Resource (AWS::ECR::Repository)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 type AWSECRRepository struct {
 

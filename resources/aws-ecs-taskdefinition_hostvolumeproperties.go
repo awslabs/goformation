@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.HostVolumeProperties AWS CloudFormation Resource
+// AWSECSTaskDefinition_HostVolumeProperties AWS CloudFormation Resource (AWS::ECS::TaskDefinition.HostVolumeProperties)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
 type AWSECSTaskDefinition_HostVolumeProperties struct {
 

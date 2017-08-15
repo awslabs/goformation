@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Batch::JobQueue.ComputeEnvironmentOrder AWS CloudFormation Resource
+// AWSBatchJobQueue_ComputeEnvironmentOrder AWS CloudFormation Resource (AWS::Batch::JobQueue.ComputeEnvironmentOrder)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html
 type AWSBatchJobQueue_ComputeEnvironmentOrder struct {
 

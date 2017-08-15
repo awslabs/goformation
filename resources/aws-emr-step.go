@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::Step AWS CloudFormation Resource
+// AWSEMRStep AWS CloudFormation Resource (AWS::EMR::Step)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
 type AWSEMRStep struct {
 

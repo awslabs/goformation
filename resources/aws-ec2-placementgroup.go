@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::PlacementGroup AWS CloudFormation Resource
+// AWSEC2PlacementGroup AWS CloudFormation Resource (AWS::EC2::PlacementGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
 type AWSEC2PlacementGroup struct {
 

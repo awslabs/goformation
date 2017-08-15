@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::Application.RecordColumn AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplication_RecordColumn AWS CloudFormation Resource (AWS::KinesisAnalytics::Application.RecordColumn)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-recordcolumn.html
 type AWSKinesisAnalyticsApplication_RecordColumn struct {
 

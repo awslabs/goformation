@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::Service.DeploymentConfiguration AWS CloudFormation Resource
+// AWSECSService_DeploymentConfiguration AWS CloudFormation Resource (AWS::ECS::Service.DeploymentConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
 type AWSECSService_DeploymentConfiguration struct {
 

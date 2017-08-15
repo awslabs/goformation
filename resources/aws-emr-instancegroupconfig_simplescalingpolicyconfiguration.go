@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceGroupConfig.SimpleScalingPolicyConfiguration AWS CloudFormation Resource
+// AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig.SimpleScalingPolicyConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html
 type AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration struct {
 

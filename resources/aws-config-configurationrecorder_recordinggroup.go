@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Config::ConfigurationRecorder.RecordingGroup AWS CloudFormation Resource
+// AWSConfigConfigurationRecorder_RecordingGroup AWS CloudFormation Resource (AWS::Config::ConfigurationRecorder.RecordingGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
 type AWSConfigConfigurationRecorder_RecordingGroup struct {
 

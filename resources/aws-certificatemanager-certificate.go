@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CertificateManager::Certificate AWS CloudFormation Resource
+// AWSCertificateManagerCertificate AWS CloudFormation Resource (AWS::CertificateManager::Certificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
 type AWSCertificateManagerCertificate struct {
 

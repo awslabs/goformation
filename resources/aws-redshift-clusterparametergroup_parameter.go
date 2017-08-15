@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Redshift::ClusterParameterGroup.Parameter AWS CloudFormation Resource
+// AWSRedshiftClusterParameterGroup_Parameter AWS CloudFormation Resource (AWS::Redshift::ClusterParameterGroup.Parameter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html
 type AWSRedshiftClusterParameterGroup_Parameter struct {
 

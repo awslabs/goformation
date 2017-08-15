@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeDeploy::DeploymentGroup.TriggerConfig AWS CloudFormation Resource
+// AWSCodeDeployDeploymentGroup_TriggerConfig AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.TriggerConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html
 type AWSCodeDeployDeploymentGroup_TriggerConfig struct {
 

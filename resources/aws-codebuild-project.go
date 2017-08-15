@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CodeBuild::Project AWS CloudFormation Resource
+// AWSCodeBuildProject AWS CloudFormation Resource (AWS::CodeBuild::Project)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
 type AWSCodeBuildProject struct {
 

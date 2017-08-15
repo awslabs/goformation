@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::InternetGateway AWS CloudFormation Resource
+// AWSEC2InternetGateway AWS CloudFormation Resource (AWS::EC2::InternetGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
 type AWSEC2InternetGateway struct {
 

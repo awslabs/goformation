@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.GeoRestriction AWS CloudFormation Resource
+// AWSCloudFrontDistribution_GeoRestriction AWS CloudFormation Resource (AWS::CloudFront::Distribution.GeoRestriction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions-georestriction.html
 type AWSCloudFrontDistribution_GeoRestriction struct {
 

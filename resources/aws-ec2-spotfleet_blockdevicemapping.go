@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.BlockDeviceMapping AWS CloudFormation Resource
+// AWSEC2SpotFleet_BlockDeviceMapping AWS CloudFormation Resource (AWS::EC2::SpotFleet.BlockDeviceMapping)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html
 type AWSEC2SpotFleet_BlockDeviceMapping struct {
 

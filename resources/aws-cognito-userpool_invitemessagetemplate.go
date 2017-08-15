@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.InviteMessageTemplate AWS CloudFormation Resource
+// AWSCognitoUserPool_InviteMessageTemplate AWS CloudFormation Resource (AWS::Cognito::UserPool.InviteMessageTemplate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-invitemessagetemplate.html
 type AWSCognitoUserPool_InviteMessageTemplate struct {
 

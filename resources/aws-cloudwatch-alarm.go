@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudWatch::Alarm AWS CloudFormation Resource
+// AWSCloudWatchAlarm AWS CloudFormation Resource (AWS::CloudWatch::Alarm)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html
 type AWSCloudWatchAlarm struct {
 

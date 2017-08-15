@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceGroupConfig.CloudWatchAlarmDefinition AWS CloudFormation Resource
+// AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig.CloudWatchAlarmDefinition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition.html
 type AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition struct {
 

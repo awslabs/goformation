@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::SubnetCidrBlock AWS CloudFormation Resource
+// AWSEC2SubnetCidrBlock AWS CloudFormation Resource (AWS::EC2::SubnetCidrBlock)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
 type AWSEC2SubnetCidrBlock struct {
 

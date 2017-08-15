@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::NetworkInterface.PrivateIpAddressSpecification AWS CloudFormation Resource
+// AWSEC2NetworkInterface_PrivateIpAddressSpecification AWS CloudFormation Resource (AWS::EC2::NetworkInterface.PrivateIpAddressSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
 type AWSEC2NetworkInterface_PrivateIpAddressSpecification struct {
 

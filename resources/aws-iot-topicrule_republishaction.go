@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.RepublishAction AWS CloudFormation Resource
+// AWSIoTTopicRule_RepublishAction AWS CloudFormation Resource (AWS::IoT::TopicRule.RepublishAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-republish.html
 type AWSIoTTopicRule_RepublishAction struct {
 

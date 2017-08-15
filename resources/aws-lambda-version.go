@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::Version AWS CloudFormation Resource
+// AWSLambdaVersion AWS CloudFormation Resource (AWS::Lambda::Version)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
 type AWSLambdaVersion struct {
 

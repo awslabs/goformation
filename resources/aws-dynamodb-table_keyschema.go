@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DynamoDB::Table.KeySchema AWS CloudFormation Resource
+// AWSDynamoDBTable_KeySchema AWS CloudFormation Resource (AWS::DynamoDB::Table.KeySchema)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
 type AWSDynamoDBTable_KeySchema struct {
 

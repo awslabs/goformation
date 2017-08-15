@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::NetworkInterface AWS CloudFormation Resource
+// AWSEC2NetworkInterface AWS CloudFormation Resource (AWS::EC2::NetworkInterface)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html
 type AWSEC2NetworkInterface struct {
 

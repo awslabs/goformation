@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApiGateway::UsagePlan.ApiStage AWS CloudFormation Resource
+// AWSApiGatewayUsagePlan_ApiStage AWS CloudFormation Resource (AWS::ApiGateway::UsagePlan.ApiStage)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
 type AWSApiGatewayUsagePlan_ApiStage struct {
 

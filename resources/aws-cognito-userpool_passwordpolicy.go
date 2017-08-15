@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::UserPool.PasswordPolicy AWS CloudFormation Resource
+// AWSCognitoUserPool_PasswordPolicy AWS CloudFormation Resource (AWS::Cognito::UserPool.PasswordPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html
 type AWSCognitoUserPool_PasswordPolicy struct {
 

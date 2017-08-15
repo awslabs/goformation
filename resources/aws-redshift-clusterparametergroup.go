@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Redshift::ClusterParameterGroup AWS CloudFormation Resource
+// AWSRedshiftClusterParameterGroup AWS CloudFormation Resource (AWS::Redshift::ClusterParameterGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
 type AWSRedshiftClusterParameterGroup struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.SpotPlacement AWS CloudFormation Resource
+// AWSEC2SpotFleet_SpotPlacement AWS CloudFormation Resource (AWS::EC2::SpotFleet.SpotPlacement)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html
 type AWSEC2SpotFleet_SpotPlacement struct {
 

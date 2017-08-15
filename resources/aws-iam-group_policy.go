@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IAM::Group.Policy AWS CloudFormation Resource
+// AWSIAMGroup_Policy AWS CloudFormation Resource (AWS::IAM::Group.Policy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
 type AWSIAMGroup_Policy struct {
 

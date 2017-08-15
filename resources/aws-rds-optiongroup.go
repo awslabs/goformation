@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::OptionGroup AWS CloudFormation Resource
+// AWSRDSOptionGroup AWS CloudFormation Resource (AWS::RDS::OptionGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
 type AWSRDSOptionGroup struct {
 

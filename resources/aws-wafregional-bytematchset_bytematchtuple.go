@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAFRegional::ByteMatchSet.ByteMatchTuple AWS CloudFormation Resource
+// AWSWAFRegionalByteMatchSet_ByteMatchTuple AWS CloudFormation Resource (AWS::WAFRegional::ByteMatchSet.ByteMatchTuple)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html
 type AWSWAFRegionalByteMatchSet_ByteMatchTuple struct {
 

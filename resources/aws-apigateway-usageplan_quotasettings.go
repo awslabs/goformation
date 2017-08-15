@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApiGateway::UsagePlan.QuotaSettings AWS CloudFormation Resource
+// AWSApiGatewayUsagePlan_QuotaSettings AWS CloudFormation Resource (AWS::ApiGateway::UsagePlan.QuotaSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 type AWSApiGatewayUsagePlan_QuotaSettings struct {
 

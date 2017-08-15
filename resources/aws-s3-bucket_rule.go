@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.Rule AWS CloudFormation Resource
+// AWSS3Bucket_Rule AWS CloudFormation Resource (AWS::S3::Bucket.Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html
 type AWSS3Bucket_Rule struct {
 

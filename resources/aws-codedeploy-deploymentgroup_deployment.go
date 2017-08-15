@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeDeploy::DeploymentGroup.Deployment AWS CloudFormation Resource
+// AWSCodeDeployDeploymentGroup_Deployment AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.Deployment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html
 type AWSCodeDeployDeploymentGroup_Deployment struct {
 

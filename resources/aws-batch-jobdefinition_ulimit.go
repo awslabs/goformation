@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Batch::JobDefinition.Ulimit AWS CloudFormation Resource
+// AWSBatchJobDefinition_Ulimit AWS CloudFormation Resource (AWS::Batch::JobDefinition.Ulimit)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html
 type AWSBatchJobDefinition_Ulimit struct {
 

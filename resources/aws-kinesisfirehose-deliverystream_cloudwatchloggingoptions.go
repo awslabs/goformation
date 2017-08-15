@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions AWS CloudFormation Resource
+// AWSKinesisFirehoseDeliveryStream_CloudWatchLoggingOptions AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-destination-cloudwatchloggingoptions.html
 type AWSKinesisFirehoseDeliveryStream_CloudWatchLoggingOptions struct {
 

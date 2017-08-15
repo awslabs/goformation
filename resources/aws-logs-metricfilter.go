@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::MetricFilter AWS CloudFormation Resource
+// AWSLogsMetricFilter AWS CloudFormation Resource (AWS::Logs::MetricFilter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
 type AWSLogsMetricFilter struct {
 

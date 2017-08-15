@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Events::Rule.Target AWS CloudFormation Resource
+// AWSEventsRule_Target AWS CloudFormation Resource (AWS::Events::Rule.Target)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
 type AWSEventsRule_Target struct {
 
