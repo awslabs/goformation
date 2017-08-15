@@ -13,31 +13,26 @@ type AWSKinesisAnalyticsApplication_Input struct {
 	// InputParallelism AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputparallelism
-
 	InputParallelism AWSKinesisAnalyticsApplication_InputParallelism `json:"InputParallelism"`
 
 	// InputSchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputschema
-
 	InputSchema AWSKinesisAnalyticsApplication_InputSchema `json:"InputSchema"`
 
 	// KinesisFirehoseInput AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-kinesisfirehoseinput
-
 	KinesisFirehoseInput AWSKinesisAnalyticsApplication_KinesisFirehoseInput `json:"KinesisFirehoseInput"`
 
 	// KinesisStreamsInput AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-kinesisstreamsinput
-
 	KinesisStreamsInput AWSKinesisAnalyticsApplication_KinesisStreamsInput `json:"KinesisStreamsInput"`
 
 	// NamePrefix AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-nameprefix
-
 	NamePrefix string `json:"NamePrefix"`
 }
 

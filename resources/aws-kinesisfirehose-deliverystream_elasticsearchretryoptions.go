@@ -13,7 +13,6 @@ type AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions struct {
 	// DurationInSeconds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions-durationinseconds
-
 	DurationInSeconds int64 `json:"DurationInSeconds"`
 }
 

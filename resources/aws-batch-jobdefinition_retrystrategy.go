@@ -13,7 +13,6 @@ type AWSBatchJobDefinition_RetryStrategy struct {
 	// Attempts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-attempts
-
 	Attempts int64 `json:"Attempts"`
 }
 

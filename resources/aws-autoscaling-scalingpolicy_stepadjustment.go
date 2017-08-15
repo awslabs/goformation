@@ -13,19 +13,16 @@ type AWSAutoScalingScalingPolicy_StepAdjustment struct {
 	// MetricIntervalLowerBound AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound
-
 	MetricIntervalLowerBound float64 `json:"MetricIntervalLowerBound"`
 
 	// MetricIntervalUpperBound AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound
-
 	MetricIntervalUpperBound float64 `json:"MetricIntervalUpperBound"`
 
 	// ScalingAdjustment AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment
-
 	ScalingAdjustment int64 `json:"ScalingAdjustment"`
 }
 

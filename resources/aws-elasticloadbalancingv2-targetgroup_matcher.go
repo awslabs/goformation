@@ -13,7 +13,6 @@ type AWSElasticLoadBalancingV2TargetGroup_Matcher struct {
 	// HttpCode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
-
 	HttpCode string `json:"HttpCode"`
 }
 

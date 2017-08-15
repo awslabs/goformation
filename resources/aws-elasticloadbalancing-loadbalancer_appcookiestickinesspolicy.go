@@ -13,13 +13,11 @@ type AWSElasticLoadBalancingLoadBalancer_AppCookieStickinessPolicy struct {
 	// CookieName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html#cfn-elb-appcookiestickinesspolicy-cookiename
-
 	CookieName string `json:"CookieName"`
 
 	// PolicyName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html#cfn-elb-appcookiestickinesspolicy-policyname
-
 	PolicyName string `json:"PolicyName"`
 }
 

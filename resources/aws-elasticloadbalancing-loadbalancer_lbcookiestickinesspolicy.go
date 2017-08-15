@@ -13,13 +13,11 @@ type AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy struct {
 	// CookieExpirationPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html#cfn-elb-lbcookiestickinesspolicy-cookieexpirationperiod
-
 	CookieExpirationPeriod string `json:"CookieExpirationPeriod"`
 
 	// PolicyName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html#cfn-elb-lbcookiestickinesspolicy-policyname
-
 	PolicyName string `json:"PolicyName"`
 }
 

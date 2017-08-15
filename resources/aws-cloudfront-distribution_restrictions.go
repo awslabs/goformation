@@ -13,7 +13,6 @@ type AWSCloudFrontDistribution_Restrictions struct {
 	// GeoRestriction AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions.html#cfn-cloudfront-distributionconfig-restrictions-georestriction
-
 	GeoRestriction AWSCloudFrontDistribution_GeoRestriction `json:"GeoRestriction"`
 }
 

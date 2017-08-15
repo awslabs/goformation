@@ -13,13 +13,11 @@ type AWSS3Bucket_RoutingRuleCondition struct {
 	// HttpErrorCodeReturnedEquals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-httperrorcodereturnedequals
-
 	HttpErrorCodeReturnedEquals string `json:"HttpErrorCodeReturnedEquals"`
 
 	// KeyPrefixEquals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-keyprefixequals
-
 	KeyPrefixEquals string `json:"KeyPrefixEquals"`
 }
 

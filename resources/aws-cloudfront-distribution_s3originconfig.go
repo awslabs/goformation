@@ -13,7 +13,6 @@ type AWSCloudFrontDistribution_S3OriginConfig struct {
 	// OriginAccessIdentity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-s3origin.html#cfn-cloudfront-s3origin-originaccessidentity
-
 	OriginAccessIdentity string `json:"OriginAccessIdentity"`
 }
 

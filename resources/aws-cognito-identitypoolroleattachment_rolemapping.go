@@ -13,19 +13,16 @@ type AWSCognitoIdentityPoolRoleAttachment_RoleMapping struct {
 	// AmbiguousRoleResolution AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-ambiguousroleresolution
-
 	AmbiguousRoleResolution string `json:"AmbiguousRoleResolution"`
 
 	// RulesConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration
-
 	RulesConfiguration AWSCognitoIdentityPoolRoleAttachment_RulesConfigurationType `json:"RulesConfiguration"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-type
-
 	Type string `json:"Type"`
 }
 
