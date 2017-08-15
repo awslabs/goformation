@@ -37,7 +37,7 @@ func (r *AWSIAMInstanceProfile) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMInstanceProfileResources retrieves all AWSIAMInstanceProfile items from a CloudFormation template
-func GetAllAWSIAMInstanceProfile(template *Template) map[string]*AWSIAMInstanceProfile {
+func GetAllAWSIAMInstanceProfileResources(template *Template) map[string]*AWSIAMInstanceProfile {
 
 	results := map[string]*AWSIAMInstanceProfile{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSIAMInstanceProfile(template *Template) map[string]*AWSIAMInstanceP
 
 // GetAWSIAMInstanceProfileWithName retrieves all AWSIAMInstanceProfile items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMInstanceProfile(name string, template *Template) (*AWSIAMInstanceProfile, error) {
+func GetAWSIAMInstanceProfileWithName(name string, template *Template) (*AWSIAMInstanceProfile, error) {
 
 	result := &AWSIAMInstanceProfile{}
 	if resource, ok := template.Resources[name]; ok {

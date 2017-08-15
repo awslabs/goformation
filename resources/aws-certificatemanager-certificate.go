@@ -42,7 +42,7 @@ func (r *AWSCertificateManagerCertificate) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSCertificateManagerCertificateResources retrieves all AWSCertificateManagerCertificate items from a CloudFormation template
-func GetAllAWSCertificateManagerCertificate(template *Template) map[string]*AWSCertificateManagerCertificate {
+func GetAllAWSCertificateManagerCertificateResources(template *Template) map[string]*AWSCertificateManagerCertificate {
 
 	results := map[string]*AWSCertificateManagerCertificate{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSCertificateManagerCertificate(template *Template) map[string]*AWSC
 
 // GetAWSCertificateManagerCertificateWithName retrieves all AWSCertificateManagerCertificate items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCertificateManagerCertificate(name string, template *Template) (*AWSCertificateManagerCertificate, error) {
+func GetAWSCertificateManagerCertificateWithName(name string, template *Template) (*AWSCertificateManagerCertificate, error) {
 
 	result := &AWSCertificateManagerCertificate{}
 	if resource, ok := template.Resources[name]; ok {

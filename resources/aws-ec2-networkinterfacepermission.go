@@ -37,7 +37,7 @@ func (r *AWSEC2NetworkInterfacePermission) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSEC2NetworkInterfacePermissionResources retrieves all AWSEC2NetworkInterfacePermission items from a CloudFormation template
-func GetAllAWSEC2NetworkInterfacePermission(template *Template) map[string]*AWSEC2NetworkInterfacePermission {
+func GetAllAWSEC2NetworkInterfacePermissionResources(template *Template) map[string]*AWSEC2NetworkInterfacePermission {
 
 	results := map[string]*AWSEC2NetworkInterfacePermission{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSEC2NetworkInterfacePermission(template *Template) map[string]*AWSE
 
 // GetAWSEC2NetworkInterfacePermissionWithName retrieves all AWSEC2NetworkInterfacePermission items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2NetworkInterfacePermission(name string, template *Template) (*AWSEC2NetworkInterfacePermission, error) {
+func GetAWSEC2NetworkInterfacePermissionWithName(name string, template *Template) (*AWSEC2NetworkInterfacePermission, error) {
 
 	result := &AWSEC2NetworkInterfacePermission{}
 	if resource, ok := template.Resources[name]; ok {

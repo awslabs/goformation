@@ -72,7 +72,7 @@ func (r *AWSCodeDeployDeploymentGroup) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSCodeDeployDeploymentGroupResources retrieves all AWSCodeDeployDeploymentGroup items from a CloudFormation template
-func GetAllAWSCodeDeployDeploymentGroup(template *Template) map[string]*AWSCodeDeployDeploymentGroup {
+func GetAllAWSCodeDeployDeploymentGroupResources(template *Template) map[string]*AWSCodeDeployDeploymentGroup {
 
 	results := map[string]*AWSCodeDeployDeploymentGroup{}
 	for name, resource := range template.Resources {
@@ -87,7 +87,7 @@ func GetAllAWSCodeDeployDeploymentGroup(template *Template) map[string]*AWSCodeD
 
 // GetAWSCodeDeployDeploymentGroupWithName retrieves all AWSCodeDeployDeploymentGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeDeployDeploymentGroup(name string, template *Template) (*AWSCodeDeployDeploymentGroup, error) {
+func GetAWSCodeDeployDeploymentGroupWithName(name string, template *Template) (*AWSCodeDeployDeploymentGroup, error) {
 
 	result := &AWSCodeDeployDeploymentGroup{}
 	if resource, ok := template.Resources[name]; ok {

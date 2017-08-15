@@ -32,7 +32,7 @@ func (r *AWSOpsWorksElasticLoadBalancerAttachment) AWSCloudFormationSpecificatio
 }
 
 // GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources retrieves all AWSOpsWorksElasticLoadBalancerAttachment items from a CloudFormation template
-func GetAllAWSOpsWorksElasticLoadBalancerAttachment(template *Template) map[string]*AWSOpsWorksElasticLoadBalancerAttachment {
+func GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources(template *Template) map[string]*AWSOpsWorksElasticLoadBalancerAttachment {
 
 	results := map[string]*AWSOpsWorksElasticLoadBalancerAttachment{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSOpsWorksElasticLoadBalancerAttachment(template *Template) map[stri
 
 // GetAWSOpsWorksElasticLoadBalancerAttachmentWithName retrieves all AWSOpsWorksElasticLoadBalancerAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksElasticLoadBalancerAttachment(name string, template *Template) (*AWSOpsWorksElasticLoadBalancerAttachment, error) {
+func GetAWSOpsWorksElasticLoadBalancerAttachmentWithName(name string, template *Template) (*AWSOpsWorksElasticLoadBalancerAttachment, error) {
 
 	result := &AWSOpsWorksElasticLoadBalancerAttachment{}
 	if resource, ok := template.Resources[name]; ok {

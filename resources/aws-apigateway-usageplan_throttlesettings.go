@@ -30,32 +30,3 @@ func (r *AWSApiGatewayUsagePlan_ThrottleSettings) AWSCloudFormationType() string
 func (r *AWSApiGatewayUsagePlan_ThrottleSettings) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSApiGatewayUsagePlan_ThrottleSettingsResources retrieves all AWSApiGatewayUsagePlan_ThrottleSettings items from a CloudFormation template
-func GetAllAWSApiGatewayUsagePlan_ThrottleSettings(template *Template) map[string]*AWSApiGatewayUsagePlan_ThrottleSettings {
-
-	results := map[string]*AWSApiGatewayUsagePlan_ThrottleSettings{}
-	for name, resource := range template.Resources {
-		result := &AWSApiGatewayUsagePlan_ThrottleSettings{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSApiGatewayUsagePlan_ThrottleSettingsWithName retrieves all AWSApiGatewayUsagePlan_ThrottleSettings items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayUsagePlan_ThrottleSettings(name string, template *Template) (*AWSApiGatewayUsagePlan_ThrottleSettings, error) {
-
-	result := &AWSApiGatewayUsagePlan_ThrottleSettings{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSApiGatewayUsagePlan_ThrottleSettings{}, errors.New("resource not found")
-
-}

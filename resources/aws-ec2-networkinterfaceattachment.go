@@ -42,7 +42,7 @@ func (r *AWSEC2NetworkInterfaceAttachment) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSEC2NetworkInterfaceAttachmentResources retrieves all AWSEC2NetworkInterfaceAttachment items from a CloudFormation template
-func GetAllAWSEC2NetworkInterfaceAttachment(template *Template) map[string]*AWSEC2NetworkInterfaceAttachment {
+func GetAllAWSEC2NetworkInterfaceAttachmentResources(template *Template) map[string]*AWSEC2NetworkInterfaceAttachment {
 
 	results := map[string]*AWSEC2NetworkInterfaceAttachment{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSEC2NetworkInterfaceAttachment(template *Template) map[string]*AWSE
 
 // GetAWSEC2NetworkInterfaceAttachmentWithName retrieves all AWSEC2NetworkInterfaceAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2NetworkInterfaceAttachment(name string, template *Template) (*AWSEC2NetworkInterfaceAttachment, error) {
+func GetAWSEC2NetworkInterfaceAttachmentWithName(name string, template *Template) (*AWSEC2NetworkInterfaceAttachment, error) {
 
 	result := &AWSEC2NetworkInterfaceAttachment{}
 	if resource, ok := template.Resources[name]; ok {

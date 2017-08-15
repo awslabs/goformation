@@ -35,32 +35,3 @@ func (r *AWSECSTaskDefinition_Ulimit) AWSCloudFormationType() string {
 func (r *AWSECSTaskDefinition_Ulimit) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSECSTaskDefinition_UlimitResources retrieves all AWSECSTaskDefinition_Ulimit items from a CloudFormation template
-func GetAllAWSECSTaskDefinition_Ulimit(template *Template) map[string]*AWSECSTaskDefinition_Ulimit {
-
-	results := map[string]*AWSECSTaskDefinition_Ulimit{}
-	for name, resource := range template.Resources {
-		result := &AWSECSTaskDefinition_Ulimit{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSECSTaskDefinition_UlimitWithName retrieves all AWSECSTaskDefinition_Ulimit items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSTaskDefinition_Ulimit(name string, template *Template) (*AWSECSTaskDefinition_Ulimit, error) {
-
-	result := &AWSECSTaskDefinition_Ulimit{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSECSTaskDefinition_Ulimit{}, errors.New("resource not found")
-
-}

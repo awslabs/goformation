@@ -40,32 +40,3 @@ func (r *AWSEC2Instance_BlockDeviceMapping) AWSCloudFormationType() string {
 func (r *AWSEC2Instance_BlockDeviceMapping) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEC2Instance_BlockDeviceMappingResources retrieves all AWSEC2Instance_BlockDeviceMapping items from a CloudFormation template
-func GetAllAWSEC2Instance_BlockDeviceMapping(template *Template) map[string]*AWSEC2Instance_BlockDeviceMapping {
-
-	results := map[string]*AWSEC2Instance_BlockDeviceMapping{}
-	for name, resource := range template.Resources {
-		result := &AWSEC2Instance_BlockDeviceMapping{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEC2Instance_BlockDeviceMappingWithName retrieves all AWSEC2Instance_BlockDeviceMapping items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2Instance_BlockDeviceMapping(name string, template *Template) (*AWSEC2Instance_BlockDeviceMapping, error) {
-
-	result := &AWSEC2Instance_BlockDeviceMapping{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEC2Instance_BlockDeviceMapping{}, errors.New("resource not found")
-
-}

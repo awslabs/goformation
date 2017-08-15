@@ -40,32 +40,3 @@ func (r *AWSEMRInstanceGroupConfig_ScalingRule) AWSCloudFormationType() string {
 func (r *AWSEMRInstanceGroupConfig_ScalingRule) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceGroupConfig_ScalingRuleResources retrieves all AWSEMRInstanceGroupConfig_ScalingRule items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig_ScalingRule(template *Template) map[string]*AWSEMRInstanceGroupConfig_ScalingRule {
-
-	results := map[string]*AWSEMRInstanceGroupConfig_ScalingRule{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceGroupConfig_ScalingRule{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceGroupConfig_ScalingRuleWithName retrieves all AWSEMRInstanceGroupConfig_ScalingRule items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig_ScalingRule(name string, template *Template) (*AWSEMRInstanceGroupConfig_ScalingRule, error) {
-
-	result := &AWSEMRInstanceGroupConfig_ScalingRule{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceGroupConfig_ScalingRule{}, errors.New("resource not found")
-
-}

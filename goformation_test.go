@@ -33,12 +33,12 @@ var _ = Describe("Goformation", func() {
 			Expect(t2.Resources).To(HaveKey("MyLambdaFunction"))
 		})
 
-		functions := resources.GetAllAWSLambdaFunction(t2)
+		functions := resources.GetAllAWSLambdaFunctionResources(t2)
 		It("should be able to retrieve all Lambda functions with GetAllAWSLambdaFunction(template)", func() {
 			Expect(functions).To(HaveLen(1))
 		})
 
-		function, err := resources.GetWithNameAWSLambdaFunction("MyLambdaFunction", t2)
+		function, err := resources.GetAWSLambdaFunctionWithName("MyLambdaFunction", t2)
 		It("should be able to retrieve a specific Lambda function with GetAWSLambdaFunctionWithName(template, name)", func() {
 			Expect(err).To(BeNil())
 			Expect(function).To(BeAssignableToTypeOf(&resources.AWSLambdaFunction{}))

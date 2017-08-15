@@ -42,7 +42,7 @@ func (r *AWSEMRStep) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEMRStepResources retrieves all AWSEMRStep items from a CloudFormation template
-func GetAllAWSEMRStep(template *Template) map[string]*AWSEMRStep {
+func GetAllAWSEMRStepResources(template *Template) map[string]*AWSEMRStep {
 
 	results := map[string]*AWSEMRStep{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSEMRStep(template *Template) map[string]*AWSEMRStep {
 
 // GetAWSEMRStepWithName retrieves all AWSEMRStep items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRStep(name string, template *Template) (*AWSEMRStep, error) {
+func GetAWSEMRStepWithName(name string, template *Template) (*AWSEMRStep, error) {
 
 	result := &AWSEMRStep{}
 	if resource, ok := template.Resources[name]; ok {

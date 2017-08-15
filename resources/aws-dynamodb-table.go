@@ -57,7 +57,7 @@ func (r *AWSDynamoDBTable) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSDynamoDBTableResources retrieves all AWSDynamoDBTable items from a CloudFormation template
-func GetAllAWSDynamoDBTable(template *Template) map[string]*AWSDynamoDBTable {
+func GetAllAWSDynamoDBTableResources(template *Template) map[string]*AWSDynamoDBTable {
 
 	results := map[string]*AWSDynamoDBTable{}
 	for name, resource := range template.Resources {
@@ -72,7 +72,7 @@ func GetAllAWSDynamoDBTable(template *Template) map[string]*AWSDynamoDBTable {
 
 // GetAWSDynamoDBTableWithName retrieves all AWSDynamoDBTable items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDynamoDBTable(name string, template *Template) (*AWSDynamoDBTable, error) {
+func GetAWSDynamoDBTableWithName(name string, template *Template) (*AWSDynamoDBTable, error) {
 
 	result := &AWSDynamoDBTable{}
 	if resource, ok := template.Resources[name]; ok {

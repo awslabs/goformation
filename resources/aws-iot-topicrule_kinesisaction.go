@@ -35,32 +35,3 @@ func (r *AWSIoTTopicRule_KinesisAction) AWSCloudFormationType() string {
 func (r *AWSIoTTopicRule_KinesisAction) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSIoTTopicRule_KinesisActionResources retrieves all AWSIoTTopicRule_KinesisAction items from a CloudFormation template
-func GetAllAWSIoTTopicRule_KinesisAction(template *Template) map[string]*AWSIoTTopicRule_KinesisAction {
-
-	results := map[string]*AWSIoTTopicRule_KinesisAction{}
-	for name, resource := range template.Resources {
-		result := &AWSIoTTopicRule_KinesisAction{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSIoTTopicRule_KinesisActionWithName retrieves all AWSIoTTopicRule_KinesisAction items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTTopicRule_KinesisAction(name string, template *Template) (*AWSIoTTopicRule_KinesisAction, error) {
-
-	result := &AWSIoTTopicRule_KinesisAction{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSIoTTopicRule_KinesisAction{}, errors.New("resource not found")
-
-}

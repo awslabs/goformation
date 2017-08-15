@@ -42,7 +42,7 @@ func (r *AWSLambdaAlias) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLambdaAliasResources retrieves all AWSLambdaAlias items from a CloudFormation template
-func GetAllAWSLambdaAlias(template *Template) map[string]*AWSLambdaAlias {
+func GetAllAWSLambdaAliasResources(template *Template) map[string]*AWSLambdaAlias {
 
 	results := map[string]*AWSLambdaAlias{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSLambdaAlias(template *Template) map[string]*AWSLambdaAlias {
 
 // GetAWSLambdaAliasWithName retrieves all AWSLambdaAlias items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLambdaAlias(name string, template *Template) (*AWSLambdaAlias, error) {
+func GetAWSLambdaAliasWithName(name string, template *Template) (*AWSLambdaAlias, error) {
 
 	result := &AWSLambdaAlias{}
 	if resource, ok := template.Resources[name]; ok {

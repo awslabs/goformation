@@ -25,32 +25,3 @@ func (r *AWSBatchJobDefinition_RetryStrategy) AWSCloudFormationType() string {
 func (r *AWSBatchJobDefinition_RetryStrategy) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSBatchJobDefinition_RetryStrategyResources retrieves all AWSBatchJobDefinition_RetryStrategy items from a CloudFormation template
-func GetAllAWSBatchJobDefinition_RetryStrategy(template *Template) map[string]*AWSBatchJobDefinition_RetryStrategy {
-
-	results := map[string]*AWSBatchJobDefinition_RetryStrategy{}
-	for name, resource := range template.Resources {
-		result := &AWSBatchJobDefinition_RetryStrategy{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSBatchJobDefinition_RetryStrategyWithName retrieves all AWSBatchJobDefinition_RetryStrategy items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSBatchJobDefinition_RetryStrategy(name string, template *Template) (*AWSBatchJobDefinition_RetryStrategy, error) {
-
-	result := &AWSBatchJobDefinition_RetryStrategy{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSBatchJobDefinition_RetryStrategy{}, errors.New("resource not found")
-
-}

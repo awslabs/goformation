@@ -50,32 +50,3 @@ func (r *AWSEMRInstanceFleetConfig_InstanceTypeConfig) AWSCloudFormationType() s
 func (r *AWSEMRInstanceFleetConfig_InstanceTypeConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceFleetConfig_InstanceTypeConfigResources retrieves all AWSEMRInstanceFleetConfig_InstanceTypeConfig items from a CloudFormation template
-func GetAllAWSEMRInstanceFleetConfig_InstanceTypeConfig(template *Template) map[string]*AWSEMRInstanceFleetConfig_InstanceTypeConfig {
-
-	results := map[string]*AWSEMRInstanceFleetConfig_InstanceTypeConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceFleetConfig_InstanceTypeConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceFleetConfig_InstanceTypeConfigWithName retrieves all AWSEMRInstanceFleetConfig_InstanceTypeConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceFleetConfig_InstanceTypeConfig(name string, template *Template) (*AWSEMRInstanceFleetConfig_InstanceTypeConfig, error) {
-
-	result := &AWSEMRInstanceFleetConfig_InstanceTypeConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceFleetConfig_InstanceTypeConfig{}, errors.New("resource not found")
-
-}

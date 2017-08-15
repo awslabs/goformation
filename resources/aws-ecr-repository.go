@@ -32,7 +32,7 @@ func (r *AWSECRRepository) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSECRRepositoryResources retrieves all AWSECRRepository items from a CloudFormation template
-func GetAllAWSECRRepository(template *Template) map[string]*AWSECRRepository {
+func GetAllAWSECRRepositoryResources(template *Template) map[string]*AWSECRRepository {
 
 	results := map[string]*AWSECRRepository{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSECRRepository(template *Template) map[string]*AWSECRRepository {
 
 // GetAWSECRRepositoryWithName retrieves all AWSECRRepository items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECRRepository(name string, template *Template) (*AWSECRRepository, error) {
+func GetAWSECRRepositoryWithName(name string, template *Template) (*AWSECRRepository, error) {
 
 	result := &AWSECRRepository{}
 	if resource, ok := template.Resources[name]; ok {

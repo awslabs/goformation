@@ -42,7 +42,7 @@ func (r *AWSKinesisStream) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSKinesisStreamResources retrieves all AWSKinesisStream items from a CloudFormation template
-func GetAllAWSKinesisStream(template *Template) map[string]*AWSKinesisStream {
+func GetAllAWSKinesisStreamResources(template *Template) map[string]*AWSKinesisStream {
 
 	results := map[string]*AWSKinesisStream{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSKinesisStream(template *Template) map[string]*AWSKinesisStream {
 
 // GetAWSKinesisStreamWithName retrieves all AWSKinesisStream items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisStream(name string, template *Template) (*AWSKinesisStream, error) {
+func GetAWSKinesisStreamWithName(name string, template *Template) (*AWSKinesisStream, error) {
 
 	result := &AWSKinesisStream{}
 	if resource, ok := template.Resources[name]; ok {

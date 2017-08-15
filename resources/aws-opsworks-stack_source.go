@@ -50,32 +50,3 @@ func (r *AWSOpsWorksStack_Source) AWSCloudFormationType() string {
 func (r *AWSOpsWorksStack_Source) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSOpsWorksStack_SourceResources retrieves all AWSOpsWorksStack_Source items from a CloudFormation template
-func GetAllAWSOpsWorksStack_Source(template *Template) map[string]*AWSOpsWorksStack_Source {
-
-	results := map[string]*AWSOpsWorksStack_Source{}
-	for name, resource := range template.Resources {
-		result := &AWSOpsWorksStack_Source{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSOpsWorksStack_SourceWithName retrieves all AWSOpsWorksStack_Source items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksStack_Source(name string, template *Template) (*AWSOpsWorksStack_Source, error) {
-
-	result := &AWSOpsWorksStack_Source{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSOpsWorksStack_Source{}, errors.New("resource not found")
-
-}

@@ -35,32 +35,3 @@ func (r *AWSEMRCluster_VolumeSpecification) AWSCloudFormationType() string {
 func (r *AWSEMRCluster_VolumeSpecification) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRCluster_VolumeSpecificationResources retrieves all AWSEMRCluster_VolumeSpecification items from a CloudFormation template
-func GetAllAWSEMRCluster_VolumeSpecification(template *Template) map[string]*AWSEMRCluster_VolumeSpecification {
-
-	results := map[string]*AWSEMRCluster_VolumeSpecification{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRCluster_VolumeSpecification{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRCluster_VolumeSpecificationWithName retrieves all AWSEMRCluster_VolumeSpecification items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRCluster_VolumeSpecification(name string, template *Template) (*AWSEMRCluster_VolumeSpecification, error) {
-
-	result := &AWSEMRCluster_VolumeSpecification{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRCluster_VolumeSpecification{}, errors.New("resource not found")
-
-}

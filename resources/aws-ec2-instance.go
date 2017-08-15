@@ -167,7 +167,7 @@ func (r *AWSEC2Instance) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2InstanceResources retrieves all AWSEC2Instance items from a CloudFormation template
-func GetAllAWSEC2Instance(template *Template) map[string]*AWSEC2Instance {
+func GetAllAWSEC2InstanceResources(template *Template) map[string]*AWSEC2Instance {
 
 	results := map[string]*AWSEC2Instance{}
 	for name, resource := range template.Resources {
@@ -182,7 +182,7 @@ func GetAllAWSEC2Instance(template *Template) map[string]*AWSEC2Instance {
 
 // GetAWSEC2InstanceWithName retrieves all AWSEC2Instance items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2Instance(name string, template *Template) (*AWSEC2Instance, error) {
+func GetAWSEC2InstanceWithName(name string, template *Template) (*AWSEC2Instance, error) {
 
 	result := &AWSEC2Instance{}
 	if resource, ok := template.Resources[name]; ok {

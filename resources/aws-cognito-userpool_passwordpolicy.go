@@ -45,32 +45,3 @@ func (r *AWSCognitoUserPool_PasswordPolicy) AWSCloudFormationType() string {
 func (r *AWSCognitoUserPool_PasswordPolicy) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCognitoUserPool_PasswordPolicyResources retrieves all AWSCognitoUserPool_PasswordPolicy items from a CloudFormation template
-func GetAllAWSCognitoUserPool_PasswordPolicy(template *Template) map[string]*AWSCognitoUserPool_PasswordPolicy {
-
-	results := map[string]*AWSCognitoUserPool_PasswordPolicy{}
-	for name, resource := range template.Resources {
-		result := &AWSCognitoUserPool_PasswordPolicy{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCognitoUserPool_PasswordPolicyWithName retrieves all AWSCognitoUserPool_PasswordPolicy items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCognitoUserPool_PasswordPolicy(name string, template *Template) (*AWSCognitoUserPool_PasswordPolicy, error) {
-
-	result := &AWSCognitoUserPool_PasswordPolicy{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCognitoUserPool_PasswordPolicy{}, errors.New("resource not found")
-
-}

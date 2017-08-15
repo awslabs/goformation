@@ -30,32 +30,3 @@ func (r *AWSEMRInstanceGroupConfig_EbsConfiguration) AWSCloudFormationType() str
 func (r *AWSEMRInstanceGroupConfig_EbsConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceGroupConfig_EbsConfigurationResources retrieves all AWSEMRInstanceGroupConfig_EbsConfiguration items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig_EbsConfiguration(template *Template) map[string]*AWSEMRInstanceGroupConfig_EbsConfiguration {
-
-	results := map[string]*AWSEMRInstanceGroupConfig_EbsConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceGroupConfig_EbsConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceGroupConfig_EbsConfigurationWithName retrieves all AWSEMRInstanceGroupConfig_EbsConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig_EbsConfiguration(name string, template *Template) (*AWSEMRInstanceGroupConfig_EbsConfiguration, error) {
-
-	result := &AWSEMRInstanceGroupConfig_EbsConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceGroupConfig_EbsConfiguration{}, errors.New("resource not found")
-
-}

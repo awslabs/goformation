@@ -40,32 +40,3 @@ func (r *AWSWAFRegionalSizeConstraintSet_SizeConstraint) AWSCloudFormationType()
 func (r *AWSWAFRegionalSizeConstraintSet_SizeConstraint) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSWAFRegionalSizeConstraintSet_SizeConstraintResources retrieves all AWSWAFRegionalSizeConstraintSet_SizeConstraint items from a CloudFormation template
-func GetAllAWSWAFRegionalSizeConstraintSet_SizeConstraint(template *Template) map[string]*AWSWAFRegionalSizeConstraintSet_SizeConstraint {
-
-	results := map[string]*AWSWAFRegionalSizeConstraintSet_SizeConstraint{}
-	for name, resource := range template.Resources {
-		result := &AWSWAFRegionalSizeConstraintSet_SizeConstraint{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSWAFRegionalSizeConstraintSet_SizeConstraintWithName retrieves all AWSWAFRegionalSizeConstraintSet_SizeConstraint items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalSizeConstraintSet_SizeConstraint(name string, template *Template) (*AWSWAFRegionalSizeConstraintSet_SizeConstraint, error) {
-
-	result := &AWSWAFRegionalSizeConstraintSet_SizeConstraint{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSWAFRegionalSizeConstraintSet_SizeConstraint{}, errors.New("resource not found")
-
-}

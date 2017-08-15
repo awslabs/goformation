@@ -37,7 +37,7 @@ func (r *AWSEC2VPCGatewayAttachment) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSEC2VPCGatewayAttachmentResources retrieves all AWSEC2VPCGatewayAttachment items from a CloudFormation template
-func GetAllAWSEC2VPCGatewayAttachment(template *Template) map[string]*AWSEC2VPCGatewayAttachment {
+func GetAllAWSEC2VPCGatewayAttachmentResources(template *Template) map[string]*AWSEC2VPCGatewayAttachment {
 
 	results := map[string]*AWSEC2VPCGatewayAttachment{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSEC2VPCGatewayAttachment(template *Template) map[string]*AWSEC2VPCG
 
 // GetAWSEC2VPCGatewayAttachmentWithName retrieves all AWSEC2VPCGatewayAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2VPCGatewayAttachment(name string, template *Template) (*AWSEC2VPCGatewayAttachment, error) {
+func GetAWSEC2VPCGatewayAttachmentWithName(name string, template *Template) (*AWSEC2VPCGatewayAttachment, error) {
 
 	result := &AWSEC2VPCGatewayAttachment{}
 	if resource, ok := template.Resources[name]; ok {

@@ -142,7 +142,7 @@ func (r *AWSOpsWorksStack) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSOpsWorksStackResources retrieves all AWSOpsWorksStack items from a CloudFormation template
-func GetAllAWSOpsWorksStack(template *Template) map[string]*AWSOpsWorksStack {
+func GetAllAWSOpsWorksStackResources(template *Template) map[string]*AWSOpsWorksStack {
 
 	results := map[string]*AWSOpsWorksStack{}
 	for name, resource := range template.Resources {
@@ -157,7 +157,7 @@ func GetAllAWSOpsWorksStack(template *Template) map[string]*AWSOpsWorksStack {
 
 // GetAWSOpsWorksStackWithName retrieves all AWSOpsWorksStack items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksStack(name string, template *Template) (*AWSOpsWorksStack, error) {
+func GetAWSOpsWorksStackWithName(name string, template *Template) (*AWSOpsWorksStack, error) {
 
 	result := &AWSOpsWorksStack{}
 	if resource, ok := template.Resources[name]; ok {

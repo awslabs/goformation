@@ -30,32 +30,3 @@ func (r *AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput) AWSCloudFor
 func (r *AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutputResources retrieves all AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput items from a CloudFormation template
-func GetAllAWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput(template *Template) map[string]*AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput {
-
-	results := map[string]*AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput{}
-	for name, resource := range template.Resources {
-		result := &AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutputWithName retrieves all AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput(name string, template *Template) (*AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput, error) {
-
-	result := &AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput{}, errors.New("resource not found")
-
-}

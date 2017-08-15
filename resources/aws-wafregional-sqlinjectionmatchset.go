@@ -32,7 +32,7 @@ func (r *AWSWAFRegionalSqlInjectionMatchSet) AWSCloudFormationSpecificationVersi
 }
 
 // GetAllAWSWAFRegionalSqlInjectionMatchSetResources retrieves all AWSWAFRegionalSqlInjectionMatchSet items from a CloudFormation template
-func GetAllAWSWAFRegionalSqlInjectionMatchSet(template *Template) map[string]*AWSWAFRegionalSqlInjectionMatchSet {
+func GetAllAWSWAFRegionalSqlInjectionMatchSetResources(template *Template) map[string]*AWSWAFRegionalSqlInjectionMatchSet {
 
 	results := map[string]*AWSWAFRegionalSqlInjectionMatchSet{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSWAFRegionalSqlInjectionMatchSet(template *Template) map[string]*AW
 
 // GetAWSWAFRegionalSqlInjectionMatchSetWithName retrieves all AWSWAFRegionalSqlInjectionMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalSqlInjectionMatchSet(name string, template *Template) (*AWSWAFRegionalSqlInjectionMatchSet, error) {
+func GetAWSWAFRegionalSqlInjectionMatchSetWithName(name string, template *Template) (*AWSWAFRegionalSqlInjectionMatchSet, error) {
 
 	result := &AWSWAFRegionalSqlInjectionMatchSet{}
 	if resource, ok := template.Resources[name]; ok {

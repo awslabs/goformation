@@ -25,32 +25,3 @@ func (r *AWSS3Bucket_LifecycleConfiguration) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_LifecycleConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_LifecycleConfigurationResources retrieves all AWSS3Bucket_LifecycleConfiguration items from a CloudFormation template
-func GetAllAWSS3Bucket_LifecycleConfiguration(template *Template) map[string]*AWSS3Bucket_LifecycleConfiguration {
-
-	results := map[string]*AWSS3Bucket_LifecycleConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_LifecycleConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_LifecycleConfigurationWithName retrieves all AWSS3Bucket_LifecycleConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_LifecycleConfiguration(name string, template *Template) (*AWSS3Bucket_LifecycleConfiguration, error) {
-
-	result := &AWSS3Bucket_LifecycleConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_LifecycleConfiguration{}, errors.New("resource not found")
-
-}

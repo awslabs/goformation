@@ -32,7 +32,7 @@ func (r *AWSWAFSqlInjectionMatchSet) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSWAFSqlInjectionMatchSetResources retrieves all AWSWAFSqlInjectionMatchSet items from a CloudFormation template
-func GetAllAWSWAFSqlInjectionMatchSet(template *Template) map[string]*AWSWAFSqlInjectionMatchSet {
+func GetAllAWSWAFSqlInjectionMatchSetResources(template *Template) map[string]*AWSWAFSqlInjectionMatchSet {
 
 	results := map[string]*AWSWAFSqlInjectionMatchSet{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSWAFSqlInjectionMatchSet(template *Template) map[string]*AWSWAFSqlI
 
 // GetAWSWAFSqlInjectionMatchSetWithName retrieves all AWSWAFSqlInjectionMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFSqlInjectionMatchSet(name string, template *Template) (*AWSWAFSqlInjectionMatchSet, error) {
+func GetAWSWAFSqlInjectionMatchSetWithName(name string, template *Template) (*AWSWAFSqlInjectionMatchSet, error) {
 
 	result := &AWSWAFSqlInjectionMatchSet{}
 	if resource, ok := template.Resources[name]; ok {

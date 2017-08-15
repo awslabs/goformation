@@ -52,7 +52,7 @@ func (r *AWSApplicationAutoScalingScalableTarget) AWSCloudFormationSpecification
 }
 
 // GetAllAWSApplicationAutoScalingScalableTargetResources retrieves all AWSApplicationAutoScalingScalableTarget items from a CloudFormation template
-func GetAllAWSApplicationAutoScalingScalableTarget(template *Template) map[string]*AWSApplicationAutoScalingScalableTarget {
+func GetAllAWSApplicationAutoScalingScalableTargetResources(template *Template) map[string]*AWSApplicationAutoScalingScalableTarget {
 
 	results := map[string]*AWSApplicationAutoScalingScalableTarget{}
 	for name, resource := range template.Resources {
@@ -67,7 +67,7 @@ func GetAllAWSApplicationAutoScalingScalableTarget(template *Template) map[strin
 
 // GetAWSApplicationAutoScalingScalableTargetWithName retrieves all AWSApplicationAutoScalingScalableTarget items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApplicationAutoScalingScalableTarget(name string, template *Template) (*AWSApplicationAutoScalingScalableTarget, error) {
+func GetAWSApplicationAutoScalingScalableTargetWithName(name string, template *Template) (*AWSApplicationAutoScalingScalableTarget, error) {
 
 	result := &AWSApplicationAutoScalingScalableTarget{}
 	if resource, ok := template.Resources[name]; ok {

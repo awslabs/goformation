@@ -32,7 +32,7 @@ func (r *AWSCloudWatchDashboard) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSCloudWatchDashboardResources retrieves all AWSCloudWatchDashboard items from a CloudFormation template
-func GetAllAWSCloudWatchDashboard(template *Template) map[string]*AWSCloudWatchDashboard {
+func GetAllAWSCloudWatchDashboardResources(template *Template) map[string]*AWSCloudWatchDashboard {
 
 	results := map[string]*AWSCloudWatchDashboard{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSCloudWatchDashboard(template *Template) map[string]*AWSCloudWatchD
 
 // GetAWSCloudWatchDashboardWithName retrieves all AWSCloudWatchDashboard items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudWatchDashboard(name string, template *Template) (*AWSCloudWatchDashboard, error) {
+func GetAWSCloudWatchDashboardWithName(name string, template *Template) (*AWSCloudWatchDashboard, error) {
 
 	result := &AWSCloudWatchDashboard{}
 	if resource, ok := template.Resources[name]; ok {

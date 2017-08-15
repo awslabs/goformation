@@ -42,7 +42,7 @@ func (r *AWSApiGatewayBasePathMapping) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSApiGatewayBasePathMappingResources retrieves all AWSApiGatewayBasePathMapping items from a CloudFormation template
-func GetAllAWSApiGatewayBasePathMapping(template *Template) map[string]*AWSApiGatewayBasePathMapping {
+func GetAllAWSApiGatewayBasePathMappingResources(template *Template) map[string]*AWSApiGatewayBasePathMapping {
 
 	results := map[string]*AWSApiGatewayBasePathMapping{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSApiGatewayBasePathMapping(template *Template) map[string]*AWSApiGa
 
 // GetAWSApiGatewayBasePathMappingWithName retrieves all AWSApiGatewayBasePathMapping items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayBasePathMapping(name string, template *Template) (*AWSApiGatewayBasePathMapping, error) {
+func GetAWSApiGatewayBasePathMappingWithName(name string, template *Template) (*AWSApiGatewayBasePathMapping, error) {
 
 	result := &AWSApiGatewayBasePathMapping{}
 	if resource, ok := template.Resources[name]; ok {

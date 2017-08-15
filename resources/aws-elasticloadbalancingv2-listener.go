@@ -52,7 +52,7 @@ func (r *AWSElasticLoadBalancingV2Listener) AWSCloudFormationSpecificationVersio
 }
 
 // GetAllAWSElasticLoadBalancingV2ListenerResources retrieves all AWSElasticLoadBalancingV2Listener items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2Listener(template *Template) map[string]*AWSElasticLoadBalancingV2Listener {
+func GetAllAWSElasticLoadBalancingV2ListenerResources(template *Template) map[string]*AWSElasticLoadBalancingV2Listener {
 
 	results := map[string]*AWSElasticLoadBalancingV2Listener{}
 	for name, resource := range template.Resources {
@@ -67,7 +67,7 @@ func GetAllAWSElasticLoadBalancingV2Listener(template *Template) map[string]*AWS
 
 // GetAWSElasticLoadBalancingV2ListenerWithName retrieves all AWSElasticLoadBalancingV2Listener items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingV2Listener(name string, template *Template) (*AWSElasticLoadBalancingV2Listener, error) {
+func GetAWSElasticLoadBalancingV2ListenerWithName(name string, template *Template) (*AWSElasticLoadBalancingV2Listener, error) {
 
 	result := &AWSElasticLoadBalancingV2Listener{}
 	if resource, ok := template.Resources[name]; ok {

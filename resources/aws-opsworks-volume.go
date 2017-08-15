@@ -42,7 +42,7 @@ func (r *AWSOpsWorksVolume) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSOpsWorksVolumeResources retrieves all AWSOpsWorksVolume items from a CloudFormation template
-func GetAllAWSOpsWorksVolume(template *Template) map[string]*AWSOpsWorksVolume {
+func GetAllAWSOpsWorksVolumeResources(template *Template) map[string]*AWSOpsWorksVolume {
 
 	results := map[string]*AWSOpsWorksVolume{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSOpsWorksVolume(template *Template) map[string]*AWSOpsWorksVolume {
 
 // GetAWSOpsWorksVolumeWithName retrieves all AWSOpsWorksVolume items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksVolume(name string, template *Template) (*AWSOpsWorksVolume, error) {
+func GetAWSOpsWorksVolumeWithName(name string, template *Template) (*AWSOpsWorksVolume, error) {
 
 	result := &AWSOpsWorksVolume{}
 	if resource, ok := template.Resources[name]; ok {

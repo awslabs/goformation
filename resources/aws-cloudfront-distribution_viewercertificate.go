@@ -45,32 +45,3 @@ func (r *AWSCloudFrontDistribution_ViewerCertificate) AWSCloudFormationType() st
 func (r *AWSCloudFrontDistribution_ViewerCertificate) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCloudFrontDistribution_ViewerCertificateResources retrieves all AWSCloudFrontDistribution_ViewerCertificate items from a CloudFormation template
-func GetAllAWSCloudFrontDistribution_ViewerCertificate(template *Template) map[string]*AWSCloudFrontDistribution_ViewerCertificate {
-
-	results := map[string]*AWSCloudFrontDistribution_ViewerCertificate{}
-	for name, resource := range template.Resources {
-		result := &AWSCloudFrontDistribution_ViewerCertificate{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCloudFrontDistribution_ViewerCertificateWithName retrieves all AWSCloudFrontDistribution_ViewerCertificate items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFrontDistribution_ViewerCertificate(name string, template *Template) (*AWSCloudFrontDistribution_ViewerCertificate, error) {
-
-	result := &AWSCloudFrontDistribution_ViewerCertificate{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCloudFrontDistribution_ViewerCertificate{}, errors.New("resource not found")
-
-}

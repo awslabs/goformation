@@ -35,32 +35,3 @@ func (r *AWSEMRInstanceGroupConfig_VolumeSpecification) AWSCloudFormationType() 
 func (r *AWSEMRInstanceGroupConfig_VolumeSpecification) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceGroupConfig_VolumeSpecificationResources retrieves all AWSEMRInstanceGroupConfig_VolumeSpecification items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig_VolumeSpecification(template *Template) map[string]*AWSEMRInstanceGroupConfig_VolumeSpecification {
-
-	results := map[string]*AWSEMRInstanceGroupConfig_VolumeSpecification{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceGroupConfig_VolumeSpecification{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceGroupConfig_VolumeSpecificationWithName retrieves all AWSEMRInstanceGroupConfig_VolumeSpecification items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig_VolumeSpecification(name string, template *Template) (*AWSEMRInstanceGroupConfig_VolumeSpecification, error) {
-
-	result := &AWSEMRInstanceGroupConfig_VolumeSpecification{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceGroupConfig_VolumeSpecification{}, errors.New("resource not found")
-
-}

@@ -37,7 +37,7 @@ func (r *AWSCodeCommitRepository) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSCodeCommitRepositoryResources retrieves all AWSCodeCommitRepository items from a CloudFormation template
-func GetAllAWSCodeCommitRepository(template *Template) map[string]*AWSCodeCommitRepository {
+func GetAllAWSCodeCommitRepositoryResources(template *Template) map[string]*AWSCodeCommitRepository {
 
 	results := map[string]*AWSCodeCommitRepository{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSCodeCommitRepository(template *Template) map[string]*AWSCodeCommit
 
 // GetAWSCodeCommitRepositoryWithName retrieves all AWSCodeCommitRepository items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeCommitRepository(name string, template *Template) (*AWSCodeCommitRepository, error) {
+func GetAWSCodeCommitRepositoryWithName(name string, template *Template) (*AWSCodeCommitRepository, error) {
 
 	result := &AWSCodeCommitRepository{}
 	if resource, ok := template.Resources[name]; ok {

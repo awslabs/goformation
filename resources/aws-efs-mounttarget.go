@@ -42,7 +42,7 @@ func (r *AWSEFSMountTarget) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEFSMountTargetResources retrieves all AWSEFSMountTarget items from a CloudFormation template
-func GetAllAWSEFSMountTarget(template *Template) map[string]*AWSEFSMountTarget {
+func GetAllAWSEFSMountTargetResources(template *Template) map[string]*AWSEFSMountTarget {
 
 	results := map[string]*AWSEFSMountTarget{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSEFSMountTarget(template *Template) map[string]*AWSEFSMountTarget {
 
 // GetAWSEFSMountTargetWithName retrieves all AWSEFSMountTarget items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEFSMountTarget(name string, template *Template) (*AWSEFSMountTarget, error) {
+func GetAWSEFSMountTargetWithName(name string, template *Template) (*AWSEFSMountTarget, error) {
 
 	result := &AWSEFSMountTarget{}
 	if resource, ok := template.Resources[name]; ok {

@@ -40,32 +40,3 @@ func (r *AWSApiGatewayRestApi_S3Location) AWSCloudFormationType() string {
 func (r *AWSApiGatewayRestApi_S3Location) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSApiGatewayRestApi_S3LocationResources retrieves all AWSApiGatewayRestApi_S3Location items from a CloudFormation template
-func GetAllAWSApiGatewayRestApi_S3Location(template *Template) map[string]*AWSApiGatewayRestApi_S3Location {
-
-	results := map[string]*AWSApiGatewayRestApi_S3Location{}
-	for name, resource := range template.Resources {
-		result := &AWSApiGatewayRestApi_S3Location{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSApiGatewayRestApi_S3LocationWithName retrieves all AWSApiGatewayRestApi_S3Location items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayRestApi_S3Location(name string, template *Template) (*AWSApiGatewayRestApi_S3Location, error) {
-
-	result := &AWSApiGatewayRestApi_S3Location{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSApiGatewayRestApi_S3Location{}, errors.New("resource not found")
-
-}

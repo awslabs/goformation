@@ -30,32 +30,3 @@ func (r *AWSECSTaskDefinition_LogConfiguration) AWSCloudFormationType() string {
 func (r *AWSECSTaskDefinition_LogConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSECSTaskDefinition_LogConfigurationResources retrieves all AWSECSTaskDefinition_LogConfiguration items from a CloudFormation template
-func GetAllAWSECSTaskDefinition_LogConfiguration(template *Template) map[string]*AWSECSTaskDefinition_LogConfiguration {
-
-	results := map[string]*AWSECSTaskDefinition_LogConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSECSTaskDefinition_LogConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSECSTaskDefinition_LogConfigurationWithName retrieves all AWSECSTaskDefinition_LogConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSTaskDefinition_LogConfiguration(name string, template *Template) (*AWSECSTaskDefinition_LogConfiguration, error) {
-
-	result := &AWSECSTaskDefinition_LogConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSECSTaskDefinition_LogConfiguration{}, errors.New("resource not found")
-
-}

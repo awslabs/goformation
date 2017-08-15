@@ -112,7 +112,7 @@ func (r *AWSRDSDBCluster) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBClusterResources retrieves all AWSRDSDBCluster items from a CloudFormation template
-func GetAllAWSRDSDBCluster(template *Template) map[string]*AWSRDSDBCluster {
+func GetAllAWSRDSDBClusterResources(template *Template) map[string]*AWSRDSDBCluster {
 
 	results := map[string]*AWSRDSDBCluster{}
 	for name, resource := range template.Resources {
@@ -127,7 +127,7 @@ func GetAllAWSRDSDBCluster(template *Template) map[string]*AWSRDSDBCluster {
 
 // GetAWSRDSDBClusterWithName retrieves all AWSRDSDBCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBCluster(name string, template *Template) (*AWSRDSDBCluster, error) {
+func GetAWSRDSDBClusterWithName(name string, template *Template) (*AWSRDSDBCluster, error) {
 
 	result := &AWSRDSDBCluster{}
 	if resource, ok := template.Resources[name]; ok {

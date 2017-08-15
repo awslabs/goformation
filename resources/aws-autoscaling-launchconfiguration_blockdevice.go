@@ -50,32 +50,3 @@ func (r *AWSAutoScalingLaunchConfiguration_BlockDevice) AWSCloudFormationType() 
 func (r *AWSAutoScalingLaunchConfiguration_BlockDevice) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSAutoScalingLaunchConfiguration_BlockDeviceResources retrieves all AWSAutoScalingLaunchConfiguration_BlockDevice items from a CloudFormation template
-func GetAllAWSAutoScalingLaunchConfiguration_BlockDevice(template *Template) map[string]*AWSAutoScalingLaunchConfiguration_BlockDevice {
-
-	results := map[string]*AWSAutoScalingLaunchConfiguration_BlockDevice{}
-	for name, resource := range template.Resources {
-		result := &AWSAutoScalingLaunchConfiguration_BlockDevice{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSAutoScalingLaunchConfiguration_BlockDeviceWithName retrieves all AWSAutoScalingLaunchConfiguration_BlockDevice items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSAutoScalingLaunchConfiguration_BlockDevice(name string, template *Template) (*AWSAutoScalingLaunchConfiguration_BlockDevice, error) {
-
-	result := &AWSAutoScalingLaunchConfiguration_BlockDevice{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSAutoScalingLaunchConfiguration_BlockDevice{}, errors.New("resource not found")
-
-}

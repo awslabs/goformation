@@ -42,7 +42,7 @@ func (r *AWSOpsWorksUserProfile) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSOpsWorksUserProfileResources retrieves all AWSOpsWorksUserProfile items from a CloudFormation template
-func GetAllAWSOpsWorksUserProfile(template *Template) map[string]*AWSOpsWorksUserProfile {
+func GetAllAWSOpsWorksUserProfileResources(template *Template) map[string]*AWSOpsWorksUserProfile {
 
 	results := map[string]*AWSOpsWorksUserProfile{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSOpsWorksUserProfile(template *Template) map[string]*AWSOpsWorksUse
 
 // GetAWSOpsWorksUserProfileWithName retrieves all AWSOpsWorksUserProfile items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksUserProfile(name string, template *Template) (*AWSOpsWorksUserProfile, error) {
+func GetAWSOpsWorksUserProfileWithName(name string, template *Template) (*AWSOpsWorksUserProfile, error) {
 
 	result := &AWSOpsWorksUserProfile{}
 	if resource, ok := template.Resources[name]; ok {

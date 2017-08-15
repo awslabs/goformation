@@ -32,7 +32,7 @@ func (r *AWSEC2NatGateway) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2NatGatewayResources retrieves all AWSEC2NatGateway items from a CloudFormation template
-func GetAllAWSEC2NatGateway(template *Template) map[string]*AWSEC2NatGateway {
+func GetAllAWSEC2NatGatewayResources(template *Template) map[string]*AWSEC2NatGateway {
 
 	results := map[string]*AWSEC2NatGateway{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSEC2NatGateway(template *Template) map[string]*AWSEC2NatGateway {
 
 // GetAWSEC2NatGatewayWithName retrieves all AWSEC2NatGateway items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2NatGateway(name string, template *Template) (*AWSEC2NatGateway, error) {
+func GetAWSEC2NatGatewayWithName(name string, template *Template) (*AWSEC2NatGateway, error) {
 
 	result := &AWSEC2NatGateway{}
 	if resource, ok := template.Resources[name]; ok {

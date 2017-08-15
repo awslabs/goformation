@@ -30,32 +30,3 @@ func (r *AWSRoute53HealthCheck_AlarmIdentifier) AWSCloudFormationType() string {
 func (r *AWSRoute53HealthCheck_AlarmIdentifier) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSRoute53HealthCheck_AlarmIdentifierResources retrieves all AWSRoute53HealthCheck_AlarmIdentifier items from a CloudFormation template
-func GetAllAWSRoute53HealthCheck_AlarmIdentifier(template *Template) map[string]*AWSRoute53HealthCheck_AlarmIdentifier {
-
-	results := map[string]*AWSRoute53HealthCheck_AlarmIdentifier{}
-	for name, resource := range template.Resources {
-		result := &AWSRoute53HealthCheck_AlarmIdentifier{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSRoute53HealthCheck_AlarmIdentifierWithName retrieves all AWSRoute53HealthCheck_AlarmIdentifier items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRoute53HealthCheck_AlarmIdentifier(name string, template *Template) (*AWSRoute53HealthCheck_AlarmIdentifier, error) {
-
-	result := &AWSRoute53HealthCheck_AlarmIdentifier{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSRoute53HealthCheck_AlarmIdentifier{}, errors.New("resource not found")
-
-}

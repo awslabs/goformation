@@ -67,7 +67,7 @@ func (r *AWSEC2NetworkAclEntry) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2NetworkAclEntryResources retrieves all AWSEC2NetworkAclEntry items from a CloudFormation template
-func GetAllAWSEC2NetworkAclEntry(template *Template) map[string]*AWSEC2NetworkAclEntry {
+func GetAllAWSEC2NetworkAclEntryResources(template *Template) map[string]*AWSEC2NetworkAclEntry {
 
 	results := map[string]*AWSEC2NetworkAclEntry{}
 	for name, resource := range template.Resources {
@@ -82,7 +82,7 @@ func GetAllAWSEC2NetworkAclEntry(template *Template) map[string]*AWSEC2NetworkAc
 
 // GetAWSEC2NetworkAclEntryWithName retrieves all AWSEC2NetworkAclEntry items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2NetworkAclEntry(name string, template *Template) (*AWSEC2NetworkAclEntry, error) {
+func GetAWSEC2NetworkAclEntryWithName(name string, template *Template) (*AWSEC2NetworkAclEntry, error) {
 
 	result := &AWSEC2NetworkAclEntry{}
 	if resource, ok := template.Resources[name]; ok {

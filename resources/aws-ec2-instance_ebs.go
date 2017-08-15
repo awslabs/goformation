@@ -50,32 +50,3 @@ func (r *AWSEC2Instance_Ebs) AWSCloudFormationType() string {
 func (r *AWSEC2Instance_Ebs) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEC2Instance_EbsResources retrieves all AWSEC2Instance_Ebs items from a CloudFormation template
-func GetAllAWSEC2Instance_Ebs(template *Template) map[string]*AWSEC2Instance_Ebs {
-
-	results := map[string]*AWSEC2Instance_Ebs{}
-	for name, resource := range template.Resources {
-		result := &AWSEC2Instance_Ebs{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEC2Instance_EbsWithName retrieves all AWSEC2Instance_Ebs items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2Instance_Ebs(name string, template *Template) (*AWSEC2Instance_Ebs, error) {
-
-	result := &AWSEC2Instance_Ebs{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEC2Instance_Ebs{}, errors.New("resource not found")
-
-}

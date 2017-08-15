@@ -30,32 +30,3 @@ func (r *AWSEMRCluster_BootstrapActionConfig) AWSCloudFormationType() string {
 func (r *AWSEMRCluster_BootstrapActionConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRCluster_BootstrapActionConfigResources retrieves all AWSEMRCluster_BootstrapActionConfig items from a CloudFormation template
-func GetAllAWSEMRCluster_BootstrapActionConfig(template *Template) map[string]*AWSEMRCluster_BootstrapActionConfig {
-
-	results := map[string]*AWSEMRCluster_BootstrapActionConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRCluster_BootstrapActionConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRCluster_BootstrapActionConfigWithName retrieves all AWSEMRCluster_BootstrapActionConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRCluster_BootstrapActionConfig(name string, template *Template) (*AWSEMRCluster_BootstrapActionConfig, error) {
-
-	result := &AWSEMRCluster_BootstrapActionConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRCluster_BootstrapActionConfig{}, errors.New("resource not found")
-
-}

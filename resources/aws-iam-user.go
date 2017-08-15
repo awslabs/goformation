@@ -52,7 +52,7 @@ func (r *AWSIAMUser) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMUserResources retrieves all AWSIAMUser items from a CloudFormation template
-func GetAllAWSIAMUser(template *Template) map[string]*AWSIAMUser {
+func GetAllAWSIAMUserResources(template *Template) map[string]*AWSIAMUser {
 
 	results := map[string]*AWSIAMUser{}
 	for name, resource := range template.Resources {
@@ -67,7 +67,7 @@ func GetAllAWSIAMUser(template *Template) map[string]*AWSIAMUser {
 
 // GetAWSIAMUserWithName retrieves all AWSIAMUser items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMUser(name string, template *Template) (*AWSIAMUser, error) {
+func GetAWSIAMUserWithName(name string, template *Template) (*AWSIAMUser, error) {
 
 	result := &AWSIAMUser{}
 	if resource, ok := template.Resources[name]; ok {

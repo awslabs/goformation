@@ -32,7 +32,7 @@ func (r *AWSIoTThing) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIoTThingResources retrieves all AWSIoTThing items from a CloudFormation template
-func GetAllAWSIoTThing(template *Template) map[string]*AWSIoTThing {
+func GetAllAWSIoTThingResources(template *Template) map[string]*AWSIoTThing {
 
 	results := map[string]*AWSIoTThing{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSIoTThing(template *Template) map[string]*AWSIoTThing {
 
 // GetAWSIoTThingWithName retrieves all AWSIoTThing items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTThing(name string, template *Template) (*AWSIoTThing, error) {
+func GetAWSIoTThingWithName(name string, template *Template) (*AWSIoTThing, error) {
 
 	result := &AWSIoTThing{}
 	if resource, ok := template.Resources[name]; ok {

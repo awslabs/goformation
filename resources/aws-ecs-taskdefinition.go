@@ -52,7 +52,7 @@ func (r *AWSECSTaskDefinition) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSECSTaskDefinitionResources retrieves all AWSECSTaskDefinition items from a CloudFormation template
-func GetAllAWSECSTaskDefinition(template *Template) map[string]*AWSECSTaskDefinition {
+func GetAllAWSECSTaskDefinitionResources(template *Template) map[string]*AWSECSTaskDefinition {
 
 	results := map[string]*AWSECSTaskDefinition{}
 	for name, resource := range template.Resources {
@@ -67,7 +67,7 @@ func GetAllAWSECSTaskDefinition(template *Template) map[string]*AWSECSTaskDefini
 
 // GetAWSECSTaskDefinitionWithName retrieves all AWSECSTaskDefinition items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSTaskDefinition(name string, template *Template) (*AWSECSTaskDefinition, error) {
+func GetAWSECSTaskDefinitionWithName(name string, template *Template) (*AWSECSTaskDefinition, error) {
 
 	result := &AWSECSTaskDefinition{}
 	if resource, ok := template.Resources[name]; ok {

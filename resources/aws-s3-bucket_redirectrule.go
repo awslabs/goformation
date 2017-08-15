@@ -45,32 +45,3 @@ func (r *AWSS3Bucket_RedirectRule) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_RedirectRule) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_RedirectRuleResources retrieves all AWSS3Bucket_RedirectRule items from a CloudFormation template
-func GetAllAWSS3Bucket_RedirectRule(template *Template) map[string]*AWSS3Bucket_RedirectRule {
-
-	results := map[string]*AWSS3Bucket_RedirectRule{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_RedirectRule{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_RedirectRuleWithName retrieves all AWSS3Bucket_RedirectRule items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_RedirectRule(name string, template *Template) (*AWSS3Bucket_RedirectRule, error) {
-
-	result := &AWSS3Bucket_RedirectRule{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_RedirectRule{}, errors.New("resource not found")
-
-}

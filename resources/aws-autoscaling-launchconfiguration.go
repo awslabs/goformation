@@ -107,7 +107,7 @@ func (r *AWSAutoScalingLaunchConfiguration) AWSCloudFormationSpecificationVersio
 }
 
 // GetAllAWSAutoScalingLaunchConfigurationResources retrieves all AWSAutoScalingLaunchConfiguration items from a CloudFormation template
-func GetAllAWSAutoScalingLaunchConfiguration(template *Template) map[string]*AWSAutoScalingLaunchConfiguration {
+func GetAllAWSAutoScalingLaunchConfigurationResources(template *Template) map[string]*AWSAutoScalingLaunchConfiguration {
 
 	results := map[string]*AWSAutoScalingLaunchConfiguration{}
 	for name, resource := range template.Resources {
@@ -122,7 +122,7 @@ func GetAllAWSAutoScalingLaunchConfiguration(template *Template) map[string]*AWS
 
 // GetAWSAutoScalingLaunchConfigurationWithName retrieves all AWSAutoScalingLaunchConfiguration items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSAutoScalingLaunchConfiguration(name string, template *Template) (*AWSAutoScalingLaunchConfiguration, error) {
+func GetAWSAutoScalingLaunchConfigurationWithName(name string, template *Template) (*AWSAutoScalingLaunchConfiguration, error) {
 
 	result := &AWSAutoScalingLaunchConfiguration{}
 	if resource, ok := template.Resources[name]; ok {

@@ -80,32 +80,3 @@ func (r *AWSCloudFrontDistribution_CacheBehavior) AWSCloudFormationType() string
 func (r *AWSCloudFrontDistribution_CacheBehavior) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCloudFrontDistribution_CacheBehaviorResources retrieves all AWSCloudFrontDistribution_CacheBehavior items from a CloudFormation template
-func GetAllAWSCloudFrontDistribution_CacheBehavior(template *Template) map[string]*AWSCloudFrontDistribution_CacheBehavior {
-
-	results := map[string]*AWSCloudFrontDistribution_CacheBehavior{}
-	for name, resource := range template.Resources {
-		result := &AWSCloudFrontDistribution_CacheBehavior{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCloudFrontDistribution_CacheBehaviorWithName retrieves all AWSCloudFrontDistribution_CacheBehavior items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFrontDistribution_CacheBehavior(name string, template *Template) (*AWSCloudFrontDistribution_CacheBehavior, error) {
-
-	result := &AWSCloudFrontDistribution_CacheBehavior{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCloudFrontDistribution_CacheBehavior{}, errors.New("resource not found")
-
-}

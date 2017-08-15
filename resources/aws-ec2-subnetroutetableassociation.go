@@ -32,7 +32,7 @@ func (r *AWSEC2SubnetRouteTableAssociation) AWSCloudFormationSpecificationVersio
 }
 
 // GetAllAWSEC2SubnetRouteTableAssociationResources retrieves all AWSEC2SubnetRouteTableAssociation items from a CloudFormation template
-func GetAllAWSEC2SubnetRouteTableAssociation(template *Template) map[string]*AWSEC2SubnetRouteTableAssociation {
+func GetAllAWSEC2SubnetRouteTableAssociationResources(template *Template) map[string]*AWSEC2SubnetRouteTableAssociation {
 
 	results := map[string]*AWSEC2SubnetRouteTableAssociation{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSEC2SubnetRouteTableAssociation(template *Template) map[string]*AWS
 
 // GetAWSEC2SubnetRouteTableAssociationWithName retrieves all AWSEC2SubnetRouteTableAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SubnetRouteTableAssociation(name string, template *Template) (*AWSEC2SubnetRouteTableAssociation, error) {
+func GetAWSEC2SubnetRouteTableAssociationWithName(name string, template *Template) (*AWSEC2SubnetRouteTableAssociation, error) {
 
 	result := &AWSEC2SubnetRouteTableAssociation{}
 	if resource, ok := template.Resources[name]; ok {

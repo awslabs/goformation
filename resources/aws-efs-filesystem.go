@@ -32,7 +32,7 @@ func (r *AWSEFSFileSystem) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEFSFileSystemResources retrieves all AWSEFSFileSystem items from a CloudFormation template
-func GetAllAWSEFSFileSystem(template *Template) map[string]*AWSEFSFileSystem {
+func GetAllAWSEFSFileSystemResources(template *Template) map[string]*AWSEFSFileSystem {
 
 	results := map[string]*AWSEFSFileSystem{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSEFSFileSystem(template *Template) map[string]*AWSEFSFileSystem {
 
 // GetAWSEFSFileSystemWithName retrieves all AWSEFSFileSystem items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEFSFileSystem(name string, template *Template) (*AWSEFSFileSystem, error) {
+func GetAWSEFSFileSystemWithName(name string, template *Template) (*AWSEFSFileSystem, error) {
 
 	result := &AWSEFSFileSystem{}
 	if resource, ok := template.Resources[name]; ok {

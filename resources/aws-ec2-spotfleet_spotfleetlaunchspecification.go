@@ -100,32 +100,3 @@ func (r *AWSEC2SpotFleet_SpotFleetLaunchSpecification) AWSCloudFormationType() s
 func (r *AWSEC2SpotFleet_SpotFleetLaunchSpecification) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEC2SpotFleet_SpotFleetLaunchSpecificationResources retrieves all AWSEC2SpotFleet_SpotFleetLaunchSpecification items from a CloudFormation template
-func GetAllAWSEC2SpotFleet_SpotFleetLaunchSpecification(template *Template) map[string]*AWSEC2SpotFleet_SpotFleetLaunchSpecification {
-
-	results := map[string]*AWSEC2SpotFleet_SpotFleetLaunchSpecification{}
-	for name, resource := range template.Resources {
-		result := &AWSEC2SpotFleet_SpotFleetLaunchSpecification{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEC2SpotFleet_SpotFleetLaunchSpecificationWithName retrieves all AWSEC2SpotFleet_SpotFleetLaunchSpecification items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SpotFleet_SpotFleetLaunchSpecification(name string, template *Template) (*AWSEC2SpotFleet_SpotFleetLaunchSpecification, error) {
-
-	result := &AWSEC2SpotFleet_SpotFleetLaunchSpecification{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEC2SpotFleet_SpotFleetLaunchSpecification{}, errors.New("resource not found")
-
-}

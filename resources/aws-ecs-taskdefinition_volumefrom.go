@@ -30,32 +30,3 @@ func (r *AWSECSTaskDefinition_VolumeFrom) AWSCloudFormationType() string {
 func (r *AWSECSTaskDefinition_VolumeFrom) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSECSTaskDefinition_VolumeFromResources retrieves all AWSECSTaskDefinition_VolumeFrom items from a CloudFormation template
-func GetAllAWSECSTaskDefinition_VolumeFrom(template *Template) map[string]*AWSECSTaskDefinition_VolumeFrom {
-
-	results := map[string]*AWSECSTaskDefinition_VolumeFrom{}
-	for name, resource := range template.Resources {
-		result := &AWSECSTaskDefinition_VolumeFrom{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSECSTaskDefinition_VolumeFromWithName retrieves all AWSECSTaskDefinition_VolumeFrom items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSTaskDefinition_VolumeFrom(name string, template *Template) (*AWSECSTaskDefinition_VolumeFrom, error) {
-
-	result := &AWSECSTaskDefinition_VolumeFrom{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSECSTaskDefinition_VolumeFrom{}, errors.New("resource not found")
-
-}

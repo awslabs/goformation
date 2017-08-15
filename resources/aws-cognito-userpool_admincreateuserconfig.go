@@ -35,32 +35,3 @@ func (r *AWSCognitoUserPool_AdminCreateUserConfig) AWSCloudFormationType() strin
 func (r *AWSCognitoUserPool_AdminCreateUserConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCognitoUserPool_AdminCreateUserConfigResources retrieves all AWSCognitoUserPool_AdminCreateUserConfig items from a CloudFormation template
-func GetAllAWSCognitoUserPool_AdminCreateUserConfig(template *Template) map[string]*AWSCognitoUserPool_AdminCreateUserConfig {
-
-	results := map[string]*AWSCognitoUserPool_AdminCreateUserConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSCognitoUserPool_AdminCreateUserConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCognitoUserPool_AdminCreateUserConfigWithName retrieves all AWSCognitoUserPool_AdminCreateUserConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCognitoUserPool_AdminCreateUserConfig(name string, template *Template) (*AWSCognitoUserPool_AdminCreateUserConfig, error) {
-
-	result := &AWSCognitoUserPool_AdminCreateUserConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCognitoUserPool_AdminCreateUserConfig{}, errors.New("resource not found")
-
-}

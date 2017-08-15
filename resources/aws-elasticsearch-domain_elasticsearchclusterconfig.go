@@ -50,32 +50,3 @@ func (r *AWSElasticsearchDomain_ElasticsearchClusterConfig) AWSCloudFormationTyp
 func (r *AWSElasticsearchDomain_ElasticsearchClusterConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElasticsearchDomain_ElasticsearchClusterConfigResources retrieves all AWSElasticsearchDomain_ElasticsearchClusterConfig items from a CloudFormation template
-func GetAllAWSElasticsearchDomain_ElasticsearchClusterConfig(template *Template) map[string]*AWSElasticsearchDomain_ElasticsearchClusterConfig {
-
-	results := map[string]*AWSElasticsearchDomain_ElasticsearchClusterConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSElasticsearchDomain_ElasticsearchClusterConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElasticsearchDomain_ElasticsearchClusterConfigWithName retrieves all AWSElasticsearchDomain_ElasticsearchClusterConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticsearchDomain_ElasticsearchClusterConfig(name string, template *Template) (*AWSElasticsearchDomain_ElasticsearchClusterConfig, error) {
-
-	result := &AWSElasticsearchDomain_ElasticsearchClusterConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElasticsearchDomain_ElasticsearchClusterConfig{}, errors.New("resource not found")
-
-}

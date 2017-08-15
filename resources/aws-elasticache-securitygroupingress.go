@@ -37,7 +37,7 @@ func (r *AWSElastiCacheSecurityGroupIngress) AWSCloudFormationSpecificationVersi
 }
 
 // GetAllAWSElastiCacheSecurityGroupIngressResources retrieves all AWSElastiCacheSecurityGroupIngress items from a CloudFormation template
-func GetAllAWSElastiCacheSecurityGroupIngress(template *Template) map[string]*AWSElastiCacheSecurityGroupIngress {
+func GetAllAWSElastiCacheSecurityGroupIngressResources(template *Template) map[string]*AWSElastiCacheSecurityGroupIngress {
 
 	results := map[string]*AWSElastiCacheSecurityGroupIngress{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSElastiCacheSecurityGroupIngress(template *Template) map[string]*AW
 
 // GetAWSElastiCacheSecurityGroupIngressWithName retrieves all AWSElastiCacheSecurityGroupIngress items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElastiCacheSecurityGroupIngress(name string, template *Template) (*AWSElastiCacheSecurityGroupIngress, error) {
+func GetAWSElastiCacheSecurityGroupIngressWithName(name string, template *Template) (*AWSElastiCacheSecurityGroupIngress, error) {
 
 	result := &AWSElastiCacheSecurityGroupIngress{}
 	if resource, ok := template.Resources[name]; ok {

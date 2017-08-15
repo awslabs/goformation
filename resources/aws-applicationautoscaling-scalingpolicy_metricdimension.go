@@ -30,32 +30,3 @@ func (r *AWSApplicationAutoScalingScalingPolicy_MetricDimension) AWSCloudFormati
 func (r *AWSApplicationAutoScalingScalingPolicy_MetricDimension) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSApplicationAutoScalingScalingPolicy_MetricDimensionResources retrieves all AWSApplicationAutoScalingScalingPolicy_MetricDimension items from a CloudFormation template
-func GetAllAWSApplicationAutoScalingScalingPolicy_MetricDimension(template *Template) map[string]*AWSApplicationAutoScalingScalingPolicy_MetricDimension {
-
-	results := map[string]*AWSApplicationAutoScalingScalingPolicy_MetricDimension{}
-	for name, resource := range template.Resources {
-		result := &AWSApplicationAutoScalingScalingPolicy_MetricDimension{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSApplicationAutoScalingScalingPolicy_MetricDimensionWithName retrieves all AWSApplicationAutoScalingScalingPolicy_MetricDimension items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApplicationAutoScalingScalingPolicy_MetricDimension(name string, template *Template) (*AWSApplicationAutoScalingScalingPolicy_MetricDimension, error) {
-
-	result := &AWSApplicationAutoScalingScalingPolicy_MetricDimension{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSApplicationAutoScalingScalingPolicy_MetricDimension{}, errors.New("resource not found")
-
-}

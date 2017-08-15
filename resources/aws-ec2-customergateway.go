@@ -42,7 +42,7 @@ func (r *AWSEC2CustomerGateway) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2CustomerGatewayResources retrieves all AWSEC2CustomerGateway items from a CloudFormation template
-func GetAllAWSEC2CustomerGateway(template *Template) map[string]*AWSEC2CustomerGateway {
+func GetAllAWSEC2CustomerGatewayResources(template *Template) map[string]*AWSEC2CustomerGateway {
 
 	results := map[string]*AWSEC2CustomerGateway{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSEC2CustomerGateway(template *Template) map[string]*AWSEC2CustomerG
 
 // GetAWSEC2CustomerGatewayWithName retrieves all AWSEC2CustomerGateway items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2CustomerGateway(name string, template *Template) (*AWSEC2CustomerGateway, error) {
+func GetAWSEC2CustomerGatewayWithName(name string, template *Template) (*AWSEC2CustomerGateway, error) {
 
 	result := &AWSEC2CustomerGateway{}
 	if resource, ok := template.Resources[name]; ok {

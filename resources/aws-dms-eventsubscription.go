@@ -57,7 +57,7 @@ func (r *AWSDMSEventSubscription) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSDMSEventSubscriptionResources retrieves all AWSDMSEventSubscription items from a CloudFormation template
-func GetAllAWSDMSEventSubscription(template *Template) map[string]*AWSDMSEventSubscription {
+func GetAllAWSDMSEventSubscriptionResources(template *Template) map[string]*AWSDMSEventSubscription {
 
 	results := map[string]*AWSDMSEventSubscription{}
 	for name, resource := range template.Resources {
@@ -72,7 +72,7 @@ func GetAllAWSDMSEventSubscription(template *Template) map[string]*AWSDMSEventSu
 
 // GetAWSDMSEventSubscriptionWithName retrieves all AWSDMSEventSubscription items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDMSEventSubscription(name string, template *Template) (*AWSDMSEventSubscription, error) {
+func GetAWSDMSEventSubscriptionWithName(name string, template *Template) (*AWSDMSEventSubscription, error) {
 
 	result := &AWSDMSEventSubscription{}
 	if resource, ok := template.Resources[name]; ok {

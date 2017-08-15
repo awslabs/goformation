@@ -42,7 +42,7 @@ func (r *AWSRDSDBParameterGroup) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSRDSDBParameterGroupResources retrieves all AWSRDSDBParameterGroup items from a CloudFormation template
-func GetAllAWSRDSDBParameterGroup(template *Template) map[string]*AWSRDSDBParameterGroup {
+func GetAllAWSRDSDBParameterGroupResources(template *Template) map[string]*AWSRDSDBParameterGroup {
 
 	results := map[string]*AWSRDSDBParameterGroup{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSRDSDBParameterGroup(template *Template) map[string]*AWSRDSDBParame
 
 // GetAWSRDSDBParameterGroupWithName retrieves all AWSRDSDBParameterGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBParameterGroup(name string, template *Template) (*AWSRDSDBParameterGroup, error) {
+func GetAWSRDSDBParameterGroupWithName(name string, template *Template) (*AWSRDSDBParameterGroup, error) {
 
 	result := &AWSRDSDBParameterGroup{}
 	if resource, ok := template.Resources[name]; ok {

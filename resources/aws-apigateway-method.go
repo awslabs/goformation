@@ -72,7 +72,7 @@ func (r *AWSApiGatewayMethod) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSApiGatewayMethodResources retrieves all AWSApiGatewayMethod items from a CloudFormation template
-func GetAllAWSApiGatewayMethod(template *Template) map[string]*AWSApiGatewayMethod {
+func GetAllAWSApiGatewayMethodResources(template *Template) map[string]*AWSApiGatewayMethod {
 
 	results := map[string]*AWSApiGatewayMethod{}
 	for name, resource := range template.Resources {
@@ -87,7 +87,7 @@ func GetAllAWSApiGatewayMethod(template *Template) map[string]*AWSApiGatewayMeth
 
 // GetAWSApiGatewayMethodWithName retrieves all AWSApiGatewayMethod items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayMethod(name string, template *Template) (*AWSApiGatewayMethod, error) {
+func GetAWSApiGatewayMethodWithName(name string, template *Template) (*AWSApiGatewayMethod, error) {
 
 	result := &AWSApiGatewayMethod{}
 	if resource, ok := template.Resources[name]; ok {

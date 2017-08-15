@@ -67,7 +67,7 @@ func (r *AWSSQSQueue) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSQSQueueResources retrieves all AWSSQSQueue items from a CloudFormation template
-func GetAllAWSSQSQueue(template *Template) map[string]*AWSSQSQueue {
+func GetAllAWSSQSQueueResources(template *Template) map[string]*AWSSQSQueue {
 
 	results := map[string]*AWSSQSQueue{}
 	for name, resource := range template.Resources {
@@ -82,7 +82,7 @@ func GetAllAWSSQSQueue(template *Template) map[string]*AWSSQSQueue {
 
 // GetAWSSQSQueueWithName retrieves all AWSSQSQueue items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSQSQueue(name string, template *Template) (*AWSSQSQueue, error) {
+func GetAWSSQSQueueWithName(name string, template *Template) (*AWSSQSQueue, error) {
 
 	result := &AWSSQSQueue{}
 	if resource, ok := template.Resources[name]; ok {

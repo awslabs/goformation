@@ -30,32 +30,3 @@ func (r *AWSS3Bucket_RoutingRule) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_RoutingRule) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_RoutingRuleResources retrieves all AWSS3Bucket_RoutingRule items from a CloudFormation template
-func GetAllAWSS3Bucket_RoutingRule(template *Template) map[string]*AWSS3Bucket_RoutingRule {
-
-	results := map[string]*AWSS3Bucket_RoutingRule{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_RoutingRule{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_RoutingRuleWithName retrieves all AWSS3Bucket_RoutingRule items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_RoutingRule(name string, template *Template) (*AWSS3Bucket_RoutingRule, error) {
-
-	result := &AWSS3Bucket_RoutingRule{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_RoutingRule{}, errors.New("resource not found")
-
-}

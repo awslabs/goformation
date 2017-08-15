@@ -35,32 +35,3 @@ func (r *AWSCodeDeployDeploymentGroup_TriggerConfig) AWSCloudFormationType() str
 func (r *AWSCodeDeployDeploymentGroup_TriggerConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCodeDeployDeploymentGroup_TriggerConfigResources retrieves all AWSCodeDeployDeploymentGroup_TriggerConfig items from a CloudFormation template
-func GetAllAWSCodeDeployDeploymentGroup_TriggerConfig(template *Template) map[string]*AWSCodeDeployDeploymentGroup_TriggerConfig {
-
-	results := map[string]*AWSCodeDeployDeploymentGroup_TriggerConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSCodeDeployDeploymentGroup_TriggerConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCodeDeployDeploymentGroup_TriggerConfigWithName retrieves all AWSCodeDeployDeploymentGroup_TriggerConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeDeployDeploymentGroup_TriggerConfig(name string, template *Template) (*AWSCodeDeployDeploymentGroup_TriggerConfig, error) {
-
-	result := &AWSCodeDeployDeploymentGroup_TriggerConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCodeDeployDeploymentGroup_TriggerConfig{}, errors.New("resource not found")
-
-}

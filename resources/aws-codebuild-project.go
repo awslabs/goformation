@@ -67,7 +67,7 @@ func (r *AWSCodeBuildProject) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSCodeBuildProjectResources retrieves all AWSCodeBuildProject items from a CloudFormation template
-func GetAllAWSCodeBuildProject(template *Template) map[string]*AWSCodeBuildProject {
+func GetAllAWSCodeBuildProjectResources(template *Template) map[string]*AWSCodeBuildProject {
 
 	results := map[string]*AWSCodeBuildProject{}
 	for name, resource := range template.Resources {
@@ -82,7 +82,7 @@ func GetAllAWSCodeBuildProject(template *Template) map[string]*AWSCodeBuildProje
 
 // GetAWSCodeBuildProjectWithName retrieves all AWSCodeBuildProject items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeBuildProject(name string, template *Template) (*AWSCodeBuildProject, error) {
+func GetAWSCodeBuildProjectWithName(name string, template *Template) (*AWSCodeBuildProject, error) {
 
 	result := &AWSCodeBuildProject{}
 	if resource, ok := template.Resources[name]; ok {

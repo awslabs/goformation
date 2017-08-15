@@ -32,7 +32,7 @@ func (r *AWSKinesisAnalyticsApplicationOutput) AWSCloudFormationSpecificationVer
 }
 
 // GetAllAWSKinesisAnalyticsApplicationOutputResources retrieves all AWSKinesisAnalyticsApplicationOutput items from a CloudFormation template
-func GetAllAWSKinesisAnalyticsApplicationOutput(template *Template) map[string]*AWSKinesisAnalyticsApplicationOutput {
+func GetAllAWSKinesisAnalyticsApplicationOutputResources(template *Template) map[string]*AWSKinesisAnalyticsApplicationOutput {
 
 	results := map[string]*AWSKinesisAnalyticsApplicationOutput{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSKinesisAnalyticsApplicationOutput(template *Template) map[string]*
 
 // GetAWSKinesisAnalyticsApplicationOutputWithName retrieves all AWSKinesisAnalyticsApplicationOutput items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisAnalyticsApplicationOutput(name string, template *Template) (*AWSKinesisAnalyticsApplicationOutput, error) {
+func GetAWSKinesisAnalyticsApplicationOutputWithName(name string, template *Template) (*AWSKinesisAnalyticsApplicationOutput, error) {
 
 	result := &AWSKinesisAnalyticsApplicationOutput{}
 	if resource, ok := template.Resources[name]; ok {

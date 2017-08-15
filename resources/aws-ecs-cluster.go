@@ -27,7 +27,7 @@ func (r *AWSECSCluster) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSECSClusterResources retrieves all AWSECSCluster items from a CloudFormation template
-func GetAllAWSECSCluster(template *Template) map[string]*AWSECSCluster {
+func GetAllAWSECSClusterResources(template *Template) map[string]*AWSECSCluster {
 
 	results := map[string]*AWSECSCluster{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSECSCluster(template *Template) map[string]*AWSECSCluster {
 
 // GetAWSECSClusterWithName retrieves all AWSECSCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSCluster(name string, template *Template) (*AWSECSCluster, error) {
+func GetAWSECSClusterWithName(name string, template *Template) (*AWSECSCluster, error) {
 
 	result := &AWSECSCluster{}
 	if resource, ok := template.Resources[name]; ok {

@@ -30,32 +30,3 @@ func (r *AWSDataPipelinePipeline_PipelineTag) AWSCloudFormationType() string {
 func (r *AWSDataPipelinePipeline_PipelineTag) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSDataPipelinePipeline_PipelineTagResources retrieves all AWSDataPipelinePipeline_PipelineTag items from a CloudFormation template
-func GetAllAWSDataPipelinePipeline_PipelineTag(template *Template) map[string]*AWSDataPipelinePipeline_PipelineTag {
-
-	results := map[string]*AWSDataPipelinePipeline_PipelineTag{}
-	for name, resource := range template.Resources {
-		result := &AWSDataPipelinePipeline_PipelineTag{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSDataPipelinePipeline_PipelineTagWithName retrieves all AWSDataPipelinePipeline_PipelineTag items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDataPipelinePipeline_PipelineTag(name string, template *Template) (*AWSDataPipelinePipeline_PipelineTag, error) {
-
-	result := &AWSDataPipelinePipeline_PipelineTag{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSDataPipelinePipeline_PipelineTag{}, errors.New("resource not found")
-
-}

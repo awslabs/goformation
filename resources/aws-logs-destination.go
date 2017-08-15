@@ -42,7 +42,7 @@ func (r *AWSLogsDestination) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsDestinationResources retrieves all AWSLogsDestination items from a CloudFormation template
-func GetAllAWSLogsDestination(template *Template) map[string]*AWSLogsDestination {
+func GetAllAWSLogsDestinationResources(template *Template) map[string]*AWSLogsDestination {
 
 	results := map[string]*AWSLogsDestination{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSLogsDestination(template *Template) map[string]*AWSLogsDestination
 
 // GetAWSLogsDestinationWithName retrieves all AWSLogsDestination items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLogsDestination(name string, template *Template) (*AWSLogsDestination, error) {
+func GetAWSLogsDestinationWithName(name string, template *Template) (*AWSLogsDestination, error) {
 
 	result := &AWSLogsDestination{}
 	if resource, ok := template.Resources[name]; ok {

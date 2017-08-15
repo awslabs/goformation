@@ -30,32 +30,3 @@ func (r *AWSDirectoryServiceMicrosoftAD_VpcSettings) AWSCloudFormationType() str
 func (r *AWSDirectoryServiceMicrosoftAD_VpcSettings) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSDirectoryServiceMicrosoftAD_VpcSettingsResources retrieves all AWSDirectoryServiceMicrosoftAD_VpcSettings items from a CloudFormation template
-func GetAllAWSDirectoryServiceMicrosoftAD_VpcSettings(template *Template) map[string]*AWSDirectoryServiceMicrosoftAD_VpcSettings {
-
-	results := map[string]*AWSDirectoryServiceMicrosoftAD_VpcSettings{}
-	for name, resource := range template.Resources {
-		result := &AWSDirectoryServiceMicrosoftAD_VpcSettings{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSDirectoryServiceMicrosoftAD_VpcSettingsWithName retrieves all AWSDirectoryServiceMicrosoftAD_VpcSettings items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDirectoryServiceMicrosoftAD_VpcSettings(name string, template *Template) (*AWSDirectoryServiceMicrosoftAD_VpcSettings, error) {
-
-	result := &AWSDirectoryServiceMicrosoftAD_VpcSettings{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSDirectoryServiceMicrosoftAD_VpcSettings{}, errors.New("resource not found")
-
-}

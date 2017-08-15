@@ -42,7 +42,7 @@ func (r *AWSWAFRegionalWebACL) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFRegionalWebACLResources retrieves all AWSWAFRegionalWebACL items from a CloudFormation template
-func GetAllAWSWAFRegionalWebACL(template *Template) map[string]*AWSWAFRegionalWebACL {
+func GetAllAWSWAFRegionalWebACLResources(template *Template) map[string]*AWSWAFRegionalWebACL {
 
 	results := map[string]*AWSWAFRegionalWebACL{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSWAFRegionalWebACL(template *Template) map[string]*AWSWAFRegionalWe
 
 // GetAWSWAFRegionalWebACLWithName retrieves all AWSWAFRegionalWebACL items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalWebACL(name string, template *Template) (*AWSWAFRegionalWebACL, error) {
+func GetAWSWAFRegionalWebACLWithName(name string, template *Template) (*AWSWAFRegionalWebACL, error) {
 
 	result := &AWSWAFRegionalWebACL{}
 	if resource, ok := template.Resources[name]; ok {

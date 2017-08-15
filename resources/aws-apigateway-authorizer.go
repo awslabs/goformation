@@ -67,7 +67,7 @@ func (r *AWSApiGatewayAuthorizer) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSApiGatewayAuthorizerResources retrieves all AWSApiGatewayAuthorizer items from a CloudFormation template
-func GetAllAWSApiGatewayAuthorizer(template *Template) map[string]*AWSApiGatewayAuthorizer {
+func GetAllAWSApiGatewayAuthorizerResources(template *Template) map[string]*AWSApiGatewayAuthorizer {
 
 	results := map[string]*AWSApiGatewayAuthorizer{}
 	for name, resource := range template.Resources {
@@ -82,7 +82,7 @@ func GetAllAWSApiGatewayAuthorizer(template *Template) map[string]*AWSApiGateway
 
 // GetAWSApiGatewayAuthorizerWithName retrieves all AWSApiGatewayAuthorizer items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayAuthorizer(name string, template *Template) (*AWSApiGatewayAuthorizer, error) {
+func GetAWSApiGatewayAuthorizerWithName(name string, template *Template) (*AWSApiGatewayAuthorizer, error) {
 
 	result := &AWSApiGatewayAuthorizer{}
 	if resource, ok := template.Resources[name]; ok {

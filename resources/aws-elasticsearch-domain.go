@@ -62,7 +62,7 @@ func (r *AWSElasticsearchDomain) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSElasticsearchDomainResources retrieves all AWSElasticsearchDomain items from a CloudFormation template
-func GetAllAWSElasticsearchDomain(template *Template) map[string]*AWSElasticsearchDomain {
+func GetAllAWSElasticsearchDomainResources(template *Template) map[string]*AWSElasticsearchDomain {
 
 	results := map[string]*AWSElasticsearchDomain{}
 	for name, resource := range template.Resources {
@@ -77,7 +77,7 @@ func GetAllAWSElasticsearchDomain(template *Template) map[string]*AWSElasticsear
 
 // GetAWSElasticsearchDomainWithName retrieves all AWSElasticsearchDomain items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticsearchDomain(name string, template *Template) (*AWSElasticsearchDomain, error) {
+func GetAWSElasticsearchDomainWithName(name string, template *Template) (*AWSElasticsearchDomain, error) {
 
 	result := &AWSElasticsearchDomain{}
 	if resource, ok := template.Resources[name]; ok {

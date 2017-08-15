@@ -45,32 +45,3 @@ func (r *AWSElasticLoadBalancingLoadBalancer_Policies) AWSCloudFormationType() s
 func (r *AWSElasticLoadBalancingLoadBalancer_Policies) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElasticLoadBalancingLoadBalancer_PoliciesResources retrieves all AWSElasticLoadBalancingLoadBalancer_Policies items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingLoadBalancer_Policies(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer_Policies {
-
-	results := map[string]*AWSElasticLoadBalancingLoadBalancer_Policies{}
-	for name, resource := range template.Resources {
-		result := &AWSElasticLoadBalancingLoadBalancer_Policies{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElasticLoadBalancingLoadBalancer_PoliciesWithName retrieves all AWSElasticLoadBalancingLoadBalancer_Policies items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingLoadBalancer_Policies(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer_Policies, error) {
-
-	result := &AWSElasticLoadBalancingLoadBalancer_Policies{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElasticLoadBalancingLoadBalancer_Policies{}, errors.New("resource not found")
-
-}

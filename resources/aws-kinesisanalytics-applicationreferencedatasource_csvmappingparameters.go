@@ -30,32 +30,3 @@ func (r *AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters)
 func (r *AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParametersResources retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters items from a CloudFormation template
-func GetAllAWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters(template *Template) map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters {
-
-	results := map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters{}
-	for name, resource := range template.Resources {
-		result := &AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParametersWithName retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters(name string, template *Template) (*AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters, error) {
-
-	result := &AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters{}, errors.New("resource not found")
-
-}

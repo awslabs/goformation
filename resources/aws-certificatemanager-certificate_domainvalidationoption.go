@@ -30,32 +30,3 @@ func (r *AWSCertificateManagerCertificate_DomainValidationOption) AWSCloudFormat
 func (r *AWSCertificateManagerCertificate_DomainValidationOption) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCertificateManagerCertificate_DomainValidationOptionResources retrieves all AWSCertificateManagerCertificate_DomainValidationOption items from a CloudFormation template
-func GetAllAWSCertificateManagerCertificate_DomainValidationOption(template *Template) map[string]*AWSCertificateManagerCertificate_DomainValidationOption {
-
-	results := map[string]*AWSCertificateManagerCertificate_DomainValidationOption{}
-	for name, resource := range template.Resources {
-		result := &AWSCertificateManagerCertificate_DomainValidationOption{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCertificateManagerCertificate_DomainValidationOptionWithName retrieves all AWSCertificateManagerCertificate_DomainValidationOption items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCertificateManagerCertificate_DomainValidationOption(name string, template *Template) (*AWSCertificateManagerCertificate_DomainValidationOption, error) {
-
-	result := &AWSCertificateManagerCertificate_DomainValidationOption{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCertificateManagerCertificate_DomainValidationOption{}, errors.New("resource not found")
-
-}

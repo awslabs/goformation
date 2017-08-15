@@ -30,32 +30,3 @@ func (r *AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute) AWSCloudFo
 func (r *AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttributeResources retrieves all AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute(template *Template) map[string]*AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute {
-
-	results := map[string]*AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute{}
-	for name, resource := range template.Resources {
-		result := &AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttributeWithName retrieves all AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute(name string, template *Template) (*AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute, error) {
-
-	result := &AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute{}, errors.New("resource not found")
-
-}

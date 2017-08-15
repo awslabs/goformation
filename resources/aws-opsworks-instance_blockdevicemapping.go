@@ -40,32 +40,3 @@ func (r *AWSOpsWorksInstance_BlockDeviceMapping) AWSCloudFormationType() string 
 func (r *AWSOpsWorksInstance_BlockDeviceMapping) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSOpsWorksInstance_BlockDeviceMappingResources retrieves all AWSOpsWorksInstance_BlockDeviceMapping items from a CloudFormation template
-func GetAllAWSOpsWorksInstance_BlockDeviceMapping(template *Template) map[string]*AWSOpsWorksInstance_BlockDeviceMapping {
-
-	results := map[string]*AWSOpsWorksInstance_BlockDeviceMapping{}
-	for name, resource := range template.Resources {
-		result := &AWSOpsWorksInstance_BlockDeviceMapping{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSOpsWorksInstance_BlockDeviceMappingWithName retrieves all AWSOpsWorksInstance_BlockDeviceMapping items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksInstance_BlockDeviceMapping(name string, template *Template) (*AWSOpsWorksInstance_BlockDeviceMapping, error) {
-
-	result := &AWSOpsWorksInstance_BlockDeviceMapping{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSOpsWorksInstance_BlockDeviceMapping{}, errors.New("resource not found")
-
-}

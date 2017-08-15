@@ -77,7 +77,7 @@ func (r *AWSEC2NetworkInterface) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSEC2NetworkInterfaceResources retrieves all AWSEC2NetworkInterface items from a CloudFormation template
-func GetAllAWSEC2NetworkInterface(template *Template) map[string]*AWSEC2NetworkInterface {
+func GetAllAWSEC2NetworkInterfaceResources(template *Template) map[string]*AWSEC2NetworkInterface {
 
 	results := map[string]*AWSEC2NetworkInterface{}
 	for name, resource := range template.Resources {
@@ -92,7 +92,7 @@ func GetAllAWSEC2NetworkInterface(template *Template) map[string]*AWSEC2NetworkI
 
 // GetAWSEC2NetworkInterfaceWithName retrieves all AWSEC2NetworkInterface items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2NetworkInterface(name string, template *Template) (*AWSEC2NetworkInterface, error) {
+func GetAWSEC2NetworkInterfaceWithName(name string, template *Template) (*AWSEC2NetworkInterface, error) {
 
 	result := &AWSEC2NetworkInterface{}
 	if resource, ok := template.Resources[name]; ok {

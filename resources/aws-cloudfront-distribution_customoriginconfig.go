@@ -40,32 +40,3 @@ func (r *AWSCloudFrontDistribution_CustomOriginConfig) AWSCloudFormationType() s
 func (r *AWSCloudFrontDistribution_CustomOriginConfig) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSCloudFrontDistribution_CustomOriginConfigResources retrieves all AWSCloudFrontDistribution_CustomOriginConfig items from a CloudFormation template
-func GetAllAWSCloudFrontDistribution_CustomOriginConfig(template *Template) map[string]*AWSCloudFrontDistribution_CustomOriginConfig {
-
-	results := map[string]*AWSCloudFrontDistribution_CustomOriginConfig{}
-	for name, resource := range template.Resources {
-		result := &AWSCloudFrontDistribution_CustomOriginConfig{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSCloudFrontDistribution_CustomOriginConfigWithName retrieves all AWSCloudFrontDistribution_CustomOriginConfig items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFrontDistribution_CustomOriginConfig(name string, template *Template) (*AWSCloudFrontDistribution_CustomOriginConfig, error) {
-
-	result := &AWSCloudFrontDistribution_CustomOriginConfig{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSCloudFrontDistribution_CustomOriginConfig{}, errors.New("resource not found")
-
-}

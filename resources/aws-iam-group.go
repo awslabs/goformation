@@ -42,7 +42,7 @@ func (r *AWSIAMGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMGroupResources retrieves all AWSIAMGroup items from a CloudFormation template
-func GetAllAWSIAMGroup(template *Template) map[string]*AWSIAMGroup {
+func GetAllAWSIAMGroupResources(template *Template) map[string]*AWSIAMGroup {
 
 	results := map[string]*AWSIAMGroup{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSIAMGroup(template *Template) map[string]*AWSIAMGroup {
 
 // GetAWSIAMGroupWithName retrieves all AWSIAMGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMGroup(name string, template *Template) (*AWSIAMGroup, error) {
+func GetAWSIAMGroupWithName(name string, template *Template) (*AWSIAMGroup, error) {
 
 	result := &AWSIAMGroup{}
 	if resource, ok := template.Resources[name]; ok {

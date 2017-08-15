@@ -25,32 +25,3 @@ func (r *AWSS3Bucket_S3KeyFilter) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_S3KeyFilter) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_S3KeyFilterResources retrieves all AWSS3Bucket_S3KeyFilter items from a CloudFormation template
-func GetAllAWSS3Bucket_S3KeyFilter(template *Template) map[string]*AWSS3Bucket_S3KeyFilter {
-
-	results := map[string]*AWSS3Bucket_S3KeyFilter{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_S3KeyFilter{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_S3KeyFilterWithName retrieves all AWSS3Bucket_S3KeyFilter items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_S3KeyFilter(name string, template *Template) (*AWSS3Bucket_S3KeyFilter, error) {
-
-	result := &AWSS3Bucket_S3KeyFilter{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_S3KeyFilter{}, errors.New("resource not found")
-
-}

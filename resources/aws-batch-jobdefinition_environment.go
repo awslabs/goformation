@@ -30,32 +30,3 @@ func (r *AWSBatchJobDefinition_Environment) AWSCloudFormationType() string {
 func (r *AWSBatchJobDefinition_Environment) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSBatchJobDefinition_EnvironmentResources retrieves all AWSBatchJobDefinition_Environment items from a CloudFormation template
-func GetAllAWSBatchJobDefinition_Environment(template *Template) map[string]*AWSBatchJobDefinition_Environment {
-
-	results := map[string]*AWSBatchJobDefinition_Environment{}
-	for name, resource := range template.Resources {
-		result := &AWSBatchJobDefinition_Environment{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSBatchJobDefinition_EnvironmentWithName retrieves all AWSBatchJobDefinition_Environment items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSBatchJobDefinition_Environment(name string, template *Template) (*AWSBatchJobDefinition_Environment, error) {
-
-	result := &AWSBatchJobDefinition_Environment{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSBatchJobDefinition_Environment{}, errors.New("resource not found")
-
-}

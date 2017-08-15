@@ -27,7 +27,7 @@ func (r *AWSApiGatewayClientCertificate) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSApiGatewayClientCertificateResources retrieves all AWSApiGatewayClientCertificate items from a CloudFormation template
-func GetAllAWSApiGatewayClientCertificate(template *Template) map[string]*AWSApiGatewayClientCertificate {
+func GetAllAWSApiGatewayClientCertificateResources(template *Template) map[string]*AWSApiGatewayClientCertificate {
 
 	results := map[string]*AWSApiGatewayClientCertificate{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSApiGatewayClientCertificate(template *Template) map[string]*AWSApi
 
 // GetAWSApiGatewayClientCertificateWithName retrieves all AWSApiGatewayClientCertificate items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayClientCertificate(name string, template *Template) (*AWSApiGatewayClientCertificate, error) {
+func GetAWSApiGatewayClientCertificateWithName(name string, template *Template) (*AWSApiGatewayClientCertificate, error) {
 
 	result := &AWSApiGatewayClientCertificate{}
 	if resource, ok := template.Resources[name]; ok {

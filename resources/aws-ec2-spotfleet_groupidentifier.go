@@ -25,32 +25,3 @@ func (r *AWSEC2SpotFleet_GroupIdentifier) AWSCloudFormationType() string {
 func (r *AWSEC2SpotFleet_GroupIdentifier) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEC2SpotFleet_GroupIdentifierResources retrieves all AWSEC2SpotFleet_GroupIdentifier items from a CloudFormation template
-func GetAllAWSEC2SpotFleet_GroupIdentifier(template *Template) map[string]*AWSEC2SpotFleet_GroupIdentifier {
-
-	results := map[string]*AWSEC2SpotFleet_GroupIdentifier{}
-	for name, resource := range template.Resources {
-		result := &AWSEC2SpotFleet_GroupIdentifier{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEC2SpotFleet_GroupIdentifierWithName retrieves all AWSEC2SpotFleet_GroupIdentifier items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SpotFleet_GroupIdentifier(name string, template *Template) (*AWSEC2SpotFleet_GroupIdentifier, error) {
-
-	result := &AWSEC2SpotFleet_GroupIdentifier{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEC2SpotFleet_GroupIdentifier{}, errors.New("resource not found")
-
-}

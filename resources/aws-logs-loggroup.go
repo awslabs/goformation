@@ -32,7 +32,7 @@ func (r *AWSLogsLogGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsLogGroupResources retrieves all AWSLogsLogGroup items from a CloudFormation template
-func GetAllAWSLogsLogGroup(template *Template) map[string]*AWSLogsLogGroup {
+func GetAllAWSLogsLogGroupResources(template *Template) map[string]*AWSLogsLogGroup {
 
 	results := map[string]*AWSLogsLogGroup{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSLogsLogGroup(template *Template) map[string]*AWSLogsLogGroup {
 
 // GetAWSLogsLogGroupWithName retrieves all AWSLogsLogGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLogsLogGroup(name string, template *Template) (*AWSLogsLogGroup, error) {
+func GetAWSLogsLogGroupWithName(name string, template *Template) (*AWSLogsLogGroup, error) {
 
 	result := &AWSLogsLogGroup{}
 	if resource, ok := template.Resources[name]; ok {

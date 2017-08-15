@@ -70,32 +70,3 @@ func (r *AWSS3Bucket_Rule) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_Rule) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_RuleResources retrieves all AWSS3Bucket_Rule items from a CloudFormation template
-func GetAllAWSS3Bucket_Rule(template *Template) map[string]*AWSS3Bucket_Rule {
-
-	results := map[string]*AWSS3Bucket_Rule{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_Rule{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_RuleWithName retrieves all AWSS3Bucket_Rule items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_Rule(name string, template *Template) (*AWSS3Bucket_Rule, error) {
-
-	result := &AWSS3Bucket_Rule{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_Rule{}, errors.New("resource not found")
-
-}

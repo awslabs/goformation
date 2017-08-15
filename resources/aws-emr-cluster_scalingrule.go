@@ -40,32 +40,3 @@ func (r *AWSEMRCluster_ScalingRule) AWSCloudFormationType() string {
 func (r *AWSEMRCluster_ScalingRule) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRCluster_ScalingRuleResources retrieves all AWSEMRCluster_ScalingRule items from a CloudFormation template
-func GetAllAWSEMRCluster_ScalingRule(template *Template) map[string]*AWSEMRCluster_ScalingRule {
-
-	results := map[string]*AWSEMRCluster_ScalingRule{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRCluster_ScalingRule{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRCluster_ScalingRuleWithName retrieves all AWSEMRCluster_ScalingRule items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRCluster_ScalingRule(name string, template *Template) (*AWSEMRCluster_ScalingRule, error) {
-
-	result := &AWSEMRCluster_ScalingRule{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRCluster_ScalingRule{}, errors.New("resource not found")
-
-}

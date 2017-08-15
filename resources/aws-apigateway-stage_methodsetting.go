@@ -70,32 +70,3 @@ func (r *AWSApiGatewayStage_MethodSetting) AWSCloudFormationType() string {
 func (r *AWSApiGatewayStage_MethodSetting) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSApiGatewayStage_MethodSettingResources retrieves all AWSApiGatewayStage_MethodSetting items from a CloudFormation template
-func GetAllAWSApiGatewayStage_MethodSetting(template *Template) map[string]*AWSApiGatewayStage_MethodSetting {
-
-	results := map[string]*AWSApiGatewayStage_MethodSetting{}
-	for name, resource := range template.Resources {
-		result := &AWSApiGatewayStage_MethodSetting{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSApiGatewayStage_MethodSettingWithName retrieves all AWSApiGatewayStage_MethodSetting items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayStage_MethodSetting(name string, template *Template) (*AWSApiGatewayStage_MethodSetting, error) {
-
-	result := &AWSApiGatewayStage_MethodSetting{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSApiGatewayStage_MethodSetting{}, errors.New("resource not found")
-
-}

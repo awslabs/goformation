@@ -107,7 +107,7 @@ func (r *AWSAutoScalingAutoScalingGroup) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSAutoScalingAutoScalingGroupResources retrieves all AWSAutoScalingAutoScalingGroup items from a CloudFormation template
-func GetAllAWSAutoScalingAutoScalingGroup(template *Template) map[string]*AWSAutoScalingAutoScalingGroup {
+func GetAllAWSAutoScalingAutoScalingGroupResources(template *Template) map[string]*AWSAutoScalingAutoScalingGroup {
 
 	results := map[string]*AWSAutoScalingAutoScalingGroup{}
 	for name, resource := range template.Resources {
@@ -122,7 +122,7 @@ func GetAllAWSAutoScalingAutoScalingGroup(template *Template) map[string]*AWSAut
 
 // GetAWSAutoScalingAutoScalingGroupWithName retrieves all AWSAutoScalingAutoScalingGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSAutoScalingAutoScalingGroup(name string, template *Template) (*AWSAutoScalingAutoScalingGroup, error) {
+func GetAWSAutoScalingAutoScalingGroupWithName(name string, template *Template) (*AWSAutoScalingAutoScalingGroup, error) {
 
 	result := &AWSAutoScalingAutoScalingGroup{}
 	if resource, ok := template.Resources[name]; ok {

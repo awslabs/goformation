@@ -32,7 +32,7 @@ func (r *AWSLogsLogStream) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsLogStreamResources retrieves all AWSLogsLogStream items from a CloudFormation template
-func GetAllAWSLogsLogStream(template *Template) map[string]*AWSLogsLogStream {
+func GetAllAWSLogsLogStreamResources(template *Template) map[string]*AWSLogsLogStream {
 
 	results := map[string]*AWSLogsLogStream{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSLogsLogStream(template *Template) map[string]*AWSLogsLogStream {
 
 // GetAWSLogsLogStreamWithName retrieves all AWSLogsLogStream items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLogsLogStream(name string, template *Template) (*AWSLogsLogStream, error) {
+func GetAWSLogsLogStreamWithName(name string, template *Template) (*AWSLogsLogStream, error) {
 
 	result := &AWSLogsLogStream{}
 	if resource, ok := template.Resources[name]; ok {

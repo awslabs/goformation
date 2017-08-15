@@ -30,32 +30,3 @@ func (r *AWSElasticLoadBalancingV2ListenerRule_RuleCondition) AWSCloudFormationT
 func (r *AWSElasticLoadBalancingV2ListenerRule_RuleCondition) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElasticLoadBalancingV2ListenerRule_RuleConditionResources retrieves all AWSElasticLoadBalancingV2ListenerRule_RuleCondition items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2ListenerRule_RuleCondition(template *Template) map[string]*AWSElasticLoadBalancingV2ListenerRule_RuleCondition {
-
-	results := map[string]*AWSElasticLoadBalancingV2ListenerRule_RuleCondition{}
-	for name, resource := range template.Resources {
-		result := &AWSElasticLoadBalancingV2ListenerRule_RuleCondition{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElasticLoadBalancingV2ListenerRule_RuleConditionWithName retrieves all AWSElasticLoadBalancingV2ListenerRule_RuleCondition items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingV2ListenerRule_RuleCondition(name string, template *Template) (*AWSElasticLoadBalancingV2ListenerRule_RuleCondition, error) {
-
-	result := &AWSElasticLoadBalancingV2ListenerRule_RuleCondition{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElasticLoadBalancingV2ListenerRule_RuleCondition{}, errors.New("resource not found")
-
-}

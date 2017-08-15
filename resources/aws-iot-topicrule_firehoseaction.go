@@ -35,32 +35,3 @@ func (r *AWSIoTTopicRule_FirehoseAction) AWSCloudFormationType() string {
 func (r *AWSIoTTopicRule_FirehoseAction) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSIoTTopicRule_FirehoseActionResources retrieves all AWSIoTTopicRule_FirehoseAction items from a CloudFormation template
-func GetAllAWSIoTTopicRule_FirehoseAction(template *Template) map[string]*AWSIoTTopicRule_FirehoseAction {
-
-	results := map[string]*AWSIoTTopicRule_FirehoseAction{}
-	for name, resource := range template.Resources {
-		result := &AWSIoTTopicRule_FirehoseAction{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSIoTTopicRule_FirehoseActionWithName retrieves all AWSIoTTopicRule_FirehoseAction items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTTopicRule_FirehoseAction(name string, template *Template) (*AWSIoTTopicRule_FirehoseAction, error) {
-
-	result := &AWSIoTTopicRule_FirehoseAction{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSIoTTopicRule_FirehoseAction{}, errors.New("resource not found")
-
-}

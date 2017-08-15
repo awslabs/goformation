@@ -27,7 +27,7 @@ func (r *AWSEC2PlacementGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2PlacementGroupResources retrieves all AWSEC2PlacementGroup items from a CloudFormation template
-func GetAllAWSEC2PlacementGroup(template *Template) map[string]*AWSEC2PlacementGroup {
+func GetAllAWSEC2PlacementGroupResources(template *Template) map[string]*AWSEC2PlacementGroup {
 
 	results := map[string]*AWSEC2PlacementGroup{}
 	for name, resource := range template.Resources {
@@ -42,7 +42,7 @@ func GetAllAWSEC2PlacementGroup(template *Template) map[string]*AWSEC2PlacementG
 
 // GetAWSEC2PlacementGroupWithName retrieves all AWSEC2PlacementGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2PlacementGroup(name string, template *Template) (*AWSEC2PlacementGroup, error) {
+func GetAWSEC2PlacementGroupWithName(name string, template *Template) (*AWSEC2PlacementGroup, error) {
 
 	result := &AWSEC2PlacementGroup{}
 	if resource, ok := template.Resources[name]; ok {

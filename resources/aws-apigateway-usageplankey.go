@@ -37,7 +37,7 @@ func (r *AWSApiGatewayUsagePlanKey) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSApiGatewayUsagePlanKeyResources retrieves all AWSApiGatewayUsagePlanKey items from a CloudFormation template
-func GetAllAWSApiGatewayUsagePlanKey(template *Template) map[string]*AWSApiGatewayUsagePlanKey {
+func GetAllAWSApiGatewayUsagePlanKeyResources(template *Template) map[string]*AWSApiGatewayUsagePlanKey {
 
 	results := map[string]*AWSApiGatewayUsagePlanKey{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSApiGatewayUsagePlanKey(template *Template) map[string]*AWSApiGatew
 
 // GetAWSApiGatewayUsagePlanKeyWithName retrieves all AWSApiGatewayUsagePlanKey items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayUsagePlanKey(name string, template *Template) (*AWSApiGatewayUsagePlanKey, error) {
+func GetAWSApiGatewayUsagePlanKeyWithName(name string, template *Template) (*AWSApiGatewayUsagePlanKey, error) {
 
 	result := &AWSApiGatewayUsagePlanKey{}
 	if resource, ok := template.Resources[name]; ok {

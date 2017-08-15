@@ -50,32 +50,3 @@ func (r *AWSS3Bucket_CorsRule) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_CorsRule) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_CorsRuleResources retrieves all AWSS3Bucket_CorsRule items from a CloudFormation template
-func GetAllAWSS3Bucket_CorsRule(template *Template) map[string]*AWSS3Bucket_CorsRule {
-
-	results := map[string]*AWSS3Bucket_CorsRule{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_CorsRule{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_CorsRuleWithName retrieves all AWSS3Bucket_CorsRule items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_CorsRule(name string, template *Template) (*AWSS3Bucket_CorsRule, error) {
-
-	result := &AWSS3Bucket_CorsRule{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_CorsRule{}, errors.New("resource not found")
-
-}

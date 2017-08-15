@@ -30,32 +30,3 @@ func (r *AWSWAFRegionalXssMatchSet_XssMatchTuple) AWSCloudFormationType() string
 func (r *AWSWAFRegionalXssMatchSet_XssMatchTuple) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSWAFRegionalXssMatchSet_XssMatchTupleResources retrieves all AWSWAFRegionalXssMatchSet_XssMatchTuple items from a CloudFormation template
-func GetAllAWSWAFRegionalXssMatchSet_XssMatchTuple(template *Template) map[string]*AWSWAFRegionalXssMatchSet_XssMatchTuple {
-
-	results := map[string]*AWSWAFRegionalXssMatchSet_XssMatchTuple{}
-	for name, resource := range template.Resources {
-		result := &AWSWAFRegionalXssMatchSet_XssMatchTuple{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSWAFRegionalXssMatchSet_XssMatchTupleWithName retrieves all AWSWAFRegionalXssMatchSet_XssMatchTuple items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalXssMatchSet_XssMatchTuple(name string, template *Template) (*AWSWAFRegionalXssMatchSet_XssMatchTuple, error) {
-
-	result := &AWSWAFRegionalXssMatchSet_XssMatchTuple{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSWAFRegionalXssMatchSet_XssMatchTuple{}, errors.New("resource not found")
-
-}

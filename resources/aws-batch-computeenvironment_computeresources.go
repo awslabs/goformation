@@ -85,32 +85,3 @@ func (r *AWSBatchComputeEnvironment_ComputeResources) AWSCloudFormationType() st
 func (r *AWSBatchComputeEnvironment_ComputeResources) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSBatchComputeEnvironment_ComputeResourcesResources retrieves all AWSBatchComputeEnvironment_ComputeResources items from a CloudFormation template
-func GetAllAWSBatchComputeEnvironment_ComputeResources(template *Template) map[string]*AWSBatchComputeEnvironment_ComputeResources {
-
-	results := map[string]*AWSBatchComputeEnvironment_ComputeResources{}
-	for name, resource := range template.Resources {
-		result := &AWSBatchComputeEnvironment_ComputeResources{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSBatchComputeEnvironment_ComputeResourcesWithName retrieves all AWSBatchComputeEnvironment_ComputeResources items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSBatchComputeEnvironment_ComputeResources(name string, template *Template) (*AWSBatchComputeEnvironment_ComputeResources, error) {
-
-	result := &AWSBatchComputeEnvironment_ComputeResources{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSBatchComputeEnvironment_ComputeResources{}, errors.New("resource not found")
-
-}

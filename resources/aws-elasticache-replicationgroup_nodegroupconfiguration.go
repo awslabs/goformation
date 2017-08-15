@@ -40,32 +40,3 @@ func (r *AWSElastiCacheReplicationGroup_NodeGroupConfiguration) AWSCloudFormatio
 func (r *AWSElastiCacheReplicationGroup_NodeGroupConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSElastiCacheReplicationGroup_NodeGroupConfigurationResources retrieves all AWSElastiCacheReplicationGroup_NodeGroupConfiguration items from a CloudFormation template
-func GetAllAWSElastiCacheReplicationGroup_NodeGroupConfiguration(template *Template) map[string]*AWSElastiCacheReplicationGroup_NodeGroupConfiguration {
-
-	results := map[string]*AWSElastiCacheReplicationGroup_NodeGroupConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSElastiCacheReplicationGroup_NodeGroupConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSElastiCacheReplicationGroup_NodeGroupConfigurationWithName retrieves all AWSElastiCacheReplicationGroup_NodeGroupConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElastiCacheReplicationGroup_NodeGroupConfiguration(name string, template *Template) (*AWSElastiCacheReplicationGroup_NodeGroupConfiguration, error) {
-
-	result := &AWSElastiCacheReplicationGroup_NodeGroupConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSElastiCacheReplicationGroup_NodeGroupConfiguration{}, errors.New("resource not found")
-
-}

@@ -35,32 +35,3 @@ func (r *AWSS3Bucket_QueueConfiguration) AWSCloudFormationType() string {
 func (r *AWSS3Bucket_QueueConfiguration) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSS3Bucket_QueueConfigurationResources retrieves all AWSS3Bucket_QueueConfiguration items from a CloudFormation template
-func GetAllAWSS3Bucket_QueueConfiguration(template *Template) map[string]*AWSS3Bucket_QueueConfiguration {
-
-	results := map[string]*AWSS3Bucket_QueueConfiguration{}
-	for name, resource := range template.Resources {
-		result := &AWSS3Bucket_QueueConfiguration{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSS3Bucket_QueueConfigurationWithName retrieves all AWSS3Bucket_QueueConfiguration items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSS3Bucket_QueueConfiguration(name string, template *Template) (*AWSS3Bucket_QueueConfiguration, error) {
-
-	result := &AWSS3Bucket_QueueConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSS3Bucket_QueueConfiguration{}, errors.New("resource not found")
-
-}

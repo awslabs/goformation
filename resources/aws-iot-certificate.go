@@ -32,7 +32,7 @@ func (r *AWSIoTCertificate) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIoTCertificateResources retrieves all AWSIoTCertificate items from a CloudFormation template
-func GetAllAWSIoTCertificate(template *Template) map[string]*AWSIoTCertificate {
+func GetAllAWSIoTCertificateResources(template *Template) map[string]*AWSIoTCertificate {
 
 	results := map[string]*AWSIoTCertificate{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSIoTCertificate(template *Template) map[string]*AWSIoTCertificate {
 
 // GetAWSIoTCertificateWithName retrieves all AWSIoTCertificate items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTCertificate(name string, template *Template) (*AWSIoTCertificate, error) {
+func GetAWSIoTCertificateWithName(name string, template *Template) (*AWSIoTCertificate, error) {
 
 	result := &AWSIoTCertificate{}
 	if resource, ok := template.Resources[name]; ok {

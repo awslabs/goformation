@@ -52,7 +52,7 @@ func (r *AWSEC2DHCPOptions) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2DHCPOptionsResources retrieves all AWSEC2DHCPOptions items from a CloudFormation template
-func GetAllAWSEC2DHCPOptions(template *Template) map[string]*AWSEC2DHCPOptions {
+func GetAllAWSEC2DHCPOptionsResources(template *Template) map[string]*AWSEC2DHCPOptions {
 
 	results := map[string]*AWSEC2DHCPOptions{}
 	for name, resource := range template.Resources {
@@ -67,7 +67,7 @@ func GetAllAWSEC2DHCPOptions(template *Template) map[string]*AWSEC2DHCPOptions {
 
 // GetAWSEC2DHCPOptionsWithName retrieves all AWSEC2DHCPOptions items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2DHCPOptions(name string, template *Template) (*AWSEC2DHCPOptions, error) {
+func GetAWSEC2DHCPOptionsWithName(name string, template *Template) (*AWSEC2DHCPOptions, error) {
 
 	result := &AWSEC2DHCPOptions{}
 	if resource, ok := template.Resources[name]; ok {

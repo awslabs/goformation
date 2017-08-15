@@ -42,7 +42,7 @@ func (r *AWSApiGatewayApiKey) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSApiGatewayApiKeyResources retrieves all AWSApiGatewayApiKey items from a CloudFormation template
-func GetAllAWSApiGatewayApiKey(template *Template) map[string]*AWSApiGatewayApiKey {
+func GetAllAWSApiGatewayApiKeyResources(template *Template) map[string]*AWSApiGatewayApiKey {
 
 	results := map[string]*AWSApiGatewayApiKey{}
 	for name, resource := range template.Resources {
@@ -57,7 +57,7 @@ func GetAllAWSApiGatewayApiKey(template *Template) map[string]*AWSApiGatewayApiK
 
 // GetAWSApiGatewayApiKeyWithName retrieves all AWSApiGatewayApiKey items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayApiKey(name string, template *Template) (*AWSApiGatewayApiKey, error) {
+func GetAWSApiGatewayApiKeyWithName(name string, template *Template) (*AWSApiGatewayApiKey, error) {
 
 	result := &AWSApiGatewayApiKey{}
 	if resource, ok := template.Resources[name]; ok {

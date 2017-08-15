@@ -32,7 +32,7 @@ func (r *AWSApiGatewayDomainName) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSApiGatewayDomainNameResources retrieves all AWSApiGatewayDomainName items from a CloudFormation template
-func GetAllAWSApiGatewayDomainName(template *Template) map[string]*AWSApiGatewayDomainName {
+func GetAllAWSApiGatewayDomainNameResources(template *Template) map[string]*AWSApiGatewayDomainName {
 
 	results := map[string]*AWSApiGatewayDomainName{}
 	for name, resource := range template.Resources {
@@ -47,7 +47,7 @@ func GetAllAWSApiGatewayDomainName(template *Template) map[string]*AWSApiGateway
 
 // GetAWSApiGatewayDomainNameWithName retrieves all AWSApiGatewayDomainName items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayDomainName(name string, template *Template) (*AWSApiGatewayDomainName, error) {
+func GetAWSApiGatewayDomainNameWithName(name string, template *Template) (*AWSApiGatewayDomainName, error) {
 
 	result := &AWSApiGatewayDomainName{}
 	if resource, ok := template.Resources[name]; ok {

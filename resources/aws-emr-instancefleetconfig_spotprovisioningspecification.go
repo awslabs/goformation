@@ -35,32 +35,3 @@ func (r *AWSEMRInstanceFleetConfig_SpotProvisioningSpecification) AWSCloudFormat
 func (r *AWSEMRInstanceFleetConfig_SpotProvisioningSpecification) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEMRInstanceFleetConfig_SpotProvisioningSpecificationResources retrieves all AWSEMRInstanceFleetConfig_SpotProvisioningSpecification items from a CloudFormation template
-func GetAllAWSEMRInstanceFleetConfig_SpotProvisioningSpecification(template *Template) map[string]*AWSEMRInstanceFleetConfig_SpotProvisioningSpecification {
-
-	results := map[string]*AWSEMRInstanceFleetConfig_SpotProvisioningSpecification{}
-	for name, resource := range template.Resources {
-		result := &AWSEMRInstanceFleetConfig_SpotProvisioningSpecification{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEMRInstanceFleetConfig_SpotProvisioningSpecificationWithName retrieves all AWSEMRInstanceFleetConfig_SpotProvisioningSpecification items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceFleetConfig_SpotProvisioningSpecification(name string, template *Template) (*AWSEMRInstanceFleetConfig_SpotProvisioningSpecification, error) {
-
-	result := &AWSEMRInstanceFleetConfig_SpotProvisioningSpecification{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEMRInstanceFleetConfig_SpotProvisioningSpecification{}, errors.New("resource not found")
-
-}

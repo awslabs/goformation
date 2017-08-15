@@ -45,32 +45,3 @@ func (r *AWSEventsRule_Target) AWSCloudFormationType() string {
 func (r *AWSEventsRule_Target) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
 }
-
-// GetAllAWSEventsRule_TargetResources retrieves all AWSEventsRule_Target items from a CloudFormation template
-func GetAllAWSEventsRule_Target(template *Template) map[string]*AWSEventsRule_Target {
-
-	results := map[string]*AWSEventsRule_Target{}
-	for name, resource := range template.Resources {
-		result := &AWSEventsRule_Target{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
-		}
-	}
-	return results
-
-}
-
-// GetAWSEventsRule_TargetWithName retrieves all AWSEventsRule_Target items from a CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEventsRule_Target(name string, template *Template) (*AWSEventsRule_Target, error) {
-
-	result := &AWSEventsRule_Target{}
-	if resource, ok := template.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
-		}
-	}
-
-	return &AWSEventsRule_Target{}, errors.New("resource not found")
-
-}

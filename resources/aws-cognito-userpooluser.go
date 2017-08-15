@@ -57,7 +57,7 @@ func (r *AWSCognitoUserPoolUser) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSCognitoUserPoolUserResources retrieves all AWSCognitoUserPoolUser items from a CloudFormation template
-func GetAllAWSCognitoUserPoolUser(template *Template) map[string]*AWSCognitoUserPoolUser {
+func GetAllAWSCognitoUserPoolUserResources(template *Template) map[string]*AWSCognitoUserPoolUser {
 
 	results := map[string]*AWSCognitoUserPoolUser{}
 	for name, resource := range template.Resources {
@@ -72,7 +72,7 @@ func GetAllAWSCognitoUserPoolUser(template *Template) map[string]*AWSCognitoUser
 
 // GetAWSCognitoUserPoolUserWithName retrieves all AWSCognitoUserPoolUser items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCognitoUserPoolUser(name string, template *Template) (*AWSCognitoUserPoolUser, error) {
+func GetAWSCognitoUserPoolUserWithName(name string, template *Template) (*AWSCognitoUserPoolUser, error) {
 
 	result := &AWSCognitoUserPoolUser{}
 	if resource, ok := template.Resources[name]; ok {

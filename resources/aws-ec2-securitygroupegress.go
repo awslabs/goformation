@@ -62,7 +62,7 @@ func (r *AWSEC2SecurityGroupEgress) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSEC2SecurityGroupEgressResources retrieves all AWSEC2SecurityGroupEgress items from a CloudFormation template
-func GetAllAWSEC2SecurityGroupEgress(template *Template) map[string]*AWSEC2SecurityGroupEgress {
+func GetAllAWSEC2SecurityGroupEgressResources(template *Template) map[string]*AWSEC2SecurityGroupEgress {
 
 	results := map[string]*AWSEC2SecurityGroupEgress{}
 	for name, resource := range template.Resources {
@@ -77,7 +77,7 @@ func GetAllAWSEC2SecurityGroupEgress(template *Template) map[string]*AWSEC2Secur
 
 // GetAWSEC2SecurityGroupEgressWithName retrieves all AWSEC2SecurityGroupEgress items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SecurityGroupEgress(name string, template *Template) (*AWSEC2SecurityGroupEgress, error) {
+func GetAWSEC2SecurityGroupEgressWithName(name string, template *Template) (*AWSEC2SecurityGroupEgress, error) {
 
 	result := &AWSEC2SecurityGroupEgress{}
 	if resource, ok := template.Resources[name]; ok {

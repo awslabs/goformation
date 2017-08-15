@@ -37,7 +37,7 @@ func (r *AWSRDSDBSubnetGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBSubnetGroupResources retrieves all AWSRDSDBSubnetGroup items from a CloudFormation template
-func GetAllAWSRDSDBSubnetGroup(template *Template) map[string]*AWSRDSDBSubnetGroup {
+func GetAllAWSRDSDBSubnetGroupResources(template *Template) map[string]*AWSRDSDBSubnetGroup {
 
 	results := map[string]*AWSRDSDBSubnetGroup{}
 	for name, resource := range template.Resources {
@@ -52,7 +52,7 @@ func GetAllAWSRDSDBSubnetGroup(template *Template) map[string]*AWSRDSDBSubnetGro
 
 // GetAWSRDSDBSubnetGroupWithName retrieves all AWSRDSDBSubnetGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBSubnetGroup(name string, template *Template) (*AWSRDSDBSubnetGroup, error) {
+func GetAWSRDSDBSubnetGroupWithName(name string, template *Template) (*AWSRDSDBSubnetGroup, error) {
 
 	result := &AWSRDSDBSubnetGroup{}
 	if resource, ok := template.Resources[name]; ok {
