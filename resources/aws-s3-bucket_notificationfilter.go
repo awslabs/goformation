@@ -13,7 +13,6 @@ type AWSS3Bucket_NotificationFilter struct {
 	// S3Key AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key
-
 	S3Key AWSS3Bucket_S3KeyFilter `json:"S3Key"`
 }
 

@@ -13,13 +13,11 @@ type AWSCognitoUserPool_EmailConfiguration struct {
 	// ReplyToEmailAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-replytoemailaddress
-
 	ReplyToEmailAddress string `json:"ReplyToEmailAddress"`
 
 	// SourceArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-sourcearn
-
 	SourceArn string `json:"SourceArn"`
 }
 

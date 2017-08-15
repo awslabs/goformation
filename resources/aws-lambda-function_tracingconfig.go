@@ -13,7 +13,6 @@ type AWSLambdaFunction_TracingConfig struct {
 	// Mode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
-
 	Mode string `json:"Mode"`
 }
 

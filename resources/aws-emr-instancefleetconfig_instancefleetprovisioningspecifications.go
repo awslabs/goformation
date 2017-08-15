@@ -13,7 +13,6 @@ type AWSEMRInstanceFleetConfig_InstanceFleetProvisioningSpecifications struct {
 	// SpotSpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
-
 	SpotSpecification AWSEMRInstanceFleetConfig_SpotProvisioningSpecification `json:"SpotSpecification"`
 }
 

@@ -13,25 +13,21 @@ type AWSS3Bucket_WebsiteConfiguration struct {
 	// ErrorDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-errordocument
-
 	ErrorDocument string `json:"ErrorDocument"`
 
 	// IndexDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-indexdocument
-
 	IndexDocument string `json:"IndexDocument"`
 
 	// RedirectAllRequestsTo AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-redirectallrequeststo
-
 	RedirectAllRequestsTo AWSS3Bucket_RedirectAllRequestsTo `json:"RedirectAllRequestsTo"`
 
 	// RoutingRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-routingrules
-
 	RoutingRules []AWSS3Bucket_RoutingRule `json:"RoutingRules"`
 }
 

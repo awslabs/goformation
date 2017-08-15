@@ -13,7 +13,6 @@ type AWSElastiCacheSecurityGroup struct {
 	// Description AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html#cfn-elasticache-securitygroup-description
-
 	Description string `json:"Description"`
 }
 

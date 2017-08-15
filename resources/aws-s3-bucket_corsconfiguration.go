@@ -13,7 +13,6 @@ type AWSS3Bucket_CorsConfiguration struct {
 	// CorsRules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
-
 	CorsRules []AWSS3Bucket_CorsRule `json:"CorsRules"`
 }
 

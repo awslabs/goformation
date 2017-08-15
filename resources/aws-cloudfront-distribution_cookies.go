@@ -13,13 +13,11 @@ type AWSCloudFrontDistribution_Cookies struct {
 	// Forward AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html#cfn-cloudfront-forwardedvalues-cookies-forward
-
 	Forward string `json:"Forward"`
 
 	// WhitelistedNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html#cfn-cloudfront-forwardedvalues-cookies-whitelistednames
-
 	WhitelistedNames []string `json:"WhitelistedNames"`
 }
 

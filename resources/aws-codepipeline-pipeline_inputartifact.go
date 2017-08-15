@@ -13,7 +13,6 @@ type AWSCodePipelinePipeline_InputArtifact struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-inputartifacts.html#cfn-codepipeline-pipeline-stages-actions-inputartifacts-name
-
 	Name string `json:"Name"`
 }
 

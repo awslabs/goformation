@@ -13,13 +13,11 @@ type AWSKinesisAnalyticsApplicationOutput struct {
 	// ApplicationName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html#cfn-kinesisanalytics-applicationoutput-applicationname
-
 	ApplicationName string `json:"ApplicationName"`
 
 	// Output AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html#cfn-kinesisanalytics-applicationoutput-output
-
 	Output AWSKinesisAnalyticsApplicationOutput_Output `json:"Output"`
 }
 

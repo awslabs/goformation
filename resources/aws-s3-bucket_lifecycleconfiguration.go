@@ -13,7 +13,6 @@ type AWSS3Bucket_LifecycleConfiguration struct {
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html#cfn-s3-bucket-lifecycleconfig-rules
-
 	Rules []AWSS3Bucket_Rule `json:"Rules"`
 }
 

@@ -13,13 +13,11 @@ type AWSCloudFrontDistribution_OriginCustomHeader struct {
 	// HeaderName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headername
-
 	HeaderName string `json:"HeaderName"`
 
 	// HeaderValue AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headervalue
-
 	HeaderValue string `json:"HeaderValue"`
 }
 

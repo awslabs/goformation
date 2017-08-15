@@ -13,7 +13,6 @@ type AWSIoTTopicRule_LambdaAction struct {
 	// FunctionArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-lambda.html#cfn-iot-lambda-functionarn
-
 	FunctionArn string `json:"FunctionArn"`
 }
 

@@ -13,7 +13,6 @@ type AWSApiGatewayClientCertificate struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
-
 	Description string `json:"Description"`
 }
 

@@ -13,13 +13,11 @@ type AWSSQSQueuePolicy struct {
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc
-
 	PolicyDocument interface{} `json:"PolicyDocument"`
 
 	// Queues AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues
-
 	Queues []string `json:"Queues"`
 }
 

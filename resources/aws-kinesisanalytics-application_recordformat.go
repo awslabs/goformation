@@ -13,13 +13,11 @@ type AWSKinesisAnalyticsApplication_RecordFormat struct {
 	// MappingParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-recordformat.html#cfn-kinesisanalytics-application-recordformat-mappingparameters
-
 	MappingParameters AWSKinesisAnalyticsApplication_MappingParameters `json:"MappingParameters"`
 
 	// RecordFormatType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-recordformat.html#cfn-kinesisanalytics-application-recordformat-recordformattype
-
 	RecordFormatType string `json:"RecordFormatType"`
 }
 

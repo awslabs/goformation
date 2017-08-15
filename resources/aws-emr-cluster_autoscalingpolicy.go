@@ -13,13 +13,11 @@ type AWSEMRCluster_AutoScalingPolicy struct {
 	// Constraints AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html#cfn-elasticmapreduce-cluster-autoscalingpolicy-constraints
-
 	Constraints AWSEMRCluster_ScalingConstraints `json:"Constraints"`
 
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html#cfn-elasticmapreduce-cluster-autoscalingpolicy-rules
-
 	Rules []AWSEMRCluster_ScalingRule `json:"Rules"`
 }
 

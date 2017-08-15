@@ -13,7 +13,6 @@ type AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig struct {
 	// AWSKMSKeyARN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig-awskmskeyarn
-
 	AWSKMSKeyARN string `json:"AWSKMSKeyARN"`
 }
 

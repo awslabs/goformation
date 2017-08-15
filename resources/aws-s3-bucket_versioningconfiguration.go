@@ -13,7 +13,6 @@ type AWSS3Bucket_VersioningConfiguration struct {
 	// Status AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html#cfn-s3-bucket-versioningconfig-status
-
 	Status string `json:"Status"`
 }
 

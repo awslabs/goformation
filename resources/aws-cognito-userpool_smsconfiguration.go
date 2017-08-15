@@ -13,13 +13,11 @@ type AWSCognitoUserPool_SmsConfiguration struct {
 	// ExternalId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html#cfn-cognito-userpool-smsconfiguration-externalid
-
 	ExternalId string `json:"ExternalId"`
 
 	// SnsCallerArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html#cfn-cognito-userpool-smsconfiguration-snscallerarn
-
 	SnsCallerArn string `json:"SnsCallerArn"`
 }
 

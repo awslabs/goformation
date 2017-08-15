@@ -13,13 +13,11 @@ type AWSCognitoUserPool_DeviceConfiguration struct {
 	// ChallengeRequiredOnNewDevice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-challengerequiredonnewdevice
-
 	ChallengeRequiredOnNewDevice bool `json:"ChallengeRequiredOnNewDevice"`
 
 	// DeviceOnlyRememberedOnUserPrompt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html#cfn-cognito-userpool-deviceconfiguration-deviceonlyrememberedonuserprompt
-
 	DeviceOnlyRememberedOnUserPrompt bool `json:"DeviceOnlyRememberedOnUserPrompt"`
 }
 

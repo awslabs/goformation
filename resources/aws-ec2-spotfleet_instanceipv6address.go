@@ -13,7 +13,6 @@ type AWSEC2SpotFleet_InstanceIpv6Address struct {
 	// Ipv6Address AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html#cfn-ec2-spotfleet-instanceipv6address-ipv6address
-
 	Ipv6Address string `json:"Ipv6Address"`
 }
 

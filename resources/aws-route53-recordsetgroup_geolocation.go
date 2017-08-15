@@ -13,19 +13,16 @@ type AWSRoute53RecordSetGroup_GeoLocation struct {
 	// ContinentCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html#cfn-route53-recordsetgroup-geolocation-continentcode
-
 	ContinentCode string `json:"ContinentCode"`
 
 	// CountryCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html#cfn-route53-recordset-geolocation-countrycode
-
 	CountryCode string `json:"CountryCode"`
 
 	// SubdivisionCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html#cfn-route53-recordset-geolocation-subdivisioncode
-
 	SubdivisionCode string `json:"SubdivisionCode"`
 }
 

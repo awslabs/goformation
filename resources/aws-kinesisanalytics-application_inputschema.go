@@ -13,19 +13,16 @@ type AWSKinesisAnalyticsApplication_InputSchema struct {
 	// RecordColumns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputschema.html#cfn-kinesisanalytics-application-inputschema-recordcolumns
-
 	RecordColumns []AWSKinesisAnalyticsApplication_RecordColumn `json:"RecordColumns"`
 
 	// RecordEncoding AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputschema.html#cfn-kinesisanalytics-application-inputschema-recordencoding
-
 	RecordEncoding string `json:"RecordEncoding"`
 
 	// RecordFormat AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputschema.html#cfn-kinesisanalytics-application-inputschema-recordformat
-
 	RecordFormat AWSKinesisAnalyticsApplication_RecordFormat `json:"RecordFormat"`
 }
 

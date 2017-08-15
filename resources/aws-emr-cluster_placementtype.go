@@ -13,7 +13,6 @@ type AWSEMRCluster_PlacementType struct {
 	// AvailabilityZone AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-placementtype.html#aws-properties-emr-cluster-jobflowinstancesconfig-placementtype
-
 	AvailabilityZone string `json:"AvailabilityZone"`
 }
 

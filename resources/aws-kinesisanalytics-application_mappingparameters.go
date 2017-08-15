@@ -13,13 +13,11 @@ type AWSKinesisAnalyticsApplication_MappingParameters struct {
 	// CSVMappingParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-mappingparameters.html#cfn-kinesisanalytics-application-mappingparameters-csvmappingparameters
-
 	CSVMappingParameters AWSKinesisAnalyticsApplication_CSVMappingParameters `json:"CSVMappingParameters"`
 
 	// JSONMappingParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-mappingparameters.html#cfn-kinesisanalytics-application-mappingparameters-jsonmappingparameters
-
 	JSONMappingParameters AWSKinesisAnalyticsApplication_JSONMappingParameters `json:"JSONMappingParameters"`
 }
 

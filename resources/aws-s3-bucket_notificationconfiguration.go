@@ -13,19 +13,16 @@ type AWSS3Bucket_NotificationConfiguration struct {
 	// LambdaConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
-
 	LambdaConfigurations []AWSS3Bucket_LambdaConfiguration `json:"LambdaConfigurations"`
 
 	// QueueConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
-
 	QueueConfigurations []AWSS3Bucket_QueueConfiguration `json:"QueueConfigurations"`
 
 	// TopicConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
-
 	TopicConfigurations []AWSS3Bucket_TopicConfiguration `json:"TopicConfigurations"`
 }
 

@@ -13,7 +13,6 @@ type AWSCodeDeployApplication struct {
 	// ApplicationName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html#cfn-codedeploy-application-applicationname
-
 	ApplicationName string `json:"ApplicationName"`
 }
 
