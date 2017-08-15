@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Config::DeliveryChannel AWS CloudFormation Resource
+// AWSConfigDeliveryChannel AWS CloudFormation Resource (AWS::Config::DeliveryChannel)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
 type AWSConfigDeliveryChannel struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::RouteTable AWS CloudFormation Resource
+// AWSEC2RouteTable AWS CloudFormation Resource (AWS::EC2::RouteTable)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html
 type AWSEC2RouteTable struct {
 

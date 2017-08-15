@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeBuild::Project.Environment AWS CloudFormation Resource
+// AWSCodeBuildProject_Environment AWS CloudFormation Resource (AWS::CodeBuild::Project.Environment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html
 type AWSCodeBuildProject_Environment struct {
 

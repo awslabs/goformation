@@ -1,6 +1,6 @@
 package resources
 
-// AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping AWS CloudFormation Resource
+// AWSAutoScalingLaunchConfiguration_BlockDeviceMapping AWS CloudFormation Resource (AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html
 type AWSAutoScalingLaunchConfiguration_BlockDeviceMapping struct {
 

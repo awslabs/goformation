@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::Role AWS CloudFormation Resource
+// AWSIAMRole AWS CloudFormation Resource (AWS::IAM::Role)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
 type AWSIAMRole struct {
 

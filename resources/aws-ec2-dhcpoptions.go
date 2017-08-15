@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::DHCPOptions AWS CloudFormation Resource
+// AWSEC2DHCPOptions AWS CloudFormation Resource (AWS::EC2::DHCPOptions)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html
 type AWSEC2DHCPOptions struct {
 

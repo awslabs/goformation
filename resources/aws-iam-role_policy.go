@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IAM::Role.Policy AWS CloudFormation Resource
+// AWSIAMRole_Policy AWS CloudFormation Resource (AWS::IAM::Role.Policy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
 type AWSIAMRole_Policy struct {
 

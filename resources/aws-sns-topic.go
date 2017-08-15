@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SNS::Topic AWS CloudFormation Resource
+// AWSSNSTopic AWS CloudFormation Resource (AWS::SNS::Topic)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html
 type AWSSNSTopic struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Route53::RecordSet.GeoLocation AWS CloudFormation Resource
+// AWSRoute53RecordSet_GeoLocation AWS CloudFormation Resource (AWS::Route53::RecordSet.GeoLocation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html
 type AWSRoute53RecordSet_GeoLocation struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.Transition AWS CloudFormation Resource
+// AWSS3Bucket_Transition AWS CloudFormation Resource (AWS::S3::Bucket.Transition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html
 type AWSS3Bucket_Transition struct {
 

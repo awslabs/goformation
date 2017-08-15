@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Events::Rule AWS CloudFormation Resource
+// AWSEventsRule AWS CloudFormation Resource (AWS::Events::Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
 type AWSEventsRule struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ECS::TaskDefinition AWS CloudFormation Resource
+// AWSECSTaskDefinition AWS CloudFormation Resource (AWS::ECS::TaskDefinition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
 type AWSECSTaskDefinition struct {
 

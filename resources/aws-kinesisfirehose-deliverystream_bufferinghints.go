@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisFirehose::DeliveryStream.BufferingHints AWS CloudFormation Resource
+// AWSKinesisFirehoseDeliveryStream_BufferingHints AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.BufferingHints)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints.html
 type AWSKinesisFirehoseDeliveryStream_BufferingHints struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::IdentityPoolRoleAttachment.RulesConfigurationType AWS CloudFormation Resource
+// AWSCognitoIdentityPoolRoleAttachment_RulesConfigurationType AWS CloudFormation Resource (AWS::Cognito::IdentityPoolRoleAttachment.RulesConfigurationType)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html
 type AWSCognitoIdentityPoolRoleAttachment_RulesConfigurationType struct {
 }

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticBeanstalk::ConfigurationTemplate.SourceConfiguration AWS CloudFormation Resource
+// AWSElasticBeanstalkConfigurationTemplate_SourceConfiguration AWS CloudFormation Resource (AWS::ElasticBeanstalk::ConfigurationTemplate.SourceConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-configurationtemplate-sourceconfiguration.html
 type AWSElasticBeanstalkConfigurationTemplate_SourceConfiguration struct {
 

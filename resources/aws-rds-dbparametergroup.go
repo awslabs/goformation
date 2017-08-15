@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::DBParameterGroup AWS CloudFormation Resource
+// AWSRDSDBParameterGroup AWS CloudFormation Resource (AWS::RDS::DBParameterGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html
 type AWSRDSDBParameterGroup struct {
 

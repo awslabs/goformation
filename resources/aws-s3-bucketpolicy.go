@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::S3::BucketPolicy AWS CloudFormation Resource
+// AWSS3BucketPolicy AWS CloudFormation Resource (AWS::S3::BucketPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
 type AWSS3BucketPolicy struct {
 

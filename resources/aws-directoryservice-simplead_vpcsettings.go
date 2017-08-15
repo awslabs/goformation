@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DirectoryService::SimpleAD.VpcSettings AWS CloudFormation Resource
+// AWSDirectoryServiceSimpleAD_VpcSettings AWS CloudFormation Resource (AWS::DirectoryService::SimpleAD.VpcSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html
 type AWSDirectoryServiceSimpleAD_VpcSettings struct {
 

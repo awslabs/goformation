@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApiGateway::Method.IntegrationResponse AWS CloudFormation Resource
+// AWSApiGatewayMethod_IntegrationResponse AWS CloudFormation Resource (AWS::ApiGateway::Method.IntegrationResponse)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html
 type AWSApiGatewayMethod_IntegrationResponse struct {
 

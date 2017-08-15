@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::ApplicationOutput.DestinationSchema AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationOutput_DestinationSchema AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationOutput.DestinationSchema)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html
 type AWSKinesisAnalyticsApplicationOutput_DestinationSchema struct {
 

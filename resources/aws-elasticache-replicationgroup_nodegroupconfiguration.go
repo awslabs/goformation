@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElastiCache::ReplicationGroup.NodeGroupConfiguration AWS CloudFormation Resource
+// AWSElastiCacheReplicationGroup_NodeGroupConfiguration AWS CloudFormation Resource (AWS::ElastiCache::ReplicationGroup.NodeGroupConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
 type AWSElastiCacheReplicationGroup_NodeGroupConfiguration struct {
 

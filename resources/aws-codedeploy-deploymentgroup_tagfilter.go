@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeDeploy::DeploymentGroup.TagFilter AWS CloudFormation Resource
+// AWSCodeDeployDeploymentGroup_TagFilter AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.TagFilter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html
 type AWSCodeDeployDeploymentGroup_TagFilter struct {
 

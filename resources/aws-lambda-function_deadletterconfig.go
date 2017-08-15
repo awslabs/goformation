@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Lambda::Function.DeadLetterConfig AWS CloudFormation Resource
+// AWSLambdaFunction_DeadLetterConfig AWS CloudFormation Resource (AWS::Lambda::Function.DeadLetterConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html
 type AWSLambdaFunction_DeadLetterConfig struct {
 

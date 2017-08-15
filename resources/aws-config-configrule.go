@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Config::ConfigRule AWS CloudFormation Resource
+// AWSConfigConfigRule AWS CloudFormation Resource (AWS::Config::ConfigRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
 type AWSConfigConfigRule struct {
 

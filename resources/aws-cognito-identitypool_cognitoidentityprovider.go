@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::IdentityPool.CognitoIdentityProvider AWS CloudFormation Resource
+// AWSCognitoIdentityPool_CognitoIdentityProvider AWS CloudFormation Resource (AWS::Cognito::IdentityPool.CognitoIdentityProvider)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html
 type AWSCognitoIdentityPool_CognitoIdentityProvider struct {
 

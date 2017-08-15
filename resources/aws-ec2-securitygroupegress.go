@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::SecurityGroupEgress AWS CloudFormation Resource
+// AWSEC2SecurityGroupEgress AWS CloudFormation Resource (AWS::EC2::SecurityGroupEgress)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html
 type AWSEC2SecurityGroupEgress struct {
 

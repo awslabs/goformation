@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IoT::Certificate AWS CloudFormation Resource
+// AWSIoTCertificate AWS CloudFormation Resource (AWS::IoT::Certificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
 type AWSIoTCertificate struct {
 

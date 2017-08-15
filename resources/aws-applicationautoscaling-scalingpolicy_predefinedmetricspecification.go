@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApplicationAutoScaling::ScalingPolicy.PredefinedMetricSpecification AWS CloudFormation Resource
+// AWSApplicationAutoScalingScalingPolicy_PredefinedMetricSpecification AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalingPolicy.PredefinedMetricSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html
 type AWSApplicationAutoScalingScalingPolicy_PredefinedMetricSpecification struct {
 

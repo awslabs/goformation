@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DataPipeline::Pipeline.ParameterValue AWS CloudFormation Resource
+// AWSDataPipelinePipeline_ParameterValue AWS CloudFormation Resource (AWS::DataPipeline::Pipeline.ParameterValue)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalues.html
 type AWSDataPipelinePipeline_ParameterValue struct {
 

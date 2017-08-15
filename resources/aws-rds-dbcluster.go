@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::DBCluster AWS CloudFormation Resource
+// AWSRDSDBCluster AWS CloudFormation Resource (AWS::RDS::DBCluster)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
 type AWSRDSDBCluster struct {
 

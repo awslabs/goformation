@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisFirehose::DeliveryStream.KMSEncryptionConfig AWS CloudFormation Resource
+// AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.KMSEncryptionConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig.html
 type AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig struct {
 

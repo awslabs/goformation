@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::ApplicationReferenceDataSource.ReferenceDataSource AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceDataSource AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource.ReferenceDataSource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceDataSource struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::Group AWS CloudFormation Resource
+// AWSIAMGroup AWS CloudFormation Resource (AWS::IAM::Group)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
 type AWSIAMGroup struct {
 

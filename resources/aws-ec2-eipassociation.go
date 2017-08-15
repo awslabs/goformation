@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::EIPAssociation AWS CloudFormation Resource
+// AWSEC2EIPAssociation AWS CloudFormation Resource (AWS::EC2::EIPAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html
 type AWSEC2EIPAssociation struct {
 

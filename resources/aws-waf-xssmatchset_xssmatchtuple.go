@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::XssMatchSet.XssMatchTuple AWS CloudFormation Resource
+// AWSWAFXssMatchSet_XssMatchTuple AWS CloudFormation Resource (AWS::WAF::XssMatchSet.XssMatchTuple)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html
 type AWSWAFXssMatchSet_XssMatchTuple struct {
 

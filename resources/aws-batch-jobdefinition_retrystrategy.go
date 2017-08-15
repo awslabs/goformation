@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Batch::JobDefinition.RetryStrategy AWS CloudFormation Resource
+// AWSBatchJobDefinition_RetryStrategy AWS CloudFormation Resource (AWS::Batch::JobDefinition.RetryStrategy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html
 type AWSBatchJobDefinition_RetryStrategy struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Stack.RdsDbInstance AWS CloudFormation Resource
+// AWSOpsWorksStack_RdsDbInstance AWS CloudFormation Resource (AWS::OpsWorks::Stack.RdsDbInstance)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html
 type AWSOpsWorksStack_RdsDbInstance struct {
 

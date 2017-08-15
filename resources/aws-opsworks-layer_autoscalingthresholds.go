@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Layer.AutoScalingThresholds AWS CloudFormation Resource
+// AWSOpsWorksLayer_AutoScalingThresholds AWS CloudFormation Resource (AWS::OpsWorks::Layer.AutoScalingThresholds)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html
 type AWSOpsWorksLayer_AutoScalingThresholds struct {
 

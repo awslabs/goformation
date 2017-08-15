@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CodeDeploy::Application AWS CloudFormation Resource
+// AWSCodeDeployApplication AWS CloudFormation Resource (AWS::CodeDeploy::Application)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html
 type AWSCodeDeployApplication struct {
 

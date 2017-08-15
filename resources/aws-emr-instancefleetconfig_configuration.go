@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceFleetConfig.Configuration AWS CloudFormation Resource
+// AWSEMRInstanceFleetConfig_Configuration AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig.Configuration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html
 type AWSEMRInstanceFleetConfig_Configuration struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::DBSecurityGroup AWS CloudFormation Resource
+// AWSRDSDBSecurityGroup AWS CloudFormation Resource (AWS::RDS::DBSecurityGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html
 type AWSRDSDBSecurityGroup struct {
 

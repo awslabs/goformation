@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.IamInstanceProfileSpecification AWS CloudFormation Resource
+// AWSEC2SpotFleet_IamInstanceProfileSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.IamInstanceProfileSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html
 type AWSEC2SpotFleet_IamInstanceProfileSpecification struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DMS::Endpoint.MongoDbSettings AWS CloudFormation Resource
+// AWSDMSEndpoint_MongoDbSettings AWS CloudFormation Resource (AWS::DMS::Endpoint.MongoDbSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html
 type AWSDMSEndpoint_MongoDbSettings struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::User AWS CloudFormation Resource
+// AWSIAMUser AWS CloudFormation Resource (AWS::IAM::User)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
 type AWSIAMUser struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::IdentityPool.PushSync AWS CloudFormation Resource
+// AWSCognitoIdentityPool_PushSync AWS CloudFormation Resource (AWS::Cognito::IdentityPool.PushSync)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html
 type AWSCognitoIdentityPool_PushSync struct {
 

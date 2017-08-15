@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::LogStream AWS CloudFormation Resource
+// AWSLogsLogStream AWS CloudFormation Resource (AWS::Logs::LogStream)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
 type AWSLogsLogStream struct {
 

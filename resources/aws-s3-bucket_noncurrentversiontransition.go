@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.NoncurrentVersionTransition AWS CloudFormation Resource
+// AWSS3Bucket_NoncurrentVersionTransition AWS CloudFormation Resource (AWS::S3::Bucket.NoncurrentVersionTransition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html
 type AWSS3Bucket_NoncurrentVersionTransition struct {
 

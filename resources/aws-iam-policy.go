@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::Policy AWS CloudFormation Resource
+// AWSIAMPolicy AWS CloudFormation Resource (AWS::IAM::Policy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html
 type AWSIAMPolicy struct {
 

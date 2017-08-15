@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SQS::QueuePolicy AWS CloudFormation Resource
+// AWSSQSQueuePolicy AWS CloudFormation Resource (AWS::SQS::QueuePolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html
 type AWSSQSQueuePolicy struct {
 

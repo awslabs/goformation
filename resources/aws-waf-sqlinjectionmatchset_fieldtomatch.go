@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::SqlInjectionMatchSet.FieldToMatch AWS CloudFormation Resource
+// AWSWAFSqlInjectionMatchSet_FieldToMatch AWS CloudFormation Resource (AWS::WAF::SqlInjectionMatchSet.FieldToMatch)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples-fieldtomatch.html
 type AWSWAFSqlInjectionMatchSet_FieldToMatch struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EFS::MountTarget AWS CloudFormation Resource
+// AWSEFSMountTarget AWS CloudFormation Resource (AWS::EFS::MountTarget)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
 type AWSEFSMountTarget struct {
 

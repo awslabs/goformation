@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::IPSet AWS CloudFormation Resource
+// AWSWAFIPSet AWS CloudFormation Resource (AWS::WAF::IPSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
 type AWSWAFIPSet struct {
 

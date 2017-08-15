@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DirectoryService::MicrosoftAD AWS CloudFormation Resource
+// AWSDirectoryServiceMicrosoftAD AWS CloudFormation Resource (AWS::DirectoryService::MicrosoftAD)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
 type AWSDirectoryServiceMicrosoftAD struct {
 

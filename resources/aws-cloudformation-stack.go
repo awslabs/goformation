@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudFormation::Stack AWS CloudFormation Resource
+// AWSCloudFormationStack AWS CloudFormation Resource (AWS::CloudFormation::Stack)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
 type AWSCloudFormationStack struct {
 

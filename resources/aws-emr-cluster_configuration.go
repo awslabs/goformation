@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.Configuration AWS CloudFormation Resource
+// AWSEMRCluster_Configuration AWS CloudFormation Resource (AWS::EMR::Cluster.Configuration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
 type AWSEMRCluster_Configuration struct {
 

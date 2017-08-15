@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudWatch::Alarm.Dimension AWS CloudFormation Resource
+// AWSCloudWatchAlarm_Dimension AWS CloudFormation Resource (AWS::CloudWatch::Alarm.Dimension)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html
 type AWSCloudWatchAlarm_Dimension struct {
 

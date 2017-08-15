@@ -1,6 +1,6 @@
 package resources
 
-// AWS::GameLift::Build.S3Location AWS CloudFormation Resource
+// AWSGameLiftBuild_S3Location AWS CloudFormation Resource (AWS::GameLift::Build.S3Location)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html
 type AWSGameLiftBuild_S3Location struct {
 

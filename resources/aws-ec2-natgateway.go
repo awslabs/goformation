@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::NatGateway AWS CloudFormation Resource
+// AWSEC2NatGateway AWS CloudFormation Resource (AWS::EC2::NatGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
 type AWSEC2NatGateway struct {
 

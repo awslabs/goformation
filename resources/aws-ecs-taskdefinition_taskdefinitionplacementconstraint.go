@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.TaskDefinitionPlacementConstraint AWS CloudFormation Resource
+// AWSECSTaskDefinition_TaskDefinitionPlacementConstraint AWS CloudFormation Resource (AWS::ECS::TaskDefinition.TaskDefinitionPlacementConstraint)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html
 type AWSECSTaskDefinition_TaskDefinitionPlacementConstraint struct {
 

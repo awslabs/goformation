@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::Volume AWS CloudFormation Resource
+// AWSEC2Volume AWS CloudFormation Resource (AWS::EC2::Volume)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html
 type AWSEC2Volume struct {
 

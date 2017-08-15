@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DynamoDB::Table.AttributeDefinition AWS CloudFormation Resource
+// AWSDynamoDBTable_AttributeDefinition AWS CloudFormation Resource (AWS::DynamoDB::Table.AttributeDefinition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
 type AWSDynamoDBTable_AttributeDefinition struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.StageTransition AWS CloudFormation Resource
+// AWSCodePipelinePipeline_StageTransition AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.StageTransition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html
 type AWSCodePipelinePipeline_StageTransition struct {
 

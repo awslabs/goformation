@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.TopicConfiguration AWS CloudFormation Resource
+// AWSS3Bucket_TopicConfiguration AWS CloudFormation Resource (AWS::S3::Bucket.TopicConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html
 type AWSS3Bucket_TopicConfiguration struct {
 

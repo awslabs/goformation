@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.PlacementType AWS CloudFormation Resource
+// AWSEMRCluster_PlacementType AWS CloudFormation Resource (AWS::EMR::Cluster.PlacementType)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-placementtype.html
 type AWSEMRCluster_PlacementType struct {
 

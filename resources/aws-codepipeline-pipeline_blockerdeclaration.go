@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.BlockerDeclaration AWS CloudFormation Resource
+// AWSCodePipelinePipeline_BlockerDeclaration AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.BlockerDeclaration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html
 type AWSCodePipelinePipeline_BlockerDeclaration struct {
 

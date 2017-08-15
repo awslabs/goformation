@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.MetricDimension AWS CloudFormation Resource
+// AWSEMRCluster_MetricDimension AWS CloudFormation Resource (AWS::EMR::Cluster.MetricDimension)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-metricdimension.html
 type AWSEMRCluster_MetricDimension struct {
 

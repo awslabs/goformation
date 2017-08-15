@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::GameLift::Alias AWS CloudFormation Resource
+// AWSGameLiftAlias AWS CloudFormation Resource (AWS::GameLift::Alias)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
 type AWSGameLiftAlias struct {
 

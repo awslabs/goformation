@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Batch::JobDefinition.ContainerProperties AWS CloudFormation Resource
+// AWSBatchJobDefinition_ContainerProperties AWS CloudFormation Resource (AWS::Batch::JobDefinition.ContainerProperties)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html
 type AWSBatchJobDefinition_ContainerProperties struct {
 

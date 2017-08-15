@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAFRegional::ByteMatchSet AWS CloudFormation Resource
+// AWSWAFRegionalByteMatchSet AWS CloudFormation Resource (AWS::WAFRegional::ByteMatchSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html
 type AWSWAFRegionalByteMatchSet struct {
 

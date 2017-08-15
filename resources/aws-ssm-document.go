@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SSM::Document AWS CloudFormation Resource
+// AWSSSMDocument AWS CloudFormation Resource (AWS::SSM::Document)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
 type AWSSSMDocument struct {
 

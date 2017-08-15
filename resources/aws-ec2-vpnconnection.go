@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::VPNConnection AWS CloudFormation Resource
+// AWSEC2VPNConnection AWS CloudFormation Resource (AWS::EC2::VPNConnection)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
 type AWSEC2VPNConnection struct {
 

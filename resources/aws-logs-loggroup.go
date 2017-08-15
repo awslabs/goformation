@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::LogGroup AWS CloudFormation Resource
+// AWSLogsLogGroup AWS CloudFormation Resource (AWS::Logs::LogGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 type AWSLogsLogGroup struct {
 

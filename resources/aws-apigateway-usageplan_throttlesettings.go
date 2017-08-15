@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApiGateway::UsagePlan.ThrottleSettings AWS CloudFormation Resource
+// AWSApiGatewayUsagePlan_ThrottleSettings AWS CloudFormation Resource (AWS::ApiGateway::UsagePlan.ThrottleSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
 type AWSApiGatewayUsagePlan_ThrottleSettings struct {
 

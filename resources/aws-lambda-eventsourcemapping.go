@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::EventSourceMapping AWS CloudFormation Resource
+// AWSLambdaEventSourceMapping AWS CloudFormation Resource (AWS::Lambda::EventSourceMapping)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
 type AWSLambdaEventSourceMapping struct {
 

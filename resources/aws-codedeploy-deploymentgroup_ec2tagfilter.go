@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeDeploy::DeploymentGroup.EC2TagFilter AWS CloudFormation Resource
+// AWSCodeDeployDeploymentGroup_EC2TagFilter AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.EC2TagFilter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html
 type AWSCodeDeployDeploymentGroup_EC2TagFilter struct {
 

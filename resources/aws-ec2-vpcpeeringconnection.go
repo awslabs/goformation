@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::VPCPeeringConnection AWS CloudFormation Resource
+// AWSEC2VPCPeeringConnection AWS CloudFormation Resource (AWS::EC2::VPCPeeringConnection)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
 type AWSEC2VPCPeeringConnection struct {
 

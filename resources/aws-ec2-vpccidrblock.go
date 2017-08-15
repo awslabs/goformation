@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::VPCCidrBlock AWS CloudFormation Resource
+// AWSEC2VPCCidrBlock AWS CloudFormation Resource (AWS::EC2::VPCCidrBlock)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
 type AWSEC2VPCCidrBlock struct {
 

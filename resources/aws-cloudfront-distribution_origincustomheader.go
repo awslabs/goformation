@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.OriginCustomHeader AWS CloudFormation Resource
+// AWSCloudFrontDistribution_OriginCustomHeader AWS CloudFormation Resource (AWS::CloudFront::Distribution.OriginCustomHeader)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html
 type AWSCloudFrontDistribution_OriginCustomHeader struct {
 

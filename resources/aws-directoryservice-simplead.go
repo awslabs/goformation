@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DirectoryService::SimpleAD AWS CloudFormation Resource
+// AWSDirectoryServiceSimpleAD AWS CloudFormation Resource (AWS::DirectoryService::SimpleAD)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
 type AWSDirectoryServiceSimpleAD struct {
 

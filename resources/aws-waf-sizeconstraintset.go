@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::SizeConstraintSet AWS CloudFormation Resource
+// AWSWAFSizeConstraintSet AWS CloudFormation Resource (AWS::WAF::SizeConstraintSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html
 type AWSWAFSizeConstraintSet struct {
 

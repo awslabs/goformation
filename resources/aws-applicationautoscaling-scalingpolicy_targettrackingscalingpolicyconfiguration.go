@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApplicationAutoScaling::ScalingPolicy.TargetTrackingScalingPolicyConfiguration AWS CloudFormation Resource
+// AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalingPolicy.TargetTrackingScalingPolicyConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html
 type AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration struct {
 

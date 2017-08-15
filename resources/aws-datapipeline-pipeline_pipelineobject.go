@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DataPipeline::Pipeline.PipelineObject AWS CloudFormation Resource
+// AWSDataPipelinePipeline_PipelineObject AWS CloudFormation Resource (AWS::DataPipeline::Pipeline.PipelineObject)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobjects.html
 type AWSDataPipelinePipeline_PipelineObject struct {
 

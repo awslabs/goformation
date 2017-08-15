@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Cognito::IdentityPoolRoleAttachment.MappingRule AWS CloudFormation Resource
+// AWSCognitoIdentityPoolRoleAttachment_MappingRule AWS CloudFormation Resource (AWS::Cognito::IdentityPoolRoleAttachment.MappingRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html
 type AWSCognitoIdentityPoolRoleAttachment_MappingRule struct {
 

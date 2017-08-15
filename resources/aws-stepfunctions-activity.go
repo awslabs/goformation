@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::StepFunctions::Activity AWS CloudFormation Resource
+// AWSStepFunctionsActivity AWS CloudFormation Resource (AWS::StepFunctions::Activity)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
 type AWSStepFunctionsActivity struct {
 

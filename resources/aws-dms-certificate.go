@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DMS::Certificate AWS CloudFormation Resource
+// AWSDMSCertificate AWS CloudFormation Resource (AWS::DMS::Certificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html
 type AWSDMSCertificate struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DynamoDB::Table AWS CloudFormation Resource
+// AWSDynamoDBTable AWS CloudFormation Resource (AWS::DynamoDB::Table)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
 type AWSDynamoDBTable struct {
 

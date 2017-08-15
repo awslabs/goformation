@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::WebACL.ActivatedRule AWS CloudFormation Resource
+// AWSWAFWebACL_ActivatedRule AWS CloudFormation Resource (AWS::WAF::WebACL.ActivatedRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html
 type AWSWAFWebACL_ActivatedRule struct {
 

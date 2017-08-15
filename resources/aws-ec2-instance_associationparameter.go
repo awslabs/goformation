@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::Instance.AssociationParameter AWS CloudFormation Resource
+// AWSEC2Instance_AssociationParameter AWS CloudFormation Resource (AWS::EC2::Instance.AssociationParameter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html
 type AWSEC2Instance_AssociationParameter struct {
 

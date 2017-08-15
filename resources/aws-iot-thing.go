@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IoT::Thing AWS CloudFormation Resource
+// AWSIoTThing AWS CloudFormation Resource (AWS::IoT::Thing)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
 type AWSIoTThing struct {
 

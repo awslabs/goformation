@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisAnalytics::ApplicationReferenceDataSource.RecordFormat AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationReferenceDataSource_RecordFormat AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource.RecordFormat)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource_RecordFormat struct {
 

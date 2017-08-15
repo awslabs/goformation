@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::Function AWS CloudFormation Resource
+// AWSLambdaFunction AWS CloudFormation Resource (AWS::Lambda::Function)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
 type AWSLambdaFunction struct {
 

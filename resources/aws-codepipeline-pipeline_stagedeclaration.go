@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.StageDeclaration AWS CloudFormation Resource
+// AWSCodePipelinePipeline_StageDeclaration AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.StageDeclaration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html
 type AWSCodePipelinePipeline_StageDeclaration struct {
 

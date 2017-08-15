@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::ClientCertificate AWS CloudFormation Resource
+// AWSApiGatewayClientCertificate AWS CloudFormation Resource (AWS::ApiGateway::ClientCertificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
 type AWSApiGatewayClientCertificate struct {
 

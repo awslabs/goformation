@@ -1,6 +1,6 @@
 package resources
 
-// AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration AWS CloudFormation Resource
+// AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html
 type AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Instance.BlockDeviceMapping AWS CloudFormation Resource
+// AWSOpsWorksInstance_BlockDeviceMapping AWS CloudFormation Resource (AWS::OpsWorks::Instance.BlockDeviceMapping)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html
 type AWSOpsWorksInstance_BlockDeviceMapping struct {
 

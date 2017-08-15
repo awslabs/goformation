@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Stack.ChefConfiguration AWS CloudFormation Resource
+// AWSOpsWorksStack_ChefConfiguration AWS CloudFormation Resource (AWS::OpsWorks::Stack.ChefConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-chefconfiguration.html
 type AWSOpsWorksStack_ChefConfiguration struct {
 

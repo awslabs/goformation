@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::Authorizer AWS CloudFormation Resource
+// AWSApiGatewayAuthorizer AWS CloudFormation Resource (AWS::ApiGateway::Authorizer)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html
 type AWSApiGatewayAuthorizer struct {
 

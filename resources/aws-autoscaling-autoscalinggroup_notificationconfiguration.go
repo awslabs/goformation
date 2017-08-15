@@ -1,6 +1,6 @@
 package resources
 
-// AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration AWS CloudFormation Resource
+// AWSAutoScalingAutoScalingGroup_NotificationConfiguration AWS CloudFormation Resource (AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html
 type AWSAutoScalingAutoScalingGroup_NotificationConfiguration struct {
 

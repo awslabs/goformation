@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.HostEntry AWS CloudFormation Resource
+// AWSECSTaskDefinition_HostEntry AWS CloudFormation Resource (AWS::ECS::TaskDefinition.HostEntry)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
 type AWSECSTaskDefinition_HostEntry struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::App.Source AWS CloudFormation Resource
+// AWSOpsWorksApp_Source AWS CloudFormation Resource (AWS::OpsWorks::App.Source)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-source.html
 type AWSOpsWorksApp_Source struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::TaskDefinition.KeyValuePair AWS CloudFormation Resource
+// AWSECSTaskDefinition_KeyValuePair AWS CloudFormation Resource (AWS::ECS::TaskDefinition.KeyValuePair)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html
 type AWSECSTaskDefinition_KeyValuePair struct {
 

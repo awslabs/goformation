@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.ScalingConstraints AWS CloudFormation Resource
+// AWSEMRCluster_ScalingConstraints AWS CloudFormation Resource (AWS::EMR::Cluster.ScalingConstraints)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingconstraints.html
 type AWSEMRCluster_ScalingConstraints struct {
 

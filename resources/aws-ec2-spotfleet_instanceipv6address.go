@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.InstanceIpv6Address AWS CloudFormation Resource
+// AWSEC2SpotFleet_InstanceIpv6Address AWS CloudFormation Resource (AWS::EC2::SpotFleet.InstanceIpv6Address)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html
 type AWSEC2SpotFleet_InstanceIpv6Address struct {
 

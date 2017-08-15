@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Route53::HealthCheck AWS CloudFormation Resource
+// AWSRoute53HealthCheck AWS CloudFormation Resource (AWS::Route53::HealthCheck)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
 type AWSRoute53HealthCheck struct {
 

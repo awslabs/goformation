@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.NotificationConfiguration AWS CloudFormation Resource
+// AWSS3Bucket_NotificationConfiguration AWS CloudFormation Resource (AWS::S3::Bucket.NotificationConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
 type AWSS3Bucket_NotificationConfiguration struct {
 

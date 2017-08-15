@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.FilterRule AWS CloudFormation Resource
+// AWSS3Bucket_FilterRule AWS CloudFormation Resource (AWS::S3::Bucket.FilterRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html
 type AWSS3Bucket_FilterRule struct {
 

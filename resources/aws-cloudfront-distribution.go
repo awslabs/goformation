@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudFront::Distribution AWS CloudFormation Resource
+// AWSCloudFrontDistribution AWS CloudFormation Resource (AWS::CloudFront::Distribution)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html
 type AWSCloudFrontDistribution struct {
 

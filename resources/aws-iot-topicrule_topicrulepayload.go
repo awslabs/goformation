@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.TopicRulePayload AWS CloudFormation Resource
+// AWSIoTTopicRule_TopicRulePayload AWS CloudFormation Resource (AWS::IoT::TopicRule.TopicRulePayload)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html
 type AWSIoTTopicRule_TopicRulePayload struct {
 

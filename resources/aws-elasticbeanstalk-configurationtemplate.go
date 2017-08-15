@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElasticBeanstalk::ConfigurationTemplate AWS CloudFormation Resource
+// AWSElasticBeanstalkConfigurationTemplate AWS CloudFormation Resource (AWS::ElasticBeanstalk::ConfigurationTemplate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html
 type AWSElasticBeanstalkConfigurationTemplate struct {
 

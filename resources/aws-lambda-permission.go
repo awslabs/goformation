@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::Permission AWS CloudFormation Resource
+// AWSLambdaPermission AWS CloudFormation Resource (AWS::Lambda::Permission)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 type AWSLambdaPermission struct {
 

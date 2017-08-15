@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DMS::Endpoint AWS CloudFormation Resource
+// AWSDMSEndpoint AWS CloudFormation Resource (AWS::DMS::Endpoint)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html
 type AWSDMSEndpoint struct {
 

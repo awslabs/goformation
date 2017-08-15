@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticBeanstalk::ConfigurationTemplate.ConfigurationOptionSetting AWS CloudFormation Resource
+// AWSElasticBeanstalkConfigurationTemplate_ConfigurationOptionSetting AWS CloudFormation Resource (AWS::ElasticBeanstalk::ConfigurationTemplate.ConfigurationOptionSetting)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html
 type AWSElasticBeanstalkConfigurationTemplate_ConfigurationOptionSetting struct {
 

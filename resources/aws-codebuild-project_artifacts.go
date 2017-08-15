@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeBuild::Project.Artifacts AWS CloudFormation Resource
+// AWSCodeBuildProject_Artifacts AWS CloudFormation Resource (AWS::CodeBuild::Project.Artifacts)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html
 type AWSCodeBuildProject_Artifacts struct {
 

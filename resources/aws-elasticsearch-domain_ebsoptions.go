@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Elasticsearch::Domain.EBSOptions AWS CloudFormation Resource
+// AWSElasticsearchDomain_EBSOptions AWS CloudFormation Resource (AWS::Elasticsearch::Domain.EBSOptions)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html
 type AWSElasticsearchDomain_EBSOptions struct {
 

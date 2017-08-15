@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::DomainName AWS CloudFormation Resource
+// AWSApiGatewayDomainName AWS CloudFormation Resource (AWS::ApiGateway::DomainName)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 type AWSApiGatewayDomainName struct {
 

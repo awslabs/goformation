@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Elasticsearch::Domain AWS CloudFormation Resource
+// AWSElasticsearchDomain AWS CloudFormation Resource (AWS::Elasticsearch::Domain)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
 type AWSElasticsearchDomain struct {
 

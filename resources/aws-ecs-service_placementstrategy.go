@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ECS::Service.PlacementStrategy AWS CloudFormation Resource
+// AWSECSService_PlacementStrategy AWS CloudFormation Resource (AWS::ECS::Service.PlacementStrategy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html
 type AWSECSService_PlacementStrategy struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::KMS::Key AWS CloudFormation Resource
+// AWSKMSKey AWS CloudFormation Resource (AWS::KMS::Key)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
 type AWSKMSKey struct {
 

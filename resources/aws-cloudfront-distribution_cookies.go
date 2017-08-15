@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.Cookies AWS CloudFormation Resource
+// AWSCloudFrontDistribution_Cookies AWS CloudFormation Resource (AWS::CloudFront::Distribution.Cookies)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html
 type AWSCloudFrontDistribution_Cookies struct {
 

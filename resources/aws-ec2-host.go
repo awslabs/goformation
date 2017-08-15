@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::Host AWS CloudFormation Resource
+// AWSEC2Host AWS CloudFormation Resource (AWS::EC2::Host)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html
 type AWSEC2Host struct {
 

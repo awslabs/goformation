@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension AWS CloudFormation Resource
+// AWSApplicationAutoScalingScalingPolicy_MetricDimension AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html
 type AWSApplicationAutoScalingScalingPolicy_MetricDimension struct {
 

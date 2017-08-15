@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DynamoDB::Table.Projection AWS CloudFormation Resource
+// AWSDynamoDBTable_Projection AWS CloudFormation Resource (AWS::DynamoDB::Table.Projection)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html
 type AWSDynamoDBTable_Projection struct {
 

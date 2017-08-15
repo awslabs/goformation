@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::InstanceFleetConfig AWS CloudFormation Resource
+// AWSEMRInstanceFleetConfig AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
 type AWSEMRInstanceFleetConfig struct {
 

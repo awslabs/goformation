@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Batch::ComputeEnvironment AWS CloudFormation Resource
+// AWSBatchComputeEnvironment AWS CloudFormation Resource (AWS::Batch::ComputeEnvironment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html
 type AWSBatchComputeEnvironment struct {
 

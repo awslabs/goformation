@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::App.SslConfiguration AWS CloudFormation Resource
+// AWSOpsWorksApp_SslConfiguration AWS CloudFormation Resource (AWS::OpsWorks::App.SslConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-sslconfiguration.html
 type AWSOpsWorksApp_SslConfiguration struct {
 

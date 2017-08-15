@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Lambda::Function.Environment AWS CloudFormation Resource
+// AWSLambdaFunction_Environment AWS CloudFormation Resource (AWS::Lambda::Function.Environment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
 type AWSLambdaFunction_Environment struct {
 

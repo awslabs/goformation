@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.InstanceTypeConfig AWS CloudFormation Resource
+// AWSEMRCluster_InstanceTypeConfig AWS CloudFormation Resource (AWS::EMR::Cluster.InstanceTypeConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html
 type AWSEMRCluster_InstanceTypeConfig struct {
 

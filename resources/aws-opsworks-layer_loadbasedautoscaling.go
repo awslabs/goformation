@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Layer.LoadBasedAutoScaling AWS CloudFormation Resource
+// AWSOpsWorksLayer_LoadBasedAutoScaling AWS CloudFormation Resource (AWS::OpsWorks::Layer.LoadBasedAutoScaling)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling.html
 type AWSOpsWorksLayer_LoadBasedAutoScaling struct {
 

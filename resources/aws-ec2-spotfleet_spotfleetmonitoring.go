@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SpotFleet.SpotFleetMonitoring AWS CloudFormation Resource
+// AWSEC2SpotFleet_SpotFleetMonitoring AWS CloudFormation Resource (AWS::EC2::SpotFleet.SpotFleetMonitoring)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html
 type AWSEC2SpotFleet_SpotFleetMonitoring struct {
 

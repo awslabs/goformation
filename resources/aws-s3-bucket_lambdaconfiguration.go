@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.LambdaConfiguration AWS CloudFormation Resource
+// AWSS3Bucket_LambdaConfiguration AWS CloudFormation Resource (AWS::S3::Bucket.LambdaConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html
 type AWSS3Bucket_LambdaConfiguration struct {
 

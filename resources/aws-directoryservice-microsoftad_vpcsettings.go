@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DirectoryService::MicrosoftAD.VpcSettings AWS CloudFormation Resource
+// AWSDirectoryServiceMicrosoftAD_VpcSettings AWS CloudFormation Resource (AWS::DirectoryService::MicrosoftAD.VpcSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html
 type AWSDirectoryServiceMicrosoftAD_VpcSettings struct {
 

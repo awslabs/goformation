@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.OutputArtifact AWS CloudFormation Resource
+// AWSCodePipelinePipeline_OutputArtifact AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.OutputArtifact)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-outputartifacts.html
 type AWSCodePipelinePipeline_OutputArtifact struct {
 

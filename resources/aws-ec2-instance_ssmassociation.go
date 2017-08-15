@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::Instance.SsmAssociation AWS CloudFormation Resource
+// AWSEC2Instance_SsmAssociation AWS CloudFormation Resource (AWS::EC2::Instance.SsmAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html
 type AWSEC2Instance_SsmAssociation struct {
 

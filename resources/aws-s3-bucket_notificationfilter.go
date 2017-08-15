@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.NotificationFilter AWS CloudFormation Resource
+// AWSS3Bucket_NotificationFilter AWS CloudFormation Resource (AWS::S3::Bucket.NotificationFilter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html
 type AWSS3Bucket_NotificationFilter struct {
 

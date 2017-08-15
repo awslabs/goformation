@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::KMS::Alias AWS CloudFormation Resource
+// AWSKMSAlias AWS CloudFormation Resource (AWS::KMS::Alias)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
 type AWSKMSAlias struct {
 

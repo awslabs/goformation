@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DynamoDB::Table.GlobalSecondaryIndex AWS CloudFormation Resource
+// AWSDynamoDBTable_GlobalSecondaryIndex AWS CloudFormation Resource (AWS::DynamoDB::Table.GlobalSecondaryIndex)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
 type AWSDynamoDBTable_GlobalSecondaryIndex struct {
 

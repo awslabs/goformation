@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.Logging AWS CloudFormation Resource
+// AWSCloudFrontDistribution_Logging AWS CloudFormation Resource (AWS::CloudFront::Distribution.Logging)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-logging.html
 type AWSCloudFrontDistribution_Logging struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::Pipeline.ActionTypeId AWS CloudFormation Resource
+// AWSCodePipelinePipeline_ActionTypeId AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.ActionTypeId)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html
 type AWSCodePipelinePipeline_ActionTypeId struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::StepFunctions::StateMachine AWS CloudFormation Resource
+// AWSStepFunctionsStateMachine AWS CloudFormation Resource (AWS::StepFunctions::StateMachine)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
 type AWSStepFunctionsStateMachine struct {
 

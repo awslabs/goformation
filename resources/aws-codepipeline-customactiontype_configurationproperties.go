@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodePipeline::CustomActionType.ConfigurationProperties AWS CloudFormation Resource
+// AWSCodePipelineCustomActionType_ConfigurationProperties AWS CloudFormation Resource (AWS::CodePipeline::CustomActionType.ConfigurationProperties)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html
 type AWSCodePipelineCustomActionType_ConfigurationProperties struct {
 

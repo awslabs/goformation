@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancing::LoadBalancer.Policies AWS CloudFormation Resource
+// AWSElasticLoadBalancingLoadBalancer_Policies AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.Policies)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html
 type AWSElasticLoadBalancingLoadBalancer_Policies struct {
 

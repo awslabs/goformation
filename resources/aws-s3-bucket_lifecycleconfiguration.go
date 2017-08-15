@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.LifecycleConfiguration AWS CloudFormation Resource
+// AWSS3Bucket_LifecycleConfiguration AWS CloudFormation Resource (AWS::S3::Bucket.LifecycleConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html
 type AWSS3Bucket_LifecycleConfiguration struct {
 

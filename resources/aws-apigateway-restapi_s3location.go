@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ApiGateway::RestApi.S3Location AWS CloudFormation Resource
+// AWSApiGatewayRestApi_S3Location AWS CloudFormation Resource (AWS::ApiGateway::RestApi.S3Location)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html
 type AWSApiGatewayRestApi_S3Location struct {
 

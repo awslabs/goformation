@@ -1,6 +1,6 @@
 package resources
 
-// Tag AWS CloudFormation Resource
+// Tag AWS CloudFormation Resource (Tag)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationinstance-tag.html
 type Tag struct {
 

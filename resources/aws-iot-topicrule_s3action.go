@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.S3Action AWS CloudFormation Resource
+// AWSIoTTopicRule_S3Action AWS CloudFormation Resource (AWS::IoT::TopicRule.S3Action)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-s3.html
 type AWSIoTTopicRule_S3Action struct {
 

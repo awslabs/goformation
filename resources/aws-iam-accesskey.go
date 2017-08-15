@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::AccessKey AWS CloudFormation Resource
+// AWSIAMAccessKey AWS CloudFormation Resource (AWS::IAM::AccessKey)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
 type AWSIAMAccessKey struct {
 

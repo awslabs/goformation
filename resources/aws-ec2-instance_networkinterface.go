@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::Instance.NetworkInterface AWS CloudFormation Resource
+// AWSEC2Instance_NetworkInterface AWS CloudFormation Resource (AWS::EC2::Instance.NetworkInterface)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html
 type AWSEC2Instance_NetworkInterface struct {
 

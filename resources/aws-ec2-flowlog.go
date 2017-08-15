@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::FlowLog AWS CloudFormation Resource
+// AWSEC2FlowLog AWS CloudFormation Resource (AWS::EC2::FlowLog)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
 type AWSEC2FlowLog struct {
 

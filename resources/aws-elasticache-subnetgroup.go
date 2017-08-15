@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElastiCache::SubnetGroup AWS CloudFormation Resource
+// AWSElastiCacheSubnetGroup AWS CloudFormation Resource (AWS::ElastiCache::SubnetGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html
 type AWSElastiCacheSubnetGroup struct {
 

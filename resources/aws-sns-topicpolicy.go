@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SNS::TopicPolicy AWS CloudFormation Resource
+// AWSSNSTopicPolicy AWS CloudFormation Resource (AWS::SNS::TopicPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
 type AWSSNSTopicPolicy struct {
 

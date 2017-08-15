@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EFS::FileSystem AWS CloudFormation Resource
+// AWSEFSFileSystem AWS CloudFormation Resource (AWS::EFS::FileSystem)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 type AWSEFSFileSystem struct {
 

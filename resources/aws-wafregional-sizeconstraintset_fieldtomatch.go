@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAFRegional::SizeConstraintSet.FieldToMatch AWS CloudFormation Resource
+// AWSWAFRegionalSizeConstraintSet_FieldToMatch AWS CloudFormation Resource (AWS::WAFRegional::SizeConstraintSet.FieldToMatch)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html
 type AWSWAFRegionalSizeConstraintSet_FieldToMatch struct {
 

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CodePipeline::CustomActionType AWS CloudFormation Resource
+// AWSCodePipelineCustomActionType AWS CloudFormation Resource (AWS::CodePipeline::CustomActionType)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
 type AWSCodePipelineCustomActionType struct {
 

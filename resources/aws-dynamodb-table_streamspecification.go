@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DynamoDB::Table.StreamSpecification AWS CloudFormation Resource
+// AWSDynamoDBTable_StreamSpecification AWS CloudFormation Resource (AWS::DynamoDB::Table.StreamSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html
 type AWSDynamoDBTable_StreamSpecification struct {
 

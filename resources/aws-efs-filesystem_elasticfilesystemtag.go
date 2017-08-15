@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EFS::FileSystem.ElasticFileSystemTag AWS CloudFormation Resource
+// AWSEFSFileSystem_ElasticFileSystemTag AWS CloudFormation Resource (AWS::EFS::FileSystem.ElasticFileSystemTag)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html
 type AWSEFSFileSystem_ElasticFileSystemTag struct {
 

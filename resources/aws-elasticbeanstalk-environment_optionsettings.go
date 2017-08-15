@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticBeanstalk::Environment.OptionSettings AWS CloudFormation Resource
+// AWSElasticBeanstalkEnvironment_OptionSettings AWS CloudFormation Resource (AWS::ElasticBeanstalk::Environment.OptionSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html
 type AWSElasticBeanstalkEnvironment_OptionSettings struct {
 

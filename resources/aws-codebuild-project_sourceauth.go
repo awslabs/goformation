@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CodeBuild::Project.SourceAuth AWS CloudFormation Resource
+// AWSCodeBuildProject_SourceAuth AWS CloudFormation Resource (AWS::CodeBuild::Project.SourceAuth)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html
 type AWSCodeBuildProject_SourceAuth struct {
 

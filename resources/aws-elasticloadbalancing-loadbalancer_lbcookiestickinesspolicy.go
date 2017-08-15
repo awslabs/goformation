@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancing::LoadBalancer.LBCookieStickinessPolicy AWS CloudFormation Resource
+// AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.LBCookieStickinessPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html
 type AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy struct {
 

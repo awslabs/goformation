@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.DynamoDBAction AWS CloudFormation Resource
+// AWSIoTTopicRule_DynamoDBAction AWS CloudFormation Resource (AWS::IoT::TopicRule.DynamoDBAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html
 type AWSIoTTopicRule_DynamoDBAction struct {
 

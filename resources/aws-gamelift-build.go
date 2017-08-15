@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::GameLift::Build AWS CloudFormation Resource
+// AWSGameLiftBuild AWS CloudFormation Resource (AWS::GameLift::Build)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
 type AWSGameLiftBuild struct {
 

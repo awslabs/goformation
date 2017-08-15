@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::Cluster.ScalingTrigger AWS CloudFormation Resource
+// AWSEMRCluster_ScalingTrigger AWS CloudFormation Resource (AWS::EMR::Cluster.ScalingTrigger)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html
 type AWSEMRCluster_ScalingTrigger struct {
 

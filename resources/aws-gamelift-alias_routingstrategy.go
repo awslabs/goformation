@@ -1,6 +1,6 @@
 package resources
 
-// AWS::GameLift::Alias.RoutingStrategy AWS CloudFormation Resource
+// AWSGameLiftAlias_RoutingStrategy AWS CloudFormation Resource (AWS::GameLift::Alias.RoutingStrategy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
 type AWSGameLiftAlias_RoutingStrategy struct {
 

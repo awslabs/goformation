@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.CorsRule AWS CloudFormation Resource
+// AWSS3Bucket_CorsRule AWS CloudFormation Resource (AWS::S3::Bucket.CorsRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html
 type AWSS3Bucket_CorsRule struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DataPipeline::Pipeline.PipelineTag AWS CloudFormation Resource
+// AWSDataPipelinePipeline_PipelineTag AWS CloudFormation Resource (AWS::DataPipeline::Pipeline.PipelineTag)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetags.html
 type AWSDataPipelinePipeline_PipelineTag struct {
 

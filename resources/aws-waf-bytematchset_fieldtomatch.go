@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::ByteMatchSet.FieldToMatch AWS CloudFormation Resource
+// AWSWAFByteMatchSet_FieldToMatch AWS CloudFormation Resource (AWS::WAF::ByteMatchSet.FieldToMatch)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples-fieldtomatch.html
 type AWSWAFByteMatchSet_FieldToMatch struct {
 

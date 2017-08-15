@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IAM::User.Policy AWS CloudFormation Resource
+// AWSIAMUser_Policy AWS CloudFormation Resource (AWS::IAM::User.Policy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
 type AWSIAMUser_Policy struct {
 

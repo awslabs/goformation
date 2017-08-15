@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Elasticsearch::Domain.ElasticsearchClusterConfig AWS CloudFormation Resource
+// AWSElasticsearchDomain_ElasticsearchClusterConfig AWS CloudFormation Resource (AWS::Elasticsearch::Domain.ElasticsearchClusterConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html
 type AWSElasticsearchDomain_ElasticsearchClusterConfig struct {
 

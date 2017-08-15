@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.QueueConfiguration AWS CloudFormation Resource
+// AWSS3Bucket_QueueConfiguration AWS CloudFormation Resource (AWS::S3::Bucket.QueueConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html
 type AWSS3Bucket_QueueConfiguration struct {
 

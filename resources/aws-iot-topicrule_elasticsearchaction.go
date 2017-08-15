@@ -1,6 +1,6 @@
 package resources
 
-// AWS::IoT::TopicRule.ElasticsearchAction AWS CloudFormation Resource
+// AWSIoTTopicRule_ElasticsearchAction AWS CloudFormation Resource (AWS::IoT::TopicRule.ElasticsearchAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html
 type AWSIoTTopicRule_ElasticsearchAction struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::RDS::OptionGroup.OptionConfiguration AWS CloudFormation Resource
+// AWSRDSOptionGroup_OptionConfiguration AWS CloudFormation Resource (AWS::RDS::OptionGroup.OptionConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html
 type AWSRDSOptionGroup_OptionConfiguration struct {
 

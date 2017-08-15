@@ -1,6 +1,6 @@
 package resources
 
-// AWS::SSM::Association.ParameterValues AWS CloudFormation Resource
+// AWSSSMAssociation_ParameterValues AWS CloudFormation Resource (AWS::SSM::Association.ParameterValues)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
 type AWSSSMAssociation_ParameterValues struct {
 

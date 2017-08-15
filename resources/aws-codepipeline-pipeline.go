@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CodePipeline::Pipeline AWS CloudFormation Resource
+// AWSCodePipelinePipeline AWS CloudFormation Resource (AWS::CodePipeline::Pipeline)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
 type AWSCodePipelinePipeline struct {
 

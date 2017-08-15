@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::App.EnvironmentVariable AWS CloudFormation Resource
+// AWSOpsWorksApp_EnvironmentVariable AWS CloudFormation Resource (AWS::OpsWorks::App.EnvironmentVariable)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-environment.html
 type AWSOpsWorksApp_EnvironmentVariable struct {
 

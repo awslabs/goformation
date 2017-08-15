@@ -1,6 +1,6 @@
 package resources
 
-// AWS::S3::Bucket.LoggingConfiguration AWS CloudFormation Resource
+// AWSS3Bucket_LoggingConfiguration AWS CloudFormation Resource (AWS::S3::Bucket.LoggingConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html
 type AWSS3Bucket_LoggingConfiguration struct {
 

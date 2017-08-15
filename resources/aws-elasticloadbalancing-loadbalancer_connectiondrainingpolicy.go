@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancing::LoadBalancer.ConnectionDrainingPolicy AWS CloudFormation Resource
+// AWSElasticLoadBalancingLoadBalancer_ConnectionDrainingPolicy AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.ConnectionDrainingPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectiondrainingpolicy.html
 type AWSElasticLoadBalancingLoadBalancer_ConnectionDrainingPolicy struct {
 

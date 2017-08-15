@@ -1,6 +1,6 @@
 package resources
 
-// AWS::RDS::DBSecurityGroup.Ingress AWS CloudFormation Resource
+// AWSRDSDBSecurityGroup_Ingress AWS CloudFormation Resource (AWS::RDS::DBSecurityGroup.Ingress)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html
 type AWSRDSDBSecurityGroup_Ingress struct {
 

@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancing::LoadBalancer.AccessLoggingPolicy AWS CloudFormation Resource
+// AWSElasticLoadBalancingLoadBalancer_AccessLoggingPolicy AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.AccessLoggingPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html
 type AWSElasticLoadBalancingLoadBalancer_AccessLoggingPolicy struct {
 

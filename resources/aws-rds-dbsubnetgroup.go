@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::DBSubnetGroup AWS CloudFormation Resource
+// AWSRDSDBSubnetGroup AWS CloudFormation Resource (AWS::RDS::DBSubnetGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html
 type AWSRDSDBSubnetGroup struct {
 

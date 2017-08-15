@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EC2::SecurityGroup.Egress AWS CloudFormation Resource
+// AWSEC2SecurityGroup_Egress AWS CloudFormation Resource (AWS::EC2::SecurityGroup.Egress)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
 type AWSEC2SecurityGroup_Egress struct {
 

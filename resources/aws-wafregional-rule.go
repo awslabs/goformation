@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAFRegional::Rule AWS CloudFormation Resource
+// AWSWAFRegionalRule AWS CloudFormation Resource (AWS::WAFRegional::Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html
 type AWSWAFRegionalRule struct {
 

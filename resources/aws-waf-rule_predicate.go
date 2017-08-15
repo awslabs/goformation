@@ -1,6 +1,6 @@
 package resources
 
-// AWS::WAF::Rule.Predicate AWS CloudFormation Resource
+// AWSWAFRule_Predicate AWS CloudFormation Resource (AWS::WAF::Rule.Predicate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-rule-predicates.html
 type AWSWAFRule_Predicate struct {
 

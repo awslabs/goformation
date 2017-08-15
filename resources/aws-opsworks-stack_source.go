@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Stack.Source AWS CloudFormation Resource
+// AWSOpsWorksStack_Source AWS CloudFormation Resource (AWS::OpsWorks::Stack.Source)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-source.html
 type AWSOpsWorksStack_Source struct {
 

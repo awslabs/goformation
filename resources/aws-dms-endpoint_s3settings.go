@@ -1,6 +1,6 @@
 package resources
 
-// AWS::DMS::Endpoint.S3Settings AWS CloudFormation Resource
+// AWSDMSEndpoint_S3Settings AWS CloudFormation Resource (AWS::DMS::Endpoint.S3Settings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html
 type AWSDMSEndpoint_S3Settings struct {
 

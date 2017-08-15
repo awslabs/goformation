@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::DBInstance AWS CloudFormation Resource
+// AWSRDSDBInstance AWS CloudFormation Resource (AWS::RDS::DBInstance)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
 type AWSRDSDBInstance struct {
 

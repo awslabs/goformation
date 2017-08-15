@@ -1,6 +1,6 @@
 package resources
 
-// AWS::EMR::InstanceFleetConfig.VolumeSpecification AWS CloudFormation Resource
+// AWSEMRInstanceFleetConfig_VolumeSpecification AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig.VolumeSpecification)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html
 type AWSEMRInstanceFleetConfig_VolumeSpecification struct {
 

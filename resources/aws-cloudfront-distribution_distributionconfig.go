@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.DistributionConfig AWS CloudFormation Resource
+// AWSCloudFrontDistribution_DistributionConfig AWS CloudFormation Resource (AWS::CloudFront::Distribution.DistributionConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html
 type AWSCloudFrontDistribution_DistributionConfig struct {
 

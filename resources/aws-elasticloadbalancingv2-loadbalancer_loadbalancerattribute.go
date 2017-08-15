@@ -1,6 +1,6 @@
 package resources
 
-// AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttribute AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttribute)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html
 type AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute struct {
 

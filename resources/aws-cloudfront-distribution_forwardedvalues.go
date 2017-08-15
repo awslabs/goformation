@@ -1,6 +1,6 @@
 package resources
 
-// AWS::CloudFront::Distribution.ForwardedValues AWS CloudFormation Resource
+// AWSCloudFrontDistribution_ForwardedValues AWS CloudFormation Resource (AWS::CloudFront::Distribution.ForwardedValues)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html
 type AWSCloudFrontDistribution_ForwardedValues struct {
 

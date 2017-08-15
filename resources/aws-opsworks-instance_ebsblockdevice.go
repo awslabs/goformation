@@ -1,6 +1,6 @@
 package resources
 
-// AWS::OpsWorks::Instance.EbsBlockDevice AWS CloudFormation Resource
+// AWSOpsWorksInstance_EbsBlockDevice AWS CloudFormation Resource (AWS::OpsWorks::Instance.EbsBlockDevice)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html
 type AWSOpsWorksInstance_EbsBlockDevice struct {
 

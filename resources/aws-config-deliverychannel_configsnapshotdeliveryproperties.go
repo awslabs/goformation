@@ -1,6 +1,6 @@
 package resources
 
-// AWS::Config::DeliveryChannel.ConfigSnapshotDeliveryProperties AWS CloudFormation Resource
+// AWSConfigDeliveryChannel_ConfigSnapshotDeliveryProperties AWS CloudFormation Resource (AWS::Config::DeliveryChannel.ConfigSnapshotDeliveryProperties)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
 type AWSConfigDeliveryChannel_ConfigSnapshotDeliveryProperties struct {
 
