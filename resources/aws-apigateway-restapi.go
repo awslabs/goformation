@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ApiGateway::RestApi AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 type AWSApiGatewayRestApi struct {
@@ -7,47 +13,56 @@ type AWSApiGatewayRestApi struct {
 	// BinaryMediaTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
-	BinaryMediaTypes []AWSApiGatewayRestApistring `json:"BinaryMediaTypes"`
+
+	BinaryMediaTypes []string `json:"BinaryMediaTypes"`
 
 	// Body AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body
-	Body object `json:"Body"`
+
+	Body interface{} `json:"Body"`
 
 	// BodyS3Location AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-bodys3location
-	BodyS3Location AWSApiGatewayRestApiS3Location `json:"BodyS3Location"`
+
+	BodyS3Location AWSApiGatewayRestApi_S3Location `json:"BodyS3Location"`
 
 	// CloneFrom AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-clonefrom
+
 	CloneFrom string `json:"CloneFrom"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description
+
 	Description string `json:"Description"`
 
 	// FailOnWarnings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarnings
+
 	FailOnWarnings bool `json:"FailOnWarnings"`
 
 	// Mode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-mode
+
 	Mode string `json:"Mode"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-name
+
 	Name string `json:"Name"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters
-	Parameters map[string]AWSApiGatewayRestApistring `json:"Parameters"`
+
+	Parameters map[string]string `json:"Parameters"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -58,4 +73,33 @@ func (r *AWSApiGatewayRestApi) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayRestApi) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSApiGatewayRestApiResources retrieves all AWSApiGatewayRestApi items from a CloudFormation template
+func GetAllAWSApiGatewayRestApi(template *Template) map[string]*AWSApiGatewayRestApi {
+
+	results := map[string]*AWSApiGatewayRestApi{}
+	for name, resource := range template.Resources {
+		result := &AWSApiGatewayRestApi{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSApiGatewayRestApiWithName retrieves all AWSApiGatewayRestApi items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSApiGatewayRestApi(name string, template *Template) (*AWSApiGatewayRestApi, error) {
+
+	result := &AWSApiGatewayRestApi{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSApiGatewayRestApi{}, errors.New("resource not found")
+
 }

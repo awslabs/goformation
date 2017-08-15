@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::ApiGateway::Account AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
 type AWSApiGatewayAccount struct {
@@ -7,6 +13,7 @@ type AWSApiGatewayAccount struct {
 	// CloudWatchRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+
 	CloudWatchRoleArn string `json:"CloudWatchRoleArn"`
 }
 
@@ -18,4 +25,33 @@ func (r *AWSApiGatewayAccount) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayAccount) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSApiGatewayAccountResources retrieves all AWSApiGatewayAccount items from a CloudFormation template
+func GetAllAWSApiGatewayAccount(template *Template) map[string]*AWSApiGatewayAccount {
+
+	results := map[string]*AWSApiGatewayAccount{}
+	for name, resource := range template.Resources {
+		result := &AWSApiGatewayAccount{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSApiGatewayAccountWithName retrieves all AWSApiGatewayAccount items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSApiGatewayAccount(name string, template *Template) (*AWSApiGatewayAccount, error) {
+
+	result := &AWSApiGatewayAccount{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSApiGatewayAccount{}, errors.New("resource not found")
+
 }

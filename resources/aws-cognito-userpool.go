@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::Cognito::UserPool AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
 type AWSCognitoUserPool struct {
@@ -7,82 +13,98 @@ type AWSCognitoUserPool struct {
 	// AdminCreateUserConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-admincreateuserconfig
-	AdminCreateUserConfig AWSCognitoUserPoolAdminCreateUserConfig `json:"AdminCreateUserConfig"`
+
+	AdminCreateUserConfig AWSCognitoUserPool_AdminCreateUserConfig `json:"AdminCreateUserConfig"`
 
 	// AliasAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-aliasattributes
-	AliasAttributes []AWSCognitoUserPoolstring `json:"AliasAttributes"`
+
+	AliasAttributes []string `json:"AliasAttributes"`
 
 	// AutoVerifiedAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-autoverifiedattributes
-	AutoVerifiedAttributes []AWSCognitoUserPoolstring `json:"AutoVerifiedAttributes"`
+
+	AutoVerifiedAttributes []string `json:"AutoVerifiedAttributes"`
 
 	// DeviceConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-deviceconfiguration
-	DeviceConfiguration AWSCognitoUserPoolDeviceConfiguration `json:"DeviceConfiguration"`
+
+	DeviceConfiguration AWSCognitoUserPool_DeviceConfiguration `json:"DeviceConfiguration"`
 
 	// EmailConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailconfiguration
-	EmailConfiguration AWSCognitoUserPoolEmailConfiguration `json:"EmailConfiguration"`
+
+	EmailConfiguration AWSCognitoUserPool_EmailConfiguration `json:"EmailConfiguration"`
 
 	// EmailVerificationMessage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailverificationmessage
+
 	EmailVerificationMessage string `json:"EmailVerificationMessage"`
 
 	// EmailVerificationSubject AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailverificationsubject
+
 	EmailVerificationSubject string `json:"EmailVerificationSubject"`
 
 	// LambdaConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-lambdaconfig
-	LambdaConfig AWSCognitoUserPoolLambdaConfig `json:"LambdaConfig"`
+
+	LambdaConfig AWSCognitoUserPool_LambdaConfig `json:"LambdaConfig"`
 
 	// MfaConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-mfaconfiguration
+
 	MfaConfiguration string `json:"MfaConfiguration"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-policies
-	Policies AWSCognitoUserPoolPolicies `json:"Policies"`
+
+	Policies AWSCognitoUserPool_Policies `json:"Policies"`
 
 	// Schema AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-schema
-	Schema []AWSCognitoUserPoolSchemaAttribute `json:"Schema"`
+
+	Schema []AWSCognitoUserPool_SchemaAttribute `json:"Schema"`
 
 	// SmsAuthenticationMessage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-smsauthenticationmessage
+
 	SmsAuthenticationMessage string `json:"SmsAuthenticationMessage"`
 
 	// SmsConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-smsconfiguration
-	SmsConfiguration AWSCognitoUserPoolSmsConfiguration `json:"SmsConfiguration"`
+
+	SmsConfiguration AWSCognitoUserPool_SmsConfiguration `json:"SmsConfiguration"`
 
 	// SmsVerificationMessage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-smsverificationmessage
+
 	SmsVerificationMessage string `json:"SmsVerificationMessage"`
 
 	// UserPoolName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpoolname
+
 	UserPoolName string `json:"UserPoolName"`
 
 	// UserPoolTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooltags
-	UserPoolTags object `json:"UserPoolTags"`
+
+	UserPoolTags interface{} `json:"UserPoolTags"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -93,4 +115,33 @@ func (r *AWSCognitoUserPool) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoUserPool) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSCognitoUserPoolResources retrieves all AWSCognitoUserPool items from a CloudFormation template
+func GetAllAWSCognitoUserPool(template *Template) map[string]*AWSCognitoUserPool {
+
+	results := map[string]*AWSCognitoUserPool{}
+	for name, resource := range template.Resources {
+		result := &AWSCognitoUserPool{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSCognitoUserPoolWithName retrieves all AWSCognitoUserPool items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSCognitoUserPool(name string, template *Template) (*AWSCognitoUserPool, error) {
+
+	result := &AWSCognitoUserPool{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSCognitoUserPool{}, errors.New("resource not found")
+
 }
