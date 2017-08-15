@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::S3::Bucket.CorsConfiguration AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
 type AWSS3Bucket_CorsConfiguration struct {

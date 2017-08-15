@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::EMR::Cluster.ScalingAction AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html
 type AWSEMRCluster_ScalingAction struct {

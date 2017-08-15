@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::CodePipeline::Pipeline.EncryptionKey AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html
 type AWSCodePipelinePipeline_EncryptionKey struct {

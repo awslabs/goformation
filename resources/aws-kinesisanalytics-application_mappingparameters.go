@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::KinesisAnalytics::Application.MappingParameters AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-mappingparameters.html
 type AWSKinesisAnalyticsApplication_MappingParameters struct {

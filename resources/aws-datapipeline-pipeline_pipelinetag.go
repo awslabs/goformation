@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::DataPipeline::Pipeline.PipelineTag AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetags.html
 type AWSDataPipelinePipeline_PipelineTag struct {

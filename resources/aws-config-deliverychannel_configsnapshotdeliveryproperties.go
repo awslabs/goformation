@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::Config::DeliveryChannel.ConfigSnapshotDeliveryProperties AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
 type AWSConfigDeliveryChannel_ConfigSnapshotDeliveryProperties struct {

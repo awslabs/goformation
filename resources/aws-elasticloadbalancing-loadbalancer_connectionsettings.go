@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::ElasticLoadBalancing::LoadBalancer.ConnectionSettings AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html
 type AWSElasticLoadBalancingLoadBalancer_ConnectionSettings struct {

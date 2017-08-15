@@ -1,10 +1,12 @@
 package resources
 
+{{if not .IsCustomProperty}}
 import (
 	"errors"
 
 	"github.com/mitchellh/mapstructure"
 )
+{{end}}
 
 // {{.Name}} AWS CloudFormation Resource
 // See: {{.Resource.Documentation}}

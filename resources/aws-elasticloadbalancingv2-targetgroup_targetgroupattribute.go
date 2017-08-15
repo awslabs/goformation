@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::ElasticLoadBalancingV2::TargetGroup.TargetGroupAttribute AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattributes.html
 type AWSElasticLoadBalancingV2TargetGroup_TargetGroupAttribute struct {

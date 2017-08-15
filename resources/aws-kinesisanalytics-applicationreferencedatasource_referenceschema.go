@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::KinesisAnalytics::ApplicationReferenceDataSource.ReferenceSchema AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceSchema struct {

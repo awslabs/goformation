@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::KinesisAnalytics::ApplicationReferenceDataSource.CSVMappingParameters AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-csvmappingparameters.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource_CSVMappingParameters struct {

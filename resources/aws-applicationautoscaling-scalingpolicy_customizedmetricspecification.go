@@ -1,11 +1,5 @@
 package resources
 
-import (
-	"errors"
-
-	"github.com/mitchellh/mapstructure"
-)
-
 // AWS::ApplicationAutoScaling::ScalingPolicy.CustomizedMetricSpecification AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html
 type AWSApplicationAutoScalingScalingPolicy_CustomizedMetricSpecification struct {
