@@ -3,6 +3,7 @@ package goformation_test
 import (
 	"encoding/json"
 
+	"github.com/paulmaddox/goformation/intrinsics"
 	"github.com/paulmaddox/goformation/resources"
 
 	. "github.com/onsi/ginkgo"
@@ -26,8 +27,14 @@ var _ = Describe("Goformation", func() {
 			Expect(err).To(BeNil())
 		})
 
+		intrinsified, err := intrinsics.Process(data, nil)
+		It("should successfully process all intrinsic functions", func() {
+			Expect(intrinsified).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
 		t2 := &resources.Template{}
-		err = json.Unmarshal(data, t2)
+		err = json.Unmarshal(intrinsified, t2)
 		It("should then unmarshal back to Go", func() {
 			Expect(err).To(BeNil())
 			Expect(t2.Resources).To(HaveKey("MyLambdaFunction"))
