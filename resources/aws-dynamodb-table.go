@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::DynamoDB::Table AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
 type AWSDynamoDBTable struct {
@@ -7,36 +13,43 @@ type AWSDynamoDBTable struct {
 	// AttributeDefinitions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
-	AttributeDefinitions []AWSDynamoDBTableAttributeDefinition `json:"AttributeDefinitions"`
+
+	AttributeDefinitions []AWSDynamoDBTable_AttributeDefinition `json:"AttributeDefinitions"`
 
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
-	GlobalSecondaryIndexes []AWSDynamoDBTableGlobalSecondaryIndex `json:"GlobalSecondaryIndexes"`
+
+	GlobalSecondaryIndexes []AWSDynamoDBTable_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema
-	KeySchema []AWSDynamoDBTableKeySchema `json:"KeySchema"`
+
+	KeySchema []AWSDynamoDBTable_KeySchema `json:"KeySchema"`
 
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi
-	LocalSecondaryIndexes []AWSDynamoDBTableLocalSecondaryIndex `json:"LocalSecondaryIndexes"`
+
+	LocalSecondaryIndexes []AWSDynamoDBTable_LocalSecondaryIndex `json:"LocalSecondaryIndexes"`
 
 	// ProvisionedThroughput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
-	ProvisionedThroughput AWSDynamoDBTableProvisionedThroughput `json:"ProvisionedThroughput"`
+
+	ProvisionedThroughput AWSDynamoDBTable_ProvisionedThroughput `json:"ProvisionedThroughput"`
 
 	// StreamSpecification AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
-	StreamSpecification AWSDynamoDBTableStreamSpecification `json:"StreamSpecification"`
+
+	StreamSpecification AWSDynamoDBTable_StreamSpecification `json:"StreamSpecification"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
+
 	TableName string `json:"TableName"`
 }
 
@@ -48,4 +61,33 @@ func (r *AWSDynamoDBTable) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDynamoDBTable) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSDynamoDBTableResources retrieves all AWSDynamoDBTable items from a CloudFormation template
+func GetAllAWSDynamoDBTable(template *Template) map[string]*AWSDynamoDBTable {
+
+	results := map[string]*AWSDynamoDBTable{}
+	for name, resource := range template.Resources {
+		result := &AWSDynamoDBTable{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSDynamoDBTableWithName retrieves all AWSDynamoDBTable items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSDynamoDBTable(name string, template *Template) (*AWSDynamoDBTable, error) {
+
+	result := &AWSDynamoDBTable{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSDynamoDBTable{}, errors.New("resource not found")
+
 }

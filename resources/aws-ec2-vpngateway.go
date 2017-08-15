@@ -1,5 +1,11 @@
 package resources
 
+import (
+	"errors"
+
+	"github.com/mitchellh/mapstructure"
+)
+
 // AWS::EC2::VPNGateway AWS CloudFormation Resource
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html
 type AWSEC2VPNGateway struct {
@@ -7,11 +13,13 @@ type AWSEC2VPNGateway struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-tags
-	Tags []AWSEC2VPNGatewayTag `json:"Tags"`
+
+	Tags []Tag `json:"Tags"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-type
+
 	Type string `json:"Type"`
 }
 
@@ -23,4 +31,33 @@ func (r *AWSEC2VPNGateway) AWSCloudFormationType() string {
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPNGateway) AWSCloudFormationSpecificationVersion() string {
 	return "1.4.2"
+}
+
+// GetAllAWSEC2VPNGatewayResources retrieves all AWSEC2VPNGateway items from a CloudFormation template
+func GetAllAWSEC2VPNGateway(template *Template) map[string]*AWSEC2VPNGateway {
+
+	results := map[string]*AWSEC2VPNGateway{}
+	for name, resource := range template.Resources {
+		result := &AWSEC2VPNGateway{}
+		if err := mapstructure.Decode(resource, result); err == nil {
+			results[name] = result
+		}
+	}
+	return results
+
+}
+
+// GetAWSEC2VPNGatewayWithName retrieves all AWSEC2VPNGateway items from a CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func GetWithNameAWSEC2VPNGateway(name string, template *Template) (*AWSEC2VPNGateway, error) {
+
+	result := &AWSEC2VPNGateway{}
+	if resource, ok := template.Resources[name]; ok {
+		if err := mapstructure.Decode(resource, result); err == nil {
+			return result, nil
+		}
+	}
+
+	return &AWSEC2VPNGateway{}, errors.New("resource not found")
+
 }

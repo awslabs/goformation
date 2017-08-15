@@ -124,30 +124,27 @@ func (p Property) IsCustomType() bool {
 	return p.PrimitiveType == "" && p.ItemType == "" && p.PrimitiveItemType == ""
 }
 
-// PropertyType determins which Go type the property should be represented as
-func (p Property) PropertyType() string {
+// GetGoPrimitiveType returns the correct primitive property type for a Go struct.
+// If the property is a list/map, then it will return the type of the items.
+func (p Property) GetGoPrimitiveType() string {
 
-	if p.PrimitiveType != "" {
-		// This is a primitive type
-		return getPrimitiveType(p.PrimitiveType)
+	if p.IsPrimitive() {
+		return convertTypeToGo(p.PrimitiveType)
 	}
 
-	if p.ItemType != "" {
-		// This is a custom type for a list/map
-		return p.ItemType
+	if p.IsMap() && p.IsMapOfPrimitives() {
+		return convertTypeToGo(p.PrimitiveItemType)
 	}
 
-	if p.PrimitiveItemType != "" {
-		// This is a primitive for a list/map
-		return getPrimitiveType(p.PrimitiveItemType)
+	if p.IsList() && p.IsListOfPrimitives() {
+		return convertTypeToGo(p.PrimitiveItemType)
 	}
 
-	// This must be a custom type
-	return p.Type
+	return "unknown"
 
 }
 
-func getPrimitiveType(pt string) string {
+func convertTypeToGo(pt string) string {
 	switch pt {
 	case "String":
 		return "string"
@@ -160,9 +157,9 @@ func getPrimitiveType(pt string) string {
 	case "Boolean":
 		return "bool"
 	case "Timestamp":
-		return "time.Time"
+		return "string"
 	case "Json":
-		return "object"
+		return "interface{}"
 	default:
 		return ""
 	}
