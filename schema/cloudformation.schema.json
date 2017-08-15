@@ -223,8 +223,8 @@
                 }
             },
             "required": [
-                "DomainName",
-                "CertificateArn"
+                "CertificateArn",
+                "DomainName"
             ],
             "type": "object"
         },
@@ -655,12 +655,12 @@
                 }
             },
             "required": [
+                "MaxCapacity",
+                "MinCapacity",
                 "ResourceId",
                 "RoleARN",
                 "ScalableDimension",
-                "ServiceNamespace",
-                "MaxCapacity",
-                "MinCapacity"
+                "ServiceNamespace"
             ],
             "type": "object"
         },
@@ -948,9 +948,9 @@
                 }
             },
             "required": [
+                "Key",
                 "PropagateAtLaunch",
-                "Value",
-                "Key"
+                "Value"
             ],
             "type": "object"
         },
@@ -1091,8 +1091,8 @@
                 }
             },
             "required": [
-                "LifecycleTransition",
-                "AutoScalingGroupName"
+                "AutoScalingGroupName",
+                "LifecycleTransition"
             ],
             "type": "object"
         },
@@ -1200,8 +1200,8 @@
                 }
             },
             "required": [
-                "ServiceRole",
                 "ComputeResources",
+                "ServiceRole",
                 "Type"
             ],
             "type": "object"
@@ -1258,10 +1258,10 @@
                 }
             },
             "required": [
-                "MinvCpus",
                 "InstanceRole",
                 "InstanceTypes",
                 "MaxvCpus",
+                "MinvCpus",
                 "SecurityGroupIds",
                 "Subnets",
                 "Type"
@@ -1287,8 +1287,8 @@
                 }
             },
             "required": [
-                "Type",
-                "ContainerProperties"
+                "ContainerProperties",
+                "Type"
             ],
             "type": "object"
         },
@@ -1348,8 +1348,8 @@
             },
             "required": [
                 "Image",
-                "Vcpus",
-                "Memory"
+                "Memory",
+                "Vcpus"
             ],
             "type": "object"
         },
@@ -1399,9 +1399,9 @@
                 }
             },
             "required": [
-                "SoftLimit",
                 "HardLimit",
-                "Name"
+                "Name",
+                "SoftLimit"
             ],
             "type": "object"
         },
@@ -1443,8 +1443,8 @@
                 }
             },
             "required": [
-                "Priority",
-                "ComputeEnvironmentOrder"
+                "ComputeEnvironmentOrder",
+                "Priority"
             ],
             "type": "object"
         },
@@ -1565,8 +1565,8 @@
                 }
             },
             "required": [
-                "Timeout",
-                "Handle"
+                "Handle",
+                "Timeout"
             ],
             "type": "object"
         },
@@ -1747,9 +1747,9 @@
                 }
             },
             "required": [
-                "ViewerProtocolPolicy",
                 "ForwardedValues",
-                "TargetOriginId"
+                "TargetOriginId",
+                "ViewerProtocolPolicy"
             ],
             "type": "object"
         },
@@ -1811,9 +1811,9 @@
                 }
             },
             "required": [
+                "DefaultCacheBehavior",
                 "Enabled",
-                "Origins",
-                "DefaultCacheBehavior"
+                "Origins"
             ],
             "type": "object"
         },
@@ -2079,12 +2079,12 @@
                 }
             },
             "required": [
-                "Period",
-                "MetricName",
+                "ComparisonOperator",
                 "EvaluationPeriods",
+                "MetricName",
                 "Namespace",
-                "Threshold",
-                "ComparisonOperator"
+                "Period",
+                "Threshold"
             ],
             "type": "object"
         },
@@ -2151,10 +2151,10 @@
                 }
             },
             "required": [
-                "Source",
                 "Artifacts",
                 "Environment",
-                "ServiceRole"
+                "ServiceRole",
+                "Source"
             ],
             "type": "object"
         },
@@ -2206,9 +2206,9 @@
                 }
             },
             "required": [
-                "Type",
+                "ComputeType",
                 "Image",
-                "ComputeType"
+                "Type"
             ],
             "type": "object"
         },
@@ -2222,8 +2222,8 @@
                 }
             },
             "required": [
-                "Value",
-                "Name"
+                "Name",
+                "Value"
             ],
             "type": "object"
         },
@@ -2387,8 +2387,8 @@
                 }
             },
             "required": [
-                "ServiceRoleArn",
-                "ApplicationName"
+                "ApplicationName",
+                "ServiceRoleArn"
             ],
             "type": "object"
         },
@@ -2717,10 +2717,10 @@
                 }
             },
             "required": [
-                "Provider",
-                "Version",
                 "Category",
-                "Owner"
+                "Owner",
+                "Provider",
+                "Version"
             ],
             "type": "object"
         },
@@ -2955,10 +2955,10 @@
                 }
             },
             "required": [
-                "RoleARN",
+                "Claim",
                 "MatchType",
-                "Value",
-                "Claim"
+                "RoleARN",
+                "Value"
             ],
             "type": "object"
         },
@@ -3420,8 +3420,8 @@
                 }
             },
             "required": [
-                "MessageType",
-                "EventSource"
+                "EventSource",
+                "MessageType"
             ],
             "type": "object"
         },
@@ -3559,8 +3559,8 @@
                 }
             },
             "required": [
-                "EngineName",
-                "EndpointType"
+                "EndpointType",
+                "EngineName"
             ],
             "type": "object"
         },
@@ -3791,9 +3791,9 @@
                 }
             },
             "required": [
-                "SourceEndpointArn",
                 "MigrationType",
                 "ReplicationInstanceArn",
+                "SourceEndpointArn",
                 "TableMappings",
                 "TargetEndpointArn"
             ],
@@ -3984,8 +3984,8 @@
                 }
             },
             "required": [
-                "VpcId",
-                "SubnetIds"
+                "SubnetIds",
+                "VpcId"
             ],
             "type": "object"
         },
@@ -4157,9 +4157,9 @@
                 }
             },
             "required": [
-                "Projection",
                 "IndexName",
-                "KeySchema"
+                "KeySchema",
+                "Projection"
             ],
             "type": "object"
         },
@@ -4324,11 +4324,11 @@
                 }
             },
             "required": [
+                "DeliverLogsPermissionArn",
+                "LogGroupName",
                 "ResourceId",
                 "ResourceType",
-                "TrafficType",
-                "DeliverLogsPermissionArn",
-                "LogGroupName"
+                "TrafficType"
             ],
             "type": "object"
         },
@@ -4608,8 +4608,8 @@
                 }
             },
             "required": [
-                "PrivateIpAddress",
-                "Primary"
+                "Primary",
+                "PrivateIpAddress"
             ],
             "type": "object"
         },
@@ -4640,8 +4640,8 @@
                 }
             },
             "required": [
-                "VolumeId",
-                "Device"
+                "Device",
+                "VolumeId"
             ],
             "type": "object"
         },
@@ -4719,11 +4719,11 @@
                 }
             },
             "required": [
-                "Protocol",
-                "RuleNumber",
                 "CidrBlock",
                 "NetworkAclId",
-                "RuleAction"
+                "Protocol",
+                "RuleAction",
+                "RuleNumber"
             ],
             "type": "object"
         },
@@ -5343,10 +5343,10 @@
                 }
             },
             "required": [
-                "SpotPrice",
-                "TargetCapacity",
                 "IamFleetRole",
-                "LaunchSpecifications"
+                "LaunchSpecifications",
+                "SpotPrice",
+                "TargetCapacity"
             ],
             "type": "object"
         },
@@ -5383,8 +5383,8 @@
                 }
             },
             "required": [
-                "VpcId",
-                "CidrBlock"
+                "CidrBlock",
+                "VpcId"
             ],
             "type": "object"
         },
@@ -5413,8 +5413,8 @@
                 }
             },
             "required": [
-                "SubnetId",
-                "NetworkAclId"
+                "NetworkAclId",
+                "SubnetId"
             ],
             "type": "object"
         },
@@ -5599,9 +5599,9 @@
                 }
             },
             "required": [
+                "CustomerGatewayId",
                 "Type",
-                "VpnGatewayId",
-                "CustomerGatewayId"
+                "VpnGatewayId"
             ],
             "type": "object"
         },
@@ -6150,8 +6150,8 @@
                 }
             },
             "required": [
-                "Value",
-                "Key"
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -6241,8 +6241,8 @@
                 }
             },
             "required": [
-                "JobFlowRole",
                 "Instances",
+                "JobFlowRole",
                 "Name",
                 "ServiceRole"
             ],
@@ -6340,10 +6340,10 @@
                 }
             },
             "required": [
-                "Period",
-                "Threshold",
                 "ComparisonOperator",
-                "MetricName"
+                "MetricName",
+                "Period",
+                "Threshold"
             ],
             "type": "object"
         },
@@ -6903,9 +6903,9 @@
                 }
             },
             "required": [
-                "InstanceType",
                 "InstanceCount",
                 "InstanceRole",
+                "InstanceType",
                 "JobFlowId"
             ],
             "type": "object"
@@ -6962,9 +6962,9 @@
                 }
             },
             "required": [
-                "Period",
                 "ComparisonOperator",
                 "MetricName",
+                "Period",
                 "Threshold"
             ],
             "type": "object"
@@ -7161,10 +7161,10 @@
                 }
             },
             "required": [
+                "ActionOnFailure",
                 "HadoopJarStep",
                 "JobFlowId",
-                "Name",
-                "ActionOnFailure"
+                "Name"
             ],
             "type": "object"
         },
@@ -7287,9 +7287,9 @@
                 }
             },
             "required": [
-                "NumCacheNodes",
                 "CacheNodeType",
-                "Engine"
+                "Engine",
+                "NumCacheNodes"
             ],
             "type": "object"
         },
@@ -7654,9 +7654,9 @@
                 }
             },
             "required": [
-                "Value",
                 "Namespace",
-                "OptionName"
+                "OptionName",
+                "Value"
             ],
             "type": "object"
         },
@@ -7837,11 +7837,11 @@
                 }
             },
             "required": [
-                "UnhealthyThreshold",
                 "HealthyThreshold",
                 "Interval",
                 "Target",
-                "Timeout"
+                "Timeout",
+                "UnhealthyThreshold"
             ],
             "type": "object"
         },
@@ -7881,9 +7881,9 @@
                 }
             },
             "required": [
-                "Protocol",
                 "InstancePort",
-                "LoadBalancerPort"
+                "LoadBalancerPort",
+                "Protocol"
             ],
             "type": "object"
         },
@@ -8144,9 +8144,9 @@
                 }
             },
             "required": [
+                "Port",
                 "Protocol",
-                "VpcId",
-                "Port"
+                "VpcId"
             ],
             "type": "object"
         },
@@ -8435,11 +8435,11 @@
                 }
             },
             "required": [
-                "ServerLaunchPath",
                 "BuildId",
+                "DesiredEC2Instances",
                 "EC2InstanceType",
                 "Name",
-                "DesiredEC2Instances"
+                "ServerLaunchPath"
             ],
             "type": "object"
         },
@@ -8651,8 +8651,8 @@
                 }
             },
             "required": [
-                "PolicyName",
-                "PolicyDocument"
+                "PolicyDocument",
+                "PolicyName"
             ],
             "type": "object"
         },
@@ -8730,8 +8730,8 @@
                 }
             },
             "required": [
-                "Users",
-                "GroupName"
+                "GroupName",
+                "Users"
             ],
             "type": "object"
         },
@@ -8774,8 +8774,8 @@
                 }
             },
             "required": [
-                "Principal",
-                "PolicyName"
+                "PolicyName",
+                "Principal"
             ],
             "type": "object"
         },
@@ -8915,11 +8915,11 @@
                 }
             },
             "required": [
+                "MetricName",
+                "MetricNamespace",
                 "MetricUnit",
                 "MetricValue",
-                "RoleArn",
-                "MetricName",
-                "MetricNamespace"
+                "RoleArn"
             ],
             "type": "object"
         },
@@ -8948,12 +8948,12 @@
                 }
             },
             "required": [
+                "HashKeyField",
                 "HashKeyValue",
                 "RangeKeyField",
                 "RangeKeyValue",
                 "RoleArn",
-                "TableName",
-                "HashKeyField"
+                "TableName"
             ],
             "type": "object"
         },
@@ -8976,11 +8976,11 @@
                 }
             },
             "required": [
-                "Type",
                 "Endpoint",
                 "Id",
                 "Index",
-                "RoleArn"
+                "RoleArn",
+                "Type"
             ],
             "type": "object"
         },
@@ -9223,8 +9223,8 @@
                 }
             },
             "required": [
-                "RecordRowDelimiter",
-                "RecordColumnDelimiter"
+                "RecordColumnDelimiter",
+                "RecordRowDelimiter"
             ],
             "type": "object"
         },
@@ -9247,8 +9247,8 @@
                 }
             },
             "required": [
-                "NamePrefix",
-                "InputSchema"
+                "InputSchema",
+                "NamePrefix"
             ],
             "type": "object"
         },
@@ -9346,8 +9346,8 @@
                 }
             },
             "required": [
-                "SqlType",
-                "Name"
+                "Name",
+                "SqlType"
             ],
             "type": "object"
         },
@@ -9463,8 +9463,8 @@
                 }
             },
             "required": [
-                "RecordRowDelimiter",
-                "RecordColumnDelimiter"
+                "RecordColumnDelimiter",
+                "RecordRowDelimiter"
             ],
             "type": "object"
         },
@@ -9503,8 +9503,8 @@
                 }
             },
             "required": [
-                "SqlType",
-                "Name"
+                "Name",
+                "SqlType"
             ],
             "type": "object"
         },
@@ -9606,8 +9606,8 @@
                 }
             },
             "required": [
-                "SizeInMBs",
-                "IntervalInSeconds"
+                "IntervalInSeconds",
+                "SizeInMBs"
             ],
             "type": "object"
         },
@@ -9691,15 +9691,15 @@
                 }
             },
             "required": [
-                "RetryOptions",
-                "S3BackupMode",
-                "RoleARN",
-                "S3Configuration",
-                "TypeName",
                 "BufferingHints",
                 "DomainARN",
                 "IndexName",
-                "IndexRotationPeriod"
+                "IndexRotationPeriod",
+                "RetryOptions",
+                "RoleARN",
+                "S3BackupMode",
+                "S3Configuration",
+                "TypeName"
             ],
             "type": "object"
         },
@@ -9795,11 +9795,11 @@
                 }
             },
             "required": [
-                "RoleARN",
                 "BucketARN",
                 "BufferingHints",
                 "CompressionFormat",
-                "Prefix"
+                "Prefix",
+                "RoleARN"
             ],
             "type": "object"
         },
@@ -9899,8 +9899,8 @@
                 }
             },
             "required": [
-                "Handler",
                 "Code",
+                "Handler",
                 "Role",
                 "Runtime"
             ],
@@ -10180,9 +10180,9 @@
                 }
             },
             "required": [
-                "Type",
+                "Name",
                 "StackId",
-                "Name"
+                "Type"
             ],
             "type": "object"
         },
@@ -10213,8 +10213,8 @@
                 }
             },
             "required": [
-                "Value",
-                "Key"
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -10349,8 +10349,8 @@
                 }
             },
             "required": [
-                "LayerIds",
                 "InstanceType",
+                "LayerIds",
                 "StackId"
             ],
             "type": "object"
@@ -10525,11 +10525,11 @@
                 }
             },
             "required": [
+                "AutoAssignElasticIps",
                 "AutoAssignPublicIps",
                 "EnableAutoHealing",
-                "AutoAssignElasticIps",
-                "Shortname",
                 "Name",
+                "Shortname",
                 "StackId",
                 "Type"
             ],
@@ -11409,11 +11409,11 @@
                 }
             },
             "required": [
-                "DBName",
-                "MasterUsername",
                 "ClusterType",
-                "NodeType",
-                "MasterUserPassword"
+                "DBName",
+                "MasterUserPassword",
+                "MasterUsername",
+                "NodeType"
             ],
             "type": "object"
         },
@@ -11453,8 +11453,8 @@
                 }
             },
             "required": [
-                "ParameterGroupFamily",
-                "Description"
+                "Description",
+                "ParameterGroupFamily"
             ],
             "type": "object"
         },
@@ -11561,8 +11561,8 @@
                 }
             },
             "required": [
-                "Region",
-                "Name"
+                "Name",
+                "Region"
             ],
             "type": "object"
         },
@@ -11768,8 +11768,8 @@
                 }
             },
             "required": [
-                "HostedZoneId",
-                "DNSName"
+                "DNSName",
+                "HostedZoneId"
             ],
             "type": "object"
         },
@@ -11820,8 +11820,8 @@
                 }
             },
             "required": [
-                "HostedZoneId",
-                "DNSName"
+                "DNSName",
+                "HostedZoneId"
             ],
             "type": "object"
         },
@@ -12191,9 +12191,9 @@
                 }
             },
             "required": [
+                "Destination",
                 "Prefix",
-                "Status",
-                "Destination"
+                "Status"
             ],
             "type": "object"
         },
@@ -12404,8 +12404,8 @@
                 }
             },
             "required": [
-                "Protocol",
-                "Endpoint"
+                "Endpoint",
+                "Protocol"
             ],
             "type": "object"
         },
@@ -12573,8 +12573,8 @@
                 }
             },
             "required": [
-                "Value",
-                "Type"
+                "Type",
+                "Value"
             ],
             "type": "object"
         },
@@ -12726,9 +12726,9 @@
                 }
             },
             "required": [
+                "DataId",
                 "Negated",
-                "Type",
-                "DataId"
+                "Type"
             ],
             "type": "object"
         },
@@ -12780,10 +12780,10 @@
                 }
             },
             "required": [
+                "ComparisonOperator",
                 "FieldToMatch",
                 "Size",
-                "TextTransformation",
-                "ComparisonOperator"
+                "TextTransformation"
             ],
             "type": "object"
         },
@@ -12852,9 +12852,9 @@
                 }
             },
             "required": [
-                "Name",
                 "DefaultAction",
-                "MetricName"
+                "MetricName",
+                "Name"
             ],
             "type": "object"
         },
@@ -12971,9 +12971,9 @@
                 }
             },
             "required": [
+                "FieldToMatch",
                 "PositionalConstraint",
-                "TextTransformation",
-                "FieldToMatch"
+                "TextTransformation"
             ],
             "type": "object"
         },
@@ -13039,8 +13039,8 @@
                 }
             },
             "required": [
-                "Name",
-                "MetricName"
+                "MetricName",
+                "Name"
             ],
             "type": "object"
         },
@@ -13057,9 +13057,9 @@
                 }
             },
             "required": [
-                "Type",
                 "DataId",
-                "Negated"
+                "Negated",
+                "Type"
             ],
             "type": "object"
         },
@@ -13111,9 +13111,9 @@
             },
             "required": [
                 "ComparisonOperator",
+                "FieldToMatch",
                 "Size",
-                "TextTransformation",
-                "FieldToMatch"
+                "TextTransformation"
             ],
             "type": "object"
         },
@@ -13158,8 +13158,8 @@
                 }
             },
             "required": [
-                "TextTransformation",
-                "FieldToMatch"
+                "FieldToMatch",
+                "TextTransformation"
             ],
             "type": "object"
         },
@@ -13182,8 +13182,8 @@
                 }
             },
             "required": [
-                "MetricName",
                 "DefaultAction",
+                "MetricName",
                 "Name"
             ],
             "type": "object"
@@ -13274,8 +13274,8 @@
                 }
             },
             "required": [
-                "TextTransformation",
-                "FieldToMatch"
+                "FieldToMatch",
+                "TextTransformation"
             ],
             "type": "object"
         },

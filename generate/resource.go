@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 	"text/template"
 )
@@ -53,10 +54,17 @@ func (r Resource) Schema(name string) string {
 // Required returns a comma separated list of the required properties for this resource
 func (r Resource) Required() string {
 	required := []string{}
+
 	for name, property := range r.Properties {
 		if property.Required {
 			required = append(required, `"`+name+`"`)
 		}
 	}
+
+	// As Go doesn't provide ordering guarentees for maps, we should
+	// sort the required property names by alphabetical order so that
+	// they don't shuffle on every generation, and cause annoying commit diffs
+	sort.Strings(required)
+
 	return strings.Join(required, ", ")
 }
