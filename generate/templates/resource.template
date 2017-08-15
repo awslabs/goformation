@@ -13,34 +13,7 @@ type {{.StructName}} struct {
     // {{$name}} AWS CloudFormation Property
     // Required: {{$property.Required}}
     // See: {{$property.Documentation}}
-        {{if $property.IsMap}}
-            {{if $property.IsMapOfPrimitives}}
-                {{$name}} map[string]{{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
-            {{else}}
-                {{if eq $property.ItemType "Tag"}}
-                    {{$name}} map[string]Tag `json:"{{$name}}"`
-                {{else}}
-                    {{$name}} map[string]{{$.Basename}}_{{$property.ItemType}} `json:"{{$name}}"`
-                {{end}}
-            {{end}}
-        {{end}}
-        {{if $property.IsList}}
-            {{if $property.IsListOfPrimitives}}
-                {{$name}} []{{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
-            {{else}}
-                {{if eq $property.ItemType "Tag"}}
-                    {{$name}} []Tag `json:"{{$name}}"`
-                {{else}}
-                    {{$name}} []{{$.Basename}}_{{$property.ItemType}} `json:"{{$name}}"`
-                {{end}}
-            {{end}}
-        {{end}}
-        {{if $property.IsCustomType}}
-            {{$name}} {{$.Basename}}_{{$property.Type}} `json:"{{$name}}"`
-        {{end}}
-        {{if $property.IsPrimitive}}
-            {{$name}} {{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
-        {{end}}
+    {{$name}} {{$property.GoType $.Basename}} `json:"{{$name}}"`
     {{end}}
 }
 

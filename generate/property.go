@@ -124,20 +124,61 @@ func (p Property) IsCustomType() bool {
 	return p.PrimitiveType == "" && p.ItemType == "" && p.PrimitiveItemType == ""
 }
 
-// GetGoPrimitiveType returns the correct primitive property type for a Go struct.
+// GoType returns the correct type for this property
+// within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
+func (p Property) GoType(basename string) string {
+
+	if p.IsMap() {
+
+		if p.IsMapOfPrimitives() {
+			return "map[string]" + convertTypeToGo(p.PrimitiveItemType)
+		}
+
+		if p.ItemType == "Tag" {
+			return "map[string]Tag"
+		}
+
+		return "map[string]" + basename + "_" + p.ItemType
+
+	}
+
+	if p.IsList() {
+
+		if p.IsListOfPrimitives() {
+			return "[]" + convertTypeToGo(p.PrimitiveItemType)
+		}
+
+		if p.ItemType == "Tag" {
+			return "[]Tag"
+		}
+
+		return "[]" + basename + "_" + p.ItemType
+
+	}
+
+	if p.IsCustomType() {
+		return basename + "_" + p.Type
+	}
+
+	// Must be a primitive value
+	return convertTypeToGo(p.PrimitiveType)
+
+}
+
+// GetJSONPrimitiveType returns the correct primitive property type for a JSON Schema.
 // If the property is a list/map, then it will return the type of the items.
-func (p Property) GetGoPrimitiveType() string {
+func (p Property) GetJSONPrimitiveType() string {
 
 	if p.IsPrimitive() {
-		return convertTypeToGo(p.PrimitiveType)
+		return convertTypeToJSON(p.PrimitiveType)
 	}
 
 	if p.IsMap() && p.IsMapOfPrimitives() {
-		return convertTypeToGo(p.PrimitiveItemType)
+		return convertTypeToJSON(p.PrimitiveItemType)
 	}
 
 	if p.IsList() && p.IsListOfPrimitives() {
-		return convertTypeToGo(p.PrimitiveItemType)
+		return convertTypeToJSON(p.PrimitiveItemType)
 	}
 
 	return "unknown"
@@ -163,26 +204,6 @@ func convertTypeToGo(pt string) string {
 	default:
 		return ""
 	}
-}
-
-// GetJSONPrimitiveType returns the correct primitive property type for a JSON Schema.
-// If the property is a list/map, then it will return the type of the items.
-func (p Property) GetJSONPrimitiveType() string {
-
-	if p.IsPrimitive() {
-		return convertTypeToJSON(p.PrimitiveType)
-	}
-
-	if p.IsMap() && p.IsMapOfPrimitives() {
-		return convertTypeToJSON(p.PrimitiveItemType)
-	}
-
-	if p.IsList() && p.IsListOfPrimitives() {
-		return convertTypeToJSON(p.PrimitiveItemType)
-	}
-
-	return "unknown"
-
 }
 
 func convertTypeToJSON(name string) string {
