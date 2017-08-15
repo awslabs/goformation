@@ -11,6 +11,15 @@ import (
 
 var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
+	Context("with a template that contains invalid JSON", func() {
+		const template = `{`
+		processed, err := Process([]byte(template), nil)
+		It("should fail to process the template", func() {
+			Expect(processed).To(BeNil())
+			Expect(err).ToNot(BeNil())
+		})
+	})
+
 	Context("with a template that contains primitives, intrinsics, and nested intrinsics", func() {
 
 		const template = `{
@@ -18,7 +27,9 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 				"ExampleResource": {
 					"Type": "AWS::Example::Resource",
 					"Properties": {
-						"PrimitiveProperty": "Simple string example",
+						"StringProperty": "Simple string example",						
+						"BooleanProperty": true,
+						"NumberProperty": 123.45,
 						"JoinIntrinsicProperty": { "Fn::Join": [ "some", "name" ] },				
 						"JoinNestedIntrinsicProperty": { "Fn::Join": [ "some", { "Fn::Join": [ "joined", "value" ] } ] },
 						"SubIntrinsicProperty": { "Fn::Sub": [ "some ${value}", { "value": "value" } ] }			
@@ -48,8 +59,16 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 			resource := resources["ExampleResource"].(map[string]interface{})
 			properties := resource["Properties"].(map[string]interface{})
 
-			It("should have the correct value for a simple primitive", func() {
-				Expect(properties["PrimitiveProperty"]).To(Equal("Simple string example"))
+			It("should have the correct value for a primitive string property", func() {
+				Expect(properties["StringProperty"]).To(Equal("Simple string example"))
+			})
+
+			It("should have the correct value for a primitive boolean property", func() {
+				Expect(properties["BooleanProperty"]).To(Equal(true))
+			})
+
+			It("should have the correct value for a primitive number property", func() {
+				Expect(properties["NumberProperty"]).To(Equal(123.45))
 			})
 
 			It("should have the correct value for a Fn::Join intrinsic property", func() {
@@ -94,8 +113,16 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 			resource := resources["ExampleResource"].(map[string]interface{})
 			properties := resource["Properties"].(map[string]interface{})
 
-			It("should have the correct value for a simple primitive", func() {
-				Expect(properties["PrimitiveProperty"]).To(Equal("Simple string example"))
+			It("should have the correct value for a primitive string property", func() {
+				Expect(properties["StringProperty"]).To(Equal("Simple string example"))
+			})
+
+			It("should have the correct value for a primitive boolean property", func() {
+				Expect(properties["BooleanProperty"]).To(Equal(true))
+			})
+
+			It("should have the correct value for a primitive number property", func() {
+				Expect(properties["NumberProperty"]).To(Equal(123.45))
 			})
 
 			It("should have the correct value for an intrinsic property", func() {
