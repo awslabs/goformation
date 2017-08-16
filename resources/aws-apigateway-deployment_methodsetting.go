@@ -12,7 +12,7 @@ type AWSApiGatewayDeployment_MethodSetting struct {
 	// CacheTtlInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
-	CacheTtlInSeconds int64 `json:"CacheTtlInSeconds"`
+	CacheTtlInSeconds int `json:"CacheTtlInSeconds"`
 
 	// CachingEnabled AWS CloudFormation Property
 	// Required: false
@@ -47,7 +47,7 @@ type AWSApiGatewayDeployment_MethodSetting struct {
 	// ThrottlingBurstLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
-	ThrottlingBurstLimit int64 `json:"ThrottlingBurstLimit"`
+	ThrottlingBurstLimit int `json:"ThrottlingBurstLimit"`
 
 	// ThrottlingRateLimit AWS CloudFormation Property
 	// Required: false

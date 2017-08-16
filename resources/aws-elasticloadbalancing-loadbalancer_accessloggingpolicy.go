@@ -7,7 +7,7 @@ type AWSElasticLoadBalancingLoadBalancer_AccessLoggingPolicy struct {
 	// EmitInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-emitinterval
-	EmitInterval int64 `json:"EmitInterval"`
+	EmitInterval int `json:"EmitInterval"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true

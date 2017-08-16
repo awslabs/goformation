@@ -52,10 +52,10 @@ func (r *AWSConfigConfigRule) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSConfigConfigRuleResources retrieves all AWSConfigConfigRule items from a CloudFormation template
-func GetAllAWSConfigConfigRuleResources(template *Template) map[string]*AWSConfigConfigRule {
+func (t *Template) GetAllAWSConfigConfigRuleResources() map[string]*AWSConfigConfigRule {
 
 	results := map[string]*AWSConfigConfigRule{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSConfigConfigRule{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +67,10 @@ func GetAllAWSConfigConfigRuleResources(template *Template) map[string]*AWSConfi
 
 // GetAWSConfigConfigRuleWithName retrieves all AWSConfigConfigRule items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSConfigConfigRuleWithName(name string, template *Template) (*AWSConfigConfigRule, error) {
+func (t *Template) GetAWSConfigConfigRuleWithName(name string) (*AWSConfigConfigRule, error) {
 
 	result := &AWSConfigConfigRule{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -43,7 +43,7 @@ type AWSEC2NetworkAclEntry struct {
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-protocol
-	Protocol int64 `json:"Protocol"`
+	Protocol int `json:"Protocol"`
 
 	// RuleAction AWS CloudFormation Property
 	// Required: true
@@ -53,7 +53,7 @@ type AWSEC2NetworkAclEntry struct {
 	// RuleNumber AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-rulenumber
-	RuleNumber int64 `json:"RuleNumber"`
+	RuleNumber int `json:"RuleNumber"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -67,10 +67,10 @@ func (r *AWSEC2NetworkAclEntry) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2NetworkAclEntryResources retrieves all AWSEC2NetworkAclEntry items from a CloudFormation template
-func GetAllAWSEC2NetworkAclEntryResources(template *Template) map[string]*AWSEC2NetworkAclEntry {
+func (t *Template) GetAllAWSEC2NetworkAclEntryResources() map[string]*AWSEC2NetworkAclEntry {
 
 	results := map[string]*AWSEC2NetworkAclEntry{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2NetworkAclEntry{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSEC2NetworkAclEntryResources(template *Template) map[string]*AWSEC2
 
 // GetAWSEC2NetworkAclEntryWithName retrieves all AWSEC2NetworkAclEntry items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2NetworkAclEntryWithName(name string, template *Template) (*AWSEC2NetworkAclEntry, error) {
+func (t *Template) GetAWSEC2NetworkAclEntryWithName(name string) (*AWSEC2NetworkAclEntry, error) {
 
 	result := &AWSEC2NetworkAclEntry{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

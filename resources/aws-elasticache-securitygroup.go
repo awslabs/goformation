@@ -27,10 +27,10 @@ func (r *AWSElastiCacheSecurityGroup) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSElastiCacheSecurityGroupResources retrieves all AWSElastiCacheSecurityGroup items from a CloudFormation template
-func GetAllAWSElastiCacheSecurityGroupResources(template *Template) map[string]*AWSElastiCacheSecurityGroup {
+func (t *Template) GetAllAWSElastiCacheSecurityGroupResources() map[string]*AWSElastiCacheSecurityGroup {
 
 	results := map[string]*AWSElastiCacheSecurityGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElastiCacheSecurityGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -42,10 +42,10 @@ func GetAllAWSElastiCacheSecurityGroupResources(template *Template) map[string]*
 
 // GetAWSElastiCacheSecurityGroupWithName retrieves all AWSElastiCacheSecurityGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSElastiCacheSecurityGroupWithName(name string, template *Template) (*AWSElastiCacheSecurityGroup, error) {
+func (t *Template) GetAWSElastiCacheSecurityGroupWithName(name string) (*AWSElastiCacheSecurityGroup, error) {
 
 	result := &AWSElastiCacheSecurityGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

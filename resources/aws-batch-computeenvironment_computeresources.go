@@ -7,12 +7,12 @@ type AWSBatchComputeEnvironment_ComputeResources struct {
 	// BidPercentage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-bidpercentage
-	BidPercentage int64 `json:"BidPercentage"`
+	BidPercentage int `json:"BidPercentage"`
 
 	// DesiredvCpus AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-desiredvcpus
-	DesiredvCpus int64 `json:"DesiredvCpus"`
+	DesiredvCpus int `json:"DesiredvCpus"`
 
 	// Ec2KeyPair AWS CloudFormation Property
 	// Required: false
@@ -37,12 +37,12 @@ type AWSBatchComputeEnvironment_ComputeResources struct {
 	// MaxvCpus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus
-	MaxvCpus int64 `json:"MaxvCpus"`
+	MaxvCpus int `json:"MaxvCpus"`
 
 	// MinvCpus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
-	MinvCpus int64 `json:"MinvCpus"`
+	MinvCpus int `json:"MinvCpus"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: true

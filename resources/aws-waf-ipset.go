@@ -32,10 +32,10 @@ func (r *AWSWAFIPSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFIPSetResources retrieves all AWSWAFIPSet items from a CloudFormation template
-func GetAllAWSWAFIPSetResources(template *Template) map[string]*AWSWAFIPSet {
+func (t *Template) GetAllAWSWAFIPSetResources() map[string]*AWSWAFIPSet {
 
 	results := map[string]*AWSWAFIPSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFIPSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSWAFIPSetResources(template *Template) map[string]*AWSWAFIPSet {
 
 // GetAWSWAFIPSetWithName retrieves all AWSWAFIPSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFIPSetWithName(name string, template *Template) (*AWSWAFIPSet, error) {
+func (t *Template) GetAWSWAFIPSetWithName(name string) (*AWSWAFIPSet, error) {
 
 	result := &AWSWAFIPSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

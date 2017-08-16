@@ -12,7 +12,7 @@ type AWSWAFWebACL_ActivatedRule struct {
 	// Priority AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-priority
-	Priority int64 `json:"Priority"`
+	Priority int `json:"Priority"`
 
 	// RuleId AWS CloudFormation Property
 	// Required: true

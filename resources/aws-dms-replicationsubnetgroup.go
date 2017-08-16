@@ -42,10 +42,10 @@ func (r *AWSDMSReplicationSubnetGroup) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSDMSReplicationSubnetGroupResources retrieves all AWSDMSReplicationSubnetGroup items from a CloudFormation template
-func GetAllAWSDMSReplicationSubnetGroupResources(template *Template) map[string]*AWSDMSReplicationSubnetGroup {
+func (t *Template) GetAllAWSDMSReplicationSubnetGroupResources() map[string]*AWSDMSReplicationSubnetGroup {
 
 	results := map[string]*AWSDMSReplicationSubnetGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSDMSReplicationSubnetGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSDMSReplicationSubnetGroupResources(template *Template) map[string]
 
 // GetAWSDMSReplicationSubnetGroupWithName retrieves all AWSDMSReplicationSubnetGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSDMSReplicationSubnetGroupWithName(name string, template *Template) (*AWSDMSReplicationSubnetGroup, error) {
+func (t *Template) GetAWSDMSReplicationSubnetGroupWithName(name string) (*AWSDMSReplicationSubnetGroup, error) {
 
 	result := &AWSDMSReplicationSubnetGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

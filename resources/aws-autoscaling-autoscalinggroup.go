@@ -28,7 +28,7 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// HealthCheckGracePeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod
-	HealthCheckGracePeriod int64 `json:"HealthCheckGracePeriod"`
+	HealthCheckGracePeriod int `json:"HealthCheckGracePeriod"`
 
 	// HealthCheckType AWS CloudFormation Property
 	// Required: false
@@ -107,10 +107,10 @@ func (r *AWSAutoScalingAutoScalingGroup) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSAutoScalingAutoScalingGroupResources retrieves all AWSAutoScalingAutoScalingGroup items from a CloudFormation template
-func GetAllAWSAutoScalingAutoScalingGroupResources(template *Template) map[string]*AWSAutoScalingAutoScalingGroup {
+func (t *Template) GetAllAWSAutoScalingAutoScalingGroupResources() map[string]*AWSAutoScalingAutoScalingGroup {
 
 	results := map[string]*AWSAutoScalingAutoScalingGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSAutoScalingAutoScalingGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -122,10 +122,10 @@ func GetAllAWSAutoScalingAutoScalingGroupResources(template *Template) map[strin
 
 // GetAWSAutoScalingAutoScalingGroupWithName retrieves all AWSAutoScalingAutoScalingGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSAutoScalingAutoScalingGroupWithName(name string, template *Template) (*AWSAutoScalingAutoScalingGroup, error) {
+func (t *Template) GetAWSAutoScalingAutoScalingGroupWithName(name string) (*AWSAutoScalingAutoScalingGroup, error) {
 
 	result := &AWSAutoScalingAutoScalingGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

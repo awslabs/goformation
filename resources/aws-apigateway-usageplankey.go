@@ -37,10 +37,10 @@ func (r *AWSApiGatewayUsagePlanKey) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSApiGatewayUsagePlanKeyResources retrieves all AWSApiGatewayUsagePlanKey items from a CloudFormation template
-func GetAllAWSApiGatewayUsagePlanKeyResources(template *Template) map[string]*AWSApiGatewayUsagePlanKey {
+func (t *Template) GetAllAWSApiGatewayUsagePlanKeyResources() map[string]*AWSApiGatewayUsagePlanKey {
 
 	results := map[string]*AWSApiGatewayUsagePlanKey{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayUsagePlanKey{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSApiGatewayUsagePlanKeyResources(template *Template) map[string]*AW
 
 // GetAWSApiGatewayUsagePlanKeyWithName retrieves all AWSApiGatewayUsagePlanKey items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSApiGatewayUsagePlanKeyWithName(name string, template *Template) (*AWSApiGatewayUsagePlanKey, error) {
+func (t *Template) GetAWSApiGatewayUsagePlanKeyWithName(name string) (*AWSApiGatewayUsagePlanKey, error) {
 
 	result := &AWSApiGatewayUsagePlanKey{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

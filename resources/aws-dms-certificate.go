@@ -37,10 +37,10 @@ func (r *AWSDMSCertificate) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSDMSCertificateResources retrieves all AWSDMSCertificate items from a CloudFormation template
-func GetAllAWSDMSCertificateResources(template *Template) map[string]*AWSDMSCertificate {
+func (t *Template) GetAllAWSDMSCertificateResources() map[string]*AWSDMSCertificate {
 
 	results := map[string]*AWSDMSCertificate{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSDMSCertificate{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSDMSCertificateResources(template *Template) map[string]*AWSDMSCert
 
 // GetAWSDMSCertificateWithName retrieves all AWSDMSCertificate items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSDMSCertificateWithName(name string, template *Template) (*AWSDMSCertificate, error) {
+func (t *Template) GetAWSDMSCertificateWithName(name string) (*AWSDMSCertificate, error) {
 
 	result := &AWSDMSCertificate{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

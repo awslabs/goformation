@@ -7,12 +7,12 @@ type AWSCodePipelineCustomActionType_ArtifactDetails struct {
 	// MaximumCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-maximumcount
-	MaximumCount int64 `json:"MaximumCount"`
+	MaximumCount int `json:"MaximumCount"`
 
 	// MinimumCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-minimumcount
-	MinimumCount int64 `json:"MinimumCount"`
+	MinimumCount int `json:"MinimumCount"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

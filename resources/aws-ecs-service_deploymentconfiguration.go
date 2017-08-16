@@ -7,12 +7,12 @@ type AWSECSService_DeploymentConfiguration struct {
 	// MaximumPercent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
-	MaximumPercent int64 `json:"MaximumPercent"`
+	MaximumPercent int `json:"MaximumPercent"`
 
 	// MinimumHealthyPercent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
-	MinimumHealthyPercent int64 `json:"MinimumHealthyPercent"`
+	MinimumHealthyPercent int `json:"MinimumHealthyPercent"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

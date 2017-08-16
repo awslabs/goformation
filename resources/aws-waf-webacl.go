@@ -42,10 +42,10 @@ func (r *AWSWAFWebACL) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFWebACLResources retrieves all AWSWAFWebACL items from a CloudFormation template
-func GetAllAWSWAFWebACLResources(template *Template) map[string]*AWSWAFWebACL {
+func (t *Template) GetAllAWSWAFWebACLResources() map[string]*AWSWAFWebACL {
 
 	results := map[string]*AWSWAFWebACL{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFWebACL{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSWAFWebACLResources(template *Template) map[string]*AWSWAFWebACL {
 
 // GetAWSWAFWebACLWithName retrieves all AWSWAFWebACL items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFWebACLWithName(name string, template *Template) (*AWSWAFWebACL, error) {
+func (t *Template) GetAWSWAFWebACLWithName(name string) (*AWSWAFWebACL, error) {
 
 	result := &AWSWAFWebACL{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

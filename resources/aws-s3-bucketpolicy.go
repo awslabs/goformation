@@ -32,10 +32,10 @@ func (r *AWSS3BucketPolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSS3BucketPolicyResources retrieves all AWSS3BucketPolicy items from a CloudFormation template
-func GetAllAWSS3BucketPolicyResources(template *Template) map[string]*AWSS3BucketPolicy {
+func (t *Template) GetAllAWSS3BucketPolicyResources() map[string]*AWSS3BucketPolicy {
 
 	results := map[string]*AWSS3BucketPolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSS3BucketPolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSS3BucketPolicyResources(template *Template) map[string]*AWSS3Bucke
 
 // GetAWSS3BucketPolicyWithName retrieves all AWSS3BucketPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSS3BucketPolicyWithName(name string, template *Template) (*AWSS3BucketPolicy, error) {
+func (t *Template) GetAWSS3BucketPolicyWithName(name string) (*AWSS3BucketPolicy, error) {
 
 	result := &AWSS3BucketPolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

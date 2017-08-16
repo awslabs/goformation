@@ -72,10 +72,10 @@ func (r *AWSCodeDeployDeploymentGroup) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSCodeDeployDeploymentGroupResources retrieves all AWSCodeDeployDeploymentGroup items from a CloudFormation template
-func GetAllAWSCodeDeployDeploymentGroupResources(template *Template) map[string]*AWSCodeDeployDeploymentGroup {
+func (t *Template) GetAllAWSCodeDeployDeploymentGroupResources() map[string]*AWSCodeDeployDeploymentGroup {
 
 	results := map[string]*AWSCodeDeployDeploymentGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCodeDeployDeploymentGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -87,10 +87,10 @@ func GetAllAWSCodeDeployDeploymentGroupResources(template *Template) map[string]
 
 // GetAWSCodeDeployDeploymentGroupWithName retrieves all AWSCodeDeployDeploymentGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCodeDeployDeploymentGroupWithName(name string, template *Template) (*AWSCodeDeployDeploymentGroup, error) {
+func (t *Template) GetAWSCodeDeployDeploymentGroupWithName(name string) (*AWSCodeDeployDeploymentGroup, error) {
 
 	result := &AWSCodeDeployDeploymentGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

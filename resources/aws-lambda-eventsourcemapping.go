@@ -13,7 +13,7 @@ type AWSLambdaEventSourceMapping struct {
 	// BatchSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
-	BatchSize int64 `json:"BatchSize"`
+	BatchSize int `json:"BatchSize"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
@@ -47,10 +47,10 @@ func (r *AWSLambdaEventSourceMapping) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSLambdaEventSourceMappingResources retrieves all AWSLambdaEventSourceMapping items from a CloudFormation template
-func GetAllAWSLambdaEventSourceMappingResources(template *Template) map[string]*AWSLambdaEventSourceMapping {
+func (t *Template) GetAllAWSLambdaEventSourceMappingResources() map[string]*AWSLambdaEventSourceMapping {
 
 	results := map[string]*AWSLambdaEventSourceMapping{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLambdaEventSourceMapping{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSLambdaEventSourceMappingResources(template *Template) map[string]*
 
 // GetAWSLambdaEventSourceMappingWithName retrieves all AWSLambdaEventSourceMapping items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSLambdaEventSourceMappingWithName(name string, template *Template) (*AWSLambdaEventSourceMapping, error) {
+func (t *Template) GetAWSLambdaEventSourceMappingWithName(name string) (*AWSLambdaEventSourceMapping, error) {
 
 	result := &AWSLambdaEventSourceMapping{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

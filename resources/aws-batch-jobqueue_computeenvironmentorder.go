@@ -12,7 +12,7 @@ type AWSBatchJobQueue_ComputeEnvironmentOrder struct {
 	// Order AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-order
-	Order int64 `json:"Order"`
+	Order int `json:"Order"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

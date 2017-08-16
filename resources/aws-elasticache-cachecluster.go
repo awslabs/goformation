@@ -63,12 +63,12 @@ type AWSElastiCacheCacheCluster struct {
 	// NumCacheNodes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-numcachenodes
-	NumCacheNodes int64 `json:"NumCacheNodes"`
+	NumCacheNodes int `json:"NumCacheNodes"`
 
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// PreferredAvailabilityZone AWS CloudFormation Property
 	// Required: false
@@ -98,7 +98,7 @@ type AWSElastiCacheCacheCluster struct {
 	// SnapshotRetentionLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotretentionlimit
-	SnapshotRetentionLimit int64 `json:"SnapshotRetentionLimit"`
+	SnapshotRetentionLimit int `json:"SnapshotRetentionLimit"`
 
 	// SnapshotWindow AWS CloudFormation Property
 	// Required: false
@@ -127,10 +127,10 @@ func (r *AWSElastiCacheCacheCluster) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSElastiCacheCacheClusterResources retrieves all AWSElastiCacheCacheCluster items from a CloudFormation template
-func GetAllAWSElastiCacheCacheClusterResources(template *Template) map[string]*AWSElastiCacheCacheCluster {
+func (t *Template) GetAllAWSElastiCacheCacheClusterResources() map[string]*AWSElastiCacheCacheCluster {
 
 	results := map[string]*AWSElastiCacheCacheCluster{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElastiCacheCacheCluster{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -142,10 +142,10 @@ func GetAllAWSElastiCacheCacheClusterResources(template *Template) map[string]*A
 
 // GetAWSElastiCacheCacheClusterWithName retrieves all AWSElastiCacheCacheCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSElastiCacheCacheClusterWithName(name string, template *Template) (*AWSElastiCacheCacheCluster, error) {
+func (t *Template) GetAWSElastiCacheCacheClusterWithName(name string) (*AWSElastiCacheCacheCluster, error) {
 
 	result := &AWSElastiCacheCacheCluster{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -32,10 +32,10 @@ func (r *AWSEC2VPCDHCPOptionsAssociation) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSEC2VPCDHCPOptionsAssociationResources retrieves all AWSEC2VPCDHCPOptionsAssociation items from a CloudFormation template
-func GetAllAWSEC2VPCDHCPOptionsAssociationResources(template *Template) map[string]*AWSEC2VPCDHCPOptionsAssociation {
+func (t *Template) GetAllAWSEC2VPCDHCPOptionsAssociationResources() map[string]*AWSEC2VPCDHCPOptionsAssociation {
 
 	results := map[string]*AWSEC2VPCDHCPOptionsAssociation{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPCDHCPOptionsAssociation{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSEC2VPCDHCPOptionsAssociationResources(template *Template) map[stri
 
 // GetAWSEC2VPCDHCPOptionsAssociationWithName retrieves all AWSEC2VPCDHCPOptionsAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPCDHCPOptionsAssociationWithName(name string, template *Template) (*AWSEC2VPCDHCPOptionsAssociation, error) {
+func (t *Template) GetAWSEC2VPCDHCPOptionsAssociationWithName(name string) (*AWSEC2VPCDHCPOptionsAssociation, error) {
 
 	result := &AWSEC2VPCDHCPOptionsAssociation{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

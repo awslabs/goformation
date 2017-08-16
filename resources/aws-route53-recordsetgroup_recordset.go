@@ -72,7 +72,7 @@ type AWSRoute53RecordSetGroup_RecordSet struct {
 	// Weight AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-weight
-	Weight int64 `json:"Weight"`
+	Weight int `json:"Weight"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

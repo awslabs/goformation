@@ -47,10 +47,10 @@ func (r *AWSEC2Subnet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2SubnetResources retrieves all AWSEC2Subnet items from a CloudFormation template
-func GetAllAWSEC2SubnetResources(template *Template) map[string]*AWSEC2Subnet {
+func (t *Template) GetAllAWSEC2SubnetResources() map[string]*AWSEC2Subnet {
 
 	results := map[string]*AWSEC2Subnet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2Subnet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSEC2SubnetResources(template *Template) map[string]*AWSEC2Subnet {
 
 // GetAWSEC2SubnetWithName retrieves all AWSEC2Subnet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2SubnetWithName(name string, template *Template) (*AWSEC2Subnet, error) {
+func (t *Template) GetAWSEC2SubnetWithName(name string) (*AWSEC2Subnet, error) {
 
 	result := &AWSEC2Subnet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

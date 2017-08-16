@@ -47,10 +47,10 @@ func (r *AWSIAMRole) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMRoleResources retrieves all AWSIAMRole items from a CloudFormation template
-func GetAllAWSIAMRoleResources(template *Template) map[string]*AWSIAMRole {
+func (t *Template) GetAllAWSIAMRoleResources() map[string]*AWSIAMRole {
 
 	results := map[string]*AWSIAMRole{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIAMRole{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSIAMRoleResources(template *Template) map[string]*AWSIAMRole {
 
 // GetAWSIAMRoleWithName retrieves all AWSIAMRole items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSIAMRoleWithName(name string, template *Template) (*AWSIAMRole, error) {
+func (t *Template) GetAWSIAMRoleWithName(name string) (*AWSIAMRole, error) {
 
 	result := &AWSIAMRole{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

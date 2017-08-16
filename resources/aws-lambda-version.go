@@ -37,10 +37,10 @@ func (r *AWSLambdaVersion) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLambdaVersionResources retrieves all AWSLambdaVersion items from a CloudFormation template
-func GetAllAWSLambdaVersionResources(template *Template) map[string]*AWSLambdaVersion {
+func (t *Template) GetAllAWSLambdaVersionResources() map[string]*AWSLambdaVersion {
 
 	results := map[string]*AWSLambdaVersion{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLambdaVersion{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSLambdaVersionResources(template *Template) map[string]*AWSLambdaVe
 
 // GetAWSLambdaVersionWithName retrieves all AWSLambdaVersion items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSLambdaVersionWithName(name string, template *Template) (*AWSLambdaVersion, error) {
+func (t *Template) GetAWSLambdaVersionWithName(name string) (*AWSLambdaVersion, error) {
 
 	result := &AWSLambdaVersion{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

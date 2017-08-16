@@ -12,7 +12,7 @@ type AWSECSTaskDefinition_ContainerDefinition struct {
 	// Cpu AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
-	Cpu int64 `json:"Cpu"`
+	Cpu int `json:"Cpu"`
 
 	// DisableNetworking AWS CloudFormation Property
 	// Required: false
@@ -82,12 +82,12 @@ type AWSECSTaskDefinition_ContainerDefinition struct {
 	// Memory AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
-	Memory int64 `json:"Memory"`
+	Memory int `json:"Memory"`
 
 	// MemoryReservation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
-	MemoryReservation int64 `json:"MemoryReservation"`
+	MemoryReservation int `json:"MemoryReservation"`
 
 	// MountPoints AWS CloudFormation Property
 	// Required: false

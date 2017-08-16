@@ -12,7 +12,7 @@ type AWSECSService_LoadBalancer struct {
 	// ContainerPort AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-containerport
-	ContainerPort int64 `json:"ContainerPort"`
+	ContainerPort int `json:"ContainerPort"`
 
 	// LoadBalancerName AWS CloudFormation Property
 	// Required: false

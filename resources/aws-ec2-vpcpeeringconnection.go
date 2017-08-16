@@ -47,10 +47,10 @@ func (r *AWSEC2VPCPeeringConnection) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSEC2VPCPeeringConnectionResources retrieves all AWSEC2VPCPeeringConnection items from a CloudFormation template
-func GetAllAWSEC2VPCPeeringConnectionResources(template *Template) map[string]*AWSEC2VPCPeeringConnection {
+func (t *Template) GetAllAWSEC2VPCPeeringConnectionResources() map[string]*AWSEC2VPCPeeringConnection {
 
 	results := map[string]*AWSEC2VPCPeeringConnection{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPCPeeringConnection{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSEC2VPCPeeringConnectionResources(template *Template) map[string]*A
 
 // GetAWSEC2VPCPeeringConnectionWithName retrieves all AWSEC2VPCPeeringConnection items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPCPeeringConnectionWithName(name string, template *Template) (*AWSEC2VPCPeeringConnection, error) {
+func (t *Template) GetAWSEC2VPCPeeringConnectionWithName(name string) (*AWSEC2VPCPeeringConnection, error) {
 
 	result := &AWSEC2VPCPeeringConnection{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

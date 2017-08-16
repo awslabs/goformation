@@ -37,10 +37,10 @@ func (r *AWSEC2Host) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2HostResources retrieves all AWSEC2Host items from a CloudFormation template
-func GetAllAWSEC2HostResources(template *Template) map[string]*AWSEC2Host {
+func (t *Template) GetAllAWSEC2HostResources() map[string]*AWSEC2Host {
 
 	results := map[string]*AWSEC2Host{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2Host{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSEC2HostResources(template *Template) map[string]*AWSEC2Host {
 
 // GetAWSEC2HostWithName retrieves all AWSEC2Host items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2HostWithName(name string, template *Template) (*AWSEC2Host, error) {
+func (t *Template) GetAWSEC2HostWithName(name string) (*AWSEC2Host, error) {
 
 	result := &AWSEC2Host{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

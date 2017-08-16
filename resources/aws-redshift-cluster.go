@@ -18,7 +18,7 @@ type AWSRedshiftCluster struct {
 	// AutomatedSnapshotRetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
-	AutomatedSnapshotRetentionPeriod int64 `json:"AutomatedSnapshotRetentionPeriod"`
+	AutomatedSnapshotRetentionPeriod int `json:"AutomatedSnapshotRetentionPeriod"`
 
 	// AvailabilityZone AWS CloudFormation Property
 	// Required: false
@@ -108,7 +108,7 @@ type AWSRedshiftCluster struct {
 	// NumberOfNodes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
-	NumberOfNodes int64 `json:"NumberOfNodes"`
+	NumberOfNodes int `json:"NumberOfNodes"`
 
 	// OwnerAccount AWS CloudFormation Property
 	// Required: false
@@ -118,7 +118,7 @@ type AWSRedshiftCluster struct {
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// PreferredMaintenanceWindow AWS CloudFormation Property
 	// Required: false
@@ -162,10 +162,10 @@ func (r *AWSRedshiftCluster) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRedshiftClusterResources retrieves all AWSRedshiftCluster items from a CloudFormation template
-func GetAllAWSRedshiftClusterResources(template *Template) map[string]*AWSRedshiftCluster {
+func (t *Template) GetAllAWSRedshiftClusterResources() map[string]*AWSRedshiftCluster {
 
 	results := map[string]*AWSRedshiftCluster{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRedshiftCluster{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -177,10 +177,10 @@ func GetAllAWSRedshiftClusterResources(template *Template) map[string]*AWSRedshi
 
 // GetAWSRedshiftClusterWithName retrieves all AWSRedshiftCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRedshiftClusterWithName(name string, template *Template) (*AWSRedshiftCluster, error) {
+func (t *Template) GetAWSRedshiftClusterWithName(name string) (*AWSRedshiftCluster, error) {
 
 	result := &AWSRedshiftCluster{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

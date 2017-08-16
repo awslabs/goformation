@@ -28,7 +28,7 @@ type AWSAutoScalingScalingPolicy struct {
 	// EstimatedInstanceWarmup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-estimatedinstancewarmup
-	EstimatedInstanceWarmup int64 `json:"EstimatedInstanceWarmup"`
+	EstimatedInstanceWarmup int `json:"EstimatedInstanceWarmup"`
 
 	// MetricAggregationType AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type AWSAutoScalingScalingPolicy struct {
 	// MinAdjustmentMagnitude AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-minadjustmentmagnitude
-	MinAdjustmentMagnitude int64 `json:"MinAdjustmentMagnitude"`
+	MinAdjustmentMagnitude int `json:"MinAdjustmentMagnitude"`
 
 	// PolicyType AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type AWSAutoScalingScalingPolicy struct {
 	// ScalingAdjustment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-scalingadjustment
-	ScalingAdjustment int64 `json:"ScalingAdjustment"`
+	ScalingAdjustment int `json:"ScalingAdjustment"`
 
 	// StepAdjustments AWS CloudFormation Property
 	// Required: false
@@ -67,10 +67,10 @@ func (r *AWSAutoScalingScalingPolicy) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSAutoScalingScalingPolicyResources retrieves all AWSAutoScalingScalingPolicy items from a CloudFormation template
-func GetAllAWSAutoScalingScalingPolicyResources(template *Template) map[string]*AWSAutoScalingScalingPolicy {
+func (t *Template) GetAllAWSAutoScalingScalingPolicyResources() map[string]*AWSAutoScalingScalingPolicy {
 
 	results := map[string]*AWSAutoScalingScalingPolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSAutoScalingScalingPolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSAutoScalingScalingPolicyResources(template *Template) map[string]*
 
 // GetAWSAutoScalingScalingPolicyWithName retrieves all AWSAutoScalingScalingPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSAutoScalingScalingPolicyWithName(name string, template *Template) (*AWSAutoScalingScalingPolicy, error) {
+func (t *Template) GetAWSAutoScalingScalingPolicyWithName(name string) (*AWSAutoScalingScalingPolicy, error) {
 
 	result := &AWSAutoScalingScalingPolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

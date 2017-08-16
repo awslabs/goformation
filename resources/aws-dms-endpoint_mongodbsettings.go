@@ -47,7 +47,7 @@ type AWSDMSEndpoint_MongoDbSettings struct {
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// ServerName AWS CloudFormation Property
 	// Required: false

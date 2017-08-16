@@ -7,7 +7,7 @@ type AWSECSTaskDefinition_Ulimit struct {
 	// HardLimit AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
-	HardLimit int64 `json:"HardLimit"`
+	HardLimit int `json:"HardLimit"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -17,7 +17,7 @@ type AWSECSTaskDefinition_Ulimit struct {
 	// SoftLimit AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-softlimit
-	SoftLimit int64 `json:"SoftLimit"`
+	SoftLimit int `json:"SoftLimit"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

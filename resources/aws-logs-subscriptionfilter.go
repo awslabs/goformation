@@ -42,10 +42,10 @@ func (r *AWSLogsSubscriptionFilter) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSLogsSubscriptionFilterResources retrieves all AWSLogsSubscriptionFilter items from a CloudFormation template
-func GetAllAWSLogsSubscriptionFilterResources(template *Template) map[string]*AWSLogsSubscriptionFilter {
+func (t *Template) GetAllAWSLogsSubscriptionFilterResources() map[string]*AWSLogsSubscriptionFilter {
 
 	results := map[string]*AWSLogsSubscriptionFilter{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLogsSubscriptionFilter{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSLogsSubscriptionFilterResources(template *Template) map[string]*AW
 
 // GetAWSLogsSubscriptionFilterWithName retrieves all AWSLogsSubscriptionFilter items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSLogsSubscriptionFilterWithName(name string, template *Template) (*AWSLogsSubscriptionFilter, error) {
+func (t *Template) GetAWSLogsSubscriptionFilterWithName(name string) (*AWSLogsSubscriptionFilter, error) {
 
 	result := &AWSLogsSubscriptionFilter{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

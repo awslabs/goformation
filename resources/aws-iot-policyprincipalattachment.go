@@ -32,10 +32,10 @@ func (r *AWSIoTPolicyPrincipalAttachment) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSIoTPolicyPrincipalAttachmentResources retrieves all AWSIoTPolicyPrincipalAttachment items from a CloudFormation template
-func GetAllAWSIoTPolicyPrincipalAttachmentResources(template *Template) map[string]*AWSIoTPolicyPrincipalAttachment {
+func (t *Template) GetAllAWSIoTPolicyPrincipalAttachmentResources() map[string]*AWSIoTPolicyPrincipalAttachment {
 
 	results := map[string]*AWSIoTPolicyPrincipalAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIoTPolicyPrincipalAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSIoTPolicyPrincipalAttachmentResources(template *Template) map[stri
 
 // GetAWSIoTPolicyPrincipalAttachmentWithName retrieves all AWSIoTPolicyPrincipalAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSIoTPolicyPrincipalAttachmentWithName(name string, template *Template) (*AWSIoTPolicyPrincipalAttachment, error) {
+func (t *Template) GetAWSIoTPolicyPrincipalAttachmentWithName(name string) (*AWSIoTPolicyPrincipalAttachment, error) {
 
 	result := &AWSIoTPolicyPrincipalAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

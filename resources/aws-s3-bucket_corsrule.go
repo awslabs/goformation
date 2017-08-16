@@ -32,7 +32,7 @@ type AWSS3Bucket_CorsRule struct {
 	// MaxAge AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-maxage
-	MaxAge int64 `json:"MaxAge"`
+	MaxAge int `json:"MaxAge"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -48,7 +48,7 @@ type AWSLambdaFunction struct {
 	// MemorySize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
-	MemorySize int64 `json:"MemorySize"`
+	MemorySize int `json:"MemorySize"`
 
 	// Role AWS CloudFormation Property
 	// Required: true
@@ -68,7 +68,7 @@ type AWSLambdaFunction struct {
 	// Timeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
-	Timeout int64 `json:"Timeout"`
+	Timeout int `json:"Timeout"`
 
 	// TracingConfig AWS CloudFormation Property
 	// Required: false
@@ -92,10 +92,10 @@ func (r *AWSLambdaFunction) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLambdaFunctionResources retrieves all AWSLambdaFunction items from a CloudFormation template
-func GetAllAWSLambdaFunctionResources(template *Template) map[string]*AWSLambdaFunction {
+func (t *Template) GetAllAWSLambdaFunctionResources() map[string]*AWSLambdaFunction {
 
 	results := map[string]*AWSLambdaFunction{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLambdaFunction{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -107,10 +107,10 @@ func GetAllAWSLambdaFunctionResources(template *Template) map[string]*AWSLambdaF
 
 // GetAWSLambdaFunctionWithName retrieves all AWSLambdaFunction items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSLambdaFunctionWithName(name string, template *Template) (*AWSLambdaFunction, error) {
+func (t *Template) GetAWSLambdaFunctionWithName(name string) (*AWSLambdaFunction, error) {
 
 	result := &AWSLambdaFunction{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

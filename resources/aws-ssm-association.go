@@ -52,10 +52,10 @@ func (r *AWSSSMAssociation) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSSMAssociationResources retrieves all AWSSSMAssociation items from a CloudFormation template
-func GetAllAWSSSMAssociationResources(template *Template) map[string]*AWSSSMAssociation {
+func (t *Template) GetAllAWSSSMAssociationResources() map[string]*AWSSSMAssociation {
 
 	results := map[string]*AWSSSMAssociation{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSSMAssociation{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +67,10 @@ func GetAllAWSSSMAssociationResources(template *Template) map[string]*AWSSSMAsso
 
 // GetAWSSSMAssociationWithName retrieves all AWSSSMAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSSSMAssociationWithName(name string, template *Template) (*AWSSSMAssociation, error) {
+func (t *Template) GetAWSSSMAssociationWithName(name string) (*AWSSSMAssociation, error) {
 
 	result := &AWSSSMAssociation{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

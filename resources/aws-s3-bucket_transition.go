@@ -17,7 +17,7 @@ type AWSS3Bucket_Transition struct {
 	// TransitionInDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitionindays
-	TransitionInDays int64 `json:"TransitionInDays"`
+	TransitionInDays int `json:"TransitionInDays"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

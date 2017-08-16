@@ -57,10 +57,10 @@ func (r *AWSCognitoUserPoolClient) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSCognitoUserPoolClientResources retrieves all AWSCognitoUserPoolClient items from a CloudFormation template
-func GetAllAWSCognitoUserPoolClientResources(template *Template) map[string]*AWSCognitoUserPoolClient {
+func (t *Template) GetAllAWSCognitoUserPoolClientResources() map[string]*AWSCognitoUserPoolClient {
 
 	results := map[string]*AWSCognitoUserPoolClient{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCognitoUserPoolClient{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -72,10 +72,10 @@ func GetAllAWSCognitoUserPoolClientResources(template *Template) map[string]*AWS
 
 // GetAWSCognitoUserPoolClientWithName retrieves all AWSCognitoUserPoolClient items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCognitoUserPoolClientWithName(name string, template *Template) (*AWSCognitoUserPoolClient, error) {
+func (t *Template) GetAWSCognitoUserPoolClientWithName(name string) (*AWSCognitoUserPoolClient, error) {
 
 	result := &AWSCognitoUserPoolClient{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

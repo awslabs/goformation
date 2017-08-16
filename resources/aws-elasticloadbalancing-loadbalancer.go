@@ -102,10 +102,10 @@ func (r *AWSElasticLoadBalancingLoadBalancer) AWSCloudFormationSpecificationVers
 }
 
 // GetAllAWSElasticLoadBalancingLoadBalancerResources retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingLoadBalancerResources(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer {
+func (t *Template) GetAllAWSElasticLoadBalancingLoadBalancerResources() map[string]*AWSElasticLoadBalancingLoadBalancer {
 
 	results := map[string]*AWSElasticLoadBalancingLoadBalancer{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElasticLoadBalancingLoadBalancer{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -117,10 +117,10 @@ func GetAllAWSElasticLoadBalancingLoadBalancerResources(template *Template) map[
 
 // GetAWSElasticLoadBalancingLoadBalancerWithName retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSElasticLoadBalancingLoadBalancerWithName(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer, error) {
+func (t *Template) GetAWSElasticLoadBalancingLoadBalancerWithName(name string) (*AWSElasticLoadBalancingLoadBalancer, error) {
 
 	result := &AWSElasticLoadBalancingLoadBalancer{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

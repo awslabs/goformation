@@ -12,12 +12,12 @@ type AWSEMRCluster_SimpleScalingPolicyConfiguration struct {
 	// CoolDown AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-cluster-simplescalingpolicyconfiguration-cooldown
-	CoolDown int64 `json:"CoolDown"`
+	CoolDown int `json:"CoolDown"`
 
 	// ScalingAdjustment AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-cluster-simplescalingpolicyconfiguration-scalingadjustment
-	ScalingAdjustment int64 `json:"ScalingAdjustment"`
+	ScalingAdjustment int `json:"ScalingAdjustment"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

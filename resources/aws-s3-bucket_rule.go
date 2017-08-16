@@ -12,7 +12,7 @@ type AWSS3Bucket_Rule struct {
 	// ExpirationInDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationindays
-	ExpirationInDays int64 `json:"ExpirationInDays"`
+	ExpirationInDays int `json:"ExpirationInDays"`
 
 	// Id AWS CloudFormation Property
 	// Required: false
@@ -22,7 +22,7 @@ type AWSS3Bucket_Rule struct {
 	// NoncurrentVersionExpirationInDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversionexpirationindays
-	NoncurrentVersionExpirationInDays int64 `json:"NoncurrentVersionExpirationInDays"`
+	NoncurrentVersionExpirationInDays int `json:"NoncurrentVersionExpirationInDays"`
 
 	// NoncurrentVersionTransition AWS CloudFormation Property
 	// Required: false

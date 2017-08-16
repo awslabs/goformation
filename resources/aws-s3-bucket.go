@@ -72,10 +72,10 @@ func (r *AWSS3Bucket) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSS3BucketResources retrieves all AWSS3Bucket items from a CloudFormation template
-func GetAllAWSS3BucketResources(template *Template) map[string]*AWSS3Bucket {
+func (t *Template) GetAllAWSS3BucketResources() map[string]*AWSS3Bucket {
 
 	results := map[string]*AWSS3Bucket{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSS3Bucket{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -87,10 +87,10 @@ func GetAllAWSS3BucketResources(template *Template) map[string]*AWSS3Bucket {
 
 // GetAWSS3BucketWithName retrieves all AWSS3Bucket items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSS3BucketWithName(name string, template *Template) (*AWSS3Bucket, error) {
+func (t *Template) GetAWSS3BucketWithName(name string) (*AWSS3Bucket, error) {
 
 	result := &AWSS3Bucket{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

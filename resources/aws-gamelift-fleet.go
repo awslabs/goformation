@@ -23,7 +23,7 @@ type AWSGameLiftFleet struct {
 	// DesiredEC2Instances AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
-	DesiredEC2Instances int64 `json:"DesiredEC2Instances"`
+	DesiredEC2Instances int `json:"DesiredEC2Instances"`
 
 	// EC2InboundPermissions AWS CloudFormation Property
 	// Required: false
@@ -43,12 +43,12 @@ type AWSGameLiftFleet struct {
 	// MaxSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
-	MaxSize int64 `json:"MaxSize"`
+	MaxSize int `json:"MaxSize"`
 
 	// MinSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
-	MinSize int64 `json:"MinSize"`
+	MinSize int `json:"MinSize"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -77,10 +77,10 @@ func (r *AWSGameLiftFleet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSGameLiftFleetResources retrieves all AWSGameLiftFleet items from a CloudFormation template
-func GetAllAWSGameLiftFleetResources(template *Template) map[string]*AWSGameLiftFleet {
+func (t *Template) GetAllAWSGameLiftFleetResources() map[string]*AWSGameLiftFleet {
 
 	results := map[string]*AWSGameLiftFleet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSGameLiftFleet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -92,10 +92,10 @@ func GetAllAWSGameLiftFleetResources(template *Template) map[string]*AWSGameLift
 
 // GetAWSGameLiftFleetWithName retrieves all AWSGameLiftFleet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSGameLiftFleetWithName(name string, template *Template) (*AWSGameLiftFleet, error) {
+func (t *Template) GetAWSGameLiftFleetWithName(name string) (*AWSGameLiftFleet, error) {
 
 	result := &AWSGameLiftFleet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

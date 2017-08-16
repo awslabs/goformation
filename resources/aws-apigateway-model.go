@@ -47,10 +47,10 @@ func (r *AWSApiGatewayModel) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSApiGatewayModelResources retrieves all AWSApiGatewayModel items from a CloudFormation template
-func GetAllAWSApiGatewayModelResources(template *Template) map[string]*AWSApiGatewayModel {
+func (t *Template) GetAllAWSApiGatewayModelResources() map[string]*AWSApiGatewayModel {
 
 	results := map[string]*AWSApiGatewayModel{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayModel{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSApiGatewayModelResources(template *Template) map[string]*AWSApiGat
 
 // GetAWSApiGatewayModelWithName retrieves all AWSApiGatewayModel items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSApiGatewayModelWithName(name string, template *Template) (*AWSApiGatewayModel, error) {
+func (t *Template) GetAWSApiGatewayModelWithName(name string) (*AWSApiGatewayModel, error) {
 
 	result := &AWSApiGatewayModel{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

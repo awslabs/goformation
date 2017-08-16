@@ -7,12 +7,12 @@ type AWSEMRInstanceFleetConfig_VolumeSpecification struct {
 	// Iops AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html#cfn-elasticmapreduce-instancefleetconfig-volumespecification-iops
-	Iops int64 `json:"Iops"`
+	Iops int `json:"Iops"`
 
 	// SizeInGB AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html#cfn-elasticmapreduce-instancefleetconfig-volumespecification-sizeingb
-	SizeInGB int64 `json:"SizeInGB"`
+	SizeInGB int `json:"SizeInGB"`
 
 	// VolumeType AWS CloudFormation Property
 	// Required: true

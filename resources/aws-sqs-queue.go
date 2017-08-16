@@ -18,7 +18,7 @@ type AWSSQSQueue struct {
 	// DelaySeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds
-	DelaySeconds int64 `json:"DelaySeconds"`
+	DelaySeconds int `json:"DelaySeconds"`
 
 	// FifoQueue AWS CloudFormation Property
 	// Required: false
@@ -28,12 +28,12 @@ type AWSSQSQueue struct {
 	// MaximumMessageSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-maxmesgsize
-	MaximumMessageSize int64 `json:"MaximumMessageSize"`
+	MaximumMessageSize int `json:"MaximumMessageSize"`
 
 	// MessageRetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-msgretentionperiod
-	MessageRetentionPeriod int64 `json:"MessageRetentionPeriod"`
+	MessageRetentionPeriod int `json:"MessageRetentionPeriod"`
 
 	// QueueName AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type AWSSQSQueue struct {
 	// ReceiveMessageWaitTimeSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime
-	ReceiveMessageWaitTimeSeconds int64 `json:"ReceiveMessageWaitTimeSeconds"`
+	ReceiveMessageWaitTimeSeconds int `json:"ReceiveMessageWaitTimeSeconds"`
 
 	// RedrivePolicy AWS CloudFormation Property
 	// Required: false
@@ -53,7 +53,7 @@ type AWSSQSQueue struct {
 	// VisibilityTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-visiblitytimeout
-	VisibilityTimeout int64 `json:"VisibilityTimeout"`
+	VisibilityTimeout int `json:"VisibilityTimeout"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -67,10 +67,10 @@ func (r *AWSSQSQueue) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSQSQueueResources retrieves all AWSSQSQueue items from a CloudFormation template
-func GetAllAWSSQSQueueResources(template *Template) map[string]*AWSSQSQueue {
+func (t *Template) GetAllAWSSQSQueueResources() map[string]*AWSSQSQueue {
 
 	results := map[string]*AWSSQSQueue{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSQSQueue{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSSQSQueueResources(template *Template) map[string]*AWSSQSQueue {
 
 // GetAWSSQSQueueWithName retrieves all AWSSQSQueue items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSSQSQueueWithName(name string, template *Template) (*AWSSQSQueue, error) {
+func (t *Template) GetAWSSQSQueueWithName(name string) (*AWSSQSQueue, error) {
 
 	result := &AWSSQSQueue{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

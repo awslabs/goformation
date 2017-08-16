@@ -22,7 +22,7 @@ type AWSRDSOptionGroup_OptionConfiguration struct {
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// VpcSecurityGroupMemberships AWS CloudFormation Property
 	// Required: false

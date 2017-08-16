@@ -58,6 +58,12 @@ type Property struct {
 	// depending on, for example, which other properties you updated. For more information, see the relevant
 	// resource type documentation.
 	UpdateType string `json:"UpdateType"`
+
+	// Types - if a property can be different types, they will be listed here
+	PrimitiveTypes     []string `json:"PrimitiveTypes"`
+	PrimitiveItemTypes []string `json:"PrimitiveItemTypes"`
+	ItemTypes          []string `json:"ItemTypes"`
+	Types              []string `json:"Types"`
 }
 
 // Schema returns a JSON Schema for the resource (as a string)
@@ -94,6 +100,11 @@ func (p Property) Schema(name, parent string) string {
 
 }
 
+// IsMultiType checks whether a property can be multiple different types
+func (p Property) IsMultiType() bool {
+	return len(p.PrimitiveTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.ItemTypes) > 0
+}
+
 // IsPrimitive checks whether a property is a primitive type
 func (p Property) IsPrimitive() bool {
 	return p.PrimitiveType != ""
@@ -127,6 +138,24 @@ func (p Property) IsCustomType() bool {
 // GoType returns the correct type for this property
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
 func (p Property) GoType(basename string) string {
+
+	if p.IsMultiType() {
+
+		types := append([]string{}, p.PrimitiveTypes...)
+		types = append(types, p.Types...)
+
+		for _, t := range p.PrimitiveItemTypes {
+			types = append(types, "ListOf"+t)
+		}
+
+		for _, t := range p.ItemTypes {
+			types = append(types, "ListOf"+t)
+		}
+
+		name := basename + "_" + strings.Join(types, "Or")
+		generateMultiTypeResourceFile(name, p)
+		return name
+	}
 
 	if p.IsMap() {
 
@@ -192,7 +221,7 @@ func convertTypeToGo(pt string) string {
 	case "Long":
 		return "int64"
 	case "Integer":
-		return "int64"
+		return "int"
 	case "Double":
 		return "float64"
 	case "Boolean":
@@ -202,7 +231,7 @@ func convertTypeToGo(pt string) string {
 	case "Json":
 		return "interface{}"
 	default:
-		return ""
+		return pt
 	}
 }
 
@@ -223,6 +252,6 @@ func convertTypeToJSON(name string) string {
 	case "Json":
 		return "object"
 	default:
-		return "unknown"
+		return name
 	}
 }

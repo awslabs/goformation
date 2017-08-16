@@ -37,10 +37,10 @@ func (r *AWSSNSSubscription) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSNSSubscriptionResources retrieves all AWSSNSSubscription items from a CloudFormation template
-func GetAllAWSSNSSubscriptionResources(template *Template) map[string]*AWSSNSSubscription {
+func (t *Template) GetAllAWSSNSSubscriptionResources() map[string]*AWSSNSSubscription {
 
 	results := map[string]*AWSSNSSubscription{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSNSSubscription{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSSNSSubscriptionResources(template *Template) map[string]*AWSSNSSub
 
 // GetAWSSNSSubscriptionWithName retrieves all AWSSNSSubscription items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSSNSSubscriptionWithName(name string, template *Template) (*AWSSNSSubscription, error) {
+func (t *Template) GetAWSSNSSubscriptionWithName(name string) (*AWSSNSSubscription, error) {
 
 	result := &AWSSNSSubscription{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -12,7 +12,7 @@ type AWSElasticLoadBalancingLoadBalancer_ConnectionDrainingPolicy struct {
 	// Timeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectiondrainingpolicy.html#cfn-elb-connectiondrainingpolicy-timeout
-	Timeout int64 `json:"Timeout"`
+	Timeout int `json:"Timeout"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -7,7 +7,7 @@ type AWSElasticsearchDomain_ElasticsearchClusterConfig struct {
 	// DedicatedMasterCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-dedicatedmastercount
-	DedicatedMasterCount int64 `json:"DedicatedMasterCount"`
+	DedicatedMasterCount int `json:"DedicatedMasterCount"`
 
 	// DedicatedMasterEnabled AWS CloudFormation Property
 	// Required: false
@@ -22,7 +22,7 @@ type AWSElasticsearchDomain_ElasticsearchClusterConfig struct {
 	// InstanceCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instancecount
-	InstanceCount int64 `json:"InstanceCount"`
+	InstanceCount int `json:"InstanceCount"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: false

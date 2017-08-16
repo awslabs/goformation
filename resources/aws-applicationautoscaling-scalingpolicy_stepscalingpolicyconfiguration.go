@@ -12,7 +12,7 @@ type AWSApplicationAutoScalingScalingPolicy_StepScalingPolicyConfiguration struc
 	// Cooldown AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-cooldown
-	Cooldown int64 `json:"Cooldown"`
+	Cooldown int `json:"Cooldown"`
 
 	// MetricAggregationType AWS CloudFormation Property
 	// Required: false
@@ -22,7 +22,7 @@ type AWSApplicationAutoScalingScalingPolicy_StepScalingPolicyConfiguration struc
 	// MinAdjustmentMagnitude AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-minadjustmentmagnitude
-	MinAdjustmentMagnitude int64 `json:"MinAdjustmentMagnitude"`
+	MinAdjustmentMagnitude int `json:"MinAdjustmentMagnitude"`
 
 	// StepAdjustments AWS CloudFormation Property
 	// Required: false

@@ -18,7 +18,7 @@ type AWSRDSDBCluster struct {
 	// BackupRetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
-	BackupRetentionPeriod int64 `json:"BackupRetentionPeriod"`
+	BackupRetentionPeriod int `json:"BackupRetentionPeriod"`
 
 	// DBClusterParameterGroupName AWS CloudFormation Property
 	// Required: false
@@ -63,7 +63,7 @@ type AWSRDSDBCluster struct {
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// PreferredBackupWindow AWS CloudFormation Property
 	// Required: false
@@ -112,10 +112,10 @@ func (r *AWSRDSDBCluster) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBClusterResources retrieves all AWSRDSDBCluster items from a CloudFormation template
-func GetAllAWSRDSDBClusterResources(template *Template) map[string]*AWSRDSDBCluster {
+func (t *Template) GetAllAWSRDSDBClusterResources() map[string]*AWSRDSDBCluster {
 
 	results := map[string]*AWSRDSDBCluster{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRDSDBCluster{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -127,10 +127,10 @@ func GetAllAWSRDSDBClusterResources(template *Template) map[string]*AWSRDSDBClus
 
 // GetAWSRDSDBClusterWithName retrieves all AWSRDSDBCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRDSDBClusterWithName(name string, template *Template) (*AWSRDSDBCluster, error) {
+func (t *Template) GetAWSRDSDBClusterWithName(name string) (*AWSRDSDBCluster, error) {
 
 	result := &AWSRDSDBCluster{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

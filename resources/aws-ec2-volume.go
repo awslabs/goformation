@@ -28,7 +28,7 @@ type AWSEC2Volume struct {
 	// Iops AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-iops
-	Iops int64 `json:"Iops"`
+	Iops int `json:"Iops"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type AWSEC2Volume struct {
 	// Size AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size
-	Size int64 `json:"Size"`
+	Size int `json:"Size"`
 
 	// SnapshotId AWS CloudFormation Property
 	// Required: false
@@ -67,10 +67,10 @@ func (r *AWSEC2Volume) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2VolumeResources retrieves all AWSEC2Volume items from a CloudFormation template
-func GetAllAWSEC2VolumeResources(template *Template) map[string]*AWSEC2Volume {
+func (t *Template) GetAllAWSEC2VolumeResources() map[string]*AWSEC2Volume {
 
 	results := map[string]*AWSEC2Volume{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2Volume{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSEC2VolumeResources(template *Template) map[string]*AWSEC2Volume {
 
 // GetAWSEC2VolumeWithName retrieves all AWSEC2Volume items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VolumeWithName(name string, template *Template) (*AWSEC2Volume, error) {
+func (t *Template) GetAWSEC2VolumeWithName(name string) (*AWSEC2Volume, error) {
 
 	result := &AWSEC2Volume{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

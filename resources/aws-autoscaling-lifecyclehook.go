@@ -23,7 +23,7 @@ type AWSAutoScalingLifecycleHook struct {
 	// HeartbeatTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-heartbeattimeout
-	HeartbeatTimeout int64 `json:"HeartbeatTimeout"`
+	HeartbeatTimeout int `json:"HeartbeatTimeout"`
 
 	// LifecycleTransition AWS CloudFormation Property
 	// Required: true
@@ -57,10 +57,10 @@ func (r *AWSAutoScalingLifecycleHook) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSAutoScalingLifecycleHookResources retrieves all AWSAutoScalingLifecycleHook items from a CloudFormation template
-func GetAllAWSAutoScalingLifecycleHookResources(template *Template) map[string]*AWSAutoScalingLifecycleHook {
+func (t *Template) GetAllAWSAutoScalingLifecycleHookResources() map[string]*AWSAutoScalingLifecycleHook {
 
 	results := map[string]*AWSAutoScalingLifecycleHook{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSAutoScalingLifecycleHook{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -72,10 +72,10 @@ func GetAllAWSAutoScalingLifecycleHookResources(template *Template) map[string]*
 
 // GetAWSAutoScalingLifecycleHookWithName retrieves all AWSAutoScalingLifecycleHook items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSAutoScalingLifecycleHookWithName(name string, template *Template) (*AWSAutoScalingLifecycleHook, error) {
+func (t *Template) GetAWSAutoScalingLifecycleHookWithName(name string) (*AWSAutoScalingLifecycleHook, error) {
 
 	result := &AWSAutoScalingLifecycleHook{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

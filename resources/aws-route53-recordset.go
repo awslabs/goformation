@@ -78,7 +78,7 @@ type AWSRoute53RecordSet struct {
 	// Weight AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-weight
-	Weight int64 `json:"Weight"`
+	Weight int `json:"Weight"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -92,10 +92,10 @@ func (r *AWSRoute53RecordSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRoute53RecordSetResources retrieves all AWSRoute53RecordSet items from a CloudFormation template
-func GetAllAWSRoute53RecordSetResources(template *Template) map[string]*AWSRoute53RecordSet {
+func (t *Template) GetAllAWSRoute53RecordSetResources() map[string]*AWSRoute53RecordSet {
 
 	results := map[string]*AWSRoute53RecordSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRoute53RecordSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -107,10 +107,10 @@ func GetAllAWSRoute53RecordSetResources(template *Template) map[string]*AWSRoute
 
 // GetAWSRoute53RecordSetWithName retrieves all AWSRoute53RecordSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRoute53RecordSetWithName(name string, template *Template) (*AWSRoute53RecordSet, error) {
+func (t *Template) GetAWSRoute53RecordSetWithName(name string) (*AWSRoute53RecordSet, error) {
 
 	result := &AWSRoute53RecordSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -32,10 +32,10 @@ func (r *AWSEC2VPNGatewayRoutePropagation) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSEC2VPNGatewayRoutePropagationResources retrieves all AWSEC2VPNGatewayRoutePropagation items from a CloudFormation template
-func GetAllAWSEC2VPNGatewayRoutePropagationResources(template *Template) map[string]*AWSEC2VPNGatewayRoutePropagation {
+func (t *Template) GetAllAWSEC2VPNGatewayRoutePropagationResources() map[string]*AWSEC2VPNGatewayRoutePropagation {
 
 	results := map[string]*AWSEC2VPNGatewayRoutePropagation{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPNGatewayRoutePropagation{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSEC2VPNGatewayRoutePropagationResources(template *Template) map[str
 
 // GetAWSEC2VPNGatewayRoutePropagationWithName retrieves all AWSEC2VPNGatewayRoutePropagation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPNGatewayRoutePropagationWithName(name string, template *Template) (*AWSEC2VPNGatewayRoutePropagation, error) {
+func (t *Template) GetAWSEC2VPNGatewayRoutePropagationWithName(name string) (*AWSEC2VPNGatewayRoutePropagation, error) {
 
 	result := &AWSEC2VPNGatewayRoutePropagation{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

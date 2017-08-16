@@ -47,10 +47,10 @@ func (r *AWSRDSOptionGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSOptionGroupResources retrieves all AWSRDSOptionGroup items from a CloudFormation template
-func GetAllAWSRDSOptionGroupResources(template *Template) map[string]*AWSRDSOptionGroup {
+func (t *Template) GetAllAWSRDSOptionGroupResources() map[string]*AWSRDSOptionGroup {
 
 	results := map[string]*AWSRDSOptionGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRDSOptionGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSRDSOptionGroupResources(template *Template) map[string]*AWSRDSOpti
 
 // GetAWSRDSOptionGroupWithName retrieves all AWSRDSOptionGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRDSOptionGroupWithName(name string, template *Template) (*AWSRDSOptionGroup, error) {
+func (t *Template) GetAWSRDSOptionGroupWithName(name string) (*AWSRDSOptionGroup, error) {
 
 	result := &AWSRDSOptionGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

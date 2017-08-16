@@ -13,7 +13,7 @@ type AWSDMSReplicationInstance struct {
 	// AllocatedStorage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allocatedstorage
-	AllocatedStorage int64 `json:"AllocatedStorage"`
+	AllocatedStorage int `json:"AllocatedStorage"`
 
 	// AllowMajorVersionUpgrade AWS CloudFormation Property
 	// Required: false
@@ -92,10 +92,10 @@ func (r *AWSDMSReplicationInstance) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSDMSReplicationInstanceResources retrieves all AWSDMSReplicationInstance items from a CloudFormation template
-func GetAllAWSDMSReplicationInstanceResources(template *Template) map[string]*AWSDMSReplicationInstance {
+func (t *Template) GetAllAWSDMSReplicationInstanceResources() map[string]*AWSDMSReplicationInstance {
 
 	results := map[string]*AWSDMSReplicationInstance{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSDMSReplicationInstance{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -107,10 +107,10 @@ func GetAllAWSDMSReplicationInstanceResources(template *Template) map[string]*AW
 
 // GetAWSDMSReplicationInstanceWithName retrieves all AWSDMSReplicationInstance items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSDMSReplicationInstanceWithName(name string, template *Template) (*AWSDMSReplicationInstance, error) {
+func (t *Template) GetAWSDMSReplicationInstanceWithName(name string) (*AWSDMSReplicationInstance, error) {
 
 	result := &AWSDMSReplicationInstance{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -42,10 +42,10 @@ func (r *AWSEC2VPCEndpoint) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2VPCEndpointResources retrieves all AWSEC2VPCEndpoint items from a CloudFormation template
-func GetAllAWSEC2VPCEndpointResources(template *Template) map[string]*AWSEC2VPCEndpoint {
+func (t *Template) GetAllAWSEC2VPCEndpointResources() map[string]*AWSEC2VPCEndpoint {
 
 	results := map[string]*AWSEC2VPCEndpoint{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPCEndpoint{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSEC2VPCEndpointResources(template *Template) map[string]*AWSEC2VPCE
 
 // GetAWSEC2VPCEndpointWithName retrieves all AWSEC2VPCEndpoint items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPCEndpointWithName(name string, template *Template) (*AWSEC2VPCEndpoint, error) {
+func (t *Template) GetAWSEC2VPCEndpointWithName(name string) (*AWSEC2VPCEndpoint, error) {
 
 	result := &AWSEC2VPCEndpoint{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

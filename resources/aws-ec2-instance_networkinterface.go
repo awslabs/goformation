@@ -32,7 +32,7 @@ type AWSEC2Instance_NetworkInterface struct {
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresscount
-	Ipv6AddressCount int64 `json:"Ipv6AddressCount"`
+	Ipv6AddressCount int `json:"Ipv6AddressCount"`
 
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
@@ -57,7 +57,7 @@ type AWSEC2Instance_NetworkInterface struct {
 	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-secondprivateip
-	SecondaryPrivateIpAddressCount int64 `json:"SecondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount int `json:"SecondaryPrivateIpAddressCount"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false

@@ -32,10 +32,10 @@ func (r *AWSEC2SubnetCidrBlock) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2SubnetCidrBlockResources retrieves all AWSEC2SubnetCidrBlock items from a CloudFormation template
-func GetAllAWSEC2SubnetCidrBlockResources(template *Template) map[string]*AWSEC2SubnetCidrBlock {
+func (t *Template) GetAllAWSEC2SubnetCidrBlockResources() map[string]*AWSEC2SubnetCidrBlock {
 
 	results := map[string]*AWSEC2SubnetCidrBlock{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2SubnetCidrBlock{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSEC2SubnetCidrBlockResources(template *Template) map[string]*AWSEC2
 
 // GetAWSEC2SubnetCidrBlockWithName retrieves all AWSEC2SubnetCidrBlock items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2SubnetCidrBlockWithName(name string, template *Template) (*AWSEC2SubnetCidrBlock, error) {
+func (t *Template) GetAWSEC2SubnetCidrBlockWithName(name string) (*AWSEC2SubnetCidrBlock, error) {
 
 	result := &AWSEC2SubnetCidrBlock{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -27,7 +27,7 @@ type AWSEMRCluster_InstanceGroupConfig struct {
 	// InstanceCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-instancecount
-	InstanceCount int64 `json:"InstanceCount"`
+	InstanceCount int `json:"InstanceCount"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: true

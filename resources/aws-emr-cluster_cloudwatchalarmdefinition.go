@@ -17,7 +17,7 @@ type AWSEMRCluster_CloudWatchAlarmDefinition struct {
 	// EvaluationPeriods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-evaluationperiods
-	EvaluationPeriods int64 `json:"EvaluationPeriods"`
+	EvaluationPeriods int `json:"EvaluationPeriods"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true
@@ -32,7 +32,7 @@ type AWSEMRCluster_CloudWatchAlarmDefinition struct {
 	// Period AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-period
-	Period int64 `json:"Period"`
+	Period int `json:"Period"`
 
 	// Statistic AWS CloudFormation Property
 	// Required: false

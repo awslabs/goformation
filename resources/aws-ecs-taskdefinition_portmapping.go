@@ -7,12 +7,12 @@ type AWSECSTaskDefinition_PortMapping struct {
 	// ContainerPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
-	ContainerPort int64 `json:"ContainerPort"`
+	ContainerPort int `json:"ContainerPort"`
 
 	// HostPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly
-	HostPort int64 `json:"HostPort"`
+	HostPort int `json:"HostPort"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: false

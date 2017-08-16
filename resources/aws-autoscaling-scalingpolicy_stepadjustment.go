@@ -17,7 +17,7 @@ type AWSAutoScalingScalingPolicy_StepAdjustment struct {
 	// ScalingAdjustment AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment
-	ScalingAdjustment int64 `json:"ScalingAdjustment"`
+	ScalingAdjustment int `json:"ScalingAdjustment"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

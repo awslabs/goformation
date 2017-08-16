@@ -28,7 +28,7 @@ type AWSElasticLoadBalancingV2ListenerRule struct {
 	// Priority AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-	Priority int64 `json:"Priority"`
+	Priority int `json:"Priority"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -42,10 +42,10 @@ func (r *AWSElasticLoadBalancingV2ListenerRule) AWSCloudFormationSpecificationVe
 }
 
 // GetAllAWSElasticLoadBalancingV2ListenerRuleResources retrieves all AWSElasticLoadBalancingV2ListenerRule items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2ListenerRuleResources(template *Template) map[string]*AWSElasticLoadBalancingV2ListenerRule {
+func (t *Template) GetAllAWSElasticLoadBalancingV2ListenerRuleResources() map[string]*AWSElasticLoadBalancingV2ListenerRule {
 
 	results := map[string]*AWSElasticLoadBalancingV2ListenerRule{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElasticLoadBalancingV2ListenerRule{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSElasticLoadBalancingV2ListenerRuleResources(template *Template) ma
 
 // GetAWSElasticLoadBalancingV2ListenerRuleWithName retrieves all AWSElasticLoadBalancingV2ListenerRule items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSElasticLoadBalancingV2ListenerRuleWithName(name string, template *Template) (*AWSElasticLoadBalancingV2ListenerRule, error) {
+func (t *Template) GetAWSElasticLoadBalancingV2ListenerRuleWithName(name string) (*AWSElasticLoadBalancingV2ListenerRule, error) {
 
 	result := &AWSElasticLoadBalancingV2ListenerRule{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

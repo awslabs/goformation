@@ -32,10 +32,10 @@ func (r *AWSIoTPolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIoTPolicyResources retrieves all AWSIoTPolicy items from a CloudFormation template
-func GetAllAWSIoTPolicyResources(template *Template) map[string]*AWSIoTPolicy {
+func (t *Template) GetAllAWSIoTPolicyResources() map[string]*AWSIoTPolicy {
 
 	results := map[string]*AWSIoTPolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIoTPolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSIoTPolicyResources(template *Template) map[string]*AWSIoTPolicy {
 
 // GetAWSIoTPolicyWithName retrieves all AWSIoTPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSIoTPolicyWithName(name string, template *Template) (*AWSIoTPolicy, error) {
+func (t *Template) GetAWSIoTPolicyWithName(name string) (*AWSIoTPolicy, error) {
 
 	result := &AWSIoTPolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

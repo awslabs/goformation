@@ -108,7 +108,7 @@ type AWSRDSDBInstance struct {
 	// Iops AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-iops
-	Iops int64 `json:"Iops"`
+	Iops int `json:"Iops"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
@@ -133,7 +133,7 @@ type AWSRDSDBInstance struct {
 	// MonitoringInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval
-	MonitoringInterval int64 `json:"MonitoringInterval"`
+	MonitoringInterval int `json:"MonitoringInterval"`
 
 	// MonitoringRoleArn AWS CloudFormation Property
 	// Required: false
@@ -212,10 +212,10 @@ func (r *AWSRDSDBInstance) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBInstanceResources retrieves all AWSRDSDBInstance items from a CloudFormation template
-func GetAllAWSRDSDBInstanceResources(template *Template) map[string]*AWSRDSDBInstance {
+func (t *Template) GetAllAWSRDSDBInstanceResources() map[string]*AWSRDSDBInstance {
 
 	results := map[string]*AWSRDSDBInstance{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRDSDBInstance{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -227,10 +227,10 @@ func GetAllAWSRDSDBInstanceResources(template *Template) map[string]*AWSRDSDBIns
 
 // GetAWSRDSDBInstanceWithName retrieves all AWSRDSDBInstance items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRDSDBInstanceWithName(name string, template *Template) (*AWSRDSDBInstance, error) {
+func (t *Template) GetAWSRDSDBInstanceWithName(name string) (*AWSRDSDBInstance, error) {
 
 	result := &AWSRDSDBInstance{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

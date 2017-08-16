@@ -32,10 +32,10 @@ func (r *AWSWAFRegionalXssMatchSet) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSWAFRegionalXssMatchSetResources retrieves all AWSWAFRegionalXssMatchSet items from a CloudFormation template
-func GetAllAWSWAFRegionalXssMatchSetResources(template *Template) map[string]*AWSWAFRegionalXssMatchSet {
+func (t *Template) GetAllAWSWAFRegionalXssMatchSetResources() map[string]*AWSWAFRegionalXssMatchSet {
 
 	results := map[string]*AWSWAFRegionalXssMatchSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFRegionalXssMatchSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSWAFRegionalXssMatchSetResources(template *Template) map[string]*AW
 
 // GetAWSWAFRegionalXssMatchSetWithName retrieves all AWSWAFRegionalXssMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFRegionalXssMatchSetWithName(name string, template *Template) (*AWSWAFRegionalXssMatchSet, error) {
+func (t *Template) GetAWSWAFRegionalXssMatchSetWithName(name string) (*AWSWAFRegionalXssMatchSet, error) {
 
 	result := &AWSWAFRegionalXssMatchSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

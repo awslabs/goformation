@@ -32,10 +32,10 @@ func (r *AWSWAFByteMatchSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFByteMatchSetResources retrieves all AWSWAFByteMatchSet items from a CloudFormation template
-func GetAllAWSWAFByteMatchSetResources(template *Template) map[string]*AWSWAFByteMatchSet {
+func (t *Template) GetAllAWSWAFByteMatchSetResources() map[string]*AWSWAFByteMatchSet {
 
 	results := map[string]*AWSWAFByteMatchSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFByteMatchSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSWAFByteMatchSetResources(template *Template) map[string]*AWSWAFByt
 
 // GetAWSWAFByteMatchSetWithName retrieves all AWSWAFByteMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFByteMatchSetWithName(name string, template *Template) (*AWSWAFByteMatchSet, error) {
+func (t *Template) GetAWSWAFByteMatchSetWithName(name string) (*AWSWAFByteMatchSet, error) {
 
 	result := &AWSWAFByteMatchSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -18,7 +18,7 @@ type AWSApiGatewayAuthorizer struct {
 	// AuthorizerResultTtlInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizerresultttlinseconds
-	AuthorizerResultTtlInSeconds int64 `json:"AuthorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds int `json:"AuthorizerResultTtlInSeconds"`
 
 	// AuthorizerUri AWS CloudFormation Property
 	// Required: false
@@ -67,10 +67,10 @@ func (r *AWSApiGatewayAuthorizer) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSApiGatewayAuthorizerResources retrieves all AWSApiGatewayAuthorizer items from a CloudFormation template
-func GetAllAWSApiGatewayAuthorizerResources(template *Template) map[string]*AWSApiGatewayAuthorizer {
+func (t *Template) GetAllAWSApiGatewayAuthorizerResources() map[string]*AWSApiGatewayAuthorizer {
 
 	results := map[string]*AWSApiGatewayAuthorizer{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayAuthorizer{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSApiGatewayAuthorizerResources(template *Template) map[string]*AWSA
 
 // GetAWSApiGatewayAuthorizerWithName retrieves all AWSApiGatewayAuthorizer items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSApiGatewayAuthorizerWithName(name string, template *Template) (*AWSApiGatewayAuthorizer, error) {
+func (t *Template) GetAWSApiGatewayAuthorizerWithName(name string) (*AWSApiGatewayAuthorizer, error) {
 
 	result := &AWSApiGatewayAuthorizer{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

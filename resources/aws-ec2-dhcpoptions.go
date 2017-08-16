@@ -28,7 +28,7 @@ type AWSEC2DHCPOptions struct {
 	// NetbiosNodeType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnodetype
-	NetbiosNodeType int64 `json:"NetbiosNodeType"`
+	NetbiosNodeType int `json:"NetbiosNodeType"`
 
 	// NtpServers AWS CloudFormation Property
 	// Required: false
@@ -52,10 +52,10 @@ func (r *AWSEC2DHCPOptions) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2DHCPOptionsResources retrieves all AWSEC2DHCPOptions items from a CloudFormation template
-func GetAllAWSEC2DHCPOptionsResources(template *Template) map[string]*AWSEC2DHCPOptions {
+func (t *Template) GetAllAWSEC2DHCPOptionsResources() map[string]*AWSEC2DHCPOptions {
 
 	results := map[string]*AWSEC2DHCPOptions{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2DHCPOptions{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +67,10 @@ func GetAllAWSEC2DHCPOptionsResources(template *Template) map[string]*AWSEC2DHCP
 
 // GetAWSEC2DHCPOptionsWithName retrieves all AWSEC2DHCPOptions items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2DHCPOptionsWithName(name string, template *Template) (*AWSEC2DHCPOptions, error) {
+func (t *Template) GetAWSEC2DHCPOptionsWithName(name string) (*AWSEC2DHCPOptions, error) {
 
 	result := &AWSEC2DHCPOptions{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

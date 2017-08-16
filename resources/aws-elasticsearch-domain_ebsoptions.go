@@ -12,12 +12,12 @@ type AWSElasticsearchDomain_EBSOptions struct {
 	// Iops AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-iops
-	Iops int64 `json:"Iops"`
+	Iops int `json:"Iops"`
 
 	// VolumeSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-volumesize
-	VolumeSize int64 `json:"VolumeSize"`
+	VolumeSize int `json:"VolumeSize"`
 
 	// VolumeType AWS CloudFormation Property
 	// Required: false

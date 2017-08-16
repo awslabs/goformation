@@ -32,10 +32,10 @@ func (r *AWSWAFSizeConstraintSet) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSWAFSizeConstraintSetResources retrieves all AWSWAFSizeConstraintSet items from a CloudFormation template
-func GetAllAWSWAFSizeConstraintSetResources(template *Template) map[string]*AWSWAFSizeConstraintSet {
+func (t *Template) GetAllAWSWAFSizeConstraintSetResources() map[string]*AWSWAFSizeConstraintSet {
 
 	results := map[string]*AWSWAFSizeConstraintSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFSizeConstraintSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSWAFSizeConstraintSetResources(template *Template) map[string]*AWSW
 
 // GetAWSWAFSizeConstraintSetWithName retrieves all AWSWAFSizeConstraintSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFSizeConstraintSetWithName(name string, template *Template) (*AWSWAFSizeConstraintSet, error) {
+func (t *Template) GetAWSWAFSizeConstraintSetWithName(name string) (*AWSWAFSizeConstraintSet, error) {
 
 	result := &AWSWAFSizeConstraintSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

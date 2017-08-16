@@ -7,7 +7,7 @@ type AWSCognitoUserPool_PasswordPolicy struct {
 	// MinimumLength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-minimumlength
-	MinimumLength int64 `json:"MinimumLength"`
+	MinimumLength int `json:"MinimumLength"`
 
 	// RequireLowercase AWS CloudFormation Property
 	// Required: false

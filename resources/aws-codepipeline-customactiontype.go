@@ -57,10 +57,10 @@ func (r *AWSCodePipelineCustomActionType) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSCodePipelineCustomActionTypeResources retrieves all AWSCodePipelineCustomActionType items from a CloudFormation template
-func GetAllAWSCodePipelineCustomActionTypeResources(template *Template) map[string]*AWSCodePipelineCustomActionType {
+func (t *Template) GetAllAWSCodePipelineCustomActionTypeResources() map[string]*AWSCodePipelineCustomActionType {
 
 	results := map[string]*AWSCodePipelineCustomActionType{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCodePipelineCustomActionType{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -72,10 +72,10 @@ func GetAllAWSCodePipelineCustomActionTypeResources(template *Template) map[stri
 
 // GetAWSCodePipelineCustomActionTypeWithName retrieves all AWSCodePipelineCustomActionType items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCodePipelineCustomActionTypeWithName(name string, template *Template) (*AWSCodePipelineCustomActionType, error) {
+func (t *Template) GetAWSCodePipelineCustomActionTypeWithName(name string) (*AWSCodePipelineCustomActionType, error) {
 
 	result := &AWSCodePipelineCustomActionType{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

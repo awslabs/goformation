@@ -27,10 +27,10 @@ func (r *AWSCodeDeployApplication) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSCodeDeployApplicationResources retrieves all AWSCodeDeployApplication items from a CloudFormation template
-func GetAllAWSCodeDeployApplicationResources(template *Template) map[string]*AWSCodeDeployApplication {
+func (t *Template) GetAllAWSCodeDeployApplicationResources() map[string]*AWSCodeDeployApplication {
 
 	results := map[string]*AWSCodeDeployApplication{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCodeDeployApplication{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -42,10 +42,10 @@ func GetAllAWSCodeDeployApplicationResources(template *Template) map[string]*AWS
 
 // GetAWSCodeDeployApplicationWithName retrieves all AWSCodeDeployApplication items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCodeDeployApplicationWithName(name string, template *Template) (*AWSCodeDeployApplication, error) {
+func (t *Template) GetAWSCodeDeployApplicationWithName(name string) (*AWSCodeDeployApplication, error) {
 
 	result := &AWSCodeDeployApplication{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

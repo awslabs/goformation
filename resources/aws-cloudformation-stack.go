@@ -33,7 +33,7 @@ type AWSCloudFormationStack struct {
 	// TimeoutInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
-	TimeoutInMinutes int64 `json:"TimeoutInMinutes"`
+	TimeoutInMinutes int `json:"TimeoutInMinutes"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -47,10 +47,10 @@ func (r *AWSCloudFormationStack) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSCloudFormationStackResources retrieves all AWSCloudFormationStack items from a CloudFormation template
-func GetAllAWSCloudFormationStackResources(template *Template) map[string]*AWSCloudFormationStack {
+func (t *Template) GetAllAWSCloudFormationStackResources() map[string]*AWSCloudFormationStack {
 
 	results := map[string]*AWSCloudFormationStack{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCloudFormationStack{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSCloudFormationStackResources(template *Template) map[string]*AWSCl
 
 // GetAWSCloudFormationStackWithName retrieves all AWSCloudFormationStack items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCloudFormationStackWithName(name string, template *Template) (*AWSCloudFormationStack, error) {
+func (t *Template) GetAWSCloudFormationStackWithName(name string) (*AWSCloudFormationStack, error) {
 
 	result := &AWSCloudFormationStack{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

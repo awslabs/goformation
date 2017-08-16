@@ -18,7 +18,7 @@ type AWSLogsLogGroup struct {
 	// RetentionInDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
-	RetentionInDays int64 `json:"RetentionInDays"`
+	RetentionInDays int `json:"RetentionInDays"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -32,10 +32,10 @@ func (r *AWSLogsLogGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsLogGroupResources retrieves all AWSLogsLogGroup items from a CloudFormation template
-func GetAllAWSLogsLogGroupResources(template *Template) map[string]*AWSLogsLogGroup {
+func (t *Template) GetAllAWSLogsLogGroupResources() map[string]*AWSLogsLogGroup {
 
 	results := map[string]*AWSLogsLogGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLogsLogGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSLogsLogGroupResources(template *Template) map[string]*AWSLogsLogGr
 
 // GetAWSLogsLogGroupWithName retrieves all AWSLogsLogGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSLogsLogGroupWithName(name string, template *Template) (*AWSLogsLogGroup, error) {
+func (t *Template) GetAWSLogsLogGroupWithName(name string) (*AWSLogsLogGroup, error) {
 
 	result := &AWSLogsLogGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

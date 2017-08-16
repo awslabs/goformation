@@ -22,7 +22,7 @@ type AWSRoute53HealthCheck_HealthCheckConfig struct {
 	// FailureThreshold AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-failurethreshold
-	FailureThreshold int64 `json:"FailureThreshold"`
+	FailureThreshold int `json:"FailureThreshold"`
 
 	// FullyQualifiedDomainName AWS CloudFormation Property
 	// Required: false
@@ -32,7 +32,7 @@ type AWSRoute53HealthCheck_HealthCheckConfig struct {
 	// HealthThreshold AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-healththreshold
-	HealthThreshold int64 `json:"HealthThreshold"`
+	HealthThreshold int `json:"HealthThreshold"`
 
 	// IPAddress AWS CloudFormation Property
 	// Required: false
@@ -57,12 +57,12 @@ type AWSRoute53HealthCheck_HealthCheckConfig struct {
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// RequestInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
-	RequestInterval int64 `json:"RequestInterval"`
+	RequestInterval int `json:"RequestInterval"`
 
 	// ResourcePath AWS CloudFormation Property
 	// Required: false

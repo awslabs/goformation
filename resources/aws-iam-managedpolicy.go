@@ -57,10 +57,10 @@ func (r *AWSIAMManagedPolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMManagedPolicyResources retrieves all AWSIAMManagedPolicy items from a CloudFormation template
-func GetAllAWSIAMManagedPolicyResources(template *Template) map[string]*AWSIAMManagedPolicy {
+func (t *Template) GetAllAWSIAMManagedPolicyResources() map[string]*AWSIAMManagedPolicy {
 
 	results := map[string]*AWSIAMManagedPolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIAMManagedPolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -72,10 +72,10 @@ func GetAllAWSIAMManagedPolicyResources(template *Template) map[string]*AWSIAMMa
 
 // GetAWSIAMManagedPolicyWithName retrieves all AWSIAMManagedPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSIAMManagedPolicyWithName(name string, template *Template) (*AWSIAMManagedPolicy, error) {
+func (t *Template) GetAWSIAMManagedPolicyWithName(name string) (*AWSIAMManagedPolicy, error) {
 
 	result := &AWSIAMManagedPolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

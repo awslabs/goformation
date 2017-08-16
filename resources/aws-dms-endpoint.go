@@ -63,7 +63,7 @@ type AWSDMSEndpoint struct {
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// S3Settings AWS CloudFormation Property
 	// Required: false
@@ -102,10 +102,10 @@ func (r *AWSDMSEndpoint) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSDMSEndpointResources retrieves all AWSDMSEndpoint items from a CloudFormation template
-func GetAllAWSDMSEndpointResources(template *Template) map[string]*AWSDMSEndpoint {
+func (t *Template) GetAllAWSDMSEndpointResources() map[string]*AWSDMSEndpoint {
 
 	results := map[string]*AWSDMSEndpoint{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSDMSEndpoint{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -117,10 +117,10 @@ func GetAllAWSDMSEndpointResources(template *Template) map[string]*AWSDMSEndpoin
 
 // GetAWSDMSEndpointWithName retrieves all AWSDMSEndpoint items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSDMSEndpointWithName(name string, template *Template) (*AWSDMSEndpoint, error) {
+func (t *Template) GetAWSDMSEndpointWithName(name string) (*AWSDMSEndpoint, error) {
 
 	result := &AWSDMSEndpoint{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

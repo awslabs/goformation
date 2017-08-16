@@ -63,17 +63,17 @@ type AWSElastiCacheReplicationGroup struct {
 	// NumCacheClusters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numcacheclusters
-	NumCacheClusters int64 `json:"NumCacheClusters"`
+	NumCacheClusters int `json:"NumCacheClusters"`
 
 	// NumNodeGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups
-	NumNodeGroups int64 `json:"NumNodeGroups"`
+	NumNodeGroups int `json:"NumNodeGroups"`
 
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// PreferredCacheClusterAZs AWS CloudFormation Property
 	// Required: false
@@ -93,7 +93,7 @@ type AWSElastiCacheReplicationGroup struct {
 	// ReplicasPerNodeGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicaspernodegroup
-	ReplicasPerNodeGroup int64 `json:"ReplicasPerNodeGroup"`
+	ReplicasPerNodeGroup int `json:"ReplicasPerNodeGroup"`
 
 	// ReplicationGroupDescription AWS CloudFormation Property
 	// Required: true
@@ -123,7 +123,7 @@ type AWSElastiCacheReplicationGroup struct {
 	// SnapshotRetentionLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotretentionlimit
-	SnapshotRetentionLimit int64 `json:"SnapshotRetentionLimit"`
+	SnapshotRetentionLimit int `json:"SnapshotRetentionLimit"`
 
 	// SnapshotWindow AWS CloudFormation Property
 	// Required: false
@@ -152,10 +152,10 @@ func (r *AWSElastiCacheReplicationGroup) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSElastiCacheReplicationGroupResources retrieves all AWSElastiCacheReplicationGroup items from a CloudFormation template
-func GetAllAWSElastiCacheReplicationGroupResources(template *Template) map[string]*AWSElastiCacheReplicationGroup {
+func (t *Template) GetAllAWSElastiCacheReplicationGroupResources() map[string]*AWSElastiCacheReplicationGroup {
 
 	results := map[string]*AWSElastiCacheReplicationGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElastiCacheReplicationGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -167,10 +167,10 @@ func GetAllAWSElastiCacheReplicationGroupResources(template *Template) map[strin
 
 // GetAWSElastiCacheReplicationGroupWithName retrieves all AWSElastiCacheReplicationGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSElastiCacheReplicationGroupWithName(name string, template *Template) (*AWSElastiCacheReplicationGroup, error) {
+func (t *Template) GetAWSElastiCacheReplicationGroupWithName(name string) (*AWSElastiCacheReplicationGroup, error) {
 
 	result := &AWSElastiCacheReplicationGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

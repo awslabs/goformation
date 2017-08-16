@@ -7,12 +7,12 @@ type AWSEMRCluster_ScalingConstraints struct {
 	// MaxCapacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingconstraints.html#cfn-elasticmapreduce-cluster-scalingconstraints-maxcapacity
-	MaxCapacity int64 `json:"MaxCapacity"`
+	MaxCapacity int `json:"MaxCapacity"`
 
 	// MinCapacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingconstraints.html#cfn-elasticmapreduce-cluster-scalingconstraints-mincapacity
-	MinCapacity int64 `json:"MinCapacity"`
+	MinCapacity int `json:"MinCapacity"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -97,10 +97,10 @@ func (r *AWSEMRCluster) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEMRClusterResources retrieves all AWSEMRCluster items from a CloudFormation template
-func GetAllAWSEMRClusterResources(template *Template) map[string]*AWSEMRCluster {
+func (t *Template) GetAllAWSEMRClusterResources() map[string]*AWSEMRCluster {
 
 	results := map[string]*AWSEMRCluster{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEMRCluster{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -112,10 +112,10 @@ func GetAllAWSEMRClusterResources(template *Template) map[string]*AWSEMRCluster 
 
 // GetAWSEMRClusterWithName retrieves all AWSEMRCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEMRClusterWithName(name string, template *Template) (*AWSEMRCluster, error) {
+func (t *Template) GetAWSEMRClusterWithName(name string) (*AWSEMRCluster, error) {
 
 	result := &AWSEMRCluster{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

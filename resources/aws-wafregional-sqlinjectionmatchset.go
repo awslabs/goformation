@@ -32,10 +32,10 @@ func (r *AWSWAFRegionalSqlInjectionMatchSet) AWSCloudFormationSpecificationVersi
 }
 
 // GetAllAWSWAFRegionalSqlInjectionMatchSetResources retrieves all AWSWAFRegionalSqlInjectionMatchSet items from a CloudFormation template
-func GetAllAWSWAFRegionalSqlInjectionMatchSetResources(template *Template) map[string]*AWSWAFRegionalSqlInjectionMatchSet {
+func (t *Template) GetAllAWSWAFRegionalSqlInjectionMatchSetResources() map[string]*AWSWAFRegionalSqlInjectionMatchSet {
 
 	results := map[string]*AWSWAFRegionalSqlInjectionMatchSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFRegionalSqlInjectionMatchSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSWAFRegionalSqlInjectionMatchSetResources(template *Template) map[s
 
 // GetAWSWAFRegionalSqlInjectionMatchSetWithName retrieves all AWSWAFRegionalSqlInjectionMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFRegionalSqlInjectionMatchSetWithName(name string, template *Template) (*AWSWAFRegionalSqlInjectionMatchSet, error) {
+func (t *Template) GetAWSWAFRegionalSqlInjectionMatchSetWithName(name string) (*AWSWAFRegionalSqlInjectionMatchSet, error) {
 
 	result := &AWSWAFRegionalSqlInjectionMatchSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

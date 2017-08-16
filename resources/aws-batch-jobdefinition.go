@@ -47,10 +47,10 @@ func (r *AWSBatchJobDefinition) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSBatchJobDefinitionResources retrieves all AWSBatchJobDefinition items from a CloudFormation template
-func GetAllAWSBatchJobDefinitionResources(template *Template) map[string]*AWSBatchJobDefinition {
+func (t *Template) GetAllAWSBatchJobDefinitionResources() map[string]*AWSBatchJobDefinition {
 
 	results := map[string]*AWSBatchJobDefinition{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSBatchJobDefinition{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSBatchJobDefinitionResources(template *Template) map[string]*AWSBat
 
 // GetAWSBatchJobDefinitionWithName retrieves all AWSBatchJobDefinition items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSBatchJobDefinitionWithName(name string, template *Template) (*AWSBatchJobDefinition, error) {
+func (t *Template) GetAWSBatchJobDefinitionWithName(name string) (*AWSBatchJobDefinition, error) {
 
 	result := &AWSBatchJobDefinition{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

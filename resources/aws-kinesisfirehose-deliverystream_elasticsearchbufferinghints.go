@@ -7,12 +7,12 @@ type AWSKinesisFirehoseDeliveryStream_ElasticsearchBufferingHints struct {
 	// IntervalInSeconds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-bufferinghints-intervalinseconds
-	IntervalInSeconds int64 `json:"IntervalInSeconds"`
+	IntervalInSeconds int `json:"IntervalInSeconds"`
 
 	// SizeInMBs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-bufferinghints-sizeinmbs
-	SizeInMBs int64 `json:"SizeInMBs"`
+	SizeInMBs int `json:"SizeInMBs"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

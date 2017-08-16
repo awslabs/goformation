@@ -37,10 +37,10 @@ func (r *AWSConfigConfigurationRecorder) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSConfigConfigurationRecorderResources retrieves all AWSConfigConfigurationRecorder items from a CloudFormation template
-func GetAllAWSConfigConfigurationRecorderResources(template *Template) map[string]*AWSConfigConfigurationRecorder {
+func (t *Template) GetAllAWSConfigConfigurationRecorderResources() map[string]*AWSConfigConfigurationRecorder {
 
 	results := map[string]*AWSConfigConfigurationRecorder{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSConfigConfigurationRecorder{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSConfigConfigurationRecorderResources(template *Template) map[strin
 
 // GetAWSConfigConfigurationRecorderWithName retrieves all AWSConfigConfigurationRecorder items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSConfigConfigurationRecorderWithName(name string, template *Template) (*AWSConfigConfigurationRecorder, error) {
+func (t *Template) GetAWSConfigConfigurationRecorderWithName(name string) (*AWSConfigConfigurationRecorder, error) {
 
 	result := &AWSConfigConfigurationRecorder{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -12,7 +12,7 @@ type AWSCodeDeployDeploymentConfig_MinimumHealthyHosts struct {
 	// Value AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts-value
-	Value int64 `json:"Value"`
+	Value int `json:"Value"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

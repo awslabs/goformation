@@ -32,10 +32,10 @@ func (r *AWSEC2VPCCidrBlock) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2VPCCidrBlockResources retrieves all AWSEC2VPCCidrBlock items from a CloudFormation template
-func GetAllAWSEC2VPCCidrBlockResources(template *Template) map[string]*AWSEC2VPCCidrBlock {
+func (t *Template) GetAllAWSEC2VPCCidrBlockResources() map[string]*AWSEC2VPCCidrBlock {
 
 	results := map[string]*AWSEC2VPCCidrBlock{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPCCidrBlock{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSEC2VPCCidrBlockResources(template *Template) map[string]*AWSEC2VPC
 
 // GetAWSEC2VPCCidrBlockWithName retrieves all AWSEC2VPCCidrBlock items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPCCidrBlockWithName(name string, template *Template) (*AWSEC2VPCCidrBlock, error) {
+func (t *Template) GetAWSEC2VPCCidrBlockWithName(name string) (*AWSEC2VPCCidrBlock, error) {
 
 	result := &AWSEC2VPCCidrBlock{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

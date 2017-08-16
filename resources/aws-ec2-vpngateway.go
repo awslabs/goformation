@@ -32,10 +32,10 @@ func (r *AWSEC2VPNGateway) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2VPNGatewayResources retrieves all AWSEC2VPNGateway items from a CloudFormation template
-func GetAllAWSEC2VPNGatewayResources(template *Template) map[string]*AWSEC2VPNGateway {
+func (t *Template) GetAllAWSEC2VPNGatewayResources() map[string]*AWSEC2VPNGateway {
 
 	results := map[string]*AWSEC2VPNGateway{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPNGateway{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSEC2VPNGatewayResources(template *Template) map[string]*AWSEC2VPNGa
 
 // GetAWSEC2VPNGatewayWithName retrieves all AWSEC2VPNGateway items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPNGatewayWithName(name string, template *Template) (*AWSEC2VPNGateway, error) {
+func (t *Template) GetAWSEC2VPNGatewayWithName(name string) (*AWSEC2VPNGateway, error) {
 
 	result := &AWSEC2VPNGateway{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

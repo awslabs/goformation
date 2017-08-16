@@ -33,7 +33,7 @@ type AWSEC2SecurityGroupEgress struct {
 	// FromPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-fromport
-	FromPort int64 `json:"FromPort"`
+	FromPort int `json:"FromPort"`
 
 	// GroupId AWS CloudFormation Property
 	// Required: true
@@ -48,7 +48,7 @@ type AWSEC2SecurityGroupEgress struct {
 	// ToPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-toport
-	ToPort int64 `json:"ToPort"`
+	ToPort int `json:"ToPort"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -62,10 +62,10 @@ func (r *AWSEC2SecurityGroupEgress) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSEC2SecurityGroupEgressResources retrieves all AWSEC2SecurityGroupEgress items from a CloudFormation template
-func GetAllAWSEC2SecurityGroupEgressResources(template *Template) map[string]*AWSEC2SecurityGroupEgress {
+func (t *Template) GetAllAWSEC2SecurityGroupEgressResources() map[string]*AWSEC2SecurityGroupEgress {
 
 	results := map[string]*AWSEC2SecurityGroupEgress{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2SecurityGroupEgress{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -77,10 +77,10 @@ func GetAllAWSEC2SecurityGroupEgressResources(template *Template) map[string]*AW
 
 // GetAWSEC2SecurityGroupEgressWithName retrieves all AWSEC2SecurityGroupEgress items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2SecurityGroupEgressWithName(name string, template *Template) (*AWSEC2SecurityGroupEgress, error) {
+func (t *Template) GetAWSEC2SecurityGroupEgressWithName(name string) (*AWSEC2SecurityGroupEgress, error) {
 
 	result := &AWSEC2SecurityGroupEgress{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

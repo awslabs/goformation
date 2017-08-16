@@ -47,10 +47,10 @@ func (r *AWSRDSDBSecurityGroupIngress) AWSCloudFormationSpecificationVersion() s
 }
 
 // GetAllAWSRDSDBSecurityGroupIngressResources retrieves all AWSRDSDBSecurityGroupIngress items from a CloudFormation template
-func GetAllAWSRDSDBSecurityGroupIngressResources(template *Template) map[string]*AWSRDSDBSecurityGroupIngress {
+func (t *Template) GetAllAWSRDSDBSecurityGroupIngressResources() map[string]*AWSRDSDBSecurityGroupIngress {
 
 	results := map[string]*AWSRDSDBSecurityGroupIngress{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRDSDBSecurityGroupIngress{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSRDSDBSecurityGroupIngressResources(template *Template) map[string]
 
 // GetAWSRDSDBSecurityGroupIngressWithName retrieves all AWSRDSDBSecurityGroupIngress items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRDSDBSecurityGroupIngressWithName(name string, template *Template) (*AWSRDSDBSecurityGroupIngress, error) {
+func (t *Template) GetAWSRDSDBSecurityGroupIngressWithName(name string) (*AWSRDSDBSecurityGroupIngress, error) {
 
 	result := &AWSRDSDBSecurityGroupIngress{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

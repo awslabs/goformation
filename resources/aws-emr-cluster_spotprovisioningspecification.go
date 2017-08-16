@@ -7,7 +7,7 @@ type AWSEMRCluster_SpotProvisioningSpecification struct {
 	// BlockDurationMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes
-	BlockDurationMinutes int64 `json:"BlockDurationMinutes"`
+	BlockDurationMinutes int `json:"BlockDurationMinutes"`
 
 	// TimeoutAction AWS CloudFormation Property
 	// Required: true
@@ -17,7 +17,7 @@ type AWSEMRCluster_SpotProvisioningSpecification struct {
 	// TimeoutDurationMinutes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutdurationminutes
-	TimeoutDurationMinutes int64 `json:"TimeoutDurationMinutes"`
+	TimeoutDurationMinutes int `json:"TimeoutDurationMinutes"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

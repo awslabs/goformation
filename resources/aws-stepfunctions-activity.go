@@ -27,10 +27,10 @@ func (r *AWSStepFunctionsActivity) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSStepFunctionsActivityResources retrieves all AWSStepFunctionsActivity items from a CloudFormation template
-func GetAllAWSStepFunctionsActivityResources(template *Template) map[string]*AWSStepFunctionsActivity {
+func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]*AWSStepFunctionsActivity {
 
 	results := map[string]*AWSStepFunctionsActivity{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSStepFunctionsActivity{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -42,10 +42,10 @@ func GetAllAWSStepFunctionsActivityResources(template *Template) map[string]*AWS
 
 // GetAWSStepFunctionsActivityWithName retrieves all AWSStepFunctionsActivity items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSStepFunctionsActivityWithName(name string, template *Template) (*AWSStepFunctionsActivity, error) {
+func (t *Template) GetAWSStepFunctionsActivityWithName(name string) (*AWSStepFunctionsActivity, error) {
 
 	result := &AWSStepFunctionsActivity{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

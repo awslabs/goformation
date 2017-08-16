@@ -62,10 +62,10 @@ func (r *AWSApplicationAutoScalingScalingPolicy) AWSCloudFormationSpecificationV
 }
 
 // GetAllAWSApplicationAutoScalingScalingPolicyResources retrieves all AWSApplicationAutoScalingScalingPolicy items from a CloudFormation template
-func GetAllAWSApplicationAutoScalingScalingPolicyResources(template *Template) map[string]*AWSApplicationAutoScalingScalingPolicy {
+func (t *Template) GetAllAWSApplicationAutoScalingScalingPolicyResources() map[string]*AWSApplicationAutoScalingScalingPolicy {
 
 	results := map[string]*AWSApplicationAutoScalingScalingPolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApplicationAutoScalingScalingPolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -77,10 +77,10 @@ func GetAllAWSApplicationAutoScalingScalingPolicyResources(template *Template) m
 
 // GetAWSApplicationAutoScalingScalingPolicyWithName retrieves all AWSApplicationAutoScalingScalingPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSApplicationAutoScalingScalingPolicyWithName(name string, template *Template) (*AWSApplicationAutoScalingScalingPolicy, error) {
+func (t *Template) GetAWSApplicationAutoScalingScalingPolicyWithName(name string) (*AWSApplicationAutoScalingScalingPolicy, error) {
 
 	result := &AWSApplicationAutoScalingScalingPolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

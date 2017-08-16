@@ -32,7 +32,7 @@ type AWSEC2SpotFleet_SpotFleetRequestConfigData struct {
 	// TargetCapacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-targetcapacity
-	TargetCapacity int64 `json:"TargetCapacity"`
+	TargetCapacity int `json:"TargetCapacity"`
 
 	// TerminateInstancesWithExpiration AWS CloudFormation Property
 	// Required: false

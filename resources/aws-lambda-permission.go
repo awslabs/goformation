@@ -47,10 +47,10 @@ func (r *AWSLambdaPermission) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLambdaPermissionResources retrieves all AWSLambdaPermission items from a CloudFormation template
-func GetAllAWSLambdaPermissionResources(template *Template) map[string]*AWSLambdaPermission {
+func (t *Template) GetAllAWSLambdaPermissionResources() map[string]*AWSLambdaPermission {
 
 	results := map[string]*AWSLambdaPermission{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLambdaPermission{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSLambdaPermissionResources(template *Template) map[string]*AWSLambd
 
 // GetAWSLambdaPermissionWithName retrieves all AWSLambdaPermission items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSLambdaPermissionWithName(name string, template *Template) (*AWSLambdaPermission, error) {
+func (t *Template) GetAWSLambdaPermissionWithName(name string) (*AWSLambdaPermission, error) {
 
 	result := &AWSLambdaPermission{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

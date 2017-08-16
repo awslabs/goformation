@@ -47,10 +47,10 @@ func (r *AWSConfigDeliveryChannel) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSConfigDeliveryChannelResources retrieves all AWSConfigDeliveryChannel items from a CloudFormation template
-func GetAllAWSConfigDeliveryChannelResources(template *Template) map[string]*AWSConfigDeliveryChannel {
+func (t *Template) GetAllAWSConfigDeliveryChannelResources() map[string]*AWSConfigDeliveryChannel {
 
 	results := map[string]*AWSConfigDeliveryChannel{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSConfigDeliveryChannel{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSConfigDeliveryChannelResources(template *Template) map[string]*AWS
 
 // GetAWSConfigDeliveryChannelWithName retrieves all AWSConfigDeliveryChannel items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSConfigDeliveryChannelWithName(name string, template *Template) (*AWSConfigDeliveryChannel, error) {
+func (t *Template) GetAWSConfigDeliveryChannelWithName(name string) (*AWSConfigDeliveryChannel, error) {
 
 	result := &AWSConfigDeliveryChannel{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

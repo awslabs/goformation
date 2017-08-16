@@ -42,10 +42,10 @@ func (r *AWSCertificateManagerCertificate) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSCertificateManagerCertificateResources retrieves all AWSCertificateManagerCertificate items from a CloudFormation template
-func GetAllAWSCertificateManagerCertificateResources(template *Template) map[string]*AWSCertificateManagerCertificate {
+func (t *Template) GetAllAWSCertificateManagerCertificateResources() map[string]*AWSCertificateManagerCertificate {
 
 	results := map[string]*AWSCertificateManagerCertificate{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCertificateManagerCertificate{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSCertificateManagerCertificateResources(template *Template) map[str
 
 // GetAWSCertificateManagerCertificateWithName retrieves all AWSCertificateManagerCertificate items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCertificateManagerCertificateWithName(name string, template *Template) (*AWSCertificateManagerCertificate, error) {
+func (t *Template) GetAWSCertificateManagerCertificateWithName(name string) (*AWSCertificateManagerCertificate, error) {
 
 	result := &AWSCertificateManagerCertificate{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

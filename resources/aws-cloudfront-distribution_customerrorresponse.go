@@ -12,12 +12,12 @@ type AWSCloudFrontDistribution_CustomErrorResponse struct {
 	// ErrorCode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html#cfn-cloudfront-distributionconfig-customerrorresponse-errorcode
-	ErrorCode int64 `json:"ErrorCode"`
+	ErrorCode int `json:"ErrorCode"`
 
 	// ResponseCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html#cfn-cloudfront-distributionconfig-customerrorresponse-responsecode
-	ResponseCode int64 `json:"ResponseCode"`
+	ResponseCode int `json:"ResponseCode"`
 
 	// ResponsePagePath AWS CloudFormation Property
 	// Required: false

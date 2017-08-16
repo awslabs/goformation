@@ -52,10 +52,10 @@ func (r *AWSWorkSpacesWorkspace) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSWorkSpacesWorkspaceResources retrieves all AWSWorkSpacesWorkspace items from a CloudFormation template
-func GetAllAWSWorkSpacesWorkspaceResources(template *Template) map[string]*AWSWorkSpacesWorkspace {
+func (t *Template) GetAllAWSWorkSpacesWorkspaceResources() map[string]*AWSWorkSpacesWorkspace {
 
 	results := map[string]*AWSWorkSpacesWorkspace{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWorkSpacesWorkspace{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +67,10 @@ func GetAllAWSWorkSpacesWorkspaceResources(template *Template) map[string]*AWSWo
 
 // GetAWSWorkSpacesWorkspaceWithName retrieves all AWSWorkSpacesWorkspace items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWorkSpacesWorkspaceWithName(name string, template *Template) (*AWSWorkSpacesWorkspace, error) {
+func (t *Template) GetAWSWorkSpacesWorkspaceWithName(name string) (*AWSWorkSpacesWorkspace, error) {
 
 	result := &AWSWorkSpacesWorkspace{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

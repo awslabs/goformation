@@ -17,12 +17,12 @@ type AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfigura
 	// ScaleInCooldown AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleincooldown
-	ScaleInCooldown int64 `json:"ScaleInCooldown"`
+	ScaleInCooldown int `json:"ScaleInCooldown"`
 
 	// ScaleOutCooldown AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleoutcooldown
-	ScaleOutCooldown int64 `json:"ScaleOutCooldown"`
+	ScaleOutCooldown int `json:"ScaleOutCooldown"`
 
 	// TargetValue AWS CloudFormation Property
 	// Required: true

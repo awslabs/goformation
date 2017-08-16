@@ -62,10 +62,10 @@ func (r *AWSDirectoryServiceSimpleAD) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSDirectoryServiceSimpleADResources retrieves all AWSDirectoryServiceSimpleAD items from a CloudFormation template
-func GetAllAWSDirectoryServiceSimpleADResources(template *Template) map[string]*AWSDirectoryServiceSimpleAD {
+func (t *Template) GetAllAWSDirectoryServiceSimpleADResources() map[string]*AWSDirectoryServiceSimpleAD {
 
 	results := map[string]*AWSDirectoryServiceSimpleAD{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSDirectoryServiceSimpleAD{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -77,10 +77,10 @@ func GetAllAWSDirectoryServiceSimpleADResources(template *Template) map[string]*
 
 // GetAWSDirectoryServiceSimpleADWithName retrieves all AWSDirectoryServiceSimpleAD items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSDirectoryServiceSimpleADWithName(name string, template *Template) (*AWSDirectoryServiceSimpleAD, error) {
+func (t *Template) GetAWSDirectoryServiceSimpleADWithName(name string) (*AWSDirectoryServiceSimpleAD, error) {
 
 	result := &AWSDirectoryServiceSimpleAD{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

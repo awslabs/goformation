@@ -52,10 +52,10 @@ func (r *AWSCodePipelinePipeline) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSCodePipelinePipelineResources retrieves all AWSCodePipelinePipeline items from a CloudFormation template
-func GetAllAWSCodePipelinePipelineResources(template *Template) map[string]*AWSCodePipelinePipeline {
+func (t *Template) GetAllAWSCodePipelinePipelineResources() map[string]*AWSCodePipelinePipeline {
 
 	results := map[string]*AWSCodePipelinePipeline{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCodePipelinePipeline{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +67,10 @@ func GetAllAWSCodePipelinePipelineResources(template *Template) map[string]*AWSC
 
 // GetAWSCodePipelinePipelineWithName retrieves all AWSCodePipelinePipeline items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCodePipelinePipelineWithName(name string, template *Template) (*AWSCodePipelinePipeline, error) {
+func (t *Template) GetAWSCodePipelinePipelineWithName(name string) (*AWSCodePipelinePipeline, error) {
 
 	result := &AWSCodePipelinePipeline{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

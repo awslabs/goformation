@@ -37,10 +37,10 @@ func (r *AWSWAFRegionalRule) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFRegionalRuleResources retrieves all AWSWAFRegionalRule items from a CloudFormation template
-func GetAllAWSWAFRegionalRuleResources(template *Template) map[string]*AWSWAFRegionalRule {
+func (t *Template) GetAllAWSWAFRegionalRuleResources() map[string]*AWSWAFRegionalRule {
 
 	results := map[string]*AWSWAFRegionalRule{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFRegionalRule{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSWAFRegionalRuleResources(template *Template) map[string]*AWSWAFReg
 
 // GetAWSWAFRegionalRuleWithName retrieves all AWSWAFRegionalRule items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFRegionalRuleWithName(name string, template *Template) (*AWSWAFRegionalRule, error) {
+func (t *Template) GetAWSWAFRegionalRuleWithName(name string) (*AWSWAFRegionalRule, error) {
 
 	result := &AWSWAFRegionalRule{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

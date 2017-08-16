@@ -53,7 +53,7 @@ type AWSCodeBuildProject struct {
 	// TimeoutInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
-	TimeoutInMinutes int64 `json:"TimeoutInMinutes"`
+	TimeoutInMinutes int `json:"TimeoutInMinutes"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -67,10 +67,10 @@ func (r *AWSCodeBuildProject) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSCodeBuildProjectResources retrieves all AWSCodeBuildProject items from a CloudFormation template
-func GetAllAWSCodeBuildProjectResources(template *Template) map[string]*AWSCodeBuildProject {
+func (t *Template) GetAllAWSCodeBuildProjectResources() map[string]*AWSCodeBuildProject {
 
 	results := map[string]*AWSCodeBuildProject{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCodeBuildProject{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSCodeBuildProjectResources(template *Template) map[string]*AWSCodeB
 
 // GetAWSCodeBuildProjectWithName retrieves all AWSCodeBuildProject items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCodeBuildProjectWithName(name string, template *Template) (*AWSCodeBuildProject, error) {
+func (t *Template) GetAWSCodeBuildProjectWithName(name string) (*AWSCodeBuildProject, error) {
 
 	result := &AWSCodeBuildProject{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

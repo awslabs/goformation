@@ -37,10 +37,10 @@ func (r *AWSRedshiftClusterSubnetGroup) AWSCloudFormationSpecificationVersion() 
 }
 
 // GetAllAWSRedshiftClusterSubnetGroupResources retrieves all AWSRedshiftClusterSubnetGroup items from a CloudFormation template
-func GetAllAWSRedshiftClusterSubnetGroupResources(template *Template) map[string]*AWSRedshiftClusterSubnetGroup {
+func (t *Template) GetAllAWSRedshiftClusterSubnetGroupResources() map[string]*AWSRedshiftClusterSubnetGroup {
 
 	results := map[string]*AWSRedshiftClusterSubnetGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRedshiftClusterSubnetGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSRedshiftClusterSubnetGroupResources(template *Template) map[string
 
 // GetAWSRedshiftClusterSubnetGroupWithName retrieves all AWSRedshiftClusterSubnetGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRedshiftClusterSubnetGroupWithName(name string, template *Template) (*AWSRedshiftClusterSubnetGroup, error) {
+func (t *Template) GetAWSRedshiftClusterSubnetGroupWithName(name string) (*AWSRedshiftClusterSubnetGroup, error) {
 
 	result := &AWSRedshiftClusterSubnetGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

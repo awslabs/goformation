@@ -67,10 +67,10 @@ func (r *AWSDMSReplicationTask) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSDMSReplicationTaskResources retrieves all AWSDMSReplicationTask items from a CloudFormation template
-func GetAllAWSDMSReplicationTaskResources(template *Template) map[string]*AWSDMSReplicationTask {
+func (t *Template) GetAllAWSDMSReplicationTaskResources() map[string]*AWSDMSReplicationTask {
 
 	results := map[string]*AWSDMSReplicationTask{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSDMSReplicationTask{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSDMSReplicationTaskResources(template *Template) map[string]*AWSDMS
 
 // GetAWSDMSReplicationTaskWithName retrieves all AWSDMSReplicationTask items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSDMSReplicationTaskWithName(name string, template *Template) (*AWSDMSReplicationTask, error) {
+func (t *Template) GetAWSDMSReplicationTaskWithName(name string) (*AWSDMSReplicationTask, error) {
 
 	result := &AWSDMSReplicationTask{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

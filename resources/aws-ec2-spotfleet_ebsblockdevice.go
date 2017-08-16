@@ -17,7 +17,7 @@ type AWSEC2SpotFleet_EbsBlockDevice struct {
 	// Iops AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-iops
-	Iops int64 `json:"Iops"`
+	Iops int `json:"Iops"`
 
 	// SnapshotId AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type AWSEC2SpotFleet_EbsBlockDevice struct {
 	// VolumeSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
-	VolumeSize int64 `json:"VolumeSize"`
+	VolumeSize int `json:"VolumeSize"`
 
 	// VolumeType AWS CloudFormation Property
 	// Required: false

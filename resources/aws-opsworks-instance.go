@@ -127,10 +127,10 @@ func (r *AWSOpsWorksInstance) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSOpsWorksInstanceResources retrieves all AWSOpsWorksInstance items from a CloudFormation template
-func GetAllAWSOpsWorksInstanceResources(template *Template) map[string]*AWSOpsWorksInstance {
+func (t *Template) GetAllAWSOpsWorksInstanceResources() map[string]*AWSOpsWorksInstance {
 
 	results := map[string]*AWSOpsWorksInstance{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSOpsWorksInstance{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -142,10 +142,10 @@ func GetAllAWSOpsWorksInstanceResources(template *Template) map[string]*AWSOpsWo
 
 // GetAWSOpsWorksInstanceWithName retrieves all AWSOpsWorksInstance items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSOpsWorksInstanceWithName(name string, template *Template) (*AWSOpsWorksInstance, error) {
+func (t *Template) GetAWSOpsWorksInstanceWithName(name string) (*AWSOpsWorksInstance, error) {
 
 	result := &AWSOpsWorksInstance{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

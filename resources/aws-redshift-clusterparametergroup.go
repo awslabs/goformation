@@ -42,10 +42,10 @@ func (r *AWSRedshiftClusterParameterGroup) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSRedshiftClusterParameterGroupResources retrieves all AWSRedshiftClusterParameterGroup items from a CloudFormation template
-func GetAllAWSRedshiftClusterParameterGroupResources(template *Template) map[string]*AWSRedshiftClusterParameterGroup {
+func (t *Template) GetAllAWSRedshiftClusterParameterGroupResources() map[string]*AWSRedshiftClusterParameterGroup {
 
 	results := map[string]*AWSRedshiftClusterParameterGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRedshiftClusterParameterGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSRedshiftClusterParameterGroupResources(template *Template) map[str
 
 // GetAWSRedshiftClusterParameterGroupWithName retrieves all AWSRedshiftClusterParameterGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRedshiftClusterParameterGroupWithName(name string, template *Template) (*AWSRedshiftClusterParameterGroup, error) {
+func (t *Template) GetAWSRedshiftClusterParameterGroupWithName(name string) (*AWSRedshiftClusterParameterGroup, error) {
 
 	result := &AWSRedshiftClusterParameterGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

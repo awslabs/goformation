@@ -7,7 +7,7 @@ type AWSOpsWorksLayer_VolumeConfiguration struct {
 	// Iops AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-iops
-	Iops int64 `json:"Iops"`
+	Iops int `json:"Iops"`
 
 	// MountPoint AWS CloudFormation Property
 	// Required: false
@@ -17,17 +17,17 @@ type AWSOpsWorksLayer_VolumeConfiguration struct {
 	// NumberOfDisks AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-numberofdisks
-	NumberOfDisks int64 `json:"NumberOfDisks"`
+	NumberOfDisks int `json:"NumberOfDisks"`
 
 	// RaidLevel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-raidlevel
-	RaidLevel int64 `json:"RaidLevel"`
+	RaidLevel int `json:"RaidLevel"`
 
 	// Size AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-size
-	Size int64 `json:"Size"`
+	Size int `json:"Size"`
 
 	// VolumeType AWS CloudFormation Property
 	// Required: false

@@ -47,10 +47,10 @@ func (r *AWSEC2VPNConnection) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2VPNConnectionResources retrieves all AWSEC2VPNConnection items from a CloudFormation template
-func GetAllAWSEC2VPNConnectionResources(template *Template) map[string]*AWSEC2VPNConnection {
+func (t *Template) GetAllAWSEC2VPNConnectionResources() map[string]*AWSEC2VPNConnection {
 
 	results := map[string]*AWSEC2VPNConnection{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPNConnection{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSEC2VPNConnectionResources(template *Template) map[string]*AWSEC2VP
 
 // GetAWSEC2VPNConnectionWithName retrieves all AWSEC2VPNConnection items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPNConnectionWithName(name string, template *Template) (*AWSEC2VPNConnection, error) {
+func (t *Template) GetAWSEC2VPNConnectionWithName(name string) (*AWSEC2VPNConnection, error) {
 
 	result := &AWSEC2VPNConnection{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

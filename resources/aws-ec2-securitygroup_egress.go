@@ -27,7 +27,7 @@ type AWSEC2SecurityGroup_Egress struct {
 	// FromPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
-	FromPort int64 `json:"FromPort"`
+	FromPort int `json:"FromPort"`
 
 	// IpProtocol AWS CloudFormation Property
 	// Required: true
@@ -37,7 +37,7 @@ type AWSEC2SecurityGroup_Egress struct {
 	// ToPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
-	ToPort int64 `json:"ToPort"`
+	ToPort int `json:"ToPort"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

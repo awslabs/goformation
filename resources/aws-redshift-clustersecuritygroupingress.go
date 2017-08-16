@@ -42,10 +42,10 @@ func (r *AWSRedshiftClusterSecurityGroupIngress) AWSCloudFormationSpecificationV
 }
 
 // GetAllAWSRedshiftClusterSecurityGroupIngressResources retrieves all AWSRedshiftClusterSecurityGroupIngress items from a CloudFormation template
-func GetAllAWSRedshiftClusterSecurityGroupIngressResources(template *Template) map[string]*AWSRedshiftClusterSecurityGroupIngress {
+func (t *Template) GetAllAWSRedshiftClusterSecurityGroupIngressResources() map[string]*AWSRedshiftClusterSecurityGroupIngress {
 
 	results := map[string]*AWSRedshiftClusterSecurityGroupIngress{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRedshiftClusterSecurityGroupIngress{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSRedshiftClusterSecurityGroupIngressResources(template *Template) m
 
 // GetAWSRedshiftClusterSecurityGroupIngressWithName retrieves all AWSRedshiftClusterSecurityGroupIngress items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRedshiftClusterSecurityGroupIngressWithName(name string, template *Template) (*AWSRedshiftClusterSecurityGroupIngress, error) {
+func (t *Template) GetAWSRedshiftClusterSecurityGroupIngressWithName(name string) (*AWSRedshiftClusterSecurityGroupIngress, error) {
 
 	result := &AWSRedshiftClusterSecurityGroupIngress{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

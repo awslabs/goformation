@@ -48,7 +48,7 @@ type AWSCloudWatchAlarm struct {
 	// EvaluationPeriods AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-evaluationperiods
-	EvaluationPeriods int64 `json:"EvaluationPeriods"`
+	EvaluationPeriods int `json:"EvaluationPeriods"`
 
 	// ExtendedStatistic AWS CloudFormation Property
 	// Required: false
@@ -78,7 +78,7 @@ type AWSCloudWatchAlarm struct {
 	// Period AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-period
-	Period int64 `json:"Period"`
+	Period int `json:"Period"`
 
 	// Statistic AWS CloudFormation Property
 	// Required: false
@@ -112,10 +112,10 @@ func (r *AWSCloudWatchAlarm) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSCloudWatchAlarmResources retrieves all AWSCloudWatchAlarm items from a CloudFormation template
-func GetAllAWSCloudWatchAlarmResources(template *Template) map[string]*AWSCloudWatchAlarm {
+func (t *Template) GetAllAWSCloudWatchAlarmResources() map[string]*AWSCloudWatchAlarm {
 
 	results := map[string]*AWSCloudWatchAlarm{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCloudWatchAlarm{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -127,10 +127,10 @@ func GetAllAWSCloudWatchAlarmResources(template *Template) map[string]*AWSCloudW
 
 // GetAWSCloudWatchAlarmWithName retrieves all AWSCloudWatchAlarm items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCloudWatchAlarmWithName(name string, template *Template) (*AWSCloudWatchAlarm, error) {
+func (t *Template) GetAWSCloudWatchAlarmWithName(name string) (*AWSCloudWatchAlarm, error) {
 
 	result := &AWSCloudWatchAlarm{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

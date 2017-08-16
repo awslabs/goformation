@@ -47,10 +47,10 @@ func (r *AWSCognitoUserPoolGroup) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSCognitoUserPoolGroupResources retrieves all AWSCognitoUserPoolGroup items from a CloudFormation template
-func GetAllAWSCognitoUserPoolGroupResources(template *Template) map[string]*AWSCognitoUserPoolGroup {
+func (t *Template) GetAllAWSCognitoUserPoolGroupResources() map[string]*AWSCognitoUserPoolGroup {
 
 	results := map[string]*AWSCognitoUserPoolGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCognitoUserPoolGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSCognitoUserPoolGroupResources(template *Template) map[string]*AWSC
 
 // GetAWSCognitoUserPoolGroupWithName retrieves all AWSCognitoUserPoolGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCognitoUserPoolGroupWithName(name string, template *Template) (*AWSCognitoUserPoolGroup, error) {
+func (t *Template) GetAWSCognitoUserPoolGroupWithName(name string) (*AWSCognitoUserPoolGroup, error) {
 
 	result := &AWSCognitoUserPoolGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

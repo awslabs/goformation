@@ -28,7 +28,7 @@ type AWSElasticLoadBalancingV2Listener struct {
 	// Port AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
@@ -52,10 +52,10 @@ func (r *AWSElasticLoadBalancingV2Listener) AWSCloudFormationSpecificationVersio
 }
 
 // GetAllAWSElasticLoadBalancingV2ListenerResources retrieves all AWSElasticLoadBalancingV2Listener items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2ListenerResources(template *Template) map[string]*AWSElasticLoadBalancingV2Listener {
+func (t *Template) GetAllAWSElasticLoadBalancingV2ListenerResources() map[string]*AWSElasticLoadBalancingV2Listener {
 
 	results := map[string]*AWSElasticLoadBalancingV2Listener{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElasticLoadBalancingV2Listener{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +67,10 @@ func GetAllAWSElasticLoadBalancingV2ListenerResources(template *Template) map[st
 
 // GetAWSElasticLoadBalancingV2ListenerWithName retrieves all AWSElasticLoadBalancingV2Listener items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSElasticLoadBalancingV2ListenerWithName(name string, template *Template) (*AWSElasticLoadBalancingV2Listener, error) {
+func (t *Template) GetAWSElasticLoadBalancingV2ListenerWithName(name string) (*AWSElasticLoadBalancingV2Listener, error) {
 
 	result := &AWSElasticLoadBalancingV2Listener{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

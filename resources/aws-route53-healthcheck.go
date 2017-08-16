@@ -32,10 +32,10 @@ func (r *AWSRoute53HealthCheck) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRoute53HealthCheckResources retrieves all AWSRoute53HealthCheck items from a CloudFormation template
-func GetAllAWSRoute53HealthCheckResources(template *Template) map[string]*AWSRoute53HealthCheck {
+func (t *Template) GetAllAWSRoute53HealthCheckResources() map[string]*AWSRoute53HealthCheck {
 
 	results := map[string]*AWSRoute53HealthCheck{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRoute53HealthCheck{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSRoute53HealthCheckResources(template *Template) map[string]*AWSRou
 
 // GetAWSRoute53HealthCheckWithName retrieves all AWSRoute53HealthCheck items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSRoute53HealthCheckWithName(name string, template *Template) (*AWSRoute53HealthCheck, error) {
+func (t *Template) GetAWSRoute53HealthCheckWithName(name string) (*AWSRoute53HealthCheck, error) {
 
 	result := &AWSRoute53HealthCheck{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

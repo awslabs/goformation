@@ -33,7 +33,7 @@ type AWSEMRInstanceGroupConfig struct {
 	// InstanceCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfiginstancecount-
-	InstanceCount int64 `json:"InstanceCount"`
+	InstanceCount int `json:"InstanceCount"`
 
 	// InstanceRole AWS CloudFormation Property
 	// Required: true
@@ -72,10 +72,10 @@ func (r *AWSEMRInstanceGroupConfig) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSEMRInstanceGroupConfigResources retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfigResources(template *Template) map[string]*AWSEMRInstanceGroupConfig {
+func (t *Template) GetAllAWSEMRInstanceGroupConfigResources() map[string]*AWSEMRInstanceGroupConfig {
 
 	results := map[string]*AWSEMRInstanceGroupConfig{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEMRInstanceGroupConfig{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -87,10 +87,10 @@ func GetAllAWSEMRInstanceGroupConfigResources(template *Template) map[string]*AW
 
 // GetAWSEMRInstanceGroupConfigWithName retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEMRInstanceGroupConfigWithName(name string, template *Template) (*AWSEMRInstanceGroupConfig, error) {
+func (t *Template) GetAWSEMRInstanceGroupConfigWithName(name string) (*AWSEMRInstanceGroupConfig, error) {
 
 	result := &AWSEMRInstanceGroupConfig{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

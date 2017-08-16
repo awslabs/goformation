@@ -37,10 +37,10 @@ func (r *AWSSNSTopic) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSNSTopicResources retrieves all AWSSNSTopic items from a CloudFormation template
-func GetAllAWSSNSTopicResources(template *Template) map[string]*AWSSNSTopic {
+func (t *Template) GetAllAWSSNSTopicResources() map[string]*AWSSNSTopic {
 
 	results := map[string]*AWSSNSTopic{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSNSTopic{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSSNSTopicResources(template *Template) map[string]*AWSSNSTopic {
 
 // GetAWSSNSTopicWithName retrieves all AWSSNSTopic items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSSNSTopicWithName(name string, template *Template) (*AWSSNSTopic, error) {
+func (t *Template) GetAWSSNSTopicWithName(name string) (*AWSSNSTopic, error) {
 
 	result := &AWSSNSTopic{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

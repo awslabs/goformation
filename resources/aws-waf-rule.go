@@ -37,10 +37,10 @@ func (r *AWSWAFRule) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFRuleResources retrieves all AWSWAFRule items from a CloudFormation template
-func GetAllAWSWAFRuleResources(template *Template) map[string]*AWSWAFRule {
+func (t *Template) GetAllAWSWAFRuleResources() map[string]*AWSWAFRule {
 
 	results := map[string]*AWSWAFRule{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFRule{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSWAFRuleResources(template *Template) map[string]*AWSWAFRule {
 
 // GetAWSWAFRuleWithName retrieves all AWSWAFRule items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSWAFRuleWithName(name string, template *Template) (*AWSWAFRule, error) {
+func (t *Template) GetAWSWAFRuleWithName(name string) (*AWSWAFRule, error) {
 
 	result := &AWSWAFRule{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

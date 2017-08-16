@@ -37,10 +37,10 @@ func (r *AWSEC2VolumeAttachment) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSEC2VolumeAttachmentResources retrieves all AWSEC2VolumeAttachment items from a CloudFormation template
-func GetAllAWSEC2VolumeAttachmentResources(template *Template) map[string]*AWSEC2VolumeAttachment {
+func (t *Template) GetAllAWSEC2VolumeAttachmentResources() map[string]*AWSEC2VolumeAttachment {
 
 	results := map[string]*AWSEC2VolumeAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VolumeAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSEC2VolumeAttachmentResources(template *Template) map[string]*AWSEC
 
 // GetAWSEC2VolumeAttachmentWithName retrieves all AWSEC2VolumeAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VolumeAttachmentWithName(name string, template *Template) (*AWSEC2VolumeAttachment, error) {
+func (t *Template) GetAWSEC2VolumeAttachmentWithName(name string) (*AWSEC2VolumeAttachment, error) {
 
 	result := &AWSEC2VolumeAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

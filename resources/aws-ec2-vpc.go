@@ -47,10 +47,10 @@ func (r *AWSEC2VPC) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2VPCResources retrieves all AWSEC2VPC items from a CloudFormation template
-func GetAllAWSEC2VPCResources(template *Template) map[string]*AWSEC2VPC {
+func (t *Template) GetAllAWSEC2VPCResources() map[string]*AWSEC2VPC {
 
 	results := map[string]*AWSEC2VPC{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPC{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSEC2VPCResources(template *Template) map[string]*AWSEC2VPC {
 
 // GetAWSEC2VPCWithName retrieves all AWSEC2VPC items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2VPCWithName(name string, template *Template) (*AWSEC2VPC, error) {
+func (t *Template) GetAWSEC2VPCWithName(name string) (*AWSEC2VPC, error) {
 
 	result := &AWSEC2VPC{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

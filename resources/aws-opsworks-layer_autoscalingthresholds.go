@@ -12,12 +12,12 @@ type AWSOpsWorksLayer_AutoScalingThresholds struct {
 	// IgnoreMetricsTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-ignoremetricstime
-	IgnoreMetricsTime int64 `json:"IgnoreMetricsTime"`
+	IgnoreMetricsTime int `json:"IgnoreMetricsTime"`
 
 	// InstanceCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-instancecount
-	InstanceCount int64 `json:"InstanceCount"`
+	InstanceCount int `json:"InstanceCount"`
 
 	// LoadThreshold AWS CloudFormation Property
 	// Required: false
@@ -32,7 +32,7 @@ type AWSOpsWorksLayer_AutoScalingThresholds struct {
 	// ThresholdsWaitTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-thresholdwaittime
-	ThresholdsWaitTime int64 `json:"ThresholdsWaitTime"`
+	ThresholdsWaitTime int `json:"ThresholdsWaitTime"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

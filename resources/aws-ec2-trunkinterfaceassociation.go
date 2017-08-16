@@ -18,7 +18,7 @@ type AWSEC2TrunkInterfaceAssociation struct {
 	// GREKey AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-grekey
-	GREKey int64 `json:"GREKey"`
+	GREKey int `json:"GREKey"`
 
 	// TrunkInterfaceId AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type AWSEC2TrunkInterfaceAssociation struct {
 	// VLANId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-vlanid
-	VLANId int64 `json:"VLANId"`
+	VLANId int `json:"VLANId"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -42,10 +42,10 @@ func (r *AWSEC2TrunkInterfaceAssociation) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSEC2TrunkInterfaceAssociationResources retrieves all AWSEC2TrunkInterfaceAssociation items from a CloudFormation template
-func GetAllAWSEC2TrunkInterfaceAssociationResources(template *Template) map[string]*AWSEC2TrunkInterfaceAssociation {
+func (t *Template) GetAllAWSEC2TrunkInterfaceAssociationResources() map[string]*AWSEC2TrunkInterfaceAssociation {
 
 	results := map[string]*AWSEC2TrunkInterfaceAssociation{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2TrunkInterfaceAssociation{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSEC2TrunkInterfaceAssociationResources(template *Template) map[stri
 
 // GetAWSEC2TrunkInterfaceAssociationWithName retrieves all AWSEC2TrunkInterfaceAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2TrunkInterfaceAssociationWithName(name string, template *Template) (*AWSEC2TrunkInterfaceAssociation, error) {
+func (t *Template) GetAWSEC2TrunkInterfaceAssociationWithName(name string) (*AWSEC2TrunkInterfaceAssociation, error) {
 
 	result := &AWSEC2TrunkInterfaceAssociation{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

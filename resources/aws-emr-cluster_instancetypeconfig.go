@@ -32,7 +32,7 @@ type AWSEMRCluster_InstanceTypeConfig struct {
 	// WeightedCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-weightedcapacity
-	WeightedCapacity int64 `json:"WeightedCapacity"`
+	WeightedCapacity int `json:"WeightedCapacity"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

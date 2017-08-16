@@ -32,10 +32,10 @@ func (r *AWSOpsWorksElasticLoadBalancerAttachment) AWSCloudFormationSpecificatio
 }
 
 // GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources retrieves all AWSOpsWorksElasticLoadBalancerAttachment items from a CloudFormation template
-func GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources(template *Template) map[string]*AWSOpsWorksElasticLoadBalancerAttachment {
+func (t *Template) GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources() map[string]*AWSOpsWorksElasticLoadBalancerAttachment {
 
 	results := map[string]*AWSOpsWorksElasticLoadBalancerAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSOpsWorksElasticLoadBalancerAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources(template *Template)
 
 // GetAWSOpsWorksElasticLoadBalancerAttachmentWithName retrieves all AWSOpsWorksElasticLoadBalancerAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSOpsWorksElasticLoadBalancerAttachmentWithName(name string, template *Template) (*AWSOpsWorksElasticLoadBalancerAttachment, error) {
+func (t *Template) GetAWSOpsWorksElasticLoadBalancerAttachmentWithName(name string) (*AWSOpsWorksElasticLoadBalancerAttachment, error) {
 
 	result := &AWSOpsWorksElasticLoadBalancerAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

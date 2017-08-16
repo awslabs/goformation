@@ -7,12 +7,12 @@ type AWSApiGatewayUsagePlan_QuotaSettings struct {
 	// Limit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
-	Limit int64 `json:"Limit"`
+	Limit int `json:"Limit"`
 
 	// Offset AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
-	Offset int64 `json:"Offset"`
+	Offset int `json:"Offset"`
 
 	// Period AWS CloudFormation Property
 	// Required: false

@@ -32,10 +32,10 @@ func (r *AWSSQSQueuePolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSQSQueuePolicyResources retrieves all AWSSQSQueuePolicy items from a CloudFormation template
-func GetAllAWSSQSQueuePolicyResources(template *Template) map[string]*AWSSQSQueuePolicy {
+func (t *Template) GetAllAWSSQSQueuePolicyResources() map[string]*AWSSQSQueuePolicy {
 
 	results := map[string]*AWSSQSQueuePolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSQSQueuePolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSSQSQueuePolicyResources(template *Template) map[string]*AWSSQSQueu
 
 // GetAWSSQSQueuePolicyWithName retrieves all AWSSQSQueuePolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSSQSQueuePolicyWithName(name string, template *Template) (*AWSSQSQueuePolicy, error) {
+func (t *Template) GetAWSSQSQueuePolicyWithName(name string) (*AWSSQSQueuePolicy, error) {
 
 	result := &AWSSQSQueuePolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

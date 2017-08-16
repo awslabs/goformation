@@ -68,7 +68,7 @@ type AWSEC2Instance struct {
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresscount
-	Ipv6AddressCount int64 `json:"Ipv6AddressCount"`
+	Ipv6AddressCount int `json:"Ipv6AddressCount"`
 
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
@@ -167,10 +167,10 @@ func (r *AWSEC2Instance) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2InstanceResources retrieves all AWSEC2Instance items from a CloudFormation template
-func GetAllAWSEC2InstanceResources(template *Template) map[string]*AWSEC2Instance {
+func (t *Template) GetAllAWSEC2InstanceResources() map[string]*AWSEC2Instance {
 
 	results := map[string]*AWSEC2Instance{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2Instance{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -182,10 +182,10 @@ func GetAllAWSEC2InstanceResources(template *Template) map[string]*AWSEC2Instanc
 
 // GetAWSEC2InstanceWithName retrieves all AWSEC2Instance items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2InstanceWithName(name string, template *Template) (*AWSEC2Instance, error) {
+func (t *Template) GetAWSEC2InstanceWithName(name string) (*AWSEC2Instance, error) {
 
 	result := &AWSEC2Instance{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

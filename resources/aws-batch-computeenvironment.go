@@ -47,10 +47,10 @@ func (r *AWSBatchComputeEnvironment) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSBatchComputeEnvironmentResources retrieves all AWSBatchComputeEnvironment items from a CloudFormation template
-func GetAllAWSBatchComputeEnvironmentResources(template *Template) map[string]*AWSBatchComputeEnvironment {
+func (t *Template) GetAllAWSBatchComputeEnvironmentResources() map[string]*AWSBatchComputeEnvironment {
 
 	results := map[string]*AWSBatchComputeEnvironment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSBatchComputeEnvironment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -62,10 +62,10 @@ func GetAllAWSBatchComputeEnvironmentResources(template *Template) map[string]*A
 
 // GetAWSBatchComputeEnvironmentWithName retrieves all AWSBatchComputeEnvironment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSBatchComputeEnvironmentWithName(name string, template *Template) (*AWSBatchComputeEnvironment, error) {
+func (t *Template) GetAWSBatchComputeEnvironmentWithName(name string) (*AWSBatchComputeEnvironment, error) {
 
 	result := &AWSBatchComputeEnvironment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

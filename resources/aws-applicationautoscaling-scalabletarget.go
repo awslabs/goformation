@@ -13,12 +13,12 @@ type AWSApplicationAutoScalingScalableTarget struct {
 	// MaxCapacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
-	MaxCapacity int64 `json:"MaxCapacity"`
+	MaxCapacity int `json:"MaxCapacity"`
 
 	// MinCapacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity
-	MinCapacity int64 `json:"MinCapacity"`
+	MinCapacity int `json:"MinCapacity"`
 
 	// ResourceId AWS CloudFormation Property
 	// Required: true
@@ -52,10 +52,10 @@ func (r *AWSApplicationAutoScalingScalableTarget) AWSCloudFormationSpecification
 }
 
 // GetAllAWSApplicationAutoScalingScalableTargetResources retrieves all AWSApplicationAutoScalingScalableTarget items from a CloudFormation template
-func GetAllAWSApplicationAutoScalingScalableTargetResources(template *Template) map[string]*AWSApplicationAutoScalingScalableTarget {
+func (t *Template) GetAllAWSApplicationAutoScalingScalableTargetResources() map[string]*AWSApplicationAutoScalingScalableTarget {
 
 	results := map[string]*AWSApplicationAutoScalingScalableTarget{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApplicationAutoScalingScalableTarget{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +67,10 @@ func GetAllAWSApplicationAutoScalingScalableTargetResources(template *Template) 
 
 // GetAWSApplicationAutoScalingScalableTargetWithName retrieves all AWSApplicationAutoScalingScalableTarget items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSApplicationAutoScalingScalableTargetWithName(name string, template *Template) (*AWSApplicationAutoScalingScalableTarget, error) {
+func (t *Template) GetAWSApplicationAutoScalingScalableTargetWithName(name string) (*AWSApplicationAutoScalingScalableTarget, error) {
 
 	result := &AWSApplicationAutoScalingScalableTarget{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

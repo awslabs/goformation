@@ -32,10 +32,10 @@ func (r *AWSKinesisAnalyticsApplicationOutput) AWSCloudFormationSpecificationVer
 }
 
 // GetAllAWSKinesisAnalyticsApplicationOutputResources retrieves all AWSKinesisAnalyticsApplicationOutput items from a CloudFormation template
-func GetAllAWSKinesisAnalyticsApplicationOutputResources(template *Template) map[string]*AWSKinesisAnalyticsApplicationOutput {
+func (t *Template) GetAllAWSKinesisAnalyticsApplicationOutputResources() map[string]*AWSKinesisAnalyticsApplicationOutput {
 
 	results := map[string]*AWSKinesisAnalyticsApplicationOutput{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSKinesisAnalyticsApplicationOutput{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -47,10 +47,10 @@ func GetAllAWSKinesisAnalyticsApplicationOutputResources(template *Template) map
 
 // GetAWSKinesisAnalyticsApplicationOutputWithName retrieves all AWSKinesisAnalyticsApplicationOutput items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSKinesisAnalyticsApplicationOutputWithName(name string, template *Template) (*AWSKinesisAnalyticsApplicationOutput, error) {
+func (t *Template) GetAWSKinesisAnalyticsApplicationOutputWithName(name string) (*AWSKinesisAnalyticsApplicationOutput, error) {
 
 	result := &AWSKinesisAnalyticsApplicationOutput{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

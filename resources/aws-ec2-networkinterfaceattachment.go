@@ -42,10 +42,10 @@ func (r *AWSEC2NetworkInterfaceAttachment) AWSCloudFormationSpecificationVersion
 }
 
 // GetAllAWSEC2NetworkInterfaceAttachmentResources retrieves all AWSEC2NetworkInterfaceAttachment items from a CloudFormation template
-func GetAllAWSEC2NetworkInterfaceAttachmentResources(template *Template) map[string]*AWSEC2NetworkInterfaceAttachment {
+func (t *Template) GetAllAWSEC2NetworkInterfaceAttachmentResources() map[string]*AWSEC2NetworkInterfaceAttachment {
 
 	results := map[string]*AWSEC2NetworkInterfaceAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2NetworkInterfaceAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -57,10 +57,10 @@ func GetAllAWSEC2NetworkInterfaceAttachmentResources(template *Template) map[str
 
 // GetAWSEC2NetworkInterfaceAttachmentWithName retrieves all AWSEC2NetworkInterfaceAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSEC2NetworkInterfaceAttachmentWithName(name string, template *Template) (*AWSEC2NetworkInterfaceAttachment, error) {
+func (t *Template) GetAWSEC2NetworkInterfaceAttachmentWithName(name string) (*AWSEC2NetworkInterfaceAttachment, error) {
 
 	result := &AWSEC2NetworkInterfaceAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

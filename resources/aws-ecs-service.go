@@ -23,7 +23,7 @@ type AWSECSService struct {
 	// DesiredCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-	DesiredCount int64 `json:"DesiredCount"`
+	DesiredCount int `json:"DesiredCount"`
 
 	// LoadBalancers AWS CloudFormation Property
 	// Required: false
@@ -67,10 +67,10 @@ func (r *AWSECSService) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSECSServiceResources retrieves all AWSECSService items from a CloudFormation template
-func GetAllAWSECSServiceResources(template *Template) map[string]*AWSECSService {
+func (t *Template) GetAllAWSECSServiceResources() map[string]*AWSECSService {
 
 	results := map[string]*AWSECSService{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSECSService{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -82,10 +82,10 @@ func GetAllAWSECSServiceResources(template *Template) map[string]*AWSECSService 
 
 // GetAWSECSServiceWithName retrieves all AWSECSService items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSECSServiceWithName(name string, template *Template) (*AWSECSService, error) {
+func (t *Template) GetAWSECSServiceWithName(name string) (*AWSECSService, error) {
 
 	result := &AWSECSService{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

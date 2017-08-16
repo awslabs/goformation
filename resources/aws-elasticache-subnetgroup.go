@@ -37,10 +37,10 @@ func (r *AWSElastiCacheSubnetGroup) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSElastiCacheSubnetGroupResources retrieves all AWSElastiCacheSubnetGroup items from a CloudFormation template
-func GetAllAWSElastiCacheSubnetGroupResources(template *Template) map[string]*AWSElastiCacheSubnetGroup {
+func (t *Template) GetAllAWSElastiCacheSubnetGroupResources() map[string]*AWSElastiCacheSubnetGroup {
 
 	results := map[string]*AWSElastiCacheSubnetGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElastiCacheSubnetGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -52,10 +52,10 @@ func GetAllAWSElastiCacheSubnetGroupResources(template *Template) map[string]*AW
 
 // GetAWSElastiCacheSubnetGroupWithName retrieves all AWSElastiCacheSubnetGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSElastiCacheSubnetGroupWithName(name string, template *Template) (*AWSElastiCacheSubnetGroup, error) {
+func (t *Template) GetAWSElastiCacheSubnetGroupWithName(name string) (*AWSElastiCacheSubnetGroup, error) {
 
 	result := &AWSElastiCacheSubnetGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

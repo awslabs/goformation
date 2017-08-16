@@ -22,10 +22,10 @@ func (r *AWSCloudFormationWaitConditionHandle) AWSCloudFormationSpecificationVer
 }
 
 // GetAllAWSCloudFormationWaitConditionHandleResources retrieves all AWSCloudFormationWaitConditionHandle items from a CloudFormation template
-func GetAllAWSCloudFormationWaitConditionHandleResources(template *Template) map[string]*AWSCloudFormationWaitConditionHandle {
+func (t *Template) GetAllAWSCloudFormationWaitConditionHandleResources() map[string]*AWSCloudFormationWaitConditionHandle {
 
 	results := map[string]*AWSCloudFormationWaitConditionHandle{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCloudFormationWaitConditionHandle{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -37,10 +37,10 @@ func GetAllAWSCloudFormationWaitConditionHandleResources(template *Template) map
 
 // GetAWSCloudFormationWaitConditionHandleWithName retrieves all AWSCloudFormationWaitConditionHandle items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetAWSCloudFormationWaitConditionHandleWithName(name string, template *Template) (*AWSCloudFormationWaitConditionHandle, error) {
+func (t *Template) GetAWSCloudFormationWaitConditionHandleWithName(name string) (*AWSCloudFormationWaitConditionHandle, error) {
 
 	result := &AWSCloudFormationWaitConditionHandle{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

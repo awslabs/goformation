@@ -22,7 +22,7 @@ type AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification struct {
 	// DeviceIndex AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
-	DeviceIndex int64 `json:"DeviceIndex"`
+	DeviceIndex int `json:"DeviceIndex"`
 
 	// Groups AWS CloudFormation Property
 	// Required: false
@@ -32,7 +32,7 @@ type AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification struct {
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
-	Ipv6AddressCount int64 `json:"Ipv6AddressCount"`
+	Ipv6AddressCount int `json:"Ipv6AddressCount"`
 
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type AWSEC2SpotFleet_InstanceNetworkInterfaceSpecification struct {
 	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
-	SecondaryPrivateIpAddressCount int64 `json:"SecondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount int `json:"SecondaryPrivateIpAddressCount"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false
