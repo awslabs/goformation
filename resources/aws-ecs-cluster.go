@@ -6,14 +6,13 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ECS::Cluster AWS CloudFormation Resource
+// AWSECSCluster AWS CloudFormation Resource (AWS::ECS::Cluster)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
 type AWSECSCluster struct {
 
 	// ClusterName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
-
 	ClusterName string `json:"ClusterName"`
 }
 
@@ -28,10 +27,10 @@ func (r *AWSECSCluster) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSECSClusterResources retrieves all AWSECSCluster items from a CloudFormation template
-func GetAllAWSECSCluster(template *Template) map[string]*AWSECSCluster {
+func (t *Template) GetAllAWSECSClusterResources() map[string]*AWSECSCluster {
 
 	results := map[string]*AWSECSCluster{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSECSCluster{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -43,10 +42,10 @@ func GetAllAWSECSCluster(template *Template) map[string]*AWSECSCluster {
 
 // GetAWSECSClusterWithName retrieves all AWSECSCluster items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECSCluster(name string, template *Template) (*AWSECSCluster, error) {
+func (t *Template) GetAWSECSClusterWithName(name string) (*AWSECSCluster, error) {
 
 	result := &AWSECSCluster{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

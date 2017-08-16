@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudFormation::WaitConditionHandle AWS CloudFormation Resource
+// AWSCloudFormationWaitConditionHandle AWS CloudFormation Resource (AWS::CloudFormation::WaitConditionHandle)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html
 type AWSCloudFormationWaitConditionHandle struct {
 }
@@ -22,10 +22,10 @@ func (r *AWSCloudFormationWaitConditionHandle) AWSCloudFormationSpecificationVer
 }
 
 // GetAllAWSCloudFormationWaitConditionHandleResources retrieves all AWSCloudFormationWaitConditionHandle items from a CloudFormation template
-func GetAllAWSCloudFormationWaitConditionHandle(template *Template) map[string]*AWSCloudFormationWaitConditionHandle {
+func (t *Template) GetAllAWSCloudFormationWaitConditionHandleResources() map[string]*AWSCloudFormationWaitConditionHandle {
 
 	results := map[string]*AWSCloudFormationWaitConditionHandle{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCloudFormationWaitConditionHandle{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -37,10 +37,10 @@ func GetAllAWSCloudFormationWaitConditionHandle(template *Template) map[string]*
 
 // GetAWSCloudFormationWaitConditionHandleWithName retrieves all AWSCloudFormationWaitConditionHandle items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFormationWaitConditionHandle(name string, template *Template) (*AWSCloudFormationWaitConditionHandle, error) {
+func (t *Template) GetAWSCloudFormationWaitConditionHandleWithName(name string) (*AWSCloudFormationWaitConditionHandle, error) {
 
 	result := &AWSCloudFormationWaitConditionHandle{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

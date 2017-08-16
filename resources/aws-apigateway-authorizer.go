@@ -6,62 +6,53 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::Authorizer AWS CloudFormation Resource
+// AWSApiGatewayAuthorizer AWS CloudFormation Resource (AWS::ApiGateway::Authorizer)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html
 type AWSApiGatewayAuthorizer struct {
 
 	// AuthorizerCredentials AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizercredentials
-
 	AuthorizerCredentials string `json:"AuthorizerCredentials"`
 
 	// AuthorizerResultTtlInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizerresultttlinseconds
-
-	AuthorizerResultTtlInSeconds int64 `json:"AuthorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds int `json:"AuthorizerResultTtlInSeconds"`
 
 	// AuthorizerUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizeruri
-
 	AuthorizerUri string `json:"AuthorizerUri"`
 
 	// IdentitySource AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-identitysource
-
 	IdentitySource string `json:"IdentitySource"`
 
 	// IdentityValidationExpression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-identityvalidationexpression
-
 	IdentityValidationExpression string `json:"IdentityValidationExpression"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-name
-
 	Name string `json:"Name"`
 
 	// ProviderARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-providerarns
-
 	ProviderARNs []string `json:"ProviderARNs"`
 
 	// RestApiId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-restapiid
-
 	RestApiId string `json:"RestApiId"`
 
 	// Type AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type
-
 	Type string `json:"Type"`
 }
 
@@ -76,10 +67,10 @@ func (r *AWSApiGatewayAuthorizer) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSApiGatewayAuthorizerResources retrieves all AWSApiGatewayAuthorizer items from a CloudFormation template
-func GetAllAWSApiGatewayAuthorizer(template *Template) map[string]*AWSApiGatewayAuthorizer {
+func (t *Template) GetAllAWSApiGatewayAuthorizerResources() map[string]*AWSApiGatewayAuthorizer {
 
 	results := map[string]*AWSApiGatewayAuthorizer{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayAuthorizer{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -91,10 +82,10 @@ func GetAllAWSApiGatewayAuthorizer(template *Template) map[string]*AWSApiGateway
 
 // GetAWSApiGatewayAuthorizerWithName retrieves all AWSApiGatewayAuthorizer items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayAuthorizer(name string, template *Template) (*AWSApiGatewayAuthorizer, error) {
+func (t *Template) GetAWSApiGatewayAuthorizerWithName(name string) (*AWSApiGatewayAuthorizer, error) {
 
 	result := &AWSApiGatewayAuthorizer{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

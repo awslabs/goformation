@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::Host AWS CloudFormation Resource
+// AWSEC2Host AWS CloudFormation Resource (AWS::EC2::Host)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html
 type AWSEC2Host struct {
 
 	// AutoPlacement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-autoplacement
-
 	AutoPlacement string `json:"AutoPlacement"`
 
 	// AvailabilityZone AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-availabilityzone
-
 	AvailabilityZone string `json:"AvailabilityZone"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancetype
-
 	InstanceType string `json:"InstanceType"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSEC2Host) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2HostResources retrieves all AWSEC2Host items from a CloudFormation template
-func GetAllAWSEC2Host(template *Template) map[string]*AWSEC2Host {
+func (t *Template) GetAllAWSEC2HostResources() map[string]*AWSEC2Host {
 
 	results := map[string]*AWSEC2Host{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2Host{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSEC2Host(template *Template) map[string]*AWSEC2Host {
 
 // GetAWSEC2HostWithName retrieves all AWSEC2Host items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2Host(name string, template *Template) (*AWSEC2Host, error) {
+func (t *Template) GetAWSEC2HostWithName(name string) (*AWSEC2Host, error) {
 
 	result := &AWSEC2Host{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

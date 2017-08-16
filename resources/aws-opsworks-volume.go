@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::OpsWorks::Volume AWS CloudFormation Resource
+// AWSOpsWorksVolume AWS CloudFormation Resource (AWS::OpsWorks::Volume)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
 type AWSOpsWorksVolume struct {
 
 	// Ec2VolumeId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-ec2volumeid
-
 	Ec2VolumeId string `json:"Ec2VolumeId"`
 
 	// MountPoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-mountpoint
-
 	MountPoint string `json:"MountPoint"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-name
-
 	Name string `json:"Name"`
 
 	// StackId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-stackid
-
 	StackId string `json:"StackId"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSOpsWorksVolume) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSOpsWorksVolumeResources retrieves all AWSOpsWorksVolume items from a CloudFormation template
-func GetAllAWSOpsWorksVolume(template *Template) map[string]*AWSOpsWorksVolume {
+func (t *Template) GetAllAWSOpsWorksVolumeResources() map[string]*AWSOpsWorksVolume {
 
 	results := map[string]*AWSOpsWorksVolume{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSOpsWorksVolume{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSOpsWorksVolume(template *Template) map[string]*AWSOpsWorksVolume {
 
 // GetAWSOpsWorksVolumeWithName retrieves all AWSOpsWorksVolume items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSOpsWorksVolume(name string, template *Template) (*AWSOpsWorksVolume, error) {
+func (t *Template) GetAWSOpsWorksVolumeWithName(name string) (*AWSOpsWorksVolume, error) {
 
 	result := &AWSOpsWorksVolume{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

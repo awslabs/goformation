@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EFS::MountTarget AWS CloudFormation Resource
+// AWSEFSMountTarget AWS CloudFormation Resource (AWS::EFS::MountTarget)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
 type AWSEFSMountTarget struct {
 
 	// FileSystemId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-
 	FileSystemId string `json:"FileSystemId"`
 
 	// IpAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
-
 	IpAddress string `json:"IpAddress"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
-
 	SecurityGroups []string `json:"SecurityGroups"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-
 	SubnetId string `json:"SubnetId"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSEFSMountTarget) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEFSMountTargetResources retrieves all AWSEFSMountTarget items from a CloudFormation template
-func GetAllAWSEFSMountTarget(template *Template) map[string]*AWSEFSMountTarget {
+func (t *Template) GetAllAWSEFSMountTargetResources() map[string]*AWSEFSMountTarget {
 
 	results := map[string]*AWSEFSMountTarget{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEFSMountTarget{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSEFSMountTarget(template *Template) map[string]*AWSEFSMountTarget {
 
 // GetAWSEFSMountTargetWithName retrieves all AWSEFSMountTarget items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEFSMountTarget(name string, template *Template) (*AWSEFSMountTarget, error) {
+func (t *Template) GetAWSEFSMountTargetWithName(name string) (*AWSEFSMountTarget, error) {
 
 	result := &AWSEFSMountTarget{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

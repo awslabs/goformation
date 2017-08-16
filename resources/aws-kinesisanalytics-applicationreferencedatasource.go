@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::KinesisAnalytics::ApplicationReferenceDataSource AWS CloudFormation Resource
+// AWSKinesisAnalyticsApplicationReferenceDataSource AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource struct {
 
 	// ApplicationName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-applicationname
-
 	ApplicationName string `json:"ApplicationName"`
 
 	// ReferenceDataSource AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource
-
 	ReferenceDataSource AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceDataSource `json:"ReferenceDataSource"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) AWSCloudFormationSpe
 }
 
 // GetAllAWSKinesisAnalyticsApplicationReferenceDataSourceResources retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource items from a CloudFormation template
-func GetAllAWSKinesisAnalyticsApplicationReferenceDataSource(template *Template) map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource {
+func (t *Template) GetAllAWSKinesisAnalyticsApplicationReferenceDataSourceResources() map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource {
 
 	results := map[string]*AWSKinesisAnalyticsApplicationReferenceDataSource{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSKinesisAnalyticsApplicationReferenceDataSource{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSKinesisAnalyticsApplicationReferenceDataSource(template *Template)
 
 // GetAWSKinesisAnalyticsApplicationReferenceDataSourceWithName retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKinesisAnalyticsApplicationReferenceDataSource(name string, template *Template) (*AWSKinesisAnalyticsApplicationReferenceDataSource, error) {
+func (t *Template) GetAWSKinesisAnalyticsApplicationReferenceDataSourceWithName(name string) (*AWSKinesisAnalyticsApplicationReferenceDataSource, error) {
 
 	result := &AWSKinesisAnalyticsApplicationReferenceDataSource{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

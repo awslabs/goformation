@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::Destination AWS CloudFormation Resource
+// AWSLogsDestination AWS CloudFormation Resource (AWS::Logs::Destination)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
 type AWSLogsDestination struct {
 
 	// DestinationName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationname
-
 	DestinationName string `json:"DestinationName"`
 
 	// DestinationPolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationpolicy
-
 	DestinationPolicy string `json:"DestinationPolicy"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-rolearn
-
 	RoleArn string `json:"RoleArn"`
 
 	// TargetArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-targetarn
-
 	TargetArn string `json:"TargetArn"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSLogsDestination) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsDestinationResources retrieves all AWSLogsDestination items from a CloudFormation template
-func GetAllAWSLogsDestination(template *Template) map[string]*AWSLogsDestination {
+func (t *Template) GetAllAWSLogsDestinationResources() map[string]*AWSLogsDestination {
 
 	results := map[string]*AWSLogsDestination{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLogsDestination{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSLogsDestination(template *Template) map[string]*AWSLogsDestination
 
 // GetAWSLogsDestinationWithName retrieves all AWSLogsDestination items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLogsDestination(name string, template *Template) (*AWSLogsDestination, error) {
+func (t *Template) GetAWSLogsDestinationWithName(name string) (*AWSLogsDestination, error) {
 
 	result := &AWSLogsDestination{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

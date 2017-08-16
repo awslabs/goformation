@@ -6,14 +6,13 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::ClientCertificate AWS CloudFormation Resource
+// AWSApiGatewayClientCertificate AWS CloudFormation Resource (AWS::ApiGateway::ClientCertificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
 type AWSApiGatewayClientCertificate struct {
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
-
 	Description string `json:"Description"`
 }
 
@@ -28,10 +27,10 @@ func (r *AWSApiGatewayClientCertificate) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSApiGatewayClientCertificateResources retrieves all AWSApiGatewayClientCertificate items from a CloudFormation template
-func GetAllAWSApiGatewayClientCertificate(template *Template) map[string]*AWSApiGatewayClientCertificate {
+func (t *Template) GetAllAWSApiGatewayClientCertificateResources() map[string]*AWSApiGatewayClientCertificate {
 
 	results := map[string]*AWSApiGatewayClientCertificate{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayClientCertificate{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -43,10 +42,10 @@ func GetAllAWSApiGatewayClientCertificate(template *Template) map[string]*AWSApi
 
 // GetAWSApiGatewayClientCertificateWithName retrieves all AWSApiGatewayClientCertificate items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayClientCertificate(name string, template *Template) (*AWSApiGatewayClientCertificate, error) {
+func (t *Template) GetAWSApiGatewayClientCertificateWithName(name string) (*AWSApiGatewayClientCertificate, error) {
 
 	result := &AWSApiGatewayClientCertificate{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

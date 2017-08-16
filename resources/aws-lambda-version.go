@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::Version AWS CloudFormation Resource
+// AWSLambdaVersion AWS CloudFormation Resource (AWS::Lambda::Version)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
 type AWSLambdaVersion struct {
 
 	// CodeSha256 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-codesha256
-
 	CodeSha256 string `json:"CodeSha256"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-description
-
 	Description string `json:"Description"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionname
-
 	FunctionName string `json:"FunctionName"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSLambdaVersion) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLambdaVersionResources retrieves all AWSLambdaVersion items from a CloudFormation template
-func GetAllAWSLambdaVersion(template *Template) map[string]*AWSLambdaVersion {
+func (t *Template) GetAllAWSLambdaVersionResources() map[string]*AWSLambdaVersion {
 
 	results := map[string]*AWSLambdaVersion{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLambdaVersion{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSLambdaVersion(template *Template) map[string]*AWSLambdaVersion {
 
 // GetAWSLambdaVersionWithName retrieves all AWSLambdaVersion items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLambdaVersion(name string, template *Template) (*AWSLambdaVersion, error) {
+func (t *Template) GetAWSLambdaVersionWithName(name string) (*AWSLambdaVersion, error) {
 
 	result := &AWSLambdaVersion{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

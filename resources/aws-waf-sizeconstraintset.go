@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::SizeConstraintSet AWS CloudFormation Resource
+// AWSWAFSizeConstraintSet AWS CloudFormation Resource (AWS::WAF::SizeConstraintSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html
 type AWSWAFSizeConstraintSet struct {
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-name
-
 	Name string `json:"Name"`
 
 	// SizeConstraints AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-sizeconstraints
-
 	SizeConstraints []AWSWAFSizeConstraintSet_SizeConstraint `json:"SizeConstraints"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSWAFSizeConstraintSet) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSWAFSizeConstraintSetResources retrieves all AWSWAFSizeConstraintSet items from a CloudFormation template
-func GetAllAWSWAFSizeConstraintSet(template *Template) map[string]*AWSWAFSizeConstraintSet {
+func (t *Template) GetAllAWSWAFSizeConstraintSetResources() map[string]*AWSWAFSizeConstraintSet {
 
 	results := map[string]*AWSWAFSizeConstraintSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFSizeConstraintSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSWAFSizeConstraintSet(template *Template) map[string]*AWSWAFSizeCon
 
 // GetAWSWAFSizeConstraintSetWithName retrieves all AWSWAFSizeConstraintSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFSizeConstraintSet(name string, template *Template) (*AWSWAFSizeConstraintSet, error) {
+func (t *Template) GetAWSWAFSizeConstraintSetWithName(name string) (*AWSWAFSizeConstraintSet, error) {
 
 	result := &AWSWAFSizeConstraintSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

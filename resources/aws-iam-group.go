@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::Group AWS CloudFormation Resource
+// AWSIAMGroup AWS CloudFormation Resource (AWS::IAM::Group)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
 type AWSIAMGroup struct {
 
 	// GroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-groupname
-
 	GroupName string `json:"GroupName"`
 
 	// ManagedPolicyArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-managepolicyarns
-
 	ManagedPolicyArns []string `json:"ManagedPolicyArns"`
 
 	// Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-path
-
 	Path string `json:"Path"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-policies
-
 	Policies []AWSIAMGroup_Policy `json:"Policies"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSIAMGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMGroupResources retrieves all AWSIAMGroup items from a CloudFormation template
-func GetAllAWSIAMGroup(template *Template) map[string]*AWSIAMGroup {
+func (t *Template) GetAllAWSIAMGroupResources() map[string]*AWSIAMGroup {
 
 	results := map[string]*AWSIAMGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIAMGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSIAMGroup(template *Template) map[string]*AWSIAMGroup {
 
 // GetAWSIAMGroupWithName retrieves all AWSIAMGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMGroup(name string, template *Template) (*AWSIAMGroup, error) {
+func (t *Template) GetAWSIAMGroupWithName(name string) (*AWSIAMGroup, error) {
 
 	result := &AWSIAMGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

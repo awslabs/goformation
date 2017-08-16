@@ -1,46 +1,21 @@
 package resources
 
+{{if not .IsCustomProperty}}
 import (
 	"errors"
 
 	"github.com/mitchellh/mapstructure"
 )
+{{end}}
 
-// {{.Name}} AWS CloudFormation Resource
+// {{.StructName}} AWS CloudFormation Resource ({{.Name}})
 // See: {{.Resource.Documentation}}
 type {{.StructName}} struct {
     {{range $name, $property := .Resource.Properties}}
     // {{$name}} AWS CloudFormation Property
     // Required: {{$property.Required}}
     // See: {{$property.Documentation}}
-        {{if $property.IsMap}}
-            {{if $property.IsMapOfPrimitives}}
-                {{$name}} map[string]{{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
-            {{else}}
-                {{if eq $property.ItemType "Tag"}}
-                    {{$name}} map[string]Tag `json:"{{$name}}"`
-                {{else}}
-                    {{$name}} map[string]{{$.Basename}}_{{$property.ItemType}} `json:"{{$name}}"`
-                {{end}}
-            {{end}}
-        {{end}}
-        {{if $property.IsList}}
-            {{if $property.IsListOfPrimitives}}
-                {{$name}} []{{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
-            {{else}}
-                {{if eq $property.ItemType "Tag"}}
-                    {{$name}} []Tag `json:"{{$name}}"`
-                {{else}}
-                    {{$name}} []{{$.Basename}}_{{$property.ItemType}} `json:"{{$name}}"`
-                {{end}}
-            {{end}}
-        {{end}}
-        {{if $property.IsCustomType}}
-            {{$name}} {{$.Basename}}_{{$property.Type}} `json:"{{$name}}"`
-        {{end}}
-        {{if $property.IsPrimitive}}
-            {{$name}} {{$property.GetGoPrimitiveType}} `json:"{{$name}}"`
-        {{end}}
+    {{$name}} {{$property.GoType $.Basename}} `json:"{{$name}}"`
     {{end}}
 }
 
@@ -53,12 +28,12 @@ func (r *{{.StructName}}) AWSCloudFormationType() string {
 func (r *{{.StructName}}) AWSCloudFormationSpecificationVersion() string {
     return "{{.Version}}"
 }
-
+{{if not .IsCustomProperty}}
 // GetAll{{.StructName}}Resources retrieves all {{.StructName}} items from a CloudFormation template
-func GetAll{{.StructName}} (template *Template) map[string]*{{.StructName}} {
+func (t *Template) GetAll{{.StructName}}Resources () map[string]*{{.StructName}} {
 
     results := map[string]*{{.StructName}}{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &{{.StructName}}{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -70,10 +45,10 @@ func GetAll{{.StructName}} (template *Template) map[string]*{{.StructName}} {
 
 // Get{{.StructName}}WithName retrieves all {{.StructName}} items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithName{{.StructName}} (name string, template *Template) (*{{.StructName}}, error) {
+func (t *Template) Get{{.StructName}}WithName (name string) (*{{.StructName}}, error) {
 
     result := &{{.StructName}}{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}
@@ -82,3 +57,4 @@ func GetWithName{{.StructName}} (name string, template *Template) (*{{.StructNam
     return &{{.StructName}}{}, errors.New("resource not found")
 
 }
+{{end}}

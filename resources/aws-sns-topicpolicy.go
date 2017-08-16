@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SNS::TopicPolicy AWS CloudFormation Resource
+// AWSSNSTopicPolicy AWS CloudFormation Resource (AWS::SNS::TopicPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
 type AWSSNSTopicPolicy struct {
 
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument
-
 	PolicyDocument interface{} `json:"PolicyDocument"`
 
 	// Topics AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics
-
 	Topics []string `json:"Topics"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSSNSTopicPolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSNSTopicPolicyResources retrieves all AWSSNSTopicPolicy items from a CloudFormation template
-func GetAllAWSSNSTopicPolicy(template *Template) map[string]*AWSSNSTopicPolicy {
+func (t *Template) GetAllAWSSNSTopicPolicyResources() map[string]*AWSSNSTopicPolicy {
 
 	results := map[string]*AWSSNSTopicPolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSNSTopicPolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSSNSTopicPolicy(template *Template) map[string]*AWSSNSTopicPolicy {
 
 // GetAWSSNSTopicPolicyWithName retrieves all AWSSNSTopicPolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSNSTopicPolicy(name string, template *Template) (*AWSSNSTopicPolicy, error) {
+func (t *Template) GetAWSSNSTopicPolicyWithName(name string) (*AWSSNSTopicPolicy, error) {
 
 	result := &AWSSNSTopicPolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

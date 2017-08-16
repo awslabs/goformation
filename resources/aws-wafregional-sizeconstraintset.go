@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAFRegional::SizeConstraintSet AWS CloudFormation Resource
+// AWSWAFRegionalSizeConstraintSet AWS CloudFormation Resource (AWS::WAFRegional::SizeConstraintSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html
 type AWSWAFRegionalSizeConstraintSet struct {
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-name
-
 	Name string `json:"Name"`
 
 	// SizeConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-sizeconstraints
-
 	SizeConstraints []AWSWAFRegionalSizeConstraintSet_SizeConstraint `json:"SizeConstraints"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSWAFRegionalSizeConstraintSet) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSWAFRegionalSizeConstraintSetResources retrieves all AWSWAFRegionalSizeConstraintSet items from a CloudFormation template
-func GetAllAWSWAFRegionalSizeConstraintSet(template *Template) map[string]*AWSWAFRegionalSizeConstraintSet {
+func (t *Template) GetAllAWSWAFRegionalSizeConstraintSetResources() map[string]*AWSWAFRegionalSizeConstraintSet {
 
 	results := map[string]*AWSWAFRegionalSizeConstraintSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFRegionalSizeConstraintSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSWAFRegionalSizeConstraintSet(template *Template) map[string]*AWSWA
 
 // GetAWSWAFRegionalSizeConstraintSetWithName retrieves all AWSWAFRegionalSizeConstraintSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalSizeConstraintSet(name string, template *Template) (*AWSWAFRegionalSizeConstraintSet, error) {
+func (t *Template) GetAWSWAFRegionalSizeConstraintSetWithName(name string) (*AWSWAFRegionalSizeConstraintSet, error) {
 
 	result := &AWSWAFRegionalSizeConstraintSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,50 +6,43 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElasticLoadBalancingV2::LoadBalancer AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2LoadBalancer AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::LoadBalancer)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 type AWSElasticLoadBalancingV2LoadBalancer struct {
 
 	// IpAddressType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
-
 	IpAddressType string `json:"IpAddressType"`
 
 	// LoadBalancerAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
-
 	LoadBalancerAttributes []AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute `json:"LoadBalancerAttributes"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name
-
 	Name string `json:"Name"`
 
 	// Scheme AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
-
 	Scheme string `json:"Scheme"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
-
 	SecurityGroups []string `json:"SecurityGroups"`
 
 	// Subnets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
-
 	Subnets []string `json:"Subnets"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
-
 	Tags []Tag `json:"Tags"`
 }
 
@@ -64,10 +57,10 @@ func (r *AWSElasticLoadBalancingV2LoadBalancer) AWSCloudFormationSpecificationVe
 }
 
 // GetAllAWSElasticLoadBalancingV2LoadBalancerResources retrieves all AWSElasticLoadBalancingV2LoadBalancer items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2LoadBalancer(template *Template) map[string]*AWSElasticLoadBalancingV2LoadBalancer {
+func (t *Template) GetAllAWSElasticLoadBalancingV2LoadBalancerResources() map[string]*AWSElasticLoadBalancingV2LoadBalancer {
 
 	results := map[string]*AWSElasticLoadBalancingV2LoadBalancer{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElasticLoadBalancingV2LoadBalancer{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -79,10 +72,10 @@ func GetAllAWSElasticLoadBalancingV2LoadBalancer(template *Template) map[string]
 
 // GetAWSElasticLoadBalancingV2LoadBalancerWithName retrieves all AWSElasticLoadBalancingV2LoadBalancer items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingV2LoadBalancer(name string, template *Template) (*AWSElasticLoadBalancingV2LoadBalancer, error) {
+func (t *Template) GetAWSElasticLoadBalancingV2LoadBalancerWithName(name string) (*AWSElasticLoadBalancingV2LoadBalancer, error) {
 
 	result := &AWSElasticLoadBalancingV2LoadBalancer{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

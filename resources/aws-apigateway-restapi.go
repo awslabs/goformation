@@ -6,62 +6,53 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::RestApi AWS CloudFormation Resource
+// AWSApiGatewayRestApi AWS CloudFormation Resource (AWS::ApiGateway::RestApi)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 type AWSApiGatewayRestApi struct {
 
 	// BinaryMediaTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
-
 	BinaryMediaTypes []string `json:"BinaryMediaTypes"`
 
 	// Body AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body
-
 	Body interface{} `json:"Body"`
 
 	// BodyS3Location AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-bodys3location
-
 	BodyS3Location AWSApiGatewayRestApi_S3Location `json:"BodyS3Location"`
 
 	// CloneFrom AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-clonefrom
-
 	CloneFrom string `json:"CloneFrom"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description
-
 	Description string `json:"Description"`
 
 	// FailOnWarnings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarnings
-
 	FailOnWarnings bool `json:"FailOnWarnings"`
 
 	// Mode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-mode
-
 	Mode string `json:"Mode"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-name
-
 	Name string `json:"Name"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters
-
 	Parameters map[string]string `json:"Parameters"`
 }
 
@@ -76,10 +67,10 @@ func (r *AWSApiGatewayRestApi) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSApiGatewayRestApiResources retrieves all AWSApiGatewayRestApi items from a CloudFormation template
-func GetAllAWSApiGatewayRestApi(template *Template) map[string]*AWSApiGatewayRestApi {
+func (t *Template) GetAllAWSApiGatewayRestApiResources() map[string]*AWSApiGatewayRestApi {
 
 	results := map[string]*AWSApiGatewayRestApi{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayRestApi{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -91,10 +82,10 @@ func GetAllAWSApiGatewayRestApi(template *Template) map[string]*AWSApiGatewayRes
 
 // GetAWSApiGatewayRestApiWithName retrieves all AWSApiGatewayRestApi items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayRestApi(name string, template *Template) (*AWSApiGatewayRestApi, error) {
+func (t *Template) GetAWSApiGatewayRestApiWithName(name string) (*AWSApiGatewayRestApi, error) {
 
 	result := &AWSApiGatewayRestApi{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

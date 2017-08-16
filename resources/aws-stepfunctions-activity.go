@@ -6,14 +6,13 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::StepFunctions::Activity AWS CloudFormation Resource
+// AWSStepFunctionsActivity AWS CloudFormation Resource (AWS::StepFunctions::Activity)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
 type AWSStepFunctionsActivity struct {
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name
-
 	Name string `json:"Name"`
 }
 
@@ -28,10 +27,10 @@ func (r *AWSStepFunctionsActivity) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSStepFunctionsActivityResources retrieves all AWSStepFunctionsActivity items from a CloudFormation template
-func GetAllAWSStepFunctionsActivity(template *Template) map[string]*AWSStepFunctionsActivity {
+func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]*AWSStepFunctionsActivity {
 
 	results := map[string]*AWSStepFunctionsActivity{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSStepFunctionsActivity{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -43,10 +42,10 @@ func GetAllAWSStepFunctionsActivity(template *Template) map[string]*AWSStepFunct
 
 // GetAWSStepFunctionsActivityWithName retrieves all AWSStepFunctionsActivity items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSStepFunctionsActivity(name string, template *Template) (*AWSStepFunctionsActivity, error) {
+func (t *Template) GetAWSStepFunctionsActivityWithName(name string) (*AWSStepFunctionsActivity, error) {
 
 	result := &AWSStepFunctionsActivity{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

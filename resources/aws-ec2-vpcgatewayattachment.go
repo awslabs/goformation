@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::VPCGatewayAttachment AWS CloudFormation Resource
+// AWSEC2VPCGatewayAttachment AWS CloudFormation Resource (AWS::EC2::VPCGatewayAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
 type AWSEC2VPCGatewayAttachment struct {
 
 	// InternetGatewayId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-internetgatewayid
-
 	InternetGatewayId string `json:"InternetGatewayId"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-vpcid
-
 	VpcId string `json:"VpcId"`
 
 	// VpnGatewayId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-vpngatewayid
-
 	VpnGatewayId string `json:"VpnGatewayId"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSEC2VPCGatewayAttachment) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSEC2VPCGatewayAttachmentResources retrieves all AWSEC2VPCGatewayAttachment items from a CloudFormation template
-func GetAllAWSEC2VPCGatewayAttachment(template *Template) map[string]*AWSEC2VPCGatewayAttachment {
+func (t *Template) GetAllAWSEC2VPCGatewayAttachmentResources() map[string]*AWSEC2VPCGatewayAttachment {
 
 	results := map[string]*AWSEC2VPCGatewayAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPCGatewayAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSEC2VPCGatewayAttachment(template *Template) map[string]*AWSEC2VPCG
 
 // GetAWSEC2VPCGatewayAttachmentWithName retrieves all AWSEC2VPCGatewayAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2VPCGatewayAttachment(name string, template *Template) (*AWSEC2VPCGatewayAttachment, error) {
+func (t *Template) GetAWSEC2VPCGatewayAttachmentWithName(name string) (*AWSEC2VPCGatewayAttachment, error) {
 
 	result := &AWSEC2VPCGatewayAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,44 +6,38 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CodePipeline::Pipeline AWS CloudFormation Resource
+// AWSCodePipelinePipeline AWS CloudFormation Resource (AWS::CodePipeline::Pipeline)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
 type AWSCodePipelinePipeline struct {
 
 	// ArtifactStore AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstore
-
 	ArtifactStore AWSCodePipelinePipeline_ArtifactStore `json:"ArtifactStore"`
 
 	// DisableInboundStageTransitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-disableinboundstagetransitions
-
 	DisableInboundStageTransitions []AWSCodePipelinePipeline_StageTransition `json:"DisableInboundStageTransitions"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-name
-
 	Name string `json:"Name"`
 
 	// RestartExecutionOnUpdate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-restartexecutiononupdate
-
 	RestartExecutionOnUpdate bool `json:"RestartExecutionOnUpdate"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-rolearn
-
 	RoleArn string `json:"RoleArn"`
 
 	// Stages AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-stages
-
 	Stages []AWSCodePipelinePipeline_StageDeclaration `json:"Stages"`
 }
 
@@ -58,10 +52,10 @@ func (r *AWSCodePipelinePipeline) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSCodePipelinePipelineResources retrieves all AWSCodePipelinePipeline items from a CloudFormation template
-func GetAllAWSCodePipelinePipeline(template *Template) map[string]*AWSCodePipelinePipeline {
+func (t *Template) GetAllAWSCodePipelinePipelineResources() map[string]*AWSCodePipelinePipeline {
 
 	results := map[string]*AWSCodePipelinePipeline{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCodePipelinePipeline{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -73,10 +67,10 @@ func GetAllAWSCodePipelinePipeline(template *Template) map[string]*AWSCodePipeli
 
 // GetAWSCodePipelinePipelineWithName retrieves all AWSCodePipelinePipeline items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodePipelinePipeline(name string, template *Template) (*AWSCodePipelinePipeline, error) {
+func (t *Template) GetAWSCodePipelinePipelineWithName(name string) (*AWSCodePipelinePipeline, error) {
 
 	result := &AWSCodePipelinePipeline{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

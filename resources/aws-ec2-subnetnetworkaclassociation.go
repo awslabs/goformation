@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::SubnetNetworkAclAssociation AWS CloudFormation Resource
+// AWSEC2SubnetNetworkAclAssociation AWS CloudFormation Resource (AWS::EC2::SubnetNetworkAclAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html
 type AWSEC2SubnetNetworkAclAssociation struct {
 
 	// NetworkAclId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html#cfn-ec2-subnetnetworkaclassociation-networkaclid
-
 	NetworkAclId string `json:"NetworkAclId"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html#cfn-ec2-subnetnetworkaclassociation-associationid
-
 	SubnetId string `json:"SubnetId"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSEC2SubnetNetworkAclAssociation) AWSCloudFormationSpecificationVersio
 }
 
 // GetAllAWSEC2SubnetNetworkAclAssociationResources retrieves all AWSEC2SubnetNetworkAclAssociation items from a CloudFormation template
-func GetAllAWSEC2SubnetNetworkAclAssociation(template *Template) map[string]*AWSEC2SubnetNetworkAclAssociation {
+func (t *Template) GetAllAWSEC2SubnetNetworkAclAssociationResources() map[string]*AWSEC2SubnetNetworkAclAssociation {
 
 	results := map[string]*AWSEC2SubnetNetworkAclAssociation{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2SubnetNetworkAclAssociation{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSEC2SubnetNetworkAclAssociation(template *Template) map[string]*AWS
 
 // GetAWSEC2SubnetNetworkAclAssociationWithName retrieves all AWSEC2SubnetNetworkAclAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2SubnetNetworkAclAssociation(name string, template *Template) (*AWSEC2SubnetNetworkAclAssociation, error) {
+func (t *Template) GetAWSEC2SubnetNetworkAclAssociationWithName(name string) (*AWSEC2SubnetNetworkAclAssociation, error) {
 
 	result := &AWSEC2SubnetNetworkAclAssociation{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

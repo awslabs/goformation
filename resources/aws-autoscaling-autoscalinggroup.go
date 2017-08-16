@@ -6,110 +6,93 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::AutoScaling::AutoScalingGroup AWS CloudFormation Resource
+// AWSAutoScalingAutoScalingGroup AWS CloudFormation Resource (AWS::AutoScaling::AutoScalingGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
 type AWSAutoScalingAutoScalingGroup struct {
 
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
-
 	AvailabilityZones []string `json:"AvailabilityZones"`
 
 	// Cooldown AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
-
 	Cooldown string `json:"Cooldown"`
 
 	// DesiredCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
-
 	DesiredCapacity string `json:"DesiredCapacity"`
 
 	// HealthCheckGracePeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod
-
-	HealthCheckGracePeriod int64 `json:"HealthCheckGracePeriod"`
+	HealthCheckGracePeriod int `json:"HealthCheckGracePeriod"`
 
 	// HealthCheckType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthchecktype
-
 	HealthCheckType string `json:"HealthCheckType"`
 
 	// InstanceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-instanceid
-
 	InstanceId string `json:"InstanceId"`
 
 	// LaunchConfigurationName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchconfigurationname
-
 	LaunchConfigurationName string `json:"LaunchConfigurationName"`
 
 	// LoadBalancerNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
-
 	LoadBalancerNames []string `json:"LoadBalancerNames"`
 
 	// MaxSize AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize
-
 	MaxSize string `json:"MaxSize"`
 
 	// MetricsCollection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-metricscollection
-
 	MetricsCollection []AWSAutoScalingAutoScalingGroup_MetricsCollection `json:"MetricsCollection"`
 
 	// MinSize AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-minsize
-
 	MinSize string `json:"MinSize"`
 
 	// NotificationConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
-
 	NotificationConfigurations []AWSAutoScalingAutoScalingGroup_NotificationConfiguration `json:"NotificationConfigurations"`
 
 	// PlacementGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
-
 	PlacementGroup string `json:"PlacementGroup"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-
 	Tags []AWSAutoScalingAutoScalingGroup_TagProperty `json:"Tags"`
 
 	// TargetGroupARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
-
 	TargetGroupARNs []string `json:"TargetGroupARNs"`
 
 	// TerminationPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-termpolicy
-
 	TerminationPolicies []string `json:"TerminationPolicies"`
 
 	// VPCZoneIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
-
 	VPCZoneIdentifier []string `json:"VPCZoneIdentifier"`
 }
 
@@ -124,10 +107,10 @@ func (r *AWSAutoScalingAutoScalingGroup) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSAutoScalingAutoScalingGroupResources retrieves all AWSAutoScalingAutoScalingGroup items from a CloudFormation template
-func GetAllAWSAutoScalingAutoScalingGroup(template *Template) map[string]*AWSAutoScalingAutoScalingGroup {
+func (t *Template) GetAllAWSAutoScalingAutoScalingGroupResources() map[string]*AWSAutoScalingAutoScalingGroup {
 
 	results := map[string]*AWSAutoScalingAutoScalingGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSAutoScalingAutoScalingGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -139,10 +122,10 @@ func GetAllAWSAutoScalingAutoScalingGroup(template *Template) map[string]*AWSAut
 
 // GetAWSAutoScalingAutoScalingGroupWithName retrieves all AWSAutoScalingAutoScalingGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSAutoScalingAutoScalingGroup(name string, template *Template) (*AWSAutoScalingAutoScalingGroup, error) {
+func (t *Template) GetAWSAutoScalingAutoScalingGroupWithName(name string) (*AWSAutoScalingAutoScalingGroup, error) {
 
 	result := &AWSAutoScalingAutoScalingGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

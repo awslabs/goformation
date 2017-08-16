@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::SqlInjectionMatchSet AWS CloudFormation Resource
+// AWSWAFSqlInjectionMatchSet AWS CloudFormation Resource (AWS::WAF::SqlInjectionMatchSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html
 type AWSWAFSqlInjectionMatchSet struct {
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-name
-
 	Name string `json:"Name"`
 
 	// SqlInjectionMatchTuples AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-sqlinjectionmatchtuples
-
 	SqlInjectionMatchTuples []AWSWAFSqlInjectionMatchSet_SqlInjectionMatchTuple `json:"SqlInjectionMatchTuples"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSWAFSqlInjectionMatchSet) AWSCloudFormationSpecificationVersion() str
 }
 
 // GetAllAWSWAFSqlInjectionMatchSetResources retrieves all AWSWAFSqlInjectionMatchSet items from a CloudFormation template
-func GetAllAWSWAFSqlInjectionMatchSet(template *Template) map[string]*AWSWAFSqlInjectionMatchSet {
+func (t *Template) GetAllAWSWAFSqlInjectionMatchSetResources() map[string]*AWSWAFSqlInjectionMatchSet {
 
 	results := map[string]*AWSWAFSqlInjectionMatchSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFSqlInjectionMatchSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSWAFSqlInjectionMatchSet(template *Template) map[string]*AWSWAFSqlI
 
 // GetAWSWAFSqlInjectionMatchSetWithName retrieves all AWSWAFSqlInjectionMatchSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFSqlInjectionMatchSet(name string, template *Template) (*AWSWAFSqlInjectionMatchSet, error) {
+func (t *Template) GetAWSWAFSqlInjectionMatchSetWithName(name string) (*AWSWAFSqlInjectionMatchSet, error) {
 
 	result := &AWSWAFSqlInjectionMatchSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

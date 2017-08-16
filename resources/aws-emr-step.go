@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::Step AWS CloudFormation Resource
+// AWSEMRStep AWS CloudFormation Resource (AWS::EMR::Step)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
 type AWSEMRStep struct {
 
 	// ActionOnFailure AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-actiononfailure
-
 	ActionOnFailure string `json:"ActionOnFailure"`
 
 	// HadoopJarStep AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-hadoopjarstep
-
 	HadoopJarStep AWSEMRStep_HadoopJarStepConfig `json:"HadoopJarStep"`
 
 	// JobFlowId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-jobflowid
-
 	JobFlowId string `json:"JobFlowId"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-name
-
 	Name string `json:"Name"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSEMRStep) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEMRStepResources retrieves all AWSEMRStep items from a CloudFormation template
-func GetAllAWSEMRStep(template *Template) map[string]*AWSEMRStep {
+func (t *Template) GetAllAWSEMRStepResources() map[string]*AWSEMRStep {
 
 	results := map[string]*AWSEMRStep{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEMRStep{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSEMRStep(template *Template) map[string]*AWSEMRStep {
 
 // GetAWSEMRStepWithName retrieves all AWSEMRStep items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRStep(name string, template *Template) (*AWSEMRStep, error) {
+func (t *Template) GetAWSEMRStepWithName(name string) (*AWSEMRStep, error) {
 
 	result := &AWSEMRStep{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

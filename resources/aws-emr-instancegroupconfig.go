@@ -6,68 +6,58 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::InstanceGroupConfig AWS CloudFormation Resource
+// AWSEMRInstanceGroupConfig AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
 type AWSEMRInstanceGroupConfig struct {
 
 	// AutoScalingPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy
-
 	AutoScalingPolicy AWSEMRInstanceGroupConfig_AutoScalingPolicy `json:"AutoScalingPolicy"`
 
 	// BidPrice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-bidprice
-
 	BidPrice string `json:"BidPrice"`
 
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-configurations
-
 	Configurations []AWSEMRInstanceGroupConfig_Configuration `json:"Configurations"`
 
 	// EbsConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-ebsconfiguration
-
 	EbsConfiguration AWSEMRInstanceGroupConfig_EbsConfiguration `json:"EbsConfiguration"`
 
 	// InstanceCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfiginstancecount-
-
-	InstanceCount int64 `json:"InstanceCount"`
+	InstanceCount int `json:"InstanceCount"`
 
 	// InstanceRole AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancerole
-
 	InstanceRole string `json:"InstanceRole"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancetype
-
 	InstanceType string `json:"InstanceType"`
 
 	// JobFlowId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-jobflowid
-
 	JobFlowId string `json:"JobFlowId"`
 
 	// Market AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-market
-
 	Market string `json:"Market"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-name
-
 	Name string `json:"Name"`
 }
 
@@ -82,10 +72,10 @@ func (r *AWSEMRInstanceGroupConfig) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSEMRInstanceGroupConfigResources retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
-func GetAllAWSEMRInstanceGroupConfig(template *Template) map[string]*AWSEMRInstanceGroupConfig {
+func (t *Template) GetAllAWSEMRInstanceGroupConfigResources() map[string]*AWSEMRInstanceGroupConfig {
 
 	results := map[string]*AWSEMRInstanceGroupConfig{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEMRInstanceGroupConfig{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -97,10 +87,10 @@ func GetAllAWSEMRInstanceGroupConfig(template *Template) map[string]*AWSEMRInsta
 
 // GetAWSEMRInstanceGroupConfigWithName retrieves all AWSEMRInstanceGroupConfig items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRInstanceGroupConfig(name string, template *Template) (*AWSEMRInstanceGroupConfig, error) {
+func (t *Template) GetAWSEMRInstanceGroupConfigWithName(name string) (*AWSEMRInstanceGroupConfig, error) {
 
 	result := &AWSEMRInstanceGroupConfig{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

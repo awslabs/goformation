@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::UsagePlanKey AWS CloudFormation Resource
+// AWSApiGatewayUsagePlanKey AWS CloudFormation Resource (AWS::ApiGateway::UsagePlanKey)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
 type AWSApiGatewayUsagePlanKey struct {
 
 	// KeyId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
-
 	KeyId string `json:"KeyId"`
 
 	// KeyType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
-
 	KeyType string `json:"KeyType"`
 
 	// UsagePlanId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
-
 	UsagePlanId string `json:"UsagePlanId"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSApiGatewayUsagePlanKey) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSApiGatewayUsagePlanKeyResources retrieves all AWSApiGatewayUsagePlanKey items from a CloudFormation template
-func GetAllAWSApiGatewayUsagePlanKey(template *Template) map[string]*AWSApiGatewayUsagePlanKey {
+func (t *Template) GetAllAWSApiGatewayUsagePlanKeyResources() map[string]*AWSApiGatewayUsagePlanKey {
 
 	results := map[string]*AWSApiGatewayUsagePlanKey{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayUsagePlanKey{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSApiGatewayUsagePlanKey(template *Template) map[string]*AWSApiGatew
 
 // GetAWSApiGatewayUsagePlanKeyWithName retrieves all AWSApiGatewayUsagePlanKey items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayUsagePlanKey(name string, template *Template) (*AWSApiGatewayUsagePlanKey, error) {
+func (t *Template) GetAWSApiGatewayUsagePlanKeyWithName(name string) (*AWSApiGatewayUsagePlanKey, error) {
 
 	result := &AWSApiGatewayUsagePlanKey{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

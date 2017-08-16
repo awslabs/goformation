@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EFS::FileSystem AWS CloudFormation Resource
+// AWSEFSFileSystem AWS CloudFormation Resource (AWS::EFS::FileSystem)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 type AWSEFSFileSystem struct {
 
 	// FileSystemTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-
 	FileSystemTags []AWSEFSFileSystem_ElasticFileSystemTag `json:"FileSystemTags"`
 
 	// PerformanceMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-
 	PerformanceMode string `json:"PerformanceMode"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSEFSFileSystem) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEFSFileSystemResources retrieves all AWSEFSFileSystem items from a CloudFormation template
-func GetAllAWSEFSFileSystem(template *Template) map[string]*AWSEFSFileSystem {
+func (t *Template) GetAllAWSEFSFileSystemResources() map[string]*AWSEFSFileSystem {
 
 	results := map[string]*AWSEFSFileSystem{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEFSFileSystem{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSEFSFileSystem(template *Template) map[string]*AWSEFSFileSystem {
 
 // GetAWSEFSFileSystemWithName retrieves all AWSEFSFileSystem items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEFSFileSystem(name string, template *Template) (*AWSEFSFileSystem, error) {
+func (t *Template) GetAWSEFSFileSystemWithName(name string) (*AWSEFSFileSystem, error) {
 
 	result := &AWSEFSFileSystem{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

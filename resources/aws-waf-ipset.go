@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAF::IPSet AWS CloudFormation Resource
+// AWSWAFIPSet AWS CloudFormation Resource (AWS::WAF::IPSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
 type AWSWAFIPSet struct {
 
 	// IPSetDescriptors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html#cfn-waf-ipset-ipsetdescriptors
-
 	IPSetDescriptors []AWSWAFIPSet_IPSetDescriptor `json:"IPSetDescriptors"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html#cfn-waf-ipset-name
-
 	Name string `json:"Name"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSWAFIPSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFIPSetResources retrieves all AWSWAFIPSet items from a CloudFormation template
-func GetAllAWSWAFIPSet(template *Template) map[string]*AWSWAFIPSet {
+func (t *Template) GetAllAWSWAFIPSetResources() map[string]*AWSWAFIPSet {
 
 	results := map[string]*AWSWAFIPSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFIPSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSWAFIPSet(template *Template) map[string]*AWSWAFIPSet {
 
 // GetAWSWAFIPSetWithName retrieves all AWSWAFIPSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFIPSet(name string, template *Template) (*AWSWAFIPSet, error) {
+func (t *Template) GetAWSWAFIPSetWithName(name string) (*AWSWAFIPSet, error) {
 
 	result := &AWSWAFIPSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

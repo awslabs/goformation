@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SQS::QueuePolicy AWS CloudFormation Resource
+// AWSSQSQueuePolicy AWS CloudFormation Resource (AWS::SQS::QueuePolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html
 type AWSSQSQueuePolicy struct {
 
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc
-
 	PolicyDocument interface{} `json:"PolicyDocument"`
 
 	// Queues AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues
-
 	Queues []string `json:"Queues"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSSQSQueuePolicy) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSQSQueuePolicyResources retrieves all AWSSQSQueuePolicy items from a CloudFormation template
-func GetAllAWSSQSQueuePolicy(template *Template) map[string]*AWSSQSQueuePolicy {
+func (t *Template) GetAllAWSSQSQueuePolicyResources() map[string]*AWSSQSQueuePolicy {
 
 	results := map[string]*AWSSQSQueuePolicy{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSQSQueuePolicy{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSSQSQueuePolicy(template *Template) map[string]*AWSSQSQueuePolicy {
 
 // GetAWSSQSQueuePolicyWithName retrieves all AWSSQSQueuePolicy items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSQSQueuePolicy(name string, template *Template) (*AWSSQSQueuePolicy, error) {
+func (t *Template) GetAWSSQSQueuePolicyWithName(name string) (*AWSSQSQueuePolicy, error) {
 
 	result := &AWSSQSQueuePolicy{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

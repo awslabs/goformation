@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::GameLift::Build AWS CloudFormation Resource
+// AWSGameLiftBuild AWS CloudFormation Resource (AWS::GameLift::Build)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
 type AWSGameLiftBuild struct {
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-name
-
 	Name string `json:"Name"`
 
 	// StorageLocation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
-
 	StorageLocation AWSGameLiftBuild_S3Location `json:"StorageLocation"`
 
 	// Version AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-version
-
 	Version string `json:"Version"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSGameLiftBuild) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSGameLiftBuildResources retrieves all AWSGameLiftBuild items from a CloudFormation template
-func GetAllAWSGameLiftBuild(template *Template) map[string]*AWSGameLiftBuild {
+func (t *Template) GetAllAWSGameLiftBuildResources() map[string]*AWSGameLiftBuild {
 
 	results := map[string]*AWSGameLiftBuild{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSGameLiftBuild{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSGameLiftBuild(template *Template) map[string]*AWSGameLiftBuild {
 
 // GetAWSGameLiftBuildWithName retrieves all AWSGameLiftBuild items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSGameLiftBuild(name string, template *Template) (*AWSGameLiftBuild, error) {
+func (t *Template) GetAWSGameLiftBuildWithName(name string) (*AWSGameLiftBuild, error) {
 
 	result := &AWSGameLiftBuild{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

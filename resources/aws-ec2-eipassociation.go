@@ -6,38 +6,33 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::EIPAssociation AWS CloudFormation Resource
+// AWSEC2EIPAssociation AWS CloudFormation Resource (AWS::EC2::EIPAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html
 type AWSEC2EIPAssociation struct {
 
 	// AllocationId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-allocationid
-
 	AllocationId string `json:"AllocationId"`
 
 	// EIP AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-eip
-
 	EIP string `json:"EIP"`
 
 	// InstanceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-instanceid
-
 	InstanceId string `json:"InstanceId"`
 
 	// NetworkInterfaceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-networkinterfaceid
-
 	NetworkInterfaceId string `json:"NetworkInterfaceId"`
 
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-PrivateIpAddress
-
 	PrivateIpAddress string `json:"PrivateIpAddress"`
 }
 
@@ -52,10 +47,10 @@ func (r *AWSEC2EIPAssociation) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2EIPAssociationResources retrieves all AWSEC2EIPAssociation items from a CloudFormation template
-func GetAllAWSEC2EIPAssociation(template *Template) map[string]*AWSEC2EIPAssociation {
+func (t *Template) GetAllAWSEC2EIPAssociationResources() map[string]*AWSEC2EIPAssociation {
 
 	results := map[string]*AWSEC2EIPAssociation{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2EIPAssociation{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +62,10 @@ func GetAllAWSEC2EIPAssociation(template *Template) map[string]*AWSEC2EIPAssocia
 
 // GetAWSEC2EIPAssociationWithName retrieves all AWSEC2EIPAssociation items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2EIPAssociation(name string, template *Template) (*AWSEC2EIPAssociation, error) {
+func (t *Template) GetAWSEC2EIPAssociationWithName(name string) (*AWSEC2EIPAssociation, error) {
 
 	result := &AWSEC2EIPAssociation{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

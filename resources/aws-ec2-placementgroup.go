@@ -6,14 +6,13 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::PlacementGroup AWS CloudFormation Resource
+// AWSEC2PlacementGroup AWS CloudFormation Resource (AWS::EC2::PlacementGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
 type AWSEC2PlacementGroup struct {
 
 	// Strategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy
-
 	Strategy string `json:"Strategy"`
 }
 
@@ -28,10 +27,10 @@ func (r *AWSEC2PlacementGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2PlacementGroupResources retrieves all AWSEC2PlacementGroup items from a CloudFormation template
-func GetAllAWSEC2PlacementGroup(template *Template) map[string]*AWSEC2PlacementGroup {
+func (t *Template) GetAllAWSEC2PlacementGroupResources() map[string]*AWSEC2PlacementGroup {
 
 	results := map[string]*AWSEC2PlacementGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2PlacementGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -43,10 +42,10 @@ func GetAllAWSEC2PlacementGroup(template *Template) map[string]*AWSEC2PlacementG
 
 // GetAWSEC2PlacementGroupWithName retrieves all AWSEC2PlacementGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2PlacementGroup(name string, template *Template) (*AWSEC2PlacementGroup, error) {
+func (t *Template) GetAWSEC2PlacementGroupWithName(name string) (*AWSEC2PlacementGroup, error) {
 
 	result := &AWSEC2PlacementGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

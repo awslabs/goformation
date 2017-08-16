@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Config::ConfigurationRecorder AWS CloudFormation Resource
+// AWSConfigConfigurationRecorder AWS CloudFormation Resource (AWS::Config::ConfigurationRecorder)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
 type AWSConfigConfigurationRecorder struct {
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-name
-
 	Name string `json:"Name"`
 
 	// RecordingGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordinggroup
-
 	RecordingGroup AWSConfigConfigurationRecorder_RecordingGroup `json:"RecordingGroup"`
 
 	// RoleARN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
-
 	RoleARN string `json:"RoleARN"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSConfigConfigurationRecorder) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSConfigConfigurationRecorderResources retrieves all AWSConfigConfigurationRecorder items from a CloudFormation template
-func GetAllAWSConfigConfigurationRecorder(template *Template) map[string]*AWSConfigConfigurationRecorder {
+func (t *Template) GetAllAWSConfigConfigurationRecorderResources() map[string]*AWSConfigConfigurationRecorder {
 
 	results := map[string]*AWSConfigConfigurationRecorder{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSConfigConfigurationRecorder{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSConfigConfigurationRecorder(template *Template) map[string]*AWSCon
 
 // GetAWSConfigConfigurationRecorderWithName retrieves all AWSConfigConfigurationRecorder items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSConfigConfigurationRecorder(name string, template *Template) (*AWSConfigConfigurationRecorder, error) {
+func (t *Template) GetAWSConfigConfigurationRecorderWithName(name string) (*AWSConfigConfigurationRecorder, error) {
 
 	result := &AWSConfigConfigurationRecorder{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,44 +6,38 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElasticLoadBalancingV2::Listener AWS CloudFormation Resource
+// AWSElasticLoadBalancingV2Listener AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::Listener)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
 type AWSElasticLoadBalancingV2Listener struct {
 
 	// Certificates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-
 	Certificates []AWSElasticLoadBalancingV2Listener_Certificate `json:"Certificates"`
 
 	// DefaultActions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-
 	DefaultActions []AWSElasticLoadBalancingV2Listener_Action `json:"DefaultActions"`
 
 	// LoadBalancerArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-
 	LoadBalancerArn string `json:"LoadBalancerArn"`
 
 	// Port AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-
-	Port int64 `json:"Port"`
+	Port int `json:"Port"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-
 	Protocol string `json:"Protocol"`
 
 	// SslPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-
 	SslPolicy string `json:"SslPolicy"`
 }
 
@@ -58,10 +52,10 @@ func (r *AWSElasticLoadBalancingV2Listener) AWSCloudFormationSpecificationVersio
 }
 
 // GetAllAWSElasticLoadBalancingV2ListenerResources retrieves all AWSElasticLoadBalancingV2Listener items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingV2Listener(template *Template) map[string]*AWSElasticLoadBalancingV2Listener {
+func (t *Template) GetAllAWSElasticLoadBalancingV2ListenerResources() map[string]*AWSElasticLoadBalancingV2Listener {
 
 	results := map[string]*AWSElasticLoadBalancingV2Listener{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElasticLoadBalancingV2Listener{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -73,10 +67,10 @@ func GetAllAWSElasticLoadBalancingV2Listener(template *Template) map[string]*AWS
 
 // GetAWSElasticLoadBalancingV2ListenerWithName retrieves all AWSElasticLoadBalancingV2Listener items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingV2Listener(name string, template *Template) (*AWSElasticLoadBalancingV2Listener, error) {
+func (t *Template) GetAWSElasticLoadBalancingV2ListenerWithName(name string) (*AWSElasticLoadBalancingV2Listener, error) {
 
 	result := &AWSElasticLoadBalancingV2Listener{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::DBSecurityGroup AWS CloudFormation Resource
+// AWSRDSDBSecurityGroup AWS CloudFormation Resource (AWS::RDS::DBSecurityGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html
 type AWSRDSDBSecurityGroup struct {
 
 	// DBSecurityGroupIngress AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-dbsecuritygroupingress
-
 	DBSecurityGroupIngress []AWSRDSDBSecurityGroup_Ingress `json:"DBSecurityGroupIngress"`
 
 	// EC2VpcId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-ec2vpcid
-
 	EC2VpcId string `json:"EC2VpcId"`
 
 	// GroupDescription AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-groupdescription
-
 	GroupDescription string `json:"GroupDescription"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-tags
-
 	Tags []Tag `json:"Tags"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSRDSDBSecurityGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBSecurityGroupResources retrieves all AWSRDSDBSecurityGroup items from a CloudFormation template
-func GetAllAWSRDSDBSecurityGroup(template *Template) map[string]*AWSRDSDBSecurityGroup {
+func (t *Template) GetAllAWSRDSDBSecurityGroupResources() map[string]*AWSRDSDBSecurityGroup {
 
 	results := map[string]*AWSRDSDBSecurityGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRDSDBSecurityGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSRDSDBSecurityGroup(template *Template) map[string]*AWSRDSDBSecurit
 
 // GetAWSRDSDBSecurityGroupWithName retrieves all AWSRDSDBSecurityGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBSecurityGroup(name string, template *Template) (*AWSRDSDBSecurityGroup, error) {
+func (t *Template) GetAWSRDSDBSecurityGroupWithName(name string) (*AWSRDSDBSecurityGroup, error) {
 
 	result := &AWSRDSDBSecurityGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

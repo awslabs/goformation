@@ -6,14 +6,13 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudFront::Distribution AWS CloudFormation Resource
+// AWSCloudFrontDistribution AWS CloudFormation Resource (AWS::CloudFront::Distribution)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html
 type AWSCloudFrontDistribution struct {
 
 	// DistributionConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-
 	DistributionConfig AWSCloudFrontDistribution_DistributionConfig `json:"DistributionConfig"`
 }
 
@@ -28,10 +27,10 @@ func (r *AWSCloudFrontDistribution) AWSCloudFormationSpecificationVersion() stri
 }
 
 // GetAllAWSCloudFrontDistributionResources retrieves all AWSCloudFrontDistribution items from a CloudFormation template
-func GetAllAWSCloudFrontDistribution(template *Template) map[string]*AWSCloudFrontDistribution {
+func (t *Template) GetAllAWSCloudFrontDistributionResources() map[string]*AWSCloudFrontDistribution {
 
 	results := map[string]*AWSCloudFrontDistribution{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCloudFrontDistribution{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -43,10 +42,10 @@ func GetAllAWSCloudFrontDistribution(template *Template) map[string]*AWSCloudFro
 
 // GetAWSCloudFrontDistributionWithName retrieves all AWSCloudFrontDistribution items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFrontDistribution(name string, template *Template) (*AWSCloudFrontDistribution, error) {
+func (t *Template) GetAWSCloudFrontDistributionWithName(name string) (*AWSCloudFrontDistribution, error) {
 
 	result := &AWSCloudFrontDistribution{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,38 +6,33 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::UsagePlan AWS CloudFormation Resource
+// AWSApiGatewayUsagePlan AWS CloudFormation Resource (AWS::ApiGateway::UsagePlan)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
 type AWSApiGatewayUsagePlan struct {
 
 	// ApiStages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
-
 	ApiStages []AWSApiGatewayUsagePlan_ApiStage `json:"ApiStages"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
-
 	Description string `json:"Description"`
 
 	// Quota AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
-
 	Quota AWSApiGatewayUsagePlan_QuotaSettings `json:"Quota"`
 
 	// Throttle AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
-
 	Throttle AWSApiGatewayUsagePlan_ThrottleSettings `json:"Throttle"`
 
 	// UsagePlanName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
-
 	UsagePlanName string `json:"UsagePlanName"`
 }
 
@@ -52,10 +47,10 @@ func (r *AWSApiGatewayUsagePlan) AWSCloudFormationSpecificationVersion() string 
 }
 
 // GetAllAWSApiGatewayUsagePlanResources retrieves all AWSApiGatewayUsagePlan items from a CloudFormation template
-func GetAllAWSApiGatewayUsagePlan(template *Template) map[string]*AWSApiGatewayUsagePlan {
+func (t *Template) GetAllAWSApiGatewayUsagePlanResources() map[string]*AWSApiGatewayUsagePlan {
 
 	results := map[string]*AWSApiGatewayUsagePlan{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayUsagePlan{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +62,10 @@ func GetAllAWSApiGatewayUsagePlan(template *Template) map[string]*AWSApiGatewayU
 
 // GetAWSApiGatewayUsagePlanWithName retrieves all AWSApiGatewayUsagePlan items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayUsagePlan(name string, template *Template) (*AWSApiGatewayUsagePlan, error) {
+func (t *Template) GetAWSApiGatewayUsagePlanWithName(name string) (*AWSApiGatewayUsagePlan, error) {
 
 	result := &AWSApiGatewayUsagePlan{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}
