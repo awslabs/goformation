@@ -6,38 +6,33 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::Permission AWS CloudFormation Resource
+// AWSLambdaPermission AWS CloudFormation Resource (AWS::Lambda::Permission)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 type AWSLambdaPermission struct {
 
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-action
-
 	Action string `json:"Action"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
-
 	FunctionName string `json:"FunctionName"`
 
 	// Principal AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal
-
 	Principal string `json:"Principal"`
 
 	// SourceAccount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount
-
 	SourceAccount string `json:"SourceAccount"`
 
 	// SourceArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn
-
 	SourceArn string `json:"SourceArn"`
 }
 
@@ -52,10 +47,10 @@ func (r *AWSLambdaPermission) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLambdaPermissionResources retrieves all AWSLambdaPermission items from a CloudFormation template
-func GetAllAWSLambdaPermission(template *Template) map[string]*AWSLambdaPermission {
+func (t *Template) GetAllAWSLambdaPermissionResources() map[string]*AWSLambdaPermission {
 
 	results := map[string]*AWSLambdaPermission{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLambdaPermission{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +62,10 @@ func GetAllAWSLambdaPermission(template *Template) map[string]*AWSLambdaPermissi
 
 // GetAWSLambdaPermissionWithName retrieves all AWSLambdaPermission items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLambdaPermission(name string, template *Template) (*AWSLambdaPermission, error) {
+func (t *Template) GetAWSLambdaPermissionWithName(name string) (*AWSLambdaPermission, error) {
 
 	result := &AWSLambdaPermission{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

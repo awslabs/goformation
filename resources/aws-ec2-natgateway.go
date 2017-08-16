@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::NatGateway AWS CloudFormation Resource
+// AWSEC2NatGateway AWS CloudFormation Resource (AWS::EC2::NatGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
 type AWSEC2NatGateway struct {
 
 	// AllocationId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
-
 	AllocationId string `json:"AllocationId"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
-
 	SubnetId string `json:"SubnetId"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSEC2NatGateway) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2NatGatewayResources retrieves all AWSEC2NatGateway items from a CloudFormation template
-func GetAllAWSEC2NatGateway(template *Template) map[string]*AWSEC2NatGateway {
+func (t *Template) GetAllAWSEC2NatGatewayResources() map[string]*AWSEC2NatGateway {
 
 	results := map[string]*AWSEC2NatGateway{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2NatGateway{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSEC2NatGateway(template *Template) map[string]*AWSEC2NatGateway {
 
 // GetAWSEC2NatGatewayWithName retrieves all AWSEC2NatGateway items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2NatGateway(name string, template *Template) (*AWSEC2NatGateway, error) {
+func (t *Template) GetAWSEC2NatGatewayWithName(name string) (*AWSEC2NatGateway, error) {
 
 	result := &AWSEC2NatGateway{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

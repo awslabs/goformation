@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::KMS::Alias AWS CloudFormation Resource
+// AWSKMSAlias AWS CloudFormation Resource (AWS::KMS::Alias)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
 type AWSKMSAlias struct {
 
 	// AliasName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
-
 	AliasName string `json:"AliasName"`
 
 	// TargetKeyId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
-
 	TargetKeyId string `json:"TargetKeyId"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSKMSAlias) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSKMSAliasResources retrieves all AWSKMSAlias items from a CloudFormation template
-func GetAllAWSKMSAlias(template *Template) map[string]*AWSKMSAlias {
+func (t *Template) GetAllAWSKMSAliasResources() map[string]*AWSKMSAlias {
 
 	results := map[string]*AWSKMSAlias{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSKMSAlias{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSKMSAlias(template *Template) map[string]*AWSKMSAlias {
 
 // GetAWSKMSAliasWithName retrieves all AWSKMSAlias items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSKMSAlias(name string, template *Template) (*AWSKMSAlias, error) {
+func (t *Template) GetAWSKMSAliasWithName(name string) (*AWSKMSAlias, error) {
 
 	result := &AWSKMSAlias{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

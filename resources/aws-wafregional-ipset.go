@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::WAFRegional::IPSet AWS CloudFormation Resource
+// AWSWAFRegionalIPSet AWS CloudFormation Resource (AWS::WAFRegional::IPSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html
 type AWSWAFRegionalIPSet struct {
 
 	// IPSetDescriptors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-ipsetdescriptors
-
 	IPSetDescriptors []AWSWAFRegionalIPSet_IPSetDescriptor `json:"IPSetDescriptors"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-name
-
 	Name string `json:"Name"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSWAFRegionalIPSet) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSWAFRegionalIPSetResources retrieves all AWSWAFRegionalIPSet items from a CloudFormation template
-func GetAllAWSWAFRegionalIPSet(template *Template) map[string]*AWSWAFRegionalIPSet {
+func (t *Template) GetAllAWSWAFRegionalIPSetResources() map[string]*AWSWAFRegionalIPSet {
 
 	results := map[string]*AWSWAFRegionalIPSet{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSWAFRegionalIPSet{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSWAFRegionalIPSet(template *Template) map[string]*AWSWAFRegionalIPS
 
 // GetAWSWAFRegionalIPSetWithName retrieves all AWSWAFRegionalIPSet items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSWAFRegionalIPSet(name string, template *Template) (*AWSWAFRegionalIPSet, error) {
+func (t *Template) GetAWSWAFRegionalIPSetWithName(name string) (*AWSWAFRegionalIPSet, error) {
 
 	result := &AWSWAFRegionalIPSet{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,14 +6,13 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::EgressOnlyInternetGateway AWS CloudFormation Resource
+// AWSEC2EgressOnlyInternetGateway AWS CloudFormation Resource (AWS::EC2::EgressOnlyInternetGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
 type AWSEC2EgressOnlyInternetGateway struct {
 
 	// VpcId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
-
 	VpcId string `json:"VpcId"`
 }
 
@@ -28,10 +27,10 @@ func (r *AWSEC2EgressOnlyInternetGateway) AWSCloudFormationSpecificationVersion(
 }
 
 // GetAllAWSEC2EgressOnlyInternetGatewayResources retrieves all AWSEC2EgressOnlyInternetGateway items from a CloudFormation template
-func GetAllAWSEC2EgressOnlyInternetGateway(template *Template) map[string]*AWSEC2EgressOnlyInternetGateway {
+func (t *Template) GetAllAWSEC2EgressOnlyInternetGatewayResources() map[string]*AWSEC2EgressOnlyInternetGateway {
 
 	results := map[string]*AWSEC2EgressOnlyInternetGateway{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2EgressOnlyInternetGateway{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -43,10 +42,10 @@ func GetAllAWSEC2EgressOnlyInternetGateway(template *Template) map[string]*AWSEC
 
 // GetAWSEC2EgressOnlyInternetGatewayWithName retrieves all AWSEC2EgressOnlyInternetGateway items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2EgressOnlyInternetGateway(name string, template *Template) (*AWSEC2EgressOnlyInternetGateway, error) {
+func (t *Template) GetAWSEC2EgressOnlyInternetGatewayWithName(name string) (*AWSEC2EgressOnlyInternetGateway, error) {
 
 	result := &AWSEC2EgressOnlyInternetGateway{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

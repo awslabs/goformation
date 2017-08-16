@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Cognito::UserPoolUserToGroupAttachment AWS CloudFormation Resource
+// AWSCognitoUserPoolUserToGroupAttachment AWS CloudFormation Resource (AWS::Cognito::UserPoolUserToGroupAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html
 type AWSCognitoUserPoolUserToGroupAttachment struct {
 
 	// GroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname
-
 	GroupName string `json:"GroupName"`
 
 	// UserPoolId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-userpoolid
-
 	UserPoolId string `json:"UserPoolId"`
 
 	// Username AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username
-
 	Username string `json:"Username"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSCognitoUserPoolUserToGroupAttachment) AWSCloudFormationSpecification
 }
 
 // GetAllAWSCognitoUserPoolUserToGroupAttachmentResources retrieves all AWSCognitoUserPoolUserToGroupAttachment items from a CloudFormation template
-func GetAllAWSCognitoUserPoolUserToGroupAttachment(template *Template) map[string]*AWSCognitoUserPoolUserToGroupAttachment {
+func (t *Template) GetAllAWSCognitoUserPoolUserToGroupAttachmentResources() map[string]*AWSCognitoUserPoolUserToGroupAttachment {
 
 	results := map[string]*AWSCognitoUserPoolUserToGroupAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCognitoUserPoolUserToGroupAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSCognitoUserPoolUserToGroupAttachment(template *Template) map[strin
 
 // GetAWSCognitoUserPoolUserToGroupAttachmentWithName retrieves all AWSCognitoUserPoolUserToGroupAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCognitoUserPoolUserToGroupAttachment(name string, template *Template) (*AWSCognitoUserPoolUserToGroupAttachment, error) {
+func (t *Template) GetAWSCognitoUserPoolUserToGroupAttachmentWithName(name string) (*AWSCognitoUserPoolUserToGroupAttachment, error) {
 
 	result := &AWSCognitoUserPoolUserToGroupAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

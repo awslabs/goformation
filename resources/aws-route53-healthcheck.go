@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Route53::HealthCheck AWS CloudFormation Resource
+// AWSRoute53HealthCheck AWS CloudFormation Resource (AWS::Route53::HealthCheck)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
 type AWSRoute53HealthCheck struct {
 
 	// HealthCheckConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-
 	HealthCheckConfig AWSRoute53HealthCheck_HealthCheckConfig `json:"HealthCheckConfig"`
 
 	// HealthCheckTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-
 	HealthCheckTags []AWSRoute53HealthCheck_HealthCheckTag `json:"HealthCheckTags"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSRoute53HealthCheck) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRoute53HealthCheckResources retrieves all AWSRoute53HealthCheck items from a CloudFormation template
-func GetAllAWSRoute53HealthCheck(template *Template) map[string]*AWSRoute53HealthCheck {
+func (t *Template) GetAllAWSRoute53HealthCheckResources() map[string]*AWSRoute53HealthCheck {
 
 	results := map[string]*AWSRoute53HealthCheck{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRoute53HealthCheck{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSRoute53HealthCheck(template *Template) map[string]*AWSRoute53Healt
 
 // GetAWSRoute53HealthCheckWithName retrieves all AWSRoute53HealthCheck items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRoute53HealthCheck(name string, template *Template) (*AWSRoute53HealthCheck, error) {
+func (t *Template) GetAWSRoute53HealthCheckWithName(name string) (*AWSRoute53HealthCheck, error) {
 
 	result := &AWSRoute53HealthCheck{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

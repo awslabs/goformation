@@ -6,44 +6,38 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::User AWS CloudFormation Resource
+// AWSIAMUser AWS CloudFormation Resource (AWS::IAM::User)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
 type AWSIAMUser struct {
 
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
-
 	Groups []string `json:"Groups"`
 
 	// LoginProfile AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-loginprofile
-
 	LoginProfile AWSIAMUser_LoginProfile `json:"LoginProfile"`
 
 	// ManagedPolicyArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-managepolicyarns
-
 	ManagedPolicyArns []string `json:"ManagedPolicyArns"`
 
 	// Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path
-
 	Path string `json:"Path"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-policies
-
 	Policies []AWSIAMUser_Policy `json:"Policies"`
 
 	// UserName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-username
-
 	UserName string `json:"UserName"`
 }
 
@@ -58,10 +52,10 @@ func (r *AWSIAMUser) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMUserResources retrieves all AWSIAMUser items from a CloudFormation template
-func GetAllAWSIAMUser(template *Template) map[string]*AWSIAMUser {
+func (t *Template) GetAllAWSIAMUserResources() map[string]*AWSIAMUser {
 
 	results := map[string]*AWSIAMUser{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIAMUser{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -73,10 +67,10 @@ func GetAllAWSIAMUser(template *Template) map[string]*AWSIAMUser {
 
 // GetAWSIAMUserWithName retrieves all AWSIAMUser items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMUser(name string, template *Template) (*AWSIAMUser, error) {
+func (t *Template) GetAWSIAMUserWithName(name string) (*AWSIAMUser, error) {
 
 	result := &AWSIAMUser{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

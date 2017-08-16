@@ -6,50 +6,43 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::DMS::EventSubscription AWS CloudFormation Resource
+// AWSDMSEventSubscription AWS CloudFormation Resource (AWS::DMS::EventSubscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html
 type AWSDMSEventSubscription struct {
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-enabled
-
 	Enabled bool `json:"Enabled"`
 
 	// EventCategories AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-eventcategories
-
 	EventCategories []string `json:"EventCategories"`
 
 	// SnsTopicArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-snstopicarn
-
 	SnsTopicArn string `json:"SnsTopicArn"`
 
 	// SourceIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourceids
-
 	SourceIds []string `json:"SourceIds"`
 
 	// SourceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourcetype
-
 	SourceType string `json:"SourceType"`
 
 	// SubscriptionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-subscriptionname
-
 	SubscriptionName string `json:"SubscriptionName"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-tags
-
 	Tags []Tag `json:"Tags"`
 }
 
@@ -64,10 +57,10 @@ func (r *AWSDMSEventSubscription) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSDMSEventSubscriptionResources retrieves all AWSDMSEventSubscription items from a CloudFormation template
-func GetAllAWSDMSEventSubscription(template *Template) map[string]*AWSDMSEventSubscription {
+func (t *Template) GetAllAWSDMSEventSubscriptionResources() map[string]*AWSDMSEventSubscription {
 
 	results := map[string]*AWSDMSEventSubscription{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSDMSEventSubscription{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -79,10 +72,10 @@ func GetAllAWSDMSEventSubscription(template *Template) map[string]*AWSDMSEventSu
 
 // GetAWSDMSEventSubscriptionWithName retrieves all AWSDMSEventSubscription items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSDMSEventSubscription(name string, template *Template) (*AWSDMSEventSubscription, error) {
+func (t *Template) GetAWSDMSEventSubscriptionWithName(name string) (*AWSDMSEventSubscription, error) {
 
 	result := &AWSDMSEventSubscription{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

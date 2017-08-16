@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::MetricFilter AWS CloudFormation Resource
+// AWSLogsMetricFilter AWS CloudFormation Resource (AWS::Logs::MetricFilter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
 type AWSLogsMetricFilter struct {
 
 	// FilterPattern AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-filterpattern
-
 	FilterPattern string `json:"FilterPattern"`
 
 	// LogGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-loggroupname
-
 	LogGroupName string `json:"LogGroupName"`
 
 	// MetricTransformations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-metrictransformations
-
 	MetricTransformations []AWSLogsMetricFilter_MetricTransformation `json:"MetricTransformations"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSLogsMetricFilter) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsMetricFilterResources retrieves all AWSLogsMetricFilter items from a CloudFormation template
-func GetAllAWSLogsMetricFilter(template *Template) map[string]*AWSLogsMetricFilter {
+func (t *Template) GetAllAWSLogsMetricFilterResources() map[string]*AWSLogsMetricFilter {
 
 	results := map[string]*AWSLogsMetricFilter{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLogsMetricFilter{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSLogsMetricFilter(template *Template) map[string]*AWSLogsMetricFilt
 
 // GetAWSLogsMetricFilterWithName retrieves all AWSLogsMetricFilter items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLogsMetricFilter(name string, template *Template) (*AWSLogsMetricFilter, error) {
+func (t *Template) GetAWSLogsMetricFilterWithName(name string) (*AWSLogsMetricFilter, error) {
 
 	result := &AWSLogsMetricFilter{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

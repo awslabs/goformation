@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::Resource AWS CloudFormation Resource
+// AWSApiGatewayResource AWS CloudFormation Resource (AWS::ApiGateway::Resource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
 type AWSApiGatewayResource struct {
 
 	// ParentId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
-
 	ParentId string `json:"ParentId"`
 
 	// PathPart AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
-
 	PathPart string `json:"PathPart"`
 
 	// RestApiId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
-
 	RestApiId string `json:"RestApiId"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSApiGatewayResource) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSApiGatewayResourceResources retrieves all AWSApiGatewayResource items from a CloudFormation template
-func GetAllAWSApiGatewayResource(template *Template) map[string]*AWSApiGatewayResource {
+func (t *Template) GetAllAWSApiGatewayResourceResources() map[string]*AWSApiGatewayResource {
 
 	results := map[string]*AWSApiGatewayResource{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayResource{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSApiGatewayResource(template *Template) map[string]*AWSApiGatewayRe
 
 // GetAWSApiGatewayResourceWithName retrieves all AWSApiGatewayResource items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayResource(name string, template *Template) (*AWSApiGatewayResource, error) {
+func (t *Template) GetAWSApiGatewayResourceWithName(name string) (*AWSApiGatewayResource, error) {
 
 	result := &AWSApiGatewayResource{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

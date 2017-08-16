@@ -6,38 +6,33 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::OptionGroup AWS CloudFormation Resource
+// AWSRDSOptionGroup AWS CloudFormation Resource (AWS::RDS::OptionGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
 type AWSRDSOptionGroup struct {
 
 	// EngineName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-enginename
-
 	EngineName string `json:"EngineName"`
 
 	// MajorEngineVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-majorengineversion
-
 	MajorEngineVersion string `json:"MajorEngineVersion"`
 
 	// OptionConfigurations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optionconfigurations
-
 	OptionConfigurations []AWSRDSOptionGroup_OptionConfiguration `json:"OptionConfigurations"`
 
 	// OptionGroupDescription AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optiongroupdescription
-
 	OptionGroupDescription string `json:"OptionGroupDescription"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-tags
-
 	Tags []Tag `json:"Tags"`
 }
 
@@ -52,10 +47,10 @@ func (r *AWSRDSOptionGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSOptionGroupResources retrieves all AWSRDSOptionGroup items from a CloudFormation template
-func GetAllAWSRDSOptionGroup(template *Template) map[string]*AWSRDSOptionGroup {
+func (t *Template) GetAllAWSRDSOptionGroupResources() map[string]*AWSRDSOptionGroup {
 
 	results := map[string]*AWSRDSOptionGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRDSOptionGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +62,10 @@ func GetAllAWSRDSOptionGroup(template *Template) map[string]*AWSRDSOptionGroup {
 
 // GetAWSRDSOptionGroupWithName retrieves all AWSRDSOptionGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSOptionGroup(name string, template *Template) (*AWSRDSOptionGroup, error) {
+func (t *Template) GetAWSRDSOptionGroupWithName(name string) (*AWSRDSOptionGroup, error) {
 
 	result := &AWSRDSOptionGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

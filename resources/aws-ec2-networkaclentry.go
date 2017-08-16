@@ -6,63 +6,54 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::NetworkAclEntry AWS CloudFormation Resource
+// AWSEC2NetworkAclEntry AWS CloudFormation Resource (AWS::EC2::NetworkAclEntry)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html
 type AWSEC2NetworkAclEntry struct {
 
 	// CidrBlock AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-cidrblock
-
 	CidrBlock string `json:"CidrBlock"`
 
 	// Egress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-egress
-
 	Egress bool `json:"Egress"`
 
 	// Icmp AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-icmp
-
 	Icmp AWSEC2NetworkAclEntry_Icmp `json:"Icmp"`
 
 	// Ipv6CidrBlock AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-ipv6cidrblock
-
 	Ipv6CidrBlock string `json:"Ipv6CidrBlock"`
 
 	// NetworkAclId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-networkaclid
-
 	NetworkAclId string `json:"NetworkAclId"`
 
 	// PortRange AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-portrange
-
 	PortRange AWSEC2NetworkAclEntry_PortRange `json:"PortRange"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-protocol
-
-	Protocol int64 `json:"Protocol"`
+	Protocol int `json:"Protocol"`
 
 	// RuleAction AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-ruleaction
-
 	RuleAction string `json:"RuleAction"`
 
 	// RuleNumber AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-rulenumber
-
-	RuleNumber int64 `json:"RuleNumber"`
+	RuleNumber int `json:"RuleNumber"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -76,10 +67,10 @@ func (r *AWSEC2NetworkAclEntry) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2NetworkAclEntryResources retrieves all AWSEC2NetworkAclEntry items from a CloudFormation template
-func GetAllAWSEC2NetworkAclEntry(template *Template) map[string]*AWSEC2NetworkAclEntry {
+func (t *Template) GetAllAWSEC2NetworkAclEntryResources() map[string]*AWSEC2NetworkAclEntry {
 
 	results := map[string]*AWSEC2NetworkAclEntry{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2NetworkAclEntry{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -91,10 +82,10 @@ func GetAllAWSEC2NetworkAclEntry(template *Template) map[string]*AWSEC2NetworkAc
 
 // GetAWSEC2NetworkAclEntryWithName retrieves all AWSEC2NetworkAclEntry items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2NetworkAclEntry(name string, template *Template) (*AWSEC2NetworkAclEntry, error) {
+func (t *Template) GetAWSEC2NetworkAclEntryWithName(name string) (*AWSEC2NetworkAclEntry, error) {
 
 	result := &AWSEC2NetworkAclEntry{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

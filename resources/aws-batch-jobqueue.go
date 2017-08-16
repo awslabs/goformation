@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Batch::JobQueue AWS CloudFormation Resource
+// AWSBatchJobQueue AWS CloudFormation Resource (AWS::Batch::JobQueue)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html
 type AWSBatchJobQueue struct {
 
 	// ComputeEnvironmentOrder AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-computeenvironmentorder
-
 	ComputeEnvironmentOrder []AWSBatchJobQueue_ComputeEnvironmentOrder `json:"ComputeEnvironmentOrder"`
 
 	// JobQueueName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename
-
 	JobQueueName string `json:"JobQueueName"`
 
 	// Priority AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-priority
-
-	Priority int64 `json:"Priority"`
+	Priority int `json:"Priority"`
 
 	// State AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state
-
 	State string `json:"State"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSBatchJobQueue) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSBatchJobQueueResources retrieves all AWSBatchJobQueue items from a CloudFormation template
-func GetAllAWSBatchJobQueue(template *Template) map[string]*AWSBatchJobQueue {
+func (t *Template) GetAllAWSBatchJobQueueResources() map[string]*AWSBatchJobQueue {
 
 	results := map[string]*AWSBatchJobQueue{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSBatchJobQueue{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSBatchJobQueue(template *Template) map[string]*AWSBatchJobQueue {
 
 // GetAWSBatchJobQueueWithName retrieves all AWSBatchJobQueue items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSBatchJobQueue(name string, template *Template) (*AWSBatchJobQueue, error) {
+func (t *Template) GetAWSBatchJobQueueWithName(name string) (*AWSBatchJobQueue, error) {
 
 	result := &AWSBatchJobQueue{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

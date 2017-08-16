@@ -6,104 +6,88 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ElasticLoadBalancing::LoadBalancer AWS CloudFormation Resource
+// AWSElasticLoadBalancingLoadBalancer AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
 type AWSElasticLoadBalancingLoadBalancer struct {
 
 	// AccessLoggingPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-accessloggingpolicy
-
 	AccessLoggingPolicy AWSElasticLoadBalancingLoadBalancer_AccessLoggingPolicy `json:"AccessLoggingPolicy"`
 
 	// AppCookieStickinessPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-appcookiestickinesspolicy
-
 	AppCookieStickinessPolicy []AWSElasticLoadBalancingLoadBalancer_AppCookieStickinessPolicy `json:"AppCookieStickinessPolicy"`
 
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-availabilityzones
-
 	AvailabilityZones []string `json:"AvailabilityZones"`
 
 	// ConnectionDrainingPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-connectiondrainingpolicy
-
 	ConnectionDrainingPolicy AWSElasticLoadBalancingLoadBalancer_ConnectionDrainingPolicy `json:"ConnectionDrainingPolicy"`
 
 	// ConnectionSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-connectionsettings
-
 	ConnectionSettings AWSElasticLoadBalancingLoadBalancer_ConnectionSettings `json:"ConnectionSettings"`
 
 	// CrossZone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-crosszone
-
 	CrossZone bool `json:"CrossZone"`
 
 	// HealthCheck AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-healthcheck
-
 	HealthCheck AWSElasticLoadBalancingLoadBalancer_HealthCheck `json:"HealthCheck"`
 
 	// Instances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-instances
-
 	Instances []string `json:"Instances"`
 
 	// LBCookieStickinessPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-lbcookiestickinesspolicy
-
 	LBCookieStickinessPolicy []AWSElasticLoadBalancingLoadBalancer_LBCookieStickinessPolicy `json:"LBCookieStickinessPolicy"`
 
 	// Listeners AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-listeners
-
 	Listeners []AWSElasticLoadBalancingLoadBalancer_Listeners `json:"Listeners"`
 
 	// LoadBalancerName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-elbname
-
 	LoadBalancerName string `json:"LoadBalancerName"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-policies
-
 	Policies []AWSElasticLoadBalancingLoadBalancer_Policies `json:"Policies"`
 
 	// Scheme AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-scheme
-
 	Scheme string `json:"Scheme"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-securitygroups
-
 	SecurityGroups []string `json:"SecurityGroups"`
 
 	// Subnets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-subnets
-
 	Subnets []string `json:"Subnets"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-elasticloadbalancing-loadbalancer-tags
-
 	Tags []Tag `json:"Tags"`
 }
 
@@ -118,10 +102,10 @@ func (r *AWSElasticLoadBalancingLoadBalancer) AWSCloudFormationSpecificationVers
 }
 
 // GetAllAWSElasticLoadBalancingLoadBalancerResources retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
-func GetAllAWSElasticLoadBalancingLoadBalancer(template *Template) map[string]*AWSElasticLoadBalancingLoadBalancer {
+func (t *Template) GetAllAWSElasticLoadBalancingLoadBalancerResources() map[string]*AWSElasticLoadBalancingLoadBalancer {
 
 	results := map[string]*AWSElasticLoadBalancingLoadBalancer{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSElasticLoadBalancingLoadBalancer{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -133,10 +117,10 @@ func GetAllAWSElasticLoadBalancingLoadBalancer(template *Template) map[string]*A
 
 // GetAWSElasticLoadBalancingLoadBalancerWithName retrieves all AWSElasticLoadBalancingLoadBalancer items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSElasticLoadBalancingLoadBalancer(name string, template *Template) (*AWSElasticLoadBalancingLoadBalancer, error) {
+func (t *Template) GetAWSElasticLoadBalancingLoadBalancerWithName(name string) (*AWSElasticLoadBalancingLoadBalancer, error) {
 
 	result := &AWSElasticLoadBalancingLoadBalancer{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

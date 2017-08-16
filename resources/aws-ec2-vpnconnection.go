@@ -6,38 +6,33 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EC2::VPNConnection AWS CloudFormation Resource
+// AWSEC2VPNConnection AWS CloudFormation Resource (AWS::EC2::VPNConnection)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
 type AWSEC2VPNConnection struct {
 
 	// CustomerGatewayId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-customergatewayid
-
 	CustomerGatewayId string `json:"CustomerGatewayId"`
 
 	// StaticRoutesOnly AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-StaticRoutesOnly
-
 	StaticRoutesOnly bool `json:"StaticRoutesOnly"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-tags
-
 	Tags []Tag `json:"Tags"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-type
-
 	Type string `json:"Type"`
 
 	// VpnGatewayId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-vpngatewayid
-
 	VpnGatewayId string `json:"VpnGatewayId"`
 }
 
@@ -52,10 +47,10 @@ func (r *AWSEC2VPNConnection) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSEC2VPNConnectionResources retrieves all AWSEC2VPNConnection items from a CloudFormation template
-func GetAllAWSEC2VPNConnection(template *Template) map[string]*AWSEC2VPNConnection {
+func (t *Template) GetAllAWSEC2VPNConnectionResources() map[string]*AWSEC2VPNConnection {
 
 	results := map[string]*AWSEC2VPNConnection{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEC2VPNConnection{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +62,10 @@ func GetAllAWSEC2VPNConnection(template *Template) map[string]*AWSEC2VPNConnecti
 
 // GetAWSEC2VPNConnectionWithName retrieves all AWSEC2VPNConnection items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEC2VPNConnection(name string, template *Template) (*AWSEC2VPNConnection, error) {
+func (t *Template) GetAWSEC2VPNConnectionWithName(name string) (*AWSEC2VPNConnection, error) {
 
 	result := &AWSEC2VPNConnection{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

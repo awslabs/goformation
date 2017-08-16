@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Logs::LogStream AWS CloudFormation Resource
+// AWSLogsLogStream AWS CloudFormation Resource (AWS::Logs::LogStream)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
 type AWSLogsLogStream struct {
 
 	// LogGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-loggroupname
-
 	LogGroupName string `json:"LogGroupName"`
 
 	// LogStreamName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-logstreamname
-
 	LogStreamName string `json:"LogStreamName"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSLogsLogStream) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLogsLogStreamResources retrieves all AWSLogsLogStream items from a CloudFormation template
-func GetAllAWSLogsLogStream(template *Template) map[string]*AWSLogsLogStream {
+func (t *Template) GetAllAWSLogsLogStreamResources() map[string]*AWSLogsLogStream {
 
 	results := map[string]*AWSLogsLogStream{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLogsLogStream{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSLogsLogStream(template *Template) map[string]*AWSLogsLogStream {
 
 // GetAWSLogsLogStreamWithName retrieves all AWSLogsLogStream items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLogsLogStream(name string, template *Template) (*AWSLogsLogStream, error) {
+func (t *Template) GetAWSLogsLogStreamWithName(name string) (*AWSLogsLogStream, error) {
 
 	result := &AWSLogsLogStream{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

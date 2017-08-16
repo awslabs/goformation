@@ -6,32 +6,28 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Lambda::Alias AWS CloudFormation Resource
+// AWSLambdaAlias AWS CloudFormation Resource (AWS::Lambda::Alias)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
 type AWSLambdaAlias struct {
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-description
-
 	Description string `json:"Description"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionname
-
 	FunctionName string `json:"FunctionName"`
 
 	// FunctionVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionversion
-
 	FunctionVersion string `json:"FunctionVersion"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-name
-
 	Name string `json:"Name"`
 }
 
@@ -46,10 +42,10 @@ func (r *AWSLambdaAlias) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSLambdaAliasResources retrieves all AWSLambdaAlias items from a CloudFormation template
-func GetAllAWSLambdaAlias(template *Template) map[string]*AWSLambdaAlias {
+func (t *Template) GetAllAWSLambdaAliasResources() map[string]*AWSLambdaAlias {
 
 	results := map[string]*AWSLambdaAlias{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSLambdaAlias{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -61,10 +57,10 @@ func GetAllAWSLambdaAlias(template *Template) map[string]*AWSLambdaAlias {
 
 // GetAWSLambdaAliasWithName retrieves all AWSLambdaAlias items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSLambdaAlias(name string, template *Template) (*AWSLambdaAlias, error) {
+func (t *Template) GetAWSLambdaAliasWithName(name string) (*AWSLambdaAlias, error) {
 
 	result := &AWSLambdaAlias{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

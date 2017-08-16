@@ -6,38 +6,33 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Config::DeliveryChannel AWS CloudFormation Resource
+// AWSConfigDeliveryChannel AWS CloudFormation Resource (AWS::Config::DeliveryChannel)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
 type AWSConfigDeliveryChannel struct {
 
 	// ConfigSnapshotDeliveryProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties
-
 	ConfigSnapshotDeliveryProperties AWSConfigDeliveryChannel_ConfigSnapshotDeliveryProperties `json:"ConfigSnapshotDeliveryProperties"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-name
-
 	Name string `json:"Name"`
 
 	// S3BucketName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3bucketname
-
 	S3BucketName string `json:"S3BucketName"`
 
 	// S3KeyPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3keyprefix
-
 	S3KeyPrefix string `json:"S3KeyPrefix"`
 
 	// SnsTopicARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-snstopicarn
-
 	SnsTopicARN string `json:"SnsTopicARN"`
 }
 
@@ -52,10 +47,10 @@ func (r *AWSConfigDeliveryChannel) AWSCloudFormationSpecificationVersion() strin
 }
 
 // GetAllAWSConfigDeliveryChannelResources retrieves all AWSConfigDeliveryChannel items from a CloudFormation template
-func GetAllAWSConfigDeliveryChannel(template *Template) map[string]*AWSConfigDeliveryChannel {
+func (t *Template) GetAllAWSConfigDeliveryChannelResources() map[string]*AWSConfigDeliveryChannel {
 
 	results := map[string]*AWSConfigDeliveryChannel{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSConfigDeliveryChannel{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -67,10 +62,10 @@ func GetAllAWSConfigDeliveryChannel(template *Template) map[string]*AWSConfigDel
 
 // GetAWSConfigDeliveryChannelWithName retrieves all AWSConfigDeliveryChannel items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSConfigDeliveryChannel(name string, template *Template) (*AWSConfigDeliveryChannel, error) {
+func (t *Template) GetAWSConfigDeliveryChannelWithName(name string) (*AWSConfigDeliveryChannel, error) {
 
 	result := &AWSConfigDeliveryChannel{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,50 +6,43 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::AutoScaling::LifecycleHook AWS CloudFormation Resource
+// AWSAutoScalingLifecycleHook AWS CloudFormation Resource (AWS::AutoScaling::LifecycleHook)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
 type AWSAutoScalingLifecycleHook struct {
 
 	// AutoScalingGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-autoscalinggroupname
-
 	AutoScalingGroupName string `json:"AutoScalingGroupName"`
 
 	// DefaultResult AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-defaultresult
-
 	DefaultResult string `json:"DefaultResult"`
 
 	// HeartbeatTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-heartbeattimeout
-
-	HeartbeatTimeout int64 `json:"HeartbeatTimeout"`
+	HeartbeatTimeout int `json:"HeartbeatTimeout"`
 
 	// LifecycleTransition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecycletransition
-
 	LifecycleTransition string `json:"LifecycleTransition"`
 
 	// NotificationMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationmetadata
-
 	NotificationMetadata string `json:"NotificationMetadata"`
 
 	// NotificationTargetARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationtargetarn
-
 	NotificationTargetARN string `json:"NotificationTargetARN"`
 
 	// RoleARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-rolearn
-
 	RoleARN string `json:"RoleARN"`
 }
 
@@ -64,10 +57,10 @@ func (r *AWSAutoScalingLifecycleHook) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSAutoScalingLifecycleHookResources retrieves all AWSAutoScalingLifecycleHook items from a CloudFormation template
-func GetAllAWSAutoScalingLifecycleHook(template *Template) map[string]*AWSAutoScalingLifecycleHook {
+func (t *Template) GetAllAWSAutoScalingLifecycleHookResources() map[string]*AWSAutoScalingLifecycleHook {
 
 	results := map[string]*AWSAutoScalingLifecycleHook{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSAutoScalingLifecycleHook{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -79,10 +72,10 @@ func GetAllAWSAutoScalingLifecycleHook(template *Template) map[string]*AWSAutoSc
 
 // GetAWSAutoScalingLifecycleHookWithName retrieves all AWSAutoScalingLifecycleHook items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSAutoScalingLifecycleHook(name string, template *Template) (*AWSAutoScalingLifecycleHook, error) {
+func (t *Template) GetAWSAutoScalingLifecycleHookWithName(name string) (*AWSAutoScalingLifecycleHook, error) {
 
 	result := &AWSAutoScalingLifecycleHook{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

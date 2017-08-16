@@ -6,62 +6,53 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::Stage AWS CloudFormation Resource
+// AWSApiGatewayStage AWS CloudFormation Resource (AWS::ApiGateway::Stage)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html
 type AWSApiGatewayStage struct {
 
 	// CacheClusterEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclusterenabled
-
 	CacheClusterEnabled bool `json:"CacheClusterEnabled"`
 
 	// CacheClusterSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclustersize
-
 	CacheClusterSize string `json:"CacheClusterSize"`
 
 	// ClientCertificateId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-clientcertificateid
-
 	ClientCertificateId string `json:"ClientCertificateId"`
 
 	// DeploymentId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-deploymentid
-
 	DeploymentId string `json:"DeploymentId"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-description
-
 	Description string `json:"Description"`
 
 	// MethodSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-methodsettings
-
 	MethodSettings []AWSApiGatewayStage_MethodSetting `json:"MethodSettings"`
 
 	// RestApiId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-restapiid
-
 	RestApiId string `json:"RestApiId"`
 
 	// StageName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-stagename
-
 	StageName string `json:"StageName"`
 
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-variables
-
 	Variables map[string]string `json:"Variables"`
 }
 
@@ -76,10 +67,10 @@ func (r *AWSApiGatewayStage) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSApiGatewayStageResources retrieves all AWSApiGatewayStage items from a CloudFormation template
-func GetAllAWSApiGatewayStage(template *Template) map[string]*AWSApiGatewayStage {
+func (t *Template) GetAllAWSApiGatewayStageResources() map[string]*AWSApiGatewayStage {
 
 	results := map[string]*AWSApiGatewayStage{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayStage{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -91,10 +82,10 @@ func GetAllAWSApiGatewayStage(template *Template) map[string]*AWSApiGatewayStage
 
 // GetAWSApiGatewayStageWithName retrieves all AWSApiGatewayStage items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayStage(name string, template *Template) (*AWSApiGatewayStage, error) {
+func (t *Template) GetAWSApiGatewayStageWithName(name string) (*AWSApiGatewayStage, error) {
 
 	result := &AWSApiGatewayStage{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

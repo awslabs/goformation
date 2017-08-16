@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::EMR::SecurityConfiguration AWS CloudFormation Resource
+// AWSEMRSecurityConfiguration AWS CloudFormation Resource (AWS::EMR::SecurityConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html
 type AWSEMRSecurityConfiguration struct {
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-name
-
 	Name string `json:"Name"`
 
 	// SecurityConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-securityconfiguration
-
 	SecurityConfiguration interface{} `json:"SecurityConfiguration"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSEMRSecurityConfiguration) AWSCloudFormationSpecificationVersion() st
 }
 
 // GetAllAWSEMRSecurityConfigurationResources retrieves all AWSEMRSecurityConfiguration items from a CloudFormation template
-func GetAllAWSEMRSecurityConfiguration(template *Template) map[string]*AWSEMRSecurityConfiguration {
+func (t *Template) GetAllAWSEMRSecurityConfigurationResources() map[string]*AWSEMRSecurityConfiguration {
 
 	results := map[string]*AWSEMRSecurityConfiguration{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSEMRSecurityConfiguration{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSEMRSecurityConfiguration(template *Template) map[string]*AWSEMRSec
 
 // GetAWSEMRSecurityConfigurationWithName retrieves all AWSEMRSecurityConfiguration items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSEMRSecurityConfiguration(name string, template *Template) (*AWSEMRSecurityConfiguration, error) {
+func (t *Template) GetAWSEMRSecurityConfigurationWithName(name string) (*AWSEMRSecurityConfiguration, error) {
 
 	result := &AWSEMRSecurityConfiguration{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

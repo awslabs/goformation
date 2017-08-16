@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ApiGateway::DomainName AWS CloudFormation Resource
+// AWSApiGatewayDomainName AWS CloudFormation Resource (AWS::ApiGateway::DomainName)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 type AWSApiGatewayDomainName struct {
 
 	// CertificateArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
-
 	CertificateArn string `json:"CertificateArn"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-
 	DomainName string `json:"DomainName"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSApiGatewayDomainName) AWSCloudFormationSpecificationVersion() string
 }
 
 // GetAllAWSApiGatewayDomainNameResources retrieves all AWSApiGatewayDomainName items from a CloudFormation template
-func GetAllAWSApiGatewayDomainName(template *Template) map[string]*AWSApiGatewayDomainName {
+func (t *Template) GetAllAWSApiGatewayDomainNameResources() map[string]*AWSApiGatewayDomainName {
 
 	results := map[string]*AWSApiGatewayDomainName{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSApiGatewayDomainName{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSApiGatewayDomainName(template *Template) map[string]*AWSApiGateway
 
 // GetAWSApiGatewayDomainNameWithName retrieves all AWSApiGatewayDomainName items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSApiGatewayDomainName(name string, template *Template) (*AWSApiGatewayDomainName, error) {
+func (t *Template) GetAWSApiGatewayDomainNameWithName(name string) (*AWSApiGatewayDomainName, error) {
 
 	result := &AWSApiGatewayDomainName{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

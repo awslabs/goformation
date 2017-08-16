@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::SSM::Document AWS CloudFormation Resource
+// AWSSSMDocument AWS CloudFormation Resource (AWS::SSM::Document)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
 type AWSSSMDocument struct {
 
 	// Content AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
-
 	Content interface{} `json:"Content"`
 
 	// DocumentType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
-
 	DocumentType string `json:"DocumentType"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSSSMDocument) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSSSMDocumentResources retrieves all AWSSSMDocument items from a CloudFormation template
-func GetAllAWSSSMDocument(template *Template) map[string]*AWSSSMDocument {
+func (t *Template) GetAllAWSSSMDocumentResources() map[string]*AWSSSMDocument {
 
 	results := map[string]*AWSSSMDocument{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSSSMDocument{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSSSMDocument(template *Template) map[string]*AWSSSMDocument {
 
 // GetAWSSSMDocumentWithName retrieves all AWSSSMDocument items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSSSMDocument(name string, template *Template) (*AWSSSMDocument, error) {
+func (t *Template) GetAWSSSMDocumentWithName(name string) (*AWSSSMDocument, error) {
 
 	result := &AWSSSMDocument{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

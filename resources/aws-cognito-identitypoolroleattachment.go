@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::Cognito::IdentityPoolRoleAttachment AWS CloudFormation Resource
+// AWSCognitoIdentityPoolRoleAttachment AWS CloudFormation Resource (AWS::Cognito::IdentityPoolRoleAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
 type AWSCognitoIdentityPoolRoleAttachment struct {
 
 	// IdentityPoolId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid
-
 	IdentityPoolId string `json:"IdentityPoolId"`
 
 	// RoleMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-rolemappings
-
 	RoleMappings interface{} `json:"RoleMappings"`
 
 	// Roles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-roles
-
 	Roles interface{} `json:"Roles"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSCognitoIdentityPoolRoleAttachment) AWSCloudFormationSpecificationVer
 }
 
 // GetAllAWSCognitoIdentityPoolRoleAttachmentResources retrieves all AWSCognitoIdentityPoolRoleAttachment items from a CloudFormation template
-func GetAllAWSCognitoIdentityPoolRoleAttachment(template *Template) map[string]*AWSCognitoIdentityPoolRoleAttachment {
+func (t *Template) GetAllAWSCognitoIdentityPoolRoleAttachmentResources() map[string]*AWSCognitoIdentityPoolRoleAttachment {
 
 	results := map[string]*AWSCognitoIdentityPoolRoleAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCognitoIdentityPoolRoleAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSCognitoIdentityPoolRoleAttachment(template *Template) map[string]*
 
 // GetAWSCognitoIdentityPoolRoleAttachmentWithName retrieves all AWSCognitoIdentityPoolRoleAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCognitoIdentityPoolRoleAttachment(name string, template *Template) (*AWSCognitoIdentityPoolRoleAttachment, error) {
+func (t *Template) GetAWSCognitoIdentityPoolRoleAttachmentWithName(name string) (*AWSCognitoIdentityPoolRoleAttachment, error) {
 
 	result := &AWSCognitoIdentityPoolRoleAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

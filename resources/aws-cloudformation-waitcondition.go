@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CloudFormation::WaitCondition AWS CloudFormation Resource
+// AWSCloudFormationWaitCondition AWS CloudFormation Resource (AWS::CloudFormation::WaitCondition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
 type AWSCloudFormationWaitCondition struct {
 
 	// Count AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
-
-	Count int64 `json:"Count"`
+	Count int `json:"Count"`
 
 	// Handle AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
-
 	Handle string `json:"Handle"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
-
 	Timeout string `json:"Timeout"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSCloudFormationWaitCondition) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSCloudFormationWaitConditionResources retrieves all AWSCloudFormationWaitCondition items from a CloudFormation template
-func GetAllAWSCloudFormationWaitCondition(template *Template) map[string]*AWSCloudFormationWaitCondition {
+func (t *Template) GetAllAWSCloudFormationWaitConditionResources() map[string]*AWSCloudFormationWaitCondition {
 
 	results := map[string]*AWSCloudFormationWaitCondition{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCloudFormationWaitCondition{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSCloudFormationWaitCondition(template *Template) map[string]*AWSClo
 
 // GetAWSCloudFormationWaitConditionWithName retrieves all AWSCloudFormationWaitCondition items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCloudFormationWaitCondition(name string, template *Template) (*AWSCloudFormationWaitCondition, error) {
+func (t *Template) GetAWSCloudFormationWaitConditionWithName(name string) (*AWSCloudFormationWaitCondition, error) {
 
 	result := &AWSCloudFormationWaitCondition{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

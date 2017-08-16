@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::ECR::Repository AWS CloudFormation Resource
+// AWSECRRepository AWS CloudFormation Resource (AWS::ECR::Repository)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 type AWSECRRepository struct {
 
 	// RepositoryName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
-
 	RepositoryName string `json:"RepositoryName"`
 
 	// RepositoryPolicyText AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-
 	RepositoryPolicyText interface{} `json:"RepositoryPolicyText"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSECRRepository) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSECRRepositoryResources retrieves all AWSECRRepository items from a CloudFormation template
-func GetAllAWSECRRepository(template *Template) map[string]*AWSECRRepository {
+func (t *Template) GetAllAWSECRRepositoryResources() map[string]*AWSECRRepository {
 
 	results := map[string]*AWSECRRepository{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSECRRepository{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSECRRepository(template *Template) map[string]*AWSECRRepository {
 
 // GetAWSECRRepositoryWithName retrieves all AWSECRRepository items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSECRRepository(name string, template *Template) (*AWSECRRepository, error) {
+func (t *Template) GetAWSECRRepositoryWithName(name string) (*AWSECRRepository, error) {
 
 	result := &AWSECRRepository{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

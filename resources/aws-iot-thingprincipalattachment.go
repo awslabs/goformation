@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IoT::ThingPrincipalAttachment AWS CloudFormation Resource
+// AWSIoTThingPrincipalAttachment AWS CloudFormation Resource (AWS::IoT::ThingPrincipalAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
 type AWSIoTThingPrincipalAttachment struct {
 
 	// Principal AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
-
 	Principal string `json:"Principal"`
 
 	// ThingName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
-
 	ThingName string `json:"ThingName"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSIoTThingPrincipalAttachment) AWSCloudFormationSpecificationVersion()
 }
 
 // GetAllAWSIoTThingPrincipalAttachmentResources retrieves all AWSIoTThingPrincipalAttachment items from a CloudFormation template
-func GetAllAWSIoTThingPrincipalAttachment(template *Template) map[string]*AWSIoTThingPrincipalAttachment {
+func (t *Template) GetAllAWSIoTThingPrincipalAttachmentResources() map[string]*AWSIoTThingPrincipalAttachment {
 
 	results := map[string]*AWSIoTThingPrincipalAttachment{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIoTThingPrincipalAttachment{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSIoTThingPrincipalAttachment(template *Template) map[string]*AWSIoT
 
 // GetAWSIoTThingPrincipalAttachmentWithName retrieves all AWSIoTThingPrincipalAttachment items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIoTThingPrincipalAttachment(name string, template *Template) (*AWSIoTThingPrincipalAttachment, error) {
+func (t *Template) GetAWSIoTThingPrincipalAttachmentWithName(name string) (*AWSIoTThingPrincipalAttachment, error) {
 
 	result := &AWSIoTThingPrincipalAttachment{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::RDS::DBSubnetGroup AWS CloudFormation Resource
+// AWSRDSDBSubnetGroup AWS CloudFormation Resource (AWS::RDS::DBSubnetGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html
 type AWSRDSDBSubnetGroup struct {
 
 	// DBSubnetGroupDescription AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-dbsubnetgroupdescription
-
 	DBSubnetGroupDescription string `json:"DBSubnetGroupDescription"`
 
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-subnetids
-
 	SubnetIds []string `json:"SubnetIds"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-tags
-
 	Tags []Tag `json:"Tags"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSRDSDBSubnetGroup) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSRDSDBSubnetGroupResources retrieves all AWSRDSDBSubnetGroup items from a CloudFormation template
-func GetAllAWSRDSDBSubnetGroup(template *Template) map[string]*AWSRDSDBSubnetGroup {
+func (t *Template) GetAllAWSRDSDBSubnetGroupResources() map[string]*AWSRDSDBSubnetGroup {
 
 	results := map[string]*AWSRDSDBSubnetGroup{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSRDSDBSubnetGroup{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSRDSDBSubnetGroup(template *Template) map[string]*AWSRDSDBSubnetGro
 
 // GetAWSRDSDBSubnetGroupWithName retrieves all AWSRDSDBSubnetGroup items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSRDSDBSubnetGroup(name string, template *Template) (*AWSRDSDBSubnetGroup, error) {
+func (t *Template) GetAWSRDSDBSubnetGroupWithName(name string) (*AWSRDSDBSubnetGroup, error) {
 
 	result := &AWSRDSDBSubnetGroup{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

@@ -6,26 +6,23 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::IAM::InstanceProfile AWS CloudFormation Resource
+// AWSIAMInstanceProfile AWS CloudFormation Resource (AWS::IAM::InstanceProfile)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
 type AWSIAMInstanceProfile struct {
 
 	// InstanceProfileName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-instanceprofilename
-
 	InstanceProfileName string `json:"InstanceProfileName"`
 
 	// Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-path
-
 	Path string `json:"Path"`
 
 	// Roles AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
-
 	Roles []string `json:"Roles"`
 }
 
@@ -40,10 +37,10 @@ func (r *AWSIAMInstanceProfile) AWSCloudFormationSpecificationVersion() string {
 }
 
 // GetAllAWSIAMInstanceProfileResources retrieves all AWSIAMInstanceProfile items from a CloudFormation template
-func GetAllAWSIAMInstanceProfile(template *Template) map[string]*AWSIAMInstanceProfile {
+func (t *Template) GetAllAWSIAMInstanceProfileResources() map[string]*AWSIAMInstanceProfile {
 
 	results := map[string]*AWSIAMInstanceProfile{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSIAMInstanceProfile{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -55,10 +52,10 @@ func GetAllAWSIAMInstanceProfile(template *Template) map[string]*AWSIAMInstanceP
 
 // GetAWSIAMInstanceProfileWithName retrieves all AWSIAMInstanceProfile items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSIAMInstanceProfile(name string, template *Template) (*AWSIAMInstanceProfile, error) {
+func (t *Template) GetAWSIAMInstanceProfileWithName(name string) (*AWSIAMInstanceProfile, error) {
 
 	result := &AWSIAMInstanceProfile{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}

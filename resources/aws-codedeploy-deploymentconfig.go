@@ -6,20 +6,18 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWS::CodeDeploy::DeploymentConfig AWS CloudFormation Resource
+// AWSCodeDeployDeploymentConfig AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
 type AWSCodeDeployDeploymentConfig struct {
 
 	// DeploymentConfigName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-deploymentconfigname
-
 	DeploymentConfigName string `json:"DeploymentConfigName"`
 
 	// MinimumHealthyHosts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts
-
 	MinimumHealthyHosts AWSCodeDeployDeploymentConfig_MinimumHealthyHosts `json:"MinimumHealthyHosts"`
 }
 
@@ -34,10 +32,10 @@ func (r *AWSCodeDeployDeploymentConfig) AWSCloudFormationSpecificationVersion() 
 }
 
 // GetAllAWSCodeDeployDeploymentConfigResources retrieves all AWSCodeDeployDeploymentConfig items from a CloudFormation template
-func GetAllAWSCodeDeployDeploymentConfig(template *Template) map[string]*AWSCodeDeployDeploymentConfig {
+func (t *Template) GetAllAWSCodeDeployDeploymentConfigResources() map[string]*AWSCodeDeployDeploymentConfig {
 
 	results := map[string]*AWSCodeDeployDeploymentConfig{}
-	for name, resource := range template.Resources {
+	for name, resource := range t.Resources {
 		result := &AWSCodeDeployDeploymentConfig{}
 		if err := mapstructure.Decode(resource, result); err == nil {
 			results[name] = result
@@ -49,10 +47,10 @@ func GetAllAWSCodeDeployDeploymentConfig(template *Template) map[string]*AWSCode
 
 // GetAWSCodeDeployDeploymentConfigWithName retrieves all AWSCodeDeployDeploymentConfig items from a CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func GetWithNameAWSCodeDeployDeploymentConfig(name string, template *Template) (*AWSCodeDeployDeploymentConfig, error) {
+func (t *Template) GetAWSCodeDeployDeploymentConfigWithName(name string) (*AWSCodeDeployDeploymentConfig, error) {
 
 	result := &AWSCodeDeployDeploymentConfig{}
-	if resource, ok := template.Resources[name]; ok {
+	if resource, ok := t.Resources[name]; ok {
 		if err := mapstructure.Decode(resource, result); err == nil {
 			return result, nil
 		}
