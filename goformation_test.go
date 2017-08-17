@@ -1,8 +1,8 @@
 package goformation_test
 
 import (
-	"github.com/paulmaddox/goformation"
-	"github.com/paulmaddox/goformation/cloudformation"
+	"github.com/awslabs/goformation"
+	"github.com/awslabs/goformation/cloudformation"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
