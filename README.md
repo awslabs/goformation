@@ -181,6 +181,8 @@ Our aim is to automatically update GoFormation whenever the AWS CloudFormation R
 
 ### AWS CloudFormation Intrinsic Functions
 
+The following [AWS CloudFormation Intrinsic Functions](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html) are supported in GoFormation:
+
 - [x] [Fn::Base64](intrinsics/fnbase64.go)
 - [x] [Fn::FindInMap](intrinsics/fnfindinmap.go)
 - [x] [Fn::Join](intrinsics/fnjoin.go)
