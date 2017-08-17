@@ -10,8 +10,8 @@
     - [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation-sam-resources-in-goformation)
     - [Advanced](#advanced)
         - [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
-        - [Resolving References (Ref)](#resolving-references-ref)
-        - [Warning: YAML short form intrinsic functions (e.g. !Sub)](#warning-yaml-short-form-intrinsic-functions-eg-sub)
+            - [Resolving References (Ref)](#resolving-references-ref)
+            - [Warning: YAML short form intrinsic functions (e.g. !Sub)](#warning-yaml-short-form-intrinsic-functions-eg-sub)
     - [Contributing](#contributing)
 
 ## Main features
@@ -199,13 +199,13 @@ Our aim is to automatically update GoFormation whenever the AWS CloudFormation R
 
 Any unsupported parameters will return `nil`.
 
-### Resolving References (Ref)
+#### Resolving References (Ref)
 
 The intrinsic 'Ref' function as implemented will resolve all of the [pseudo parameters](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) such as `AWS::AccountId` with their default value as listed on [the bottom of this page](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html).
 
 If a reference is not a pseudo parameter, Goformation will try to resolve it within the AWS CloudFormation template. **Currently, this implementation only searches for `Parameters` with a name that matches the ref, and returns the `Default` if it has one.**
 
-### Warning: YAML short form intrinsic functions (e.g. !Sub)
+#### Warning: YAML short form intrinsic functions (e.g. !Sub)
 
 While this library supports both JSON and YAML AWS CloudFormation templates, it cannot handle short form intrinsic functions in YAML templates (e.g. `!Sub`). 
 
