@@ -14,21 +14,21 @@ type IntrinsicHandler func(string, interface{}, interface{}) interface{}
 // IntrinsicFunctionHandlers is a map of all the possible AWS CloudFormation intrinsic
 // functions, and a handler function that is invoked to resolve.
 var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
-	"Fn::Base64":      nonResolvingHandler,
+	"Fn::Base64":      FnBase64,
 	"Fn::And":         nonResolvingHandler,
 	"Fn::Equals":      nonResolvingHandler,
 	"Fn::If":          nonResolvingHandler,
 	"Fn::Not":         nonResolvingHandler,
 	"Fn::Or":          nonResolvingHandler,
-	"Fn::FindInMap":   nonResolvingHandler,
+	"Fn::FindInMap":   FnFindInMap,
 	"Fn::GetAtt":      nonResolvingHandler,
 	"Fn::GetAZs":      nonResolvingHandler,
 	"Fn::ImportValue": nonResolvingHandler,
-	"Fn::Join":        nonResolvingHandler,
-	"Fn::Select":      nonResolvingHandler,
-	"Fn::Split":       nonResolvingHandler,
-	"Fn::Sub":         nonResolvingHandler,
-	"Ref":             nonResolvingHandler,
+	"Fn::Join":        FnJoin,
+	"Fn::Select":      FnSelect,
+	"Fn::Split":       FnSplit,
+	"Fn::Sub":         FnSub,
+	"Ref":             Ref,
 }
 
 // ProcessorOptions allows customisation of the intrinsic function processor behaviour.
@@ -88,7 +88,7 @@ func search(input interface{}, template interface{}, options *ProcessorOptions) 
 			if h, ok := handler(key, options); ok {
 				// This is an intrinsic function, so replace the intrinsic function object
 				// with the result of calling the intrinsic function handler for this type
-				return h(key, template, search(val, template, options))
+				return h(key, search(val, template, options), template)
 			}
 
 			// This is not an intrinsic function, recurse through it normally
