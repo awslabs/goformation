@@ -65,14 +65,14 @@ func main() {
     if err != nil {
         fmt.Printf("Failed to generate JSON: %s\n", err)
     } else {
-        fmt.Printf("JSON template: \n%s\n", j)
+        fmt.Print(j)
     }
   
     y, err := template.YAML()
     if err != nil {
         fmt.Printf("Failed to generate JSON: %s\n", err)
     } else {
-        fmt.Printf("YAML template: \n%s\n", y)
+        fmt.Print(y)
     }
 
 }
@@ -104,7 +104,6 @@ Would output the following JSON template
 ...and the following YAML template
 
 ```yaml
-YAML template: 
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   MyRoute53HostedZone:
