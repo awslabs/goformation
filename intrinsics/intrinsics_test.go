@@ -20,6 +20,34 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 		})
 	})
 
+	// pmaddox@ 2017-08-17:
+	// Commented out until we have support for YAML tag intrinsic functions (e.g. !Sub)
+	//Context("with a YAML template that contains intrinsic functions in tag form", func() {
+
+	// t := "AWSTemplateFormatVersion: '2010-09-09'\n"
+	// t += "Transform: AWS::Serverless-2016-10-31\n"
+	// t += "Description: SAM template for testing intrinsic functions with YAML tags\n"
+	// t += "Resources:\n"
+	// t += "  CodeUriWithS3LocationSpecifiedAsString:\n"
+	// t += "    Type: AWS::Serverless::Function\n"
+	// t += "    Properties:\n"
+	// t += "      Runtime: !Sub test-${runtime}\n"
+	// t += "      Timeout: !Ref ThisWontResolve\n"
+
+	// data, err := yaml.YAMLToJSON([]byte(t))
+	// It("should successfully convert YAML to JSON", func() {
+	// 	Expect(data).ShouldNot(BeNil())
+	// 	Expect(err).Should(BeNil())
+	// })
+
+	// processed, err := Process(data, nil)
+	// It("should successfully process the template", func() {
+	// 	Expect(processed).ShouldNot(BeNil())
+	// 	Expect(err).Should(BeNil())
+	// })
+
+	//}
+
 	Context("with a template that contains primitives, intrinsics, and nested intrinsics", func() {
 
 		const template = `{
@@ -72,15 +100,15 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 			})
 
 			It("should have the correct value for a Fn::Join intrinsic property", func() {
-				Expect(properties["JoinIntrinsicProperty"]).To(Equal("Fn::Join intrinsic function is unsupported"))
+				Expect(properties["JoinIntrinsicProperty"]).To(BeNil())
 			})
 
 			It("should have the correct value for a nested Fn::Join intrinsic property", func() {
-				Expect(properties["JoinNestedIntrinsicProperty"]).To(Equal("Fn::Join intrinsic function is unsupported"))
+				Expect(properties["JoinNestedIntrinsicProperty"]).To(BeNil())
 			})
 
 			It("should have the correct value for a Fn::Sub intrinsic property", func() {
-				Expect(properties["SubIntrinsicProperty"]).To(Equal("Fn::Sub intrinsic function is unsupported"))
+				Expect(properties["SubIntrinsicProperty"]).To(BeNil())
 			})
 
 		})
@@ -134,7 +162,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 			})
 
 			It("should have the correct value for an intrinsic property that's not supposed to be overridden", func() {
-				Expect(properties["SubIntrinsicProperty"]).To(Equal("Fn::Sub intrinsic function is unsupported"))
+				Expect(properties["SubIntrinsicProperty"]).To(BeNil())
 			})
 
 		})

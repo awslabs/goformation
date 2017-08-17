@@ -40,8 +40,7 @@ type ProcessorOptions struct {
 // nonResolvingHandler is a simple example of an intrinsic function handler function
 // that refuses to resolve any intrinsic functions, and just returns a basic string.
 func nonResolvingHandler(name string, input interface{}) interface{} {
-	result := fmt.Sprintf("%s intrinsic function is unsupported", name)
-	return result
+	return nil
 }
 
 // Process recursively searches through a byte array for all AWS CloudFormation
