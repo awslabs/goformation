@@ -5,7 +5,7 @@ import (
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/paulmaddox/goformation/resources"
+	"github.com/paulmaddox/goformation/cloudformation"
 )
 
 var _ = Describe("Goformation Code Generator", func() {
@@ -14,7 +14,7 @@ var _ = Describe("Goformation Code Generator", func() {
 
 		Context("specified as a Go struct", func() {
 
-			property := &resources.AWSServerlessFunction_S3Location{
+			property := &cloudformation.AWSServerlessFunction_S3Location{
 				Bucket:  "test-bucket",
 				Key:     "test-key",
 				Version: 123,
@@ -31,13 +31,13 @@ var _ = Describe("Goformation Code Generator", func() {
 		Context("specified as JSON", func() {
 
 			property := []byte(`{"Bucket":"test-bucket","Key":"test-key","Version":123}`)
-			expected := &resources.AWSServerlessFunction_S3Location{
+			expected := &cloudformation.AWSServerlessFunction_S3Location{
 				Bucket:  "test-bucket",
 				Key:     "test-key",
 				Version: 123,
 			}
 
-			result := &resources.AWSServerlessFunction_S3Location{}
+			result := &cloudformation.AWSServerlessFunction_S3Location{}
 			err := json.Unmarshal(property, result)
 			It("should unmarshal to a Go struct successfully", func() {
 				Expect(result).To(Equal(expected))
@@ -55,7 +55,7 @@ var _ = Describe("Goformation Code Generator", func() {
 			Context("specified as a Go struct", func() {
 
 				value := "test-primitive-value"
-				property := &resources.AWSServerlessFunction_StringOrS3Location{
+				property := &cloudformation.AWSServerlessFunction_StringOrS3Location{
 					String: &value,
 				}
 
@@ -72,11 +72,11 @@ var _ = Describe("Goformation Code Generator", func() {
 
 				property := []byte(`"test-primitive-value"`)
 				value := "test-primitive-value"
-				expected := &resources.AWSServerlessFunction_StringOrS3Location{
+				expected := &cloudformation.AWSServerlessFunction_StringOrS3Location{
 					String: &value,
 				}
 
-				result := &resources.AWSServerlessFunction_StringOrS3Location{}
+				result := &cloudformation.AWSServerlessFunction_StringOrS3Location{}
 				err := json.Unmarshal(property, result)
 				It("should unmarshal to a Go struct successfully", func() {
 					Expect(result).To(Equal(expected))
@@ -91,8 +91,8 @@ var _ = Describe("Goformation Code Generator", func() {
 
 			Context("specified as a Go struct", func() {
 
-				property := &resources.AWSServerlessFunction_StringOrS3Location{
-					S3Location: &resources.AWSServerlessFunction_S3Location{
+				property := &cloudformation.AWSServerlessFunction_StringOrS3Location{
+					S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 						Bucket:  "test-bucket",
 						Key:     "test-key",
 						Version: 123,
@@ -113,15 +113,15 @@ var _ = Describe("Goformation Code Generator", func() {
 
 				property := []byte(`{"Bucket":"test-bucket","Key":"test-key","Version":123}`)
 
-				expected := &resources.AWSServerlessFunction_StringOrS3Location{
-					S3Location: &resources.AWSServerlessFunction_S3Location{
+				expected := &cloudformation.AWSServerlessFunction_StringOrS3Location{
+					S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 						Bucket:  "test-bucket",
 						Key:     "test-key",
 						Version: 123,
 					},
 				}
 
-				result := &resources.AWSServerlessFunction_StringOrS3Location{}
+				result := &cloudformation.AWSServerlessFunction_StringOrS3Location{}
 				err := json.Unmarshal(property, result)
 				It("should unmarshal to a Go struct successfully", func() {
 					Expect(result).To(Equal(expected))

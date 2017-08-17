@@ -1,4 +1,4 @@
-package resources
+package cloudformation
 
 import (
 	"encoding/json"

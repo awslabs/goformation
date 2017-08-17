@@ -3,7 +3,7 @@ package main_test
 import (
 	"encoding/json"
 
-	"github.com/paulmaddox/goformation/resources"
+	"github.com/paulmaddox/goformation/cloudformation"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -18,9 +18,9 @@ var _ = Describe("Resource", func() {
 			Context("with a simple primitive used for a polymorphic property", func() {
 
 				codeuri := "s3://bucket/key"
-				resource := &resources.AWSServerlessFunction{
+				resource := &cloudformation.AWSServerlessFunction{
 					Runtime: "nodejs6.10",
-					CodeUri: &resources.AWSServerlessFunction_StringOrS3Location{
+					CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
 						String: &codeuri,
 					},
 				}
@@ -37,10 +37,10 @@ var _ = Describe("Resource", func() {
 
 			Context("with a custom type used for a polymorphic property", func() {
 
-				resource := &resources.AWSServerlessFunction{
+				resource := &cloudformation.AWSServerlessFunction{
 					Runtime: "nodejs6.10",
-					CodeUri: &resources.AWSServerlessFunction_StringOrS3Location{
-						S3Location: &resources.AWSServerlessFunction_S3Location{
+					CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
+						S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 							Bucket:  "test-bucket",
 							Key:     "test-key",
 							Version: 123,

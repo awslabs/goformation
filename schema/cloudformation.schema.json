@@ -13387,6 +13387,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },

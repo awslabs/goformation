@@ -7,15 +7,15 @@ import (
 	"strings"
 
 	"github.com/ghodss/yaml"
+	"github.com/paulmaddox/goformation/cloudformation"
 	"github.com/paulmaddox/goformation/intrinsics"
-	"github.com/paulmaddox/goformation/resources"
 )
 
 //go:generate generate/generate.sh
 
 // Open and parse a AWS CloudFormation template from file.
 // Works with either JSON or YAML formatted templates.
-func Open(filename string) (*resources.CloudFormationTemplate, error) {
+func Open(filename string) (*cloudformation.Template, error) {
 
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -34,7 +34,7 @@ func Open(filename string) (*resources.CloudFormationTemplate, error) {
 }
 
 // Parse an AWS CloudFormation template (expects a []byte of valid JSON)
-func Parse(data []byte) (*resources.CloudFormationTemplate, error) {
+func Parse(data []byte) (*cloudformation.Template, error) {
 
 	// Process all AWS CloudFormation intrinsic functions (e.g. Fn::Join)
 	intrinsified, err := intrinsics.Process(data, nil)
@@ -42,7 +42,7 @@ func Parse(data []byte) (*resources.CloudFormationTemplate, error) {
 		return nil, err
 	}
 
-	template := &resources.CloudFormationTemplate{}
+	template := &cloudformation.Template{}
 	if err := json.Unmarshal(intrinsified, template); err != nil {
 		return nil, err
 	}

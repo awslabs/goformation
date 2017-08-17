@@ -2,7 +2,7 @@ package goformation_test
 
 import (
 	"github.com/paulmaddox/goformation"
-	"github.com/paulmaddox/goformation/resources"
+	"github.com/paulmaddox/goformation/cloudformation"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -15,20 +15,20 @@ var _ = Describe("Goformation", func() {
 
 		Context("described as Go structs", func() {
 
-			template := resources.NewCloudFormationTemplate()
+			template := cloudformation.NewTemplate()
 
-			template.Resources["MySNSTopic"] = resources.AWSSNSTopic{
+			template.Resources["MySNSTopic"] = cloudformation.AWSSNSTopic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []resources.AWSSNSTopic_Subscription{
-					resources.AWSSNSTopic_Subscription{
+				Subscription: []cloudformation.AWSSNSTopic_Subscription{
+					cloudformation.AWSSNSTopic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			template.Resources["MyRoute53HostedZone"] = resources.AWSRoute53HostedZone{
+			template.Resources["MyRoute53HostedZone"] = cloudformation.AWSRoute53HostedZone{
 				Name: "example.com",
 			}
 
@@ -74,20 +74,20 @@ var _ = Describe("Goformation", func() {
 
 			template := []byte(`{"AWSTemplateFormatVersion":"2010-09-09","Resources":{"MyRoute53HostedZone":{"Type":"AWS::Route53::HostedZone","Properties":{"Name":"example.com"}},"MySNSTopic":{"Type":"AWS::SNS::Topic","Properties":{"DisplayName":"test-sns-topic-display-name","Subscription":[{"Endpoint":"test-sns-topic-subscription-endpoint","Protocol":"test-sns-topic-subscription-protocol"}],"TopicName":"test-sns-topic-name"}}}}`)
 
-			expected := resources.NewCloudFormationTemplate()
+			expected := cloudformation.NewTemplate()
 
-			expected.Resources["MySNSTopic"] = resources.AWSSNSTopic{
+			expected.Resources["MySNSTopic"] = cloudformation.AWSSNSTopic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []resources.AWSSNSTopic_Subscription{
-					resources.AWSSNSTopic_Subscription{
+				Subscription: []cloudformation.AWSSNSTopic_Subscription{
+					cloudformation.AWSSNSTopic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			expected.Resources["MyRoute53HostedZone"] = resources.AWSRoute53HostedZone{
+			expected.Resources["MyRoute53HostedZone"] = cloudformation.AWSRoute53HostedZone{
 				Name: "example.com",
 			}
 
@@ -219,9 +219,9 @@ var _ = Describe("Goformation", func() {
 
 	Context("with a template defined as Go code", func() {
 
-		template := &resources.CloudFormationTemplate{
+		template := &cloudformation.Template{
 			Resources: map[string]interface{}{
-				"MyLambdaFunction": resources.AWSLambdaFunction{
+				"MyLambdaFunction": cloudformation.AWSLambdaFunction{
 					Handler: "nodejs6.10",
 				},
 			},
@@ -235,7 +235,7 @@ var _ = Describe("Goformation", func() {
 		function, err := template.GetAWSLambdaFunctionWithName("MyLambdaFunction")
 		It("should be able to retrieve a specific Lambda function with GetAWSLambdaFunctionWithName(template, name)", func() {
 			Expect(err).To(BeNil())
-			Expect(function).To(BeAssignableToTypeOf(resources.AWSLambdaFunction{}))
+			Expect(function).To(BeAssignableToTypeOf(cloudformation.AWSLambdaFunction{}))
 		})
 
 		It("should have the correct Handler property", func() {
@@ -248,12 +248,12 @@ var _ = Describe("Goformation", func() {
 
 		Context("that has a CodeUri property set as an S3 Location", func() {
 
-			template := &resources.CloudFormationTemplate{
+			template := &cloudformation.Template{
 				Resources: map[string]interface{}{
-					"MySAMFunction": resources.AWSServerlessFunction{
+					"MySAMFunction": cloudformation.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &resources.AWSServerlessFunction_StringOrS3Location{
-							S3Location: &resources.AWSServerlessFunction_S3Location{
+						CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
+							S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 								Bucket:  "test-bucket",
 								Key:     "test-key",
 								Version: 100,
@@ -280,11 +280,11 @@ var _ = Describe("Goformation", func() {
 		Context("that has a CodeUri property set as a string", func() {
 
 			codeuri := "./some-folder"
-			template := &resources.CloudFormationTemplate{
+			template := &cloudformation.Template{
 				Resources: map[string]interface{}{
-					"MySAMFunction": resources.AWSServerlessFunction{
+					"MySAMFunction": cloudformation.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &resources.AWSServerlessFunction_StringOrS3Location{
+						CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
 							String: &codeuri,
 						},
 					},

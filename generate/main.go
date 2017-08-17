@@ -13,11 +13,12 @@ import (
 )
 
 // SpecURL is the HTTP URL of the latest AWS CloudFormation Resource Specification
-const SpecURL = "https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
+const SpecURL = "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 
 func main() {
 
 	// Fetch the latest CloudFormation Resource Specification
+	fmt.Printf("Download the latest AWS CloudFormation Resource Specification...\n")
 	response, err := http.Get(SpecURL)
 	if err != nil {
 		fmt.Printf("Error: Failed to fetch AWS CloudFormation Resource Specification\n%s\n", err)
@@ -139,7 +140,7 @@ func generateResources(name string, resource Resource, isCustomProperty bool, sp
 	}
 
 	// Write the file out
-	if err := ioutil.WriteFile("resources/"+filename(name), formatted, 0644); err != nil {
+	if err := ioutil.WriteFile("cloudformation/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
 		os.Exit(1)
 	}
@@ -230,7 +231,7 @@ func generatePolymorphicProperty(name string, property Property) {
 	}
 
 	// Write the file out
-	if err := ioutil.WriteFile("resources/"+filename(name), formatted, 0644); err != nil {
+	if err := ioutil.WriteFile("cloudformation/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
 		os.Exit(1)
 	}

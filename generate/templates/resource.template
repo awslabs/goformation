@@ -1,4 +1,4 @@
-package resources
+package cloudformation
 
 {{if not .IsCustomProperty}}
 import (
@@ -58,7 +58,7 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 }
 
 // GetAll{{.StructName}}Resources retrieves all {{.StructName}} items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAll{{.StructName}}Resources () map[string]{{.StructName}} {
+func (t *Template) GetAll{{.StructName}}Resources () map[string]{{.StructName}} {
     results := map[string]{{.StructName}}{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
@@ -86,7 +86,7 @@ func (t *CloudFormationTemplate) GetAll{{.StructName}}Resources () map[string]{{
 
 // Get{{.StructName}}WithName retrieves all {{.StructName}} items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) Get{{.StructName}}WithName (name string) ({{.StructName}}, error) {
+func (t *Template) Get{{.StructName}}WithName (name string) ({{.StructName}}, error) {
 	if untyped, ok := t.Resources[name]; ok {		
 		switch resource := untyped.(type) {
 		case {{.StructName}}:
