@@ -9,7 +9,15 @@
         - [Unmarhalling CloudFormation YAML/JSON into Go structs](#unmarhalling-cloudformation-yamljson-into-go-structs)
     - [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation-sam-resources-in-goformation)
     - [Contributing](#contributing)
-  
+
+
+> WARNING: This library does not currently implement any processing of CloudFormation Intrinsic Functions.
+> 
+> Intrinsic functions in YAML short form (e.g. !Sub) will choke the parser.
+> Intrinsic functions in long or short form, in JSON or YAML templates will be replaced will nil values.
+> 
+> This is something that we are working on as a priority, but depends on patching Go's YAML parser.
+
 ## Main features
 
 * Describe CloudFormation / SAM templates as Go structs, and then turn it into JSON/YAML
