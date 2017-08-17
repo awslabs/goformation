@@ -100,9 +100,9 @@ func (p Property) Schema(name, parent string) string {
 
 }
 
-// IsMultiType checks whether a property can be multiple different types
-func (p Property) IsMultiType() bool {
-	return len(p.PrimitiveTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.ItemTypes) > 0
+// IsPolymorphic checks whether a property can be multiple different types
+func (p Property) IsPolymorphic() bool {
+	return len(p.PrimitiveTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.ItemTypes) > 0 || len(p.Types) > 0
 }
 
 // IsPrimitive checks whether a property is a primitive type
@@ -139,7 +139,7 @@ func (p Property) IsCustomType() bool {
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
 func (p Property) GoType(basename string) string {
 
-	if p.IsMultiType() {
+	if p.IsPolymorphic() {
 
 		types := append([]string{}, p.PrimitiveTypes...)
 		types = append(types, p.Types...)
@@ -153,8 +153,9 @@ func (p Property) GoType(basename string) string {
 		}
 
 		name := basename + "_" + strings.Join(types, "Or")
-		generateMultiTypeResourceFile(name, p)
+		generatePolymorphicProperty(name, p)
 		return name
+
 	}
 
 	if p.IsMap() {

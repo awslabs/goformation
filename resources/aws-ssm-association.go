@@ -1,81 +1,137 @@
 package resources
 
-import (
-	"errors"
 
-	"github.com/mitchellh/mapstructure"
+import (
+	"encoding/json"
+	"fmt"
+	"errors"
 )
 
 // AWSSSMAssociation AWS CloudFormation Resource (AWS::SSM::Association)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
 type AWSSSMAssociation struct {
-
-	// DocumentVersion AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
-	DocumentVersion string `json:"DocumentVersion"`
-
-	// InstanceId AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-	InstanceId string `json:"InstanceId"`
-
-	// Name AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-	Name string `json:"Name"`
-
-	// Parameters AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters map[string]AWSSSMAssociation_ParameterValues `json:"Parameters"`
-
-	// ScheduleExpression AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
-	ScheduleExpression string `json:"ScheduleExpression"`
-
-	// Targets AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-	Targets []AWSSSMAssociation_Target `json:"Targets"`
+    
+    // DocumentVersion AWS CloudFormation Property
+    // Required: false
+    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+    DocumentVersion string `json:"DocumentVersion,omitempty"`
+    
+    // InstanceId AWS CloudFormation Property
+    // Required: false
+    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+    InstanceId string `json:"InstanceId,omitempty"`
+    
+    // Name AWS CloudFormation Property
+    // Required: true
+    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+    Name string `json:"Name,omitempty"`
+    
+    // Parameters AWS CloudFormation Property
+    // Required: false
+    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+    Parameters map[string]AWSSSMAssociation_ParameterValues `json:"Parameters,omitempty"`
+    
+    // ScheduleExpression AWS CloudFormation Property
+    // Required: false
+    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+    ScheduleExpression string `json:"ScheduleExpression,omitempty"`
+    
+    // Targets AWS CloudFormation Property
+    // Required: false
+    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+    Targets []AWSSSMAssociation_Target `json:"Targets,omitempty"`
+    
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSSSMAssociation) AWSCloudFormationType() string {
-	return "AWS::SSM::Association"
+    return "AWS::SSM::Association"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSSMAssociation) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+    return "1.4.2"
 }
 
-// GetAllAWSSSMAssociationResources retrieves all AWSSSMAssociation items from a CloudFormation template
-func (t *Template) GetAllAWSSSMAssociationResources() map[string]*AWSSSMAssociation {
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
+func (r *AWSSSMAssociation) MarshalJSON() ([]byte, error) {
+	type Properties AWSSSMAssociation
+	return json.Marshal(&struct{
+		Type string
+		Properties Properties
+	}{
+		Type: r.AWSCloudFormationType(),
+		Properties: (Properties)(*r),
+	})
+}
 
-	results := map[string]*AWSSSMAssociation{}
-	for name, resource := range t.Resources {
-		result := &AWSSSMAssociation{}
-		if err := mapstructure.Decode(resource, result); err == nil {
-			results[name] = result
+// UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
+// AWS CloudFormation resource object, and just keeps the 'Properties' field.
+func (r *AWSSSMAssociation) UnmarshalJSON(b []byte) error {
+	type Properties AWSSSMAssociation
+	res := &struct {
+		Type string
+		Properties *Properties
+	}{}
+	if err := json.Unmarshal(b, &res); err != nil {
+		fmt.Printf("ERROR: %s\n", err)
+		return err
+	}
+	*r = AWSSSMAssociation(*res.Properties)
+	return nil	
+}
+
+// GetAllAWSSSMAssociationResources retrieves all AWSSSMAssociation items from an AWS CloudFormation template
+func (t *CloudFormationTemplate) GetAllAWSSSMAssociationResources () map[string]AWSSSMAssociation {
+    results := map[string]AWSSSMAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case AWSSSMAssociation:
+			// We found a strongly typed resource of the correct type; use it
+			results[name] = resource
+		case map[string]interface{}:
+			// We found an untyped resource (likely from JSON) which *might* be
+			// the correct type, but we need to check it's 'Type' field
+			if resType, ok := resource["Type"]; ok {
+				if resType == "AWS::SSM::Association" {
+					// The resource is correct, unmarshal it into the results
+					if b, err := json.Marshal(resource); err == nil {
+						var result AWSSSMAssociation
+						if err := json.Unmarshal(b, &result); err == nil {
+							results[name] = result
+						}
+					}
+				}
+			}
 		}
 	}
 	return results
-
 }
 
-// GetAWSSSMAssociationWithName retrieves all AWSSSMAssociation items from a CloudFormation template
+// GetAWSSSMAssociationWithName retrieves all AWSSSMAssociation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSSSMAssociationWithName(name string) (*AWSSSMAssociation, error) {
-
-	result := &AWSSSMAssociation{}
-	if resource, ok := t.Resources[name]; ok {
-		if err := mapstructure.Decode(resource, result); err == nil {
-			return result, nil
+func (t *CloudFormationTemplate) GetAWSSSMAssociationWithName (name string) (AWSSSMAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {		
+		switch resource := untyped.(type) {
+		case AWSSSMAssociation:
+			// We found a strongly typed resource of the correct type; use it
+			return resource, nil
+		case map[string]interface{}:
+			// We found an untyped resource (likely from JSON) which *might* be
+			// the correct type, but we need to check it's 'Type' field
+			if resType, ok := resource["Type"]; ok {
+				if resType == "AWS::SSM::Association" {
+					// The resource is correct, unmarshal it into the results
+					if b, err := json.Marshal(resource); err == nil {
+						var result AWSSSMAssociation
+						if err := json.Unmarshal(b, &result); err == nil {
+							return result, nil
+						}
+					}
+				}
+			}	
 		}
 	}
-
-	return &AWSSSMAssociation{}, errors.New("resource not found")
-
+    return AWSSSMAssociation{}, errors.New("resource not found")
 }

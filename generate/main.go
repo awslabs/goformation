@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"go/format"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -132,12 +131,12 @@ func generateResources(name string, resource Resource, isCustomProperty bool, sp
 	}
 
 	// Format the generated Go file with gofmt
-	formatted, err := format.Source(buf.Bytes())
-	if err != nil {
-		fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
-		os.Exit(1)
-	}
-
+	// formatted, err := format.Source(buf.Bytes())
+	// if err != nil {
+	// 	fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
+	// 	os.Exit(1)
+	// }
+	formatted := buf.Bytes()
 	// Write the file out
 	if err := ioutil.WriteFile("resources/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
@@ -186,12 +185,12 @@ func generateSchema(filename string, spec *CloudFormationResourceSpecification) 
 
 }
 
-func generateMultiTypeResourceFile(name string, property Property) {
+func generatePolymorphicProperty(name string, property Property) {
 
-	// Open the multi-type resource template
-	tmpl, err := template.New("multi-type.template").Funcs(template.FuncMap{
+	// Open the polymorphic property template
+	tmpl, err := template.New("polymorphic-property.template").Funcs(template.FuncMap{
 		"convertToGoType": convertTypeToGo,
-	}).ParseFiles("generate/templates/multi-type.template")
+	}).ParseFiles("generate/templates/polymorphic-property.template")
 
 	nameParts := strings.Split(name, "_")
 
@@ -218,24 +217,24 @@ func generateMultiTypeResourceFile(name string, property Property) {
 	var buf bytes.Buffer
 	err = tmpl.Execute(&buf, templateData)
 	if err != nil {
-		fmt.Printf("Error: Failed to generate multi-type %s\n%s\n", name, err)
+		fmt.Printf("Error: Failed to generate polymorphic property %s\n%s\n", name, err)
 		os.Exit(1)
 	}
 
 	// Format the generated Go file with gofmt
-	formatted, err := format.Source(buf.Bytes())
-	if err != nil {
-		fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
-		os.Exit(1)
-	}
-
+	// formatted, err := format.Source(buf.Bytes())
+	// if err != nil {
+	// 	fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
+	// 	os.Exit(1)
+	// }
+	formatted := buf.Bytes()
 	// Write the file out
 	if err := ioutil.WriteFile("resources/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("Generated multi-type helper: %s\n", name)
+	fmt.Printf("Generated polymorphic property: %s\n", name)
 
 }
 
