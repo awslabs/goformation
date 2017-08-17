@@ -1,82 +1,80 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2NetworkAclEntry AWS CloudFormation Resource (AWS::EC2::NetworkAclEntry)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html
 type AWSEC2NetworkAclEntry struct {
-    
-    // CidrBlock AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-cidrblock
-    CidrBlock string `json:"CidrBlock,omitempty"`
-    
-    // Egress AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-egress
-    Egress bool `json:"Egress,omitempty"`
-    
-    // Icmp AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-icmp
-    Icmp *AWSEC2NetworkAclEntry_Icmp `json:"Icmp,omitempty"`
-    
-    // Ipv6CidrBlock AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-ipv6cidrblock
-    Ipv6CidrBlock string `json:"Ipv6CidrBlock,omitempty"`
-    
-    // NetworkAclId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-networkaclid
-    NetworkAclId string `json:"NetworkAclId,omitempty"`
-    
-    // PortRange AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-portrange
-    PortRange *AWSEC2NetworkAclEntry_PortRange `json:"PortRange,omitempty"`
-    
-    // Protocol AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-protocol
-    Protocol int `json:"Protocol,omitempty"`
-    
-    // RuleAction AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-ruleaction
-    RuleAction string `json:"RuleAction,omitempty"`
-    
-    // RuleNumber AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-rulenumber
-    RuleNumber int `json:"RuleNumber,omitempty"`
-    
+
+	// CidrBlock AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-cidrblock
+	CidrBlock string `json:"CidrBlock,omitempty"`
+
+	// Egress AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-egress
+	Egress bool `json:"Egress,omitempty"`
+
+	// Icmp AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-icmp
+	Icmp *AWSEC2NetworkAclEntry_Icmp `json:"Icmp,omitempty"`
+
+	// Ipv6CidrBlock AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-ipv6cidrblock
+	Ipv6CidrBlock string `json:"Ipv6CidrBlock,omitempty"`
+
+	// NetworkAclId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-networkaclid
+	NetworkAclId string `json:"NetworkAclId,omitempty"`
+
+	// PortRange AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-portrange
+	PortRange *AWSEC2NetworkAclEntry_PortRange `json:"PortRange,omitempty"`
+
+	// Protocol AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-protocol
+	Protocol int `json:"Protocol,omitempty"`
+
+	// RuleAction AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-ruleaction
+	RuleAction string `json:"RuleAction,omitempty"`
+
+	// RuleNumber AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-rulenumber
+	RuleNumber int `json:"RuleNumber,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2NetworkAclEntry) AWSCloudFormationType() string {
-    return "AWS::EC2::NetworkAclEntry"
+	return "AWS::EC2::NetworkAclEntry"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NetworkAclEntry) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2NetworkAclEntry) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2NetworkAclEntry
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -86,7 +84,7 @@ func (r *AWSEC2NetworkAclEntry) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2NetworkAclEntry) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2NetworkAclEntry
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -94,12 +92,12 @@ func (r *AWSEC2NetworkAclEntry) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2NetworkAclEntry(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2NetworkAclEntryResources retrieves all AWSEC2NetworkAclEntry items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2NetworkAclEntryResources () map[string]AWSEC2NetworkAclEntry {
-    results := map[string]AWSEC2NetworkAclEntry{}
+func (t *CloudFormationTemplate) GetAllAWSEC2NetworkAclEntryResources() map[string]AWSEC2NetworkAclEntry {
+	results := map[string]AWSEC2NetworkAclEntry{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkAclEntry:
@@ -126,8 +124,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2NetworkAclEntryResources () map[str
 
 // GetAWSEC2NetworkAclEntryWithName retrieves all AWSEC2NetworkAclEntry items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2NetworkAclEntryWithName (name string) (AWSEC2NetworkAclEntry, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2NetworkAclEntryWithName(name string) (AWSEC2NetworkAclEntry, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkAclEntry:
 			// We found a strongly typed resource of the correct type; use it
@@ -145,8 +143,8 @@ func (t *CloudFormationTemplate) GetAWSEC2NetworkAclEntryWithName (name string) 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2NetworkAclEntry{}, errors.New("resource not found")
+	return AWSEC2NetworkAclEntry{}, errors.New("resource not found")
 }

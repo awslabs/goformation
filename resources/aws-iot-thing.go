@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIoTThing AWS CloudFormation Resource (AWS::IoT::Thing)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
 type AWSIoTThing struct {
-    
-    // AttributePayload AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload
-    AttributePayload *AWSIoTThing_AttributePayload `json:"AttributePayload,omitempty"`
-    
-    // ThingName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname
-    ThingName string `json:"ThingName,omitempty"`
-    
+
+	// AttributePayload AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload
+	AttributePayload *AWSIoTThing_AttributePayload `json:"AttributePayload,omitempty"`
+
+	// ThingName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname
+	ThingName string `json:"ThingName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIoTThing) AWSCloudFormationType() string {
-    return "AWS::IoT::Thing"
+	return "AWS::IoT::Thing"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTThing) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIoTThing) MarshalJSON() ([]byte, error) {
 	type Properties AWSIoTThing
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSIoTThing) MarshalJSON() ([]byte, error) {
 func (r *AWSIoTThing) UnmarshalJSON(b []byte) error {
 	type Properties AWSIoTThing
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSIoTThing) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIoTThing(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIoTThingResources retrieves all AWSIoTThing items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIoTThingResources () map[string]AWSIoTThing {
-    results := map[string]AWSIoTThing{}
+func (t *CloudFormationTemplate) GetAllAWSIoTThingResources() map[string]AWSIoTThing {
+	results := map[string]AWSIoTThing{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIoTThing:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSIoTThingResources () map[string]AWSIoT
 
 // GetAWSIoTThingWithName retrieves all AWSIoTThing items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIoTThingWithName (name string) (AWSIoTThing, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIoTThingWithName(name string) (AWSIoTThing, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIoTThing:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSIoTThingWithName (name string) (AWSIoTThi
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIoTThing{}, errors.New("resource not found")
+	return AWSIoTThing{}, errors.New("resource not found")
 }

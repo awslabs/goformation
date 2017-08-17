@@ -1,67 +1,65 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIAMUser AWS CloudFormation Resource (AWS::IAM::User)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
 type AWSIAMUser struct {
-    
-    // Groups AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
-    Groups []string `json:"Groups,omitempty"`
-    
-    // LoginProfile AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-loginprofile
-    LoginProfile *AWSIAMUser_LoginProfile `json:"LoginProfile,omitempty"`
-    
-    // ManagedPolicyArns AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-managepolicyarns
-    ManagedPolicyArns []string `json:"ManagedPolicyArns,omitempty"`
-    
-    // Path AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path
-    Path string `json:"Path,omitempty"`
-    
-    // Policies AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-policies
-    Policies []AWSIAMUser_Policy `json:"Policies,omitempty"`
-    
-    // UserName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-username
-    UserName string `json:"UserName,omitempty"`
-    
+
+	// Groups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
+	Groups []string `json:"Groups,omitempty"`
+
+	// LoginProfile AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-loginprofile
+	LoginProfile *AWSIAMUser_LoginProfile `json:"LoginProfile,omitempty"`
+
+	// ManagedPolicyArns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-managepolicyarns
+	ManagedPolicyArns []string `json:"ManagedPolicyArns,omitempty"`
+
+	// Path AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path
+	Path string `json:"Path,omitempty"`
+
+	// Policies AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-policies
+	Policies []AWSIAMUser_Policy `json:"Policies,omitempty"`
+
+	// UserName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-username
+	UserName string `json:"UserName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMUser) AWSCloudFormationType() string {
-    return "AWS::IAM::User"
+	return "AWS::IAM::User"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMUser) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIAMUser) MarshalJSON() ([]byte, error) {
 	type Properties AWSIAMUser
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -71,7 +69,7 @@ func (r *AWSIAMUser) MarshalJSON() ([]byte, error) {
 func (r *AWSIAMUser) UnmarshalJSON(b []byte) error {
 	type Properties AWSIAMUser
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -79,12 +77,12 @@ func (r *AWSIAMUser) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIAMUser(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIAMUserResources retrieves all AWSIAMUser items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIAMUserResources () map[string]AWSIAMUser {
-    results := map[string]AWSIAMUser{}
+func (t *CloudFormationTemplate) GetAllAWSIAMUserResources() map[string]AWSIAMUser {
+	results := map[string]AWSIAMUser{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIAMUser:
@@ -111,8 +109,8 @@ func (t *CloudFormationTemplate) GetAllAWSIAMUserResources () map[string]AWSIAMU
 
 // GetAWSIAMUserWithName retrieves all AWSIAMUser items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIAMUserWithName (name string) (AWSIAMUser, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIAMUserWithName(name string) (AWSIAMUser, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIAMUser:
 			// We found a strongly typed resource of the correct type; use it
@@ -130,8 +128,8 @@ func (t *CloudFormationTemplate) GetAWSIAMUserWithName (name string) (AWSIAMUser
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIAMUser{}, errors.New("resource not found")
+	return AWSIAMUser{}, errors.New("resource not found")
 }

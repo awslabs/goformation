@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2VPCCidrBlock AWS CloudFormation Resource (AWS::EC2::VPCCidrBlock)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
 type AWSEC2VPCCidrBlock struct {
-    
-    // AmazonProvidedIpv6CidrBlock AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock
-    AmazonProvidedIpv6CidrBlock bool `json:"AmazonProvidedIpv6CidrBlock,omitempty"`
-    
-    // VpcId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid
-    VpcId string `json:"VpcId,omitempty"`
-    
+
+	// AmazonProvidedIpv6CidrBlock AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock
+	AmazonProvidedIpv6CidrBlock bool `json:"AmazonProvidedIpv6CidrBlock,omitempty"`
+
+	// VpcId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid
+	VpcId string `json:"VpcId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2VPCCidrBlock) AWSCloudFormationType() string {
-    return "AWS::EC2::VPCCidrBlock"
+	return "AWS::EC2::VPCCidrBlock"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPCCidrBlock) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2VPCCidrBlock) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPCCidrBlock
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSEC2VPCCidrBlock) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2VPCCidrBlock) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2VPCCidrBlock
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSEC2VPCCidrBlock) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2VPCCidrBlock(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VPCCidrBlockResources retrieves all AWSEC2VPCCidrBlock items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VPCCidrBlockResources () map[string]AWSEC2VPCCidrBlock {
-    results := map[string]AWSEC2VPCCidrBlock{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VPCCidrBlockResources() map[string]AWSEC2VPCCidrBlock {
+	results := map[string]AWSEC2VPCCidrBlock{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2VPCCidrBlock:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VPCCidrBlockResources () map[string
 
 // GetAWSEC2VPCCidrBlockWithName retrieves all AWSEC2VPCCidrBlock items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VPCCidrBlockWithName (name string) (AWSEC2VPCCidrBlock, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VPCCidrBlockWithName(name string) (AWSEC2VPCCidrBlock, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2VPCCidrBlock:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VPCCidrBlockWithName (name string) (AW
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2VPCCidrBlock{}, errors.New("resource not found")
+	return AWSEC2VPCCidrBlock{}, errors.New("resource not found")
 }

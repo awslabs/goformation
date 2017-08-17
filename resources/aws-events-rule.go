@@ -1,72 +1,70 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEventsRule AWS CloudFormation Resource (AWS::Events::Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
 type AWSEventsRule struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description
-    Description string `json:"Description,omitempty"`
-    
-    // EventPattern AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern
-    EventPattern interface{} `json:"EventPattern,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name
-    Name string `json:"Name,omitempty"`
-    
-    // RoleArn AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-rolearn
-    RoleArn string `json:"RoleArn,omitempty"`
-    
-    // ScheduleExpression AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-scheduleexpression
-    ScheduleExpression string `json:"ScheduleExpression,omitempty"`
-    
-    // State AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state
-    State string `json:"State,omitempty"`
-    
-    // Targets AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets
-    Targets []AWSEventsRule_Target `json:"Targets,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description
+	Description string `json:"Description,omitempty"`
+
+	// EventPattern AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern
+	EventPattern interface{} `json:"EventPattern,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name
+	Name string `json:"Name,omitempty"`
+
+	// RoleArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-rolearn
+	RoleArn string `json:"RoleArn,omitempty"`
+
+	// ScheduleExpression AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-scheduleexpression
+	ScheduleExpression string `json:"ScheduleExpression,omitempty"`
+
+	// State AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state
+	State string `json:"State,omitempty"`
+
+	// Targets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets
+	Targets []AWSEventsRule_Target `json:"Targets,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEventsRule) AWSCloudFormationType() string {
-    return "AWS::Events::Rule"
+	return "AWS::Events::Rule"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEventsRule) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEventsRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSEventsRule
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -76,7 +74,7 @@ func (r *AWSEventsRule) MarshalJSON() ([]byte, error) {
 func (r *AWSEventsRule) UnmarshalJSON(b []byte) error {
 	type Properties AWSEventsRule
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -84,12 +82,12 @@ func (r *AWSEventsRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEventsRule(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEventsRuleResources retrieves all AWSEventsRule items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEventsRuleResources () map[string]AWSEventsRule {
-    results := map[string]AWSEventsRule{}
+func (t *CloudFormationTemplate) GetAllAWSEventsRuleResources() map[string]AWSEventsRule {
+	results := map[string]AWSEventsRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEventsRule:
@@ -116,8 +114,8 @@ func (t *CloudFormationTemplate) GetAllAWSEventsRuleResources () map[string]AWSE
 
 // GetAWSEventsRuleWithName retrieves all AWSEventsRule items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEventsRuleWithName (name string) (AWSEventsRule, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEventsRuleWithName(name string) (AWSEventsRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEventsRule:
 			// We found a strongly typed resource of the correct type; use it
@@ -135,8 +133,8 @@ func (t *CloudFormationTemplate) GetAWSEventsRuleWithName (name string) (AWSEven
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEventsRule{}, errors.New("resource not found")
+	return AWSEventsRule{}, errors.New("resource not found")
 }

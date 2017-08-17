@@ -1,67 +1,65 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSConfigConfigRule AWS CloudFormation Resource (AWS::Config::ConfigRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
 type AWSConfigConfigRule struct {
-    
-    // ConfigRuleName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-configrulename
-    ConfigRuleName string `json:"ConfigRuleName,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description
-    Description string `json:"Description,omitempty"`
-    
-    // InputParameters AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-inputparameters
-    InputParameters interface{} `json:"InputParameters,omitempty"`
-    
-    // MaximumExecutionFrequency AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-maximumexecutionfrequency
-    MaximumExecutionFrequency string `json:"MaximumExecutionFrequency,omitempty"`
-    
-    // Scope AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-scope
-    Scope *AWSConfigConfigRule_Scope `json:"Scope,omitempty"`
-    
-    // Source AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source
-    Source *AWSConfigConfigRule_Source `json:"Source,omitempty"`
-    
+
+	// ConfigRuleName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-configrulename
+	ConfigRuleName string `json:"ConfigRuleName,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description
+	Description string `json:"Description,omitempty"`
+
+	// InputParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-inputparameters
+	InputParameters interface{} `json:"InputParameters,omitempty"`
+
+	// MaximumExecutionFrequency AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-maximumexecutionfrequency
+	MaximumExecutionFrequency string `json:"MaximumExecutionFrequency,omitempty"`
+
+	// Scope AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-scope
+	Scope *AWSConfigConfigRule_Scope `json:"Scope,omitempty"`
+
+	// Source AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source
+	Source *AWSConfigConfigRule_Source `json:"Source,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSConfigConfigRule) AWSCloudFormationType() string {
-    return "AWS::Config::ConfigRule"
+	return "AWS::Config::ConfigRule"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSConfigConfigRule) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSConfigConfigRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSConfigConfigRule
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -71,7 +69,7 @@ func (r *AWSConfigConfigRule) MarshalJSON() ([]byte, error) {
 func (r *AWSConfigConfigRule) UnmarshalJSON(b []byte) error {
 	type Properties AWSConfigConfigRule
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -79,12 +77,12 @@ func (r *AWSConfigConfigRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSConfigConfigRule(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSConfigConfigRuleResources retrieves all AWSConfigConfigRule items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSConfigConfigRuleResources () map[string]AWSConfigConfigRule {
-    results := map[string]AWSConfigConfigRule{}
+func (t *CloudFormationTemplate) GetAllAWSConfigConfigRuleResources() map[string]AWSConfigConfigRule {
+	results := map[string]AWSConfigConfigRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSConfigConfigRule:
@@ -111,8 +109,8 @@ func (t *CloudFormationTemplate) GetAllAWSConfigConfigRuleResources () map[strin
 
 // GetAWSConfigConfigRuleWithName retrieves all AWSConfigConfigRule items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSConfigConfigRuleWithName (name string) (AWSConfigConfigRule, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSConfigConfigRuleWithName(name string) (AWSConfigConfigRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSConfigConfigRule:
 			// We found a strongly typed resource of the correct type; use it
@@ -130,8 +128,8 @@ func (t *CloudFormationTemplate) GetAWSConfigConfigRuleWithName (name string) (A
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSConfigConfigRule{}, errors.New("resource not found")
+	return AWSConfigConfigRule{}, errors.New("resource not found")
 }

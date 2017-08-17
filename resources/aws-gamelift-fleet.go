@@ -1,92 +1,90 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSGameLiftFleet AWS CloudFormation Resource (AWS::GameLift::Fleet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
 type AWSGameLiftFleet struct {
-    
-    // BuildId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
-    BuildId string `json:"BuildId,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
-    Description string `json:"Description,omitempty"`
-    
-    // DesiredEC2Instances AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
-    DesiredEC2Instances int `json:"DesiredEC2Instances,omitempty"`
-    
-    // EC2InboundPermissions AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
-    EC2InboundPermissions []AWSGameLiftFleet_IpPermission `json:"EC2InboundPermissions,omitempty"`
-    
-    // EC2InstanceType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
-    EC2InstanceType string `json:"EC2InstanceType,omitempty"`
-    
-    // LogPaths AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
-    LogPaths []string `json:"LogPaths,omitempty"`
-    
-    // MaxSize AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
-    MaxSize int `json:"MaxSize,omitempty"`
-    
-    // MinSize AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
-    MinSize int `json:"MinSize,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
-    Name string `json:"Name,omitempty"`
-    
-    // ServerLaunchParameters AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-    ServerLaunchParameters string `json:"ServerLaunchParameters,omitempty"`
-    
-    // ServerLaunchPath AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
-    ServerLaunchPath string `json:"ServerLaunchPath,omitempty"`
-    
+
+	// BuildId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
+	BuildId string `json:"BuildId,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
+	Description string `json:"Description,omitempty"`
+
+	// DesiredEC2Instances AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
+	DesiredEC2Instances int `json:"DesiredEC2Instances,omitempty"`
+
+	// EC2InboundPermissions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
+	EC2InboundPermissions []AWSGameLiftFleet_IpPermission `json:"EC2InboundPermissions,omitempty"`
+
+	// EC2InstanceType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
+	EC2InstanceType string `json:"EC2InstanceType,omitempty"`
+
+	// LogPaths AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+	LogPaths []string `json:"LogPaths,omitempty"`
+
+	// MaxSize AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
+	MaxSize int `json:"MaxSize,omitempty"`
+
+	// MinSize AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
+	MinSize int `json:"MinSize,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
+	Name string `json:"Name,omitempty"`
+
+	// ServerLaunchParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
+	ServerLaunchParameters string `json:"ServerLaunchParameters,omitempty"`
+
+	// ServerLaunchPath AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
+	ServerLaunchPath string `json:"ServerLaunchPath,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSGameLiftFleet) AWSCloudFormationType() string {
-    return "AWS::GameLift::Fleet"
+	return "AWS::GameLift::Fleet"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSGameLiftFleet) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSGameLiftFleet) MarshalJSON() ([]byte, error) {
 	type Properties AWSGameLiftFleet
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -96,7 +94,7 @@ func (r *AWSGameLiftFleet) MarshalJSON() ([]byte, error) {
 func (r *AWSGameLiftFleet) UnmarshalJSON(b []byte) error {
 	type Properties AWSGameLiftFleet
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -104,12 +102,12 @@ func (r *AWSGameLiftFleet) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSGameLiftFleet(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSGameLiftFleetResources retrieves all AWSGameLiftFleet items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSGameLiftFleetResources () map[string]AWSGameLiftFleet {
-    results := map[string]AWSGameLiftFleet{}
+func (t *CloudFormationTemplate) GetAllAWSGameLiftFleetResources() map[string]AWSGameLiftFleet {
+	results := map[string]AWSGameLiftFleet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSGameLiftFleet:
@@ -136,8 +134,8 @@ func (t *CloudFormationTemplate) GetAllAWSGameLiftFleetResources () map[string]A
 
 // GetAWSGameLiftFleetWithName retrieves all AWSGameLiftFleet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSGameLiftFleetWithName (name string) (AWSGameLiftFleet, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSGameLiftFleetWithName(name string) (AWSGameLiftFleet, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSGameLiftFleet:
 			// We found a strongly typed resource of the correct type; use it
@@ -155,8 +153,8 @@ func (t *CloudFormationTemplate) GetAWSGameLiftFleetWithName (name string) (AWSG
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSGameLiftFleet{}, errors.New("resource not found")
+	return AWSGameLiftFleet{}, errors.New("resource not found")
 }

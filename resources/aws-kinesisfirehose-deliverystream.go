@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSKinesisFirehoseDeliveryStream AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 type AWSKinesisFirehoseDeliveryStream struct {
-    
-    // DeliveryStreamName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverstream-deliverystreamname
-    DeliveryStreamName string `json:"DeliveryStreamName,omitempty"`
-    
-    // ElasticsearchDestinationConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverstream-elasticsearchdestinationconfiguration
-    ElasticsearchDestinationConfiguration *AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration `json:"ElasticsearchDestinationConfiguration,omitempty"`
-    
-    // RedshiftDestinationConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-    RedshiftDestinationConfiguration *AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration `json:"RedshiftDestinationConfiguration,omitempty"`
-    
-    // S3DestinationConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-    S3DestinationConfiguration *AWSKinesisFirehoseDeliveryStream_S3DestinationConfiguration `json:"S3DestinationConfiguration,omitempty"`
-    
+
+	// DeliveryStreamName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverstream-deliverystreamname
+	DeliveryStreamName string `json:"DeliveryStreamName,omitempty"`
+
+	// ElasticsearchDestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverstream-elasticsearchdestinationconfiguration
+	ElasticsearchDestinationConfiguration *AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration `json:"ElasticsearchDestinationConfiguration,omitempty"`
+
+	// RedshiftDestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
+	RedshiftDestinationConfiguration *AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration `json:"RedshiftDestinationConfiguration,omitempty"`
+
+	// S3DestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
+	S3DestinationConfiguration *AWSKinesisFirehoseDeliveryStream_S3DestinationConfiguration `json:"S3DestinationConfiguration,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSKinesisFirehoseDeliveryStream) AWSCloudFormationType() string {
-    return "AWS::KinesisFirehose::DeliveryStream"
+	return "AWS::KinesisFirehose::DeliveryStream"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSKinesisFirehoseDeliveryStream) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSKinesisFirehoseDeliveryStream) MarshalJSON() ([]byte, error) {
 	type Properties AWSKinesisFirehoseDeliveryStream
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSKinesisFirehoseDeliveryStream) MarshalJSON() ([]byte, error) {
 func (r *AWSKinesisFirehoseDeliveryStream) UnmarshalJSON(b []byte) error {
 	type Properties AWSKinesisFirehoseDeliveryStream
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSKinesisFirehoseDeliveryStream) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSKinesisFirehoseDeliveryStream(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSKinesisFirehoseDeliveryStreamResources retrieves all AWSKinesisFirehoseDeliveryStream items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSKinesisFirehoseDeliveryStreamResources () map[string]AWSKinesisFirehoseDeliveryStream {
-    results := map[string]AWSKinesisFirehoseDeliveryStream{}
+func (t *CloudFormationTemplate) GetAllAWSKinesisFirehoseDeliveryStreamResources() map[string]AWSKinesisFirehoseDeliveryStream {
+	results := map[string]AWSKinesisFirehoseDeliveryStream{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSKinesisFirehoseDeliveryStream:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSKinesisFirehoseDeliveryStreamResources
 
 // GetAWSKinesisFirehoseDeliveryStreamWithName retrieves all AWSKinesisFirehoseDeliveryStream items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSKinesisFirehoseDeliveryStreamWithName (name string) (AWSKinesisFirehoseDeliveryStream, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSKinesisFirehoseDeliveryStreamWithName(name string) (AWSKinesisFirehoseDeliveryStream, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSKinesisFirehoseDeliveryStream:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSKinesisFirehoseDeliveryStreamWithName (na
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSKinesisFirehoseDeliveryStream{}, errors.New("resource not found")
+	return AWSKinesisFirehoseDeliveryStream{}, errors.New("resource not found")
 }

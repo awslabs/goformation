@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSRDSDBClusterParameterGroup AWS CloudFormation Resource (AWS::RDS::DBClusterParameterGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html
 type AWSRDSDBClusterParameterGroup struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-description
-    Description string `json:"Description,omitempty"`
-    
-    // Family AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-family
-    Family string `json:"Family,omitempty"`
-    
-    // Parameters AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-parameters
-    Parameters interface{} `json:"Parameters,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-description
+	Description string `json:"Description,omitempty"`
+
+	// Family AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-family
+	Family string `json:"Family,omitempty"`
+
+	// Parameters AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-parameters
+	Parameters interface{} `json:"Parameters,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSRDSDBClusterParameterGroup) AWSCloudFormationType() string {
-    return "AWS::RDS::DBClusterParameterGroup"
+	return "AWS::RDS::DBClusterParameterGroup"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRDSDBClusterParameterGroup) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSRDSDBClusterParameterGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSRDSDBClusterParameterGroup
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSRDSDBClusterParameterGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSRDSDBClusterParameterGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSRDSDBClusterParameterGroup
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSRDSDBClusterParameterGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSRDSDBClusterParameterGroup(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSRDSDBClusterParameterGroupResources retrieves all AWSRDSDBClusterParameterGroup items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSRDSDBClusterParameterGroupResources () map[string]AWSRDSDBClusterParameterGroup {
-    results := map[string]AWSRDSDBClusterParameterGroup{}
+func (t *CloudFormationTemplate) GetAllAWSRDSDBClusterParameterGroupResources() map[string]AWSRDSDBClusterParameterGroup {
+	results := map[string]AWSRDSDBClusterParameterGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRDSDBClusterParameterGroup:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSRDSDBClusterParameterGroupResources ()
 
 // GetAWSRDSDBClusterParameterGroupWithName retrieves all AWSRDSDBClusterParameterGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSRDSDBClusterParameterGroupWithName (name string) (AWSRDSDBClusterParameterGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSRDSDBClusterParameterGroupWithName(name string) (AWSRDSDBClusterParameterGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRDSDBClusterParameterGroup:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSRDSDBClusterParameterGroupWithName (name 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSRDSDBClusterParameterGroup{}, errors.New("resource not found")
+	return AWSRDSDBClusterParameterGroup{}, errors.New("resource not found")
 }

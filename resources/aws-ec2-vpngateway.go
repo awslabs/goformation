@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2VPNGateway AWS CloudFormation Resource (AWS::EC2::VPNGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html
 type AWSEC2VPNGateway struct {
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // Type AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-type
-    Type string `json:"Type,omitempty"`
-    
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// Type AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-type
+	Type string `json:"Type,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2VPNGateway) AWSCloudFormationType() string {
-    return "AWS::EC2::VPNGateway"
+	return "AWS::EC2::VPNGateway"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPNGateway) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2VPNGateway) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPNGateway
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSEC2VPNGateway) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2VPNGateway) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2VPNGateway
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSEC2VPNGateway) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2VPNGateway(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VPNGatewayResources retrieves all AWSEC2VPNGateway items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VPNGatewayResources () map[string]AWSEC2VPNGateway {
-    results := map[string]AWSEC2VPNGateway{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VPNGatewayResources() map[string]AWSEC2VPNGateway {
+	results := map[string]AWSEC2VPNGateway{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2VPNGateway:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VPNGatewayResources () map[string]A
 
 // GetAWSEC2VPNGatewayWithName retrieves all AWSEC2VPNGateway items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VPNGatewayWithName (name string) (AWSEC2VPNGateway, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VPNGatewayWithName(name string) (AWSEC2VPNGateway, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2VPNGateway:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VPNGatewayWithName (name string) (AWSE
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2VPNGateway{}, errors.New("resource not found")
+	return AWSEC2VPNGateway{}, errors.New("resource not found")
 }

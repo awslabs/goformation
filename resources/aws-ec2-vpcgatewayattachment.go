@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2VPCGatewayAttachment AWS CloudFormation Resource (AWS::EC2::VPCGatewayAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
 type AWSEC2VPCGatewayAttachment struct {
-    
-    // InternetGatewayId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-internetgatewayid
-    InternetGatewayId string `json:"InternetGatewayId,omitempty"`
-    
-    // VpcId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-vpcid
-    VpcId string `json:"VpcId,omitempty"`
-    
-    // VpnGatewayId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-vpngatewayid
-    VpnGatewayId string `json:"VpnGatewayId,omitempty"`
-    
+
+	// InternetGatewayId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-internetgatewayid
+	InternetGatewayId string `json:"InternetGatewayId,omitempty"`
+
+	// VpcId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-vpcid
+	VpcId string `json:"VpcId,omitempty"`
+
+	// VpnGatewayId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html#cfn-ec2-vpcgatewayattachment-vpngatewayid
+	VpnGatewayId string `json:"VpnGatewayId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2VPCGatewayAttachment) AWSCloudFormationType() string {
-    return "AWS::EC2::VPCGatewayAttachment"
+	return "AWS::EC2::VPCGatewayAttachment"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPCGatewayAttachment) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2VPCGatewayAttachment) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPCGatewayAttachment
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSEC2VPCGatewayAttachment) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2VPCGatewayAttachment) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2VPCGatewayAttachment
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSEC2VPCGatewayAttachment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2VPCGatewayAttachment(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VPCGatewayAttachmentResources retrieves all AWSEC2VPCGatewayAttachment items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VPCGatewayAttachmentResources () map[string]AWSEC2VPCGatewayAttachment {
-    results := map[string]AWSEC2VPCGatewayAttachment{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VPCGatewayAttachmentResources() map[string]AWSEC2VPCGatewayAttachment {
+	results := map[string]AWSEC2VPCGatewayAttachment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2VPCGatewayAttachment:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VPCGatewayAttachmentResources () ma
 
 // GetAWSEC2VPCGatewayAttachmentWithName retrieves all AWSEC2VPCGatewayAttachment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VPCGatewayAttachmentWithName (name string) (AWSEC2VPCGatewayAttachment, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VPCGatewayAttachmentWithName(name string) (AWSEC2VPCGatewayAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2VPCGatewayAttachment:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VPCGatewayAttachmentWithName (name str
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2VPCGatewayAttachment{}, errors.New("resource not found")
+	return AWSEC2VPCGatewayAttachment{}, errors.New("resource not found")
 }

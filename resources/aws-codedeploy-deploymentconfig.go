@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCodeDeployDeploymentConfig AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
 type AWSCodeDeployDeploymentConfig struct {
-    
-    // DeploymentConfigName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-deploymentconfigname
-    DeploymentConfigName string `json:"DeploymentConfigName,omitempty"`
-    
-    // MinimumHealthyHosts AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts
-    MinimumHealthyHosts *AWSCodeDeployDeploymentConfig_MinimumHealthyHosts `json:"MinimumHealthyHosts,omitempty"`
-    
+
+	// DeploymentConfigName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-deploymentconfigname
+	DeploymentConfigName string `json:"DeploymentConfigName,omitempty"`
+
+	// MinimumHealthyHosts AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts
+	MinimumHealthyHosts *AWSCodeDeployDeploymentConfig_MinimumHealthyHosts `json:"MinimumHealthyHosts,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCodeDeployDeploymentConfig) AWSCloudFormationType() string {
-    return "AWS::CodeDeploy::DeploymentConfig"
+	return "AWS::CodeDeploy::DeploymentConfig"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeDeployDeploymentConfig) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCodeDeployDeploymentConfig) MarshalJSON() ([]byte, error) {
 	type Properties AWSCodeDeployDeploymentConfig
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSCodeDeployDeploymentConfig) MarshalJSON() ([]byte, error) {
 func (r *AWSCodeDeployDeploymentConfig) UnmarshalJSON(b []byte) error {
 	type Properties AWSCodeDeployDeploymentConfig
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSCodeDeployDeploymentConfig) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCodeDeployDeploymentConfig(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCodeDeployDeploymentConfigResources retrieves all AWSCodeDeployDeploymentConfig items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCodeDeployDeploymentConfigResources () map[string]AWSCodeDeployDeploymentConfig {
-    results := map[string]AWSCodeDeployDeploymentConfig{}
+func (t *CloudFormationTemplate) GetAllAWSCodeDeployDeploymentConfigResources() map[string]AWSCodeDeployDeploymentConfig {
+	results := map[string]AWSCodeDeployDeploymentConfig{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployDeploymentConfig:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSCodeDeployDeploymentConfigResources ()
 
 // GetAWSCodeDeployDeploymentConfigWithName retrieves all AWSCodeDeployDeploymentConfig items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCodeDeployDeploymentConfigWithName (name string) (AWSCodeDeployDeploymentConfig, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCodeDeployDeploymentConfigWithName(name string) (AWSCodeDeployDeploymentConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployDeploymentConfig:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSCodeDeployDeploymentConfigWithName (name 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCodeDeployDeploymentConfig{}, errors.New("resource not found")
+	return AWSCodeDeployDeploymentConfig{}, errors.New("resource not found")
 }

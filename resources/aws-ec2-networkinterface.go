@@ -1,92 +1,90 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2NetworkInterface AWS CloudFormation Resource (AWS::EC2::NetworkInterface)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html
 type AWSEC2NetworkInterface struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-description
-    Description string `json:"Description,omitempty"`
-    
-    // GroupSet AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-groupset
-    GroupSet []string `json:"GroupSet,omitempty"`
-    
-    // InterfaceType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-interfacetype
-    InterfaceType string `json:"InterfaceType,omitempty"`
-    
-    // Ipv6AddressCount AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresscount
-    Ipv6AddressCount int `json:"Ipv6AddressCount,omitempty"`
-    
-    // Ipv6Addresses AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
-    Ipv6Addresses *AWSEC2NetworkInterface_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
-    
-    // PrivateIpAddress AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
-    PrivateIpAddress string `json:"PrivateIpAddress,omitempty"`
-    
-    // PrivateIpAddresses AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddresses
-    PrivateIpAddresses []AWSEC2NetworkInterface_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
-    
-    // SecondaryPrivateIpAddressCount AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-secondaryprivateipcount
-    SecondaryPrivateIpAddressCount int `json:"SecondaryPrivateIpAddressCount,omitempty"`
-    
-    // SourceDestCheck AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-sourcedestcheck
-    SourceDestCheck bool `json:"SourceDestCheck,omitempty"`
-    
-    // SubnetId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-subnetid
-    SubnetId string `json:"SubnetId,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-description
+	Description string `json:"Description,omitempty"`
+
+	// GroupSet AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-groupset
+	GroupSet []string `json:"GroupSet,omitempty"`
+
+	// InterfaceType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-interfacetype
+	InterfaceType string `json:"InterfaceType,omitempty"`
+
+	// Ipv6AddressCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresscount
+	Ipv6AddressCount int `json:"Ipv6AddressCount,omitempty"`
+
+	// Ipv6Addresses AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
+	Ipv6Addresses *AWSEC2NetworkInterface_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
+
+	// PrivateIpAddress AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
+	PrivateIpAddress string `json:"PrivateIpAddress,omitempty"`
+
+	// PrivateIpAddresses AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddresses
+	PrivateIpAddresses []AWSEC2NetworkInterface_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
+
+	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-secondaryprivateipcount
+	SecondaryPrivateIpAddressCount int `json:"SecondaryPrivateIpAddressCount,omitempty"`
+
+	// SourceDestCheck AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-sourcedestcheck
+	SourceDestCheck bool `json:"SourceDestCheck,omitempty"`
+
+	// SubnetId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-subnetid
+	SubnetId string `json:"SubnetId,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2NetworkInterface) AWSCloudFormationType() string {
-    return "AWS::EC2::NetworkInterface"
+	return "AWS::EC2::NetworkInterface"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NetworkInterface) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2NetworkInterface) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2NetworkInterface
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -96,7 +94,7 @@ func (r *AWSEC2NetworkInterface) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2NetworkInterface) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2NetworkInterface
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -104,12 +102,12 @@ func (r *AWSEC2NetworkInterface) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2NetworkInterface(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2NetworkInterfaceResources retrieves all AWSEC2NetworkInterface items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfaceResources () map[string]AWSEC2NetworkInterface {
-    results := map[string]AWSEC2NetworkInterface{}
+func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfaceResources() map[string]AWSEC2NetworkInterface {
+	results := map[string]AWSEC2NetworkInterface{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkInterface:
@@ -136,8 +134,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfaceResources () map[st
 
 // GetAWSEC2NetworkInterfaceWithName retrieves all AWSEC2NetworkInterface items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfaceWithName (name string) (AWSEC2NetworkInterface, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfaceWithName(name string) (AWSEC2NetworkInterface, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkInterface:
 			// We found a strongly typed resource of the correct type; use it
@@ -155,8 +153,8 @@ func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfaceWithName (name string)
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2NetworkInterface{}, errors.New("resource not found")
+	return AWSEC2NetworkInterface{}, errors.New("resource not found")
 }

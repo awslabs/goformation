@@ -1,67 +1,65 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWorkSpacesWorkspace AWS CloudFormation Resource (AWS::WorkSpaces::Workspace)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
 type AWSWorkSpacesWorkspace struct {
-    
-    // BundleId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-bundleid
-    BundleId string `json:"BundleId,omitempty"`
-    
-    // DirectoryId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-directoryid
-    DirectoryId string `json:"DirectoryId,omitempty"`
-    
-    // RootVolumeEncryptionEnabled AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-rootvolumeencryptionenabled
-    RootVolumeEncryptionEnabled bool `json:"RootVolumeEncryptionEnabled,omitempty"`
-    
-    // UserName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username
-    UserName string `json:"UserName,omitempty"`
-    
-    // UserVolumeEncryptionEnabled AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled
-    UserVolumeEncryptionEnabled bool `json:"UserVolumeEncryptionEnabled,omitempty"`
-    
-    // VolumeEncryptionKey AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey
-    VolumeEncryptionKey string `json:"VolumeEncryptionKey,omitempty"`
-    
+
+	// BundleId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-bundleid
+	BundleId string `json:"BundleId,omitempty"`
+
+	// DirectoryId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-directoryid
+	DirectoryId string `json:"DirectoryId,omitempty"`
+
+	// RootVolumeEncryptionEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-rootvolumeencryptionenabled
+	RootVolumeEncryptionEnabled bool `json:"RootVolumeEncryptionEnabled,omitempty"`
+
+	// UserName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username
+	UserName string `json:"UserName,omitempty"`
+
+	// UserVolumeEncryptionEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled
+	UserVolumeEncryptionEnabled bool `json:"UserVolumeEncryptionEnabled,omitempty"`
+
+	// VolumeEncryptionKey AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey
+	VolumeEncryptionKey string `json:"VolumeEncryptionKey,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWorkSpacesWorkspace) AWSCloudFormationType() string {
-    return "AWS::WorkSpaces::Workspace"
+	return "AWS::WorkSpaces::Workspace"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWorkSpacesWorkspace) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWorkSpacesWorkspace) MarshalJSON() ([]byte, error) {
 	type Properties AWSWorkSpacesWorkspace
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -71,7 +69,7 @@ func (r *AWSWorkSpacesWorkspace) MarshalJSON() ([]byte, error) {
 func (r *AWSWorkSpacesWorkspace) UnmarshalJSON(b []byte) error {
 	type Properties AWSWorkSpacesWorkspace
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -79,12 +77,12 @@ func (r *AWSWorkSpacesWorkspace) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWorkSpacesWorkspace(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWorkSpacesWorkspaceResources retrieves all AWSWorkSpacesWorkspace items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWorkSpacesWorkspaceResources () map[string]AWSWorkSpacesWorkspace {
-    results := map[string]AWSWorkSpacesWorkspace{}
+func (t *CloudFormationTemplate) GetAllAWSWorkSpacesWorkspaceResources() map[string]AWSWorkSpacesWorkspace {
+	results := map[string]AWSWorkSpacesWorkspace{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWorkSpacesWorkspace:
@@ -111,8 +109,8 @@ func (t *CloudFormationTemplate) GetAllAWSWorkSpacesWorkspaceResources () map[st
 
 // GetAWSWorkSpacesWorkspaceWithName retrieves all AWSWorkSpacesWorkspace items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWorkSpacesWorkspaceWithName (name string) (AWSWorkSpacesWorkspace, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWorkSpacesWorkspaceWithName(name string) (AWSWorkSpacesWorkspace, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWorkSpacesWorkspace:
 			// We found a strongly typed resource of the correct type; use it
@@ -130,8 +128,8 @@ func (t *CloudFormationTemplate) GetAWSWorkSpacesWorkspaceWithName (name string)
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWorkSpacesWorkspace{}, errors.New("resource not found")
+	return AWSWorkSpacesWorkspace{}, errors.New("resource not found")
 }

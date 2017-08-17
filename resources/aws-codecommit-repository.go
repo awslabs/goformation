@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCodeCommitRepository AWS CloudFormation Resource (AWS::CodeCommit::Repository)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
 type AWSCodeCommitRepository struct {
-    
-    // RepositoryDescription AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription
-    RepositoryDescription string `json:"RepositoryDescription,omitempty"`
-    
-    // RepositoryName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositoryname
-    RepositoryName string `json:"RepositoryName,omitempty"`
-    
-    // Triggers AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers
-    Triggers []AWSCodeCommitRepository_RepositoryTrigger `json:"Triggers,omitempty"`
-    
+
+	// RepositoryDescription AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription
+	RepositoryDescription string `json:"RepositoryDescription,omitempty"`
+
+	// RepositoryName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositoryname
+	RepositoryName string `json:"RepositoryName,omitempty"`
+
+	// Triggers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers
+	Triggers []AWSCodeCommitRepository_RepositoryTrigger `json:"Triggers,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCodeCommitRepository) AWSCloudFormationType() string {
-    return "AWS::CodeCommit::Repository"
+	return "AWS::CodeCommit::Repository"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeCommitRepository) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCodeCommitRepository) MarshalJSON() ([]byte, error) {
 	type Properties AWSCodeCommitRepository
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSCodeCommitRepository) MarshalJSON() ([]byte, error) {
 func (r *AWSCodeCommitRepository) UnmarshalJSON(b []byte) error {
 	type Properties AWSCodeCommitRepository
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSCodeCommitRepository) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCodeCommitRepository(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCodeCommitRepositoryResources retrieves all AWSCodeCommitRepository items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCodeCommitRepositoryResources () map[string]AWSCodeCommitRepository {
-    results := map[string]AWSCodeCommitRepository{}
+func (t *CloudFormationTemplate) GetAllAWSCodeCommitRepositoryResources() map[string]AWSCodeCommitRepository {
+	results := map[string]AWSCodeCommitRepository{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCodeCommitRepository:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSCodeCommitRepositoryResources () map[s
 
 // GetAWSCodeCommitRepositoryWithName retrieves all AWSCodeCommitRepository items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCodeCommitRepositoryWithName (name string) (AWSCodeCommitRepository, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCodeCommitRepositoryWithName(name string) (AWSCodeCommitRepository, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCodeCommitRepository:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSCodeCommitRepositoryWithName (name string
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCodeCommitRepository{}, errors.New("resource not found")
+	return AWSCodeCommitRepository{}, errors.New("resource not found")
 }

@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIoTThingPrincipalAttachment AWS CloudFormation Resource (AWS::IoT::ThingPrincipalAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
 type AWSIoTThingPrincipalAttachment struct {
-    
-    // Principal AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
-    Principal string `json:"Principal,omitempty"`
-    
-    // ThingName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
-    ThingName string `json:"ThingName,omitempty"`
-    
+
+	// Principal AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
+	Principal string `json:"Principal,omitempty"`
+
+	// ThingName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
+	ThingName string `json:"ThingName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIoTThingPrincipalAttachment) AWSCloudFormationType() string {
-    return "AWS::IoT::ThingPrincipalAttachment"
+	return "AWS::IoT::ThingPrincipalAttachment"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTThingPrincipalAttachment) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIoTThingPrincipalAttachment) MarshalJSON() ([]byte, error) {
 	type Properties AWSIoTThingPrincipalAttachment
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSIoTThingPrincipalAttachment) MarshalJSON() ([]byte, error) {
 func (r *AWSIoTThingPrincipalAttachment) UnmarshalJSON(b []byte) error {
 	type Properties AWSIoTThingPrincipalAttachment
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSIoTThingPrincipalAttachment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIoTThingPrincipalAttachment(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIoTThingPrincipalAttachmentResources retrieves all AWSIoTThingPrincipalAttachment items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIoTThingPrincipalAttachmentResources () map[string]AWSIoTThingPrincipalAttachment {
-    results := map[string]AWSIoTThingPrincipalAttachment{}
+func (t *CloudFormationTemplate) GetAllAWSIoTThingPrincipalAttachmentResources() map[string]AWSIoTThingPrincipalAttachment {
+	results := map[string]AWSIoTThingPrincipalAttachment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIoTThingPrincipalAttachment:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSIoTThingPrincipalAttachmentResources (
 
 // GetAWSIoTThingPrincipalAttachmentWithName retrieves all AWSIoTThingPrincipalAttachment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIoTThingPrincipalAttachmentWithName (name string) (AWSIoTThingPrincipalAttachment, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIoTThingPrincipalAttachmentWithName(name string) (AWSIoTThingPrincipalAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIoTThingPrincipalAttachment:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSIoTThingPrincipalAttachmentWithName (name
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIoTThingPrincipalAttachment{}, errors.New("resource not found")
+	return AWSIoTThingPrincipalAttachment{}, errors.New("resource not found")
 }

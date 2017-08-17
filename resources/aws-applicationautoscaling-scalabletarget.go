@@ -1,67 +1,65 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApplicationAutoScalingScalableTarget AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalableTarget)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
 type AWSApplicationAutoScalingScalableTarget struct {
-    
-    // MaxCapacity AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
-    MaxCapacity int `json:"MaxCapacity,omitempty"`
-    
-    // MinCapacity AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity
-    MinCapacity int `json:"MinCapacity,omitempty"`
-    
-    // ResourceId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid
-    ResourceId string `json:"ResourceId,omitempty"`
-    
-    // RoleARN AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn
-    RoleARN string `json:"RoleARN,omitempty"`
-    
-    // ScalableDimension AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scalabledimension
-    ScalableDimension string `json:"ScalableDimension,omitempty"`
-    
-    // ServiceNamespace AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace
-    ServiceNamespace string `json:"ServiceNamespace,omitempty"`
-    
+
+	// MaxCapacity AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
+	MaxCapacity int `json:"MaxCapacity,omitempty"`
+
+	// MinCapacity AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity
+	MinCapacity int `json:"MinCapacity,omitempty"`
+
+	// ResourceId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid
+	ResourceId string `json:"ResourceId,omitempty"`
+
+	// RoleARN AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn
+	RoleARN string `json:"RoleARN,omitempty"`
+
+	// ScalableDimension AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scalabledimension
+	ScalableDimension string `json:"ScalableDimension,omitempty"`
+
+	// ServiceNamespace AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace
+	ServiceNamespace string `json:"ServiceNamespace,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApplicationAutoScalingScalableTarget) AWSCloudFormationType() string {
-    return "AWS::ApplicationAutoScaling::ScalableTarget"
+	return "AWS::ApplicationAutoScaling::ScalableTarget"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApplicationAutoScalingScalableTarget) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApplicationAutoScalingScalableTarget) MarshalJSON() ([]byte, error) {
 	type Properties AWSApplicationAutoScalingScalableTarget
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -71,7 +69,7 @@ func (r *AWSApplicationAutoScalingScalableTarget) MarshalJSON() ([]byte, error) 
 func (r *AWSApplicationAutoScalingScalableTarget) UnmarshalJSON(b []byte) error {
 	type Properties AWSApplicationAutoScalingScalableTarget
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -79,12 +77,12 @@ func (r *AWSApplicationAutoScalingScalableTarget) UnmarshalJSON(b []byte) error 
 		return err
 	}
 	*r = AWSApplicationAutoScalingScalableTarget(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApplicationAutoScalingScalableTargetResources retrieves all AWSApplicationAutoScalingScalableTarget items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApplicationAutoScalingScalableTargetResources () map[string]AWSApplicationAutoScalingScalableTarget {
-    results := map[string]AWSApplicationAutoScalingScalableTarget{}
+func (t *CloudFormationTemplate) GetAllAWSApplicationAutoScalingScalableTargetResources() map[string]AWSApplicationAutoScalingScalableTarget {
+	results := map[string]AWSApplicationAutoScalingScalableTarget{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApplicationAutoScalingScalableTarget:
@@ -111,8 +109,8 @@ func (t *CloudFormationTemplate) GetAllAWSApplicationAutoScalingScalableTargetRe
 
 // GetAWSApplicationAutoScalingScalableTargetWithName retrieves all AWSApplicationAutoScalingScalableTarget items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApplicationAutoScalingScalableTargetWithName (name string) (AWSApplicationAutoScalingScalableTarget, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApplicationAutoScalingScalableTargetWithName(name string) (AWSApplicationAutoScalingScalableTarget, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApplicationAutoScalingScalableTarget:
 			// We found a strongly typed resource of the correct type; use it
@@ -130,8 +128,8 @@ func (t *CloudFormationTemplate) GetAWSApplicationAutoScalingScalableTargetWithN
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApplicationAutoScalingScalableTarget{}, errors.New("resource not found")
+	return AWSApplicationAutoScalingScalableTarget{}, errors.New("resource not found")
 }

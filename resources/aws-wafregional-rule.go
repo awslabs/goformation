@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFRegionalRule AWS CloudFormation Resource (AWS::WAFRegional::Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html
 type AWSWAFRegionalRule struct {
-    
-    // MetricName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-metricname
-    MetricName string `json:"MetricName,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-name
-    Name string `json:"Name,omitempty"`
-    
-    // Predicates AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-predicates
-    Predicates []AWSWAFRegionalRule_Predicate `json:"Predicates,omitempty"`
-    
+
+	// MetricName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-metricname
+	MetricName string `json:"MetricName,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-name
+	Name string `json:"Name,omitempty"`
+
+	// Predicates AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-predicates
+	Predicates []AWSWAFRegionalRule_Predicate `json:"Predicates,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFRegionalRule) AWSCloudFormationType() string {
-    return "AWS::WAFRegional::Rule"
+	return "AWS::WAFRegional::Rule"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFRegionalRule) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFRegionalRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFRegionalRule
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSWAFRegionalRule) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFRegionalRule) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFRegionalRule
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSWAFRegionalRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFRegionalRule(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFRegionalRuleResources retrieves all AWSWAFRegionalRule items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFRegionalRuleResources () map[string]AWSWAFRegionalRule {
-    results := map[string]AWSWAFRegionalRule{}
+func (t *CloudFormationTemplate) GetAllAWSWAFRegionalRuleResources() map[string]AWSWAFRegionalRule {
+	results := map[string]AWSWAFRegionalRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalRule:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFRegionalRuleResources () map[string
 
 // GetAWSWAFRegionalRuleWithName retrieves all AWSWAFRegionalRule items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFRegionalRuleWithName (name string) (AWSWAFRegionalRule, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFRegionalRuleWithName(name string) (AWSWAFRegionalRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalRule:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSWAFRegionalRuleWithName (name string) (AW
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFRegionalRule{}, errors.New("resource not found")
+	return AWSWAFRegionalRule{}, errors.New("resource not found")
 }

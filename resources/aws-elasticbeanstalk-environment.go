@@ -1,87 +1,85 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSElasticBeanstalkEnvironment AWS CloudFormation Resource (AWS::ElasticBeanstalk::Environment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html
 type AWSElasticBeanstalkEnvironment struct {
-    
-    // ApplicationName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-applicationname
-    ApplicationName string `json:"ApplicationName,omitempty"`
-    
-    // CNAMEPrefix AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-cnameprefix
-    CNAMEPrefix string `json:"CNAMEPrefix,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-description
-    Description string `json:"Description,omitempty"`
-    
-    // EnvironmentName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-name
-    EnvironmentName string `json:"EnvironmentName,omitempty"`
-    
-    // OptionSettings AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-optionsettings
-    OptionSettings []AWSElasticBeanstalkEnvironment_OptionSettings `json:"OptionSettings,omitempty"`
-    
-    // SolutionStackName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-solutionstackname
-    SolutionStackName string `json:"SolutionStackName,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-elasticbeanstalk-environment-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // TemplateName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-templatename
-    TemplateName string `json:"TemplateName,omitempty"`
-    
-    // Tier AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-tier
-    Tier *AWSElasticBeanstalkEnvironment_Tier `json:"Tier,omitempty"`
-    
-    // VersionLabel AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-versionlabel
-    VersionLabel string `json:"VersionLabel,omitempty"`
-    
+
+	// ApplicationName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-applicationname
+	ApplicationName string `json:"ApplicationName,omitempty"`
+
+	// CNAMEPrefix AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-cnameprefix
+	CNAMEPrefix string `json:"CNAMEPrefix,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-description
+	Description string `json:"Description,omitempty"`
+
+	// EnvironmentName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-name
+	EnvironmentName string `json:"EnvironmentName,omitempty"`
+
+	// OptionSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-optionsettings
+	OptionSettings []AWSElasticBeanstalkEnvironment_OptionSettings `json:"OptionSettings,omitempty"`
+
+	// SolutionStackName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-solutionstackname
+	SolutionStackName string `json:"SolutionStackName,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-elasticbeanstalk-environment-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// TemplateName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-templatename
+	TemplateName string `json:"TemplateName,omitempty"`
+
+	// Tier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-tier
+	Tier *AWSElasticBeanstalkEnvironment_Tier `json:"Tier,omitempty"`
+
+	// VersionLabel AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-versionlabel
+	VersionLabel string `json:"VersionLabel,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElasticBeanstalkEnvironment) AWSCloudFormationType() string {
-    return "AWS::ElasticBeanstalk::Environment"
+	return "AWS::ElasticBeanstalk::Environment"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticBeanstalkEnvironment) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSElasticBeanstalkEnvironment) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticBeanstalkEnvironment
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -91,7 +89,7 @@ func (r *AWSElasticBeanstalkEnvironment) MarshalJSON() ([]byte, error) {
 func (r *AWSElasticBeanstalkEnvironment) UnmarshalJSON(b []byte) error {
 	type Properties AWSElasticBeanstalkEnvironment
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -99,12 +97,12 @@ func (r *AWSElasticBeanstalkEnvironment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSElasticBeanstalkEnvironment(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSElasticBeanstalkEnvironmentResources retrieves all AWSElasticBeanstalkEnvironment items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkEnvironmentResources () map[string]AWSElasticBeanstalkEnvironment {
-    results := map[string]AWSElasticBeanstalkEnvironment{}
+func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkEnvironmentResources() map[string]AWSElasticBeanstalkEnvironment {
+	results := map[string]AWSElasticBeanstalkEnvironment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElasticBeanstalkEnvironment:
@@ -131,8 +129,8 @@ func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkEnvironmentResources (
 
 // GetAWSElasticBeanstalkEnvironmentWithName retrieves all AWSElasticBeanstalkEnvironment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSElasticBeanstalkEnvironmentWithName (name string) (AWSElasticBeanstalkEnvironment, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSElasticBeanstalkEnvironmentWithName(name string) (AWSElasticBeanstalkEnvironment, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElasticBeanstalkEnvironment:
 			// We found a strongly typed resource of the correct type; use it
@@ -150,8 +148,8 @@ func (t *CloudFormationTemplate) GetAWSElasticBeanstalkEnvironmentWithName (name
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSElasticBeanstalkEnvironment{}, errors.New("resource not found")
+	return AWSElasticBeanstalkEnvironment{}, errors.New("resource not found")
 }

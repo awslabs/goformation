@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSRedshiftClusterSubnetGroup AWS CloudFormation Resource (AWS::Redshift::ClusterSubnetGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
 type AWSRedshiftClusterSubnetGroup struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-description
-    Description string `json:"Description,omitempty"`
-    
-    // SubnetIds AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-subnetids
-    SubnetIds []string `json:"SubnetIds,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-description
+	Description string `json:"Description,omitempty"`
+
+	// SubnetIds AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-subnetids
+	SubnetIds []string `json:"SubnetIds,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSRedshiftClusterSubnetGroup) AWSCloudFormationType() string {
-    return "AWS::Redshift::ClusterSubnetGroup"
+	return "AWS::Redshift::ClusterSubnetGroup"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRedshiftClusterSubnetGroup) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSRedshiftClusterSubnetGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSRedshiftClusterSubnetGroup
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSRedshiftClusterSubnetGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSRedshiftClusterSubnetGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSRedshiftClusterSubnetGroup
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSRedshiftClusterSubnetGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSRedshiftClusterSubnetGroup(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSRedshiftClusterSubnetGroupResources retrieves all AWSRedshiftClusterSubnetGroup items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterSubnetGroupResources () map[string]AWSRedshiftClusterSubnetGroup {
-    results := map[string]AWSRedshiftClusterSubnetGroup{}
+func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterSubnetGroupResources() map[string]AWSRedshiftClusterSubnetGroup {
+	results := map[string]AWSRedshiftClusterSubnetGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRedshiftClusterSubnetGroup:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterSubnetGroupResources ()
 
 // GetAWSRedshiftClusterSubnetGroupWithName retrieves all AWSRedshiftClusterSubnetGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSRedshiftClusterSubnetGroupWithName (name string) (AWSRedshiftClusterSubnetGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSRedshiftClusterSubnetGroupWithName(name string) (AWSRedshiftClusterSubnetGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRedshiftClusterSubnetGroup:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSRedshiftClusterSubnetGroupWithName (name 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSRedshiftClusterSubnetGroup{}, errors.New("resource not found")
+	return AWSRedshiftClusterSubnetGroup{}, errors.New("resource not found")
 }

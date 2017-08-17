@@ -1,72 +1,70 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSElasticLoadBalancingV2LoadBalancer AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::LoadBalancer)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 type AWSElasticLoadBalancingV2LoadBalancer struct {
-    
-    // IpAddressType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
-    IpAddressType string `json:"IpAddressType,omitempty"`
-    
-    // LoadBalancerAttributes AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
-    LoadBalancerAttributes []AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute `json:"LoadBalancerAttributes,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name
-    Name string `json:"Name,omitempty"`
-    
-    // Scheme AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
-    Scheme string `json:"Scheme,omitempty"`
-    
-    // SecurityGroups AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
-    SecurityGroups []string `json:"SecurityGroups,omitempty"`
-    
-    // Subnets AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
-    Subnets []string `json:"Subnets,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// IpAddressType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
+	IpAddressType string `json:"IpAddressType,omitempty"`
+
+	// LoadBalancerAttributes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
+	LoadBalancerAttributes []AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute `json:"LoadBalancerAttributes,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name
+	Name string `json:"Name,omitempty"`
+
+	// Scheme AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
+	Scheme string `json:"Scheme,omitempty"`
+
+	// SecurityGroups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
+	SecurityGroups []string `json:"SecurityGroups,omitempty"`
+
+	// Subnets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
+	Subnets []string `json:"Subnets,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElasticLoadBalancingV2LoadBalancer) AWSCloudFormationType() string {
-    return "AWS::ElasticLoadBalancingV2::LoadBalancer"
+	return "AWS::ElasticLoadBalancingV2::LoadBalancer"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticLoadBalancingV2LoadBalancer) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSElasticLoadBalancingV2LoadBalancer) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticLoadBalancingV2LoadBalancer
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -76,7 +74,7 @@ func (r *AWSElasticLoadBalancingV2LoadBalancer) MarshalJSON() ([]byte, error) {
 func (r *AWSElasticLoadBalancingV2LoadBalancer) UnmarshalJSON(b []byte) error {
 	type Properties AWSElasticLoadBalancingV2LoadBalancer
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -84,12 +82,12 @@ func (r *AWSElasticLoadBalancingV2LoadBalancer) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSElasticLoadBalancingV2LoadBalancer(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSElasticLoadBalancingV2LoadBalancerResources retrieves all AWSElasticLoadBalancingV2LoadBalancer items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSElasticLoadBalancingV2LoadBalancerResources () map[string]AWSElasticLoadBalancingV2LoadBalancer {
-    results := map[string]AWSElasticLoadBalancingV2LoadBalancer{}
+func (t *CloudFormationTemplate) GetAllAWSElasticLoadBalancingV2LoadBalancerResources() map[string]AWSElasticLoadBalancingV2LoadBalancer {
+	results := map[string]AWSElasticLoadBalancingV2LoadBalancer{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElasticLoadBalancingV2LoadBalancer:
@@ -116,8 +114,8 @@ func (t *CloudFormationTemplate) GetAllAWSElasticLoadBalancingV2LoadBalancerReso
 
 // GetAWSElasticLoadBalancingV2LoadBalancerWithName retrieves all AWSElasticLoadBalancingV2LoadBalancer items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSElasticLoadBalancingV2LoadBalancerWithName (name string) (AWSElasticLoadBalancingV2LoadBalancer, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSElasticLoadBalancingV2LoadBalancerWithName(name string) (AWSElasticLoadBalancingV2LoadBalancer, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElasticLoadBalancingV2LoadBalancer:
 			// We found a strongly typed resource of the correct type; use it
@@ -135,8 +133,8 @@ func (t *CloudFormationTemplate) GetAWSElasticLoadBalancingV2LoadBalancerWithNam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSElasticLoadBalancingV2LoadBalancer{}, errors.New("resource not found")
+	return AWSElasticLoadBalancingV2LoadBalancer{}, errors.New("resource not found")
 }

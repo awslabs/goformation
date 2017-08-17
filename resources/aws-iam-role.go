@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIAMRole AWS CloudFormation Resource (AWS::IAM::Role)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
 type AWSIAMRole struct {
-    
-    // AssumeRolePolicyDocument AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument
-    AssumeRolePolicyDocument interface{} `json:"AssumeRolePolicyDocument,omitempty"`
-    
-    // ManagedPolicyArns AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
-    ManagedPolicyArns []string `json:"ManagedPolicyArns,omitempty"`
-    
-    // Path AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-path
-    Path string `json:"Path,omitempty"`
-    
-    // Policies AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-policies
-    Policies []AWSIAMRole_Policy `json:"Policies,omitempty"`
-    
-    // RoleName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-rolename
-    RoleName string `json:"RoleName,omitempty"`
-    
+
+	// AssumeRolePolicyDocument AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument
+	AssumeRolePolicyDocument interface{} `json:"AssumeRolePolicyDocument,omitempty"`
+
+	// ManagedPolicyArns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
+	ManagedPolicyArns []string `json:"ManagedPolicyArns,omitempty"`
+
+	// Path AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-path
+	Path string `json:"Path,omitempty"`
+
+	// Policies AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-policies
+	Policies []AWSIAMRole_Policy `json:"Policies,omitempty"`
+
+	// RoleName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-rolename
+	RoleName string `json:"RoleName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMRole) AWSCloudFormationType() string {
-    return "AWS::IAM::Role"
+	return "AWS::IAM::Role"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMRole) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIAMRole) MarshalJSON() ([]byte, error) {
 	type Properties AWSIAMRole
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSIAMRole) MarshalJSON() ([]byte, error) {
 func (r *AWSIAMRole) UnmarshalJSON(b []byte) error {
 	type Properties AWSIAMRole
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSIAMRole) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIAMRole(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIAMRoleResources retrieves all AWSIAMRole items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIAMRoleResources () map[string]AWSIAMRole {
-    results := map[string]AWSIAMRole{}
+func (t *CloudFormationTemplate) GetAllAWSIAMRoleResources() map[string]AWSIAMRole {
+	results := map[string]AWSIAMRole{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIAMRole:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSIAMRoleResources () map[string]AWSIAMR
 
 // GetAWSIAMRoleWithName retrieves all AWSIAMRole items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIAMRoleWithName (name string) (AWSIAMRole, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIAMRoleWithName(name string) (AWSIAMRole, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIAMRole:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSIAMRoleWithName (name string) (AWSIAMRole
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIAMRole{}, errors.New("resource not found")
+	return AWSIAMRole{}, errors.New("resource not found")
 }

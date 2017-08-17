@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSS3BucketPolicy AWS CloudFormation Resource (AWS::S3::BucketPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
 type AWSS3BucketPolicy struct {
-    
-    // Bucket AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-bucket
-    Bucket string `json:"Bucket,omitempty"`
-    
-    // PolicyDocument AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-policydocument
-    PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
-    
+
+	// Bucket AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-bucket
+	Bucket string `json:"Bucket,omitempty"`
+
+	// PolicyDocument AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-policydocument
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSS3BucketPolicy) AWSCloudFormationType() string {
-    return "AWS::S3::BucketPolicy"
+	return "AWS::S3::BucketPolicy"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSS3BucketPolicy) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSS3BucketPolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSS3BucketPolicy
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSS3BucketPolicy) MarshalJSON() ([]byte, error) {
 func (r *AWSS3BucketPolicy) UnmarshalJSON(b []byte) error {
 	type Properties AWSS3BucketPolicy
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSS3BucketPolicy) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSS3BucketPolicy(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSS3BucketPolicyResources retrieves all AWSS3BucketPolicy items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSS3BucketPolicyResources () map[string]AWSS3BucketPolicy {
-    results := map[string]AWSS3BucketPolicy{}
+func (t *CloudFormationTemplate) GetAllAWSS3BucketPolicyResources() map[string]AWSS3BucketPolicy {
+	results := map[string]AWSS3BucketPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSS3BucketPolicy:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSS3BucketPolicyResources () map[string]
 
 // GetAWSS3BucketPolicyWithName retrieves all AWSS3BucketPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSS3BucketPolicyWithName (name string) (AWSS3BucketPolicy, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSS3BucketPolicyWithName(name string) (AWSS3BucketPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSS3BucketPolicy:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSS3BucketPolicyWithName (name string) (AWS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSS3BucketPolicy{}, errors.New("resource not found")
+	return AWSS3BucketPolicy{}, errors.New("resource not found")
 }

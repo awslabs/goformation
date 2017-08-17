@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFXssMatchSet AWS CloudFormation Resource (AWS::WAF::XssMatchSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html
 type AWSWAFXssMatchSet struct {
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-name
-    Name string `json:"Name,omitempty"`
-    
-    // XssMatchTuples AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-xssmatchtuples
-    XssMatchTuples []AWSWAFXssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
-    
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-name
+	Name string `json:"Name,omitempty"`
+
+	// XssMatchTuples AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-xssmatchtuples
+	XssMatchTuples []AWSWAFXssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFXssMatchSet) AWSCloudFormationType() string {
-    return "AWS::WAF::XssMatchSet"
+	return "AWS::WAF::XssMatchSet"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFXssMatchSet) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFXssMatchSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFXssMatchSet
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSWAFXssMatchSet) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFXssMatchSet) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFXssMatchSet
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSWAFXssMatchSet) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFXssMatchSet(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFXssMatchSetResources retrieves all AWSWAFXssMatchSet items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFXssMatchSetResources () map[string]AWSWAFXssMatchSet {
-    results := map[string]AWSWAFXssMatchSet{}
+func (t *CloudFormationTemplate) GetAllAWSWAFXssMatchSetResources() map[string]AWSWAFXssMatchSet {
+	results := map[string]AWSWAFXssMatchSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFXssMatchSet:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFXssMatchSetResources () map[string]
 
 // GetAWSWAFXssMatchSetWithName retrieves all AWSWAFXssMatchSet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFXssMatchSetWithName (name string) (AWSWAFXssMatchSet, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFXssMatchSetWithName(name string) (AWSWAFXssMatchSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFXssMatchSet:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSWAFXssMatchSetWithName (name string) (AWS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFXssMatchSet{}, errors.New("resource not found")
+	return AWSWAFXssMatchSet{}, errors.New("resource not found")
 }

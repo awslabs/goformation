@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIAMUserToGroupAddition AWS CloudFormation Resource (AWS::IAM::UserToGroupAddition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
 type AWSIAMUserToGroupAddition struct {
-    
-    // GroupName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-groupname
-    GroupName string `json:"GroupName,omitempty"`
-    
-    // Users AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-users
-    Users []string `json:"Users,omitempty"`
-    
+
+	// GroupName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-groupname
+	GroupName string `json:"GroupName,omitempty"`
+
+	// Users AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-users
+	Users []string `json:"Users,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMUserToGroupAddition) AWSCloudFormationType() string {
-    return "AWS::IAM::UserToGroupAddition"
+	return "AWS::IAM::UserToGroupAddition"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMUserToGroupAddition) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIAMUserToGroupAddition) MarshalJSON() ([]byte, error) {
 	type Properties AWSIAMUserToGroupAddition
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSIAMUserToGroupAddition) MarshalJSON() ([]byte, error) {
 func (r *AWSIAMUserToGroupAddition) UnmarshalJSON(b []byte) error {
 	type Properties AWSIAMUserToGroupAddition
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSIAMUserToGroupAddition) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIAMUserToGroupAddition(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIAMUserToGroupAdditionResources retrieves all AWSIAMUserToGroupAddition items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIAMUserToGroupAdditionResources () map[string]AWSIAMUserToGroupAddition {
-    results := map[string]AWSIAMUserToGroupAddition{}
+func (t *CloudFormationTemplate) GetAllAWSIAMUserToGroupAdditionResources() map[string]AWSIAMUserToGroupAddition {
+	results := map[string]AWSIAMUserToGroupAddition{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIAMUserToGroupAddition:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSIAMUserToGroupAdditionResources () map
 
 // GetAWSIAMUserToGroupAdditionWithName retrieves all AWSIAMUserToGroupAddition items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIAMUserToGroupAdditionWithName (name string) (AWSIAMUserToGroupAddition, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIAMUserToGroupAdditionWithName(name string) (AWSIAMUserToGroupAddition, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIAMUserToGroupAddition:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSIAMUserToGroupAdditionWithName (name stri
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIAMUserToGroupAddition{}, errors.New("resource not found")
+	return AWSIAMUserToGroupAddition{}, errors.New("resource not found")
 }

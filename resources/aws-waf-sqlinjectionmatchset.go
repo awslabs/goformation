@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFSqlInjectionMatchSet AWS CloudFormation Resource (AWS::WAF::SqlInjectionMatchSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html
 type AWSWAFSqlInjectionMatchSet struct {
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-name
-    Name string `json:"Name,omitempty"`
-    
-    // SqlInjectionMatchTuples AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-sqlinjectionmatchtuples
-    SqlInjectionMatchTuples []AWSWAFSqlInjectionMatchSet_SqlInjectionMatchTuple `json:"SqlInjectionMatchTuples,omitempty"`
-    
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-name
+	Name string `json:"Name,omitempty"`
+
+	// SqlInjectionMatchTuples AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-sqlinjectionmatchtuples
+	SqlInjectionMatchTuples []AWSWAFSqlInjectionMatchSet_SqlInjectionMatchTuple `json:"SqlInjectionMatchTuples,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFSqlInjectionMatchSet) AWSCloudFormationType() string {
-    return "AWS::WAF::SqlInjectionMatchSet"
+	return "AWS::WAF::SqlInjectionMatchSet"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFSqlInjectionMatchSet) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFSqlInjectionMatchSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFSqlInjectionMatchSet
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSWAFSqlInjectionMatchSet) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFSqlInjectionMatchSet) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFSqlInjectionMatchSet
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSWAFSqlInjectionMatchSet) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFSqlInjectionMatchSet(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFSqlInjectionMatchSetResources retrieves all AWSWAFSqlInjectionMatchSet items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFSqlInjectionMatchSetResources () map[string]AWSWAFSqlInjectionMatchSet {
-    results := map[string]AWSWAFSqlInjectionMatchSet{}
+func (t *CloudFormationTemplate) GetAllAWSWAFSqlInjectionMatchSetResources() map[string]AWSWAFSqlInjectionMatchSet {
+	results := map[string]AWSWAFSqlInjectionMatchSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFSqlInjectionMatchSet:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFSqlInjectionMatchSetResources () ma
 
 // GetAWSWAFSqlInjectionMatchSetWithName retrieves all AWSWAFSqlInjectionMatchSet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFSqlInjectionMatchSetWithName (name string) (AWSWAFSqlInjectionMatchSet, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFSqlInjectionMatchSetWithName(name string) (AWSWAFSqlInjectionMatchSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFSqlInjectionMatchSet:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSWAFSqlInjectionMatchSetWithName (name str
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFSqlInjectionMatchSet{}, errors.New("resource not found")
+	return AWSWAFSqlInjectionMatchSet{}, errors.New("resource not found")
 }

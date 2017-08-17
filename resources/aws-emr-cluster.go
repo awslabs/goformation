@@ -1,112 +1,110 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEMRCluster AWS CloudFormation Resource (AWS::EMR::Cluster)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html
 type AWSEMRCluster struct {
-    
-    // AdditionalInfo AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-additionalinfo
-    AdditionalInfo interface{} `json:"AdditionalInfo,omitempty"`
-    
-    // Applications AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-applications
-    Applications []AWSEMRCluster_Application `json:"Applications,omitempty"`
-    
-    // AutoScalingRole AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-autoscalingrole
-    AutoScalingRole string `json:"AutoScalingRole,omitempty"`
-    
-    // BootstrapActions AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-bootstrapactions
-    BootstrapActions []AWSEMRCluster_BootstrapActionConfig `json:"BootstrapActions,omitempty"`
-    
-    // Configurations AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-configurations
-    Configurations []AWSEMRCluster_Configuration `json:"Configurations,omitempty"`
-    
-    // Instances AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-instances
-    Instances *AWSEMRCluster_JobFlowInstancesConfig `json:"Instances,omitempty"`
-    
-    // JobFlowRole AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-jobflowrole
-    JobFlowRole string `json:"JobFlowRole,omitempty"`
-    
-    // LogUri AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-loguri
-    LogUri string `json:"LogUri,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-name
-    Name string `json:"Name,omitempty"`
-    
-    // ReleaseLabel AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-releaselabel
-    ReleaseLabel string `json:"ReleaseLabel,omitempty"`
-    
-    // ScaleDownBehavior AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-scaledownbehavior
-    ScaleDownBehavior string `json:"ScaleDownBehavior,omitempty"`
-    
-    // SecurityConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-securityconfiguration
-    SecurityConfiguration string `json:"SecurityConfiguration,omitempty"`
-    
-    // ServiceRole AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-servicerole
-    ServiceRole string `json:"ServiceRole,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // VisibleToAllUsers AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-visibletoallusers
-    VisibleToAllUsers bool `json:"VisibleToAllUsers,omitempty"`
-    
+
+	// AdditionalInfo AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-additionalinfo
+	AdditionalInfo interface{} `json:"AdditionalInfo,omitempty"`
+
+	// Applications AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-applications
+	Applications []AWSEMRCluster_Application `json:"Applications,omitempty"`
+
+	// AutoScalingRole AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-autoscalingrole
+	AutoScalingRole string `json:"AutoScalingRole,omitempty"`
+
+	// BootstrapActions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-bootstrapactions
+	BootstrapActions []AWSEMRCluster_BootstrapActionConfig `json:"BootstrapActions,omitempty"`
+
+	// Configurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-configurations
+	Configurations []AWSEMRCluster_Configuration `json:"Configurations,omitempty"`
+
+	// Instances AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-instances
+	Instances *AWSEMRCluster_JobFlowInstancesConfig `json:"Instances,omitempty"`
+
+	// JobFlowRole AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-jobflowrole
+	JobFlowRole string `json:"JobFlowRole,omitempty"`
+
+	// LogUri AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-loguri
+	LogUri string `json:"LogUri,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-name
+	Name string `json:"Name,omitempty"`
+
+	// ReleaseLabel AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-releaselabel
+	ReleaseLabel string `json:"ReleaseLabel,omitempty"`
+
+	// ScaleDownBehavior AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-scaledownbehavior
+	ScaleDownBehavior string `json:"ScaleDownBehavior,omitempty"`
+
+	// SecurityConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-securityconfiguration
+	SecurityConfiguration string `json:"SecurityConfiguration,omitempty"`
+
+	// ServiceRole AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-servicerole
+	ServiceRole string `json:"ServiceRole,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// VisibleToAllUsers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-visibletoallusers
+	VisibleToAllUsers bool `json:"VisibleToAllUsers,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEMRCluster) AWSCloudFormationType() string {
-    return "AWS::EMR::Cluster"
+	return "AWS::EMR::Cluster"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRCluster) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEMRCluster) MarshalJSON() ([]byte, error) {
 	type Properties AWSEMRCluster
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -116,7 +114,7 @@ func (r *AWSEMRCluster) MarshalJSON() ([]byte, error) {
 func (r *AWSEMRCluster) UnmarshalJSON(b []byte) error {
 	type Properties AWSEMRCluster
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -124,12 +122,12 @@ func (r *AWSEMRCluster) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEMRCluster(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEMRClusterResources retrieves all AWSEMRCluster items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEMRClusterResources () map[string]AWSEMRCluster {
-    results := map[string]AWSEMRCluster{}
+func (t *CloudFormationTemplate) GetAllAWSEMRClusterResources() map[string]AWSEMRCluster {
+	results := map[string]AWSEMRCluster{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEMRCluster:
@@ -156,8 +154,8 @@ func (t *CloudFormationTemplate) GetAllAWSEMRClusterResources () map[string]AWSE
 
 // GetAWSEMRClusterWithName retrieves all AWSEMRCluster items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEMRClusterWithName (name string) (AWSEMRCluster, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEMRClusterWithName(name string) (AWSEMRCluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEMRCluster:
 			// We found a strongly typed resource of the correct type; use it
@@ -175,8 +173,8 @@ func (t *CloudFormationTemplate) GetAWSEMRClusterWithName (name string) (AWSEMRC
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEMRCluster{}, errors.New("resource not found")
+	return AWSEMRCluster{}, errors.New("resource not found")
 }

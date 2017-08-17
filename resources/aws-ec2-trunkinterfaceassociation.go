@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2TrunkInterfaceAssociation AWS CloudFormation Resource (AWS::EC2::TrunkInterfaceAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html
 type AWSEC2TrunkInterfaceAssociation struct {
-    
-    // BranchInterfaceId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-branchinterfaceid
-    BranchInterfaceId string `json:"BranchInterfaceId,omitempty"`
-    
-    // GREKey AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-grekey
-    GREKey int `json:"GREKey,omitempty"`
-    
-    // TrunkInterfaceId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-trunkinterfaceid
-    TrunkInterfaceId string `json:"TrunkInterfaceId,omitempty"`
-    
-    // VLANId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-vlanid
-    VLANId int `json:"VLANId,omitempty"`
-    
+
+	// BranchInterfaceId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-branchinterfaceid
+	BranchInterfaceId string `json:"BranchInterfaceId,omitempty"`
+
+	// GREKey AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-grekey
+	GREKey int `json:"GREKey,omitempty"`
+
+	// TrunkInterfaceId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-trunkinterfaceid
+	TrunkInterfaceId string `json:"TrunkInterfaceId,omitempty"`
+
+	// VLANId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-vlanid
+	VLANId int `json:"VLANId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2TrunkInterfaceAssociation) AWSCloudFormationType() string {
-    return "AWS::EC2::TrunkInterfaceAssociation"
+	return "AWS::EC2::TrunkInterfaceAssociation"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2TrunkInterfaceAssociation) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2TrunkInterfaceAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2TrunkInterfaceAssociation
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSEC2TrunkInterfaceAssociation) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2TrunkInterfaceAssociation) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2TrunkInterfaceAssociation
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSEC2TrunkInterfaceAssociation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2TrunkInterfaceAssociation(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2TrunkInterfaceAssociationResources retrieves all AWSEC2TrunkInterfaceAssociation items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2TrunkInterfaceAssociationResources () map[string]AWSEC2TrunkInterfaceAssociation {
-    results := map[string]AWSEC2TrunkInterfaceAssociation{}
+func (t *CloudFormationTemplate) GetAllAWSEC2TrunkInterfaceAssociationResources() map[string]AWSEC2TrunkInterfaceAssociation {
+	results := map[string]AWSEC2TrunkInterfaceAssociation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2TrunkInterfaceAssociation:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2TrunkInterfaceAssociationResources 
 
 // GetAWSEC2TrunkInterfaceAssociationWithName retrieves all AWSEC2TrunkInterfaceAssociation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2TrunkInterfaceAssociationWithName (name string) (AWSEC2TrunkInterfaceAssociation, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2TrunkInterfaceAssociationWithName(name string) (AWSEC2TrunkInterfaceAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2TrunkInterfaceAssociation:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSEC2TrunkInterfaceAssociationWithName (nam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2TrunkInterfaceAssociation{}, errors.New("resource not found")
+	return AWSEC2TrunkInterfaceAssociation{}, errors.New("resource not found")
 }

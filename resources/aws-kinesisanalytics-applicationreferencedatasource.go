@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSKinesisAnalyticsApplicationReferenceDataSource AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html
 type AWSKinesisAnalyticsApplicationReferenceDataSource struct {
-    
-    // ApplicationName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-applicationname
-    ApplicationName string `json:"ApplicationName,omitempty"`
-    
-    // ReferenceDataSource AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource
-    ReferenceDataSource *AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceDataSource `json:"ReferenceDataSource,omitempty"`
-    
+
+	// ApplicationName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-applicationname
+	ApplicationName string `json:"ApplicationName,omitempty"`
+
+	// ReferenceDataSource AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource
+	ReferenceDataSource *AWSKinesisAnalyticsApplicationReferenceDataSource_ReferenceDataSource `json:"ReferenceDataSource,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) AWSCloudFormationType() string {
-    return "AWS::KinesisAnalytics::ApplicationReferenceDataSource"
+	return "AWS::KinesisAnalytics::ApplicationReferenceDataSource"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) MarshalJSON() ([]byte, error) {
 	type Properties AWSKinesisAnalyticsApplicationReferenceDataSource
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) MarshalJSON() ([]byt
 func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) UnmarshalJSON(b []byte) error {
 	type Properties AWSKinesisAnalyticsApplicationReferenceDataSource
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) UnmarshalJSON(b []by
 		return err
 	}
 	*r = AWSKinesisAnalyticsApplicationReferenceDataSource(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSKinesisAnalyticsApplicationReferenceDataSourceResources retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSKinesisAnalyticsApplicationReferenceDataSourceResources () map[string]AWSKinesisAnalyticsApplicationReferenceDataSource {
-    results := map[string]AWSKinesisAnalyticsApplicationReferenceDataSource{}
+func (t *CloudFormationTemplate) GetAllAWSKinesisAnalyticsApplicationReferenceDataSourceResources() map[string]AWSKinesisAnalyticsApplicationReferenceDataSource {
+	results := map[string]AWSKinesisAnalyticsApplicationReferenceDataSource{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSKinesisAnalyticsApplicationReferenceDataSource:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSKinesisAnalyticsApplicationReferenceDa
 
 // GetAWSKinesisAnalyticsApplicationReferenceDataSourceWithName retrieves all AWSKinesisAnalyticsApplicationReferenceDataSource items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSKinesisAnalyticsApplicationReferenceDataSourceWithName (name string) (AWSKinesisAnalyticsApplicationReferenceDataSource, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSKinesisAnalyticsApplicationReferenceDataSourceWithName(name string) (AWSKinesisAnalyticsApplicationReferenceDataSource, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSKinesisAnalyticsApplicationReferenceDataSource:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSKinesisAnalyticsApplicationReferenceDataS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSKinesisAnalyticsApplicationReferenceDataSource{}, errors.New("resource not found")
+	return AWSKinesisAnalyticsApplicationReferenceDataSource{}, errors.New("resource not found")
 }

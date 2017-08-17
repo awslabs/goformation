@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIAMAccessKey AWS CloudFormation Resource (AWS::IAM::AccessKey)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
 type AWSIAMAccessKey struct {
-    
-    // Serial AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-serial
-    Serial int `json:"Serial,omitempty"`
-    
-    // Status AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-status
-    Status string `json:"Status,omitempty"`
-    
-    // UserName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-username
-    UserName string `json:"UserName,omitempty"`
-    
+
+	// Serial AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-serial
+	Serial int `json:"Serial,omitempty"`
+
+	// Status AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-status
+	Status string `json:"Status,omitempty"`
+
+	// UserName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-username
+	UserName string `json:"UserName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMAccessKey) AWSCloudFormationType() string {
-    return "AWS::IAM::AccessKey"
+	return "AWS::IAM::AccessKey"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMAccessKey) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIAMAccessKey) MarshalJSON() ([]byte, error) {
 	type Properties AWSIAMAccessKey
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSIAMAccessKey) MarshalJSON() ([]byte, error) {
 func (r *AWSIAMAccessKey) UnmarshalJSON(b []byte) error {
 	type Properties AWSIAMAccessKey
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSIAMAccessKey) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIAMAccessKey(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIAMAccessKeyResources retrieves all AWSIAMAccessKey items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIAMAccessKeyResources () map[string]AWSIAMAccessKey {
-    results := map[string]AWSIAMAccessKey{}
+func (t *CloudFormationTemplate) GetAllAWSIAMAccessKeyResources() map[string]AWSIAMAccessKey {
+	results := map[string]AWSIAMAccessKey{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIAMAccessKey:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSIAMAccessKeyResources () map[string]AW
 
 // GetAWSIAMAccessKeyWithName retrieves all AWSIAMAccessKey items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIAMAccessKeyWithName (name string) (AWSIAMAccessKey, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIAMAccessKeyWithName(name string) (AWSIAMAccessKey, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIAMAccessKey:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSIAMAccessKeyWithName (name string) (AWSIA
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIAMAccessKey{}, errors.New("resource not found")
+	return AWSIAMAccessKey{}, errors.New("resource not found")
 }

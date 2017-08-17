@@ -1,72 +1,70 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSDMSEventSubscription AWS CloudFormation Resource (AWS::DMS::EventSubscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html
 type AWSDMSEventSubscription struct {
-    
-    // Enabled AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-enabled
-    Enabled bool `json:"Enabled,omitempty"`
-    
-    // EventCategories AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-eventcategories
-    EventCategories []string `json:"EventCategories,omitempty"`
-    
-    // SnsTopicArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-snstopicarn
-    SnsTopicArn string `json:"SnsTopicArn,omitempty"`
-    
-    // SourceIds AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourceids
-    SourceIds []string `json:"SourceIds,omitempty"`
-    
-    // SourceType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourcetype
-    SourceType string `json:"SourceType,omitempty"`
-    
-    // SubscriptionName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-subscriptionname
-    SubscriptionName string `json:"SubscriptionName,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// Enabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-enabled
+	Enabled bool `json:"Enabled,omitempty"`
+
+	// EventCategories AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-eventcategories
+	EventCategories []string `json:"EventCategories,omitempty"`
+
+	// SnsTopicArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-snstopicarn
+	SnsTopicArn string `json:"SnsTopicArn,omitempty"`
+
+	// SourceIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourceids
+	SourceIds []string `json:"SourceIds,omitempty"`
+
+	// SourceType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourcetype
+	SourceType string `json:"SourceType,omitempty"`
+
+	// SubscriptionName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-subscriptionname
+	SubscriptionName string `json:"SubscriptionName,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSDMSEventSubscription) AWSCloudFormationType() string {
-    return "AWS::DMS::EventSubscription"
+	return "AWS::DMS::EventSubscription"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDMSEventSubscription) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSDMSEventSubscription) MarshalJSON() ([]byte, error) {
 	type Properties AWSDMSEventSubscription
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -76,7 +74,7 @@ func (r *AWSDMSEventSubscription) MarshalJSON() ([]byte, error) {
 func (r *AWSDMSEventSubscription) UnmarshalJSON(b []byte) error {
 	type Properties AWSDMSEventSubscription
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -84,12 +82,12 @@ func (r *AWSDMSEventSubscription) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSDMSEventSubscription(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSDMSEventSubscriptionResources retrieves all AWSDMSEventSubscription items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSDMSEventSubscriptionResources () map[string]AWSDMSEventSubscription {
-    results := map[string]AWSDMSEventSubscription{}
+func (t *CloudFormationTemplate) GetAllAWSDMSEventSubscriptionResources() map[string]AWSDMSEventSubscription {
+	results := map[string]AWSDMSEventSubscription{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSDMSEventSubscription:
@@ -116,8 +114,8 @@ func (t *CloudFormationTemplate) GetAllAWSDMSEventSubscriptionResources () map[s
 
 // GetAWSDMSEventSubscriptionWithName retrieves all AWSDMSEventSubscription items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSDMSEventSubscriptionWithName (name string) (AWSDMSEventSubscription, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSDMSEventSubscriptionWithName(name string) (AWSDMSEventSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSDMSEventSubscription:
 			// We found a strongly typed resource of the correct type; use it
@@ -135,8 +133,8 @@ func (t *CloudFormationTemplate) GetAWSDMSEventSubscriptionWithName (name string
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSDMSEventSubscription{}, errors.New("resource not found")
+	return AWSDMSEventSubscription{}, errors.New("resource not found")
 }

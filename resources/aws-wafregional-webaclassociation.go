@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFRegionalWebACLAssociation AWS CloudFormation Resource (AWS::WAFRegional::WebACLAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html
 type AWSWAFRegionalWebACLAssociation struct {
-    
-    // ResourceArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-resourcearn
-    ResourceArn string `json:"ResourceArn,omitempty"`
-    
-    // WebACLId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-webaclid
-    WebACLId string `json:"WebACLId,omitempty"`
-    
+
+	// ResourceArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-resourcearn
+	ResourceArn string `json:"ResourceArn,omitempty"`
+
+	// WebACLId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-webaclid
+	WebACLId string `json:"WebACLId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFRegionalWebACLAssociation) AWSCloudFormationType() string {
-    return "AWS::WAFRegional::WebACLAssociation"
+	return "AWS::WAFRegional::WebACLAssociation"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFRegionalWebACLAssociation) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFRegionalWebACLAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFRegionalWebACLAssociation
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSWAFRegionalWebACLAssociation) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFRegionalWebACLAssociation) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFRegionalWebACLAssociation
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSWAFRegionalWebACLAssociation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFRegionalWebACLAssociation(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFRegionalWebACLAssociationResources retrieves all AWSWAFRegionalWebACLAssociation items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFRegionalWebACLAssociationResources () map[string]AWSWAFRegionalWebACLAssociation {
-    results := map[string]AWSWAFRegionalWebACLAssociation{}
+func (t *CloudFormationTemplate) GetAllAWSWAFRegionalWebACLAssociationResources() map[string]AWSWAFRegionalWebACLAssociation {
+	results := map[string]AWSWAFRegionalWebACLAssociation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalWebACLAssociation:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFRegionalWebACLAssociationResources 
 
 // GetAWSWAFRegionalWebACLAssociationWithName retrieves all AWSWAFRegionalWebACLAssociation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFRegionalWebACLAssociationWithName (name string) (AWSWAFRegionalWebACLAssociation, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFRegionalWebACLAssociationWithName(name string) (AWSWAFRegionalWebACLAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalWebACLAssociation:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSWAFRegionalWebACLAssociationWithName (nam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFRegionalWebACLAssociation{}, errors.New("resource not found")
+	return AWSWAFRegionalWebACLAssociation{}, errors.New("resource not found")
 }

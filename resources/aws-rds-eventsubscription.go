@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSRDSEventSubscription AWS CloudFormation Resource (AWS::RDS::EventSubscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html
 type AWSRDSEventSubscription struct {
-    
-    // Enabled AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-enabled
-    Enabled bool `json:"Enabled,omitempty"`
-    
-    // EventCategories AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-eventcategories
-    EventCategories []string `json:"EventCategories,omitempty"`
-    
-    // SnsTopicArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-snstopicarn
-    SnsTopicArn string `json:"SnsTopicArn,omitempty"`
-    
-    // SourceIds AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourceids
-    SourceIds []string `json:"SourceIds,omitempty"`
-    
-    // SourceType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourcetype
-    SourceType string `json:"SourceType,omitempty"`
-    
+
+	// Enabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-enabled
+	Enabled bool `json:"Enabled,omitempty"`
+
+	// EventCategories AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-eventcategories
+	EventCategories []string `json:"EventCategories,omitempty"`
+
+	// SnsTopicArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-snstopicarn
+	SnsTopicArn string `json:"SnsTopicArn,omitempty"`
+
+	// SourceIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourceids
+	SourceIds []string `json:"SourceIds,omitempty"`
+
+	// SourceType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourcetype
+	SourceType string `json:"SourceType,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSRDSEventSubscription) AWSCloudFormationType() string {
-    return "AWS::RDS::EventSubscription"
+	return "AWS::RDS::EventSubscription"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRDSEventSubscription) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSRDSEventSubscription) MarshalJSON() ([]byte, error) {
 	type Properties AWSRDSEventSubscription
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSRDSEventSubscription) MarshalJSON() ([]byte, error) {
 func (r *AWSRDSEventSubscription) UnmarshalJSON(b []byte) error {
 	type Properties AWSRDSEventSubscription
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSRDSEventSubscription) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSRDSEventSubscription(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSRDSEventSubscriptionResources retrieves all AWSRDSEventSubscription items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSRDSEventSubscriptionResources () map[string]AWSRDSEventSubscription {
-    results := map[string]AWSRDSEventSubscription{}
+func (t *CloudFormationTemplate) GetAllAWSRDSEventSubscriptionResources() map[string]AWSRDSEventSubscription {
+	results := map[string]AWSRDSEventSubscription{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRDSEventSubscription:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSRDSEventSubscriptionResources () map[s
 
 // GetAWSRDSEventSubscriptionWithName retrieves all AWSRDSEventSubscription items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSRDSEventSubscriptionWithName (name string) (AWSRDSEventSubscription, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSRDSEventSubscriptionWithName(name string) (AWSRDSEventSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRDSEventSubscription:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSRDSEventSubscriptionWithName (name string
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSRDSEventSubscription{}, errors.New("resource not found")
+	return AWSRDSEventSubscription{}, errors.New("resource not found")
 }

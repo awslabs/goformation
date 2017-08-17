@@ -1,42 +1,40 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApiGatewayClientCertificate AWS CloudFormation Resource (AWS::ApiGateway::ClientCertificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
 type AWSApiGatewayClientCertificate struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
-    Description string `json:"Description,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
+	Description string `json:"Description,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApiGatewayClientCertificate) AWSCloudFormationType() string {
-    return "AWS::ApiGateway::ClientCertificate"
+	return "AWS::ApiGateway::ClientCertificate"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayClientCertificate) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApiGatewayClientCertificate) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayClientCertificate
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -46,7 +44,7 @@ func (r *AWSApiGatewayClientCertificate) MarshalJSON() ([]byte, error) {
 func (r *AWSApiGatewayClientCertificate) UnmarshalJSON(b []byte) error {
 	type Properties AWSApiGatewayClientCertificate
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -54,12 +52,12 @@ func (r *AWSApiGatewayClientCertificate) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApiGatewayClientCertificate(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApiGatewayClientCertificateResources retrieves all AWSApiGatewayClientCertificate items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApiGatewayClientCertificateResources () map[string]AWSApiGatewayClientCertificate {
-    results := map[string]AWSApiGatewayClientCertificate{}
+func (t *CloudFormationTemplate) GetAllAWSApiGatewayClientCertificateResources() map[string]AWSApiGatewayClientCertificate {
+	results := map[string]AWSApiGatewayClientCertificate{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayClientCertificate:
@@ -86,8 +84,8 @@ func (t *CloudFormationTemplate) GetAllAWSApiGatewayClientCertificateResources (
 
 // GetAWSApiGatewayClientCertificateWithName retrieves all AWSApiGatewayClientCertificate items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApiGatewayClientCertificateWithName (name string) (AWSApiGatewayClientCertificate, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApiGatewayClientCertificateWithName(name string) (AWSApiGatewayClientCertificate, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayClientCertificate:
 			// We found a strongly typed resource of the correct type; use it
@@ -105,8 +103,8 @@ func (t *CloudFormationTemplate) GetAWSApiGatewayClientCertificateWithName (name
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApiGatewayClientCertificate{}, errors.New("resource not found")
+	return AWSApiGatewayClientCertificate{}, errors.New("resource not found")
 }

@@ -1,72 +1,70 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSAutoScalingScheduledAction AWS CloudFormation Resource (AWS::AutoScaling::ScheduledAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
 type AWSAutoScalingScheduledAction struct {
-    
-    // AutoScalingGroupName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-asgname
-    AutoScalingGroupName string `json:"AutoScalingGroupName,omitempty"`
-    
-    // DesiredCapacity AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-desiredcapacity
-    DesiredCapacity int `json:"DesiredCapacity,omitempty"`
-    
-    // EndTime AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-endtime
-    EndTime string `json:"EndTime,omitempty"`
-    
-    // MaxSize AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-maxsize
-    MaxSize int `json:"MaxSize,omitempty"`
-    
-    // MinSize AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-minsize
-    MinSize int `json:"MinSize,omitempty"`
-    
-    // Recurrence AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-recurrence
-    Recurrence string `json:"Recurrence,omitempty"`
-    
-    // StartTime AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-starttime
-    StartTime string `json:"StartTime,omitempty"`
-    
+
+	// AutoScalingGroupName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-asgname
+	AutoScalingGroupName string `json:"AutoScalingGroupName,omitempty"`
+
+	// DesiredCapacity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-desiredcapacity
+	DesiredCapacity int `json:"DesiredCapacity,omitempty"`
+
+	// EndTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-endtime
+	EndTime string `json:"EndTime,omitempty"`
+
+	// MaxSize AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-maxsize
+	MaxSize int `json:"MaxSize,omitempty"`
+
+	// MinSize AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-minsize
+	MinSize int `json:"MinSize,omitempty"`
+
+	// Recurrence AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-recurrence
+	Recurrence string `json:"Recurrence,omitempty"`
+
+	// StartTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-starttime
+	StartTime string `json:"StartTime,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSAutoScalingScheduledAction) AWSCloudFormationType() string {
-    return "AWS::AutoScaling::ScheduledAction"
+	return "AWS::AutoScaling::ScheduledAction"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSAutoScalingScheduledAction) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSAutoScalingScheduledAction) MarshalJSON() ([]byte, error) {
 	type Properties AWSAutoScalingScheduledAction
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -76,7 +74,7 @@ func (r *AWSAutoScalingScheduledAction) MarshalJSON() ([]byte, error) {
 func (r *AWSAutoScalingScheduledAction) UnmarshalJSON(b []byte) error {
 	type Properties AWSAutoScalingScheduledAction
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -84,12 +82,12 @@ func (r *AWSAutoScalingScheduledAction) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSAutoScalingScheduledAction(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSAutoScalingScheduledActionResources retrieves all AWSAutoScalingScheduledAction items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSAutoScalingScheduledActionResources () map[string]AWSAutoScalingScheduledAction {
-    results := map[string]AWSAutoScalingScheduledAction{}
+func (t *CloudFormationTemplate) GetAllAWSAutoScalingScheduledActionResources() map[string]AWSAutoScalingScheduledAction {
+	results := map[string]AWSAutoScalingScheduledAction{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSAutoScalingScheduledAction:
@@ -116,8 +114,8 @@ func (t *CloudFormationTemplate) GetAllAWSAutoScalingScheduledActionResources ()
 
 // GetAWSAutoScalingScheduledActionWithName retrieves all AWSAutoScalingScheduledAction items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSAutoScalingScheduledActionWithName (name string) (AWSAutoScalingScheduledAction, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSAutoScalingScheduledActionWithName(name string) (AWSAutoScalingScheduledAction, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSAutoScalingScheduledAction:
 			// We found a strongly typed resource of the correct type; use it
@@ -135,8 +133,8 @@ func (t *CloudFormationTemplate) GetAWSAutoScalingScheduledActionWithName (name 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSAutoScalingScheduledAction{}, errors.New("resource not found")
+	return AWSAutoScalingScheduledAction{}, errors.New("resource not found")
 }

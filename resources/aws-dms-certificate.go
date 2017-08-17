@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSDMSCertificate AWS CloudFormation Resource (AWS::DMS::Certificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html
 type AWSDMSCertificate struct {
-    
-    // CertificateIdentifier AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificateidentifier
-    CertificateIdentifier string `json:"CertificateIdentifier,omitempty"`
-    
-    // CertificatePem AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificatepem
-    CertificatePem string `json:"CertificatePem,omitempty"`
-    
-    // CertificateWallet AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificatewallet
-    CertificateWallet string `json:"CertificateWallet,omitempty"`
-    
+
+	// CertificateIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificateidentifier
+	CertificateIdentifier string `json:"CertificateIdentifier,omitempty"`
+
+	// CertificatePem AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificatepem
+	CertificatePem string `json:"CertificatePem,omitempty"`
+
+	// CertificateWallet AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html#cfn-dms-certificate-certificatewallet
+	CertificateWallet string `json:"CertificateWallet,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSDMSCertificate) AWSCloudFormationType() string {
-    return "AWS::DMS::Certificate"
+	return "AWS::DMS::Certificate"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDMSCertificate) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSDMSCertificate) MarshalJSON() ([]byte, error) {
 	type Properties AWSDMSCertificate
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSDMSCertificate) MarshalJSON() ([]byte, error) {
 func (r *AWSDMSCertificate) UnmarshalJSON(b []byte) error {
 	type Properties AWSDMSCertificate
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSDMSCertificate) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSDMSCertificate(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSDMSCertificateResources retrieves all AWSDMSCertificate items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSDMSCertificateResources () map[string]AWSDMSCertificate {
-    results := map[string]AWSDMSCertificate{}
+func (t *CloudFormationTemplate) GetAllAWSDMSCertificateResources() map[string]AWSDMSCertificate {
+	results := map[string]AWSDMSCertificate{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSDMSCertificate:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSDMSCertificateResources () map[string]
 
 // GetAWSDMSCertificateWithName retrieves all AWSDMSCertificate items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSDMSCertificateWithName (name string) (AWSDMSCertificate, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSDMSCertificateWithName(name string) (AWSDMSCertificate, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSDMSCertificate:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSDMSCertificateWithName (name string) (AWS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSDMSCertificate{}, errors.New("resource not found")
+	return AWSDMSCertificate{}, errors.New("resource not found")
 }

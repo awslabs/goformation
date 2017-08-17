@@ -1,82 +1,80 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2Volume AWS CloudFormation Resource (AWS::EC2::Volume)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html
 type AWSEC2Volume struct {
-    
-    // AutoEnableIO AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-autoenableio
-    AutoEnableIO bool `json:"AutoEnableIO,omitempty"`
-    
-    // AvailabilityZone AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-availabilityzone
-    AvailabilityZone string `json:"AvailabilityZone,omitempty"`
-    
-    // Encrypted AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-encrypted
-    Encrypted bool `json:"Encrypted,omitempty"`
-    
-    // Iops AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-iops
-    Iops int `json:"Iops,omitempty"`
-    
-    // KmsKeyId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-kmskeyid
-    KmsKeyId string `json:"KmsKeyId,omitempty"`
-    
-    // Size AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size
-    Size int `json:"Size,omitempty"`
-    
-    // SnapshotId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-snapshotid
-    SnapshotId string `json:"SnapshotId,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // VolumeType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
-    VolumeType string `json:"VolumeType,omitempty"`
-    
+
+	// AutoEnableIO AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-autoenableio
+	AutoEnableIO bool `json:"AutoEnableIO,omitempty"`
+
+	// AvailabilityZone AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-availabilityzone
+	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+
+	// Encrypted AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-encrypted
+	Encrypted bool `json:"Encrypted,omitempty"`
+
+	// Iops AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-iops
+	Iops int `json:"Iops,omitempty"`
+
+	// KmsKeyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-kmskeyid
+	KmsKeyId string `json:"KmsKeyId,omitempty"`
+
+	// Size AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size
+	Size int `json:"Size,omitempty"`
+
+	// SnapshotId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-snapshotid
+	SnapshotId string `json:"SnapshotId,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// VolumeType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
+	VolumeType string `json:"VolumeType,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2Volume) AWSCloudFormationType() string {
-    return "AWS::EC2::Volume"
+	return "AWS::EC2::Volume"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2Volume) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2Volume) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2Volume
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -86,7 +84,7 @@ func (r *AWSEC2Volume) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2Volume) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2Volume
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -94,12 +92,12 @@ func (r *AWSEC2Volume) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2Volume(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VolumeResources retrieves all AWSEC2Volume items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VolumeResources () map[string]AWSEC2Volume {
-    results := map[string]AWSEC2Volume{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VolumeResources() map[string]AWSEC2Volume {
+	results := map[string]AWSEC2Volume{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2Volume:
@@ -126,8 +124,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VolumeResources () map[string]AWSEC
 
 // GetAWSEC2VolumeWithName retrieves all AWSEC2Volume items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VolumeWithName (name string) (AWSEC2Volume, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VolumeWithName(name string) (AWSEC2Volume, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2Volume:
 			// We found a strongly typed resource of the correct type; use it
@@ -145,8 +143,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VolumeWithName (name string) (AWSEC2Vo
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2Volume{}, errors.New("resource not found")
+	return AWSEC2Volume{}, errors.New("resource not found")
 }

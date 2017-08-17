@@ -1,28 +1,26 @@
 package resources
 
-
 // AWSServerlessFunction_VpcConfig AWS CloudFormation Resource (AWS::Serverless::Function.VpcConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
 type AWSServerlessFunction_VpcConfig struct {
-    
-    // SecurityGroupIds AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
-    SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
-    
-    // SubnetIds AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
-    SubnetIds []string `json:"SubnetIds,omitempty"`
-    
+
+	// SecurityGroupIds AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
+
+	// SubnetIds AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
+	SubnetIds []string `json:"SubnetIds,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSServerlessFunction_VpcConfig) AWSCloudFormationType() string {
-    return "AWS::Serverless::Function.VpcConfig"
+	return "AWS::Serverless::Function.VpcConfig"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSServerlessFunction_VpcConfig) AWSCloudFormationSpecificationVersion() string {
-    return "2016-10-31"
+	return "2016-10-31"
 }

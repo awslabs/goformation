@@ -1,87 +1,85 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSS3Bucket AWS CloudFormation Resource (AWS::S3::Bucket)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
 type AWSS3Bucket struct {
-    
-    // AccessControl AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol
-    AccessControl string `json:"AccessControl,omitempty"`
-    
-    // BucketName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name
-    BucketName string `json:"BucketName,omitempty"`
-    
-    // CorsConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
-    CorsConfiguration *AWSS3Bucket_CorsConfiguration `json:"CorsConfiguration,omitempty"`
-    
-    // LifecycleConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig
-    LifecycleConfiguration *AWSS3Bucket_LifecycleConfiguration `json:"LifecycleConfiguration,omitempty"`
-    
-    // LoggingConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig
-    LoggingConfiguration *AWSS3Bucket_LoggingConfiguration `json:"LoggingConfiguration,omitempty"`
-    
-    // NotificationConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification
-    NotificationConfiguration *AWSS3Bucket_NotificationConfiguration `json:"NotificationConfiguration,omitempty"`
-    
-    // ReplicationConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration
-    ReplicationConfiguration *AWSS3Bucket_ReplicationConfiguration `json:"ReplicationConfiguration,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // VersioningConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-versioning
-    VersioningConfiguration *AWSS3Bucket_VersioningConfiguration `json:"VersioningConfiguration,omitempty"`
-    
-    // WebsiteConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration
-    WebsiteConfiguration *AWSS3Bucket_WebsiteConfiguration `json:"WebsiteConfiguration,omitempty"`
-    
+
+	// AccessControl AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol
+	AccessControl string `json:"AccessControl,omitempty"`
+
+	// BucketName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name
+	BucketName string `json:"BucketName,omitempty"`
+
+	// CorsConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
+	CorsConfiguration *AWSS3Bucket_CorsConfiguration `json:"CorsConfiguration,omitempty"`
+
+	// LifecycleConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig
+	LifecycleConfiguration *AWSS3Bucket_LifecycleConfiguration `json:"LifecycleConfiguration,omitempty"`
+
+	// LoggingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig
+	LoggingConfiguration *AWSS3Bucket_LoggingConfiguration `json:"LoggingConfiguration,omitempty"`
+
+	// NotificationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification
+	NotificationConfiguration *AWSS3Bucket_NotificationConfiguration `json:"NotificationConfiguration,omitempty"`
+
+	// ReplicationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration
+	ReplicationConfiguration *AWSS3Bucket_ReplicationConfiguration `json:"ReplicationConfiguration,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// VersioningConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-versioning
+	VersioningConfiguration *AWSS3Bucket_VersioningConfiguration `json:"VersioningConfiguration,omitempty"`
+
+	// WebsiteConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration
+	WebsiteConfiguration *AWSS3Bucket_WebsiteConfiguration `json:"WebsiteConfiguration,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSS3Bucket) AWSCloudFormationType() string {
-    return "AWS::S3::Bucket"
+	return "AWS::S3::Bucket"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSS3Bucket) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSS3Bucket) MarshalJSON() ([]byte, error) {
 	type Properties AWSS3Bucket
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -91,7 +89,7 @@ func (r *AWSS3Bucket) MarshalJSON() ([]byte, error) {
 func (r *AWSS3Bucket) UnmarshalJSON(b []byte) error {
 	type Properties AWSS3Bucket
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -99,12 +97,12 @@ func (r *AWSS3Bucket) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSS3Bucket(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSS3BucketResources retrieves all AWSS3Bucket items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSS3BucketResources () map[string]AWSS3Bucket {
-    results := map[string]AWSS3Bucket{}
+func (t *CloudFormationTemplate) GetAllAWSS3BucketResources() map[string]AWSS3Bucket {
+	results := map[string]AWSS3Bucket{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSS3Bucket:
@@ -131,8 +129,8 @@ func (t *CloudFormationTemplate) GetAllAWSS3BucketResources () map[string]AWSS3B
 
 // GetAWSS3BucketWithName retrieves all AWSS3Bucket items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSS3BucketWithName (name string) (AWSS3Bucket, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSS3BucketWithName(name string) (AWSS3Bucket, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSS3Bucket:
 			// We found a strongly typed resource of the correct type; use it
@@ -150,8 +148,8 @@ func (t *CloudFormationTemplate) GetAWSS3BucketWithName (name string) (AWSS3Buck
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSS3Bucket{}, errors.New("resource not found")
+	return AWSS3Bucket{}, errors.New("resource not found")
 }

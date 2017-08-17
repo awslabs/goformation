@@ -1,42 +1,40 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSStepFunctionsActivity AWS CloudFormation Resource (AWS::StepFunctions::Activity)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
 type AWSStepFunctionsActivity struct {
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name
-    Name string `json:"Name,omitempty"`
-    
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name
+	Name string `json:"Name,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSStepFunctionsActivity) AWSCloudFormationType() string {
-    return "AWS::StepFunctions::Activity"
+	return "AWS::StepFunctions::Activity"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSStepFunctionsActivity) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSStepFunctionsActivity) MarshalJSON() ([]byte, error) {
 	type Properties AWSStepFunctionsActivity
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -46,7 +44,7 @@ func (r *AWSStepFunctionsActivity) MarshalJSON() ([]byte, error) {
 func (r *AWSStepFunctionsActivity) UnmarshalJSON(b []byte) error {
 	type Properties AWSStepFunctionsActivity
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -54,12 +52,12 @@ func (r *AWSStepFunctionsActivity) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSStepFunctionsActivity(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSStepFunctionsActivityResources retrieves all AWSStepFunctionsActivity items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSStepFunctionsActivityResources () map[string]AWSStepFunctionsActivity {
-    results := map[string]AWSStepFunctionsActivity{}
+func (t *CloudFormationTemplate) GetAllAWSStepFunctionsActivityResources() map[string]AWSStepFunctionsActivity {
+	results := map[string]AWSStepFunctionsActivity{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSStepFunctionsActivity:
@@ -86,8 +84,8 @@ func (t *CloudFormationTemplate) GetAllAWSStepFunctionsActivityResources () map[
 
 // GetAWSStepFunctionsActivityWithName retrieves all AWSStepFunctionsActivity items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSStepFunctionsActivityWithName (name string) (AWSStepFunctionsActivity, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSStepFunctionsActivityWithName(name string) (AWSStepFunctionsActivity, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSStepFunctionsActivity:
 			// We found a strongly typed resource of the correct type; use it
@@ -105,8 +103,8 @@ func (t *CloudFormationTemplate) GetAWSStepFunctionsActivityWithName (name strin
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSStepFunctionsActivity{}, errors.New("resource not found")
+	return AWSStepFunctionsActivity{}, errors.New("resource not found")
 }

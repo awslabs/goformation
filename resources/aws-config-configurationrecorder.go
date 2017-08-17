@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSConfigConfigurationRecorder AWS CloudFormation Resource (AWS::Config::ConfigurationRecorder)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
 type AWSConfigConfigurationRecorder struct {
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-name
-    Name string `json:"Name,omitempty"`
-    
-    // RecordingGroup AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordinggroup
-    RecordingGroup *AWSConfigConfigurationRecorder_RecordingGroup `json:"RecordingGroup,omitempty"`
-    
-    // RoleARN AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
-    RoleARN string `json:"RoleARN,omitempty"`
-    
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-name
+	Name string `json:"Name,omitempty"`
+
+	// RecordingGroup AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordinggroup
+	RecordingGroup *AWSConfigConfigurationRecorder_RecordingGroup `json:"RecordingGroup,omitempty"`
+
+	// RoleARN AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
+	RoleARN string `json:"RoleARN,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSConfigConfigurationRecorder) AWSCloudFormationType() string {
-    return "AWS::Config::ConfigurationRecorder"
+	return "AWS::Config::ConfigurationRecorder"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSConfigConfigurationRecorder) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSConfigConfigurationRecorder) MarshalJSON() ([]byte, error) {
 	type Properties AWSConfigConfigurationRecorder
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSConfigConfigurationRecorder) MarshalJSON() ([]byte, error) {
 func (r *AWSConfigConfigurationRecorder) UnmarshalJSON(b []byte) error {
 	type Properties AWSConfigConfigurationRecorder
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSConfigConfigurationRecorder) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSConfigConfigurationRecorder(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSConfigConfigurationRecorderResources retrieves all AWSConfigConfigurationRecorder items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSConfigConfigurationRecorderResources () map[string]AWSConfigConfigurationRecorder {
-    results := map[string]AWSConfigConfigurationRecorder{}
+func (t *CloudFormationTemplate) GetAllAWSConfigConfigurationRecorderResources() map[string]AWSConfigConfigurationRecorder {
+	results := map[string]AWSConfigConfigurationRecorder{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSConfigConfigurationRecorder:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSConfigConfigurationRecorderResources (
 
 // GetAWSConfigConfigurationRecorderWithName retrieves all AWSConfigConfigurationRecorder items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSConfigConfigurationRecorderWithName (name string) (AWSConfigConfigurationRecorder, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSConfigConfigurationRecorderWithName(name string) (AWSConfigConfigurationRecorder, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSConfigConfigurationRecorder:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSConfigConfigurationRecorderWithName (name
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSConfigConfigurationRecorder{}, errors.New("resource not found")
+	return AWSConfigConfigurationRecorder{}, errors.New("resource not found")
 }

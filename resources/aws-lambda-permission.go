@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSLambdaPermission AWS CloudFormation Resource (AWS::Lambda::Permission)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 type AWSLambdaPermission struct {
-    
-    // Action AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-action
-    Action string `json:"Action,omitempty"`
-    
-    // FunctionName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
-    FunctionName string `json:"FunctionName,omitempty"`
-    
-    // Principal AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal
-    Principal string `json:"Principal,omitempty"`
-    
-    // SourceAccount AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount
-    SourceAccount string `json:"SourceAccount,omitempty"`
-    
-    // SourceArn AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn
-    SourceArn string `json:"SourceArn,omitempty"`
-    
+
+	// Action AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-action
+	Action string `json:"Action,omitempty"`
+
+	// FunctionName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
+	FunctionName string `json:"FunctionName,omitempty"`
+
+	// Principal AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal
+	Principal string `json:"Principal,omitempty"`
+
+	// SourceAccount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount
+	SourceAccount string `json:"SourceAccount,omitempty"`
+
+	// SourceArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn
+	SourceArn string `json:"SourceArn,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSLambdaPermission) AWSCloudFormationType() string {
-    return "AWS::Lambda::Permission"
+	return "AWS::Lambda::Permission"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLambdaPermission) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSLambdaPermission) MarshalJSON() ([]byte, error) {
 	type Properties AWSLambdaPermission
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSLambdaPermission) MarshalJSON() ([]byte, error) {
 func (r *AWSLambdaPermission) UnmarshalJSON(b []byte) error {
 	type Properties AWSLambdaPermission
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSLambdaPermission) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSLambdaPermission(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSLambdaPermissionResources retrieves all AWSLambdaPermission items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSLambdaPermissionResources () map[string]AWSLambdaPermission {
-    results := map[string]AWSLambdaPermission{}
+func (t *CloudFormationTemplate) GetAllAWSLambdaPermissionResources() map[string]AWSLambdaPermission {
+	results := map[string]AWSLambdaPermission{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSLambdaPermission:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSLambdaPermissionResources () map[strin
 
 // GetAWSLambdaPermissionWithName retrieves all AWSLambdaPermission items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSLambdaPermissionWithName (name string) (AWSLambdaPermission, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSLambdaPermissionWithName(name string) (AWSLambdaPermission, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSLambdaPermission:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSLambdaPermissionWithName (name string) (A
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSLambdaPermission{}, errors.New("resource not found")
+	return AWSLambdaPermission{}, errors.New("resource not found")
 }

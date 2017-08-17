@@ -1,82 +1,80 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSECSService AWS CloudFormation Resource (AWS::ECS::Service)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 type AWSECSService struct {
-    
-    // Cluster AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-    Cluster string `json:"Cluster,omitempty"`
-    
-    // DeploymentConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
-    DeploymentConfiguration *AWSECSService_DeploymentConfiguration `json:"DeploymentConfiguration,omitempty"`
-    
-    // DesiredCount AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-    DesiredCount int `json:"DesiredCount,omitempty"`
-    
-    // LoadBalancers AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-    LoadBalancers []AWSECSService_LoadBalancer `json:"LoadBalancers,omitempty"`
-    
-    // PlacementConstraints AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-    PlacementConstraints []AWSECSService_PlacementConstraint `json:"PlacementConstraints,omitempty"`
-    
-    // PlacementStrategies AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-    PlacementStrategies []AWSECSService_PlacementStrategy `json:"PlacementStrategies,omitempty"`
-    
-    // Role AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-    Role string `json:"Role,omitempty"`
-    
-    // ServiceName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-    ServiceName string `json:"ServiceName,omitempty"`
-    
-    // TaskDefinition AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-    TaskDefinition string `json:"TaskDefinition,omitempty"`
-    
+
+	// Cluster AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
+	Cluster string `json:"Cluster,omitempty"`
+
+	// DeploymentConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
+	DeploymentConfiguration *AWSECSService_DeploymentConfiguration `json:"DeploymentConfiguration,omitempty"`
+
+	// DesiredCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
+	DesiredCount int `json:"DesiredCount,omitempty"`
+
+	// LoadBalancers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
+	LoadBalancers []AWSECSService_LoadBalancer `json:"LoadBalancers,omitempty"`
+
+	// PlacementConstraints AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
+	PlacementConstraints []AWSECSService_PlacementConstraint `json:"PlacementConstraints,omitempty"`
+
+	// PlacementStrategies AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
+	PlacementStrategies []AWSECSService_PlacementStrategy `json:"PlacementStrategies,omitempty"`
+
+	// Role AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
+	Role string `json:"Role,omitempty"`
+
+	// ServiceName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
+	ServiceName string `json:"ServiceName,omitempty"`
+
+	// TaskDefinition AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
+	TaskDefinition string `json:"TaskDefinition,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSECSService) AWSCloudFormationType() string {
-    return "AWS::ECS::Service"
+	return "AWS::ECS::Service"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSECSService) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSECSService) MarshalJSON() ([]byte, error) {
 	type Properties AWSECSService
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -86,7 +84,7 @@ func (r *AWSECSService) MarshalJSON() ([]byte, error) {
 func (r *AWSECSService) UnmarshalJSON(b []byte) error {
 	type Properties AWSECSService
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -94,12 +92,12 @@ func (r *AWSECSService) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSECSService(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSECSServiceResources retrieves all AWSECSService items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSECSServiceResources () map[string]AWSECSService {
-    results := map[string]AWSECSService{}
+func (t *CloudFormationTemplate) GetAllAWSECSServiceResources() map[string]AWSECSService {
+	results := map[string]AWSECSService{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSECSService:
@@ -126,8 +124,8 @@ func (t *CloudFormationTemplate) GetAllAWSECSServiceResources () map[string]AWSE
 
 // GetAWSECSServiceWithName retrieves all AWSECSService items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSECSServiceWithName (name string) (AWSECSService, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSECSServiceWithName(name string) (AWSECSService, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSECSService:
 			// We found a strongly typed resource of the correct type; use it
@@ -145,8 +143,8 @@ func (t *CloudFormationTemplate) GetAWSECSServiceWithName (name string) (AWSECSS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSECSService{}, errors.New("resource not found")
+	return AWSECSService{}, errors.New("resource not found")
 }

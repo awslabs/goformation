@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCloudFormationWaitCondition AWS CloudFormation Resource (AWS::CloudFormation::WaitCondition)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
 type AWSCloudFormationWaitCondition struct {
-    
-    // Count AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
-    Count int `json:"Count,omitempty"`
-    
-    // Handle AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
-    Handle string `json:"Handle,omitempty"`
-    
-    // Timeout AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
-    Timeout string `json:"Timeout,omitempty"`
-    
+
+	// Count AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
+	Count int `json:"Count,omitempty"`
+
+	// Handle AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
+	Handle string `json:"Handle,omitempty"`
+
+	// Timeout AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
+	Timeout string `json:"Timeout,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCloudFormationWaitCondition) AWSCloudFormationType() string {
-    return "AWS::CloudFormation::WaitCondition"
+	return "AWS::CloudFormation::WaitCondition"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCloudFormationWaitCondition) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCloudFormationWaitCondition) MarshalJSON() ([]byte, error) {
 	type Properties AWSCloudFormationWaitCondition
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSCloudFormationWaitCondition) MarshalJSON() ([]byte, error) {
 func (r *AWSCloudFormationWaitCondition) UnmarshalJSON(b []byte) error {
 	type Properties AWSCloudFormationWaitCondition
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSCloudFormationWaitCondition) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCloudFormationWaitCondition(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCloudFormationWaitConditionResources retrieves all AWSCloudFormationWaitCondition items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCloudFormationWaitConditionResources () map[string]AWSCloudFormationWaitCondition {
-    results := map[string]AWSCloudFormationWaitCondition{}
+func (t *CloudFormationTemplate) GetAllAWSCloudFormationWaitConditionResources() map[string]AWSCloudFormationWaitCondition {
+	results := map[string]AWSCloudFormationWaitCondition{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCloudFormationWaitCondition:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSCloudFormationWaitConditionResources (
 
 // GetAWSCloudFormationWaitConditionWithName retrieves all AWSCloudFormationWaitCondition items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCloudFormationWaitConditionWithName (name string) (AWSCloudFormationWaitCondition, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCloudFormationWaitConditionWithName(name string) (AWSCloudFormationWaitCondition, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCloudFormationWaitCondition:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSCloudFormationWaitConditionWithName (name
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCloudFormationWaitCondition{}, errors.New("resource not found")
+	return AWSCloudFormationWaitCondition{}, errors.New("resource not found")
 }

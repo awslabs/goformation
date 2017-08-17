@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2SubnetNetworkAclAssociation AWS CloudFormation Resource (AWS::EC2::SubnetNetworkAclAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html
 type AWSEC2SubnetNetworkAclAssociation struct {
-    
-    // NetworkAclId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html#cfn-ec2-subnetnetworkaclassociation-networkaclid
-    NetworkAclId string `json:"NetworkAclId,omitempty"`
-    
-    // SubnetId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html#cfn-ec2-subnetnetworkaclassociation-associationid
-    SubnetId string `json:"SubnetId,omitempty"`
-    
+
+	// NetworkAclId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html#cfn-ec2-subnetnetworkaclassociation-networkaclid
+	NetworkAclId string `json:"NetworkAclId,omitempty"`
+
+	// SubnetId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html#cfn-ec2-subnetnetworkaclassociation-associationid
+	SubnetId string `json:"SubnetId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2SubnetNetworkAclAssociation) AWSCloudFormationType() string {
-    return "AWS::EC2::SubnetNetworkAclAssociation"
+	return "AWS::EC2::SubnetNetworkAclAssociation"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2SubnetNetworkAclAssociation) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2SubnetNetworkAclAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2SubnetNetworkAclAssociation
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSEC2SubnetNetworkAclAssociation) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2SubnetNetworkAclAssociation) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2SubnetNetworkAclAssociation
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSEC2SubnetNetworkAclAssociation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2SubnetNetworkAclAssociation(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2SubnetNetworkAclAssociationResources retrieves all AWSEC2SubnetNetworkAclAssociation items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2SubnetNetworkAclAssociationResources () map[string]AWSEC2SubnetNetworkAclAssociation {
-    results := map[string]AWSEC2SubnetNetworkAclAssociation{}
+func (t *CloudFormationTemplate) GetAllAWSEC2SubnetNetworkAclAssociationResources() map[string]AWSEC2SubnetNetworkAclAssociation {
+	results := map[string]AWSEC2SubnetNetworkAclAssociation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2SubnetNetworkAclAssociation:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2SubnetNetworkAclAssociationResource
 
 // GetAWSEC2SubnetNetworkAclAssociationWithName retrieves all AWSEC2SubnetNetworkAclAssociation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2SubnetNetworkAclAssociationWithName (name string) (AWSEC2SubnetNetworkAclAssociation, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2SubnetNetworkAclAssociationWithName(name string) (AWSEC2SubnetNetworkAclAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2SubnetNetworkAclAssociation:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSEC2SubnetNetworkAclAssociationWithName (n
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2SubnetNetworkAclAssociation{}, errors.New("resource not found")
+	return AWSEC2SubnetNetworkAclAssociation{}, errors.New("resource not found")
 }

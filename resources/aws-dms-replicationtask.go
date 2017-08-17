@@ -1,82 +1,80 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSDMSReplicationTask AWS CloudFormation Resource (AWS::DMS::ReplicationTask)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html
 type AWSDMSReplicationTask struct {
-    
-    // CdcStartTime AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime
-    CdcStartTime float64 `json:"CdcStartTime,omitempty"`
-    
-    // MigrationType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-migrationtype
-    MigrationType string `json:"MigrationType,omitempty"`
-    
-    // ReplicationInstanceArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationinstancearn
-    ReplicationInstanceArn string `json:"ReplicationInstanceArn,omitempty"`
-    
-    // ReplicationTaskIdentifier AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtaskidentifier
-    ReplicationTaskIdentifier string `json:"ReplicationTaskIdentifier,omitempty"`
-    
-    // ReplicationTaskSettings AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtasksettings
-    ReplicationTaskSettings string `json:"ReplicationTaskSettings,omitempty"`
-    
-    // SourceEndpointArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-sourceendpointarn
-    SourceEndpointArn string `json:"SourceEndpointArn,omitempty"`
-    
-    // TableMappings AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tablemappings
-    TableMappings string `json:"TableMappings,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // TargetEndpointArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-targetendpointarn
-    TargetEndpointArn string `json:"TargetEndpointArn,omitempty"`
-    
+
+	// CdcStartTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime
+	CdcStartTime float64 `json:"CdcStartTime,omitempty"`
+
+	// MigrationType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-migrationtype
+	MigrationType string `json:"MigrationType,omitempty"`
+
+	// ReplicationInstanceArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationinstancearn
+	ReplicationInstanceArn string `json:"ReplicationInstanceArn,omitempty"`
+
+	// ReplicationTaskIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtaskidentifier
+	ReplicationTaskIdentifier string `json:"ReplicationTaskIdentifier,omitempty"`
+
+	// ReplicationTaskSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtasksettings
+	ReplicationTaskSettings string `json:"ReplicationTaskSettings,omitempty"`
+
+	// SourceEndpointArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-sourceendpointarn
+	SourceEndpointArn string `json:"SourceEndpointArn,omitempty"`
+
+	// TableMappings AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tablemappings
+	TableMappings string `json:"TableMappings,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// TargetEndpointArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-targetendpointarn
+	TargetEndpointArn string `json:"TargetEndpointArn,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSDMSReplicationTask) AWSCloudFormationType() string {
-    return "AWS::DMS::ReplicationTask"
+	return "AWS::DMS::ReplicationTask"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDMSReplicationTask) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSDMSReplicationTask) MarshalJSON() ([]byte, error) {
 	type Properties AWSDMSReplicationTask
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -86,7 +84,7 @@ func (r *AWSDMSReplicationTask) MarshalJSON() ([]byte, error) {
 func (r *AWSDMSReplicationTask) UnmarshalJSON(b []byte) error {
 	type Properties AWSDMSReplicationTask
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -94,12 +92,12 @@ func (r *AWSDMSReplicationTask) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSDMSReplicationTask(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSDMSReplicationTaskResources retrieves all AWSDMSReplicationTask items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSDMSReplicationTaskResources () map[string]AWSDMSReplicationTask {
-    results := map[string]AWSDMSReplicationTask{}
+func (t *CloudFormationTemplate) GetAllAWSDMSReplicationTaskResources() map[string]AWSDMSReplicationTask {
+	results := map[string]AWSDMSReplicationTask{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSDMSReplicationTask:
@@ -126,8 +124,8 @@ func (t *CloudFormationTemplate) GetAllAWSDMSReplicationTaskResources () map[str
 
 // GetAWSDMSReplicationTaskWithName retrieves all AWSDMSReplicationTask items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSDMSReplicationTaskWithName (name string) (AWSDMSReplicationTask, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSDMSReplicationTaskWithName(name string) (AWSDMSReplicationTask, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSDMSReplicationTask:
 			// We found a strongly typed resource of the correct type; use it
@@ -145,8 +143,8 @@ func (t *CloudFormationTemplate) GetAWSDMSReplicationTaskWithName (name string) 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSDMSReplicationTask{}, errors.New("resource not found")
+	return AWSDMSReplicationTask{}, errors.New("resource not found")
 }

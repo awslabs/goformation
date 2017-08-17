@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2VPNConnection AWS CloudFormation Resource (AWS::EC2::VPNConnection)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
 type AWSEC2VPNConnection struct {
-    
-    // CustomerGatewayId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-customergatewayid
-    CustomerGatewayId string `json:"CustomerGatewayId,omitempty"`
-    
-    // StaticRoutesOnly AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-StaticRoutesOnly
-    StaticRoutesOnly bool `json:"StaticRoutesOnly,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // Type AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-type
-    Type string `json:"Type,omitempty"`
-    
-    // VpnGatewayId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-vpngatewayid
-    VpnGatewayId string `json:"VpnGatewayId,omitempty"`
-    
+
+	// CustomerGatewayId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-customergatewayid
+	CustomerGatewayId string `json:"CustomerGatewayId,omitempty"`
+
+	// StaticRoutesOnly AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-StaticRoutesOnly
+	StaticRoutesOnly bool `json:"StaticRoutesOnly,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// Type AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-type
+	Type string `json:"Type,omitempty"`
+
+	// VpnGatewayId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-vpngatewayid
+	VpnGatewayId string `json:"VpnGatewayId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2VPNConnection) AWSCloudFormationType() string {
-    return "AWS::EC2::VPNConnection"
+	return "AWS::EC2::VPNConnection"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPNConnection) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2VPNConnection) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPNConnection
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSEC2VPNConnection) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2VPNConnection) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2VPNConnection
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSEC2VPNConnection) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2VPNConnection(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VPNConnectionResources retrieves all AWSEC2VPNConnection items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VPNConnectionResources () map[string]AWSEC2VPNConnection {
-    results := map[string]AWSEC2VPNConnection{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VPNConnectionResources() map[string]AWSEC2VPNConnection {
+	results := map[string]AWSEC2VPNConnection{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2VPNConnection:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VPNConnectionResources () map[strin
 
 // GetAWSEC2VPNConnectionWithName retrieves all AWSEC2VPNConnection items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VPNConnectionWithName (name string) (AWSEC2VPNConnection, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VPNConnectionWithName(name string) (AWSEC2VPNConnection, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2VPNConnection:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VPNConnectionWithName (name string) (A
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2VPNConnection{}, errors.New("resource not found")
+	return AWSEC2VPNConnection{}, errors.New("resource not found")
 }

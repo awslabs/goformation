@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSElasticLoadBalancingV2ListenerRule AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::ListenerRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
 type AWSElasticLoadBalancingV2ListenerRule struct {
-    
-    // Actions AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-    Actions []AWSElasticLoadBalancingV2ListenerRule_Action `json:"Actions,omitempty"`
-    
-    // Conditions AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-    Conditions []AWSElasticLoadBalancingV2ListenerRule_RuleCondition `json:"Conditions,omitempty"`
-    
-    // ListenerArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-    ListenerArn string `json:"ListenerArn,omitempty"`
-    
-    // Priority AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-    Priority int `json:"Priority,omitempty"`
-    
+
+	// Actions AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
+	Actions []AWSElasticLoadBalancingV2ListenerRule_Action `json:"Actions,omitempty"`
+
+	// Conditions AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
+	Conditions []AWSElasticLoadBalancingV2ListenerRule_RuleCondition `json:"Conditions,omitempty"`
+
+	// ListenerArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
+	ListenerArn string `json:"ListenerArn,omitempty"`
+
+	// Priority AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
+	Priority int `json:"Priority,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElasticLoadBalancingV2ListenerRule) AWSCloudFormationType() string {
-    return "AWS::ElasticLoadBalancingV2::ListenerRule"
+	return "AWS::ElasticLoadBalancingV2::ListenerRule"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticLoadBalancingV2ListenerRule) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSElasticLoadBalancingV2ListenerRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticLoadBalancingV2ListenerRule
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSElasticLoadBalancingV2ListenerRule) MarshalJSON() ([]byte, error) {
 func (r *AWSElasticLoadBalancingV2ListenerRule) UnmarshalJSON(b []byte) error {
 	type Properties AWSElasticLoadBalancingV2ListenerRule
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSElasticLoadBalancingV2ListenerRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSElasticLoadBalancingV2ListenerRule(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSElasticLoadBalancingV2ListenerRuleResources retrieves all AWSElasticLoadBalancingV2ListenerRule items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSElasticLoadBalancingV2ListenerRuleResources () map[string]AWSElasticLoadBalancingV2ListenerRule {
-    results := map[string]AWSElasticLoadBalancingV2ListenerRule{}
+func (t *CloudFormationTemplate) GetAllAWSElasticLoadBalancingV2ListenerRuleResources() map[string]AWSElasticLoadBalancingV2ListenerRule {
+	results := map[string]AWSElasticLoadBalancingV2ListenerRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElasticLoadBalancingV2ListenerRule:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSElasticLoadBalancingV2ListenerRuleReso
 
 // GetAWSElasticLoadBalancingV2ListenerRuleWithName retrieves all AWSElasticLoadBalancingV2ListenerRule items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSElasticLoadBalancingV2ListenerRuleWithName (name string) (AWSElasticLoadBalancingV2ListenerRule, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSElasticLoadBalancingV2ListenerRuleWithName(name string) (AWSElasticLoadBalancingV2ListenerRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElasticLoadBalancingV2ListenerRule:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSElasticLoadBalancingV2ListenerRuleWithNam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSElasticLoadBalancingV2ListenerRule{}, errors.New("resource not found")
+	return AWSElasticLoadBalancingV2ListenerRule{}, errors.New("resource not found")
 }

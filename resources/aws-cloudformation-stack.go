@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCloudFormationStack AWS CloudFormation Resource (AWS::CloudFormation::Stack)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
 type AWSCloudFormationStack struct {
-    
-    // NotificationARNs AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
-    NotificationARNs []string `json:"NotificationARNs,omitempty"`
-    
-    // Parameters AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters
-    Parameters map[string]string `json:"Parameters,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // TemplateURL AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-templateurl
-    TemplateURL string `json:"TemplateURL,omitempty"`
-    
-    // TimeoutInMinutes AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
-    TimeoutInMinutes int `json:"TimeoutInMinutes,omitempty"`
-    
+
+	// NotificationARNs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
+	NotificationARNs []string `json:"NotificationARNs,omitempty"`
+
+	// Parameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters
+	Parameters map[string]string `json:"Parameters,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// TemplateURL AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-templateurl
+	TemplateURL string `json:"TemplateURL,omitempty"`
+
+	// TimeoutInMinutes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
+	TimeoutInMinutes int `json:"TimeoutInMinutes,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCloudFormationStack) AWSCloudFormationType() string {
-    return "AWS::CloudFormation::Stack"
+	return "AWS::CloudFormation::Stack"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCloudFormationStack) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCloudFormationStack) MarshalJSON() ([]byte, error) {
 	type Properties AWSCloudFormationStack
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSCloudFormationStack) MarshalJSON() ([]byte, error) {
 func (r *AWSCloudFormationStack) UnmarshalJSON(b []byte) error {
 	type Properties AWSCloudFormationStack
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSCloudFormationStack) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCloudFormationStack(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCloudFormationStackResources retrieves all AWSCloudFormationStack items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCloudFormationStackResources () map[string]AWSCloudFormationStack {
-    results := map[string]AWSCloudFormationStack{}
+func (t *CloudFormationTemplate) GetAllAWSCloudFormationStackResources() map[string]AWSCloudFormationStack {
+	results := map[string]AWSCloudFormationStack{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCloudFormationStack:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSCloudFormationStackResources () map[st
 
 // GetAWSCloudFormationStackWithName retrieves all AWSCloudFormationStack items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCloudFormationStackWithName (name string) (AWSCloudFormationStack, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCloudFormationStackWithName(name string) (AWSCloudFormationStack, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCloudFormationStack:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSCloudFormationStackWithName (name string)
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCloudFormationStack{}, errors.New("resource not found")
+	return AWSCloudFormationStack{}, errors.New("resource not found")
 }

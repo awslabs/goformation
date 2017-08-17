@@ -1,42 +1,40 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2InternetGateway AWS CloudFormation Resource (AWS::EC2::InternetGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
 type AWSEC2InternetGateway struct {
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2InternetGateway) AWSCloudFormationType() string {
-    return "AWS::EC2::InternetGateway"
+	return "AWS::EC2::InternetGateway"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2InternetGateway) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2InternetGateway) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2InternetGateway
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -46,7 +44,7 @@ func (r *AWSEC2InternetGateway) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2InternetGateway) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2InternetGateway
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -54,12 +52,12 @@ func (r *AWSEC2InternetGateway) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2InternetGateway(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2InternetGatewayResources retrieves all AWSEC2InternetGateway items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2InternetGatewayResources () map[string]AWSEC2InternetGateway {
-    results := map[string]AWSEC2InternetGateway{}
+func (t *CloudFormationTemplate) GetAllAWSEC2InternetGatewayResources() map[string]AWSEC2InternetGateway {
+	results := map[string]AWSEC2InternetGateway{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2InternetGateway:
@@ -86,8 +84,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2InternetGatewayResources () map[str
 
 // GetAWSEC2InternetGatewayWithName retrieves all AWSEC2InternetGateway items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2InternetGatewayWithName (name string) (AWSEC2InternetGateway, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2InternetGatewayWithName(name string) (AWSEC2InternetGateway, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2InternetGateway:
 			// We found a strongly typed resource of the correct type; use it
@@ -105,8 +103,8 @@ func (t *CloudFormationTemplate) GetAWSEC2InternetGatewayWithName (name string) 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2InternetGateway{}, errors.New("resource not found")
+	return AWSEC2InternetGateway{}, errors.New("resource not found")
 }

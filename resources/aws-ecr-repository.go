@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSECRRepository AWS CloudFormation Resource (AWS::ECR::Repository)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 type AWSECRRepository struct {
-    
-    // RepositoryName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
-    RepositoryName string `json:"RepositoryName,omitempty"`
-    
-    // RepositoryPolicyText AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-    RepositoryPolicyText interface{} `json:"RepositoryPolicyText,omitempty"`
-    
+
+	// RepositoryName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+	RepositoryName string `json:"RepositoryName,omitempty"`
+
+	// RepositoryPolicyText AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+	RepositoryPolicyText interface{} `json:"RepositoryPolicyText,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSECRRepository) AWSCloudFormationType() string {
-    return "AWS::ECR::Repository"
+	return "AWS::ECR::Repository"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSECRRepository) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSECRRepository) MarshalJSON() ([]byte, error) {
 	type Properties AWSECRRepository
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSECRRepository) MarshalJSON() ([]byte, error) {
 func (r *AWSECRRepository) UnmarshalJSON(b []byte) error {
 	type Properties AWSECRRepository
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSECRRepository) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSECRRepository(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSECRRepositoryResources retrieves all AWSECRRepository items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSECRRepositoryResources () map[string]AWSECRRepository {
-    results := map[string]AWSECRRepository{}
+func (t *CloudFormationTemplate) GetAllAWSECRRepositoryResources() map[string]AWSECRRepository {
+	results := map[string]AWSECRRepository{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSECRRepository:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSECRRepositoryResources () map[string]A
 
 // GetAWSECRRepositoryWithName retrieves all AWSECRRepository items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSECRRepositoryWithName (name string) (AWSECRRepository, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSECRRepositoryWithName(name string) (AWSECRRepository, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSECRRepository:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSECRRepositoryWithName (name string) (AWSE
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSECRRepository{}, errors.New("resource not found")
+	return AWSECRRepository{}, errors.New("resource not found")
 }

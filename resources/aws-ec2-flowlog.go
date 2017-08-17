@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2FlowLog AWS CloudFormation Resource (AWS::EC2::FlowLog)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
 type AWSEC2FlowLog struct {
-    
-    // DeliverLogsPermissionArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
-    DeliverLogsPermissionArn string `json:"DeliverLogsPermissionArn,omitempty"`
-    
-    // LogGroupName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
-    LogGroupName string `json:"LogGroupName,omitempty"`
-    
-    // ResourceId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
-    ResourceId string `json:"ResourceId,omitempty"`
-    
-    // ResourceType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
-    ResourceType string `json:"ResourceType,omitempty"`
-    
-    // TrafficType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
-    TrafficType string `json:"TrafficType,omitempty"`
-    
+
+	// DeliverLogsPermissionArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
+	DeliverLogsPermissionArn string `json:"DeliverLogsPermissionArn,omitempty"`
+
+	// LogGroupName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
+	LogGroupName string `json:"LogGroupName,omitempty"`
+
+	// ResourceId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
+	ResourceId string `json:"ResourceId,omitempty"`
+
+	// ResourceType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
+	ResourceType string `json:"ResourceType,omitempty"`
+
+	// TrafficType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
+	TrafficType string `json:"TrafficType,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2FlowLog) AWSCloudFormationType() string {
-    return "AWS::EC2::FlowLog"
+	return "AWS::EC2::FlowLog"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2FlowLog) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2FlowLog) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2FlowLog
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSEC2FlowLog) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2FlowLog) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2FlowLog
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSEC2FlowLog) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2FlowLog(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2FlowLogResources retrieves all AWSEC2FlowLog items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2FlowLogResources () map[string]AWSEC2FlowLog {
-    results := map[string]AWSEC2FlowLog{}
+func (t *CloudFormationTemplate) GetAllAWSEC2FlowLogResources() map[string]AWSEC2FlowLog {
+	results := map[string]AWSEC2FlowLog{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2FlowLog:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2FlowLogResources () map[string]AWSE
 
 // GetAWSEC2FlowLogWithName retrieves all AWSEC2FlowLog items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2FlowLogWithName (name string) (AWSEC2FlowLog, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2FlowLogWithName(name string) (AWSEC2FlowLog, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2FlowLog:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSEC2FlowLogWithName (name string) (AWSEC2F
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2FlowLog{}, errors.New("resource not found")
+	return AWSEC2FlowLog{}, errors.New("resource not found")
 }

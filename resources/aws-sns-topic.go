@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSSNSTopic AWS CloudFormation Resource (AWS::SNS::Topic)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html
 type AWSSNSTopic struct {
-    
-    // DisplayName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname
-    DisplayName string `json:"DisplayName,omitempty"`
-    
-    // Subscription AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-subscription
-    Subscription []AWSSNSTopic_Subscription `json:"Subscription,omitempty"`
-    
-    // TopicName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-topicname
-    TopicName string `json:"TopicName,omitempty"`
-    
+
+	// DisplayName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname
+	DisplayName string `json:"DisplayName,omitempty"`
+
+	// Subscription AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-subscription
+	Subscription []AWSSNSTopic_Subscription `json:"Subscription,omitempty"`
+
+	// TopicName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-topicname
+	TopicName string `json:"TopicName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSSNSTopic) AWSCloudFormationType() string {
-    return "AWS::SNS::Topic"
+	return "AWS::SNS::Topic"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSNSTopic) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSSNSTopic) MarshalJSON() ([]byte, error) {
 	type Properties AWSSNSTopic
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSSNSTopic) MarshalJSON() ([]byte, error) {
 func (r *AWSSNSTopic) UnmarshalJSON(b []byte) error {
 	type Properties AWSSNSTopic
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSSNSTopic) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSSNSTopic(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSSNSTopicResources retrieves all AWSSNSTopic items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSSNSTopicResources () map[string]AWSSNSTopic {
-    results := map[string]AWSSNSTopic{}
+func (t *CloudFormationTemplate) GetAllAWSSNSTopicResources() map[string]AWSSNSTopic {
+	results := map[string]AWSSNSTopic{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSNSTopic:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSSNSTopicResources () map[string]AWSSNS
 
 // GetAWSSNSTopicWithName retrieves all AWSSNSTopic items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSSNSTopicWithName (name string) (AWSSNSTopic, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSSNSTopicWithName(name string) (AWSSNSTopic, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSNSTopic:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSSNSTopicWithName (name string) (AWSSNSTop
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSSNSTopic{}, errors.New("resource not found")
+	return AWSSNSTopic{}, errors.New("resource not found")
 }

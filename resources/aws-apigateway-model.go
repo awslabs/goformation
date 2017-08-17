@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApiGatewayModel AWS CloudFormation Resource (AWS::ApiGateway::Model)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
 type AWSApiGatewayModel struct {
-    
-    // ContentType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
-    ContentType string `json:"ContentType,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
-    Description string `json:"Description,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
-    Name string `json:"Name,omitempty"`
-    
-    // RestApiId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
-    RestApiId string `json:"RestApiId,omitempty"`
-    
-    // Schema AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
-    Schema interface{} `json:"Schema,omitempty"`
-    
+
+	// ContentType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
+	ContentType string `json:"ContentType,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
+	Description string `json:"Description,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
+	Name string `json:"Name,omitempty"`
+
+	// RestApiId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
+	RestApiId string `json:"RestApiId,omitempty"`
+
+	// Schema AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+	Schema interface{} `json:"Schema,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApiGatewayModel) AWSCloudFormationType() string {
-    return "AWS::ApiGateway::Model"
+	return "AWS::ApiGateway::Model"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayModel) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApiGatewayModel) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayModel
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSApiGatewayModel) MarshalJSON() ([]byte, error) {
 func (r *AWSApiGatewayModel) UnmarshalJSON(b []byte) error {
 	type Properties AWSApiGatewayModel
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSApiGatewayModel) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApiGatewayModel(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApiGatewayModelResources retrieves all AWSApiGatewayModel items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApiGatewayModelResources () map[string]AWSApiGatewayModel {
-    results := map[string]AWSApiGatewayModel{}
+func (t *CloudFormationTemplate) GetAllAWSApiGatewayModelResources() map[string]AWSApiGatewayModel {
+	results := map[string]AWSApiGatewayModel{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayModel:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSApiGatewayModelResources () map[string
 
 // GetAWSApiGatewayModelWithName retrieves all AWSApiGatewayModel items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApiGatewayModelWithName (name string) (AWSApiGatewayModel, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApiGatewayModelWithName(name string) (AWSApiGatewayModel, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayModel:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSApiGatewayModelWithName (name string) (AW
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApiGatewayModel{}, errors.New("resource not found")
+	return AWSApiGatewayModel{}, errors.New("resource not found")
 }

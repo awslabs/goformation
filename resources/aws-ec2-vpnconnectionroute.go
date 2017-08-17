@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2VPNConnectionRoute AWS CloudFormation Resource (AWS::EC2::VPNConnectionRoute)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html
 type AWSEC2VPNConnectionRoute struct {
-    
-    // DestinationCidrBlock AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html#cfn-ec2-vpnconnectionroute-cidrblock
-    DestinationCidrBlock string `json:"DestinationCidrBlock,omitempty"`
-    
-    // VpnConnectionId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html#cfn-ec2-vpnconnectionroute-connectionid
-    VpnConnectionId string `json:"VpnConnectionId,omitempty"`
-    
+
+	// DestinationCidrBlock AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html#cfn-ec2-vpnconnectionroute-cidrblock
+	DestinationCidrBlock string `json:"DestinationCidrBlock,omitempty"`
+
+	// VpnConnectionId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html#cfn-ec2-vpnconnectionroute-connectionid
+	VpnConnectionId string `json:"VpnConnectionId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2VPNConnectionRoute) AWSCloudFormationType() string {
-    return "AWS::EC2::VPNConnectionRoute"
+	return "AWS::EC2::VPNConnectionRoute"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPNConnectionRoute) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2VPNConnectionRoute) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPNConnectionRoute
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSEC2VPNConnectionRoute) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2VPNConnectionRoute) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2VPNConnectionRoute
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSEC2VPNConnectionRoute) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2VPNConnectionRoute(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VPNConnectionRouteResources retrieves all AWSEC2VPNConnectionRoute items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VPNConnectionRouteResources () map[string]AWSEC2VPNConnectionRoute {
-    results := map[string]AWSEC2VPNConnectionRoute{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VPNConnectionRouteResources() map[string]AWSEC2VPNConnectionRoute {
+	results := map[string]AWSEC2VPNConnectionRoute{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2VPNConnectionRoute:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VPNConnectionRouteResources () map[
 
 // GetAWSEC2VPNConnectionRouteWithName retrieves all AWSEC2VPNConnectionRoute items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VPNConnectionRouteWithName (name string) (AWSEC2VPNConnectionRoute, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VPNConnectionRouteWithName(name string) (AWSEC2VPNConnectionRoute, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2VPNConnectionRoute:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VPNConnectionRouteWithName (name strin
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2VPNConnectionRoute{}, errors.New("resource not found")
+	return AWSEC2VPNConnectionRoute{}, errors.New("resource not found")
 }

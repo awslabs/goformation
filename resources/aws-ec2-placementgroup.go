@@ -1,42 +1,40 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2PlacementGroup AWS CloudFormation Resource (AWS::EC2::PlacementGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
 type AWSEC2PlacementGroup struct {
-    
-    // Strategy AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy
-    Strategy string `json:"Strategy,omitempty"`
-    
+
+	// Strategy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy
+	Strategy string `json:"Strategy,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2PlacementGroup) AWSCloudFormationType() string {
-    return "AWS::EC2::PlacementGroup"
+	return "AWS::EC2::PlacementGroup"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2PlacementGroup) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2PlacementGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2PlacementGroup
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -46,7 +44,7 @@ func (r *AWSEC2PlacementGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2PlacementGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2PlacementGroup
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -54,12 +52,12 @@ func (r *AWSEC2PlacementGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2PlacementGroup(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2PlacementGroupResources retrieves all AWSEC2PlacementGroup items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2PlacementGroupResources () map[string]AWSEC2PlacementGroup {
-    results := map[string]AWSEC2PlacementGroup{}
+func (t *CloudFormationTemplate) GetAllAWSEC2PlacementGroupResources() map[string]AWSEC2PlacementGroup {
+	results := map[string]AWSEC2PlacementGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2PlacementGroup:
@@ -86,8 +84,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2PlacementGroupResources () map[stri
 
 // GetAWSEC2PlacementGroupWithName retrieves all AWSEC2PlacementGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2PlacementGroupWithName (name string) (AWSEC2PlacementGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2PlacementGroupWithName(name string) (AWSEC2PlacementGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2PlacementGroup:
 			// We found a strongly typed resource of the correct type; use it
@@ -105,8 +103,8 @@ func (t *CloudFormationTemplate) GetAWSEC2PlacementGroupWithName (name string) (
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2PlacementGroup{}, errors.New("resource not found")
+	return AWSEC2PlacementGroup{}, errors.New("resource not found")
 }

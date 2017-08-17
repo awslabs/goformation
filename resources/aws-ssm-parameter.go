@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSSSMParameter AWS CloudFormation Resource (AWS::SSM::Parameter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html
 type AWSSSMParameter struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description
-    Description string `json:"Description,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-name
-    Name string `json:"Name,omitempty"`
-    
-    // Type AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-type
-    Type string `json:"Type,omitempty"`
-    
-    // Value AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-value
-    Value string `json:"Value,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description
+	Description string `json:"Description,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-name
+	Name string `json:"Name,omitempty"`
+
+	// Type AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-type
+	Type string `json:"Type,omitempty"`
+
+	// Value AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-value
+	Value string `json:"Value,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSSSMParameter) AWSCloudFormationType() string {
-    return "AWS::SSM::Parameter"
+	return "AWS::SSM::Parameter"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSSMParameter) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSSSMParameter) MarshalJSON() ([]byte, error) {
 	type Properties AWSSSMParameter
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSSSMParameter) MarshalJSON() ([]byte, error) {
 func (r *AWSSSMParameter) UnmarshalJSON(b []byte) error {
 	type Properties AWSSSMParameter
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSSSMParameter) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSSSMParameter(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSSSMParameterResources retrieves all AWSSSMParameter items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSSSMParameterResources () map[string]AWSSSMParameter {
-    results := map[string]AWSSSMParameter{}
+func (t *CloudFormationTemplate) GetAllAWSSSMParameterResources() map[string]AWSSSMParameter {
+	results := map[string]AWSSSMParameter{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSSMParameter:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSSSMParameterResources () map[string]AW
 
 // GetAWSSSMParameterWithName retrieves all AWSSSMParameter items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSSSMParameterWithName (name string) (AWSSSMParameter, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSSSMParameterWithName(name string) (AWSSSMParameter, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSSMParameter:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSSSMParameterWithName (name string) (AWSSS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSSSMParameter{}, errors.New("resource not found")
+	return AWSSSMParameter{}, errors.New("resource not found")
 }

@@ -1,67 +1,65 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2DHCPOptions AWS CloudFormation Resource (AWS::EC2::DHCPOptions)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html
 type AWSEC2DHCPOptions struct {
-    
-    // DomainName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-domainname
-    DomainName string `json:"DomainName,omitempty"`
-    
-    // DomainNameServers AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-domainnameservers
-    DomainNameServers []string `json:"DomainNameServers,omitempty"`
-    
-    // NetbiosNameServers AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnameservers
-    NetbiosNameServers []string `json:"NetbiosNameServers,omitempty"`
-    
-    // NetbiosNodeType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnodetype
-    NetbiosNodeType int `json:"NetbiosNodeType,omitempty"`
-    
-    // NtpServers AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-ntpservers
-    NtpServers []string `json:"NtpServers,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// DomainName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-domainname
+	DomainName string `json:"DomainName,omitempty"`
+
+	// DomainNameServers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-domainnameservers
+	DomainNameServers []string `json:"DomainNameServers,omitempty"`
+
+	// NetbiosNameServers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnameservers
+	NetbiosNameServers []string `json:"NetbiosNameServers,omitempty"`
+
+	// NetbiosNodeType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnodetype
+	NetbiosNodeType int `json:"NetbiosNodeType,omitempty"`
+
+	// NtpServers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-ntpservers
+	NtpServers []string `json:"NtpServers,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2DHCPOptions) AWSCloudFormationType() string {
-    return "AWS::EC2::DHCPOptions"
+	return "AWS::EC2::DHCPOptions"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2DHCPOptions) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2DHCPOptions) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2DHCPOptions
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -71,7 +69,7 @@ func (r *AWSEC2DHCPOptions) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2DHCPOptions) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2DHCPOptions
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -79,12 +77,12 @@ func (r *AWSEC2DHCPOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2DHCPOptions(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2DHCPOptionsResources retrieves all AWSEC2DHCPOptions items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2DHCPOptionsResources () map[string]AWSEC2DHCPOptions {
-    results := map[string]AWSEC2DHCPOptions{}
+func (t *CloudFormationTemplate) GetAllAWSEC2DHCPOptionsResources() map[string]AWSEC2DHCPOptions {
+	results := map[string]AWSEC2DHCPOptions{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2DHCPOptions:
@@ -111,8 +109,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2DHCPOptionsResources () map[string]
 
 // GetAWSEC2DHCPOptionsWithName retrieves all AWSEC2DHCPOptions items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2DHCPOptionsWithName (name string) (AWSEC2DHCPOptions, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2DHCPOptionsWithName(name string) (AWSEC2DHCPOptions, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2DHCPOptions:
 			// We found a strongly typed resource of the correct type; use it
@@ -130,8 +128,8 @@ func (t *CloudFormationTemplate) GetAWSEC2DHCPOptionsWithName (name string) (AWS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2DHCPOptions{}, errors.New("resource not found")
+	return AWSEC2DHCPOptions{}, errors.New("resource not found")
 }

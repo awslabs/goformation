@@ -1,72 +1,70 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIAMManagedPolicy AWS CloudFormation Resource (AWS::IAM::ManagedPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html
 type AWSIAMManagedPolicy struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-description
-    Description string `json:"Description,omitempty"`
-    
-    // Groups AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-groups
-    Groups []string `json:"Groups,omitempty"`
-    
-    // ManagedPolicyName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-managedpolicyname
-    ManagedPolicyName string `json:"ManagedPolicyName,omitempty"`
-    
-    // Path AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-ec2-dhcpoptions-path
-    Path string `json:"Path,omitempty"`
-    
-    // PolicyDocument AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-policydocument
-    PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
-    
-    // Roles AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles
-    Roles []string `json:"Roles,omitempty"`
-    
-    // Users AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-users
-    Users []string `json:"Users,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-description
+	Description string `json:"Description,omitempty"`
+
+	// Groups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-groups
+	Groups []string `json:"Groups,omitempty"`
+
+	// ManagedPolicyName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-managedpolicyname
+	ManagedPolicyName string `json:"ManagedPolicyName,omitempty"`
+
+	// Path AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-ec2-dhcpoptions-path
+	Path string `json:"Path,omitempty"`
+
+	// PolicyDocument AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-policydocument
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
+
+	// Roles AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles
+	Roles []string `json:"Roles,omitempty"`
+
+	// Users AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-users
+	Users []string `json:"Users,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMManagedPolicy) AWSCloudFormationType() string {
-    return "AWS::IAM::ManagedPolicy"
+	return "AWS::IAM::ManagedPolicy"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMManagedPolicy) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIAMManagedPolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSIAMManagedPolicy
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -76,7 +74,7 @@ func (r *AWSIAMManagedPolicy) MarshalJSON() ([]byte, error) {
 func (r *AWSIAMManagedPolicy) UnmarshalJSON(b []byte) error {
 	type Properties AWSIAMManagedPolicy
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -84,12 +82,12 @@ func (r *AWSIAMManagedPolicy) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIAMManagedPolicy(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIAMManagedPolicyResources retrieves all AWSIAMManagedPolicy items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIAMManagedPolicyResources () map[string]AWSIAMManagedPolicy {
-    results := map[string]AWSIAMManagedPolicy{}
+func (t *CloudFormationTemplate) GetAllAWSIAMManagedPolicyResources() map[string]AWSIAMManagedPolicy {
+	results := map[string]AWSIAMManagedPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIAMManagedPolicy:
@@ -116,8 +114,8 @@ func (t *CloudFormationTemplate) GetAllAWSIAMManagedPolicyResources () map[strin
 
 // GetAWSIAMManagedPolicyWithName retrieves all AWSIAMManagedPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIAMManagedPolicyWithName (name string) (AWSIAMManagedPolicy, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIAMManagedPolicyWithName(name string) (AWSIAMManagedPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIAMManagedPolicy:
 			// We found a strongly typed resource of the correct type; use it
@@ -135,8 +133,8 @@ func (t *CloudFormationTemplate) GetAWSIAMManagedPolicyWithName (name string) (A
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIAMManagedPolicy{}, errors.New("resource not found")
+	return AWSIAMManagedPolicy{}, errors.New("resource not found")
 }

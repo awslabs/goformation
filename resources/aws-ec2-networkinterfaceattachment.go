@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2NetworkInterfaceAttachment AWS CloudFormation Resource (AWS::EC2::NetworkInterfaceAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html
 type AWSEC2NetworkInterfaceAttachment struct {
-    
-    // DeleteOnTermination AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-deleteonterm
-    DeleteOnTermination bool `json:"DeleteOnTermination,omitempty"`
-    
-    // DeviceIndex AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-deviceindex
-    DeviceIndex string `json:"DeviceIndex,omitempty"`
-    
-    // InstanceId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-instanceid
-    InstanceId string `json:"InstanceId,omitempty"`
-    
-    // NetworkInterfaceId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-networkinterfaceid
-    NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
-    
+
+	// DeleteOnTermination AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-deleteonterm
+	DeleteOnTermination bool `json:"DeleteOnTermination,omitempty"`
+
+	// DeviceIndex AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-deviceindex
+	DeviceIndex string `json:"DeviceIndex,omitempty"`
+
+	// InstanceId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-instanceid
+	InstanceId string `json:"InstanceId,omitempty"`
+
+	// NetworkInterfaceId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-networkinterfaceid
+	NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2NetworkInterfaceAttachment) AWSCloudFormationType() string {
-    return "AWS::EC2::NetworkInterfaceAttachment"
+	return "AWS::EC2::NetworkInterfaceAttachment"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NetworkInterfaceAttachment) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2NetworkInterfaceAttachment) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2NetworkInterfaceAttachment
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSEC2NetworkInterfaceAttachment) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2NetworkInterfaceAttachment) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2NetworkInterfaceAttachment
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSEC2NetworkInterfaceAttachment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2NetworkInterfaceAttachment(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2NetworkInterfaceAttachmentResources retrieves all AWSEC2NetworkInterfaceAttachment items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfaceAttachmentResources () map[string]AWSEC2NetworkInterfaceAttachment {
-    results := map[string]AWSEC2NetworkInterfaceAttachment{}
+func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfaceAttachmentResources() map[string]AWSEC2NetworkInterfaceAttachment {
+	results := map[string]AWSEC2NetworkInterfaceAttachment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkInterfaceAttachment:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfaceAttachmentResources
 
 // GetAWSEC2NetworkInterfaceAttachmentWithName retrieves all AWSEC2NetworkInterfaceAttachment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfaceAttachmentWithName (name string) (AWSEC2NetworkInterfaceAttachment, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfaceAttachmentWithName(name string) (AWSEC2NetworkInterfaceAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkInterfaceAttachment:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfaceAttachmentWithName (na
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2NetworkInterfaceAttachment{}, errors.New("resource not found")
+	return AWSEC2NetworkInterfaceAttachment{}, errors.New("resource not found")
 }

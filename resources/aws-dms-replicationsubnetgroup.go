@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSDMSReplicationSubnetGroup AWS CloudFormation Resource (AWS::DMS::ReplicationSubnetGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html
 type AWSDMSReplicationSubnetGroup struct {
-    
-    // ReplicationSubnetGroupDescription AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-replicationsubnetgroupdescription
-    ReplicationSubnetGroupDescription string `json:"ReplicationSubnetGroupDescription,omitempty"`
-    
-    // ReplicationSubnetGroupIdentifier AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-replicationsubnetgroupidentifier
-    ReplicationSubnetGroupIdentifier string `json:"ReplicationSubnetGroupIdentifier,omitempty"`
-    
-    // SubnetIds AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-subnetids
-    SubnetIds []string `json:"SubnetIds,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// ReplicationSubnetGroupDescription AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-replicationsubnetgroupdescription
+	ReplicationSubnetGroupDescription string `json:"ReplicationSubnetGroupDescription,omitempty"`
+
+	// ReplicationSubnetGroupIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-replicationsubnetgroupidentifier
+	ReplicationSubnetGroupIdentifier string `json:"ReplicationSubnetGroupIdentifier,omitempty"`
+
+	// SubnetIds AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-subnetids
+	SubnetIds []string `json:"SubnetIds,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSDMSReplicationSubnetGroup) AWSCloudFormationType() string {
-    return "AWS::DMS::ReplicationSubnetGroup"
+	return "AWS::DMS::ReplicationSubnetGroup"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDMSReplicationSubnetGroup) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSDMSReplicationSubnetGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSDMSReplicationSubnetGroup
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSDMSReplicationSubnetGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSDMSReplicationSubnetGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSDMSReplicationSubnetGroup
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSDMSReplicationSubnetGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSDMSReplicationSubnetGroup(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSDMSReplicationSubnetGroupResources retrieves all AWSDMSReplicationSubnetGroup items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSDMSReplicationSubnetGroupResources () map[string]AWSDMSReplicationSubnetGroup {
-    results := map[string]AWSDMSReplicationSubnetGroup{}
+func (t *CloudFormationTemplate) GetAllAWSDMSReplicationSubnetGroupResources() map[string]AWSDMSReplicationSubnetGroup {
+	results := map[string]AWSDMSReplicationSubnetGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSDMSReplicationSubnetGroup:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSDMSReplicationSubnetGroupResources () 
 
 // GetAWSDMSReplicationSubnetGroupWithName retrieves all AWSDMSReplicationSubnetGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSDMSReplicationSubnetGroupWithName (name string) (AWSDMSReplicationSubnetGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSDMSReplicationSubnetGroupWithName(name string) (AWSDMSReplicationSubnetGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSDMSReplicationSubnetGroup:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSDMSReplicationSubnetGroupWithName (name s
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSDMSReplicationSubnetGroup{}, errors.New("resource not found")
+	return AWSDMSReplicationSubnetGroup{}, errors.New("resource not found")
 }

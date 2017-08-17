@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2NatGateway AWS CloudFormation Resource (AWS::EC2::NatGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
 type AWSEC2NatGateway struct {
-    
-    // AllocationId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
-    AllocationId string `json:"AllocationId,omitempty"`
-    
-    // SubnetId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
-    SubnetId string `json:"SubnetId,omitempty"`
-    
+
+	// AllocationId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
+	AllocationId string `json:"AllocationId,omitempty"`
+
+	// SubnetId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
+	SubnetId string `json:"SubnetId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2NatGateway) AWSCloudFormationType() string {
-    return "AWS::EC2::NatGateway"
+	return "AWS::EC2::NatGateway"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NatGateway) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2NatGateway) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2NatGateway
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSEC2NatGateway) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2NatGateway) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2NatGateway
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSEC2NatGateway) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2NatGateway(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2NatGatewayResources retrieves all AWSEC2NatGateway items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2NatGatewayResources () map[string]AWSEC2NatGateway {
-    results := map[string]AWSEC2NatGateway{}
+func (t *CloudFormationTemplate) GetAllAWSEC2NatGatewayResources() map[string]AWSEC2NatGateway {
+	results := map[string]AWSEC2NatGateway{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2NatGateway:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2NatGatewayResources () map[string]A
 
 // GetAWSEC2NatGatewayWithName retrieves all AWSEC2NatGateway items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2NatGatewayWithName (name string) (AWSEC2NatGateway, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2NatGatewayWithName(name string) (AWSEC2NatGateway, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2NatGateway:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSEC2NatGatewayWithName (name string) (AWSE
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2NatGateway{}, errors.New("resource not found")
+	return AWSEC2NatGateway{}, errors.New("resource not found")
 }

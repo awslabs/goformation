@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIAMPolicy AWS CloudFormation Resource (AWS::IAM::Policy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html
 type AWSIAMPolicy struct {
-    
-    // Groups AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-groups
-    Groups []string `json:"Groups,omitempty"`
-    
-    // PolicyDocument AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument
-    PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
-    
-    // PolicyName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policyname
-    PolicyName string `json:"PolicyName,omitempty"`
-    
-    // Roles AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-roles
-    Roles []string `json:"Roles,omitempty"`
-    
-    // Users AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-users
-    Users []string `json:"Users,omitempty"`
-    
+
+	// Groups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-groups
+	Groups []string `json:"Groups,omitempty"`
+
+	// PolicyDocument AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
+
+	// PolicyName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policyname
+	PolicyName string `json:"PolicyName,omitempty"`
+
+	// Roles AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-roles
+	Roles []string `json:"Roles,omitempty"`
+
+	// Users AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-users
+	Users []string `json:"Users,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMPolicy) AWSCloudFormationType() string {
-    return "AWS::IAM::Policy"
+	return "AWS::IAM::Policy"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMPolicy) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIAMPolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSIAMPolicy
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSIAMPolicy) MarshalJSON() ([]byte, error) {
 func (r *AWSIAMPolicy) UnmarshalJSON(b []byte) error {
 	type Properties AWSIAMPolicy
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSIAMPolicy) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIAMPolicy(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIAMPolicyResources retrieves all AWSIAMPolicy items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIAMPolicyResources () map[string]AWSIAMPolicy {
-    results := map[string]AWSIAMPolicy{}
+func (t *CloudFormationTemplate) GetAllAWSIAMPolicyResources() map[string]AWSIAMPolicy {
+	results := map[string]AWSIAMPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIAMPolicy:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSIAMPolicyResources () map[string]AWSIA
 
 // GetAWSIAMPolicyWithName retrieves all AWSIAMPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIAMPolicyWithName (name string) (AWSIAMPolicy, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIAMPolicyWithName(name string) (AWSIAMPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIAMPolicy:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSIAMPolicyWithName (name string) (AWSIAMPo
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIAMPolicy{}, errors.New("resource not found")
+	return AWSIAMPolicy{}, errors.New("resource not found")
 }

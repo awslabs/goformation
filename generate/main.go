@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"go/format"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -131,12 +132,12 @@ func generateResources(name string, resource Resource, isCustomProperty bool, sp
 	}
 
 	// Format the generated Go file with gofmt
-	// formatted, err := format.Source(buf.Bytes())
-	// if err != nil {
-	// 	fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
-	// 	os.Exit(1)
-	// }
-	formatted := buf.Bytes()
+	formatted, err := format.Source(buf.Bytes())
+	if err != nil {
+		fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
+		os.Exit(1)
+	}
+
 	// Write the file out
 	if err := ioutil.WriteFile("resources/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
@@ -222,12 +223,12 @@ func generatePolymorphicProperty(name string, property Property) {
 	}
 
 	// Format the generated Go file with gofmt
-	// formatted, err := format.Source(buf.Bytes())
-	// if err != nil {
-	// 	fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
-	// 	os.Exit(1)
-	// }
-	formatted := buf.Bytes()
+	formatted, err := format.Source(buf.Bytes())
+	if err != nil {
+		fmt.Printf("Error: Failed to format Go file for resource %s\n%s\n", name, err)
+		os.Exit(1)
+	}
+
 	// Write the file out
 	if err := ioutil.WriteFile("resources/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)

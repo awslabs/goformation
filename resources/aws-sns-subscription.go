@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSSNSSubscription AWS CloudFormation Resource (AWS::SNS::Subscription)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
 type AWSSNSSubscription struct {
-    
-    // Endpoint AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-endpoint
-    Endpoint string `json:"Endpoint,omitempty"`
-    
-    // Protocol AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
-    Protocol string `json:"Protocol,omitempty"`
-    
-    // TopicArn AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
-    TopicArn string `json:"TopicArn,omitempty"`
-    
+
+	// Endpoint AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-endpoint
+	Endpoint string `json:"Endpoint,omitempty"`
+
+	// Protocol AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
+	Protocol string `json:"Protocol,omitempty"`
+
+	// TopicArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
+	TopicArn string `json:"TopicArn,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSSNSSubscription) AWSCloudFormationType() string {
-    return "AWS::SNS::Subscription"
+	return "AWS::SNS::Subscription"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSNSSubscription) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSSNSSubscription) MarshalJSON() ([]byte, error) {
 	type Properties AWSSNSSubscription
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSSNSSubscription) MarshalJSON() ([]byte, error) {
 func (r *AWSSNSSubscription) UnmarshalJSON(b []byte) error {
 	type Properties AWSSNSSubscription
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSSNSSubscription) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSSNSSubscription(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSSNSSubscriptionResources retrieves all AWSSNSSubscription items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSSNSSubscriptionResources () map[string]AWSSNSSubscription {
-    results := map[string]AWSSNSSubscription{}
+func (t *CloudFormationTemplate) GetAllAWSSNSSubscriptionResources() map[string]AWSSNSSubscription {
+	results := map[string]AWSSNSSubscription{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSNSSubscription:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSSNSSubscriptionResources () map[string
 
 // GetAWSSNSSubscriptionWithName retrieves all AWSSNSSubscription items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSSNSSubscriptionWithName (name string) (AWSSNSSubscription, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSSNSSubscriptionWithName(name string) (AWSSNSSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSNSSubscription:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSSNSSubscriptionWithName (name string) (AW
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSSNSSubscription{}, errors.New("resource not found")
+	return AWSSNSSubscription{}, errors.New("resource not found")
 }

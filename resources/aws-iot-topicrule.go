@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIoTTopicRule AWS CloudFormation Resource (AWS::IoT::TopicRule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
 type AWSIoTTopicRule struct {
-    
-    // RuleName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-    RuleName string `json:"RuleName,omitempty"`
-    
-    // TopicRulePayload AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-    TopicRulePayload *AWSIoTTopicRule_TopicRulePayload `json:"TopicRulePayload,omitempty"`
-    
+
+	// RuleName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
+	RuleName string `json:"RuleName,omitempty"`
+
+	// TopicRulePayload AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
+	TopicRulePayload *AWSIoTTopicRule_TopicRulePayload `json:"TopicRulePayload,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIoTTopicRule) AWSCloudFormationType() string {
-    return "AWS::IoT::TopicRule"
+	return "AWS::IoT::TopicRule"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTTopicRule) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIoTTopicRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSIoTTopicRule
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSIoTTopicRule) MarshalJSON() ([]byte, error) {
 func (r *AWSIoTTopicRule) UnmarshalJSON(b []byte) error {
 	type Properties AWSIoTTopicRule
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSIoTTopicRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIoTTopicRule(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIoTTopicRuleResources retrieves all AWSIoTTopicRule items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIoTTopicRuleResources () map[string]AWSIoTTopicRule {
-    results := map[string]AWSIoTTopicRule{}
+func (t *CloudFormationTemplate) GetAllAWSIoTTopicRuleResources() map[string]AWSIoTTopicRule {
+	results := map[string]AWSIoTTopicRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIoTTopicRule:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSIoTTopicRuleResources () map[string]AW
 
 // GetAWSIoTTopicRuleWithName retrieves all AWSIoTTopicRule items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIoTTopicRuleWithName (name string) (AWSIoTTopicRule, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIoTTopicRuleWithName(name string) (AWSIoTTopicRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIoTTopicRule:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSIoTTopicRuleWithName (name string) (AWSIo
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIoTTopicRule{}, errors.New("resource not found")
+	return AWSIoTTopicRule{}, errors.New("resource not found")
 }

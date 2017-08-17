@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2SubnetCidrBlock AWS CloudFormation Resource (AWS::EC2::SubnetCidrBlock)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
 type AWSEC2SubnetCidrBlock struct {
-    
-    // Ipv6CidrBlock AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6cidrblock
-    Ipv6CidrBlock string `json:"Ipv6CidrBlock,omitempty"`
-    
-    // SubnetId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-subnetid
-    SubnetId string `json:"SubnetId,omitempty"`
-    
+
+	// Ipv6CidrBlock AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6cidrblock
+	Ipv6CidrBlock string `json:"Ipv6CidrBlock,omitempty"`
+
+	// SubnetId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-subnetid
+	SubnetId string `json:"SubnetId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2SubnetCidrBlock) AWSCloudFormationType() string {
-    return "AWS::EC2::SubnetCidrBlock"
+	return "AWS::EC2::SubnetCidrBlock"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2SubnetCidrBlock) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2SubnetCidrBlock) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2SubnetCidrBlock
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSEC2SubnetCidrBlock) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2SubnetCidrBlock) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2SubnetCidrBlock
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSEC2SubnetCidrBlock) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2SubnetCidrBlock(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2SubnetCidrBlockResources retrieves all AWSEC2SubnetCidrBlock items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2SubnetCidrBlockResources () map[string]AWSEC2SubnetCidrBlock {
-    results := map[string]AWSEC2SubnetCidrBlock{}
+func (t *CloudFormationTemplate) GetAllAWSEC2SubnetCidrBlockResources() map[string]AWSEC2SubnetCidrBlock {
+	results := map[string]AWSEC2SubnetCidrBlock{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2SubnetCidrBlock:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2SubnetCidrBlockResources () map[str
 
 // GetAWSEC2SubnetCidrBlockWithName retrieves all AWSEC2SubnetCidrBlock items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2SubnetCidrBlockWithName (name string) (AWSEC2SubnetCidrBlock, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2SubnetCidrBlockWithName(name string) (AWSEC2SubnetCidrBlock, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2SubnetCidrBlock:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSEC2SubnetCidrBlockWithName (name string) 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2SubnetCidrBlock{}, errors.New("resource not found")
+	return AWSEC2SubnetCidrBlock{}, errors.New("resource not found")
 }

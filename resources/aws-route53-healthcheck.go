@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSRoute53HealthCheck AWS CloudFormation Resource (AWS::Route53::HealthCheck)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
 type AWSRoute53HealthCheck struct {
-    
-    // HealthCheckConfig AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-    HealthCheckConfig *AWSRoute53HealthCheck_HealthCheckConfig `json:"HealthCheckConfig,omitempty"`
-    
-    // HealthCheckTags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-    HealthCheckTags []AWSRoute53HealthCheck_HealthCheckTag `json:"HealthCheckTags,omitempty"`
-    
+
+	// HealthCheckConfig AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+	HealthCheckConfig *AWSRoute53HealthCheck_HealthCheckConfig `json:"HealthCheckConfig,omitempty"`
+
+	// HealthCheckTags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+	HealthCheckTags []AWSRoute53HealthCheck_HealthCheckTag `json:"HealthCheckTags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSRoute53HealthCheck) AWSCloudFormationType() string {
-    return "AWS::Route53::HealthCheck"
+	return "AWS::Route53::HealthCheck"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRoute53HealthCheck) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSRoute53HealthCheck) MarshalJSON() ([]byte, error) {
 	type Properties AWSRoute53HealthCheck
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSRoute53HealthCheck) MarshalJSON() ([]byte, error) {
 func (r *AWSRoute53HealthCheck) UnmarshalJSON(b []byte) error {
 	type Properties AWSRoute53HealthCheck
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSRoute53HealthCheck) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSRoute53HealthCheck(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSRoute53HealthCheckResources retrieves all AWSRoute53HealthCheck items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSRoute53HealthCheckResources () map[string]AWSRoute53HealthCheck {
-    results := map[string]AWSRoute53HealthCheck{}
+func (t *CloudFormationTemplate) GetAllAWSRoute53HealthCheckResources() map[string]AWSRoute53HealthCheck {
+	results := map[string]AWSRoute53HealthCheck{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRoute53HealthCheck:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSRoute53HealthCheckResources () map[str
 
 // GetAWSRoute53HealthCheckWithName retrieves all AWSRoute53HealthCheck items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSRoute53HealthCheckWithName (name string) (AWSRoute53HealthCheck, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSRoute53HealthCheckWithName(name string) (AWSRoute53HealthCheck, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRoute53HealthCheck:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSRoute53HealthCheckWithName (name string) 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSRoute53HealthCheck{}, errors.New("resource not found")
+	return AWSRoute53HealthCheck{}, errors.New("resource not found")
 }

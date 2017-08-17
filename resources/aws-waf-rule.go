@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFRule AWS CloudFormation Resource (AWS::WAF::Rule)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
 type AWSWAFRule struct {
-    
-    // MetricName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-metricname
-    MetricName string `json:"MetricName,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-name
-    Name string `json:"Name,omitempty"`
-    
-    // Predicates AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-predicates
-    Predicates []AWSWAFRule_Predicate `json:"Predicates,omitempty"`
-    
+
+	// MetricName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-metricname
+	MetricName string `json:"MetricName,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-name
+	Name string `json:"Name,omitempty"`
+
+	// Predicates AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-predicates
+	Predicates []AWSWAFRule_Predicate `json:"Predicates,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFRule) AWSCloudFormationType() string {
-    return "AWS::WAF::Rule"
+	return "AWS::WAF::Rule"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFRule) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFRule
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSWAFRule) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFRule) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFRule
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSWAFRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFRule(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFRuleResources retrieves all AWSWAFRule items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFRuleResources () map[string]AWSWAFRule {
-    results := map[string]AWSWAFRule{}
+func (t *CloudFormationTemplate) GetAllAWSWAFRuleResources() map[string]AWSWAFRule {
+	results := map[string]AWSWAFRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFRule:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFRuleResources () map[string]AWSWAFR
 
 // GetAWSWAFRuleWithName retrieves all AWSWAFRule items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFRuleWithName (name string) (AWSWAFRule, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFRuleWithName(name string) (AWSWAFRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFRule:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSWAFRuleWithName (name string) (AWSWAFRule
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFRule{}, errors.New("resource not found")
+	return AWSWAFRule{}, errors.New("resource not found")
 }

@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFRegionalXssMatchSet AWS CloudFormation Resource (AWS::WAFRegional::XssMatchSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html
 type AWSWAFRegionalXssMatchSet struct {
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name
-    Name string `json:"Name,omitempty"`
-    
-    // XssMatchTuples AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples
-    XssMatchTuples []AWSWAFRegionalXssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
-    
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name
+	Name string `json:"Name,omitempty"`
+
+	// XssMatchTuples AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples
+	XssMatchTuples []AWSWAFRegionalXssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFRegionalXssMatchSet) AWSCloudFormationType() string {
-    return "AWS::WAFRegional::XssMatchSet"
+	return "AWS::WAFRegional::XssMatchSet"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFRegionalXssMatchSet) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFRegionalXssMatchSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFRegionalXssMatchSet
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSWAFRegionalXssMatchSet) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFRegionalXssMatchSet) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFRegionalXssMatchSet
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSWAFRegionalXssMatchSet) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFRegionalXssMatchSet(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFRegionalXssMatchSetResources retrieves all AWSWAFRegionalXssMatchSet items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFRegionalXssMatchSetResources () map[string]AWSWAFRegionalXssMatchSet {
-    results := map[string]AWSWAFRegionalXssMatchSet{}
+func (t *CloudFormationTemplate) GetAllAWSWAFRegionalXssMatchSetResources() map[string]AWSWAFRegionalXssMatchSet {
+	results := map[string]AWSWAFRegionalXssMatchSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalXssMatchSet:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFRegionalXssMatchSetResources () map
 
 // GetAWSWAFRegionalXssMatchSetWithName retrieves all AWSWAFRegionalXssMatchSet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFRegionalXssMatchSetWithName (name string) (AWSWAFRegionalXssMatchSet, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFRegionalXssMatchSetWithName(name string) (AWSWAFRegionalXssMatchSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalXssMatchSet:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSWAFRegionalXssMatchSetWithName (name stri
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFRegionalXssMatchSet{}, errors.New("resource not found")
+	return AWSWAFRegionalXssMatchSet{}, errors.New("resource not found")
 }

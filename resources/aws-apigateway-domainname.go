@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApiGatewayDomainName AWS CloudFormation Resource (AWS::ApiGateway::DomainName)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 type AWSApiGatewayDomainName struct {
-    
-    // CertificateArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
-    CertificateArn string `json:"CertificateArn,omitempty"`
-    
-    // DomainName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-    DomainName string `json:"DomainName,omitempty"`
-    
+
+	// CertificateArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
+	CertificateArn string `json:"CertificateArn,omitempty"`
+
+	// DomainName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
+	DomainName string `json:"DomainName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApiGatewayDomainName) AWSCloudFormationType() string {
-    return "AWS::ApiGateway::DomainName"
+	return "AWS::ApiGateway::DomainName"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayDomainName) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApiGatewayDomainName) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayDomainName
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSApiGatewayDomainName) MarshalJSON() ([]byte, error) {
 func (r *AWSApiGatewayDomainName) UnmarshalJSON(b []byte) error {
 	type Properties AWSApiGatewayDomainName
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSApiGatewayDomainName) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApiGatewayDomainName(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApiGatewayDomainNameResources retrieves all AWSApiGatewayDomainName items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApiGatewayDomainNameResources () map[string]AWSApiGatewayDomainName {
-    results := map[string]AWSApiGatewayDomainName{}
+func (t *CloudFormationTemplate) GetAllAWSApiGatewayDomainNameResources() map[string]AWSApiGatewayDomainName {
+	results := map[string]AWSApiGatewayDomainName{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayDomainName:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSApiGatewayDomainNameResources () map[s
 
 // GetAWSApiGatewayDomainNameWithName retrieves all AWSApiGatewayDomainName items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApiGatewayDomainNameWithName (name string) (AWSApiGatewayDomainName, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApiGatewayDomainNameWithName(name string) (AWSApiGatewayDomainName, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayDomainName:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSApiGatewayDomainNameWithName (name string
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApiGatewayDomainName{}, errors.New("resource not found")
+	return AWSApiGatewayDomainName{}, errors.New("resource not found")
 }

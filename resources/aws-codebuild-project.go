@@ -1,82 +1,80 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCodeBuildProject AWS CloudFormation Resource (AWS::CodeBuild::Project)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
 type AWSCodeBuildProject struct {
-    
-    // Artifacts AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-artifacts
-    Artifacts *AWSCodeBuildProject_Artifacts `json:"Artifacts,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
-    Description string `json:"Description,omitempty"`
-    
-    // EncryptionKey AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-encryptionkey
-    EncryptionKey string `json:"EncryptionKey,omitempty"`
-    
-    // Environment AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
-    Environment *AWSCodeBuildProject_Environment `json:"Environment,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
-    Name string `json:"Name,omitempty"`
-    
-    // ServiceRole AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-servicerole
-    ServiceRole string `json:"ServiceRole,omitempty"`
-    
-    // Source AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
-    Source *AWSCodeBuildProject_Source `json:"Source,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // TimeoutInMinutes AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
-    TimeoutInMinutes int `json:"TimeoutInMinutes,omitempty"`
-    
+
+	// Artifacts AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-artifacts
+	Artifacts *AWSCodeBuildProject_Artifacts `json:"Artifacts,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
+	Description string `json:"Description,omitempty"`
+
+	// EncryptionKey AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-encryptionkey
+	EncryptionKey string `json:"EncryptionKey,omitempty"`
+
+	// Environment AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
+	Environment *AWSCodeBuildProject_Environment `json:"Environment,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
+	Name string `json:"Name,omitempty"`
+
+	// ServiceRole AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-servicerole
+	ServiceRole string `json:"ServiceRole,omitempty"`
+
+	// Source AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
+	Source *AWSCodeBuildProject_Source `json:"Source,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// TimeoutInMinutes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
+	TimeoutInMinutes int `json:"TimeoutInMinutes,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCodeBuildProject) AWSCloudFormationType() string {
-    return "AWS::CodeBuild::Project"
+	return "AWS::CodeBuild::Project"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeBuildProject) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCodeBuildProject) MarshalJSON() ([]byte, error) {
 	type Properties AWSCodeBuildProject
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -86,7 +84,7 @@ func (r *AWSCodeBuildProject) MarshalJSON() ([]byte, error) {
 func (r *AWSCodeBuildProject) UnmarshalJSON(b []byte) error {
 	type Properties AWSCodeBuildProject
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -94,12 +92,12 @@ func (r *AWSCodeBuildProject) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCodeBuildProject(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCodeBuildProjectResources retrieves all AWSCodeBuildProject items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCodeBuildProjectResources () map[string]AWSCodeBuildProject {
-    results := map[string]AWSCodeBuildProject{}
+func (t *CloudFormationTemplate) GetAllAWSCodeBuildProjectResources() map[string]AWSCodeBuildProject {
+	results := map[string]AWSCodeBuildProject{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCodeBuildProject:
@@ -126,8 +124,8 @@ func (t *CloudFormationTemplate) GetAllAWSCodeBuildProjectResources () map[strin
 
 // GetAWSCodeBuildProjectWithName retrieves all AWSCodeBuildProject items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCodeBuildProjectWithName (name string) (AWSCodeBuildProject, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCodeBuildProjectWithName(name string) (AWSCodeBuildProject, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCodeBuildProject:
 			// We found a strongly typed resource of the correct type; use it
@@ -145,8 +143,8 @@ func (t *CloudFormationTemplate) GetAWSCodeBuildProjectWithName (name string) (A
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCodeBuildProject{}, errors.New("resource not found")
+	return AWSCodeBuildProject{}, errors.New("resource not found")
 }

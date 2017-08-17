@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApiGatewayUsagePlanKey AWS CloudFormation Resource (AWS::ApiGateway::UsagePlanKey)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
 type AWSApiGatewayUsagePlanKey struct {
-    
-    // KeyId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
-    KeyId string `json:"KeyId,omitempty"`
-    
-    // KeyType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
-    KeyType string `json:"KeyType,omitempty"`
-    
-    // UsagePlanId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
-    UsagePlanId string `json:"UsagePlanId,omitempty"`
-    
+
+	// KeyId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+	KeyId string `json:"KeyId,omitempty"`
+
+	// KeyType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+	KeyType string `json:"KeyType,omitempty"`
+
+	// UsagePlanId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+	UsagePlanId string `json:"UsagePlanId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApiGatewayUsagePlanKey) AWSCloudFormationType() string {
-    return "AWS::ApiGateway::UsagePlanKey"
+	return "AWS::ApiGateway::UsagePlanKey"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayUsagePlanKey) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApiGatewayUsagePlanKey) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayUsagePlanKey
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSApiGatewayUsagePlanKey) MarshalJSON() ([]byte, error) {
 func (r *AWSApiGatewayUsagePlanKey) UnmarshalJSON(b []byte) error {
 	type Properties AWSApiGatewayUsagePlanKey
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSApiGatewayUsagePlanKey) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApiGatewayUsagePlanKey(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApiGatewayUsagePlanKeyResources retrieves all AWSApiGatewayUsagePlanKey items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApiGatewayUsagePlanKeyResources () map[string]AWSApiGatewayUsagePlanKey {
-    results := map[string]AWSApiGatewayUsagePlanKey{}
+func (t *CloudFormationTemplate) GetAllAWSApiGatewayUsagePlanKeyResources() map[string]AWSApiGatewayUsagePlanKey {
+	results := map[string]AWSApiGatewayUsagePlanKey{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayUsagePlanKey:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSApiGatewayUsagePlanKeyResources () map
 
 // GetAWSApiGatewayUsagePlanKeyWithName retrieves all AWSApiGatewayUsagePlanKey items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApiGatewayUsagePlanKeyWithName (name string) (AWSApiGatewayUsagePlanKey, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApiGatewayUsagePlanKeyWithName(name string) (AWSApiGatewayUsagePlanKey, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayUsagePlanKey:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSApiGatewayUsagePlanKeyWithName (name stri
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApiGatewayUsagePlanKey{}, errors.New("resource not found")
+	return AWSApiGatewayUsagePlanKey{}, errors.New("resource not found")
 }

@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2VPC AWS CloudFormation Resource (AWS::EC2::VPC)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
 type AWSEC2VPC struct {
-    
-    // CidrBlock AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-cidrblock
-    CidrBlock string `json:"CidrBlock,omitempty"`
-    
-    // EnableDnsHostnames AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsHostnames
-    EnableDnsHostnames bool `json:"EnableDnsHostnames,omitempty"`
-    
-    // EnableDnsSupport AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsSupport
-    EnableDnsSupport bool `json:"EnableDnsSupport,omitempty"`
-    
-    // InstanceTenancy AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-instancetenancy
-    InstanceTenancy string `json:"InstanceTenancy,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// CidrBlock AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-cidrblock
+	CidrBlock string `json:"CidrBlock,omitempty"`
+
+	// EnableDnsHostnames AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsHostnames
+	EnableDnsHostnames bool `json:"EnableDnsHostnames,omitempty"`
+
+	// EnableDnsSupport AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsSupport
+	EnableDnsSupport bool `json:"EnableDnsSupport,omitempty"`
+
+	// InstanceTenancy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-instancetenancy
+	InstanceTenancy string `json:"InstanceTenancy,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2VPC) AWSCloudFormationType() string {
-    return "AWS::EC2::VPC"
+	return "AWS::EC2::VPC"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPC) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2VPC) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPC
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSEC2VPC) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2VPC) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2VPC
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSEC2VPC) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2VPC(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VPCResources retrieves all AWSEC2VPC items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VPCResources () map[string]AWSEC2VPC {
-    results := map[string]AWSEC2VPC{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VPCResources() map[string]AWSEC2VPC {
+	results := map[string]AWSEC2VPC{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2VPC:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VPCResources () map[string]AWSEC2VP
 
 // GetAWSEC2VPCWithName retrieves all AWSEC2VPC items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VPCWithName (name string) (AWSEC2VPC, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VPCWithName(name string) (AWSEC2VPC, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2VPC:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VPCWithName (name string) (AWSEC2VPC, 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2VPC{}, errors.New("resource not found")
+	return AWSEC2VPC{}, errors.New("resource not found")
 }

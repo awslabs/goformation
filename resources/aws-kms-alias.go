@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSKMSAlias AWS CloudFormation Resource (AWS::KMS::Alias)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
 type AWSKMSAlias struct {
-    
-    // AliasName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
-    AliasName string `json:"AliasName,omitempty"`
-    
-    // TargetKeyId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
-    TargetKeyId string `json:"TargetKeyId,omitempty"`
-    
+
+	// AliasName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
+	AliasName string `json:"AliasName,omitempty"`
+
+	// TargetKeyId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
+	TargetKeyId string `json:"TargetKeyId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSKMSAlias) AWSCloudFormationType() string {
-    return "AWS::KMS::Alias"
+	return "AWS::KMS::Alias"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSKMSAlias) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSKMSAlias) MarshalJSON() ([]byte, error) {
 	type Properties AWSKMSAlias
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSKMSAlias) MarshalJSON() ([]byte, error) {
 func (r *AWSKMSAlias) UnmarshalJSON(b []byte) error {
 	type Properties AWSKMSAlias
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSKMSAlias) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSKMSAlias(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSKMSAliasResources retrieves all AWSKMSAlias items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSKMSAliasResources () map[string]AWSKMSAlias {
-    results := map[string]AWSKMSAlias{}
+func (t *CloudFormationTemplate) GetAllAWSKMSAliasResources() map[string]AWSKMSAlias {
+	results := map[string]AWSKMSAlias{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSKMSAlias:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSKMSAliasResources () map[string]AWSKMS
 
 // GetAWSKMSAliasWithName retrieves all AWSKMSAlias items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSKMSAliasWithName (name string) (AWSKMSAlias, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSKMSAliasWithName(name string) (AWSKMSAlias, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSKMSAlias:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSKMSAliasWithName (name string) (AWSKMSAli
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSKMSAlias{}, errors.New("resource not found")
+	return AWSKMSAlias{}, errors.New("resource not found")
 }

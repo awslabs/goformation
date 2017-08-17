@@ -1,87 +1,85 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCodeDeployDeploymentGroup AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html
 type AWSCodeDeployDeploymentGroup struct {
-    
-    // AlarmConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-alarmconfiguration
-    AlarmConfiguration *AWSCodeDeployDeploymentGroup_AlarmConfiguration `json:"AlarmConfiguration,omitempty"`
-    
-    // ApplicationName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-applicationname
-    ApplicationName string `json:"ApplicationName,omitempty"`
-    
-    // AutoScalingGroups AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups
-    AutoScalingGroups []string `json:"AutoScalingGroups,omitempty"`
-    
-    // Deployment AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deployment
-    Deployment *AWSCodeDeployDeploymentGroup_Deployment `json:"Deployment,omitempty"`
-    
-    // DeploymentConfigName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentconfigname
-    DeploymentConfigName string `json:"DeploymentConfigName,omitempty"`
-    
-    // DeploymentGroupName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentgroupname
-    DeploymentGroupName string `json:"DeploymentGroupName,omitempty"`
-    
-    // Ec2TagFilters AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters
-    Ec2TagFilters []AWSCodeDeployDeploymentGroup_EC2TagFilter `json:"Ec2TagFilters,omitempty"`
-    
-    // OnPremisesInstanceTagFilters AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
-    OnPremisesInstanceTagFilters []AWSCodeDeployDeploymentGroup_TagFilter `json:"OnPremisesInstanceTagFilters,omitempty"`
-    
-    // ServiceRoleArn AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn
-    ServiceRoleArn string `json:"ServiceRoleArn,omitempty"`
-    
-    // TriggerConfigurations AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations
-    TriggerConfigurations []AWSCodeDeployDeploymentGroup_TriggerConfig `json:"TriggerConfigurations,omitempty"`
-    
+
+	// AlarmConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-alarmconfiguration
+	AlarmConfiguration *AWSCodeDeployDeploymentGroup_AlarmConfiguration `json:"AlarmConfiguration,omitempty"`
+
+	// ApplicationName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-applicationname
+	ApplicationName string `json:"ApplicationName,omitempty"`
+
+	// AutoScalingGroups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups
+	AutoScalingGroups []string `json:"AutoScalingGroups,omitempty"`
+
+	// Deployment AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deployment
+	Deployment *AWSCodeDeployDeploymentGroup_Deployment `json:"Deployment,omitempty"`
+
+	// DeploymentConfigName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentconfigname
+	DeploymentConfigName string `json:"DeploymentConfigName,omitempty"`
+
+	// DeploymentGroupName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentgroupname
+	DeploymentGroupName string `json:"DeploymentGroupName,omitempty"`
+
+	// Ec2TagFilters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters
+	Ec2TagFilters []AWSCodeDeployDeploymentGroup_EC2TagFilter `json:"Ec2TagFilters,omitempty"`
+
+	// OnPremisesInstanceTagFilters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
+	OnPremisesInstanceTagFilters []AWSCodeDeployDeploymentGroup_TagFilter `json:"OnPremisesInstanceTagFilters,omitempty"`
+
+	// ServiceRoleArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn
+	ServiceRoleArn string `json:"ServiceRoleArn,omitempty"`
+
+	// TriggerConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations
+	TriggerConfigurations []AWSCodeDeployDeploymentGroup_TriggerConfig `json:"TriggerConfigurations,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCodeDeployDeploymentGroup) AWSCloudFormationType() string {
-    return "AWS::CodeDeploy::DeploymentGroup"
+	return "AWS::CodeDeploy::DeploymentGroup"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeDeployDeploymentGroup) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCodeDeployDeploymentGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSCodeDeployDeploymentGroup
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -91,7 +89,7 @@ func (r *AWSCodeDeployDeploymentGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSCodeDeployDeploymentGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSCodeDeployDeploymentGroup
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -99,12 +97,12 @@ func (r *AWSCodeDeployDeploymentGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCodeDeployDeploymentGroup(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCodeDeployDeploymentGroupResources retrieves all AWSCodeDeployDeploymentGroup items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCodeDeployDeploymentGroupResources () map[string]AWSCodeDeployDeploymentGroup {
-    results := map[string]AWSCodeDeployDeploymentGroup{}
+func (t *CloudFormationTemplate) GetAllAWSCodeDeployDeploymentGroupResources() map[string]AWSCodeDeployDeploymentGroup {
+	results := map[string]AWSCodeDeployDeploymentGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployDeploymentGroup:
@@ -131,8 +129,8 @@ func (t *CloudFormationTemplate) GetAllAWSCodeDeployDeploymentGroupResources () 
 
 // GetAWSCodeDeployDeploymentGroupWithName retrieves all AWSCodeDeployDeploymentGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCodeDeployDeploymentGroupWithName (name string) (AWSCodeDeployDeploymentGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCodeDeployDeploymentGroupWithName(name string) (AWSCodeDeployDeploymentGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployDeploymentGroup:
 			// We found a strongly typed resource of the correct type; use it
@@ -150,8 +148,8 @@ func (t *CloudFormationTemplate) GetAWSCodeDeployDeploymentGroupWithName (name s
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCodeDeployDeploymentGroup{}, errors.New("resource not found")
+	return AWSCodeDeployDeploymentGroup{}, errors.New("resource not found")
 }

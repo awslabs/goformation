@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCognitoUserPoolUserToGroupAttachment AWS CloudFormation Resource (AWS::Cognito::UserPoolUserToGroupAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html
 type AWSCognitoUserPoolUserToGroupAttachment struct {
-    
-    // GroupName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname
-    GroupName string `json:"GroupName,omitempty"`
-    
-    // UserPoolId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-userpoolid
-    UserPoolId string `json:"UserPoolId,omitempty"`
-    
-    // Username AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username
-    Username string `json:"Username,omitempty"`
-    
+
+	// GroupName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname
+	GroupName string `json:"GroupName,omitempty"`
+
+	// UserPoolId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-userpoolid
+	UserPoolId string `json:"UserPoolId,omitempty"`
+
+	// Username AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username
+	Username string `json:"Username,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCognitoUserPoolUserToGroupAttachment) AWSCloudFormationType() string {
-    return "AWS::Cognito::UserPoolUserToGroupAttachment"
+	return "AWS::Cognito::UserPoolUserToGroupAttachment"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoUserPoolUserToGroupAttachment) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCognitoUserPoolUserToGroupAttachment) MarshalJSON() ([]byte, error) {
 	type Properties AWSCognitoUserPoolUserToGroupAttachment
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSCognitoUserPoolUserToGroupAttachment) MarshalJSON() ([]byte, error) 
 func (r *AWSCognitoUserPoolUserToGroupAttachment) UnmarshalJSON(b []byte) error {
 	type Properties AWSCognitoUserPoolUserToGroupAttachment
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSCognitoUserPoolUserToGroupAttachment) UnmarshalJSON(b []byte) error 
 		return err
 	}
 	*r = AWSCognitoUserPoolUserToGroupAttachment(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCognitoUserPoolUserToGroupAttachmentResources retrieves all AWSCognitoUserPoolUserToGroupAttachment items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCognitoUserPoolUserToGroupAttachmentResources () map[string]AWSCognitoUserPoolUserToGroupAttachment {
-    results := map[string]AWSCognitoUserPoolUserToGroupAttachment{}
+func (t *CloudFormationTemplate) GetAllAWSCognitoUserPoolUserToGroupAttachmentResources() map[string]AWSCognitoUserPoolUserToGroupAttachment {
+	results := map[string]AWSCognitoUserPoolUserToGroupAttachment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCognitoUserPoolUserToGroupAttachment:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSCognitoUserPoolUserToGroupAttachmentRe
 
 // GetAWSCognitoUserPoolUserToGroupAttachmentWithName retrieves all AWSCognitoUserPoolUserToGroupAttachment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCognitoUserPoolUserToGroupAttachmentWithName (name string) (AWSCognitoUserPoolUserToGroupAttachment, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCognitoUserPoolUserToGroupAttachmentWithName(name string) (AWSCognitoUserPoolUserToGroupAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCognitoUserPoolUserToGroupAttachment:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSCognitoUserPoolUserToGroupAttachmentWithN
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCognitoUserPoolUserToGroupAttachment{}, errors.New("resource not found")
+	return AWSCognitoUserPoolUserToGroupAttachment{}, errors.New("resource not found")
 }

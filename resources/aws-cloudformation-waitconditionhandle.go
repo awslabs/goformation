@@ -1,37 +1,35 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCloudFormationWaitConditionHandle AWS CloudFormation Resource (AWS::CloudFormation::WaitConditionHandle)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html
 type AWSCloudFormationWaitConditionHandle struct {
-    
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCloudFormationWaitConditionHandle) AWSCloudFormationType() string {
-    return "AWS::CloudFormation::WaitConditionHandle"
+	return "AWS::CloudFormation::WaitConditionHandle"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCloudFormationWaitConditionHandle) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCloudFormationWaitConditionHandle) MarshalJSON() ([]byte, error) {
 	type Properties AWSCloudFormationWaitConditionHandle
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -41,7 +39,7 @@ func (r *AWSCloudFormationWaitConditionHandle) MarshalJSON() ([]byte, error) {
 func (r *AWSCloudFormationWaitConditionHandle) UnmarshalJSON(b []byte) error {
 	type Properties AWSCloudFormationWaitConditionHandle
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -49,12 +47,12 @@ func (r *AWSCloudFormationWaitConditionHandle) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCloudFormationWaitConditionHandle(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCloudFormationWaitConditionHandleResources retrieves all AWSCloudFormationWaitConditionHandle items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCloudFormationWaitConditionHandleResources () map[string]AWSCloudFormationWaitConditionHandle {
-    results := map[string]AWSCloudFormationWaitConditionHandle{}
+func (t *CloudFormationTemplate) GetAllAWSCloudFormationWaitConditionHandleResources() map[string]AWSCloudFormationWaitConditionHandle {
+	results := map[string]AWSCloudFormationWaitConditionHandle{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCloudFormationWaitConditionHandle:
@@ -81,8 +79,8 @@ func (t *CloudFormationTemplate) GetAllAWSCloudFormationWaitConditionHandleResou
 
 // GetAWSCloudFormationWaitConditionHandleWithName retrieves all AWSCloudFormationWaitConditionHandle items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCloudFormationWaitConditionHandleWithName (name string) (AWSCloudFormationWaitConditionHandle, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCloudFormationWaitConditionHandleWithName(name string) (AWSCloudFormationWaitConditionHandle, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCloudFormationWaitConditionHandle:
 			// We found a strongly typed resource of the correct type; use it
@@ -100,8 +98,8 @@ func (t *CloudFormationTemplate) GetAWSCloudFormationWaitConditionHandleWithName
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCloudFormationWaitConditionHandle{}, errors.New("resource not found")
+	return AWSCloudFormationWaitConditionHandle{}, errors.New("resource not found")
 }

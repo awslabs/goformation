@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2EIPAssociation AWS CloudFormation Resource (AWS::EC2::EIPAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html
 type AWSEC2EIPAssociation struct {
-    
-    // AllocationId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-allocationid
-    AllocationId string `json:"AllocationId,omitempty"`
-    
-    // EIP AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-eip
-    EIP string `json:"EIP,omitempty"`
-    
-    // InstanceId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-instanceid
-    InstanceId string `json:"InstanceId,omitempty"`
-    
-    // NetworkInterfaceId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-networkinterfaceid
-    NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
-    
-    // PrivateIpAddress AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-PrivateIpAddress
-    PrivateIpAddress string `json:"PrivateIpAddress,omitempty"`
-    
+
+	// AllocationId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-allocationid
+	AllocationId string `json:"AllocationId,omitempty"`
+
+	// EIP AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-eip
+	EIP string `json:"EIP,omitempty"`
+
+	// InstanceId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-instanceid
+	InstanceId string `json:"InstanceId,omitempty"`
+
+	// NetworkInterfaceId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-networkinterfaceid
+	NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
+
+	// PrivateIpAddress AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-PrivateIpAddress
+	PrivateIpAddress string `json:"PrivateIpAddress,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2EIPAssociation) AWSCloudFormationType() string {
-    return "AWS::EC2::EIPAssociation"
+	return "AWS::EC2::EIPAssociation"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2EIPAssociation) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2EIPAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2EIPAssociation
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSEC2EIPAssociation) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2EIPAssociation) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2EIPAssociation
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSEC2EIPAssociation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2EIPAssociation(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2EIPAssociationResources retrieves all AWSEC2EIPAssociation items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2EIPAssociationResources () map[string]AWSEC2EIPAssociation {
-    results := map[string]AWSEC2EIPAssociation{}
+func (t *CloudFormationTemplate) GetAllAWSEC2EIPAssociationResources() map[string]AWSEC2EIPAssociation {
+	results := map[string]AWSEC2EIPAssociation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2EIPAssociation:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2EIPAssociationResources () map[stri
 
 // GetAWSEC2EIPAssociationWithName retrieves all AWSEC2EIPAssociation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2EIPAssociationWithName (name string) (AWSEC2EIPAssociation, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2EIPAssociationWithName(name string) (AWSEC2EIPAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2EIPAssociation:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSEC2EIPAssociationWithName (name string) (
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2EIPAssociation{}, errors.New("resource not found")
+	return AWSEC2EIPAssociation{}, errors.New("resource not found")
 }

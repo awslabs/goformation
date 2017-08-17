@@ -1,42 +1,40 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCodeDeployApplication AWS CloudFormation Resource (AWS::CodeDeploy::Application)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html
 type AWSCodeDeployApplication struct {
-    
-    // ApplicationName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html#cfn-codedeploy-application-applicationname
-    ApplicationName string `json:"ApplicationName,omitempty"`
-    
+
+	// ApplicationName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html#cfn-codedeploy-application-applicationname
+	ApplicationName string `json:"ApplicationName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCodeDeployApplication) AWSCloudFormationType() string {
-    return "AWS::CodeDeploy::Application"
+	return "AWS::CodeDeploy::Application"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeDeployApplication) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCodeDeployApplication) MarshalJSON() ([]byte, error) {
 	type Properties AWSCodeDeployApplication
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -46,7 +44,7 @@ func (r *AWSCodeDeployApplication) MarshalJSON() ([]byte, error) {
 func (r *AWSCodeDeployApplication) UnmarshalJSON(b []byte) error {
 	type Properties AWSCodeDeployApplication
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -54,12 +52,12 @@ func (r *AWSCodeDeployApplication) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCodeDeployApplication(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCodeDeployApplicationResources retrieves all AWSCodeDeployApplication items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCodeDeployApplicationResources () map[string]AWSCodeDeployApplication {
-    results := map[string]AWSCodeDeployApplication{}
+func (t *CloudFormationTemplate) GetAllAWSCodeDeployApplicationResources() map[string]AWSCodeDeployApplication {
+	results := map[string]AWSCodeDeployApplication{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployApplication:
@@ -86,8 +84,8 @@ func (t *CloudFormationTemplate) GetAllAWSCodeDeployApplicationResources () map[
 
 // GetAWSCodeDeployApplicationWithName retrieves all AWSCodeDeployApplication items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCodeDeployApplicationWithName (name string) (AWSCodeDeployApplication, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCodeDeployApplicationWithName(name string) (AWSCodeDeployApplication, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployApplication:
 			// We found a strongly typed resource of the correct type; use it
@@ -105,8 +103,8 @@ func (t *CloudFormationTemplate) GetAWSCodeDeployApplicationWithName (name strin
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCodeDeployApplication{}, errors.New("resource not found")
+	return AWSCodeDeployApplication{}, errors.New("resource not found")
 }

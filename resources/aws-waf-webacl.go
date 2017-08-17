@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFWebACL AWS CloudFormation Resource (AWS::WAF::WebACL)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html
 type AWSWAFWebACL struct {
-    
-    // DefaultAction AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-defaultaction
-    DefaultAction *AWSWAFWebACL_WafAction `json:"DefaultAction,omitempty"`
-    
-    // MetricName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-metricname
-    MetricName string `json:"MetricName,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-name
-    Name string `json:"Name,omitempty"`
-    
-    // Rules AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-rules
-    Rules []AWSWAFWebACL_ActivatedRule `json:"Rules,omitempty"`
-    
+
+	// DefaultAction AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-defaultaction
+	DefaultAction *AWSWAFWebACL_WafAction `json:"DefaultAction,omitempty"`
+
+	// MetricName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-metricname
+	MetricName string `json:"MetricName,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-name
+	Name string `json:"Name,omitempty"`
+
+	// Rules AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-rules
+	Rules []AWSWAFWebACL_ActivatedRule `json:"Rules,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFWebACL) AWSCloudFormationType() string {
-    return "AWS::WAF::WebACL"
+	return "AWS::WAF::WebACL"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFWebACL) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFWebACL) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFWebACL
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSWAFWebACL) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFWebACL) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFWebACL
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSWAFWebACL) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFWebACL(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFWebACLResources retrieves all AWSWAFWebACL items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFWebACLResources () map[string]AWSWAFWebACL {
-    results := map[string]AWSWAFWebACL{}
+func (t *CloudFormationTemplate) GetAllAWSWAFWebACLResources() map[string]AWSWAFWebACL {
+	results := map[string]AWSWAFWebACL{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFWebACL:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFWebACLResources () map[string]AWSWA
 
 // GetAWSWAFWebACLWithName retrieves all AWSWAFWebACL items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFWebACLWithName (name string) (AWSWAFWebACL, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFWebACLWithName(name string) (AWSWAFWebACL, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFWebACL:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSWAFWebACLWithName (name string) (AWSWAFWe
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFWebACL{}, errors.New("resource not found")
+	return AWSWAFWebACL{}, errors.New("resource not found")
 }

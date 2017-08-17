@@ -1,77 +1,75 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApplicationAutoScalingScalingPolicy AWS CloudFormation Resource (AWS::ApplicationAutoScaling::ScalingPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
 type AWSApplicationAutoScalingScalingPolicy struct {
-    
-    // PolicyName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policyname
-    PolicyName string `json:"PolicyName,omitempty"`
-    
-    // PolicyType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policytype
-    PolicyType string `json:"PolicyType,omitempty"`
-    
-    // ResourceId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-resourceid
-    ResourceId string `json:"ResourceId,omitempty"`
-    
-    // ScalableDimension AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalabledimension
-    ScalableDimension string `json:"ScalableDimension,omitempty"`
-    
-    // ScalingTargetId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalingtargetid
-    ScalingTargetId string `json:"ScalingTargetId,omitempty"`
-    
-    // ServiceNamespace AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-servicenamespace
-    ServiceNamespace string `json:"ServiceNamespace,omitempty"`
-    
-    // StepScalingPolicyConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration
-    StepScalingPolicyConfiguration *AWSApplicationAutoScalingScalingPolicy_StepScalingPolicyConfiguration `json:"StepScalingPolicyConfiguration,omitempty"`
-    
-    // TargetTrackingScalingPolicyConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration
-    TargetTrackingScalingPolicyConfiguration *AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration `json:"TargetTrackingScalingPolicyConfiguration,omitempty"`
-    
+
+	// PolicyName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policyname
+	PolicyName string `json:"PolicyName,omitempty"`
+
+	// PolicyType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policytype
+	PolicyType string `json:"PolicyType,omitempty"`
+
+	// ResourceId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-resourceid
+	ResourceId string `json:"ResourceId,omitempty"`
+
+	// ScalableDimension AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalabledimension
+	ScalableDimension string `json:"ScalableDimension,omitempty"`
+
+	// ScalingTargetId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalingtargetid
+	ScalingTargetId string `json:"ScalingTargetId,omitempty"`
+
+	// ServiceNamespace AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-servicenamespace
+	ServiceNamespace string `json:"ServiceNamespace,omitempty"`
+
+	// StepScalingPolicyConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration
+	StepScalingPolicyConfiguration *AWSApplicationAutoScalingScalingPolicy_StepScalingPolicyConfiguration `json:"StepScalingPolicyConfiguration,omitempty"`
+
+	// TargetTrackingScalingPolicyConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration
+	TargetTrackingScalingPolicyConfiguration *AWSApplicationAutoScalingScalingPolicy_TargetTrackingScalingPolicyConfiguration `json:"TargetTrackingScalingPolicyConfiguration,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApplicationAutoScalingScalingPolicy) AWSCloudFormationType() string {
-    return "AWS::ApplicationAutoScaling::ScalingPolicy"
+	return "AWS::ApplicationAutoScaling::ScalingPolicy"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApplicationAutoScalingScalingPolicy) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApplicationAutoScalingScalingPolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSApplicationAutoScalingScalingPolicy
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -81,7 +79,7 @@ func (r *AWSApplicationAutoScalingScalingPolicy) MarshalJSON() ([]byte, error) {
 func (r *AWSApplicationAutoScalingScalingPolicy) UnmarshalJSON(b []byte) error {
 	type Properties AWSApplicationAutoScalingScalingPolicy
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -89,12 +87,12 @@ func (r *AWSApplicationAutoScalingScalingPolicy) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApplicationAutoScalingScalingPolicy(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApplicationAutoScalingScalingPolicyResources retrieves all AWSApplicationAutoScalingScalingPolicy items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApplicationAutoScalingScalingPolicyResources () map[string]AWSApplicationAutoScalingScalingPolicy {
-    results := map[string]AWSApplicationAutoScalingScalingPolicy{}
+func (t *CloudFormationTemplate) GetAllAWSApplicationAutoScalingScalingPolicyResources() map[string]AWSApplicationAutoScalingScalingPolicy {
+	results := map[string]AWSApplicationAutoScalingScalingPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApplicationAutoScalingScalingPolicy:
@@ -121,8 +119,8 @@ func (t *CloudFormationTemplate) GetAllAWSApplicationAutoScalingScalingPolicyRes
 
 // GetAWSApplicationAutoScalingScalingPolicyWithName retrieves all AWSApplicationAutoScalingScalingPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApplicationAutoScalingScalingPolicyWithName (name string) (AWSApplicationAutoScalingScalingPolicy, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApplicationAutoScalingScalingPolicyWithName(name string) (AWSApplicationAutoScalingScalingPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApplicationAutoScalingScalingPolicy:
 			// We found a strongly typed resource of the correct type; use it
@@ -140,8 +138,8 @@ func (t *CloudFormationTemplate) GetAWSApplicationAutoScalingScalingPolicyWithNa
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApplicationAutoScalingScalingPolicy{}, errors.New("resource not found")
+	return AWSApplicationAutoScalingScalingPolicy{}, errors.New("resource not found")
 }

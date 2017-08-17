@@ -1,72 +1,70 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCognitoUserPoolUser AWS CloudFormation Resource (AWS::Cognito::UserPoolUser)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html
 type AWSCognitoUserPoolUser struct {
-    
-    // DesiredDeliveryMediums AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-desireddeliverymediums
-    DesiredDeliveryMediums []string `json:"DesiredDeliveryMediums,omitempty"`
-    
-    // ForceAliasCreation AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-forcealiascreation
-    ForceAliasCreation bool `json:"ForceAliasCreation,omitempty"`
-    
-    // MessageAction AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-messageaction
-    MessageAction string `json:"MessageAction,omitempty"`
-    
-    // UserAttributes AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userattributes
-    UserAttributes []AWSCognitoUserPoolUser_AttributeType `json:"UserAttributes,omitempty"`
-    
-    // UserPoolId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userpoolid
-    UserPoolId string `json:"UserPoolId,omitempty"`
-    
-    // Username AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-username
-    Username string `json:"Username,omitempty"`
-    
-    // ValidationData AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-validationdata
-    ValidationData []AWSCognitoUserPoolUser_AttributeType `json:"ValidationData,omitempty"`
-    
+
+	// DesiredDeliveryMediums AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-desireddeliverymediums
+	DesiredDeliveryMediums []string `json:"DesiredDeliveryMediums,omitempty"`
+
+	// ForceAliasCreation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-forcealiascreation
+	ForceAliasCreation bool `json:"ForceAliasCreation,omitempty"`
+
+	// MessageAction AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-messageaction
+	MessageAction string `json:"MessageAction,omitempty"`
+
+	// UserAttributes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userattributes
+	UserAttributes []AWSCognitoUserPoolUser_AttributeType `json:"UserAttributes,omitempty"`
+
+	// UserPoolId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userpoolid
+	UserPoolId string `json:"UserPoolId,omitempty"`
+
+	// Username AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-username
+	Username string `json:"Username,omitempty"`
+
+	// ValidationData AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-validationdata
+	ValidationData []AWSCognitoUserPoolUser_AttributeType `json:"ValidationData,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCognitoUserPoolUser) AWSCloudFormationType() string {
-    return "AWS::Cognito::UserPoolUser"
+	return "AWS::Cognito::UserPoolUser"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoUserPoolUser) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCognitoUserPoolUser) MarshalJSON() ([]byte, error) {
 	type Properties AWSCognitoUserPoolUser
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -76,7 +74,7 @@ func (r *AWSCognitoUserPoolUser) MarshalJSON() ([]byte, error) {
 func (r *AWSCognitoUserPoolUser) UnmarshalJSON(b []byte) error {
 	type Properties AWSCognitoUserPoolUser
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -84,12 +82,12 @@ func (r *AWSCognitoUserPoolUser) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCognitoUserPoolUser(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCognitoUserPoolUserResources retrieves all AWSCognitoUserPoolUser items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCognitoUserPoolUserResources () map[string]AWSCognitoUserPoolUser {
-    results := map[string]AWSCognitoUserPoolUser{}
+func (t *CloudFormationTemplate) GetAllAWSCognitoUserPoolUserResources() map[string]AWSCognitoUserPoolUser {
+	results := map[string]AWSCognitoUserPoolUser{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCognitoUserPoolUser:
@@ -116,8 +114,8 @@ func (t *CloudFormationTemplate) GetAllAWSCognitoUserPoolUserResources () map[st
 
 // GetAWSCognitoUserPoolUserWithName retrieves all AWSCognitoUserPoolUser items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCognitoUserPoolUserWithName (name string) (AWSCognitoUserPoolUser, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCognitoUserPoolUserWithName(name string) (AWSCognitoUserPoolUser, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCognitoUserPoolUser:
 			// We found a strongly typed resource of the correct type; use it
@@ -135,8 +133,8 @@ func (t *CloudFormationTemplate) GetAWSCognitoUserPoolUserWithName (name string)
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCognitoUserPoolUser{}, errors.New("resource not found")
+	return AWSCognitoUserPoolUser{}, errors.New("resource not found")
 }

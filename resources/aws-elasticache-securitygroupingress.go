@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSElastiCacheSecurityGroupIngress AWS CloudFormation Resource (AWS::ElastiCache::SecurityGroupIngress)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html
 type AWSElastiCacheSecurityGroupIngress struct {
-    
-    // CacheSecurityGroupName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-cachesecuritygroupname
-    CacheSecurityGroupName string `json:"CacheSecurityGroupName,omitempty"`
-    
-    // EC2SecurityGroupName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-ec2securitygroupname
-    EC2SecurityGroupName string `json:"EC2SecurityGroupName,omitempty"`
-    
-    // EC2SecurityGroupOwnerId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-ec2securitygroupownerid
-    EC2SecurityGroupOwnerId string `json:"EC2SecurityGroupOwnerId,omitempty"`
-    
+
+	// CacheSecurityGroupName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-cachesecuritygroupname
+	CacheSecurityGroupName string `json:"CacheSecurityGroupName,omitempty"`
+
+	// EC2SecurityGroupName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-ec2securitygroupname
+	EC2SecurityGroupName string `json:"EC2SecurityGroupName,omitempty"`
+
+	// EC2SecurityGroupOwnerId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-ec2securitygroupownerid
+	EC2SecurityGroupOwnerId string `json:"EC2SecurityGroupOwnerId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElastiCacheSecurityGroupIngress) AWSCloudFormationType() string {
-    return "AWS::ElastiCache::SecurityGroupIngress"
+	return "AWS::ElastiCache::SecurityGroupIngress"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElastiCacheSecurityGroupIngress) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSElastiCacheSecurityGroupIngress) MarshalJSON() ([]byte, error) {
 	type Properties AWSElastiCacheSecurityGroupIngress
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSElastiCacheSecurityGroupIngress) MarshalJSON() ([]byte, error) {
 func (r *AWSElastiCacheSecurityGroupIngress) UnmarshalJSON(b []byte) error {
 	type Properties AWSElastiCacheSecurityGroupIngress
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSElastiCacheSecurityGroupIngress) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSElastiCacheSecurityGroupIngress(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSElastiCacheSecurityGroupIngressResources retrieves all AWSElastiCacheSecurityGroupIngress items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSElastiCacheSecurityGroupIngressResources () map[string]AWSElastiCacheSecurityGroupIngress {
-    results := map[string]AWSElastiCacheSecurityGroupIngress{}
+func (t *CloudFormationTemplate) GetAllAWSElastiCacheSecurityGroupIngressResources() map[string]AWSElastiCacheSecurityGroupIngress {
+	results := map[string]AWSElastiCacheSecurityGroupIngress{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheSecurityGroupIngress:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSElastiCacheSecurityGroupIngressResourc
 
 // GetAWSElastiCacheSecurityGroupIngressWithName retrieves all AWSElastiCacheSecurityGroupIngress items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSElastiCacheSecurityGroupIngressWithName (name string) (AWSElastiCacheSecurityGroupIngress, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSElastiCacheSecurityGroupIngressWithName(name string) (AWSElastiCacheSecurityGroupIngress, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheSecurityGroupIngress:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSElastiCacheSecurityGroupIngressWithName (
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSElastiCacheSecurityGroupIngress{}, errors.New("resource not found")
+	return AWSElastiCacheSecurityGroupIngress{}, errors.New("resource not found")
 }

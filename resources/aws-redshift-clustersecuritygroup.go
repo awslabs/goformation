@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSRedshiftClusterSecurityGroup AWS CloudFormation Resource (AWS::Redshift::ClusterSecurityGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html
 type AWSRedshiftClusterSecurityGroup struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html#cfn-redshift-clustersecuritygroup-description
-    Description string `json:"Description,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html#cfn-redshift-clustersecuritygroup-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html#cfn-redshift-clustersecuritygroup-description
+	Description string `json:"Description,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html#cfn-redshift-clustersecuritygroup-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSRedshiftClusterSecurityGroup) AWSCloudFormationType() string {
-    return "AWS::Redshift::ClusterSecurityGroup"
+	return "AWS::Redshift::ClusterSecurityGroup"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRedshiftClusterSecurityGroup) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSRedshiftClusterSecurityGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSRedshiftClusterSecurityGroup
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSRedshiftClusterSecurityGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSRedshiftClusterSecurityGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSRedshiftClusterSecurityGroup
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSRedshiftClusterSecurityGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSRedshiftClusterSecurityGroup(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSRedshiftClusterSecurityGroupResources retrieves all AWSRedshiftClusterSecurityGroup items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterSecurityGroupResources () map[string]AWSRedshiftClusterSecurityGroup {
-    results := map[string]AWSRedshiftClusterSecurityGroup{}
+func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterSecurityGroupResources() map[string]AWSRedshiftClusterSecurityGroup {
+	results := map[string]AWSRedshiftClusterSecurityGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRedshiftClusterSecurityGroup:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterSecurityGroupResources 
 
 // GetAWSRedshiftClusterSecurityGroupWithName retrieves all AWSRedshiftClusterSecurityGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSRedshiftClusterSecurityGroupWithName (name string) (AWSRedshiftClusterSecurityGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSRedshiftClusterSecurityGroupWithName(name string) (AWSRedshiftClusterSecurityGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRedshiftClusterSecurityGroup:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSRedshiftClusterSecurityGroupWithName (nam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSRedshiftClusterSecurityGroup{}, errors.New("resource not found")
+	return AWSRedshiftClusterSecurityGroup{}, errors.New("resource not found")
 }

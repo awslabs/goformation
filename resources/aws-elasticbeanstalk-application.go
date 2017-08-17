@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSElasticBeanstalkApplication AWS CloudFormation Resource (AWS::ElasticBeanstalk::Application)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html
 type AWSElasticBeanstalkApplication struct {
-    
-    // ApplicationName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html#cfn-elasticbeanstalk-application-name
-    ApplicationName string `json:"ApplicationName,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html#cfn-elasticbeanstalk-application-description
-    Description string `json:"Description,omitempty"`
-    
+
+	// ApplicationName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html#cfn-elasticbeanstalk-application-name
+	ApplicationName string `json:"ApplicationName,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html#cfn-elasticbeanstalk-application-description
+	Description string `json:"Description,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElasticBeanstalkApplication) AWSCloudFormationType() string {
-    return "AWS::ElasticBeanstalk::Application"
+	return "AWS::ElasticBeanstalk::Application"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticBeanstalkApplication) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSElasticBeanstalkApplication) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticBeanstalkApplication
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSElasticBeanstalkApplication) MarshalJSON() ([]byte, error) {
 func (r *AWSElasticBeanstalkApplication) UnmarshalJSON(b []byte) error {
 	type Properties AWSElasticBeanstalkApplication
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSElasticBeanstalkApplication) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSElasticBeanstalkApplication(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSElasticBeanstalkApplicationResources retrieves all AWSElasticBeanstalkApplication items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkApplicationResources () map[string]AWSElasticBeanstalkApplication {
-    results := map[string]AWSElasticBeanstalkApplication{}
+func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkApplicationResources() map[string]AWSElasticBeanstalkApplication {
+	results := map[string]AWSElasticBeanstalkApplication{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElasticBeanstalkApplication:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkApplicationResources (
 
 // GetAWSElasticBeanstalkApplicationWithName retrieves all AWSElasticBeanstalkApplication items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSElasticBeanstalkApplicationWithName (name string) (AWSElasticBeanstalkApplication, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSElasticBeanstalkApplicationWithName(name string) (AWSElasticBeanstalkApplication, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElasticBeanstalkApplication:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSElasticBeanstalkApplicationWithName (name
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSElasticBeanstalkApplication{}, errors.New("resource not found")
+	return AWSElasticBeanstalkApplication{}, errors.New("resource not found")
 }

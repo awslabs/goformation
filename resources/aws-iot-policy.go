@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIoTPolicy AWS CloudFormation Resource (AWS::IoT::Policy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
 type AWSIoTPolicy struct {
-    
-    // PolicyDocument AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policydocument
-    PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
-    
-    // PolicyName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policyname
-    PolicyName string `json:"PolicyName,omitempty"`
-    
+
+	// PolicyDocument AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policydocument
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
+
+	// PolicyName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policyname
+	PolicyName string `json:"PolicyName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIoTPolicy) AWSCloudFormationType() string {
-    return "AWS::IoT::Policy"
+	return "AWS::IoT::Policy"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTPolicy) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIoTPolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSIoTPolicy
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSIoTPolicy) MarshalJSON() ([]byte, error) {
 func (r *AWSIoTPolicy) UnmarshalJSON(b []byte) error {
 	type Properties AWSIoTPolicy
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSIoTPolicy) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIoTPolicy(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIoTPolicyResources retrieves all AWSIoTPolicy items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIoTPolicyResources () map[string]AWSIoTPolicy {
-    results := map[string]AWSIoTPolicy{}
+func (t *CloudFormationTemplate) GetAllAWSIoTPolicyResources() map[string]AWSIoTPolicy {
+	results := map[string]AWSIoTPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIoTPolicy:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSIoTPolicyResources () map[string]AWSIo
 
 // GetAWSIoTPolicyWithName retrieves all AWSIoTPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIoTPolicyWithName (name string) (AWSIoTPolicy, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIoTPolicyWithName(name string) (AWSIoTPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIoTPolicy:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSIoTPolicyWithName (name string) (AWSIoTPo
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIoTPolicy{}, errors.New("resource not found")
+	return AWSIoTPolicy{}, errors.New("resource not found")
 }

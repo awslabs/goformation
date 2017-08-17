@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSIAMInstanceProfile AWS CloudFormation Resource (AWS::IAM::InstanceProfile)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
 type AWSIAMInstanceProfile struct {
-    
-    // InstanceProfileName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-instanceprofilename
-    InstanceProfileName string `json:"InstanceProfileName,omitempty"`
-    
-    // Path AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-path
-    Path string `json:"Path,omitempty"`
-    
-    // Roles AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
-    Roles []string `json:"Roles,omitempty"`
-    
+
+	// InstanceProfileName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-instanceprofilename
+	InstanceProfileName string `json:"InstanceProfileName,omitempty"`
+
+	// Path AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-path
+	Path string `json:"Path,omitempty"`
+
+	// Roles AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
+	Roles []string `json:"Roles,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMInstanceProfile) AWSCloudFormationType() string {
-    return "AWS::IAM::InstanceProfile"
+	return "AWS::IAM::InstanceProfile"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIAMInstanceProfile) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSIAMInstanceProfile) MarshalJSON() ([]byte, error) {
 	type Properties AWSIAMInstanceProfile
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSIAMInstanceProfile) MarshalJSON() ([]byte, error) {
 func (r *AWSIAMInstanceProfile) UnmarshalJSON(b []byte) error {
 	type Properties AWSIAMInstanceProfile
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSIAMInstanceProfile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSIAMInstanceProfile(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSIAMInstanceProfileResources retrieves all AWSIAMInstanceProfile items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSIAMInstanceProfileResources () map[string]AWSIAMInstanceProfile {
-    results := map[string]AWSIAMInstanceProfile{}
+func (t *CloudFormationTemplate) GetAllAWSIAMInstanceProfileResources() map[string]AWSIAMInstanceProfile {
+	results := map[string]AWSIAMInstanceProfile{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIAMInstanceProfile:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSIAMInstanceProfileResources () map[str
 
 // GetAWSIAMInstanceProfileWithName retrieves all AWSIAMInstanceProfile items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSIAMInstanceProfileWithName (name string) (AWSIAMInstanceProfile, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSIAMInstanceProfileWithName(name string) (AWSIAMInstanceProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIAMInstanceProfile:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSIAMInstanceProfileWithName (name string) 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSIAMInstanceProfile{}, errors.New("resource not found")
+	return AWSIAMInstanceProfile{}, errors.New("resource not found")
 }

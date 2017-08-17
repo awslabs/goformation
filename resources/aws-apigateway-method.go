@@ -1,87 +1,85 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApiGatewayMethod AWS CloudFormation Resource (AWS::ApiGateway::Method)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html
 type AWSApiGatewayMethod struct {
-    
-    // ApiKeyRequired AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired
-    ApiKeyRequired bool `json:"ApiKeyRequired,omitempty"`
-    
-    // AuthorizationType AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype
-    AuthorizationType string `json:"AuthorizationType,omitempty"`
-    
-    // AuthorizerId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid
-    AuthorizerId string `json:"AuthorizerId,omitempty"`
-    
-    // HttpMethod AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-httpmethod
-    HttpMethod string `json:"HttpMethod,omitempty"`
-    
-    // Integration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-integration
-    Integration *AWSApiGatewayMethod_Integration `json:"Integration,omitempty"`
-    
-    // MethodResponses AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-methodresponses
-    MethodResponses []AWSApiGatewayMethod_MethodResponse `json:"MethodResponses,omitempty"`
-    
-    // RequestModels AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels
-    RequestModels map[string]string `json:"RequestModels,omitempty"`
-    
-    // RequestParameters AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters
-    RequestParameters map[string]bool `json:"RequestParameters,omitempty"`
-    
-    // ResourceId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid
-    ResourceId string `json:"ResourceId,omitempty"`
-    
-    // RestApiId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid
-    RestApiId string `json:"RestApiId,omitempty"`
-    
+
+	// ApiKeyRequired AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired
+	ApiKeyRequired bool `json:"ApiKeyRequired,omitempty"`
+
+	// AuthorizationType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype
+	AuthorizationType string `json:"AuthorizationType,omitempty"`
+
+	// AuthorizerId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid
+	AuthorizerId string `json:"AuthorizerId,omitempty"`
+
+	// HttpMethod AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-httpmethod
+	HttpMethod string `json:"HttpMethod,omitempty"`
+
+	// Integration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-integration
+	Integration *AWSApiGatewayMethod_Integration `json:"Integration,omitempty"`
+
+	// MethodResponses AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-methodresponses
+	MethodResponses []AWSApiGatewayMethod_MethodResponse `json:"MethodResponses,omitempty"`
+
+	// RequestModels AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels
+	RequestModels map[string]string `json:"RequestModels,omitempty"`
+
+	// RequestParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters
+	RequestParameters map[string]bool `json:"RequestParameters,omitempty"`
+
+	// ResourceId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid
+	ResourceId string `json:"ResourceId,omitempty"`
+
+	// RestApiId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid
+	RestApiId string `json:"RestApiId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApiGatewayMethod) AWSCloudFormationType() string {
-    return "AWS::ApiGateway::Method"
+	return "AWS::ApiGateway::Method"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayMethod) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApiGatewayMethod) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayMethod
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -91,7 +89,7 @@ func (r *AWSApiGatewayMethod) MarshalJSON() ([]byte, error) {
 func (r *AWSApiGatewayMethod) UnmarshalJSON(b []byte) error {
 	type Properties AWSApiGatewayMethod
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -99,12 +97,12 @@ func (r *AWSApiGatewayMethod) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApiGatewayMethod(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApiGatewayMethodResources retrieves all AWSApiGatewayMethod items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApiGatewayMethodResources () map[string]AWSApiGatewayMethod {
-    results := map[string]AWSApiGatewayMethod{}
+func (t *CloudFormationTemplate) GetAllAWSApiGatewayMethodResources() map[string]AWSApiGatewayMethod {
+	results := map[string]AWSApiGatewayMethod{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayMethod:
@@ -131,8 +129,8 @@ func (t *CloudFormationTemplate) GetAllAWSApiGatewayMethodResources () map[strin
 
 // GetAWSApiGatewayMethodWithName retrieves all AWSApiGatewayMethod items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApiGatewayMethodWithName (name string) (AWSApiGatewayMethod, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApiGatewayMethodWithName(name string) (AWSApiGatewayMethod, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayMethod:
 			// We found a strongly typed resource of the correct type; use it
@@ -150,8 +148,8 @@ func (t *CloudFormationTemplate) GetAWSApiGatewayMethodWithName (name string) (A
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApiGatewayMethod{}, errors.New("resource not found")
+	return AWSApiGatewayMethod{}, errors.New("resource not found")
 }

@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2NetworkInterfacePermission AWS CloudFormation Resource (AWS::EC2::NetworkInterfacePermission)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html
 type AWSEC2NetworkInterfacePermission struct {
-    
-    // AwsAccountId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-awsaccountid
-    AwsAccountId string `json:"AwsAccountId,omitempty"`
-    
-    // NetworkInterfaceId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-networkinterfaceid
-    NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
-    
-    // Permission AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-permission
-    Permission string `json:"Permission,omitempty"`
-    
+
+	// AwsAccountId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-awsaccountid
+	AwsAccountId string `json:"AwsAccountId,omitempty"`
+
+	// NetworkInterfaceId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-networkinterfaceid
+	NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
+
+	// Permission AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-permission
+	Permission string `json:"Permission,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2NetworkInterfacePermission) AWSCloudFormationType() string {
-    return "AWS::EC2::NetworkInterfacePermission"
+	return "AWS::EC2::NetworkInterfacePermission"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NetworkInterfacePermission) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2NetworkInterfacePermission) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2NetworkInterfacePermission
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSEC2NetworkInterfacePermission) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2NetworkInterfacePermission) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2NetworkInterfacePermission
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSEC2NetworkInterfacePermission) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2NetworkInterfacePermission(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2NetworkInterfacePermissionResources retrieves all AWSEC2NetworkInterfacePermission items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfacePermissionResources () map[string]AWSEC2NetworkInterfacePermission {
-    results := map[string]AWSEC2NetworkInterfacePermission{}
+func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfacePermissionResources() map[string]AWSEC2NetworkInterfacePermission {
+	results := map[string]AWSEC2NetworkInterfacePermission{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkInterfacePermission:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2NetworkInterfacePermissionResources
 
 // GetAWSEC2NetworkInterfacePermissionWithName retrieves all AWSEC2NetworkInterfacePermission items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfacePermissionWithName (name string) (AWSEC2NetworkInterfacePermission, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfacePermissionWithName(name string) (AWSEC2NetworkInterfacePermission, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2NetworkInterfacePermission:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSEC2NetworkInterfacePermissionWithName (na
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2NetworkInterfacePermission{}, errors.New("resource not found")
+	return AWSEC2NetworkInterfacePermission{}, errors.New("resource not found")
 }

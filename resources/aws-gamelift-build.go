@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSGameLiftBuild AWS CloudFormation Resource (AWS::GameLift::Build)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
 type AWSGameLiftBuild struct {
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-name
-    Name string `json:"Name,omitempty"`
-    
-    // StorageLocation AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
-    StorageLocation *AWSGameLiftBuild_S3Location `json:"StorageLocation,omitempty"`
-    
-    // Version AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-version
-    Version string `json:"Version,omitempty"`
-    
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-name
+	Name string `json:"Name,omitempty"`
+
+	// StorageLocation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
+	StorageLocation *AWSGameLiftBuild_S3Location `json:"StorageLocation,omitempty"`
+
+	// Version AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-version
+	Version string `json:"Version,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSGameLiftBuild) AWSCloudFormationType() string {
-    return "AWS::GameLift::Build"
+	return "AWS::GameLift::Build"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSGameLiftBuild) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSGameLiftBuild) MarshalJSON() ([]byte, error) {
 	type Properties AWSGameLiftBuild
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSGameLiftBuild) MarshalJSON() ([]byte, error) {
 func (r *AWSGameLiftBuild) UnmarshalJSON(b []byte) error {
 	type Properties AWSGameLiftBuild
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSGameLiftBuild) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSGameLiftBuild(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSGameLiftBuildResources retrieves all AWSGameLiftBuild items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSGameLiftBuildResources () map[string]AWSGameLiftBuild {
-    results := map[string]AWSGameLiftBuild{}
+func (t *CloudFormationTemplate) GetAllAWSGameLiftBuildResources() map[string]AWSGameLiftBuild {
+	results := map[string]AWSGameLiftBuild{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSGameLiftBuild:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSGameLiftBuildResources () map[string]A
 
 // GetAWSGameLiftBuildWithName retrieves all AWSGameLiftBuild items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSGameLiftBuildWithName (name string) (AWSGameLiftBuild, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSGameLiftBuildWithName(name string) (AWSGameLiftBuild, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSGameLiftBuild:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSGameLiftBuildWithName (name string) (AWSG
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSGameLiftBuild{}, errors.New("resource not found")
+	return AWSGameLiftBuild{}, errors.New("resource not found")
 }

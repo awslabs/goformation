@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2Subnet AWS CloudFormation Resource (AWS::EC2::Subnet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
 type AWSEC2Subnet struct {
-    
-    // AvailabilityZone AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-availabilityzone
-    AvailabilityZone string `json:"AvailabilityZone,omitempty"`
-    
-    // CidrBlock AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-cidrblock
-    CidrBlock string `json:"CidrBlock,omitempty"`
-    
-    // MapPublicIpOnLaunch AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-mappubliciponlaunch
-    MapPublicIpOnLaunch bool `json:"MapPublicIpOnLaunch,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // VpcId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-awsec2subnet-prop-vpcid
-    VpcId string `json:"VpcId,omitempty"`
-    
+
+	// AvailabilityZone AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-availabilityzone
+	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+
+	// CidrBlock AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-cidrblock
+	CidrBlock string `json:"CidrBlock,omitempty"`
+
+	// MapPublicIpOnLaunch AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-mappubliciponlaunch
+	MapPublicIpOnLaunch bool `json:"MapPublicIpOnLaunch,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// VpcId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-awsec2subnet-prop-vpcid
+	VpcId string `json:"VpcId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2Subnet) AWSCloudFormationType() string {
-    return "AWS::EC2::Subnet"
+	return "AWS::EC2::Subnet"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2Subnet) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2Subnet) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2Subnet
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSEC2Subnet) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2Subnet) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2Subnet
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSEC2Subnet) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2Subnet(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2SubnetResources retrieves all AWSEC2Subnet items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2SubnetResources () map[string]AWSEC2Subnet {
-    results := map[string]AWSEC2Subnet{}
+func (t *CloudFormationTemplate) GetAllAWSEC2SubnetResources() map[string]AWSEC2Subnet {
+	results := map[string]AWSEC2Subnet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2Subnet:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2SubnetResources () map[string]AWSEC
 
 // GetAWSEC2SubnetWithName retrieves all AWSEC2Subnet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2SubnetWithName (name string) (AWSEC2Subnet, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2SubnetWithName(name string) (AWSEC2Subnet, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2Subnet:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSEC2SubnetWithName (name string) (AWSEC2Su
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2Subnet{}, errors.New("resource not found")
+	return AWSEC2Subnet{}, errors.New("resource not found")
 }

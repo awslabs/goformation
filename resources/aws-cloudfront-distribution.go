@@ -1,42 +1,40 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCloudFrontDistribution AWS CloudFormation Resource (AWS::CloudFront::Distribution)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html
 type AWSCloudFrontDistribution struct {
-    
-    // DistributionConfig AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-    DistributionConfig *AWSCloudFrontDistribution_DistributionConfig `json:"DistributionConfig,omitempty"`
-    
+
+	// DistributionConfig AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
+	DistributionConfig *AWSCloudFrontDistribution_DistributionConfig `json:"DistributionConfig,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCloudFrontDistribution) AWSCloudFormationType() string {
-    return "AWS::CloudFront::Distribution"
+	return "AWS::CloudFront::Distribution"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCloudFrontDistribution) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCloudFrontDistribution) MarshalJSON() ([]byte, error) {
 	type Properties AWSCloudFrontDistribution
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -46,7 +44,7 @@ func (r *AWSCloudFrontDistribution) MarshalJSON() ([]byte, error) {
 func (r *AWSCloudFrontDistribution) UnmarshalJSON(b []byte) error {
 	type Properties AWSCloudFrontDistribution
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -54,12 +52,12 @@ func (r *AWSCloudFrontDistribution) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCloudFrontDistribution(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCloudFrontDistributionResources retrieves all AWSCloudFrontDistribution items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCloudFrontDistributionResources () map[string]AWSCloudFrontDistribution {
-    results := map[string]AWSCloudFrontDistribution{}
+func (t *CloudFormationTemplate) GetAllAWSCloudFrontDistributionResources() map[string]AWSCloudFrontDistribution {
+	results := map[string]AWSCloudFrontDistribution{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCloudFrontDistribution:
@@ -86,8 +84,8 @@ func (t *CloudFormationTemplate) GetAllAWSCloudFrontDistributionResources () map
 
 // GetAWSCloudFrontDistributionWithName retrieves all AWSCloudFrontDistribution items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCloudFrontDistributionWithName (name string) (AWSCloudFrontDistribution, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCloudFrontDistributionWithName(name string) (AWSCloudFrontDistribution, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCloudFrontDistribution:
 			// We found a strongly typed resource of the correct type; use it
@@ -105,8 +103,8 @@ func (t *CloudFormationTemplate) GetAWSCloudFrontDistributionWithName (name stri
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCloudFrontDistribution{}, errors.New("resource not found")
+	return AWSCloudFrontDistribution{}, errors.New("resource not found")
 }

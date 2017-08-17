@@ -1,97 +1,95 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSOpsWorksApp AWS CloudFormation Resource (AWS::OpsWorks::App)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html
 type AWSOpsWorksApp struct {
-    
-    // AppSource AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-appsource
-    AppSource *AWSOpsWorksApp_Source `json:"AppSource,omitempty"`
-    
-    // Attributes AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-attributes
-    Attributes map[string]string `json:"Attributes,omitempty"`
-    
-    // DataSources AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-datasources
-    DataSources []AWSOpsWorksApp_DataSource `json:"DataSources,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-description
-    Description string `json:"Description,omitempty"`
-    
-    // Domains AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-domains
-    Domains []string `json:"Domains,omitempty"`
-    
-    // EnableSsl AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-enablessl
-    EnableSsl bool `json:"EnableSsl,omitempty"`
-    
-    // Environment AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-environment
-    Environment []AWSOpsWorksApp_EnvironmentVariable `json:"Environment,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-name
-    Name string `json:"Name,omitempty"`
-    
-    // Shortname AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-shortname
-    Shortname string `json:"Shortname,omitempty"`
-    
-    // SslConfiguration AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-sslconfiguration
-    SslConfiguration *AWSOpsWorksApp_SslConfiguration `json:"SslConfiguration,omitempty"`
-    
-    // StackId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-stackid
-    StackId string `json:"StackId,omitempty"`
-    
-    // Type AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-type
-    Type string `json:"Type,omitempty"`
-    
+
+	// AppSource AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-appsource
+	AppSource *AWSOpsWorksApp_Source `json:"AppSource,omitempty"`
+
+	// Attributes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-attributes
+	Attributes map[string]string `json:"Attributes,omitempty"`
+
+	// DataSources AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-datasources
+	DataSources []AWSOpsWorksApp_DataSource `json:"DataSources,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-description
+	Description string `json:"Description,omitempty"`
+
+	// Domains AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-domains
+	Domains []string `json:"Domains,omitempty"`
+
+	// EnableSsl AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-enablessl
+	EnableSsl bool `json:"EnableSsl,omitempty"`
+
+	// Environment AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-environment
+	Environment []AWSOpsWorksApp_EnvironmentVariable `json:"Environment,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-name
+	Name string `json:"Name,omitempty"`
+
+	// Shortname AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-shortname
+	Shortname string `json:"Shortname,omitempty"`
+
+	// SslConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-sslconfiguration
+	SslConfiguration *AWSOpsWorksApp_SslConfiguration `json:"SslConfiguration,omitempty"`
+
+	// StackId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-stackid
+	StackId string `json:"StackId,omitempty"`
+
+	// Type AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-type
+	Type string `json:"Type,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSOpsWorksApp) AWSCloudFormationType() string {
-    return "AWS::OpsWorks::App"
+	return "AWS::OpsWorks::App"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSOpsWorksApp) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSOpsWorksApp) MarshalJSON() ([]byte, error) {
 	type Properties AWSOpsWorksApp
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -101,7 +99,7 @@ func (r *AWSOpsWorksApp) MarshalJSON() ([]byte, error) {
 func (r *AWSOpsWorksApp) UnmarshalJSON(b []byte) error {
 	type Properties AWSOpsWorksApp
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -109,12 +107,12 @@ func (r *AWSOpsWorksApp) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSOpsWorksApp(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSOpsWorksAppResources retrieves all AWSOpsWorksApp items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSOpsWorksAppResources () map[string]AWSOpsWorksApp {
-    results := map[string]AWSOpsWorksApp{}
+func (t *CloudFormationTemplate) GetAllAWSOpsWorksAppResources() map[string]AWSOpsWorksApp {
+	results := map[string]AWSOpsWorksApp{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSOpsWorksApp:
@@ -141,8 +139,8 @@ func (t *CloudFormationTemplate) GetAllAWSOpsWorksAppResources () map[string]AWS
 
 // GetAWSOpsWorksAppWithName retrieves all AWSOpsWorksApp items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSOpsWorksAppWithName (name string) (AWSOpsWorksApp, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSOpsWorksAppWithName(name string) (AWSOpsWorksApp, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSOpsWorksApp:
 			// We found a strongly typed resource of the correct type; use it
@@ -160,8 +158,8 @@ func (t *CloudFormationTemplate) GetAWSOpsWorksAppWithName (name string) (AWSOps
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSOpsWorksApp{}, errors.New("resource not found")
+	return AWSOpsWorksApp{}, errors.New("resource not found")
 }

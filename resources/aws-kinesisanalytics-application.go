@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSKinesisAnalyticsApplication AWS CloudFormation Resource (AWS::KinesisAnalytics::Application)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html
 type AWSKinesisAnalyticsApplication struct {
-    
-    // ApplicationCode AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationcode
-    ApplicationCode string `json:"ApplicationCode,omitempty"`
-    
-    // ApplicationDescription AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationdescription
-    ApplicationDescription string `json:"ApplicationDescription,omitempty"`
-    
-    // ApplicationName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationname
-    ApplicationName string `json:"ApplicationName,omitempty"`
-    
-    // Inputs AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-inputs
-    Inputs []AWSKinesisAnalyticsApplication_Input `json:"Inputs,omitempty"`
-    
+
+	// ApplicationCode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationcode
+	ApplicationCode string `json:"ApplicationCode,omitempty"`
+
+	// ApplicationDescription AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationdescription
+	ApplicationDescription string `json:"ApplicationDescription,omitempty"`
+
+	// ApplicationName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationname
+	ApplicationName string `json:"ApplicationName,omitempty"`
+
+	// Inputs AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-inputs
+	Inputs []AWSKinesisAnalyticsApplication_Input `json:"Inputs,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSKinesisAnalyticsApplication) AWSCloudFormationType() string {
-    return "AWS::KinesisAnalytics::Application"
+	return "AWS::KinesisAnalytics::Application"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSKinesisAnalyticsApplication) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSKinesisAnalyticsApplication) MarshalJSON() ([]byte, error) {
 	type Properties AWSKinesisAnalyticsApplication
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSKinesisAnalyticsApplication) MarshalJSON() ([]byte, error) {
 func (r *AWSKinesisAnalyticsApplication) UnmarshalJSON(b []byte) error {
 	type Properties AWSKinesisAnalyticsApplication
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSKinesisAnalyticsApplication) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSKinesisAnalyticsApplication(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSKinesisAnalyticsApplicationResources retrieves all AWSKinesisAnalyticsApplication items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSKinesisAnalyticsApplicationResources () map[string]AWSKinesisAnalyticsApplication {
-    results := map[string]AWSKinesisAnalyticsApplication{}
+func (t *CloudFormationTemplate) GetAllAWSKinesisAnalyticsApplicationResources() map[string]AWSKinesisAnalyticsApplication {
+	results := map[string]AWSKinesisAnalyticsApplication{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSKinesisAnalyticsApplication:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSKinesisAnalyticsApplicationResources (
 
 // GetAWSKinesisAnalyticsApplicationWithName retrieves all AWSKinesisAnalyticsApplication items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSKinesisAnalyticsApplicationWithName (name string) (AWSKinesisAnalyticsApplication, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSKinesisAnalyticsApplicationWithName(name string) (AWSKinesisAnalyticsApplication, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSKinesisAnalyticsApplication:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSKinesisAnalyticsApplicationWithName (name
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSKinesisAnalyticsApplication{}, errors.New("resource not found")
+	return AWSKinesisAnalyticsApplication{}, errors.New("resource not found")
 }

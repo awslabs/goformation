@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFSizeConstraintSet AWS CloudFormation Resource (AWS::WAF::SizeConstraintSet)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html
 type AWSWAFSizeConstraintSet struct {
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-name
-    Name string `json:"Name,omitempty"`
-    
-    // SizeConstraints AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-sizeconstraints
-    SizeConstraints []AWSWAFSizeConstraintSet_SizeConstraint `json:"SizeConstraints,omitempty"`
-    
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-name
+	Name string `json:"Name,omitempty"`
+
+	// SizeConstraints AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-sizeconstraints
+	SizeConstraints []AWSWAFSizeConstraintSet_SizeConstraint `json:"SizeConstraints,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFSizeConstraintSet) AWSCloudFormationType() string {
-    return "AWS::WAF::SizeConstraintSet"
+	return "AWS::WAF::SizeConstraintSet"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFSizeConstraintSet) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFSizeConstraintSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFSizeConstraintSet
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSWAFSizeConstraintSet) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFSizeConstraintSet) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFSizeConstraintSet
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSWAFSizeConstraintSet) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFSizeConstraintSet(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFSizeConstraintSetResources retrieves all AWSWAFSizeConstraintSet items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFSizeConstraintSetResources () map[string]AWSWAFSizeConstraintSet {
-    results := map[string]AWSWAFSizeConstraintSet{}
+func (t *CloudFormationTemplate) GetAllAWSWAFSizeConstraintSetResources() map[string]AWSWAFSizeConstraintSet {
+	results := map[string]AWSWAFSizeConstraintSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFSizeConstraintSet:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFSizeConstraintSetResources () map[s
 
 // GetAWSWAFSizeConstraintSetWithName retrieves all AWSWAFSizeConstraintSet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFSizeConstraintSetWithName (name string) (AWSWAFSizeConstraintSet, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFSizeConstraintSetWithName(name string) (AWSWAFSizeConstraintSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFSizeConstraintSet:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSWAFSizeConstraintSetWithName (name string
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFSizeConstraintSet{}, errors.New("resource not found")
+	return AWSWAFSizeConstraintSet{}, errors.New("resource not found")
 }

@@ -1,107 +1,105 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSDMSReplicationInstance AWS CloudFormation Resource (AWS::DMS::ReplicationInstance)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html
 type AWSDMSReplicationInstance struct {
-    
-    // AllocatedStorage AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allocatedstorage
-    AllocatedStorage int `json:"AllocatedStorage,omitempty"`
-    
-    // AllowMajorVersionUpgrade AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allowmajorversionupgrade
-    AllowMajorVersionUpgrade bool `json:"AllowMajorVersionUpgrade,omitempty"`
-    
-    // AutoMinorVersionUpgrade AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-autominorversionupgrade
-    AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade,omitempty"`
-    
-    // AvailabilityZone AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-availabilityzone
-    AvailabilityZone string `json:"AvailabilityZone,omitempty"`
-    
-    // EngineVersion AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-engineversion
-    EngineVersion string `json:"EngineVersion,omitempty"`
-    
-    // KmsKeyId AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-kmskeyid
-    KmsKeyId string `json:"KmsKeyId,omitempty"`
-    
-    // MultiAZ AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-multiaz
-    MultiAZ bool `json:"MultiAZ,omitempty"`
-    
-    // PreferredMaintenanceWindow AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-preferredmaintenancewindow
-    PreferredMaintenanceWindow string `json:"PreferredMaintenanceWindow,omitempty"`
-    
-    // PubliclyAccessible AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-publiclyaccessible
-    PubliclyAccessible bool `json:"PubliclyAccessible,omitempty"`
-    
-    // ReplicationInstanceClass AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceclass
-    ReplicationInstanceClass string `json:"ReplicationInstanceClass,omitempty"`
-    
-    // ReplicationInstanceIdentifier AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceidentifier
-    ReplicationInstanceIdentifier string `json:"ReplicationInstanceIdentifier,omitempty"`
-    
-    // ReplicationSubnetGroupIdentifier AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationsubnetgroupidentifier
-    ReplicationSubnetGroupIdentifier string `json:"ReplicationSubnetGroupIdentifier,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // VpcSecurityGroupIds AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-vpcsecuritygroupids
-    VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds,omitempty"`
-    
+
+	// AllocatedStorage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allocatedstorage
+	AllocatedStorage int `json:"AllocatedStorage,omitempty"`
+
+	// AllowMajorVersionUpgrade AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allowmajorversionupgrade
+	AllowMajorVersionUpgrade bool `json:"AllowMajorVersionUpgrade,omitempty"`
+
+	// AutoMinorVersionUpgrade AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-autominorversionupgrade
+	AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade,omitempty"`
+
+	// AvailabilityZone AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-availabilityzone
+	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+
+	// EngineVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-engineversion
+	EngineVersion string `json:"EngineVersion,omitempty"`
+
+	// KmsKeyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-kmskeyid
+	KmsKeyId string `json:"KmsKeyId,omitempty"`
+
+	// MultiAZ AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-multiaz
+	MultiAZ bool `json:"MultiAZ,omitempty"`
+
+	// PreferredMaintenanceWindow AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-preferredmaintenancewindow
+	PreferredMaintenanceWindow string `json:"PreferredMaintenanceWindow,omitempty"`
+
+	// PubliclyAccessible AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-publiclyaccessible
+	PubliclyAccessible bool `json:"PubliclyAccessible,omitempty"`
+
+	// ReplicationInstanceClass AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceclass
+	ReplicationInstanceClass string `json:"ReplicationInstanceClass,omitempty"`
+
+	// ReplicationInstanceIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceidentifier
+	ReplicationInstanceIdentifier string `json:"ReplicationInstanceIdentifier,omitempty"`
+
+	// ReplicationSubnetGroupIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationsubnetgroupidentifier
+	ReplicationSubnetGroupIdentifier string `json:"ReplicationSubnetGroupIdentifier,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// VpcSecurityGroupIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-vpcsecuritygroupids
+	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSDMSReplicationInstance) AWSCloudFormationType() string {
-    return "AWS::DMS::ReplicationInstance"
+	return "AWS::DMS::ReplicationInstance"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDMSReplicationInstance) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSDMSReplicationInstance) MarshalJSON() ([]byte, error) {
 	type Properties AWSDMSReplicationInstance
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -111,7 +109,7 @@ func (r *AWSDMSReplicationInstance) MarshalJSON() ([]byte, error) {
 func (r *AWSDMSReplicationInstance) UnmarshalJSON(b []byte) error {
 	type Properties AWSDMSReplicationInstance
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -119,12 +117,12 @@ func (r *AWSDMSReplicationInstance) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSDMSReplicationInstance(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSDMSReplicationInstanceResources retrieves all AWSDMSReplicationInstance items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSDMSReplicationInstanceResources () map[string]AWSDMSReplicationInstance {
-    results := map[string]AWSDMSReplicationInstance{}
+func (t *CloudFormationTemplate) GetAllAWSDMSReplicationInstanceResources() map[string]AWSDMSReplicationInstance {
+	results := map[string]AWSDMSReplicationInstance{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSDMSReplicationInstance:
@@ -151,8 +149,8 @@ func (t *CloudFormationTemplate) GetAllAWSDMSReplicationInstanceResources () map
 
 // GetAWSDMSReplicationInstanceWithName retrieves all AWSDMSReplicationInstance items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSDMSReplicationInstanceWithName (name string) (AWSDMSReplicationInstance, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSDMSReplicationInstanceWithName(name string) (AWSDMSReplicationInstance, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSDMSReplicationInstance:
 			// We found a strongly typed resource of the correct type; use it
@@ -170,8 +168,8 @@ func (t *CloudFormationTemplate) GetAWSDMSReplicationInstanceWithName (name stri
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSDMSReplicationInstance{}, errors.New("resource not found")
+	return AWSDMSReplicationInstance{}, errors.New("resource not found")
 }

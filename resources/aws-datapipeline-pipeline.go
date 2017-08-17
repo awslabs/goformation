@@ -1,72 +1,70 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSDataPipelinePipeline AWS CloudFormation Resource (AWS::DataPipeline::Pipeline)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
 type AWSDataPipelinePipeline struct {
-    
-    // Activate AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-activate
-    Activate bool `json:"Activate,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description
-    Description string `json:"Description,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-name
-    Name string `json:"Name,omitempty"`
-    
-    // ParameterObjects AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
-    ParameterObjects []AWSDataPipelinePipeline_ParameterObject `json:"ParameterObjects,omitempty"`
-    
-    // ParameterValues AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
-    ParameterValues []AWSDataPipelinePipeline_ParameterValue `json:"ParameterValues,omitempty"`
-    
-    // PipelineObjects AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects
-    PipelineObjects []AWSDataPipelinePipeline_PipelineObject `json:"PipelineObjects,omitempty"`
-    
-    // PipelineTags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags
-    PipelineTags []AWSDataPipelinePipeline_PipelineTag `json:"PipelineTags,omitempty"`
-    
+
+	// Activate AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-activate
+	Activate bool `json:"Activate,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description
+	Description string `json:"Description,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-name
+	Name string `json:"Name,omitempty"`
+
+	// ParameterObjects AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
+	ParameterObjects []AWSDataPipelinePipeline_ParameterObject `json:"ParameterObjects,omitempty"`
+
+	// ParameterValues AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
+	ParameterValues []AWSDataPipelinePipeline_ParameterValue `json:"ParameterValues,omitempty"`
+
+	// PipelineObjects AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects
+	PipelineObjects []AWSDataPipelinePipeline_PipelineObject `json:"PipelineObjects,omitempty"`
+
+	// PipelineTags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags
+	PipelineTags []AWSDataPipelinePipeline_PipelineTag `json:"PipelineTags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSDataPipelinePipeline) AWSCloudFormationType() string {
-    return "AWS::DataPipeline::Pipeline"
+	return "AWS::DataPipeline::Pipeline"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDataPipelinePipeline) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSDataPipelinePipeline) MarshalJSON() ([]byte, error) {
 	type Properties AWSDataPipelinePipeline
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -76,7 +74,7 @@ func (r *AWSDataPipelinePipeline) MarshalJSON() ([]byte, error) {
 func (r *AWSDataPipelinePipeline) UnmarshalJSON(b []byte) error {
 	type Properties AWSDataPipelinePipeline
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -84,12 +82,12 @@ func (r *AWSDataPipelinePipeline) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSDataPipelinePipeline(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSDataPipelinePipelineResources retrieves all AWSDataPipelinePipeline items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSDataPipelinePipelineResources () map[string]AWSDataPipelinePipeline {
-    results := map[string]AWSDataPipelinePipeline{}
+func (t *CloudFormationTemplate) GetAllAWSDataPipelinePipelineResources() map[string]AWSDataPipelinePipeline {
+	results := map[string]AWSDataPipelinePipeline{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSDataPipelinePipeline:
@@ -116,8 +114,8 @@ func (t *CloudFormationTemplate) GetAllAWSDataPipelinePipelineResources () map[s
 
 // GetAWSDataPipelinePipelineWithName retrieves all AWSDataPipelinePipeline items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSDataPipelinePipelineWithName (name string) (AWSDataPipelinePipeline, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSDataPipelinePipelineWithName(name string) (AWSDataPipelinePipeline, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSDataPipelinePipeline:
 			// We found a strongly typed resource of the correct type; use it
@@ -135,8 +133,8 @@ func (t *CloudFormationTemplate) GetAWSDataPipelinePipelineWithName (name string
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSDataPipelinePipeline{}, errors.New("resource not found")
+	return AWSDataPipelinePipeline{}, errors.New("resource not found")
 }

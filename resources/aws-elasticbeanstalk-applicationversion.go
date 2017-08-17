@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSElasticBeanstalkApplicationVersion AWS CloudFormation Resource (AWS::ElasticBeanstalk::ApplicationVersion)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html
 type AWSElasticBeanstalkApplicationVersion struct {
-    
-    // ApplicationName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html#cfn-elasticbeanstalk-applicationversion-applicationname
-    ApplicationName string `json:"ApplicationName,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html#cfn-elasticbeanstalk-applicationversion-description
-    Description string `json:"Description,omitempty"`
-    
-    // SourceBundle AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html#cfn-elasticbeanstalk-applicationversion-sourcebundle
-    SourceBundle *AWSElasticBeanstalkApplicationVersion_SourceBundle `json:"SourceBundle,omitempty"`
-    
+
+	// ApplicationName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html#cfn-elasticbeanstalk-applicationversion-applicationname
+	ApplicationName string `json:"ApplicationName,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html#cfn-elasticbeanstalk-applicationversion-description
+	Description string `json:"Description,omitempty"`
+
+	// SourceBundle AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html#cfn-elasticbeanstalk-applicationversion-sourcebundle
+	SourceBundle *AWSElasticBeanstalkApplicationVersion_SourceBundle `json:"SourceBundle,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElasticBeanstalkApplicationVersion) AWSCloudFormationType() string {
-    return "AWS::ElasticBeanstalk::ApplicationVersion"
+	return "AWS::ElasticBeanstalk::ApplicationVersion"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticBeanstalkApplicationVersion) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSElasticBeanstalkApplicationVersion) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticBeanstalkApplicationVersion
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSElasticBeanstalkApplicationVersion) MarshalJSON() ([]byte, error) {
 func (r *AWSElasticBeanstalkApplicationVersion) UnmarshalJSON(b []byte) error {
 	type Properties AWSElasticBeanstalkApplicationVersion
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSElasticBeanstalkApplicationVersion) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSElasticBeanstalkApplicationVersion(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSElasticBeanstalkApplicationVersionResources retrieves all AWSElasticBeanstalkApplicationVersion items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkApplicationVersionResources () map[string]AWSElasticBeanstalkApplicationVersion {
-    results := map[string]AWSElasticBeanstalkApplicationVersion{}
+func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkApplicationVersionResources() map[string]AWSElasticBeanstalkApplicationVersion {
+	results := map[string]AWSElasticBeanstalkApplicationVersion{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElasticBeanstalkApplicationVersion:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSElasticBeanstalkApplicationVersionReso
 
 // GetAWSElasticBeanstalkApplicationVersionWithName retrieves all AWSElasticBeanstalkApplicationVersion items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSElasticBeanstalkApplicationVersionWithName (name string) (AWSElasticBeanstalkApplicationVersion, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSElasticBeanstalkApplicationVersionWithName(name string) (AWSElasticBeanstalkApplicationVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElasticBeanstalkApplicationVersion:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSElasticBeanstalkApplicationVersionWithNam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSElasticBeanstalkApplicationVersion{}, errors.New("resource not found")
+	return AWSElasticBeanstalkApplicationVersion{}, errors.New("resource not found")
 }

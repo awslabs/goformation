@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSRedshiftClusterParameterGroup AWS CloudFormation Resource (AWS::Redshift::ClusterParameterGroup)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
 type AWSRedshiftClusterParameterGroup struct {
-    
-    // Description AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-description
-    Description string `json:"Description,omitempty"`
-    
-    // ParameterGroupFamily AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parametergroupfamily
-    ParameterGroupFamily string `json:"ParameterGroupFamily,omitempty"`
-    
-    // Parameters AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parameters
-    Parameters []AWSRedshiftClusterParameterGroup_Parameter `json:"Parameters,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// Description AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-description
+	Description string `json:"Description,omitempty"`
+
+	// ParameterGroupFamily AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parametergroupfamily
+	ParameterGroupFamily string `json:"ParameterGroupFamily,omitempty"`
+
+	// Parameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parameters
+	Parameters []AWSRedshiftClusterParameterGroup_Parameter `json:"Parameters,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSRedshiftClusterParameterGroup) AWSCloudFormationType() string {
-    return "AWS::Redshift::ClusterParameterGroup"
+	return "AWS::Redshift::ClusterParameterGroup"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRedshiftClusterParameterGroup) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSRedshiftClusterParameterGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSRedshiftClusterParameterGroup
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSRedshiftClusterParameterGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSRedshiftClusterParameterGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSRedshiftClusterParameterGroup
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSRedshiftClusterParameterGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSRedshiftClusterParameterGroup(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSRedshiftClusterParameterGroupResources retrieves all AWSRedshiftClusterParameterGroup items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterParameterGroupResources () map[string]AWSRedshiftClusterParameterGroup {
-    results := map[string]AWSRedshiftClusterParameterGroup{}
+func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterParameterGroupResources() map[string]AWSRedshiftClusterParameterGroup {
+	results := map[string]AWSRedshiftClusterParameterGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRedshiftClusterParameterGroup:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSRedshiftClusterParameterGroupResources
 
 // GetAWSRedshiftClusterParameterGroupWithName retrieves all AWSRedshiftClusterParameterGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSRedshiftClusterParameterGroupWithName (name string) (AWSRedshiftClusterParameterGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSRedshiftClusterParameterGroupWithName(name string) (AWSRedshiftClusterParameterGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRedshiftClusterParameterGroup:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSRedshiftClusterParameterGroupWithName (na
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSRedshiftClusterParameterGroup{}, errors.New("resource not found")
+	return AWSRedshiftClusterParameterGroup{}, errors.New("resource not found")
 }

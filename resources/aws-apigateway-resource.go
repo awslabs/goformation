@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApiGatewayResource AWS CloudFormation Resource (AWS::ApiGateway::Resource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
 type AWSApiGatewayResource struct {
-    
-    // ParentId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
-    ParentId string `json:"ParentId,omitempty"`
-    
-    // PathPart AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
-    PathPart string `json:"PathPart,omitempty"`
-    
-    // RestApiId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
-    RestApiId string `json:"RestApiId,omitempty"`
-    
+
+	// ParentId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+	ParentId string `json:"ParentId,omitempty"`
+
+	// PathPart AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+	PathPart string `json:"PathPart,omitempty"`
+
+	// RestApiId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+	RestApiId string `json:"RestApiId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApiGatewayResource) AWSCloudFormationType() string {
-    return "AWS::ApiGateway::Resource"
+	return "AWS::ApiGateway::Resource"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayResource) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApiGatewayResource) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayResource
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSApiGatewayResource) MarshalJSON() ([]byte, error) {
 func (r *AWSApiGatewayResource) UnmarshalJSON(b []byte) error {
 	type Properties AWSApiGatewayResource
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSApiGatewayResource) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApiGatewayResource(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApiGatewayResourceResources retrieves all AWSApiGatewayResource items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApiGatewayResourceResources () map[string]AWSApiGatewayResource {
-    results := map[string]AWSApiGatewayResource{}
+func (t *CloudFormationTemplate) GetAllAWSApiGatewayResourceResources() map[string]AWSApiGatewayResource {
+	results := map[string]AWSApiGatewayResource{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayResource:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSApiGatewayResourceResources () map[str
 
 // GetAWSApiGatewayResourceWithName retrieves all AWSApiGatewayResource items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApiGatewayResourceWithName (name string) (AWSApiGatewayResource, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApiGatewayResourceWithName(name string) (AWSApiGatewayResource, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayResource:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSApiGatewayResourceWithName (name string) 
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApiGatewayResource{}, errors.New("resource not found")
+	return AWSApiGatewayResource{}, errors.New("resource not found")
 }

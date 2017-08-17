@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSSNSTopicPolicy AWS CloudFormation Resource (AWS::SNS::TopicPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
 type AWSSNSTopicPolicy struct {
-    
-    // PolicyDocument AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument
-    PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
-    
-    // Topics AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics
-    Topics []string `json:"Topics,omitempty"`
-    
+
+	// PolicyDocument AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
+
+	// Topics AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics
+	Topics []string `json:"Topics,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSSNSTopicPolicy) AWSCloudFormationType() string {
-    return "AWS::SNS::TopicPolicy"
+	return "AWS::SNS::TopicPolicy"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSSNSTopicPolicy) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSSNSTopicPolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSSNSTopicPolicy
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSSNSTopicPolicy) MarshalJSON() ([]byte, error) {
 func (r *AWSSNSTopicPolicy) UnmarshalJSON(b []byte) error {
 	type Properties AWSSNSTopicPolicy
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSSNSTopicPolicy) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSSNSTopicPolicy(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSSNSTopicPolicyResources retrieves all AWSSNSTopicPolicy items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSSNSTopicPolicyResources () map[string]AWSSNSTopicPolicy {
-    results := map[string]AWSSNSTopicPolicy{}
+func (t *CloudFormationTemplate) GetAllAWSSNSTopicPolicyResources() map[string]AWSSNSTopicPolicy {
+	results := map[string]AWSSNSTopicPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSNSTopicPolicy:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSSNSTopicPolicyResources () map[string]
 
 // GetAWSSNSTopicPolicyWithName retrieves all AWSSNSTopicPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSSNSTopicPolicyWithName (name string) (AWSSNSTopicPolicy, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSSNSTopicPolicyWithName(name string) (AWSSNSTopicPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSNSTopicPolicy:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSSNSTopicPolicyWithName (name string) (AWS
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSSNSTopicPolicy{}, errors.New("resource not found")
+	return AWSSNSTopicPolicy{}, errors.New("resource not found")
 }

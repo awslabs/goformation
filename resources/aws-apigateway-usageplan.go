@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSApiGatewayUsagePlan AWS CloudFormation Resource (AWS::ApiGateway::UsagePlan)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
 type AWSApiGatewayUsagePlan struct {
-    
-    // ApiStages AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
-    ApiStages []AWSApiGatewayUsagePlan_ApiStage `json:"ApiStages,omitempty"`
-    
-    // Description AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
-    Description string `json:"Description,omitempty"`
-    
-    // Quota AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
-    Quota *AWSApiGatewayUsagePlan_QuotaSettings `json:"Quota,omitempty"`
-    
-    // Throttle AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
-    Throttle *AWSApiGatewayUsagePlan_ThrottleSettings `json:"Throttle,omitempty"`
-    
-    // UsagePlanName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
-    UsagePlanName string `json:"UsagePlanName,omitempty"`
-    
+
+	// ApiStages AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+	ApiStages []AWSApiGatewayUsagePlan_ApiStage `json:"ApiStages,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+	Description string `json:"Description,omitempty"`
+
+	// Quota AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+	Quota *AWSApiGatewayUsagePlan_QuotaSettings `json:"Quota,omitempty"`
+
+	// Throttle AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+	Throttle *AWSApiGatewayUsagePlan_ThrottleSettings `json:"Throttle,omitempty"`
+
+	// UsagePlanName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+	UsagePlanName string `json:"UsagePlanName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSApiGatewayUsagePlan) AWSCloudFormationType() string {
-    return "AWS::ApiGateway::UsagePlan"
+	return "AWS::ApiGateway::UsagePlan"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayUsagePlan) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSApiGatewayUsagePlan) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayUsagePlan
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSApiGatewayUsagePlan) MarshalJSON() ([]byte, error) {
 func (r *AWSApiGatewayUsagePlan) UnmarshalJSON(b []byte) error {
 	type Properties AWSApiGatewayUsagePlan
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSApiGatewayUsagePlan) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSApiGatewayUsagePlan(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSApiGatewayUsagePlanResources retrieves all AWSApiGatewayUsagePlan items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSApiGatewayUsagePlanResources () map[string]AWSApiGatewayUsagePlan {
-    results := map[string]AWSApiGatewayUsagePlan{}
+func (t *CloudFormationTemplate) GetAllAWSApiGatewayUsagePlanResources() map[string]AWSApiGatewayUsagePlan {
+	results := map[string]AWSApiGatewayUsagePlan{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayUsagePlan:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSApiGatewayUsagePlanResources () map[st
 
 // GetAWSApiGatewayUsagePlanWithName retrieves all AWSApiGatewayUsagePlan items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSApiGatewayUsagePlanWithName (name string) (AWSApiGatewayUsagePlan, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSApiGatewayUsagePlanWithName(name string) (AWSApiGatewayUsagePlan, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayUsagePlan:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSApiGatewayUsagePlanWithName (name string)
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSApiGatewayUsagePlan{}, errors.New("resource not found")
+	return AWSApiGatewayUsagePlan{}, errors.New("resource not found")
 }

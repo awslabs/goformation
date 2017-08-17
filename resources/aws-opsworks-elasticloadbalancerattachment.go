@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSOpsWorksElasticLoadBalancerAttachment AWS CloudFormation Resource (AWS::OpsWorks::ElasticLoadBalancerAttachment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html
 type AWSOpsWorksElasticLoadBalancerAttachment struct {
-    
-    // ElasticLoadBalancerName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html#cfn-opsworks-elbattachment-elbname
-    ElasticLoadBalancerName string `json:"ElasticLoadBalancerName,omitempty"`
-    
-    // LayerId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html#cfn-opsworks-elbattachment-layerid
-    LayerId string `json:"LayerId,omitempty"`
-    
+
+	// ElasticLoadBalancerName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html#cfn-opsworks-elbattachment-elbname
+	ElasticLoadBalancerName string `json:"ElasticLoadBalancerName,omitempty"`
+
+	// LayerId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html#cfn-opsworks-elbattachment-layerid
+	LayerId string `json:"LayerId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSOpsWorksElasticLoadBalancerAttachment) AWSCloudFormationType() string {
-    return "AWS::OpsWorks::ElasticLoadBalancerAttachment"
+	return "AWS::OpsWorks::ElasticLoadBalancerAttachment"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSOpsWorksElasticLoadBalancerAttachment) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSOpsWorksElasticLoadBalancerAttachment) MarshalJSON() ([]byte, error) {
 	type Properties AWSOpsWorksElasticLoadBalancerAttachment
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSOpsWorksElasticLoadBalancerAttachment) MarshalJSON() ([]byte, error)
 func (r *AWSOpsWorksElasticLoadBalancerAttachment) UnmarshalJSON(b []byte) error {
 	type Properties AWSOpsWorksElasticLoadBalancerAttachment
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSOpsWorksElasticLoadBalancerAttachment) UnmarshalJSON(b []byte) error
 		return err
 	}
 	*r = AWSOpsWorksElasticLoadBalancerAttachment(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources retrieves all AWSOpsWorksElasticLoadBalancerAttachment items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources () map[string]AWSOpsWorksElasticLoadBalancerAttachment {
-    results := map[string]AWSOpsWorksElasticLoadBalancerAttachment{}
+func (t *CloudFormationTemplate) GetAllAWSOpsWorksElasticLoadBalancerAttachmentResources() map[string]AWSOpsWorksElasticLoadBalancerAttachment {
+	results := map[string]AWSOpsWorksElasticLoadBalancerAttachment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSOpsWorksElasticLoadBalancerAttachment:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSOpsWorksElasticLoadBalancerAttachmentR
 
 // GetAWSOpsWorksElasticLoadBalancerAttachmentWithName retrieves all AWSOpsWorksElasticLoadBalancerAttachment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSOpsWorksElasticLoadBalancerAttachmentWithName (name string) (AWSOpsWorksElasticLoadBalancerAttachment, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSOpsWorksElasticLoadBalancerAttachmentWithName(name string) (AWSOpsWorksElasticLoadBalancerAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSOpsWorksElasticLoadBalancerAttachment:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSOpsWorksElasticLoadBalancerAttachmentWith
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSOpsWorksElasticLoadBalancerAttachment{}, errors.New("resource not found")
+	return AWSOpsWorksElasticLoadBalancerAttachment{}, errors.New("resource not found")
 }

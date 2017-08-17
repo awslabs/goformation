@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCertificateManagerCertificate AWS CloudFormation Resource (AWS::CertificateManager::Certificate)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
 type AWSCertificateManagerCertificate struct {
-    
-    // DomainName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname
-    DomainName string `json:"DomainName,omitempty"`
-    
-    // DomainValidationOptions AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions
-    DomainValidationOptions []AWSCertificateManagerCertificate_DomainValidationOption `json:"DomainValidationOptions,omitempty"`
-    
-    // SubjectAlternativeNames AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames
-    SubjectAlternativeNames []string `json:"SubjectAlternativeNames,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
+
+	// DomainName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname
+	DomainName string `json:"DomainName,omitempty"`
+
+	// DomainValidationOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions
+	DomainValidationOptions []AWSCertificateManagerCertificate_DomainValidationOption `json:"DomainValidationOptions,omitempty"`
+
+	// SubjectAlternativeNames AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames
+	SubjectAlternativeNames []string `json:"SubjectAlternativeNames,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags
+	Tags []Tag `json:"Tags,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCertificateManagerCertificate) AWSCloudFormationType() string {
-    return "AWS::CertificateManager::Certificate"
+	return "AWS::CertificateManager::Certificate"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCertificateManagerCertificate) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCertificateManagerCertificate) MarshalJSON() ([]byte, error) {
 	type Properties AWSCertificateManagerCertificate
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSCertificateManagerCertificate) MarshalJSON() ([]byte, error) {
 func (r *AWSCertificateManagerCertificate) UnmarshalJSON(b []byte) error {
 	type Properties AWSCertificateManagerCertificate
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSCertificateManagerCertificate) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCertificateManagerCertificate(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCertificateManagerCertificateResources retrieves all AWSCertificateManagerCertificate items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCertificateManagerCertificateResources () map[string]AWSCertificateManagerCertificate {
-    results := map[string]AWSCertificateManagerCertificate{}
+func (t *CloudFormationTemplate) GetAllAWSCertificateManagerCertificateResources() map[string]AWSCertificateManagerCertificate {
+	results := map[string]AWSCertificateManagerCertificate{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCertificateManagerCertificate:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSCertificateManagerCertificateResources
 
 // GetAWSCertificateManagerCertificateWithName retrieves all AWSCertificateManagerCertificate items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCertificateManagerCertificateWithName (name string) (AWSCertificateManagerCertificate, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCertificateManagerCertificateWithName(name string) (AWSCertificateManagerCertificate, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCertificateManagerCertificate:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSCertificateManagerCertificateWithName (na
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCertificateManagerCertificate{}, errors.New("resource not found")
+	return AWSCertificateManagerCertificate{}, errors.New("resource not found")
 }

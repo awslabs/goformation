@@ -1,57 +1,55 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSWAFRegionalWebACL AWS CloudFormation Resource (AWS::WAFRegional::WebACL)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html
 type AWSWAFRegionalWebACL struct {
-    
-    // DefaultAction AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction
-    DefaultAction *AWSWAFRegionalWebACL_Action `json:"DefaultAction,omitempty"`
-    
-    // MetricName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname
-    MetricName string `json:"MetricName,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name
-    Name string `json:"Name,omitempty"`
-    
-    // Rules AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules
-    Rules []AWSWAFRegionalWebACL_Rule `json:"Rules,omitempty"`
-    
+
+	// DefaultAction AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction
+	DefaultAction *AWSWAFRegionalWebACL_Action `json:"DefaultAction,omitempty"`
+
+	// MetricName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname
+	MetricName string `json:"MetricName,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name
+	Name string `json:"Name,omitempty"`
+
+	// Rules AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules
+	Rules []AWSWAFRegionalWebACL_Rule `json:"Rules,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSWAFRegionalWebACL) AWSCloudFormationType() string {
-    return "AWS::WAFRegional::WebACL"
+	return "AWS::WAFRegional::WebACL"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFRegionalWebACL) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSWAFRegionalWebACL) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFRegionalWebACL
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -61,7 +59,7 @@ func (r *AWSWAFRegionalWebACL) MarshalJSON() ([]byte, error) {
 func (r *AWSWAFRegionalWebACL) UnmarshalJSON(b []byte) error {
 	type Properties AWSWAFRegionalWebACL
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -69,12 +67,12 @@ func (r *AWSWAFRegionalWebACL) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSWAFRegionalWebACL(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSWAFRegionalWebACLResources retrieves all AWSWAFRegionalWebACL items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSWAFRegionalWebACLResources () map[string]AWSWAFRegionalWebACL {
-    results := map[string]AWSWAFRegionalWebACL{}
+func (t *CloudFormationTemplate) GetAllAWSWAFRegionalWebACLResources() map[string]AWSWAFRegionalWebACL {
+	results := map[string]AWSWAFRegionalWebACL{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalWebACL:
@@ -101,8 +99,8 @@ func (t *CloudFormationTemplate) GetAllAWSWAFRegionalWebACLResources () map[stri
 
 // GetAWSWAFRegionalWebACLWithName retrieves all AWSWAFRegionalWebACL items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSWAFRegionalWebACLWithName (name string) (AWSWAFRegionalWebACL, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSWAFRegionalWebACLWithName(name string) (AWSWAFRegionalWebACL, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalWebACL:
 			// We found a strongly typed resource of the correct type; use it
@@ -120,8 +118,8 @@ func (t *CloudFormationTemplate) GetAWSWAFRegionalWebACLWithName (name string) (
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSWAFRegionalWebACL{}, errors.New("resource not found")
+	return AWSWAFRegionalWebACL{}, errors.New("resource not found")
 }

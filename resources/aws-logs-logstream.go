@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSLogsLogStream AWS CloudFormation Resource (AWS::Logs::LogStream)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
 type AWSLogsLogStream struct {
-    
-    // LogGroupName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-loggroupname
-    LogGroupName string `json:"LogGroupName,omitempty"`
-    
-    // LogStreamName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-logstreamname
-    LogStreamName string `json:"LogStreamName,omitempty"`
-    
+
+	// LogGroupName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-loggroupname
+	LogGroupName string `json:"LogGroupName,omitempty"`
+
+	// LogStreamName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-logstreamname
+	LogStreamName string `json:"LogStreamName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSLogsLogStream) AWSCloudFormationType() string {
-    return "AWS::Logs::LogStream"
+	return "AWS::Logs::LogStream"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSLogsLogStream) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSLogsLogStream) MarshalJSON() ([]byte, error) {
 	type Properties AWSLogsLogStream
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSLogsLogStream) MarshalJSON() ([]byte, error) {
 func (r *AWSLogsLogStream) UnmarshalJSON(b []byte) error {
 	type Properties AWSLogsLogStream
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSLogsLogStream) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSLogsLogStream(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSLogsLogStreamResources retrieves all AWSLogsLogStream items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSLogsLogStreamResources () map[string]AWSLogsLogStream {
-    results := map[string]AWSLogsLogStream{}
+func (t *CloudFormationTemplate) GetAllAWSLogsLogStreamResources() map[string]AWSLogsLogStream {
+	results := map[string]AWSLogsLogStream{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSLogsLogStream:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSLogsLogStreamResources () map[string]A
 
 // GetAWSLogsLogStreamWithName retrieves all AWSLogsLogStream items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSLogsLogStreamWithName (name string) (AWSLogsLogStream, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSLogsLogStreamWithName(name string) (AWSLogsLogStream, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSLogsLogStream:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSLogsLogStreamWithName (name string) (AWSL
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSLogsLogStream{}, errors.New("resource not found")
+	return AWSLogsLogStream{}, errors.New("resource not found")
 }

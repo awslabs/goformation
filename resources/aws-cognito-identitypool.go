@@ -1,87 +1,85 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSCognitoIdentityPool AWS CloudFormation Resource (AWS::Cognito::IdentityPool)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html
 type AWSCognitoIdentityPool struct {
-    
-    // AllowUnauthenticatedIdentities AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowunauthenticatedidentities
-    AllowUnauthenticatedIdentities bool `json:"AllowUnauthenticatedIdentities,omitempty"`
-    
-    // CognitoEvents AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoevents
-    CognitoEvents interface{} `json:"CognitoEvents,omitempty"`
-    
-    // CognitoIdentityProviders AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoidentityproviders
-    CognitoIdentityProviders []AWSCognitoIdentityPool_CognitoIdentityProvider `json:"CognitoIdentityProviders,omitempty"`
-    
-    // CognitoStreams AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitostreams
-    CognitoStreams *AWSCognitoIdentityPool_CognitoStreams `json:"CognitoStreams,omitempty"`
-    
-    // DeveloperProviderName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-developerprovidername
-    DeveloperProviderName string `json:"DeveloperProviderName,omitempty"`
-    
-    // IdentityPoolName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname
-    IdentityPoolName string `json:"IdentityPoolName,omitempty"`
-    
-    // OpenIdConnectProviderARNs AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
-    OpenIdConnectProviderARNs []string `json:"OpenIdConnectProviderARNs,omitempty"`
-    
-    // PushSync AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-pushsync
-    PushSync *AWSCognitoIdentityPool_PushSync `json:"PushSync,omitempty"`
-    
-    // SamlProviderARNs AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-samlproviderarns
-    SamlProviderARNs []string `json:"SamlProviderARNs,omitempty"`
-    
-    // SupportedLoginProviders AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-supportedloginproviders
-    SupportedLoginProviders interface{} `json:"SupportedLoginProviders,omitempty"`
-    
+
+	// AllowUnauthenticatedIdentities AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowunauthenticatedidentities
+	AllowUnauthenticatedIdentities bool `json:"AllowUnauthenticatedIdentities,omitempty"`
+
+	// CognitoEvents AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoevents
+	CognitoEvents interface{} `json:"CognitoEvents,omitempty"`
+
+	// CognitoIdentityProviders AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoidentityproviders
+	CognitoIdentityProviders []AWSCognitoIdentityPool_CognitoIdentityProvider `json:"CognitoIdentityProviders,omitempty"`
+
+	// CognitoStreams AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitostreams
+	CognitoStreams *AWSCognitoIdentityPool_CognitoStreams `json:"CognitoStreams,omitempty"`
+
+	// DeveloperProviderName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-developerprovidername
+	DeveloperProviderName string `json:"DeveloperProviderName,omitempty"`
+
+	// IdentityPoolName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname
+	IdentityPoolName string `json:"IdentityPoolName,omitempty"`
+
+	// OpenIdConnectProviderARNs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
+	OpenIdConnectProviderARNs []string `json:"OpenIdConnectProviderARNs,omitempty"`
+
+	// PushSync AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-pushsync
+	PushSync *AWSCognitoIdentityPool_PushSync `json:"PushSync,omitempty"`
+
+	// SamlProviderARNs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-samlproviderarns
+	SamlProviderARNs []string `json:"SamlProviderARNs,omitempty"`
+
+	// SupportedLoginProviders AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-supportedloginproviders
+	SupportedLoginProviders interface{} `json:"SupportedLoginProviders,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSCognitoIdentityPool) AWSCloudFormationType() string {
-    return "AWS::Cognito::IdentityPool"
+	return "AWS::Cognito::IdentityPool"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCognitoIdentityPool) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCognitoIdentityPool) MarshalJSON() ([]byte, error) {
 	type Properties AWSCognitoIdentityPool
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -91,7 +89,7 @@ func (r *AWSCognitoIdentityPool) MarshalJSON() ([]byte, error) {
 func (r *AWSCognitoIdentityPool) UnmarshalJSON(b []byte) error {
 	type Properties AWSCognitoIdentityPool
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -99,12 +97,12 @@ func (r *AWSCognitoIdentityPool) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSCognitoIdentityPool(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSCognitoIdentityPoolResources retrieves all AWSCognitoIdentityPool items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSCognitoIdentityPoolResources () map[string]AWSCognitoIdentityPool {
-    results := map[string]AWSCognitoIdentityPool{}
+func (t *CloudFormationTemplate) GetAllAWSCognitoIdentityPoolResources() map[string]AWSCognitoIdentityPool {
+	results := map[string]AWSCognitoIdentityPool{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCognitoIdentityPool:
@@ -131,8 +129,8 @@ func (t *CloudFormationTemplate) GetAllAWSCognitoIdentityPoolResources () map[st
 
 // GetAWSCognitoIdentityPoolWithName retrieves all AWSCognitoIdentityPool items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSCognitoIdentityPoolWithName (name string) (AWSCognitoIdentityPool, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSCognitoIdentityPoolWithName(name string) (AWSCognitoIdentityPool, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCognitoIdentityPool:
 			// We found a strongly typed resource of the correct type; use it
@@ -150,8 +148,8 @@ func (t *CloudFormationTemplate) GetAWSCognitoIdentityPoolWithName (name string)
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSCognitoIdentityPool{}, errors.New("resource not found")
+	return AWSCognitoIdentityPool{}, errors.New("resource not found")
 }

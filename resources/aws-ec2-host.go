@@ -1,52 +1,50 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2Host AWS CloudFormation Resource (AWS::EC2::Host)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html
 type AWSEC2Host struct {
-    
-    // AutoPlacement AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-autoplacement
-    AutoPlacement string `json:"AutoPlacement,omitempty"`
-    
-    // AvailabilityZone AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-availabilityzone
-    AvailabilityZone string `json:"AvailabilityZone,omitempty"`
-    
-    // InstanceType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancetype
-    InstanceType string `json:"InstanceType,omitempty"`
-    
+
+	// AutoPlacement AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-autoplacement
+	AutoPlacement string `json:"AutoPlacement,omitempty"`
+
+	// AvailabilityZone AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-availabilityzone
+	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+
+	// InstanceType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancetype
+	InstanceType string `json:"InstanceType,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2Host) AWSCloudFormationType() string {
-    return "AWS::EC2::Host"
+	return "AWS::EC2::Host"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2Host) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2Host) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2Host
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -56,7 +54,7 @@ func (r *AWSEC2Host) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2Host) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2Host
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -64,12 +62,12 @@ func (r *AWSEC2Host) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2Host(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2HostResources retrieves all AWSEC2Host items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2HostResources () map[string]AWSEC2Host {
-    results := map[string]AWSEC2Host{}
+func (t *CloudFormationTemplate) GetAllAWSEC2HostResources() map[string]AWSEC2Host {
+	results := map[string]AWSEC2Host{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2Host:
@@ -96,8 +94,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2HostResources () map[string]AWSEC2H
 
 // GetAWSEC2HostWithName retrieves all AWSEC2Host items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2HostWithName (name string) (AWSEC2Host, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2HostWithName(name string) (AWSEC2Host, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2Host:
 			// We found a strongly typed resource of the correct type; use it
@@ -115,8 +113,8 @@ func (t *CloudFormationTemplate) GetAWSEC2HostWithName (name string) (AWSEC2Host
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2Host{}, errors.New("resource not found")
+	return AWSEC2Host{}, errors.New("resource not found")
 }

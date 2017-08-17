@@ -1,47 +1,45 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2VPCDHCPOptionsAssociation AWS CloudFormation Resource (AWS::EC2::VPCDHCPOptionsAssociation)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html
 type AWSEC2VPCDHCPOptionsAssociation struct {
-    
-    // DhcpOptionsId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid
-    DhcpOptionsId string `json:"DhcpOptionsId,omitempty"`
-    
-    // VpcId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-vpcid
-    VpcId string `json:"VpcId,omitempty"`
-    
+
+	// DhcpOptionsId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid
+	DhcpOptionsId string `json:"DhcpOptionsId,omitempty"`
+
+	// VpcId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-vpcid
+	VpcId string `json:"VpcId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2VPCDHCPOptionsAssociation) AWSCloudFormationType() string {
-    return "AWS::EC2::VPCDHCPOptionsAssociation"
+	return "AWS::EC2::VPCDHCPOptionsAssociation"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2VPCDHCPOptionsAssociation) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2VPCDHCPOptionsAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPCDHCPOptionsAssociation
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -51,7 +49,7 @@ func (r *AWSEC2VPCDHCPOptionsAssociation) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2VPCDHCPOptionsAssociation) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2VPCDHCPOptionsAssociation
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -59,12 +57,12 @@ func (r *AWSEC2VPCDHCPOptionsAssociation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2VPCDHCPOptionsAssociation(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2VPCDHCPOptionsAssociationResources retrieves all AWSEC2VPCDHCPOptionsAssociation items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2VPCDHCPOptionsAssociationResources () map[string]AWSEC2VPCDHCPOptionsAssociation {
-    results := map[string]AWSEC2VPCDHCPOptionsAssociation{}
+func (t *CloudFormationTemplate) GetAllAWSEC2VPCDHCPOptionsAssociationResources() map[string]AWSEC2VPCDHCPOptionsAssociation {
+	results := map[string]AWSEC2VPCDHCPOptionsAssociation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2VPCDHCPOptionsAssociation:
@@ -91,8 +89,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2VPCDHCPOptionsAssociationResources 
 
 // GetAWSEC2VPCDHCPOptionsAssociationWithName retrieves all AWSEC2VPCDHCPOptionsAssociation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2VPCDHCPOptionsAssociationWithName (name string) (AWSEC2VPCDHCPOptionsAssociation, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2VPCDHCPOptionsAssociationWithName(name string) (AWSEC2VPCDHCPOptionsAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2VPCDHCPOptionsAssociation:
 			// We found a strongly typed resource of the correct type; use it
@@ -110,8 +108,8 @@ func (t *CloudFormationTemplate) GetAWSEC2VPCDHCPOptionsAssociationWithName (nam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2VPCDHCPOptionsAssociation{}, errors.New("resource not found")
+	return AWSEC2VPCDHCPOptionsAssociation{}, errors.New("resource not found")
 }

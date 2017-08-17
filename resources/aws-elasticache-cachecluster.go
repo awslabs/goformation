@@ -1,142 +1,140 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSElastiCacheCacheCluster AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html
 type AWSElastiCacheCacheCluster struct {
-    
-    // AZMode AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-azmode
-    AZMode string `json:"AZMode,omitempty"`
-    
-    // AutoMinorVersionUpgrade AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-autominorversionupgrade
-    AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade,omitempty"`
-    
-    // CacheNodeType AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachenodetype
-    CacheNodeType string `json:"CacheNodeType,omitempty"`
-    
-    // CacheParameterGroupName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cacheparametergroupname
-    CacheParameterGroupName string `json:"CacheParameterGroupName,omitempty"`
-    
-    // CacheSecurityGroupNames AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesecuritygroupnames
-    CacheSecurityGroupNames []string `json:"CacheSecurityGroupNames,omitempty"`
-    
-    // CacheSubnetGroupName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesubnetgroupname
-    CacheSubnetGroupName string `json:"CacheSubnetGroupName,omitempty"`
-    
-    // ClusterName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-clustername
-    ClusterName string `json:"ClusterName,omitempty"`
-    
-    // Engine AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-engine
-    Engine string `json:"Engine,omitempty"`
-    
-    // EngineVersion AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-engineversion
-    EngineVersion string `json:"EngineVersion,omitempty"`
-    
-    // NotificationTopicArn AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-notificationtopicarn
-    NotificationTopicArn string `json:"NotificationTopicArn,omitempty"`
-    
-    // NumCacheNodes AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-numcachenodes
-    NumCacheNodes int `json:"NumCacheNodes,omitempty"`
-    
-    // Port AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-port
-    Port int `json:"Port,omitempty"`
-    
-    // PreferredAvailabilityZone AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzone
-    PreferredAvailabilityZone string `json:"PreferredAvailabilityZone,omitempty"`
-    
-    // PreferredAvailabilityZones AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzones
-    PreferredAvailabilityZones []string `json:"PreferredAvailabilityZones,omitempty"`
-    
-    // PreferredMaintenanceWindow AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredmaintenancewindow
-    PreferredMaintenanceWindow string `json:"PreferredMaintenanceWindow,omitempty"`
-    
-    // SnapshotArns AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotarns
-    SnapshotArns []string `json:"SnapshotArns,omitempty"`
-    
-    // SnapshotName AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotname
-    SnapshotName string `json:"SnapshotName,omitempty"`
-    
-    // SnapshotRetentionLimit AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotretentionlimit
-    SnapshotRetentionLimit int `json:"SnapshotRetentionLimit,omitempty"`
-    
-    // SnapshotWindow AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotwindow
-    SnapshotWindow string `json:"SnapshotWindow,omitempty"`
-    
-    // Tags AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-tags
-    Tags []Tag `json:"Tags,omitempty"`
-    
-    // VpcSecurityGroupIds AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-vpcsecuritygroupids
-    VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds,omitempty"`
-    
+
+	// AZMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-azmode
+	AZMode string `json:"AZMode,omitempty"`
+
+	// AutoMinorVersionUpgrade AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-autominorversionupgrade
+	AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade,omitempty"`
+
+	// CacheNodeType AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachenodetype
+	CacheNodeType string `json:"CacheNodeType,omitempty"`
+
+	// CacheParameterGroupName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cacheparametergroupname
+	CacheParameterGroupName string `json:"CacheParameterGroupName,omitempty"`
+
+	// CacheSecurityGroupNames AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesecuritygroupnames
+	CacheSecurityGroupNames []string `json:"CacheSecurityGroupNames,omitempty"`
+
+	// CacheSubnetGroupName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesubnetgroupname
+	CacheSubnetGroupName string `json:"CacheSubnetGroupName,omitempty"`
+
+	// ClusterName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-clustername
+	ClusterName string `json:"ClusterName,omitempty"`
+
+	// Engine AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-engine
+	Engine string `json:"Engine,omitempty"`
+
+	// EngineVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-engineversion
+	EngineVersion string `json:"EngineVersion,omitempty"`
+
+	// NotificationTopicArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-notificationtopicarn
+	NotificationTopicArn string `json:"NotificationTopicArn,omitempty"`
+
+	// NumCacheNodes AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-numcachenodes
+	NumCacheNodes int `json:"NumCacheNodes,omitempty"`
+
+	// Port AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-port
+	Port int `json:"Port,omitempty"`
+
+	// PreferredAvailabilityZone AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzone
+	PreferredAvailabilityZone string `json:"PreferredAvailabilityZone,omitempty"`
+
+	// PreferredAvailabilityZones AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzones
+	PreferredAvailabilityZones []string `json:"PreferredAvailabilityZones,omitempty"`
+
+	// PreferredMaintenanceWindow AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredmaintenancewindow
+	PreferredMaintenanceWindow string `json:"PreferredMaintenanceWindow,omitempty"`
+
+	// SnapshotArns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotarns
+	SnapshotArns []string `json:"SnapshotArns,omitempty"`
+
+	// SnapshotName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotname
+	SnapshotName string `json:"SnapshotName,omitempty"`
+
+	// SnapshotRetentionLimit AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotretentionlimit
+	SnapshotRetentionLimit int `json:"SnapshotRetentionLimit,omitempty"`
+
+	// SnapshotWindow AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotwindow
+	SnapshotWindow string `json:"SnapshotWindow,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// VpcSecurityGroupIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-vpcsecuritygroupids
+	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElastiCacheCacheCluster) AWSCloudFormationType() string {
-    return "AWS::ElastiCache::CacheCluster"
+	return "AWS::ElastiCache::CacheCluster"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElastiCacheCacheCluster) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSElastiCacheCacheCluster) MarshalJSON() ([]byte, error) {
 	type Properties AWSElastiCacheCacheCluster
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -146,7 +144,7 @@ func (r *AWSElastiCacheCacheCluster) MarshalJSON() ([]byte, error) {
 func (r *AWSElastiCacheCacheCluster) UnmarshalJSON(b []byte) error {
 	type Properties AWSElastiCacheCacheCluster
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -154,12 +152,12 @@ func (r *AWSElastiCacheCacheCluster) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSElastiCacheCacheCluster(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSElastiCacheCacheClusterResources retrieves all AWSElastiCacheCacheCluster items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSElastiCacheCacheClusterResources () map[string]AWSElastiCacheCacheCluster {
-    results := map[string]AWSElastiCacheCacheCluster{}
+func (t *CloudFormationTemplate) GetAllAWSElastiCacheCacheClusterResources() map[string]AWSElastiCacheCacheCluster {
+	results := map[string]AWSElastiCacheCacheCluster{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheCacheCluster:
@@ -186,8 +184,8 @@ func (t *CloudFormationTemplate) GetAllAWSElastiCacheCacheClusterResources () ma
 
 // GetAWSElastiCacheCacheClusterWithName retrieves all AWSElastiCacheCacheCluster items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSElastiCacheCacheClusterWithName (name string) (AWSElastiCacheCacheCluster, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSElastiCacheCacheClusterWithName(name string) (AWSElastiCacheCacheCluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheCacheCluster:
 			// We found a strongly typed resource of the correct type; use it
@@ -205,8 +203,8 @@ func (t *CloudFormationTemplate) GetAWSElastiCacheCacheClusterWithName (name str
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSElastiCacheCacheCluster{}, errors.New("resource not found")
+	return AWSElastiCacheCacheCluster{}, errors.New("resource not found")
 }

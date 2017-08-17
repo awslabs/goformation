@@ -1,42 +1,40 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSEC2EgressOnlyInternetGateway AWS CloudFormation Resource (AWS::EC2::EgressOnlyInternetGateway)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
 type AWSEC2EgressOnlyInternetGateway struct {
-    
-    // VpcId AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
-    VpcId string `json:"VpcId,omitempty"`
-    
+
+	// VpcId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+	VpcId string `json:"VpcId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2EgressOnlyInternetGateway) AWSCloudFormationType() string {
-    return "AWS::EC2::EgressOnlyInternetGateway"
+	return "AWS::EC2::EgressOnlyInternetGateway"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2EgressOnlyInternetGateway) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSEC2EgressOnlyInternetGateway) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2EgressOnlyInternetGateway
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -46,7 +44,7 @@ func (r *AWSEC2EgressOnlyInternetGateway) MarshalJSON() ([]byte, error) {
 func (r *AWSEC2EgressOnlyInternetGateway) UnmarshalJSON(b []byte) error {
 	type Properties AWSEC2EgressOnlyInternetGateway
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -54,12 +52,12 @@ func (r *AWSEC2EgressOnlyInternetGateway) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSEC2EgressOnlyInternetGateway(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSEC2EgressOnlyInternetGatewayResources retrieves all AWSEC2EgressOnlyInternetGateway items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSEC2EgressOnlyInternetGatewayResources () map[string]AWSEC2EgressOnlyInternetGateway {
-    results := map[string]AWSEC2EgressOnlyInternetGateway{}
+func (t *CloudFormationTemplate) GetAllAWSEC2EgressOnlyInternetGatewayResources() map[string]AWSEC2EgressOnlyInternetGateway {
+	results := map[string]AWSEC2EgressOnlyInternetGateway{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2EgressOnlyInternetGateway:
@@ -86,8 +84,8 @@ func (t *CloudFormationTemplate) GetAllAWSEC2EgressOnlyInternetGatewayResources 
 
 // GetAWSEC2EgressOnlyInternetGatewayWithName retrieves all AWSEC2EgressOnlyInternetGateway items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSEC2EgressOnlyInternetGatewayWithName (name string) (AWSEC2EgressOnlyInternetGateway, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSEC2EgressOnlyInternetGatewayWithName(name string) (AWSEC2EgressOnlyInternetGateway, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2EgressOnlyInternetGateway:
 			// We found a strongly typed resource of the correct type; use it
@@ -105,8 +103,8 @@ func (t *CloudFormationTemplate) GetAWSEC2EgressOnlyInternetGatewayWithName (nam
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSEC2EgressOnlyInternetGateway{}, errors.New("resource not found")
+	return AWSEC2EgressOnlyInternetGateway{}, errors.New("resource not found")
 }

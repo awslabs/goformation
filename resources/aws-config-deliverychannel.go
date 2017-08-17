@@ -1,62 +1,60 @@
 package resources
 
-
 import (
 	"encoding/json"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // AWSConfigDeliveryChannel AWS CloudFormation Resource (AWS::Config::DeliveryChannel)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
 type AWSConfigDeliveryChannel struct {
-    
-    // ConfigSnapshotDeliveryProperties AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties
-    ConfigSnapshotDeliveryProperties *AWSConfigDeliveryChannel_ConfigSnapshotDeliveryProperties `json:"ConfigSnapshotDeliveryProperties,omitempty"`
-    
-    // Name AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-name
-    Name string `json:"Name,omitempty"`
-    
-    // S3BucketName AWS CloudFormation Property
-    // Required: true
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3bucketname
-    S3BucketName string `json:"S3BucketName,omitempty"`
-    
-    // S3KeyPrefix AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3keyprefix
-    S3KeyPrefix string `json:"S3KeyPrefix,omitempty"`
-    
-    // SnsTopicARN AWS CloudFormation Property
-    // Required: false
-    // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-snstopicarn
-    SnsTopicARN string `json:"SnsTopicARN,omitempty"`
-    
+
+	// ConfigSnapshotDeliveryProperties AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties
+	ConfigSnapshotDeliveryProperties *AWSConfigDeliveryChannel_ConfigSnapshotDeliveryProperties `json:"ConfigSnapshotDeliveryProperties,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-name
+	Name string `json:"Name,omitempty"`
+
+	// S3BucketName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3bucketname
+	S3BucketName string `json:"S3BucketName,omitempty"`
+
+	// S3KeyPrefix AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3keyprefix
+	S3KeyPrefix string `json:"S3KeyPrefix,omitempty"`
+
+	// SnsTopicARN AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-snstopicarn
+	SnsTopicARN string `json:"SnsTopicARN,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSConfigDeliveryChannel) AWSCloudFormationType() string {
-    return "AWS::Config::DeliveryChannel"
+	return "AWS::Config::DeliveryChannel"
 }
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSConfigDeliveryChannel) AWSCloudFormationSpecificationVersion() string {
-    return "1.4.2"
+	return "1.4.2"
 }
 
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSConfigDeliveryChannel) MarshalJSON() ([]byte, error) {
 	type Properties AWSConfigDeliveryChannel
-	return json.Marshal(&struct{
-		Type string
+	return json.Marshal(&struct {
+		Type       string
 		Properties Properties
 	}{
-		Type: r.AWSCloudFormationType(),
+		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(*r),
 	})
 }
@@ -66,7 +64,7 @@ func (r *AWSConfigDeliveryChannel) MarshalJSON() ([]byte, error) {
 func (r *AWSConfigDeliveryChannel) UnmarshalJSON(b []byte) error {
 	type Properties AWSConfigDeliveryChannel
 	res := &struct {
-		Type string
+		Type       string
 		Properties *Properties
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
@@ -74,12 +72,12 @@ func (r *AWSConfigDeliveryChannel) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	*r = AWSConfigDeliveryChannel(*res.Properties)
-	return nil	
+	return nil
 }
 
 // GetAllAWSConfigDeliveryChannelResources retrieves all AWSConfigDeliveryChannel items from an AWS CloudFormation template
-func (t *CloudFormationTemplate) GetAllAWSConfigDeliveryChannelResources () map[string]AWSConfigDeliveryChannel {
-    results := map[string]AWSConfigDeliveryChannel{}
+func (t *CloudFormationTemplate) GetAllAWSConfigDeliveryChannelResources() map[string]AWSConfigDeliveryChannel {
+	results := map[string]AWSConfigDeliveryChannel{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSConfigDeliveryChannel:
@@ -106,8 +104,8 @@ func (t *CloudFormationTemplate) GetAllAWSConfigDeliveryChannelResources () map[
 
 // GetAWSConfigDeliveryChannelWithName retrieves all AWSConfigDeliveryChannel items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *CloudFormationTemplate) GetAWSConfigDeliveryChannelWithName (name string) (AWSConfigDeliveryChannel, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+func (t *CloudFormationTemplate) GetAWSConfigDeliveryChannelWithName(name string) (AWSConfigDeliveryChannel, error) {
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSConfigDeliveryChannel:
 			// We found a strongly typed resource of the correct type; use it
@@ -125,8 +123,8 @@ func (t *CloudFormationTemplate) GetAWSConfigDeliveryChannelWithName (name strin
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
-    return AWSConfigDeliveryChannel{}, errors.New("resource not found")
+	return AWSConfigDeliveryChannel{}, errors.New("resource not found")
 }
