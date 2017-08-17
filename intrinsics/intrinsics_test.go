@@ -117,7 +117,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 			opts := &ProcessorOptions{
 				IntrinsicHandlerOverrides: map[string]IntrinsicHandler{
-					"Fn::Join": func(name string, input interface{}) interface{} {
+					"Fn::Join": func(name string, input interface{}, template interface{}) interface{} {
 						return "overridden"
 					},
 				},
