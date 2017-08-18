@@ -11,6 +11,53 @@ import (
 
 var _ = Describe("Goformation", func() {
 
+	Context("with a Serverless function matching 2016-10-31 specification", func() {
+
+		template, err := goformation.Open("test/yaml/aws-serverless-function-2016-10-31.yaml")
+		It("should successfully validate the SAM template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		functions := template.GetAllAWSServerlessFunctionResources()
+
+		It("should have exactly one function", func() {
+			Expect(functions).To(HaveLen(1))
+			Expect(functions).To(HaveKey("Function20161031"))
+		})
+
+		f := functions["Function20161031"]
+
+		It("should correctly parse all of the function properties", func() {
+
+			Expect(f.Handler).To(Equal("file.method"))
+			Expect(f.Runtime).To(Equal("nodejs"))
+			Expect(f.FunctionName).To(Equal("functionname"))
+			Expect(f.Description).To(Equal("description"))
+			Expect(f.MemorySize).To(Equal(128))
+			Expect(f.Timeout).To(Equal(30))
+			Expect(f.Role).To(Equal("aws::arn::123456789012::some/role"))
+			Expect(f.Policies.StringArray).To(PointTo(ContainElement("AmazonDynamoDBFullAccess")))
+			Expect(f.Environment).ToNot(BeNil())
+			Expect(f.Environment.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
+
+		})
+
+		It("should correctly parse all of the function API event sources/endpoints", func() {
+
+			Expect(f.Events).ToNot(BeNil())
+			Expect(f.Events).To(HaveKey("TestApi"))
+			Expect(f.Events["TestApi"].Type).To(Equal("Api"))
+			Expect(f.Events["TestApi"].Properties.ApiEvent).ToNot(BeNil())
+
+			event := f.Events["TestApi"].Properties.ApiEvent
+			Expect(event.Method).To(Equal("any"))
+			Expect(event.Path).To(Equal("/testing"))
+
+		})
+
+	})
+
 	Context("with an AWS CloudFormation template that contains multiple resources", func() {
 
 		Context("described as Go structs", func() {
@@ -181,6 +228,29 @@ var _ = Describe("Goformation", func() {
 			})
 		}
 	})
+
+	// pmaddox@ 2017-08-17:
+	// Commented out until we have support for YAML tag intrinsic functions (e.g. !Sub)
+	// Context("with a YAML template containing intrinsic tags (e.g. !Sub)", func() {
+
+	// 	template, err := goformation.Open("test/yaml/yaml-intrinsic-tags.yaml")
+	// 	It("should successfully validate the SAM template", func() {
+	// 		Expect(err).To(BeNil())
+	// 		Expect(template).ShouldNot(PointTo(BeNil()))
+	// 	})
+
+	// 	function, err := template.GetAWSServerlessFunctionWithName("IntrinsicFunctionTest")
+	// 	It("should have a function named 'IntrinsicFunctionTest'", func() {
+	// 		Expect(function).To(Not(BeNil()))
+	// 		Expect(err).To(BeNil())
+	// 	})
+
+	// 	It("it should have the correct values", func() {
+	// 		Expect(function.Runtime).To(Equal(""))
+	// 		Expect(function.Timeout).To(Equal(0))
+	// 	})
+
+	// })
 
 	Context("with a Serverless template containing different CodeUri formats", func() {
 
