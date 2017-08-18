@@ -199,7 +199,7 @@ The following [AWS CloudFormation Intrinsic Functions](http://docs.aws.amazon.co
 - [ ] Fn::GetAZs   
 - [ ] Fn::ImportValue
 
-Any unsupported parameters will return `nil`.
+Any unsupported intrinsic functions will return `nil`.
 
 #### Resolving References (Ref)
 

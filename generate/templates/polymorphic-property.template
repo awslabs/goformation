@@ -2,7 +2,7 @@ package cloudformation
 
 import (
 	"encoding/json"
-	{{ if (or .Property.Types .Property.ItemTypes)}}
+	{{ if (or .Property.Types .Property.ItemTypes .Property.PrimitiveItemTypes)}}
 	"github.com/mitchellh/mapstructure"
 	{{end}}
 )
@@ -84,6 +84,9 @@ func (r *{{.Name}}) UnmarshalJSON(b []byte) error {
 		{{end}}
 
 		case []interface{}:
+		{{range $type := $.Property.PrimitiveItemTypes}}
+			mapstructure.Decode(val, &r.{{$type}}Array)
+		{{end}}
 		{{range $type := $.Property.ItemTypes}}
 			mapstructure.Decode(val, &r.{{$type}}Array)
 		{{end}}
