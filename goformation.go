@@ -30,8 +30,6 @@ func Open(filename string) (*cloudformation.Template, error) {
 
 	}
 
-	// fmt.Printf(string(data) + "\n")
-
 	return Parse(data)
 
 }
