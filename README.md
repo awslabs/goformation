@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=master)](https://travis-ci.org/awslabs/goformation)
+
 # AWS GoFormation
 
 `GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates. 
