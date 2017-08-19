@@ -12,10 +12,21 @@ import (
 	"text/template"
 )
 
-// SpecURL is the HTTP URL of the latest AWS CloudFormation Resource Specification
-const SpecURL = "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
-
 func main() {
+
+	specs := []string{
+		"https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+		"file://generate/sam-2016-10-31.json",
+	}
+
+	rg, err := NewResourceGenerator(specs)
+	if err != nil {
+		fmt.Printf("ERROR: %s\n", err)
+		os.Exit(1)
+	}
+
+	rg.GenerateStructs("cloudformation/")
+	rg.GenerateJSONSchema("schema/")
 
 	// Fetch the latest CloudFormation Resource Specification
 	fmt.Printf("Download the latest AWS CloudFormation Resource Specification...\n")
