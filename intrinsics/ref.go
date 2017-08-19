@@ -9,11 +9,6 @@ func Ref(name string, input interface{}, template interface{}) interface{} {
 	// Check the input is a string
 	if name, ok := input.(string); ok {
 
-		// debug := false
-		// if name == "TestParameter" {
-		// 	debug = true
-		// }
-
 		switch name {
 
 		case "AWS::AccountId":
