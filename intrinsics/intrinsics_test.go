@@ -77,42 +77,67 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 	})
 
-	// Context("with a YAML template that contains intrinsic functions in tag form", func() {
+	Context("with a YAML template that contains intrinsic functions in tag form", func() {
 
-	// 	t := "AWSTemplateFormatVersion: '2010-09-09'\n"
-	// 	t += "Transform: AWS::Serverless-2016-10-31\n"
-	// 	t += "Description: SAM template for testing intrinsic functions with YAML tags\n"
-	// 	t += "Resources:\n"
-	// 	t += "  CodeUriWithS3LocationSpecifiedAsString:\n"
-	// 	t += "    Type: AWS::Serverless::Function\n"
-	// 	t += "    Properties:\n"
-	// 	t += "      Runtime: !Sub test-${runtime}\n"
-	// 	t += "      Timeout: !Ref ThisWontResolve\n"
+		t := "AWSTemplateFormatVersion: '2010-09-09'\n"
+		t += "Transform: AWS::Serverless-2016-10-31\n"
+		t += "Description: SAM template for testing intrinsic functions with YAML tags\n"
+		t += "Parameters:\n"
+		t += "  TestParameter:\n"
+		t += "    Type: String\n"
+		t += "    Default: test-parameter-value\n"
+		t += "Resources:\n"
+		t += "  CodeUriWithS3LocationSpecifiedAsString:\n"
+		t += "    Type: AWS::Serverless::Function\n"
+		t += "    Properties:\n"
+		t += "      Runtime: !Sub test-${ThisWontResolve}\n"
+		t += "      Timeout: !Ref ThisWontResolve\n"
+		t += "      FunctionName: !Ref TestParameter\n"
+		t += "      Handler: !Sub method.${TestParameter}.${ThisWontResolve}\n"
+		t += "      CodeUri:\n"
+		t += "        Fn::Sub:\n"
+		t += "          - s3://${Bucket}/${Key}\n"
+		t += "          - { \"Bucket\": \"test-bucket\", \"Key\": \"test-key\" }\n"
 
-	// 	processed, err := ProcessYAML([]byte(t), nil)
-	// 	It("should successfully process the template", func() {
-	// 		Expect(processed).ShouldNot(BeNil())
-	// 		Expect(err).Should(BeNil())
-	// 	})
+		processed, err := ProcessYAML([]byte(t), nil)
+		It("should successfully process the template", func() {
+			Expect(processed).ShouldNot(BeNil())
+			Expect(err).Should(BeNil())
+		})
 
-	// 	var result interface{}
-	// 	err = json.Unmarshal(processed, &result)
-	// 	It("should be valid JSON, and marshal to a Go type", func() {
-	// 		Expect(processed).ToNot(BeNil())
-	// 		Expect(err).To(BeNil())
-	// 	})
+		var result interface{}
+		err = json.Unmarshal(processed, &result)
+		It("should be valid JSON, and marshal to a Go type", func() {
+			Expect(processed).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
 
-	// 	template := result.(map[string]interface{})
-	// 	resources := template["Resources"].(map[string]interface{})
-	// 	resource := resources["CodeUriWithS3LocationSpecifiedAsString"].(map[string]interface{})
-	// 	properties := resource["Properties"].(map[string]interface{})
+		template := result.(map[string]interface{})
+		resources := template["Resources"].(map[string]interface{})
+		resource := resources["CodeUriWithS3LocationSpecifiedAsString"].(map[string]interface{})
+		properties := resource["Properties"].(map[string]interface{})
 
-	// 	It("should have the correct values", func() {
-	// 		Expect(properties["Timeout"]).To(Equal(0))
-	// 		Expect(properties["Runtime"]).To(Equal("test-"))
-	// 	})
+		It("should convert an unresolvable !Ref to nil", func() {
+			Expect(properties["Timeout"]).To(BeNil())
+		})
 
-	// })
+		It("should handle unresolvable references in !Sub", func() {
+			Expect(properties["Runtime"]).To(Equal("test-"))
+		})
+
+		It("should handle Fn::Sub with an array of replacements", func() {
+			Expect(properties["CodeUri"]).To(Equal("s3://test-bucket/test-key"))
+		})
+
+		It("should resolved a !Ref that points to a valid parameter", func() {
+			Expect(properties["FunctionName"]).To(Equal("test-parameter-value"))
+		})
+
+		It("should resolve a reference within a !Sub", func() {
+			Expect(properties["Handler"]).To(Equal("method.test-parameter-value."))
+		})
+
+	})
 
 	Context("with a template that contains primitives, intrinsics, and nested intrinsics", func() {
 
