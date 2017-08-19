@@ -32,6 +32,7 @@ func main() {
 		}
 		fmt.Printf("\n")
 	}
-	fmt.Printf("Processed %d AWS CloudFormation resources\n", rg.Results.ProcessedCount)
+
+	fmt.Printf("Processed %d resources\n", rg.Results.ProcessedCount)
 
 }
