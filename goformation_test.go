@@ -246,7 +246,7 @@ var _ = Describe("Goformation", func() {
 		})
 
 		It("it should have the correct values", func() {
-			Expect(function.Runtime).To(Equal(""))
+			Expect(function.Runtime).To(Equal("4.3"))
 			Expect(function.Timeout).To(Equal(10))
 		})
 
