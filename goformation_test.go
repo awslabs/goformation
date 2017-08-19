@@ -9,8 +9,6 @@ import (
 	. "github.com/onsi/gomega/gstruct"
 )
 
-
-
 var _ = Describe("Goformation", func() {
 
 	Context("with a Serverless function matching 2016-10-31 specification", func() {
@@ -140,7 +138,7 @@ var _ = Describe("Goformation", func() {
 				Name: "example.com",
 			}
 
-			result, err := goformation.Parse(template)
+			result, err := goformation.ParseJSON(template)
 			It("should marshal to Go structs successfully", func() {
 				Expect(err).To(BeNil())
 			})
@@ -235,22 +233,22 @@ var _ = Describe("Goformation", func() {
 	// Commented out until we have support for YAML tag intrinsic functions (e.g. !Sub)
 	Context("with a YAML template containing intrinsic tags (e.g. !Sub)", func() {
 
-	 	template, err := goformation.Open("test/yaml/yaml-intrinsic-tags.yaml")
-	 	It("should successfully validate the SAM template", func() {
-	 		Expect(err).To(BeNil())
-	 		Expect(template).ShouldNot(PointTo(BeNil()))
-	 	})
+		template, err := goformation.Open("test/yaml/yaml-intrinsic-tags.yaml")
+		It("should successfully validate the SAM template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(PointTo(BeNil()))
+		})
 
-	 	function, err := template.GetAWSServerlessFunctionWithName("IntrinsicFunctionTest")
-	 	It("should have a function named 'IntrinsicFunctionTest'", func() {
-	 		Expect(function).To(Not(BeNil()))
-	 		Expect(err).To(BeNil())
-	 	})
+		function, err := template.GetAWSServerlessFunctionWithName("IntrinsicFunctionTest")
+		It("should have a function named 'IntrinsicFunctionTest'", func() {
+			Expect(function).To(Not(BeNil()))
+			Expect(err).To(BeNil())
+		})
 
-	 	It("it should have the correct values", func() {
-	 		Expect(function.Runtime).To(Equal(""))
-	 		Expect(function.Timeout).To(Equal(10))
-	 	})
+		It("it should have the correct values", func() {
+			Expect(function.Runtime).To(Equal(""))
+			Expect(function.Timeout).To(Equal(10))
+		})
 
 	})
 

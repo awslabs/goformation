@@ -14,7 +14,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 	Context("with a template that contains invalid JSON", func() {
 		input := `{`
-		processed, err := Process([]byte(input), nil)
+		processed, err := ProcessJSON([]byte(input), nil)
 		It("should fail to process the template", func() {
 			Expect(processed).To(BeNil())
 			Expect(err).ToNot(BeNil())
@@ -24,7 +24,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 	Context("with a template that contains a 'Ref' intrinsic function", func() {
 
 		input := `{"Parameters":{"FunctionTimeout":{"Type":"Number","Default":120}},"Resources":{"MyServerlessFunction":{"Type":"AWS::Serverless::Function","Properties":{"Runtime":"nodejs6.10","Timeout":{"Ref":"FunctionTimeout"}}}}}`
-		processed, err := Process([]byte(input), nil)
+		processed, err := ProcessJSON([]byte(input), nil)
 		It("should successfully process the template", func() {
 			Expect(processed).ShouldNot(BeNil())
 			Expect(err).Should(BeNil())
@@ -52,7 +52,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 	Context("with a template that contains a 'Ref' intrinsic function with a 'Fn::Join' inside it", func() {
 
 		input := `{"Parameters":{"FunctionTimeout":{"Type":"Number","Default":120}},"Resources":{"MyServerlessFunction":{"Type":"AWS::Serverless::Function","Properties":{"Runtime":"nodejs6.10","Timeout":{"Ref":{"Fn::Join":["Function","Timeout"]}}}}}}`
-		processed, err := Process([]byte(input), nil)
+		processed, err := ProcessJSON([]byte(input), nil)
 		It("should successfully process the template", func() {
 			Expect(processed).ShouldNot(BeNil())
 			Expect(err).Should(BeNil())
@@ -77,33 +77,42 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 	})
 
-	// pmaddox@ 2017-08-17:
-	// Commented out until we have support for YAML tag intrinsic functions (e.g. !Sub)
-	//Context("with a YAML template that contains intrinsic functions in tag form", func() {
+	// Context("with a YAML template that contains intrinsic functions in tag form", func() {
 
-	// t := "AWSTemplateFormatVersion: '2010-09-09'\n"
-	// t += "Transform: AWS::Serverless-2016-10-31\n"
-	// t += "Description: SAM template for testing intrinsic functions with YAML tags\n"
-	// t += "Resources:\n"
-	// t += "  CodeUriWithS3LocationSpecifiedAsString:\n"
-	// t += "    Type: AWS::Serverless::Function\n"
-	// t += "    Properties:\n"
-	// t += "      Runtime: !Sub test-${runtime}\n"
-	// t += "      Timeout: !Ref ThisWontResolve\n"
+	// 	t := "AWSTemplateFormatVersion: '2010-09-09'\n"
+	// 	t += "Transform: AWS::Serverless-2016-10-31\n"
+	// 	t += "Description: SAM template for testing intrinsic functions with YAML tags\n"
+	// 	t += "Resources:\n"
+	// 	t += "  CodeUriWithS3LocationSpecifiedAsString:\n"
+	// 	t += "    Type: AWS::Serverless::Function\n"
+	// 	t += "    Properties:\n"
+	// 	t += "      Runtime: !Sub test-${runtime}\n"
+	// 	t += "      Timeout: !Ref ThisWontResolve\n"
 
-	// data, err := yaml.YAMLToJSON([]byte(t))
-	// It("should successfully convert YAML to JSON", func() {
-	// 	Expect(data).ShouldNot(BeNil())
-	// 	Expect(err).Should(BeNil())
+	// 	processed, err := ProcessYAML([]byte(t), nil)
+	// 	It("should successfully process the template", func() {
+	// 		Expect(processed).ShouldNot(BeNil())
+	// 		Expect(err).Should(BeNil())
+	// 	})
+
+	// 	var result interface{}
+	// 	err = json.Unmarshal(processed, &result)
+	// 	It("should be valid JSON, and marshal to a Go type", func() {
+	// 		Expect(processed).ToNot(BeNil())
+	// 		Expect(err).To(BeNil())
+	// 	})
+
+	// 	template := result.(map[string]interface{})
+	// 	resources := template["Resources"].(map[string]interface{})
+	// 	resource := resources["CodeUriWithS3LocationSpecifiedAsString"].(map[string]interface{})
+	// 	properties := resource["Properties"].(map[string]interface{})
+
+	// 	It("should have the correct values", func() {
+	// 		Expect(properties["Timeout"]).To(Equal(0))
+	// 		Expect(properties["Runtime"]).To(Equal("test-"))
+	// 	})
+
 	// })
-
-	// processed, err := Process(data, nil)
-	// It("should successfully process the template", func() {
-	// 	Expect(processed).ShouldNot(BeNil())
-	// 	Expect(err).Should(BeNil())
-	// })
-
-	//}
 
 	Context("with a template that contains primitives, intrinsics, and nested intrinsics", func() {
 
@@ -144,7 +153,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 		Context("with no processor options", func() {
 
-			processed, err := Process([]byte(template), nil)
+			processed, err := ProcessJSON([]byte(template), nil)
 			It("should successfully process the template", func() {
 				Expect(processed).ShouldNot(BeNil())
 				Expect(err).Should(BeNil())
@@ -249,7 +258,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 				},
 			}
 
-			processed, err := Process([]byte(template), opts)
+			processed, err := ProcessJSON([]byte(template), opts)
 			It("should successfully process the template", func() {
 				Expect(processed).ShouldNot(BeNil())
 				Expect(err).Should(BeNil())
