@@ -1,6 +1,6 @@
 # AWS GoFormation
 
-[![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=0.1.0)](https://travis-ci.org/awslabs/goformation) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/npm/l/aws-sam-local.svg?maxAge=2592000) ![Contributers](https://img.shields.io/github/contributors/awslabs/aws-sam-local.svg?maxAge=2592000)
+[![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=0.1.0)](https://travis-ci.org/awslabs/goformation) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg) 
 
 `GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates. 
 - [AWS GoFormation](#aws-goformation)
