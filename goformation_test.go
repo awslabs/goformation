@@ -7,8 +7,6 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	. "github.com/onsi/gomega/gstruct"
-
-	"log"
 )
 
 
@@ -250,9 +248,8 @@ var _ = Describe("Goformation", func() {
 	 	})
 
 	 	It("it should have the correct values", func() {
-			log.Printf("%s", function.Runtime)
 	 		Expect(function.Runtime).To(Equal(""))
-	 		//Expect(function.Timeout).To(Equal(0))
+	 		Expect(function.Timeout).To(Equal(10))
 	 	})
 
 	})

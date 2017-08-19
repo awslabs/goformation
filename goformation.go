@@ -12,7 +12,6 @@ import (
 	yamlwrapper "github.com/ghodss/yaml"
 
 	"reflect"
-	"log"
 	"gopkg.in/yaml.v2"
 )
 
@@ -23,7 +22,13 @@ type tagUnmarshalerType struct {
 
 func (t *tagUnmarshalerType) UnmarshalYAMLTag(tag string, fieldValue reflect.Value) reflect.Value {
 
-	log.Printf("%s %s", tag, fieldValue.Interface())
+	prefix := "Fn::"
+	if tag == "Ref" || tag == "Condition" {
+		prefix = ""
+	}
+
+	tag = prefix + tag
+
 	output := reflect.ValueOf(make(map[string]interface{}))
 	key := reflect.ValueOf(tag)
 
