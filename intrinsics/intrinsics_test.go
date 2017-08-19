@@ -94,6 +94,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 		t += "      Timeout: !Ref ThisWontResolve\n"
 		t += "      FunctionName: !Ref TestParameter\n"
 		t += "      Handler: !Sub method.${TestParameter}.${ThisWontResolve}\n"
+		t += "      Role: !Sub ${ThisWontResolve.Arn}\n"
 		t += "      CodeUri:\n"
 		t += "        Fn::Sub:\n"
 		t += "          - s3://${Bucket}/${Key}\n"
@@ -135,6 +136,11 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 		It("should resolve a reference within a !Sub", func() {
 			Expect(properties["Handler"]).To(Equal("method.test-parameter-value."))
+		})
+
+		// GetAtt isn't implemented today
+		It("should resolve a resource attribute within a !Sub", func() {
+			Expect(properties["Role"]).To(Equal(""))
 		})
 
 	})
