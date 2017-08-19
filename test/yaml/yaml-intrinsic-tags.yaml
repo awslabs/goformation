@@ -5,5 +5,5 @@ Resources:
   IntrinsicFunctionTest:
     Type: AWS::Serverless::Function
     Properties:
-      Runtime: !Sub test-${runtime}
-      Timeout: !Ref ThisWontResolve
+      Runtime: !Sub "test-${runtime}"
+#      Timeout: !Ref "ThisWontResolve"
