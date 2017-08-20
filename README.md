@@ -32,9 +32,9 @@ $ go get github.com/awslabs/goformation
 
 ## Usage
 
-### Marhsalling CloudFormation/SAM described with Go structs, into YAML/JSON
+### Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON
 
-Below is an example of building a CloudFormation template programatically, then outputting the resulting JSON
+Below is an example of building a CloudFormation template programmatically, then outputting the resulting JSON
 
 ```go
 package main
@@ -85,7 +85,7 @@ func main() {
 }
 ```
 
-Would output the following JSON template
+Would output the following JSON template:
 
 ```javascript
 {
@@ -108,7 +108,7 @@ Would output the following JSON template
 }
 ```
 
-...and the following YAML template
+...and the following YAML template:
 
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09
@@ -124,7 +124,7 @@ Resources:
 ```
 
 
-### Unmarhalling CloudFormation YAML/JSON into Go structs 
+### Unmarshalling CloudFormation YAML/JSON into Go structs 
 
 GoFormation also works the other way - parsing JSON/YAML CloudFormation/SAM templates into Go structs.
 
