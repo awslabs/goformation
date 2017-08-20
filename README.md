@@ -203,7 +203,22 @@ The following [AWS CloudFormation Intrinsic Functions](http://docs.aws.amazon.co
 - [ ] Fn::GetAZs   
 - [ ] Fn::ImportValue
 
-Any unsupported intrinsic functions will return `nil`.
+Any unsupported intrinsic functions will return `nil`. 
+
+**NOTE**: Properties that resolve to `nil` will be omitted from the output. For example:
+
+```
+Parameters:
+  RuntimeParameter:
+    Type: String
+
+MyFunction:
+  Type: AWS::Serverless::Functin
+  Properties:
+    Runtime: !Ref RuntimeParameter
+```
+
+Since `RuntimeParameter` does not have a default value, the !Ref will be resolved to nil. When a property resolves to `nil`, it will be omitted from the struct returned by the unmarshal method.
 
 #### Resolving References (Ref)
 
@@ -211,13 +226,6 @@ The intrinsic 'Ref' function as implemented will resolve all of the [pseudo para
 
 If a reference is not a pseudo parameter, GoFormation will try to resolve it within the AWS CloudFormation template. **Currently, this implementation only searches for `Parameters` with a name that matches the ref, and returns the `Default` if it has one.**
 
-#### Warning: YAML short form intrinsic functions (e.g. !Sub)
-
-While this library supports both JSON and YAML AWS CloudFormation templates, it cannot handle short form intrinsic functions in YAML templates (e.g. `!Sub`). 
-
-We will be adding support soon, however we need to patch Go's YAML library as it doesn't currently support tags.
-
-If you use a short form intrinsic function today, you'll either get the unresolved value (if the recieving field is a string field), or the template will fail to parse (if it's recieving field is a non-string field).
 
 ## Contributing
 
