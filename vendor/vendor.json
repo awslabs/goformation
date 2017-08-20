@@ -129,6 +129,18 @@
 			"revisionTime": "2017-07-16T19:34:46Z"
 		},
 		{
+			"checksumSHA1": "9j8rnQfgHY4XKWbzLHd4uAKigfw=",
+			"path": "github.com/onsi/gomega/gstruct",
+			"revision": "c893efa28eb45626cdaa76c9f653b62488858837",
+			"revisionTime": "2017-07-16T19:34:46Z"
+		},
+		{
+			"checksumSHA1": "MQoYQDe07/b1OU5DtsL9Mr0BWi4=",
+			"path": "github.com/onsi/gomega/gstruct/errors",
+			"revision": "c893efa28eb45626cdaa76c9f653b62488858837",
+			"revisionTime": "2017-07-16T19:34:46Z"
+		},
+		{
 			"checksumSHA1": "H4RBR9kcEWh2lECAzBaOTSvgUuA=",
 			"path": "github.com/onsi/gomega/internal/assertion",
 			"revision": "c893efa28eb45626cdaa76c9f653b62488858837",
@@ -323,5 +335,5 @@
 			"revisionTime": "2017-08-12T16:00:11Z"
 		}
 	],
-	"rootPath": "github.com/awslabs/goformation"
+	"rootPath": "github.com/paulmaddox/goformation"
 }
