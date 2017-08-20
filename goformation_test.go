@@ -375,4 +375,128 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a YAML template that contains AWS::Serverless::SimpleTable resource(s)", func() {
+
+		template, err := goformation.Open("test/yaml/aws-serverless-simpletable.yaml")
+
+		It("should parse the template successfully", func() {
+			Expect(template).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		table, err := template.GetAWSServerlessSimpleTableWithName("TestSimpleTable")
+		It("should have a table named 'TestSimpleTable'", func() {
+			Expect(table).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should have a primary key set", func() {
+			Expect(table.PrimaryKey).ToNot(BeNil())
+		})
+
+		It("should have the correct value for the primary key name", func() {
+			Expect(table.PrimaryKey.Name).To(Equal("test-primary-key-name"))
+		})
+
+		It("should have the correct value for the primary key type", func() {
+			Expect(table.PrimaryKey.Type).To(Equal("test-primary-key-type"))
+		})
+
+		It("should have provisioned throughput set", func() {
+			Expect(table.ProvisionedThroughput).ToNot(BeNil())
+		})
+
+		It("should have the correct value for ReadCapacityUnits", func() {
+			Expect(table.ProvisionedThroughput.ReadCapacityUnits).To(Equal(100))
+		})
+
+		It("should have the correct value for WriteCapacityUnits", func() {
+			Expect(table.ProvisionedThroughput.WriteCapacityUnits).To(Equal(200))
+		})
+
+		It("should have a table named 'TestSimpleTableNoProperties'", func() {
+			nopropertiesTable, err := template.GetAWSServerlessSimpleTableWithName("TestSimpleTableNoProperties")
+			Expect(nopropertiesTable).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+	})
+
+	Context("with a YAML template that contains AWS::Serverless::Api resource(s)", func() {
+
+		template, err := goformation.Open("test/yaml/aws-serverless-api.yaml")
+
+		It("should parse the template successfully", func() {
+			Expect(template).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		api1, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionUriAsString")
+		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionUriAsString'", func() {
+			Expect(api1).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should have the correct value for Name", func() {
+			Expect(api1.Name).To(Equal("test-name"))
+		})
+
+		It("should have the correct value for StageName", func() {
+			Expect(api1.StageName).To(Equal("test-stage-name"))
+		})
+
+		It("should have the correct value for DefinitionUri", func() {
+			Expect(api1.DefinitionUri.String).To(PointTo(Equal("test-definition-uri")))
+		})
+
+		It("should have the correct value for CacheClusterEnabled", func() {
+			Expect(api1.CacheClusterEnabled).To(Equal(true))
+		})
+
+		It("should have the correct value for CacheClusterSize", func() {
+			Expect(api1.CacheClusterSize).To(Equal("test-cache-cluster-size"))
+		})
+
+		It("should have the correct value for Variables", func() {
+			Expect(api1.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
+		})
+
+		api2, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionUriAsS3Location")
+		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionUriAsS3Location'", func() {
+			Expect(api2).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should have the correct value for DefinitionUri", func() {
+			Expect(api2.DefinitionUri.S3Location.Bucket).To(Equal("test-bucket"))
+			Expect(api2.DefinitionUri.S3Location.Key).To(Equal("test-key"))
+			Expect(api2.DefinitionUri.S3Location.Version).To(Equal(1))
+		})
+
+		api3, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionBodyAsJSON")
+		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionBodyAsJSON'", func() {
+			Expect(api3).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should have the correct value for DefinitionBody", func() {
+			Expect(api3.DefinitionBody).To(Equal("{\n  \"DefinitionKey\": \"test-definition-value\"\n}\n"))
+		})
+
+		api4, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionBodyAsYAML")
+		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionBodyAsYAML'", func() {
+			Expect(api4).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should have the correct value for DefinitionBody", func() {
+			var expected map[string]interface{}
+			expected = map[string]interface{}{
+				"DefinitionKey": "test-definition-value",
+			}
+			Expect(api4.DefinitionBody).To(Equal(expected))
+		})
+
+	})
+
 })
