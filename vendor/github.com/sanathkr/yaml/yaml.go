@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"strconv"
 
-	"gopkg.in/yaml.v2"
+	"github.com/sanathkr/go-yaml"
 )
 
 // Marshals the object into JSON then converts JSON to YAML and returns the

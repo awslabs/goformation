@@ -3,12 +3,6 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "ImX1uv6O09ggFeBPUJJ2nu7MPSA=",
-			"path": "github.com/ghodss/yaml",
-			"revision": "0ca9ea5df5451ffdf184b4428c902747c2c11cd7",
-			"revisionTime": "2017-03-27T23:54:44Z"
-		},
-		{
 			"checksumSHA1": "EHjhpHipgm+XGccrRAms9AW3Ewk=",
 			"path": "github.com/mitchellh/mapstructure",
 			"revision": "d0303fe809921458f417bcf828397a65db30a7e4",
@@ -195,6 +189,20 @@
 			"revisionTime": "2017-07-16T19:34:46Z"
 		},
 		{
+			"checksumSHA1": "SjPjmaPGaIWKtmvyv6cJ7Fdzy50=",
+			"path": "github.com/sanathkr/go-yaml",
+			"revision": "ed9d249f429b3f5a69f80a7abef6bfce81fef894",
+			"revisionTime": "2017-08-19T19:51:28Z",
+			"version": "v2",
+			"versionExact": "v2"
+		},
+		{
+			"checksumSHA1": "owQ87BVbqaio1VTCXy6hnD68Cxo=",
+			"path": "github.com/sanathkr/yaml",
+			"revision": "0056894fa522748ca336761ffeeeb6bbae654d07",
+			"revisionTime": "2017-08-19T20:10:35Z"
+		},
+		{
 			"checksumSHA1": "vqc3a+oTUGX8PmD0TS+qQ7gmN8I=",
 			"path": "golang.org/x/net/html",
 			"revision": "1c05540f6879653db88113bc4a2b70aec4bd491f",
@@ -307,12 +315,6 @@
 			"path": "golang.org/x/text/transform",
 			"revision": "e56139fd9c5bc7244c76116c68e500765bb6db6b",
 			"revisionTime": "2017-07-04T19:41:35Z"
-		},
-		{
-			"checksumSHA1": "RDJpJQwkF012L6m/2BJizyOksNw=",
-			"path": "gopkg.in/yaml.v2",
-			"revision": "eb3733d160e74a9c7e442f435eb3bea458e1d19f",
-			"revisionTime": "2017-08-12T16:00:11Z"
 		}
 	],
 	"rootPath": "github.com/awslabs/goformation"
