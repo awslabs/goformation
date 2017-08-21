@@ -77,7 +77,7 @@ func main() {
   
     y, err := template.YAML()
     if err != nil {
-        fmt.Printf("Failed to generate JSON: %s\n", err)
+        fmt.Printf("Failed to generate YAML: %s\n", err)
     } else {
         fmt.Print(y)
     }
