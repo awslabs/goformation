@@ -7,8 +7,8 @@
     - [Main features](#main-features)
     - [Installation](#installation)
     - [Usage](#usage)
-        - [Marhsalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marhsalling-cloudformationsam-described-with-go-structs-into-yamljson)
-        - [Unmarhalling CloudFormation YAML/JSON into Go structs](#unmarhalling-cloudformation-yamljson-into-go-structs)
+        - [Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marshalling-cloudformationsam-described-with-go-structs-into-yamljson)
+        - [Unmarshalling CloudFormation YAML/JSON into Go structs](#unmarshalling-cloudformation-yamljson-into-go-structs)
     - [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation-sam-resources-in-goformation)
     - [Advanced](#advanced)
         - [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
@@ -178,7 +178,7 @@ Generated 17 AWS SAM resources from specification v2016-10-31
 Generated JSON Schema: schema/cloudformation.schema.json
 ```
 
-Our aim is to automatically update GoFormation whenever the AWS CloudFormation Resource Specification changes, via an automated pull request to this repository. This is not currently in place. 
+The GoFormation build pipeline automatically checks for any updated AWS CloudFormation resources on a daily basis, and creates a pull request against this repository if any are found.
 
 ## Advanced
 
