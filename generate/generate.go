@@ -201,8 +201,8 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 			return fmt.Errorf("failed to write resource file %s: %s", fn, err)
 		}
 
-		// Log the updated class name to the results
-		rg.Results.UpdatedResources[fn] = templateData.Basename + "_" + templateData.StructName
+		// Log the updated resource name to the results
+		rg.Results.UpdatedResources[fn] = name
 
 	}
 
