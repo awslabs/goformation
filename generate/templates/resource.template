@@ -22,11 +22,6 @@ type {{.StructName}} struct {
 func (r *{{.StructName}}) AWSCloudFormationType() string {
     return "{{.Name}}"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *{{.StructName}}) AWSCloudFormationSpecificationVersion() string {
-    return "{{.Version}}"
-}
 {{if not .IsCustomProperty}}
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into 
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
