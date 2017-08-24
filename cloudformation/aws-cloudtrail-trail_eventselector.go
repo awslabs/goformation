@@ -24,8 +24,3 @@ type AWSCloudTrailTrail_EventSelector struct {
 func (r *AWSCloudTrailTrail_EventSelector) AWSCloudFormationType() string {
 	return "AWS::CloudTrail::Trail.EventSelector"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCloudTrailTrail_EventSelector) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

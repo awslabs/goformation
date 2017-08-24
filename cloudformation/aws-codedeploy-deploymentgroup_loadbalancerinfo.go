@@ -14,8 +14,3 @@ type AWSCodeDeployDeploymentGroup_LoadBalancerInfo struct {
 func (r *AWSCodeDeployDeploymentGroup_LoadBalancerInfo) AWSCloudFormationType() string {
 	return "AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCodeDeployDeploymentGroup_LoadBalancerInfo) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

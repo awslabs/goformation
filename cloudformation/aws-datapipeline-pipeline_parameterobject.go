@@ -19,8 +19,3 @@ type AWSDataPipelinePipeline_ParameterObject struct {
 func (r *AWSDataPipelinePipeline_ParameterObject) AWSCloudFormationType() string {
 	return "AWS::DataPipeline::Pipeline.ParameterObject"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSDataPipelinePipeline_ParameterObject) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

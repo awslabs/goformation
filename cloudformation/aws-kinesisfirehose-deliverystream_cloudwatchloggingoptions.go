@@ -24,8 +24,3 @@ type AWSKinesisFirehoseDeliveryStream_CloudWatchLoggingOptions struct {
 func (r *AWSKinesisFirehoseDeliveryStream_CloudWatchLoggingOptions) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_CloudWatchLoggingOptions) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

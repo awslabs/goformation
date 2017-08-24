@@ -49,8 +49,3 @@ type AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration struct {
 func (r *AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_RedshiftDestinationConfiguration) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

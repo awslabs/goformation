@@ -14,8 +14,3 @@ type AWSCodeDeployDeploymentGroup_DeploymentStyle struct {
 func (r *AWSCodeDeployDeploymentGroup_DeploymentStyle) AWSCloudFormationType() string {
 	return "AWS::CodeDeploy::DeploymentGroup.DeploymentStyle"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCodeDeployDeploymentGroup_DeploymentStyle) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

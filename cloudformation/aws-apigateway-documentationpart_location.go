@@ -34,8 +34,3 @@ type AWSApiGatewayDocumentationPart_Location struct {
 func (r *AWSApiGatewayDocumentationPart_Location) AWSCloudFormationType() string {
 	return "AWS::ApiGateway::DocumentationPart.Location"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSApiGatewayDocumentationPart_Location) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

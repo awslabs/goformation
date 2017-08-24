@@ -19,8 +19,3 @@ type AWSDynamoDBTable_ProvisionedThroughput struct {
 func (r *AWSDynamoDBTable_ProvisionedThroughput) AWSCloudFormationType() string {
 	return "AWS::DynamoDB::Table.ProvisionedThroughput"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSDynamoDBTable_ProvisionedThroughput) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

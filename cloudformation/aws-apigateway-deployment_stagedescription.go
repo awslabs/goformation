@@ -89,8 +89,3 @@ type AWSApiGatewayDeployment_StageDescription struct {
 func (r *AWSApiGatewayDeployment_StageDescription) AWSCloudFormationType() string {
 	return "AWS::ApiGateway::Deployment.StageDescription"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSApiGatewayDeployment_StageDescription) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

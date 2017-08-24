@@ -24,8 +24,3 @@ type AWSApiGatewayMethod_MethodResponse struct {
 func (r *AWSApiGatewayMethod_MethodResponse) AWSCloudFormationType() string {
 	return "AWS::ApiGateway::Method.MethodResponse"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSApiGatewayMethod_MethodResponse) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

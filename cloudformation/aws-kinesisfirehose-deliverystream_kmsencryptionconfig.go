@@ -14,8 +14,3 @@ type AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig struct {
 func (r *AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.KMSEncryptionConfig"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_KMSEncryptionConfig) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

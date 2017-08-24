@@ -14,8 +14,3 @@ type AWSIoTTopicRule_PutItemInput struct {
 func (r *AWSIoTTopicRule_PutItemInput) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.PutItemInput"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRule_PutItemInput) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}
