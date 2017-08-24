@@ -19,6 +19,11 @@ type AWSIoTTopicRule_Action struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-dynamodb
 	DynamoDB *AWSIoTTopicRule_DynamoDBAction `json:"DynamoDB,omitempty"`
 
+	// DynamoDBv2 AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-dynamodbv2
+	DynamoDBv2 *AWSIoTTopicRule_DynamoDBv2Action `json:"DynamoDBv2,omitempty"`
+
 	// Elasticsearch AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-elasticsearch
@@ -67,5 +72,5 @@ func (r *AWSIoTTopicRule_Action) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTTopicRule_Action) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

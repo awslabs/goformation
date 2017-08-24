@@ -27,5 +27,5 @@ func (r *AWSConfigConfigRule_SourceDetail) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSConfigConfigRule_SourceDetail) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

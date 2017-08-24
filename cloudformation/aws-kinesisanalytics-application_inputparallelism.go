@@ -17,5 +17,5 @@ func (r *AWSKinesisAnalyticsApplication_InputParallelism) AWSCloudFormationType(
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSKinesisAnalyticsApplication_InputParallelism) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

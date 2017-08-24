@@ -78,7 +78,7 @@ func (r *AWSOpsWorksApp) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSOpsWorksApp) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into

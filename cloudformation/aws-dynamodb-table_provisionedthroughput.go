@@ -7,12 +7,12 @@ type AWSDynamoDBTable_ProvisionedThroughput struct {
 	// ReadCapacityUnits AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
-	ReadCapacityUnits int `json:"ReadCapacityUnits,omitempty"`
+	ReadCapacityUnits int64 `json:"ReadCapacityUnits,omitempty"`
 
 	// WriteCapacityUnits AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
-	WriteCapacityUnits int `json:"WriteCapacityUnits,omitempty"`
+	WriteCapacityUnits int64 `json:"WriteCapacityUnits,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -22,5 +22,5 @@ func (r *AWSDynamoDBTable_ProvisionedThroughput) AWSCloudFormationType() string 
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDynamoDBTable_ProvisionedThroughput) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

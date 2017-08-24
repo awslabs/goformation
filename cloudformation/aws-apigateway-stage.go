@@ -35,13 +35,18 @@ type AWSApiGatewayStage struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-description
 	Description string `json:"Description,omitempty"`
 
+	// DocumentationVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-documentationversion
+	DocumentationVersion string `json:"DocumentationVersion,omitempty"`
+
 	// MethodSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-methodsettings
 	MethodSettings []AWSApiGatewayStage_MethodSetting `json:"MethodSettings,omitempty"`
 
 	// RestApiId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-restapiid
 	RestApiId string `json:"RestApiId,omitempty"`
 
@@ -63,7 +68,7 @@ func (r *AWSApiGatewayStage) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayStage) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into

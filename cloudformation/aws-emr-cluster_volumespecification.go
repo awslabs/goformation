@@ -27,5 +27,5 @@ func (r *AWSEMRCluster_VolumeSpecification) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEMRCluster_VolumeSpecification) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

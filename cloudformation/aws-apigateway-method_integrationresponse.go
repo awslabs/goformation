@@ -20,7 +20,7 @@ type AWSApiGatewayMethod_IntegrationResponse struct {
 	SelectionPattern string `json:"SelectionPattern,omitempty"`
 
 	// StatusCode AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode
 	StatusCode string `json:"StatusCode,omitempty"`
 }
@@ -32,5 +32,5 @@ func (r *AWSApiGatewayMethod_IntegrationResponse) AWSCloudFormationType() string
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayMethod_IntegrationResponse) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

@@ -27,5 +27,5 @@ func (r *AWSCodeDeployDeploymentGroup_EC2TagFilter) AWSCloudFormationType() stri
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeDeployDeploymentGroup_EC2TagFilter) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

@@ -11,7 +11,7 @@ import (
 type AWSDynamoDBTable struct {
 
 	// AttributeDefinitions AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
 	AttributeDefinitions []AWSDynamoDBTable_AttributeDefinition `json:"AttributeDefinitions,omitempty"`
 
@@ -44,6 +44,16 @@ type AWSDynamoDBTable struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
 	TableName string `json:"TableName,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
+	// TimeToLiveSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification
+	TimeToLiveSpecification *AWSDynamoDBTable_TimeToLiveSpecification `json:"TimeToLiveSpecification,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -53,7 +63,7 @@ func (r *AWSDynamoDBTable) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDynamoDBTable) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into

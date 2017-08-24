@@ -32,5 +32,5 @@ func (r *AWSCodePipelinePipeline_ActionTypeId) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodePipelinePipeline_ActionTypeId) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
