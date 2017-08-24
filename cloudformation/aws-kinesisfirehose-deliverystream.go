@@ -12,13 +12,18 @@ type AWSKinesisFirehoseDeliveryStream struct {
 
 	// DeliveryStreamName AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverstream-deliverystreamname
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
 	DeliveryStreamName string `json:"DeliveryStreamName,omitempty"`
 
 	// ElasticsearchDestinationConfiguration AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverstream-elasticsearchdestinationconfiguration
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
 	ElasticsearchDestinationConfiguration *AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration `json:"ElasticsearchDestinationConfiguration,omitempty"`
+
+	// ExtendedS3DestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
+	ExtendedS3DestinationConfiguration *AWSKinesisFirehoseDeliveryStream_ExtendedS3DestinationConfiguration `json:"ExtendedS3DestinationConfiguration,omitempty"`
 
 	// RedshiftDestinationConfiguration AWS CloudFormation Property
 	// Required: false
@@ -38,7 +43,7 @@ func (r *AWSKinesisFirehoseDeliveryStream) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSKinesisFirehoseDeliveryStream) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into

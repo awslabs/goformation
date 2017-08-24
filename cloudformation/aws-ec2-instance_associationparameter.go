@@ -22,5 +22,5 @@ func (r *AWSEC2Instance_AssociationParameter) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2Instance_AssociationParameter) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

@@ -10,6 +10,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
 type AWSS3Bucket struct {
 
+	// AccelerateConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration
+	AccelerateConfiguration *AWSS3Bucket_AccelerateConfiguration `json:"AccelerateConfiguration,omitempty"`
+
 	// AccessControl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol
@@ -34,6 +39,11 @@ type AWSS3Bucket struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig
 	LoggingConfiguration *AWSS3Bucket_LoggingConfiguration `json:"LoggingConfiguration,omitempty"`
+
+	// MetricsConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-metricsconfigurations
+	MetricsConfigurations []AWSS3Bucket_MetricsConfiguration `json:"MetricsConfigurations,omitempty"`
 
 	// NotificationConfiguration AWS CloudFormation Property
 	// Required: false
@@ -68,7 +78,7 @@ func (r *AWSS3Bucket) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSS3Bucket) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into

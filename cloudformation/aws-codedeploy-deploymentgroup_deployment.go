@@ -27,5 +27,5 @@ func (r *AWSCodeDeployDeploymentGroup_Deployment) AWSCloudFormationType() string
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeDeployDeploymentGroup_Deployment) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

@@ -22,5 +22,5 @@ func (r *AWSApplicationAutoScalingScalingPolicy_MetricDimension) AWSCloudFormati
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApplicationAutoScalingScalingPolicy_MetricDimension) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

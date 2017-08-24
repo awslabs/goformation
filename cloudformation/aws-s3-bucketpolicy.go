@@ -12,12 +12,12 @@ type AWSS3BucketPolicy struct {
 
 	// Bucket AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-bucket
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-bucket
 	Bucket string `json:"Bucket,omitempty"`
 
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-policydocument
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-policydocument
 	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
 }
 
@@ -28,7 +28,7 @@ func (r *AWSS3BucketPolicy) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSS3BucketPolicy) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into

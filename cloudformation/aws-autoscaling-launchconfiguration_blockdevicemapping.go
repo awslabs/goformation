@@ -32,5 +32,5 @@ func (r *AWSAutoScalingLaunchConfiguration_BlockDeviceMapping) AWSCloudFormation
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSAutoScalingLaunchConfiguration_BlockDeviceMapping) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

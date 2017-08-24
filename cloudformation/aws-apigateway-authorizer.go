@@ -46,7 +46,7 @@ type AWSApiGatewayAuthorizer struct {
 	ProviderARNs []string `json:"ProviderARNs,omitempty"`
 
 	// RestApiId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-restapiid
 	RestApiId string `json:"RestApiId,omitempty"`
 
@@ -63,7 +63,7 @@ func (r *AWSApiGatewayAuthorizer) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayAuthorizer) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into

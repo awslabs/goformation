@@ -42,5 +42,5 @@ func (r *AWSS3Bucket_CorsRule) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSS3Bucket_CorsRule) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

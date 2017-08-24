@@ -62,5 +62,5 @@ func (r *AWSApiGatewayStage_MethodSetting) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayStage_MethodSetting) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

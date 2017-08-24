@@ -27,5 +27,5 @@ func (r *AWSIoTTopicRule_SnsAction) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTTopicRule_SnsAction) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

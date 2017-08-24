@@ -15,7 +15,7 @@ type AWSApiGatewayMethod_MethodResponse struct {
 	ResponseParameters map[string]bool `json:"ResponseParameters,omitempty"`
 
 	// StatusCode AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
 	StatusCode string `json:"StatusCode,omitempty"`
 }
@@ -27,5 +27,5 @@ func (r *AWSApiGatewayMethod_MethodResponse) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSApiGatewayMethod_MethodResponse) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

@@ -32,5 +32,5 @@ func (r *AWSCloudFrontDistribution_ForwardedValues) AWSCloudFormationType() stri
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCloudFrontDistribution_ForwardedValues) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

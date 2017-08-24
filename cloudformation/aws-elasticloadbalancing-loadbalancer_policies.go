@@ -37,5 +37,5 @@ func (r *AWSElasticLoadBalancingLoadBalancer_Policies) AWSCloudFormationType() s
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSElasticLoadBalancingLoadBalancer_Policies) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
