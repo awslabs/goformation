@@ -19,8 +19,3 @@ type AWSIoTTopicRule_RepublishAction struct {
 func (r *AWSIoTTopicRule_RepublishAction) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.RepublishAction"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRule_RepublishAction) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
-}

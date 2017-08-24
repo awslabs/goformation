@@ -24,8 +24,3 @@ type AWSIoTTopicRule_FirehoseAction struct {
 func (r *AWSIoTTopicRule_FirehoseAction) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.FirehoseAction"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRule_FirehoseAction) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
-}

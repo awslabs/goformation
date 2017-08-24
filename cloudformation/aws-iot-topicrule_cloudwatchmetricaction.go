@@ -39,8 +39,3 @@ type AWSIoTTopicRule_CloudwatchMetricAction struct {
 func (r *AWSIoTTopicRule_CloudwatchMetricAction) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.CloudwatchMetricAction"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRule_CloudwatchMetricAction) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
-}

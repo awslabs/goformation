@@ -34,8 +34,3 @@ type AWSEventsRule_Target struct {
 func (r *AWSEventsRule_Target) AWSCloudFormationType() string {
 	return "AWS::Events::Rule.Target"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSEventsRule_Target) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
-}

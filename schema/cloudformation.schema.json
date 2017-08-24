@@ -73,6 +73,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "RestApiId"
+            ],
             "type": "object"
         },
         "AWS::ApiGateway::BasePathMapping": {
@@ -90,6 +93,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "DomainName"
+            ],
             "type": "object"
         },
         "AWS::ApiGateway::ClientCertificate": {
@@ -181,6 +187,9 @@
                 "Description": {
                     "type": "string"
                 },
+                "DocumentationVersion": {
+                    "type": "string"
+                },
                 "LoggingLevel": {
                     "type": "string"
                 },
@@ -213,6 +222,63 @@
             },
             "type": "object"
         },
+        "AWS::ApiGateway::DocumentationPart": {
+            "properties": {
+                "Location": {
+                    "$ref": "#/definitions/AWS::ApiGateway::DocumentationPart.Location"
+                },
+                "Properties": {
+                    "type": "string"
+                },
+                "RestApiId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Location",
+                "Properties",
+                "RestApiId"
+            ],
+            "type": "object"
+        },
+        "AWS::ApiGateway::DocumentationPart.Location": {
+            "properties": {
+                "Method": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Path": {
+                    "type": "string"
+                },
+                "StatusCode": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ApiGateway::DocumentationVersion": {
+            "properties": {
+                "Description": {
+                    "type": "string"
+                },
+                "DocumentationVersion": {
+                    "type": "string"
+                },
+                "RestApiId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DocumentationVersion",
+                "RestApiId"
+            ],
+            "type": "object"
+        },
         "AWS::ApiGateway::DomainName": {
             "properties": {
                 "CertificateArn": {
@@ -225,6 +291,40 @@
             "required": [
                 "CertificateArn",
                 "DomainName"
+            ],
+            "type": "object"
+        },
+        "AWS::ApiGateway::GatewayResponse": {
+            "properties": {
+                "ResponseParameters": {
+                    "patternProperties": {
+                        "^[a-zA-Z0-9]+$": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ResponseTemplates": {
+                    "patternProperties": {
+                        "^[a-zA-Z0-9]+$": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ResponseType": {
+                    "type": "string"
+                },
+                "RestApiId": {
+                    "type": "string"
+                },
+                "StatusCode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ResponseType",
+                "RestApiId"
             ],
             "type": "object"
         },
@@ -275,7 +375,9 @@
                 }
             },
             "required": [
-                "HttpMethod"
+                "HttpMethod",
+                "ResourceId",
+                "RestApiId"
             ],
             "type": "object"
         },
@@ -355,6 +457,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "StatusCode"
+            ],
             "type": "object"
         },
         "AWS::ApiGateway::Method.MethodResponse": {
@@ -379,6 +484,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "StatusCode"
+            ],
             "type": "object"
         },
         "AWS::ApiGateway::Model": {
@@ -397,6 +505,26 @@
                 },
                 "Schema": {
                     "type": "object"
+                }
+            },
+            "required": [
+                "RestApiId"
+            ],
+            "type": "object"
+        },
+        "AWS::ApiGateway::RequestValidator": {
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "RestApiId": {
+                    "type": "string"
+                },
+                "ValidateRequestBody": {
+                    "type": "boolean"
+                },
+                "ValidateRequestParameters": {
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -497,6 +625,9 @@
                 "Description": {
                     "type": "string"
                 },
+                "DocumentationVersion": {
+                    "type": "string"
+                },
                 "MethodSettings": {
                     "items": {
                         "$ref": "#/definitions/AWS::ApiGateway::Stage.MethodSetting"
@@ -518,6 +649,9 @@
                     "type": "object"
                 }
             },
+            "required": [
+                "RestApiId"
+            ],
             "type": "object"
         },
         "AWS::ApiGateway::Stage.MethodSetting": {
@@ -1127,11 +1261,70 @@
                         "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.StepAdjustment"
                     },
                     "type": "array"
+                },
+                "TargetTrackingConfiguration": {
+                    "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration"
                 }
             },
             "required": [
-                "AdjustmentType",
                 "AutoScalingGroupName"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.CustomizedMetricSpecification": {
+            "properties": {
+                "Dimensions": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.MetricDimension"
+                    },
+                    "type": "array"
+                },
+                "MetricName": {
+                    "type": "string"
+                },
+                "Namespace": {
+                    "type": "string"
+                },
+                "Statistic": {
+                    "type": "string"
+                },
+                "Unit": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "MetricName",
+                "Namespace",
+                "Statistic"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.MetricDimension": {
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name",
+                "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification": {
+            "properties": {
+                "PredefinedMetricType": {
+                    "type": "string"
+                },
+                "ResourceLabel": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PredefinedMetricType"
             ],
             "type": "object"
         },
@@ -1149,6 +1342,26 @@
             },
             "required": [
                 "ScalingAdjustment"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration": {
+            "properties": {
+                "CustomizedMetricSpecification": {
+                    "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.CustomizedMetricSpecification"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                },
+                "PredefinedMetricSpecification": {
+                    "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification"
+                },
+                "TargetValue": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "TargetValue"
             ],
             "type": "object"
         },
@@ -1972,6 +2185,12 @@
                 "EnableLogFileValidation": {
                     "type": "boolean"
                 },
+                "EventSelectors": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::CloudTrail::Trail.EventSelector"
+                    },
+                    "type": "array"
+                },
                 "IncludeGlobalServiceEvents": {
                     "type": "boolean"
                 },
@@ -2007,6 +2226,40 @@
                 "IsLogging",
                 "S3BucketName"
             ],
+            "type": "object"
+        },
+        "AWS::CloudTrail::Trail.DataResource": {
+            "properties": {
+                "Type": {
+                    "type": "string"
+                },
+                "Values": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudTrail::Trail.EventSelector": {
+            "properties": {
+                "DataResources": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::CloudTrail::Trail.DataResource"
+                    },
+                    "type": "array"
+                },
+                "IncludeManagementEvents": {
+                    "type": "boolean"
+                },
+                "ReadWriteType": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::CloudWatch::Alarm": {
@@ -2349,6 +2602,9 @@
                 "ApplicationName": {
                     "type": "string"
                 },
+                "AutoRollbackConfiguration": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.AutoRollbackConfiguration"
+                },
                 "AutoScalingGroups": {
                     "items": {
                         "type": "string"
@@ -2364,11 +2620,17 @@
                 "DeploymentGroupName": {
                     "type": "string"
                 },
+                "DeploymentStyle": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.DeploymentStyle"
+                },
                 "Ec2TagFilters": {
                     "items": {
                         "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.EC2TagFilter"
                     },
                     "type": "array"
+                },
+                "LoadBalancerInfo": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo"
                 },
                 "OnPremisesInstanceTagFilters": {
                     "items": {
@@ -2417,6 +2679,20 @@
             },
             "type": "object"
         },
+        "AWS::CodeDeploy::DeploymentGroup.AutoRollbackConfiguration": {
+            "properties": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Events": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
         "AWS::CodeDeploy::DeploymentGroup.Deployment": {
             "properties": {
                 "Description": {
@@ -2434,6 +2710,14 @@
             ],
             "type": "object"
         },
+        "AWS::CodeDeploy::DeploymentGroup.DeploymentStyle": {
+            "properties": {
+                "DeploymentOption": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::CodeDeploy::DeploymentGroup.EC2TagFilter": {
             "properties": {
                 "Key": {
@@ -2443,6 +2727,14 @@
                     "type": "string"
                 },
                 "Value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentGroup.ELBInfo": {
+            "properties": {
+                "Name": {
                     "type": "string"
                 }
             },
@@ -2461,6 +2753,17 @@
                 "CommitId",
                 "Repository"
             ],
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo": {
+            "properties": {
+                "ElbInfoList": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.ELBInfo"
+                    },
+                    "type": "array"
+                }
+            },
             "type": "object"
         },
         "AWS::CodeDeploy::DeploymentGroup.RevisionLocation": {
@@ -3490,6 +3793,92 @@
             },
             "type": "object"
         },
+        "AWS::DAX::Cluster": {
+            "properties": {
+                "AvailabilityZones": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ClusterName": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "IAMRoleARN": {
+                    "type": "string"
+                },
+                "NodeType": {
+                    "type": "string"
+                },
+                "NotificationTopicARN": {
+                    "type": "string"
+                },
+                "ParameterGroupName": {
+                    "type": "string"
+                },
+                "PreferredMaintenanceWindow": {
+                    "type": "string"
+                },
+                "ReplicationFactor": {
+                    "type": "number"
+                },
+                "SecurityGroupIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SubnetGroupName": {
+                    "type": "string"
+                },
+                "Tags": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "IAMRoleARN",
+                "NodeType",
+                "ReplicationFactor"
+            ],
+            "type": "object"
+        },
+        "AWS::DAX::ParameterGroup": {
+            "properties": {
+                "Description": {
+                    "type": "string"
+                },
+                "ParameterGroupName": {
+                    "type": "string"
+                },
+                "ParameterNameValues": {
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::DAX::SubnetGroup": {
+            "properties": {
+                "Description": {
+                    "type": "string"
+                },
+                "SubnetGroupName": {
+                    "type": "string"
+                },
+                "SubnetIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "SubnetIds"
+            ],
+            "type": "object"
+        },
         "AWS::DMS::Certificate": {
             "properties": {
                 "CertificateIdentifier": {
@@ -4076,10 +4465,18 @@
                 },
                 "TableName": {
                     "type": "string"
+                },
+                "Tags": {
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    },
+                    "type": "array"
+                },
+                "TimeToLiveSpecification": {
+                    "$ref": "#/definitions/AWS::DynamoDB::Table.TimeToLiveSpecification"
                 }
             },
             "required": [
-                "AttributeDefinitions",
                 "KeySchema",
                 "ProvisionedThroughput"
             ],
@@ -4200,6 +4597,21 @@
             },
             "required": [
                 "StreamViewType"
+            ],
+            "type": "object"
+        },
+        "AWS::DynamoDB::Table.TimeToLiveSpecification": {
+            "properties": {
+                "AttributeName": {
+                    "type": "string"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "AttributeName",
+                "Enabled"
             ],
             "type": "object"
         },
@@ -5326,6 +5738,9 @@
                     },
                     "type": "array"
                 },
+                "ReplaceUnhealthyInstances": {
+                    "type": "boolean"
+                },
                 "SpotPrice": {
                     "type": "string"
                 },
@@ -5334,6 +5749,9 @@
                 },
                 "TerminateInstancesWithExpiration": {
                     "type": "boolean"
+                },
+                "Type": {
+                    "type": "string"
                 },
                 "ValidFrom": {
                     "type": "string"
@@ -5363,10 +5781,16 @@
         },
         "AWS::EC2::Subnet": {
             "properties": {
+                "AssignIpv6AddressOnCreation": {
+                    "type": "boolean"
+                },
                 "AvailabilityZone": {
                     "type": "string"
                 },
                 "CidrBlock": {
+                    "type": "string"
+                },
+                "Ipv6CidrBlock": {
                     "type": "string"
                 },
                 "MapPublicIpOnLaunch": {
@@ -6128,11 +6552,17 @@
         },
         "AWS::EFS::FileSystem": {
             "properties": {
+                "Encrypted": {
+                    "type": "boolean"
+                },
                 "FileSystemTags": {
                     "items": {
                         "$ref": "#/definitions/AWS::EFS::FileSystem.ElasticFileSystemTag"
                     },
                     "type": "array"
+                },
+                "KmsKeyId": {
+                    "type": "string"
                 },
                 "PerformanceMode": {
                     "type": "string"
@@ -8843,6 +9273,9 @@
                 "DynamoDB": {
                     "$ref": "#/definitions/AWS::IoT::TopicRule.DynamoDBAction"
                 },
+                "DynamoDBv2": {
+                    "$ref": "#/definitions/AWS::IoT::TopicRule.DynamoDBv2Action"
+                },
                 "Elasticsearch": {
                     "$ref": "#/definitions/AWS::IoT::TopicRule.ElasticsearchAction"
                 },
@@ -8928,6 +9361,9 @@
                 "HashKeyField": {
                     "type": "string"
                 },
+                "HashKeyType": {
+                    "type": "string"
+                },
                 "HashKeyValue": {
                     "type": "string"
                 },
@@ -8935,6 +9371,9 @@
                     "type": "string"
                 },
                 "RangeKeyField": {
+                    "type": "string"
+                },
+                "RangeKeyType": {
                     "type": "string"
                 },
                 "RangeKeyValue": {
@@ -8955,6 +9394,17 @@
                 "RoleArn",
                 "TableName"
             ],
+            "type": "object"
+        },
+        "AWS::IoT::TopicRule.DynamoDBv2Action": {
+            "properties": {
+                "PutItem": {
+                    "$ref": "#/definitions/AWS::IoT::TopicRule.PutItemInput"
+                },
+                "RoleArn": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::IoT::TopicRule.ElasticsearchAction": {
@@ -9028,6 +9478,17 @@
             },
             "required": [
                 "FunctionArn"
+            ],
+            "type": "object"
+        },
+        "AWS::IoT::TopicRule.PutItemInput": {
+            "properties": {
+                "TableName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TableName"
             ],
             "type": "object"
         },
@@ -9587,6 +10048,9 @@
                 "ElasticsearchDestinationConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration"
                 },
+                "ExtendedS3DestinationConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ExtendedS3DestinationConfiguration"
+                },
                 "RedshiftDestinationConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration"
                 },
@@ -9674,6 +10138,9 @@
                 "IndexRotationPeriod": {
                     "type": "string"
                 },
+                "ProcessingConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration"
+                },
                 "RetryOptions": {
                     "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions"
                 },
@@ -9725,6 +10192,48 @@
             },
             "type": "object"
         },
+        "AWS::KinesisFirehose::DeliveryStream.ExtendedS3DestinationConfiguration": {
+            "properties": {
+                "BucketARN": {
+                    "type": "string"
+                },
+                "BufferingHints": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.BufferingHints"
+                },
+                "CloudWatchLoggingOptions": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions"
+                },
+                "CompressionFormat": {
+                    "type": "string"
+                },
+                "EncryptionConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.EncryptionConfiguration"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "ProcessingConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration"
+                },
+                "RoleARN": {
+                    "type": "string"
+                },
+                "S3BackupConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration"
+                },
+                "S3BackupMode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BucketARN",
+                "BufferingHints",
+                "CompressionFormat",
+                "Prefix",
+                "RoleARN"
+            ],
+            "type": "object"
+        },
         "AWS::KinesisFirehose::DeliveryStream.KMSEncryptionConfig": {
             "properties": {
                 "AWSKMSKeyARN": {
@@ -9733,6 +10242,57 @@
             },
             "required": [
                 "AWSKMSKeyARN"
+            ],
+            "type": "object"
+        },
+        "AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration": {
+            "properties": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Processors": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.Processor"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Enabled",
+                "Processors"
+            ],
+            "type": "object"
+        },
+        "AWS::KinesisFirehose::DeliveryStream.Processor": {
+            "properties": {
+                "Parameters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ProcessorParameter"
+                    },
+                    "type": "array"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Parameters",
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::KinesisFirehose::DeliveryStream.ProcessorParameter": {
+            "properties": {
+                "ParameterName": {
+                    "type": "string"
+                },
+                "ParameterValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ParameterName",
+                "ParameterValue"
             ],
             "type": "object"
         },
@@ -9749,6 +10309,9 @@
                 },
                 "Password": {
                     "type": "string"
+                },
+                "ProcessingConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration"
                 },
                 "RoleARN": {
                     "type": "string"
@@ -9976,6 +10539,9 @@
         "AWS::Lambda::Permission": {
             "properties": {
                 "Action": {
+                    "type": "string"
+                },
+                "EventSourceToken": {
                     "type": "string"
                 },
                 "FunctionName": {
@@ -11895,6 +12461,9 @@
         },
         "AWS::S3::Bucket": {
             "properties": {
+                "AccelerateConfiguration": {
+                    "$ref": "#/definitions/AWS::S3::Bucket.AccelerateConfiguration"
+                },
                 "AccessControl": {
                     "type": "string"
                 },
@@ -11909,6 +12478,12 @@
                 },
                 "LoggingConfiguration": {
                     "$ref": "#/definitions/AWS::S3::Bucket.LoggingConfiguration"
+                },
+                "MetricsConfigurations": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.MetricsConfiguration"
+                    },
+                    "type": "array"
                 },
                 "NotificationConfiguration": {
                     "$ref": "#/definitions/AWS::S3::Bucket.NotificationConfiguration"
@@ -11929,6 +12504,28 @@
                     "$ref": "#/definitions/AWS::S3::Bucket.WebsiteConfiguration"
                 }
             },
+            "type": "object"
+        },
+        "AWS::S3::Bucket.AbortIncompleteMultipartUpload": {
+            "properties": {
+                "DaysAfterInitiation": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "DaysAfterInitiation"
+            ],
+            "type": "object"
+        },
+        "AWS::S3::Bucket.AccelerateConfiguration": {
+            "properties": {
+                "AccelerationStatus": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AccelerationStatus"
+            ],
             "type": "object"
         },
         "AWS::S3::Bucket.CorsConfiguration": {
@@ -12040,6 +12637,26 @@
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::S3::Bucket.MetricsConfiguration": {
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "TagFilters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.TagFilter"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Id"
+            ],
             "type": "object"
         },
         "AWS::S3::Bucket.NoncurrentVersionTransition": {
@@ -12224,6 +12841,9 @@
         },
         "AWS::S3::Bucket.Rule": {
             "properties": {
+                "AbortIncompleteMultipartUpload": {
+                    "$ref": "#/definitions/AWS::S3::Bucket.AbortIncompleteMultipartUpload"
+                },
                 "ExpirationDate": {
                     "type": "string"
                 },
@@ -12240,7 +12860,10 @@
                     "$ref": "#/definitions/AWS::S3::Bucket.NoncurrentVersionTransition"
                 },
                 "NoncurrentVersionTransitions": {
-                    "$ref": "#/definitions/AWS::S3::Bucket.NoncurrentVersionTransition"
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.NoncurrentVersionTransition"
+                    },
+                    "type": "array"
                 },
                 "Prefix": {
                     "type": "string"
@@ -12248,11 +12871,20 @@
                 "Status": {
                     "type": "string"
                 },
+                "TagFilters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.TagFilter"
+                    },
+                    "type": "array"
+                },
                 "Transition": {
                     "$ref": "#/definitions/AWS::S3::Bucket.Transition"
                 },
                 "Transitions": {
-                    "$ref": "#/definitions/AWS::S3::Bucket.Transition"
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.Transition"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -12271,6 +12903,21 @@
             },
             "required": [
                 "Rules"
+            ],
+            "type": "object"
+        },
+        "AWS::S3::Bucket.TagFilter": {
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -12438,6 +13085,12 @@
                 "FifoQueue": {
                     "type": "boolean"
                 },
+                "KmsDataKeyReusePeriodSeconds": {
+                    "type": "number"
+                },
+                "KmsMasterKeyId": {
+                    "type": "string"
+                },
                 "MaximumMessageSize": {
                     "type": "number"
                 },
@@ -12559,6 +13212,9 @@
         },
         "AWS::SSM::Parameter": {
             "properties": {
+                "AllowedPattern": {
+                    "type": "string"
+                },
                 "Description": {
                     "type": "string"
                 },
@@ -13457,13 +14113,25 @@
                             "$ref": "#/definitions/AWS::ApiGateway::Deployment"
                         },
                         {
+                            "$ref": "#/definitions/AWS::ApiGateway::DocumentationPart"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ApiGateway::DocumentationVersion"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::ApiGateway::DomainName"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ApiGateway::GatewayResponse"
                         },
                         {
                             "$ref": "#/definitions/AWS::ApiGateway::Method"
                         },
                         {
                             "$ref": "#/definitions/AWS::ApiGateway::Model"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ApiGateway::RequestValidator"
                         },
                         {
                             "$ref": "#/definitions/AWS::ApiGateway::Resource"
@@ -13587,6 +14255,15 @@
                         },
                         {
                             "$ref": "#/definitions/AWS::Config::DeliveryChannel"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::DAX::Cluster"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::DAX::ParameterGroup"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::DAX::SubnetGroup"
                         },
                         {
                             "$ref": "#/definitions/AWS::DMS::Certificate"

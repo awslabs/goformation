@@ -201,12 +201,8 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 			return fmt.Errorf("failed to write resource file %s: %s", fn, err)
 		}
 
-		// Log the updated class name to the results
-		if templateData.Basename != "" {
-			rg.Results.UpdatedResources[fn] = templateData.Basename + "_" + templateData.StructName
-		} else {
-			rg.Results.UpdatedResources[fn] = templateData.StructName
-		}
+		// Log the updated resource name to the results
+		rg.Results.UpdatedResources[fn] = name
 
 	}
 
