@@ -19,8 +19,3 @@ type AWSCodeDeployDeploymentGroup_AutoRollbackConfiguration struct {
 func (r *AWSCodeDeployDeploymentGroup_AutoRollbackConfiguration) AWSCloudFormationType() string {
 	return "AWS::CodeDeploy::DeploymentGroup.AutoRollbackConfiguration"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCodeDeployDeploymentGroup_AutoRollbackConfiguration) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

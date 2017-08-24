@@ -69,8 +69,3 @@ type AWSIoTTopicRule_Action struct {
 func (r *AWSIoTTopicRule_Action) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.Action"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRule_Action) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

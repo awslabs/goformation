@@ -24,8 +24,3 @@ type AWSIoTTopicRule_KinesisAction struct {
 func (r *AWSIoTTopicRule_KinesisAction) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.KinesisAction"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRule_KinesisAction) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

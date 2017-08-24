@@ -19,8 +19,3 @@ type AWSAutoScalingScalingPolicy_MetricDimension struct {
 func (r *AWSAutoScalingScalingPolicy_MetricDimension) AWSCloudFormationType() string {
 	return "AWS::AutoScaling::ScalingPolicy.MetricDimension"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSAutoScalingScalingPolicy_MetricDimension) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

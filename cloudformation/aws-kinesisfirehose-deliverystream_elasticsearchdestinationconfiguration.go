@@ -64,8 +64,3 @@ type AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration stru
 func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchDestinationConfiguration) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

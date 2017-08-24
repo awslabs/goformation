@@ -14,8 +14,3 @@ type AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions struct {
 func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_ElasticsearchRetryOptions) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

@@ -14,8 +14,3 @@ type AWSCodeDeployDeploymentGroup_ELBInfo struct {
 func (r *AWSCodeDeployDeploymentGroup_ELBInfo) AWSCloudFormationType() string {
 	return "AWS::CodeDeploy::DeploymentGroup.ELBInfo"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCodeDeployDeploymentGroup_ELBInfo) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

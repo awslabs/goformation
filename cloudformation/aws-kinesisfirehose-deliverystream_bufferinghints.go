@@ -19,8 +19,3 @@ type AWSKinesisFirehoseDeliveryStream_BufferingHints struct {
 func (r *AWSKinesisFirehoseDeliveryStream_BufferingHints) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.BufferingHints"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_BufferingHints) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

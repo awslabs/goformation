@@ -54,8 +54,3 @@ type AWSIoTTopicRule_DynamoDBAction struct {
 func (r *AWSIoTTopicRule_DynamoDBAction) AWSCloudFormationType() string {
 	return "AWS::IoT::TopicRule.DynamoDBAction"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSIoTTopicRule_DynamoDBAction) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

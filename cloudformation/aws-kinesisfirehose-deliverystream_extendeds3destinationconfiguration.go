@@ -59,8 +59,3 @@ type AWSKinesisFirehoseDeliveryStream_ExtendedS3DestinationConfiguration struct 
 func (r *AWSKinesisFirehoseDeliveryStream_ExtendedS3DestinationConfiguration) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.ExtendedS3DestinationConfiguration"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_ExtendedS3DestinationConfiguration) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

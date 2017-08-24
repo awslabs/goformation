@@ -64,8 +64,3 @@ type AWSEC2SpotFleet_SpotFleetRequestConfigData struct {
 func (r *AWSEC2SpotFleet_SpotFleetRequestConfigData) AWSCloudFormationType() string {
 	return "AWS::EC2::SpotFleet.SpotFleetRequestConfigData"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSEC2SpotFleet_SpotFleetRequestConfigData) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

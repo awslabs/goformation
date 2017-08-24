@@ -59,8 +59,3 @@ type AWSApiGatewayDeployment_MethodSetting struct {
 func (r *AWSApiGatewayDeployment_MethodSetting) AWSCloudFormationType() string {
 	return "AWS::ApiGateway::Deployment.MethodSetting"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSApiGatewayDeployment_MethodSetting) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}
