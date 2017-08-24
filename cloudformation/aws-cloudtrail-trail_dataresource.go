@@ -19,8 +19,3 @@ type AWSCloudTrailTrail_DataResource struct {
 func (r *AWSCloudTrailTrail_DataResource) AWSCloudFormationType() string {
 	return "AWS::CloudTrail::Trail.DataResource"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCloudTrailTrail_DataResource) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

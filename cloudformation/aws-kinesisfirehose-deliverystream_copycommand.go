@@ -24,8 +24,3 @@ type AWSKinesisFirehoseDeliveryStream_CopyCommand struct {
 func (r *AWSKinesisFirehoseDeliveryStream_CopyCommand) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.CopyCommand"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_CopyCommand) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

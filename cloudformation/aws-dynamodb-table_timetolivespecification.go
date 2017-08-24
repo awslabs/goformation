@@ -19,8 +19,3 @@ type AWSDynamoDBTable_TimeToLiveSpecification struct {
 func (r *AWSDynamoDBTable_TimeToLiveSpecification) AWSCloudFormationType() string {
 	return "AWS::DynamoDB::Table.TimeToLiveSpecification"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSDynamoDBTable_TimeToLiveSpecification) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

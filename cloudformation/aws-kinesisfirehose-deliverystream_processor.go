@@ -19,8 +19,3 @@ type AWSKinesisFirehoseDeliveryStream_Processor struct {
 func (r *AWSKinesisFirehoseDeliveryStream_Processor) AWSCloudFormationType() string {
 	return "AWS::KinesisFirehose::DeliveryStream.Processor"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSKinesisFirehoseDeliveryStream_Processor) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

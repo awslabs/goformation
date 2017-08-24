@@ -14,8 +14,3 @@ type AWSS3Bucket_AbortIncompleteMultipartUpload struct {
 func (r *AWSS3Bucket_AbortIncompleteMultipartUpload) AWSCloudFormationType() string {
 	return "AWS::S3::Bucket.AbortIncompleteMultipartUpload"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSS3Bucket_AbortIncompleteMultipartUpload) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

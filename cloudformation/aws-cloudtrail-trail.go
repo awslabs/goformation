@@ -81,11 +81,6 @@ func (r *AWSCloudTrailTrail) AWSCloudFormationType() string {
 	return "AWS::CloudTrail::Trail"
 }
 
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSCloudTrailTrail) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}
-
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r *AWSCloudTrailTrail) MarshalJSON() ([]byte, error) {

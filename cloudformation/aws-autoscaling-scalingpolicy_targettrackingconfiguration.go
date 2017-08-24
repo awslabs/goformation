@@ -29,8 +29,3 @@ type AWSAutoScalingScalingPolicy_TargetTrackingConfiguration struct {
 func (r *AWSAutoScalingScalingPolicy_TargetTrackingConfiguration) AWSCloudFormationType() string {
 	return "AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSAutoScalingScalingPolicy_TargetTrackingConfiguration) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

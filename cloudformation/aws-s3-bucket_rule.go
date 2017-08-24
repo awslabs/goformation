@@ -69,8 +69,3 @@ type AWSS3Bucket_Rule struct {
 func (r *AWSS3Bucket_Rule) AWSCloudFormationType() string {
 	return "AWS::S3::Bucket.Rule"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSS3Bucket_Rule) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}

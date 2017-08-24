@@ -19,8 +19,3 @@ type AWSS3Bucket_TagFilter struct {
 func (r *AWSS3Bucket_TagFilter) AWSCloudFormationType() string {
 	return "AWS::S3::Bucket.TagFilter"
 }
-
-// AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
-func (r *AWSS3Bucket_TagFilter) AWSCloudFormationSpecificationVersion() string {
-	return "1.5.0"
-}
