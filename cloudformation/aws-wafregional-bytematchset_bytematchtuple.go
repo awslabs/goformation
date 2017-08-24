@@ -37,5 +37,5 @@ func (r *AWSWAFRegionalByteMatchSet_ByteMatchTuple) AWSCloudFormationType() stri
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSWAFRegionalByteMatchSet_ByteMatchTuple) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

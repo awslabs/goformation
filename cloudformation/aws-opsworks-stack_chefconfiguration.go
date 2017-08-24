@@ -22,5 +22,5 @@ func (r *AWSOpsWorksStack_ChefConfiguration) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSOpsWorksStack_ChefConfiguration) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

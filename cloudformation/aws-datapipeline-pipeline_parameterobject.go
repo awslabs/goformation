@@ -22,5 +22,5 @@ func (r *AWSDataPipelinePipeline_ParameterObject) AWSCloudFormationType() string
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSDataPipelinePipeline_ParameterObject) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

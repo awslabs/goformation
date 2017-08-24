@@ -9,6 +9,11 @@ type AWSIoTTopicRule_DynamoDBAction struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-hashkeyfield
 	HashKeyField string `json:"HashKeyField,omitempty"`
 
+	// HashKeyType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-hashkeytype
+	HashKeyType string `json:"HashKeyType,omitempty"`
+
 	// HashKeyValue AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-hashkeyvalue
@@ -23,6 +28,11 @@ type AWSIoTTopicRule_DynamoDBAction struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-rangekeyfield
 	RangeKeyField string `json:"RangeKeyField,omitempty"`
+
+	// RangeKeyType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-rangeKeytype
+	RangeKeyType string `json:"RangeKeyType,omitempty"`
 
 	// RangeKeyValue AWS CloudFormation Property
 	// Required: true
@@ -47,5 +57,5 @@ func (r *AWSIoTTopicRule_DynamoDBAction) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSIoTTopicRule_DynamoDBAction) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

@@ -22,5 +22,5 @@ func (r *AWSEC2NetworkInterface_PrivateIpAddressSpecification) AWSCloudFormation
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSEC2NetworkInterface_PrivateIpAddressSpecification) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

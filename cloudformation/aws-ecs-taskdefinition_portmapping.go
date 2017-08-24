@@ -27,5 +27,5 @@ func (r *AWSECSTaskDefinition_PortMapping) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSECSTaskDefinition_PortMapping) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

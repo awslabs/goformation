@@ -22,5 +22,5 @@ func (r *AWSS3Bucket_RoutingRule) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSS3Bucket_RoutingRule) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

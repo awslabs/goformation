@@ -17,5 +17,5 @@ func (r *AWSECSTaskDefinition_HostVolumeProperties) AWSCloudFormationType() stri
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSECSTaskDefinition_HostVolumeProperties) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

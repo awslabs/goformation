@@ -22,5 +22,5 @@ func (r *AWSCodeDeployDeploymentConfig_MinimumHealthyHosts) AWSCloudFormationTyp
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSCodeDeployDeploymentConfig_MinimumHealthyHosts) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }

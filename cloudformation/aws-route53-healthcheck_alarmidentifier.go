@@ -22,5 +22,5 @@ func (r *AWSRoute53HealthCheck_AlarmIdentifier) AWSCloudFormationType() string {
 
 // AWSCloudFormationSpecificationVersion returns the AWS Specification Version that this resource was generated from
 func (r *AWSRoute53HealthCheck_AlarmIdentifier) AWSCloudFormationSpecificationVersion() string {
-	return "1.4.2"
+	return "1.5.0"
 }
