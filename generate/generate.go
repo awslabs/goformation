@@ -202,11 +202,7 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 		}
 
 		// Log the updated class name to the results
-		if templateData.Basename != "" {
-			rg.Results.UpdatedResources[fn] = templateData.Basename + "_" + templateData.StructName
-		} else {
-			rg.Results.UpdatedResources[fn] = templateData.StructName
-		}
+		rg.Results.UpdatedResources[fn] = templateData.Basename + "_" + templateData.StructName
 
 	}
 
