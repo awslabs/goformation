@@ -40,47 +40,47 @@ Below is an example of building a CloudFormation template programmatically, then
 package main
 
 import (
-    "fmt"
-    "github.com/awslabs/goformation"
-    "github.com/awslabs/goformation/cloudformation"
+	"fmt"
+
+	"github.com/awslabs/goformation/cloudformation"
 )
 
 func main() {
 
-    // Create a new CloudFormation template
-    template := cloudformation.NewTemplate()
+	// Create a new CloudFormation template
+	template := cloudformation.NewTemplate()
 
-    // An an example SNS Topic
-    template.Resources["MySNSTopic"] = cloudformation.AWSSNSTopic{
-        DisplayName: "test-sns-topic-display-name",
-        TopicName:   "test-sns-topic-name",
-        Subscription: []cloudformation.AWSSNSTopic_Subscription{
-            cloudformation.AWSSNSTopic_Subscription{
-                Endpoint: "test-sns-topic-subscription-endpoint",
-                Protocol: "test-sns-topic-subscription-protocol",
-            },
-        },
-    }
+	// An an example SNS Topic
+	template.Resources["MySNSTopic"] = &cloudformation.AWSSNSTopic{
+		DisplayName: "test-sns-topic-display-name",
+		TopicName:   "test-sns-topic-name",
+		Subscription: []cloudformation.AWSSNSTopic_Subscription{
+			cloudformation.AWSSNSTopic_Subscription{
+				Endpoint: "test-sns-topic-subscription-endpoint",
+				Protocol: "test-sns-topic-subscription-protocol",
+			},
+		},
+	}
 
-    // ...and a Route 53 Hosted Zone too
-    template.Resources["MyRoute53HostedZone"] = cloudformation.AWSRoute53HostedZone{
-        Name: "example.com",
-    }
+	// ...and a Route 53 Hosted Zone too
+	template.Resources["MyRoute53HostedZone"] = &cloudformation.AWSRoute53HostedZone{
+		Name: "example.com",
+	}
 
-    // Let's see the JSON
-    j, err := template.JSON() 
-    if err != nil {
-        fmt.Printf("Failed to generate JSON: %s\n", err)
-    } else {
-        fmt.Print(j)
-    }
-  
-    y, err := template.YAML()
-    if err != nil {
-        fmt.Printf("Failed to generate YAML: %s\n", err)
-    } else {
-        fmt.Print(y)
-    }
+	// Let's see the JSON
+	j, err := template.JSON()
+	if err != nil {
+		fmt.Printf("Failed to generate JSON: %s\n", err)
+	} else {
+		fmt.Printf("%s\n", string(j))
+	}
+
+	y, err := template.YAML()
+	if err != nil {
+		fmt.Printf("Failed to generate YAML: %s\n", err)
+	} else {
+		fmt.Printf("%s\n", string(y))
+	}
 
 }
 ```
@@ -92,17 +92,23 @@ Would output the following JSON template:
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
     "MyRoute53HostedZone": {
-      "Name": "example.com"
+      "Type": "AWS::Route53::HostedZone",
+      "Properties": {
+        "Name": "example.com"
+      }
     },
     "MySNSTopic": {
-      "DisplayName": "test-sns-topic-display-name",
-      "Subscription": [
-        {
-          "Endpoint": "test-sns-topic-subscription-endpoint",
-          "Protocol": "test-sns-topic-subscription-protocol"
-        }
-      ],
-      "TopicName": "test-sns-topic-name"
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": "test-sns-topic-display-name",
+        "Subscription": [
+          {
+            "Endpoint": "test-sns-topic-subscription-endpoint",
+            "Protocol": "test-sns-topic-subscription-protocol"
+          }
+        ],
+        "TopicName": "test-sns-topic-name"
+      }
     }
   }
 }
@@ -114,13 +120,17 @@ Would output the following JSON template:
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   MyRoute53HostedZone:
-    Name: example.com
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: example.com
   MySNSTopic:
-    DisplayName: test-sns-topic-display-name
-    Subscription:
-    - Endpoint: test-sns-topic-subscription-endpoint
-      Protocol: test-sns-topic-subscription-protocol
-    TopicName: test-sns-topic-name
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: test-sns-topic-display-name
+      Subscription:
+      - Endpoint: test-sns-topic-subscription-endpoint
+        Protocol: test-sns-topic-subscription-protocol
+      TopicName: test-sns-topic-name
 ```
 
 
