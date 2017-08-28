@@ -2,28 +2,20 @@ package intrinsics
 
 // condition evaluates a condition
 func condition(name string, input interface{}, template interface{}, options *ProcessorOptions) interface{} {
-	//fmt.Printf("Searching for condition: %+v\n", input)
 	if v, ok := input.(string); ok {
 
 		if v, ok := retrieveCondition(input, template); ok {
-			//fmt.Println()
 			return v
 		}
 
 		if c := getCondition(v, template); c != nil {
-			//fmt.Printf("Retrieved condition %+v\n", c)
-			// check if the condition is evaluated; if its a simple value set
 			res := search(c, template, options)
-			// fmt.Printf("Condition evaluated to %+v\n", res)
-			// replace the value in the template so it can be reused
+			// replace the value in the template so the value can be reused
 			setCondition(v, res, template)
-			//fmt.Printf("Condition evaluated to %+v\n\n", getCondition(v, template))
 
 			return res
 		}
 	}
-
-	//fmt.Println()
 
 	return nil
 }
@@ -65,7 +57,6 @@ func retrieveCondition(cName interface{}, template interface{}) (value bool, fou
 	switch v := cName.(type) {
 	case string:
 		value, found = getCondition(v, template).(bool)
-		//fmt.Printf("Retrived condition: %+v: value %+v, found %+v\n", cName, value, found)
 	case bool:
 		value, found = v, true
 	}
