@@ -17,11 +17,11 @@ type IntrinsicHandler func(string, interface{}, interface{}) interface{}
 // functions, and a handler function that is invoked to resolve.
 var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
 	"Fn::Base64":      FnBase64,
-	"Fn::And":         nonResolvingHandler,
-	"Fn::Equals":      nonResolvingHandler,
-	"Fn::If":          nonResolvingHandler,
-	"Fn::Not":         nonResolvingHandler,
-	"Fn::Or":          nonResolvingHandler,
+	"Fn::And":         FnAnd,
+	"Fn::Equals":      FnEquals,
+	"Fn::If":          FnIf,
+	"Fn::Not":         FnNot,
+	"Fn::Or":          FnOr,
 	"Fn::FindInMap":   FnFindInMap,
 	"Fn::GetAtt":      nonResolvingHandler,
 	"Fn::GetAZs":      nonResolvingHandler,
@@ -73,6 +73,8 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 		return nil, fmt.Errorf("invalid JSON: %s", err)
 	}
 
+	evaluateConditions(unmarshalled, options)
+
 	// Process all of the intrinsic functions
 	processed := search(unmarshalled, unmarshalled, options)
 
@@ -83,7 +85,22 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 	}
 
 	return result, nil
+}
 
+// evaluateConditions replaces each condition in the template with its corresponding
+// value
+func evaluateConditions(input interface{}, options *ProcessorOptions) {
+	if template, ok := input.(map[string]interface{}); ok {
+		// Check there is a conditions section
+		if uconditions, ok := template["Conditions"]; ok {
+			// Check the conditions section is a map
+			if conditions, ok := uconditions.(map[string]interface{}); ok {
+				for name, expr := range conditions {
+					conditions[name] = search(expr, input, options)
+				}
+			}
+		}
+	}
 }
 
 // Search is a recursive function, that will search through an interface{} looking for
@@ -108,6 +125,13 @@ func search(input interface{}, template interface{}, options *ProcessorOptions) 
 				// This is an intrinsic function, so replace the intrinsic function object
 				// with the result of calling the intrinsic function handler for this type
 				return h(key, search(val, template, options), template)
+			}
+
+			if key == "Condition" {
+				// This can lead to infinite recursion A -> B; B -> A;
+				// pass state of the conditions that we're evaluating so we can detect cycles
+				// in case of cycle, return nil
+				return condition(key, search(val, template, options), template, options)
 			}
 
 			// This is not an intrinsic function, recurse through it normally

@@ -193,11 +193,11 @@ The following [AWS CloudFormation Intrinsic Functions](http://docs.aws.amazon.co
 - [x] [Fn::Split](intrinsics/fnsplit.go)
 - [x] [Fn::Sub](intrinsics/fnsub.go)
 - [x] [Ref](intrinsics/ref.go) 
-- [ ] Fn::And      
-- [ ] Fn::Equals  
-- [ ] Fn::If     
-- [ ] Fn::Not      
-- [ ] Fn::Or       
+- [x] [Fn::And](intrinsics/fnand.go)      
+- [x] [Fn::Equals](intrinsics/fnequals.go)  
+- [x] [Fn::If](intrinsics/fnif.go)     
+- [x] [Fn::Not](intrinsics/fnnot.go)      
+- [x] [Fn::Or](intrinsics/fnor.go)       
 - [ ] Fn::GetAtt   
 - [ ] Fn::GetAZs   
 - [ ] Fn::ImportValue

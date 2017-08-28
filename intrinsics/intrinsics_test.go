@@ -334,4 +334,94 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 		})
 
 	})
+
+	Context("with a template that contains intrinsics and conditions", func() {
+
+		const template = `{
+					"Parameters" : {
+						"UseBucket":{"Type":"String","Default":"false"}
+					},
+					"Conditions" : {
+						"UseBucketCondition" : { "Fn::Equals": [{"Ref" : "UseBucket"}, "true"]},
+						"WithIntrinsic" :      { "Fn::Equals": [{"Ref" : "UseBucket"}, { "Fn::Join": [ "fal", "se" ] }]},
+						"NonExistant" : { "Fn::Not": [{"Condition" : "NotAvailable"}]},
+						"Eq" : { "Fn::Equals": [{"Ref" : "AWS::AccountId"}, "123456789012"]},
+						"EqF" : { "Fn::Equals": [{"Ref" : "AWS::AccountId"}, "Foo"]},
+						"NotInline" : { "Fn::Not" : [{ "Fn::Equals": [{"Ref" : "AWS::AccountId"}, "123456789012"]}]},
+						"And" : { "Fn::And" : [{ "Condition": "Eq"}, { "Condition": "EqF"}]},
+						"AndT" : { "Fn::And" : [{ "Condition": "Eq"}, { "Condition": "WithIntrinsic"}]},
+						"Or" : { "Fn::Or" : [{ "Condition": "Eq"}, { "Condition": "EqF"}]},
+						"OrF" : { "Fn::Or" : [{ "Condition": "EqF"}, { "Condition": "UseBucketCondition"}]},
+						"NotRef" : { "Fn::Not" : [{ "Condition": "Eq"}]}
+					},
+					"Resources": {
+						"ExampleResource": {
+							"Type": "AWS::Example::Resource",
+							"Properties": {
+								"EqProp": { "Fn::If": [ "Eq", "OK", "false" ] },				
+								"Bucket": { "Fn::If": [ "UseBucketCondition", "Bucket", "NotBucket" ] },				
+								"NotProp": { "Fn::If": [ "NotInline", "false", "OK" ] },
+								"NonExistant": { "Fn::If": [ "NonExistant", "false", "OK" ] }	
+							}
+						}
+					}
+				}`
+
+		Context("with no processor options", func() {
+
+			processed, err := ProcessJSON([]byte(template), nil)
+			It("should successfully process the template", func() {
+				Expect(processed).ShouldNot(BeNil())
+				Expect(err).Should(BeNil())
+			})
+
+			var result interface{}
+			err = json.Unmarshal(processed, &result)
+			It("should be valid JSON, and marshal to a Go type", func() {
+				Expect(processed).ToNot(BeNil())
+				Expect(err).To(BeNil())
+			})
+
+			template := result.(map[string]interface{})
+			resources := template["Resources"].(map[string]interface{})
+			conditions := template["Conditions"].(map[string]interface{})
+			resource := resources["ExampleResource"].(map[string]interface{})
+			properties := resource["Properties"].(map[string]interface{})
+
+			It("should have the correct value for a equals condition", func() {
+				Expect(conditions["Eq"]).To(Equal(true))
+				Expect(conditions["EqF"]).To(Equal(false))
+			})
+
+			It("should have the correct value for a not condition", func() {
+				Expect(conditions["NotInline"]).To(Equal(false))
+				Expect(conditions["NotRef"]).To(Equal(false))
+			})
+
+			It("should have the correct value for a and condition that references another condition", func() {
+				Expect(conditions["And"]).To(Equal(false))
+				Expect(conditions["AndT"]).To(Equal(true))
+			})
+
+			It("should have the correct value for a or condition that references another condition", func() {
+				Expect(conditions["Or"]).To(Equal(true))
+				Expect(conditions["OrF"]).To(Equal(false))
+			})
+
+			It("should have the correct value for a condition that uses intrinsics", func() {
+				Expect(conditions["WithIntrinsic"]).To(Equal(true))
+			})
+
+			It("should have a nil value for a non-existant condition", func() {
+				Expect(conditions["NonExistant"]).To(BeNil())
+			})
+
+			It("should have the correct value for a if property", func() {
+				Expect(properties["EqProp"]).To(Equal("OK"))
+				Expect(properties["NotProp"]).To(Equal("OK"))
+				Expect(properties["Bucket"]).To(Equal("NotBucket"))
+				Expect(properties["NonExistant"]).To(BeNil())
+			})
+		})
+	})
 })
