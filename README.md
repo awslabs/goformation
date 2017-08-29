@@ -153,7 +153,7 @@ func main() {
     template, err := goformation.Open("template.yaml")
 
     // ...or provide one as a byte array ([]byte)
-    template, err := goformation.Parse(data)
+    template, err := goformation.ParseYAML(data)
 
     // You can then inspect all of the values
     for name, resource := range template.Resources {
