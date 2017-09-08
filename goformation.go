@@ -28,10 +28,10 @@ func OpenWithOptions(filename string, options *intrinsics.ProcessorOptions) (*cl
 	}
 
 	if strings.HasSuffix(filename, ".yaml") || strings.HasSuffix(filename, ".yml") {
-		return ParseYAML(data)
+		return ParseYAMLWithOptions(data, options)
 	}
 
-	return ParseJSON(data)
+	return ParseJSONWithOptions(data, options)
 
 }
 
