@@ -209,7 +209,7 @@ The following [AWS CloudFormation Intrinsic Functions](http://docs.aws.amazon.co
 - [x] [Fn::Not](intrinsics/fnnot.go)      
 - [x] [Fn::Or](intrinsics/fnor.go)       
 - [ ] Fn::GetAtt   
-- [ ] Fn::GetAZs   
+- [x] [Fn::GetAZs](intrinsics/fngetazs.go)
 - [ ] Fn::ImportValue
 
 Any unsupported intrinsic functions will return `nil`.
