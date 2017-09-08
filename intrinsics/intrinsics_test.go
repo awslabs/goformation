@@ -49,6 +49,50 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 	})
 
+	Context("with a template that contains a 'Fn::GetAZs' intrinsic function", func() {
+
+		const input = `{
+			"Resources": {
+				"ExampleResource": {
+					"Type": "AWS::Example::Resource",
+					"Properties": {
+						"AZEmpty": { "Fn::GetAZs": "" },				
+						"AZDefault": { "Fn::GetAZs": { "Ref": "AWS::Region" } },				
+						"AZParam": { "Fn::GetAZs": "eu-west-1" },				
+						"FirstAZ": { 
+							"Fn::Select" : [ "0", { "Fn::GetAZs" : "eu-central-1" } ]
+						}
+					}
+				}
+			}
+		}`
+		processed, err := ProcessJSON([]byte(input), nil)
+		It("should successfully process the template", func() {
+			Expect(processed).ShouldNot(BeNil())
+			Expect(err).Should(BeNil())
+		})
+
+		var result interface{}
+		err = json.Unmarshal(processed, &result)
+		It("should be valid JSON, and marshal to a Go type", func() {
+			Expect(processed).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		template := result.(map[string]interface{})
+		resources := template["Resources"].(map[string]interface{})
+		resource := resources["ExampleResource"].(map[string]interface{})
+		properties := resource["Properties"].(map[string]interface{})
+
+		It("should have the correct values", func() {
+			Expect(properties["AZEmpty"]).To(Equal([]interface{}{"us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d"}))
+			Expect(properties["AZDefault"]).To(Equal([]interface{}{"us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d"}))
+			Expect(properties["AZParam"]).To(Equal([]interface{}{"eu-west-1a", "eu-west-1b", "eu-west-1c"}))
+			Expect(properties["FirstAZ"]).To(Equal("eu-central-1a"))
+		})
+
+	})
+
 	Context("with a template that contains a 'Ref' intrinsic function with a 'Fn::Join' inside it", func() {
 
 		input := `{"Parameters":{"FunctionTimeout":{"Type":"Number","Default":120}},"Resources":{"MyServerlessFunction":{"Type":"AWS::Serverless::Function","Properties":{"Runtime":"nodejs6.10","Timeout":{"Ref":{"Fn::Join":["Function","Timeout"]}}}}}}`
