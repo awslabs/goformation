@@ -2,6 +2,7 @@ package cloudformation
 
 import (
 	"encoding/json"
+	"reflect"
 
 	"github.com/mitchellh/mapstructure"
 )
@@ -21,39 +22,39 @@ type AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEv
 
 func (r AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEventOrScheduleEventOrCloudWatchEventEventOrIoTRuleEventOrAlexaSkillEvent) value() interface{} {
 
-	if r.S3Event != nil {
+	if r.S3Event != nil && !reflect.DeepEqual(r.S3Event, &AWSServerlessFunction_S3Event{}) {
 		return r.S3Event
 	}
 
-	if r.SNSEvent != nil {
+	if r.SNSEvent != nil && !reflect.DeepEqual(r.SNSEvent, &AWSServerlessFunction_SNSEvent{}) {
 		return r.SNSEvent
 	}
 
-	if r.KinesisEvent != nil {
+	if r.KinesisEvent != nil && !reflect.DeepEqual(r.KinesisEvent, &AWSServerlessFunction_KinesisEvent{}) {
 		return r.KinesisEvent
 	}
 
-	if r.DynamoDBEvent != nil {
+	if r.DynamoDBEvent != nil && !reflect.DeepEqual(r.DynamoDBEvent, &AWSServerlessFunction_DynamoDBEvent{}) {
 		return r.DynamoDBEvent
 	}
 
-	if r.ApiEvent != nil {
+	if r.ApiEvent != nil && !reflect.DeepEqual(r.ApiEvent, &AWSServerlessFunction_ApiEvent{}) {
 		return r.ApiEvent
 	}
 
-	if r.ScheduleEvent != nil {
+	if r.ScheduleEvent != nil && !reflect.DeepEqual(r.ScheduleEvent, &AWSServerlessFunction_ScheduleEvent{}) {
 		return r.ScheduleEvent
 	}
 
-	if r.CloudWatchEventEvent != nil {
+	if r.CloudWatchEventEvent != nil && !reflect.DeepEqual(r.CloudWatchEventEvent, &AWSServerlessFunction_CloudWatchEventEvent{}) {
 		return r.CloudWatchEventEvent
 	}
 
-	if r.IoTRuleEvent != nil {
+	if r.IoTRuleEvent != nil && !reflect.DeepEqual(r.IoTRuleEvent, &AWSServerlessFunction_IoTRuleEvent{}) {
 		return r.IoTRuleEvent
 	}
 
-	if r.AlexaSkillEvent != nil {
+	if r.AlexaSkillEvent != nil && !reflect.DeepEqual(r.AlexaSkillEvent, &AWSServerlessFunction_AlexaSkillEvent{}) {
 		return r.AlexaSkillEvent
 	}
 
