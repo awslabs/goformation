@@ -49,6 +49,37 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 	})
 
+	Context("with a template that contains a 'Ref' intrinsic function and parameter overrides", func() {
+
+		input := `{"Parameters":{"FunctionTimeout":{"Type":"Number","Default":120}},"Resources":{"MyServerlessFunction":{"Type":"AWS::Serverless::Function","Properties":{"Runtime":"nodejs6.10","Timeout":{"Ref":"FunctionTimeout"}}}}}`
+		opts := ProcessorOptions{
+			ParameterOverrides: map[string]interface{}{"FunctionTimeout": float64(42)},
+		}
+		processed, err := ProcessJSON([]byte(input), &opts)
+		It("should successfully process the template", func() {
+			Expect(processed).ShouldNot(BeNil())
+			Expect(err).Should(BeNil())
+		})
+
+		var result interface{}
+		err = json.Unmarshal(processed, &result)
+		It("should be valid JSON, and marshal to a Go type", func() {
+			Expect(processed).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		template := result.(map[string]interface{})
+		resources := template["Resources"].(map[string]interface{})
+		resource := resources["MyServerlessFunction"].(map[string]interface{})
+		properties := resource["Properties"].(map[string]interface{})
+
+		It("should have the correct values", func() {
+			Expect(properties["Timeout"]).To(Equal(float64(42)))
+			Expect(properties["Runtime"]).To(Equal("nodejs6.10"))
+		})
+
+	})
+
 	Context("with a template that contains a 'Fn::GetAZs' intrinsic function", func() {
 
 		const input = `{

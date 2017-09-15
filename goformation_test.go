@@ -3,6 +3,7 @@ package goformation_test
 import (
 	"github.com/awslabs/goformation"
 	"github.com/awslabs/goformation/cloudformation"
+	"github.com/awslabs/goformation/intrinsics"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -497,6 +498,28 @@ var _ = Describe("Goformation", func() {
 			Expect(api4.DefinitionBody).To(Equal(expected))
 		})
 
+	})
+
+	Context("with a YAML template with paramter overrides", func() {
+
+		template, err := goformation.OpenWithOptions("test/yaml/aws-serverless-function-env-vars.yaml", &intrinsics.ProcessorOptions{
+			ParameterOverrides: map[string]interface{}{"ExampleParameter": "SomeNewValue"},
+		})
+
+		It("should successfully validate the SAM template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		function, err := template.GetAWSServerlessFunctionWithName("IntrinsicEnvironmentVariableTestFunction")
+		It("should have a function named 'IntrinsicEnvironmentVariableTestFunction'", func() {
+			Expect(function).To(Not(BeNil()))
+			Expect(err).To(BeNil())
+		})
+
+		It("it should have the correct values", func() {
+			Expect(function.Environment.Variables).To(HaveKeyWithValue("REF_ENV_VAR", "SomeNewValue"))
+		})
 	})
 
 })

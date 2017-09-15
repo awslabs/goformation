@@ -34,9 +34,11 @@ var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
 }
 
 // ProcessorOptions allows customisation of the intrinsic function processor behaviour.
-// Initially, this only allows overriding of the handlers for each intrinsic function type.
+// Initially, this only allows overriding of the handlers for each intrinsic function type
+// and overriding template paramters.
 type ProcessorOptions struct {
 	IntrinsicHandlerOverrides map[string]IntrinsicHandler
+	ParameterOverrides        map[string]interface{}
 }
 
 // nonResolvingHandler is a simple example of an intrinsic function handler function
@@ -73,6 +75,8 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 		return nil, fmt.Errorf("invalid JSON: %s", err)
 	}
 
+	overrideParameters(unmarshalled, options)
+
 	evaluateConditions(unmarshalled, options)
 
 	// Process all of the intrinsic functions
@@ -85,6 +89,33 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 	}
 
 	return result, nil
+}
+
+// overrideParameters replaces the default values of Parameters with the specified ones
+func overrideParameters(input interface{}, options *ProcessorOptions) {
+	if options == nil || len(options.ParameterOverrides) == 0 {
+		return
+	}
+
+	// Check the template is a map
+	if template, ok := input.(map[string]interface{}); ok {
+		// Check there is a parameters section
+		if uparameters, ok := template["Parameters"]; ok {
+			// Check the parameters section is a map
+			if parameters, ok := uparameters.(map[string]interface{}); ok {
+				for name, value := range options.ParameterOverrides {
+					// Check there is a parameter with the same name as the Ref
+					if uparameter, ok := parameters[name]; ok {
+						// Check the parameter is a map
+						if parameter, ok := uparameter.(map[string]interface{}); ok {
+							// Set the default value
+							parameter["Default"] = value
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 // evaluateConditions replaces each condition in the template with its corresponding
