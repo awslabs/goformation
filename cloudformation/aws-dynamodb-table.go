@@ -11,7 +11,7 @@ import (
 type AWSDynamoDBTable struct {
 
 	// AttributeDefinitions AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
 	AttributeDefinitions []AWSDynamoDBTable_AttributeDefinition `json:"AttributeDefinitions,omitempty"`
 

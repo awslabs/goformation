@@ -1,8 +1,8 @@
 package cloudformation
 
-// AWSElasticBeanstalkConfigurationTemplate_ConfigurationOptionSetting AWS CloudFormation Resource (AWS::ElasticBeanstalk::ConfigurationTemplate.ConfigurationOptionSetting)
+// AWSElasticBeanstalkEnvironment_OptionSetting AWS CloudFormation Resource (AWS::ElasticBeanstalk::Environment.OptionSetting)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html
-type AWSElasticBeanstalkConfigurationTemplate_ConfigurationOptionSetting struct {
+type AWSElasticBeanstalkEnvironment_OptionSetting struct {
 
 	// Namespace AWS CloudFormation Property
 	// Required: true
@@ -21,6 +21,6 @@ type AWSElasticBeanstalkConfigurationTemplate_ConfigurationOptionSetting struct 
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSElasticBeanstalkConfigurationTemplate_ConfigurationOptionSetting) AWSCloudFormationType() string {
-	return "AWS::ElasticBeanstalk::ConfigurationTemplate.ConfigurationOptionSetting"
+func (r *AWSElasticBeanstalkEnvironment_OptionSetting) AWSCloudFormationType() string {
+	return "AWS::ElasticBeanstalk::Environment.OptionSetting"
 }
