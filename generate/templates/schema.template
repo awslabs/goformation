@@ -16,6 +16,21 @@
             "maxLength": 1024
         },
 
+        "Metadata": {
+            "type": "object"
+        },
+
+        "Transform": {
+        {{if .ResourceSpecificationTransform}}
+            "type": "string",
+            "enum": [
+                "{{.ResourceSpecificationTransform}}"
+            ]
+        {{else}}
+            "type": ["object","string"]
+        {{end}}
+        },
+
         "Parameters": {
             "type": "object",
             "patternProperties": {
@@ -26,11 +41,11 @@
             "maxProperties": 50,
             "additionalProperties": false
         },
-        
+
         "Mappings": {
             "type": "object",
             "patternProperties": {
-                ".*": {
+                "^[a-zA-Z0-9]+$": {
                     "type": "object"
                 }
             },
@@ -40,12 +55,25 @@
         "Conditions": {
             "type": "object",
             "patternProperties": {
-                ".*": {
+                "^[a-zA-Z0-9]+$": {
                     "type": "object"
                 }
             },
             "additionalProperties": false
         },
+
+        "Outputs": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9]+$": {
+                    "type": "object"
+                }
+            },
+            "minProperties": 1,
+            "maxProperties": 60,
+            "additionalProperties": false
+        },
+
         "Resources": {
             "type": "object",
             "patternProperties": {
@@ -55,10 +83,18 @@
                         {{end}}
                     ]
                 }
-            }
+            },
+            "additionalProperties": false
         }
     },
+    "required": [
+        {{if .ResourceSpecificationTransform}}
+            "Transform",
+        {{end}}
 
+        "Resources"
+    ],
+    "additionalProperties": false,
     "definitions": {
         "Parameter": {
             "type": "object",
@@ -131,14 +167,14 @@
                 "Type"
             ]
         },
-    
+
         {{range $name, $resource := .Resources}}
-            {{$resource.Schema $name}},
+            {{$resource.Schema $name false}},
         {{end}}
 
         {{$length := len .Properties}}{{$rc := counter $length}}{{range $name, $resource := .Properties}}
-            {{$resource.Schema $name}}{{if call $rc}},{{end}}
+            {{$resource.Schema $name true}}{{if call $rc}},{{end}}
         {{end}}
-        
+
     }
 }
