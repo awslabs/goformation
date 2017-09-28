@@ -2470,6 +2470,9 @@
                 "Name": {
                     "type": "string"
                 },
+                "Type": {
+                    "type": "string"
+                },
                 "Value": {
                     "type": "string"
                 }
@@ -3283,7 +3286,17 @@
             "type": "object"
         },
         "AWS::Cognito::IdentityPoolRoleAttachment.RulesConfigurationType": {
-            "properties": {},
+            "properties": {
+                "Rules": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Cognito::IdentityPoolRoleAttachment.MappingRule"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Rules"
+            ],
             "type": "object"
         },
         "AWS::Cognito::UserPool": {
@@ -5075,6 +5088,12 @@
                 },
                 "SubnetId": {
                     "type": "string"
+                },
+                "Tags": {
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -5908,6 +5927,9 @@
             "properties": {
                 "AmazonProvidedIpv6CidrBlock": {
                     "type": "boolean"
+                },
+                "CidrBlock": {
+                    "type": "string"
                 },
                 "VpcId": {
                     "type": "string"
@@ -7927,6 +7949,59 @@
                 },
                 "Description": {
                     "type": "string"
+                },
+                "ResourceLifecycleConfig": {
+                    "$ref": "#/definitions/AWS::ElasticBeanstalk::Application.ApplicationResourceLifecycleConfig"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ElasticBeanstalk::Application.ApplicationResourceLifecycleConfig": {
+            "properties": {
+                "ServiceRole": {
+                    "type": "string"
+                },
+                "VersionLifecycleConfig": {
+                    "$ref": "#/definitions/AWS::ElasticBeanstalk::Application.ApplicationVersionLifecycleConfig"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ElasticBeanstalk::Application.ApplicationVersionLifecycleConfig": {
+            "properties": {
+                "MaxAgeRule": {
+                    "$ref": "#/definitions/AWS::ElasticBeanstalk::Application.MaxAgeRule"
+                },
+                "MaxCountRule": {
+                    "$ref": "#/definitions/AWS::ElasticBeanstalk::Application.MaxCountRule"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ElasticBeanstalk::Application.MaxAgeRule": {
+            "properties": {
+                "DeleteSourceFromS3": {
+                    "type": "boolean"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "MaxAgeInDays": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ElasticBeanstalk::Application.MaxCountRule": {
+            "properties": {
+                "DeleteSourceFromS3": {
+                    "type": "boolean"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "MaxCount": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -7981,6 +8056,9 @@
                     },
                     "type": "array"
                 },
+                "PlatformArn": {
+                    "type": "string"
+                },
                 "SolutionStackName": {
                     "type": "string"
                 },
@@ -8007,8 +8085,7 @@
             },
             "required": [
                 "Namespace",
-                "OptionName",
-                "Value"
+                "OptionName"
             ],
             "type": "object"
         },
@@ -8043,9 +8120,12 @@
                 },
                 "OptionSettings": {
                     "items": {
-                        "$ref": "#/definitions/AWS::ElasticBeanstalk::Environment.OptionSettings"
+                        "$ref": "#/definitions/AWS::ElasticBeanstalk::Environment.OptionSetting"
                     },
                     "type": "array"
+                },
+                "PlatformArn": {
+                    "type": "string"
                 },
                 "SolutionStackName": {
                     "type": "string"
@@ -8071,7 +8151,7 @@
             ],
             "type": "object"
         },
-        "AWS::ElasticBeanstalk::Environment.OptionSettings": {
+        "AWS::ElasticBeanstalk::Environment.OptionSetting": {
             "properties": {
                 "Namespace": {
                     "type": "string"
@@ -8085,8 +8165,7 @@
             },
             "required": [
                 "Namespace",
-                "OptionName",
-                "Value"
+                "OptionName"
             ],
             "type": "object"
         },
@@ -8409,6 +8488,32 @@
             },
             "type": "object"
         },
+        "AWS::ElasticLoadBalancingV2::ListenerCertificate": {
+            "properties": {
+                "Certificates": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerCertificate.Certificate"
+                    },
+                    "type": "array"
+                },
+                "ListenerArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Certificates",
+                "ListenerArn"
+            ],
+            "type": "object"
+        },
+        "AWS::ElasticLoadBalancingV2::ListenerCertificate.Certificate": {
+            "properties": {
+                "CertificateArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::ElasticLoadBalancingV2::ListenerRule": {
             "properties": {
                 "Actions": {
@@ -8490,6 +8595,12 @@
                     },
                     "type": "array"
                 },
+                "SubnetMappings": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMapping"
+                    },
+                    "type": "array"
+                },
                 "Subnets": {
                     "items": {
                         "type": "string"
@@ -8501,6 +8612,9 @@
                         "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
+                },
+                "Type": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -8514,6 +8628,21 @@
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMapping": {
+            "properties": {
+                "AllocationId": {
+                    "type": "string"
+                },
+                "SubnetId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AllocationId",
+                "SubnetId"
+            ],
             "type": "object"
         },
         "AWS::ElasticLoadBalancingV2::TargetGroup": {
@@ -8560,6 +8689,9 @@
                     },
                     "type": "array"
                 },
+                "TargetType": {
+                    "type": "string"
+                },
                 "Targets": {
                     "items": {
                         "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::TargetGroup.TargetDescription"
@@ -8593,6 +8725,9 @@
         },
         "AWS::ElasticLoadBalancingV2::TargetGroup.TargetDescription": {
             "properties": {
+                "AvailabilityZone": {
+                    "type": "string"
+                },
                 "Id": {
                     "type": "string"
                 },
@@ -8730,10 +8865,89 @@
             },
             "type": "object"
         },
+        "AWS::Events::Rule.EcsParameters": {
+            "properties": {
+                "TaskCount": {
+                    "type": "number"
+                },
+                "TaskDefinitionArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TaskDefinitionArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Events::Rule.InputTransformer": {
+            "properties": {
+                "InputPathsMap": {
+                    "patternProperties": {
+                        "^[a-zA-Z0-9]+$": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "InputTemplate": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "InputTemplate"
+            ],
+            "type": "object"
+        },
+        "AWS::Events::Rule.KinesisParameters": {
+            "properties": {
+                "PartitionKeyPath": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PartitionKeyPath"
+            ],
+            "type": "object"
+        },
+        "AWS::Events::Rule.RunCommandParameters": {
+            "properties": {
+                "RunCommandTargets": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Events::Rule.RunCommandTarget"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "RunCommandTargets"
+            ],
+            "type": "object"
+        },
+        "AWS::Events::Rule.RunCommandTarget": {
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Values": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Key",
+                "Values"
+            ],
+            "type": "object"
+        },
         "AWS::Events::Rule.Target": {
             "properties": {
                 "Arn": {
                     "type": "string"
+                },
+                "EcsParameters": {
+                    "$ref": "#/definitions/AWS::Events::Rule.EcsParameters"
                 },
                 "Id": {
                     "type": "string"
@@ -8744,8 +8958,17 @@
                 "InputPath": {
                     "type": "string"
                 },
+                "InputTransformer": {
+                    "$ref": "#/definitions/AWS::Events::Rule.InputTransformer"
+                },
+                "KinesisParameters": {
+                    "$ref": "#/definitions/AWS::Events::Rule.KinesisParameters"
+                },
                 "RoleArn": {
                     "type": "string"
+                },
+                "RunCommandParameters": {
+                    "$ref": "#/definitions/AWS::Events::Rule.RunCommandParameters"
                 }
             },
             "required": [
@@ -9476,9 +9699,6 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "FunctionArn"
-            ],
             "type": "object"
         },
         "AWS::IoT::TopicRule.PutItemInput": {
@@ -9621,6 +9841,12 @@
                 },
                 "KeyUsage": {
                     "type": "string"
+                },
+                "Tags": {
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -10045,11 +10271,17 @@
                 "DeliveryStreamName": {
                     "type": "string"
                 },
+                "DeliveryStreamType": {
+                    "type": "string"
+                },
                 "ElasticsearchDestinationConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration"
                 },
                 "ExtendedS3DestinationConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.ExtendedS3DestinationConfiguration"
+                },
+                "KinesisStreamSourceConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.KinesisStreamSourceConfiguration"
                 },
                 "RedshiftDestinationConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration"
@@ -10242,6 +10474,21 @@
             },
             "required": [
                 "AWSKMSKeyARN"
+            ],
+            "type": "object"
+        },
+        "AWS::KinesisFirehose::DeliveryStream.KinesisStreamSourceConfiguration": {
+            "properties": {
+                "KinesisStreamARN": {
+                    "type": "string"
+                },
+                "RoleARN": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "KinesisStreamARN",
+                "RoleARN"
             ],
             "type": "object"
         },
@@ -12467,11 +12714,23 @@
                 "AccessControl": {
                     "type": "string"
                 },
+                "AnalyticsConfigurations": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.AnalyticsConfiguration"
+                    },
+                    "type": "array"
+                },
                 "BucketName": {
                     "type": "string"
                 },
                 "CorsConfiguration": {
                     "$ref": "#/definitions/AWS::S3::Bucket.CorsConfiguration"
+                },
+                "InventoryConfigurations": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.InventoryConfiguration"
+                    },
+                    "type": "array"
                 },
                 "LifecycleConfiguration": {
                     "$ref": "#/definitions/AWS::S3::Bucket.LifecycleConfiguration"
@@ -12528,6 +12787,30 @@
             ],
             "type": "object"
         },
+        "AWS::S3::Bucket.AnalyticsConfiguration": {
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "StorageClassAnalysis": {
+                    "$ref": "#/definitions/AWS::S3::Bucket.StorageClassAnalysis"
+                },
+                "TagFilters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::S3::Bucket.TagFilter"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Id",
+                "StorageClassAnalysis"
+            ],
+            "type": "object"
+        },
         "AWS::S3::Bucket.CorsConfiguration": {
             "properties": {
                 "CorsRules": {
@@ -12581,6 +12864,42 @@
             ],
             "type": "object"
         },
+        "AWS::S3::Bucket.DataExport": {
+            "properties": {
+                "Destination": {
+                    "$ref": "#/definitions/AWS::S3::Bucket.Destination"
+                },
+                "OutputSchemaVersion": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Destination",
+                "OutputSchemaVersion"
+            ],
+            "type": "object"
+        },
+        "AWS::S3::Bucket.Destination": {
+            "properties": {
+                "BucketAccountId": {
+                    "type": "string"
+                },
+                "BucketArn": {
+                    "type": "string"
+                },
+                "Format": {
+                    "type": "string"
+                },
+                "Prefix": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BucketArn",
+                "Format"
+            ],
+            "type": "object"
+        },
         "AWS::S3::Bucket.FilterRule": {
             "properties": {
                 "Name": {
@@ -12593,6 +12912,42 @@
             "required": [
                 "Name",
                 "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::S3::Bucket.InventoryConfiguration": {
+            "properties": {
+                "Destination": {
+                    "$ref": "#/definitions/AWS::S3::Bucket.Destination"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "IncludedObjectVersions": {
+                    "type": "string"
+                },
+                "OptionalFields": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "ScheduleFrequency": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Destination",
+                "Enabled",
+                "Id",
+                "IncludedObjectVersions",
+                "ScheduleFrequency"
             ],
             "type": "object"
         },
@@ -12904,6 +13259,14 @@
             "required": [
                 "Rules"
             ],
+            "type": "object"
+        },
+        "AWS::S3::Bucket.StorageClassAnalysis": {
+            "properties": {
+                "DataExport": {
+                    "$ref": "#/definitions/AWS::S3::Bucket.DataExport"
+                }
+            },
             "type": "object"
         },
         "AWS::S3::Bucket.TagFilter": {
@@ -14480,6 +14843,9 @@
                         },
                         {
                             "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerCertificate"
                         },
                         {
                             "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule"
