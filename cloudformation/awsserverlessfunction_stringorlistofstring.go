@@ -19,8 +19,8 @@ func (r AWSServerlessFunction_StringOrListOfString) value() interface{} {
 		return r.String
 	}
 
-	if r.String != nil {
-		return r.String
+	if r.StringArray != nil {
+		return r.StringArray
 	}
 
 	return nil
