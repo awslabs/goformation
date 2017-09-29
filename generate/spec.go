@@ -20,6 +20,11 @@ type CloudFormationResourceSpecification struct {
 	// field, or a change to a resource, such as the making an optional resource property required.
 	ResourceSpecificationVersion string
 
+	// ResourceSpecificationTransform is not a valid key in the official AWS CloudFormation
+	// Specification.  It is used in this package to indicate the relevant Transform value to use
+	// for the resources in this spec.
+	ResourceSpecificationTransform string
+
 	// The list of resources and information about each resource's properties, such as its property names,
 	//  which properties are requires, and their update behavior. For more information, see
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html#cfn-resource-specification-format-resourcetype

@@ -16,9 +16,9 @@ import (
 // ResourceGenerator takes AWS CloudFormation Resource Specification
 // documents, and generates Go structs and a JSON Schema from them.
 type ResourceGenerator struct {
-	filenames map[string]string
-	urls      map[string]string
-	Results   *ResourceGeneratorResults
+	primaryUrl   string
+	fragmentUrls map[string]string
+	Results      *ResourceGeneratorResults
 }
 
 // ResourceGeneratorResults contains a summary of the items generated
@@ -28,14 +28,15 @@ type ResourceGeneratorResults struct {
 	ProcessedCount   int
 }
 
-// NewResourceGenerator an array of AWS CloudFormation Resource Specification
-// documents, and generates Go structs and a JSON Schema from them.
+// NewResourceGenerator contains a primary AWS CloudFormation Resource Specification
+// document and an array of fragment Resource Specification documents (such as transforms),
+// and generates Go structs and a JSON Schema from them.
 // The input can be a mix of URLs (https://) or files (file://).
-func NewResourceGenerator(urls map[string]string) (*ResourceGenerator, error) {
+func NewResourceGenerator(primaryUrl string, fragmentUrls map[string]string) (*ResourceGenerator, error) {
 
 	rg := &ResourceGenerator{
-		filenames: map[string]string{},
-		urls:      map[string]string{},
+		primaryUrl:   primaryUrl,
+		fragmentUrls: fragmentUrls,
 		Results: &ResourceGeneratorResults{
 			UpdatedResources: map[string]string{},
 			UpdatedSchemas:   map[string]string{},
@@ -43,52 +44,31 @@ func NewResourceGenerator(urls map[string]string) (*ResourceGenerator, error) {
 		},
 	}
 
-	for name, found := range urls {
-
-		uri, err := url.Parse(found)
-		if err != nil {
-			return nil, err
-		}
-
-		switch uri.Scheme {
-		case "https":
-			rg.urls[name] = uri.String()
-		case "http":
-			rg.urls[name] = uri.String()
-		case "file":
-			rg.filenames[name] = uri.String()
-		default:
-			return nil, fmt.Errorf("invalid URL scheme %s", uri.Scheme)
-		}
-
-	}
-
 	return rg, nil
-
 }
 
 // Generate generates Go structs and a JSON Schema from the AWS CloudFormation
 // Resource Specifications provided to NewResourceGenerator
 func (rg *ResourceGenerator) Generate() error {
 
-	for name, uri := range rg.urls {
-		fmt.Printf("Downloading %s specification from %s\n", name, uri)
-		data, err := rg.downloadSpec(uri)
-		if err != nil {
-			return err
-		}
-		spec, err := rg.processSpec(name, data)
-		if err != nil {
-			return err
-		}
-		if err := rg.generateJSONSchema(name, spec); err != nil {
-			return err
-		}
+	// Process the primary template first, since the primary template resources
+	// are added to the JSON schema for fragment transform specs
+	fmt.Printf("Downloading cloudformation specification from %s\n", rg.primaryUrl)
+	primaryData, err := rg.downloadSpec(rg.primaryUrl)
+	if err != nil {
+		return err
+	}
+	primarySpec, err := rg.processSpec("cloudformation", primaryData)
+	if err != nil {
+		return err
+	}
+	if err := rg.generateJSONSchema("cloudformation", primarySpec); err != nil {
+		return err
 	}
 
-	for name, filename := range rg.filenames {
-		fmt.Printf("Downloading %s specification from %s\n", name, filename)
-		data, err := ioutil.ReadFile(strings.Replace(filename, "file://", "", -1))
+	for name, url := range rg.fragmentUrls {
+		fmt.Printf("Downloading %s specification from %s\n", name, url)
+		data, err := rg.downloadSpec(url)
 		if err != nil {
 			return err
 		}
@@ -96,30 +76,51 @@ func (rg *ResourceGenerator) Generate() error {
 		if err != nil {
 			return err
 		}
+		// Append main CloudFormation schema resource types and property types to this fragment
+		for k, v := range primarySpec.Resources {
+			spec.Resources[k] = v
+		}
+		for k, v := range primarySpec.Properties {
+			spec.Properties[k] = v
+		}
 		if err := rg.generateJSONSchema(name, spec); err != nil {
 			return err
 		}
-
 	}
 
 	return nil
-
 }
 
-func (rg *ResourceGenerator) downloadSpec(uri string) ([]byte, error) {
-
-	response, err := http.Get(uri)
+func (rg *ResourceGenerator) downloadSpec(location string) ([]byte, error) {
+	uri, err := url.Parse(location)
 	if err != nil {
 		return nil, err
 	}
 
-	data, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return nil, err
+	switch uri.Scheme {
+	case "https", "http":
+		uri := uri.String()
+		response, err := http.Get(uri)
+		if err != nil {
+			return nil, err
+		}
+
+		data, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			return nil, err
+		}
+
+		return data, nil
+	case "file":
+		data, err := ioutil.ReadFile(strings.Replace(location, "file://", "", -1))
+		if err != nil {
+			return nil, err
+		}
+
+		return data, nil
 	}
 
-	return data, nil
-
+	return nil, fmt.Errorf("invalid URL scheme %s", uri.Scheme)
 }
 
 func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFormationResourceSpecification, error) {

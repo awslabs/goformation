@@ -23,16 +23,16 @@ func (r AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAM
 		return r.String
 	}
 
-	if r.String != nil {
-		return r.String
+	if r.StringArray != nil {
+		return r.StringArray
 	}
 
 	if r.IAMPolicyDocument != nil {
 		return r.IAMPolicyDocument
 	}
 
-	if r.IAMPolicyDocument != nil {
-		return r.IAMPolicyDocument
+	if r.IAMPolicyDocumentArray != nil {
+		return r.IAMPolicyDocumentArray
 	}
 
 	return nil

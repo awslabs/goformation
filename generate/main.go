@@ -9,12 +9,13 @@ func main() {
 
 	fmt.Printf("GoFormation Resource Generator\n")
 
-	specs := map[string]string{
-		"cloudformation": "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+	cloudformationSpec := "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
+
+	otherSpecs := map[string]string{
 		"sam":            "file://generate/sam-2016-10-31.json",
 	}
 
-	rg, err := NewResourceGenerator(specs)
+	rg, err := NewResourceGenerator(cloudformationSpec, otherSpecs)
 	if err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		os.Exit(1)

@@ -1,5 +1,6 @@
 {
     "ResourceSpecificationVersion": "2016-10-31",
+    "ResourceSpecificationTransform": "AWS::Serverless-2016-10-31",
     "ResourceTypes": {
         "AWS::Serverless::Function": {
             "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
@@ -150,7 +151,7 @@
                 },
                 "Variables" :{
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
-                    "Required": false,                   
+                    "Required": false,
                     "Type": "Map",
                     "PrimitiveItemType": "String",
                     "UpdateType": "Immutable"
@@ -243,7 +244,7 @@
             "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html",
             "Properties": {
                 "S3Key": {
-                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html",                    
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html",
                     "Required": true,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
@@ -391,7 +392,7 @@
             "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill",
             "Properties": {
                 "Variables": {
-                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill",                    
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill",
                     "Required": false,
                     "Type": "Map",
                     "PrimitiveItemType": "String",

@@ -74,6 +74,7 @@ func (p Property) Schema(name, parent string) string {
 	// are required in the JSON when looping through maps
 	tmpl, err := template.New("schema-property.template").Funcs(template.FuncMap{
 		"counter": counter,
+		"convertToJSONType": convertTypeToJSON,
 	}).ParseFiles("generate/templates/schema-property.template")
 
 	var buf bytes.Buffer

@@ -62,4 +62,49 @@ var _ = Describe("Resource", func() {
 
 	})
 
+	Context("with a custom property type resource", func() {
+
+		Context("described as Go structs", func() {
+
+			Context("with a list type", func() {
+
+				subproperty := &cloudformation.AWSServerlessFunction_S3Event{
+					Bucket: "my-bucket",
+					Events: &cloudformation.AWSServerlessFunction_StringOrListOfString{
+						StringArray: &[]string{"s3:ObjectCreated:*", "s3:ObjectRemoved:*"},
+					},
+				}
+
+				expected := []byte(`{"Bucket":"my-bucket","Events":["s3:ObjectCreated:*","s3:ObjectRemoved:*"]}`)
+
+				result, err := json.Marshal(subproperty)
+				It("should marshal to JSON successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
+			Context("with a primitive type", func() {
+
+				event := "s3:ObjectCreated:*"
+				subproperty := &cloudformation.AWSServerlessFunction_S3Event{
+					Bucket: "my-bucket",
+					Events: &cloudformation.AWSServerlessFunction_StringOrListOfString{
+						String: &event,
+					},
+				}
+
+				expected := []byte(`{"Bucket":"my-bucket","Events":"s3:ObjectCreated:*"}`)
+
+				result, err := json.Marshal(subproperty)
+				It("should marshal to JSON successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
+		})
+	})
 })

@@ -21,7 +21,7 @@ type Resource struct {
 }
 
 // Schema returns a JSON Schema for the resource (as a string)
-func (r Resource) Schema(name string) string {
+func (r Resource) Schema(name string, isCustomProperty bool) string {
 
 	// Open the schema template and setup a counter function that will
 	// available in the template to be used to detect when trailing commas
@@ -33,11 +33,13 @@ func (r Resource) Schema(name string) string {
 	var buf bytes.Buffer
 
 	templateData := struct {
-		Name     string
-		Resource Resource
+		Name             string
+		Resource         Resource
+		IsCustomProperty bool
 	}{
-		Name:     name,
-		Resource: r,
+		Name:             name,
+		Resource:         r,
+		IsCustomProperty: isCustomProperty,
 	}
 
 	// Execute the template, writing it to the buffer
