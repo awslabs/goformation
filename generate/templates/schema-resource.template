@@ -26,9 +26,16 @@
                 "{{.Name}}"
             ]
         },
+        {{if eq .Name "AWS::AutoScaling::AutoScalingGroup" "AWS::EC2::Instance" "AWS::CloudFormation::WaitCondition"}}
         "CreationPolicy": {
             "type": "object"
         },
+        {{end}}
+        {{if eq .Name "AWS::AutoScaling::AutoScalingGroup"}}
+        "UpdatePolicy": {
+            "type": "object"
+        },
+        {{end}}
         "DeletionPolicy": {
             "type": "string",
             "enum": [
@@ -53,9 +60,6 @@
             ]
         },
         "Metadata": {
-            "type": "object"
-        },
-        "UpdatePolicy": {
             "type": "object"
         }
     },

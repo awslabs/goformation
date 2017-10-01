@@ -5,9 +5,6 @@
         "AWS::ApiGateway::Account": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -48,9 +45,6 @@
                         "AWS::ApiGateway::Account"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -61,9 +55,6 @@
         "AWS::ApiGateway::ApiKey": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -116,9 +107,6 @@
                         "AWS::ApiGateway::ApiKey"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -141,9 +129,6 @@
         "AWS::ApiGateway::Authorizer": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -214,9 +199,6 @@
                         "AWS::ApiGateway::Authorizer"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -228,9 +210,6 @@
         "AWS::ApiGateway::BasePathMapping": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -283,9 +262,6 @@
                         "AWS::ApiGateway::BasePathMapping"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -297,9 +273,6 @@
         "AWS::ApiGateway::ClientCertificate": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -340,9 +313,6 @@
                         "AWS::ApiGateway::ClientCertificate"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -353,9 +323,6 @@
         "AWS::ApiGateway::Deployment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -408,9 +375,6 @@
                         "AWS::ApiGateway::Deployment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -521,9 +485,6 @@
         "AWS::ApiGateway::DocumentationPart": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -575,9 +536,6 @@
                         "AWS::ApiGateway::DocumentationPart"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -610,9 +568,6 @@
         "AWS::ApiGateway::DocumentationVersion": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -663,9 +618,6 @@
                         "AWS::ApiGateway::DocumentationVersion"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -677,9 +629,6 @@
         "AWS::ApiGateway::DomainName": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -727,9 +676,6 @@
                         "AWS::ApiGateway::DomainName"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -741,9 +687,6 @@
         "AWS::ApiGateway::GatewayResponse": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -812,9 +755,6 @@
                         "AWS::ApiGateway::GatewayResponse"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -826,9 +766,6 @@
         "AWS::ApiGateway::Method": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -916,9 +853,6 @@
                         "AWS::ApiGateway::Method"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1047,9 +981,6 @@
         "AWS::ApiGateway::Model": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1105,9 +1036,6 @@
                         "AWS::ApiGateway::Model"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1119,9 +1047,6 @@
         "AWS::ApiGateway::RequestValidator": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1174,9 +1099,6 @@
                         "AWS::ApiGateway::RequestValidator"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1188,9 +1110,6 @@
         "AWS::ApiGateway::Resource": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1242,9 +1161,6 @@
                         "AWS::ApiGateway::Resource"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1256,9 +1172,6 @@
         "AWS::ApiGateway::RestApi": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1332,9 +1245,6 @@
                         "AWS::ApiGateway::RestApi"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1363,9 +1273,6 @@
         "AWS::ApiGateway::Stage": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1445,9 +1352,6 @@
                         "AWS::ApiGateway::Stage"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1495,9 +1399,6 @@
         "AWS::ApiGateway::UsagePlan": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1553,9 +1454,6 @@
                         "AWS::ApiGateway::UsagePlan"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1605,9 +1503,6 @@
         "AWS::ApiGateway::UsagePlanKey": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1659,9 +1554,6 @@
                         "AWS::ApiGateway::UsagePlanKey"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1673,9 +1565,6 @@
         "AWS::ApplicationAutoScaling::ScalableTarget": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1739,9 +1628,6 @@
                         "AWS::ApplicationAutoScaling::ScalableTarget"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -1753,9 +1639,6 @@
         "AWS::ApplicationAutoScaling::ScalingPolicy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -1821,9 +1704,6 @@
                         "AWS::ApplicationAutoScaling::ScalingPolicy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -2150,9 +2030,6 @@
         "AWS::AutoScaling::LaunchConfiguration": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -2254,9 +2131,6 @@
                         "AWS::AutoScaling::LaunchConfiguration"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -2313,9 +2187,6 @@
         "AWS::AutoScaling::LifecycleHook": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -2378,9 +2249,6 @@
                         "AWS::AutoScaling::LifecycleHook"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -2392,9 +2260,6 @@
         "AWS::AutoScaling::ScalingPolicy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -2468,9 +2333,6 @@
                         "AWS::AutoScaling::ScalingPolicy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -2581,9 +2443,6 @@
         "AWS::AutoScaling::ScheduledAction": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -2645,9 +2504,6 @@
                         "AWS::AutoScaling::ScheduledAction"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -2659,9 +2515,6 @@
         "AWS::Batch::ComputeEnvironment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -2719,9 +2572,6 @@
                         "AWS::Batch::ComputeEnvironment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -2796,9 +2646,6 @@
         "AWS::Batch::JobDefinition": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -2855,9 +2702,6 @@
                         "AWS::Batch::JobDefinition"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3008,9 +2852,6 @@
         "AWS::Batch::JobQueue": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -3067,9 +2908,6 @@
                         "AWS::Batch::JobQueue"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3097,9 +2935,6 @@
         "AWS::CertificateManager::Certificate": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -3161,9 +2996,6 @@
                         "AWS::CertificateManager::Certificate"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3191,9 +3023,6 @@
         "AWS::CloudFormation::CustomResource": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -3237,9 +3066,6 @@
                         "AWS::CloudFormation::CustomResource"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3251,9 +3077,6 @@
         "AWS::CloudFormation::Stack": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -3321,9 +3144,6 @@
                         "AWS::CloudFormation::Stack"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3388,9 +3208,6 @@
                         "AWS::CloudFormation::WaitCondition"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3402,9 +3219,6 @@
         "AWS::CloudFormation::WaitConditionHandle": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -3441,9 +3255,6 @@
                         "AWS::CloudFormation::WaitConditionHandle"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3454,9 +3265,6 @@
         "AWS::CloudFront::Distribution": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -3500,9 +3308,6 @@
                         "AWS::CloudFront::Distribution"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -3904,9 +3709,6 @@
         "AWS::CloudTrail::Trail": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -3993,9 +3795,6 @@
                         "AWS::CloudTrail::Trail"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4043,9 +3842,6 @@
         "AWS::CloudWatch::Alarm": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -4157,9 +3953,6 @@
                         "AWS::CloudWatch::Alarm"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4187,9 +3980,6 @@
         "AWS::CloudWatch::Dashboard": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -4236,9 +4026,6 @@
                         "AWS::CloudWatch::Dashboard"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4250,9 +4037,6 @@
         "AWS::CodeBuild::Project": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -4326,9 +4110,6 @@
                         "AWS::CodeBuild::Project"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4451,9 +4232,6 @@
         "AWS::CodeCommit::Repository": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -4506,9 +4284,6 @@
                         "AWS::CodeCommit::Repository"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4547,9 +4322,6 @@
         "AWS::CodeDeploy::Application": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -4590,9 +4362,6 @@
                         "AWS::CodeDeploy::Application"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4603,9 +4372,6 @@
         "AWS::CodeDeploy::DeploymentConfig": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -4649,9 +4415,6 @@
                         "AWS::CodeDeploy::DeploymentConfig"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4678,9 +4441,6 @@
         "AWS::CodeDeploy::DeploymentGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -4773,9 +4533,6 @@
                         "AWS::CodeDeploy::DeploymentGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -4981,9 +4738,6 @@
         "AWS::CodePipeline::CustomActionType": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -5051,9 +4805,6 @@
                         "AWS::CodePipeline::CustomActionType"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -5132,9 +4883,6 @@
         "AWS::CodePipeline::Pipeline": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -5201,9 +4949,6 @@
                         "AWS::CodePipeline::Pipeline"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -5392,9 +5137,6 @@
         "AWS::Cognito::IdentityPool": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -5474,9 +5216,6 @@
                         "AWS::Cognito::IdentityPool"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -5533,9 +5272,6 @@
         "AWS::Cognito::IdentityPoolRoleAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -5585,9 +5321,6 @@
                         "AWS::Cognito::IdentityPoolRoleAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -5656,9 +5389,6 @@
         "AWS::Cognito::UserPool": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -5753,9 +5483,6 @@
                         "AWS::Cognito::UserPool"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -5943,9 +5670,6 @@
         "AWS::Cognito::UserPoolClient": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6016,9 +5740,6 @@
                         "AWS::Cognito::UserPoolClient"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6030,9 +5751,6 @@
         "AWS::Cognito::UserPoolGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6088,9 +5806,6 @@
                         "AWS::Cognito::UserPoolGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6102,9 +5817,6 @@
         "AWS::Cognito::UserPoolUser": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6175,9 +5887,6 @@
                         "AWS::Cognito::UserPoolUser"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6201,9 +5910,6 @@
         "AWS::Cognito::UserPoolUserToGroupAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6255,9 +5961,6 @@
                         "AWS::Cognito::UserPoolUserToGroupAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6269,9 +5972,6 @@
         "AWS::Config::ConfigRule": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6330,9 +6030,6 @@
                         "AWS::Config::ConfigRule"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6406,9 +6103,6 @@
         "AWS::Config::ConfigurationRecorder": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6458,9 +6152,6 @@
                         "AWS::Config::ConfigurationRecorder"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6490,9 +6181,6 @@
         "AWS::Config::DeliveryChannel": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6548,9 +6236,6 @@
                         "AWS::Config::DeliveryChannel"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6571,9 +6256,6 @@
         "AWS::DAX::Cluster": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6658,9 +6340,6 @@
                         "AWS::DAX::Cluster"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6672,9 +6351,6 @@
         "AWS::DAX::ParameterGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6721,9 +6397,6 @@
                         "AWS::DAX::ParameterGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6734,9 +6407,6 @@
         "AWS::DAX::SubnetGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6789,9 +6459,6 @@
                         "AWS::DAX::SubnetGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6803,9 +6470,6 @@
         "AWS::DMS::Certificate": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6852,9 +6516,6 @@
                         "AWS::DMS::Certificate"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -6865,9 +6526,6 @@
         "AWS::DMS::Endpoint": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -6960,9 +6618,6 @@
                         "AWS::DMS::Endpoint"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7049,9 +6704,6 @@
         "AWS::DMS::EventSubscription": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7122,9 +6774,6 @@
                         "AWS::DMS::EventSubscription"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7136,9 +6785,6 @@
         "AWS::DMS::ReplicationInstance": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7227,9 +6873,6 @@
                         "AWS::DMS::ReplicationInstance"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7241,9 +6884,6 @@
         "AWS::DMS::ReplicationSubnetGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7303,9 +6943,6 @@
                         "AWS::DMS::ReplicationSubnetGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7317,9 +6954,6 @@
         "AWS::DMS::ReplicationTask": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7394,9 +7028,6 @@
                         "AWS::DMS::ReplicationTask"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7408,9 +7039,6 @@
         "AWS::DataPipeline::Pipeline": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7485,9 +7113,6 @@
                         "AWS::DataPipeline::Pipeline"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7607,9 +7232,6 @@
         "AWS::DirectoryService::MicrosoftAD": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7670,9 +7292,6 @@
                         "AWS::DirectoryService::MicrosoftAD"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7703,9 +7322,6 @@
         "AWS::DirectoryService::SimpleAD": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7773,9 +7389,6 @@
                         "AWS::DirectoryService::SimpleAD"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -7806,9 +7419,6 @@
         "AWS::DynamoDB::Table": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -7892,9 +7502,6 @@
                         "AWS::DynamoDB::Table"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8047,9 +7654,6 @@
         "AWS::EC2::CustomerGateway": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8107,9 +7711,6 @@
                         "AWS::EC2::CustomerGateway"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8121,9 +7722,6 @@
         "AWS::EC2::DHCPOptions": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8191,9 +7789,6 @@
                         "AWS::EC2::DHCPOptions"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8204,9 +7799,6 @@
         "AWS::EC2::EIP": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8250,9 +7842,6 @@
                         "AWS::EC2::EIP"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8263,9 +7852,6 @@
         "AWS::EC2::EIPAssociation": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8318,9 +7904,6 @@
                         "AWS::EC2::EIPAssociation"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8331,9 +7914,6 @@
         "AWS::EC2::EgressOnlyInternetGateway": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8377,9 +7957,6 @@
                         "AWS::EC2::EgressOnlyInternetGateway"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8391,9 +7968,6 @@
         "AWS::EC2::FlowLog": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8453,9 +8027,6 @@
                         "AWS::EC2::FlowLog"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8467,9 +8038,6 @@
         "AWS::EC2::Host": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8520,9 +8088,6 @@
                         "AWS::EC2::Host"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8688,9 +8253,6 @@
                         "AWS::EC2::Instance"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8887,9 +8449,6 @@
         "AWS::EC2::InternetGateway": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -8933,9 +8492,6 @@
                         "AWS::EC2::InternetGateway"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -8946,9 +8502,6 @@
         "AWS::EC2::NatGateway": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9002,9 +8555,6 @@
                         "AWS::EC2::NatGateway"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9016,9 +8566,6 @@
         "AWS::EC2::NetworkAcl": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9068,9 +8615,6 @@
                         "AWS::EC2::NetworkAcl"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9082,9 +8626,6 @@
         "AWS::EC2::NetworkAclEntry": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9156,9 +8697,6 @@
                         "AWS::EC2::NetworkAclEntry"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9194,9 +8732,6 @@
         "AWS::EC2::NetworkInterface": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9279,9 +8814,6 @@
                         "AWS::EC2::NetworkInterface"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9321,9 +8853,6 @@
         "AWS::EC2::NetworkInterfaceAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9378,9 +8907,6 @@
                         "AWS::EC2::NetworkInterfaceAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9392,9 +8918,6 @@
         "AWS::EC2::NetworkInterfacePermission": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9446,9 +8969,6 @@
                         "AWS::EC2::NetworkInterfacePermission"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9460,9 +8980,6 @@
         "AWS::EC2::PlacementGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9503,9 +9020,6 @@
                         "AWS::EC2::PlacementGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9516,9 +9030,6 @@
         "AWS::EC2::Route": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9583,9 +9094,6 @@
                         "AWS::EC2::Route"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9597,9 +9105,6 @@
         "AWS::EC2::RouteTable": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9649,9 +9154,6 @@
                         "AWS::EC2::RouteTable"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9663,9 +9165,6 @@
         "AWS::EC2::SecurityGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9733,9 +9232,6 @@
                         "AWS::EC2::SecurityGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9810,9 +9306,6 @@
         "AWS::EC2::SecurityGroupEgress": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9878,9 +9371,6 @@
                         "AWS::EC2::SecurityGroupEgress"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9892,9 +9382,6 @@
         "AWS::EC2::SecurityGroupIngress": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -9965,9 +9452,6 @@
                         "AWS::EC2::SecurityGroupIngress"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -9979,9 +9463,6 @@
         "AWS::EC2::SpotFleet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10025,9 +9506,6 @@
                         "AWS::EC2::SpotFleet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10316,9 +9794,6 @@
         "AWS::EC2::Subnet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10384,9 +9859,6 @@
                         "AWS::EC2::Subnet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10398,9 +9870,6 @@
         "AWS::EC2::SubnetCidrBlock": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10448,9 +9917,6 @@
                         "AWS::EC2::SubnetCidrBlock"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10462,9 +9928,6 @@
         "AWS::EC2::SubnetNetworkAclAssociation": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10512,9 +9975,6 @@
                         "AWS::EC2::SubnetNetworkAclAssociation"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10526,9 +9986,6 @@
         "AWS::EC2::SubnetRouteTableAssociation": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10576,9 +10033,6 @@
                         "AWS::EC2::SubnetRouteTableAssociation"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10590,9 +10044,6 @@
         "AWS::EC2::TrunkInterfaceAssociation": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10646,9 +10097,6 @@
                         "AWS::EC2::TrunkInterfaceAssociation"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10660,9 +10108,6 @@
         "AWS::EC2::VPC": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10721,9 +10166,6 @@
                         "AWS::EC2::VPC"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10735,9 +10177,6 @@
         "AWS::EC2::VPCCidrBlock": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10787,9 +10226,6 @@
                         "AWS::EC2::VPCCidrBlock"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10801,9 +10237,6 @@
         "AWS::EC2::VPCDHCPOptionsAssociation": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10851,9 +10284,6 @@
                         "AWS::EC2::VPCDHCPOptionsAssociation"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10865,9 +10295,6 @@
         "AWS::EC2::VPCEndpoint": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10924,9 +10351,6 @@
                         "AWS::EC2::VPCEndpoint"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -10938,9 +10362,6 @@
         "AWS::EC2::VPCGatewayAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -10990,9 +10411,6 @@
                         "AWS::EC2::VPCGatewayAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11004,9 +10422,6 @@
         "AWS::EC2::VPCPeeringConnection": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11066,9 +10481,6 @@
                         "AWS::EC2::VPCPeeringConnection"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11080,9 +10492,6 @@
         "AWS::EC2::VPNConnection": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11143,9 +10552,6 @@
                         "AWS::EC2::VPNConnection"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11157,9 +10563,6 @@
         "AWS::EC2::VPNConnectionRoute": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11207,9 +10610,6 @@
                         "AWS::EC2::VPNConnectionRoute"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11221,9 +10621,6 @@
         "AWS::EC2::VPNGateway": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11273,9 +10670,6 @@
                         "AWS::EC2::VPNGateway"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11287,9 +10681,6 @@
         "AWS::EC2::VPNGatewayRoutePropagation": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11340,9 +10731,6 @@
                         "AWS::EC2::VPNGatewayRoutePropagation"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11354,9 +10742,6 @@
         "AWS::EC2::Volume": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11427,9 +10812,6 @@
                         "AWS::EC2::Volume"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11441,9 +10823,6 @@
         "AWS::EC2::VolumeAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11495,9 +10874,6 @@
                         "AWS::EC2::VolumeAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11509,9 +10885,6 @@
         "AWS::ECR::Repository": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11555,9 +10928,6 @@
                         "AWS::ECR::Repository"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11568,9 +10938,6 @@
         "AWS::ECS::Cluster": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11611,9 +10978,6 @@
                         "AWS::ECS::Cluster"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11624,9 +10988,6 @@
         "AWS::ECS::Service": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11703,9 +11064,6 @@
                         "AWS::ECS::Service"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -11780,9 +11138,6 @@
         "AWS::ECS::TaskDefinition": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -11847,9 +11202,6 @@
                         "AWS::ECS::TaskDefinition"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -12133,9 +11485,6 @@
         "AWS::EFS::FileSystem": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -12188,9 +11537,6 @@
                         "AWS::EFS::FileSystem"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -12217,9 +11563,6 @@
         "AWS::EFS::MountTarget": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -12277,9 +11620,6 @@
                         "AWS::EFS::MountTarget"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -12291,9 +11631,6 @@
         "AWS::EMR::Cluster": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -12394,9 +11731,6 @@
                         "AWS::EMR::Cluster"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -12891,9 +12225,6 @@
         "AWS::EMR::InstanceFleetConfig": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -12959,9 +12290,6 @@
                         "AWS::EMR::InstanceFleetConfig"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -13107,9 +12435,6 @@
         "AWS::EMR::InstanceGroupConfig": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -13186,9 +12511,6 @@
                         "AWS::EMR::InstanceGroupConfig"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -13434,9 +12756,6 @@
         "AWS::EMR::SecurityConfiguration": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -13483,9 +12802,6 @@
                         "AWS::EMR::SecurityConfiguration"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -13497,9 +12813,6 @@
         "AWS::EMR::Step": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -13555,9 +12868,6 @@
                         "AWS::EMR::Step"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -13608,9 +12918,6 @@
         "AWS::ElastiCache::CacheCluster": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -13731,9 +13038,6 @@
                         "AWS::ElastiCache::CacheCluster"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -13745,9 +13049,6 @@
         "AWS::ElastiCache::ParameterGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -13804,9 +13105,6 @@
                         "AWS::ElastiCache::ParameterGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -13818,9 +13116,6 @@
         "AWS::ElastiCache::ReplicationGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -13957,9 +13252,6 @@
                         "AWS::ElastiCache::ReplicationGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -13992,9 +13284,6 @@
         "AWS::ElastiCache::SecurityGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14038,9 +13327,6 @@
                         "AWS::ElastiCache::SecurityGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14052,9 +13338,6 @@
         "AWS::ElastiCache::SecurityGroupIngress": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14105,9 +13388,6 @@
                         "AWS::ElastiCache::SecurityGroupIngress"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14119,9 +13399,6 @@
         "AWS::ElastiCache::SubnetGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14175,9 +13452,6 @@
                         "AWS::ElastiCache::SubnetGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14189,9 +13463,6 @@
         "AWS::ElasticBeanstalk::Application": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14238,9 +13509,6 @@
                         "AWS::ElasticBeanstalk::Application"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14305,9 +13573,6 @@
         "AWS::ElasticBeanstalk::ApplicationVersion": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14358,9 +13623,6 @@
                         "AWS::ElasticBeanstalk::ApplicationVersion"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14388,9 +13650,6 @@
         "AWS::ElasticBeanstalk::ConfigurationTemplate": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14455,9 +13714,6 @@
                         "AWS::ElasticBeanstalk::ConfigurationTemplate"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14504,9 +13760,6 @@
         "AWS::ElasticBeanstalk::Environment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14586,9 +13839,6 @@
                         "AWS::ElasticBeanstalk::Environment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14634,9 +13884,6 @@
         "AWS::ElasticLoadBalancing::LoadBalancer": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -14752,9 +13999,6 @@
                         "AWS::ElasticLoadBalancing::LoadBalancer"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -14938,9 +14182,6 @@
         "AWS::ElasticLoadBalancingV2::Listener": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15008,9 +14249,6 @@
                         "AWS::ElasticLoadBalancingV2::Listener"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15047,9 +14285,6 @@
         "AWS::ElasticLoadBalancingV2::ListenerCertificate": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15100,9 +14335,6 @@
                         "AWS::ElasticLoadBalancingV2::ListenerCertificate"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15123,9 +14355,6 @@
         "AWS::ElasticLoadBalancingV2::ListenerRule": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15187,9 +14416,6 @@
                         "AWS::ElasticLoadBalancingV2::ListenerRule"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15232,9 +14458,6 @@
         "AWS::ElasticLoadBalancingV2::LoadBalancer": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15314,9 +14537,6 @@
                         "AWS::ElasticLoadBalancingV2::LoadBalancer"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15355,9 +14575,6 @@
         "AWS::ElasticLoadBalancingV2::TargetGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15457,9 +14674,6 @@
                         "AWS::ElasticLoadBalancingV2::TargetGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15513,9 +14727,6 @@
         "AWS::Elasticsearch::Domain": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15586,9 +14797,6 @@
                         "AWS::Elasticsearch::Domain"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15650,9 +14858,6 @@
         "AWS::Events::Rule": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15714,9 +14919,6 @@
                         "AWS::Events::Rule"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15846,9 +15048,6 @@
         "AWS::GameLift::Alias": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15899,9 +15098,6 @@
                         "AWS::GameLift::Alias"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -15931,9 +15127,6 @@
         "AWS::GameLift::Build": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -15980,9 +15173,6 @@
                         "AWS::GameLift::Build"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16013,9 +15203,6 @@
         "AWS::GameLift::Fleet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16099,9 +15286,6 @@
                         "AWS::GameLift::Fleet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16137,9 +15321,6 @@
         "AWS::IAM::AccessKey": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16189,9 +15370,6 @@
                         "AWS::IAM::AccessKey"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16203,9 +15381,6 @@
         "AWS::IAM::Group": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16261,9 +15436,6 @@
                         "AWS::IAM::Group"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16290,9 +15462,6 @@
         "AWS::IAM::InstanceProfile": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16345,9 +15514,6 @@
                         "AWS::IAM::InstanceProfile"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16359,9 +15525,6 @@
         "AWS::IAM::ManagedPolicy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16432,9 +15595,6 @@
                         "AWS::IAM::ManagedPolicy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16446,9 +15606,6 @@
         "AWS::IAM::Policy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16514,9 +15671,6 @@
                         "AWS::IAM::Policy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16528,9 +15682,6 @@
         "AWS::IAM::Role": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16592,9 +15743,6 @@
                         "AWS::IAM::Role"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16622,9 +15770,6 @@
         "AWS::IAM::User": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16689,9 +15834,6 @@
                         "AWS::IAM::User"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16733,9 +15875,6 @@
         "AWS::IAM::UserToGroupAddition": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16786,9 +15925,6 @@
                         "AWS::IAM::UserToGroupAddition"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16800,9 +15936,6 @@
         "AWS::IoT::Certificate": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16850,9 +15983,6 @@
                         "AWS::IoT::Certificate"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16864,9 +15994,6 @@
         "AWS::IoT::Policy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16913,9 +16040,6 @@
                         "AWS::IoT::Policy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16927,9 +16051,6 @@
         "AWS::IoT::PolicyPrincipalAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -16977,9 +16098,6 @@
                         "AWS::IoT::PolicyPrincipalAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -16991,9 +16109,6 @@
         "AWS::IoT::Thing": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -17037,9 +16152,6 @@
                         "AWS::IoT::Thing"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -17065,9 +16177,6 @@
         "AWS::IoT::ThingPrincipalAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -17115,9 +16224,6 @@
                         "AWS::IoT::ThingPrincipalAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -17129,9 +16235,6 @@
         "AWS::IoT::TopicRule": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -17178,9 +16281,6 @@
                         "AWS::IoT::TopicRule"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -17532,9 +16632,6 @@
         "AWS::KMS::Alias": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -17582,9 +16679,6 @@
                         "AWS::KMS::Alias"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -17596,9 +16690,6 @@
         "AWS::KMS::Key": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -17660,9 +16751,6 @@
                         "AWS::KMS::Key"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -17674,9 +16762,6 @@
         "AWS::Kinesis::Stream": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -17732,9 +16817,6 @@
                         "AWS::Kinesis::Stream"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -17746,9 +16828,6 @@
         "AWS::KinesisAnalytics::Application": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -17804,9 +16883,6 @@
                         "AWS::KinesisAnalytics::Application"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -17980,9 +17056,6 @@
         "AWS::KinesisAnalytics::ApplicationOutput": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -18030,9 +17103,6 @@
                         "AWS::KinesisAnalytics::ApplicationOutput"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -18106,9 +17176,6 @@
         "AWS::KinesisAnalytics::ApplicationReferenceDataSource": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -18156,9 +17223,6 @@
                         "AWS::KinesisAnalytics::ApplicationReferenceDataSource"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -18304,9 +17368,6 @@
         "AWS::KinesisFirehose::DeliveryStream": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -18365,9 +17426,6 @@
                         "AWS::KinesisFirehose::DeliveryStream"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -18714,9 +17772,6 @@
         "AWS::Lambda::Alias": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -18771,9 +17826,6 @@
                         "AWS::Lambda::Alias"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -18785,9 +17837,6 @@
         "AWS::Lambda::EventSourceMapping": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -18845,9 +17894,6 @@
                         "AWS::Lambda::EventSourceMapping"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -18859,9 +17905,6 @@
         "AWS::Lambda::Function": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -18950,9 +17993,6 @@
                         "AWS::Lambda::Function"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19037,9 +18077,6 @@
         "AWS::Lambda::Permission": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19100,9 +18137,6 @@
                         "AWS::Lambda::Permission"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19114,9 +18148,6 @@
         "AWS::Lambda::Version": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19166,9 +18197,6 @@
                         "AWS::Lambda::Version"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19180,9 +18208,6 @@
         "AWS::Logs::Destination": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19238,9 +18263,6 @@
                         "AWS::Logs::Destination"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19252,9 +18274,6 @@
         "AWS::Logs::LogGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19298,9 +18317,6 @@
                         "AWS::Logs::LogGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19311,9 +18327,6 @@
         "AWS::Logs::LogStream": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19360,9 +18373,6 @@
                         "AWS::Logs::LogStream"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19374,9 +18384,6 @@
         "AWS::Logs::MetricFilter": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19431,9 +18438,6 @@
                         "AWS::Logs::MetricFilter"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19465,9 +18469,6 @@
         "AWS::Logs::SubscriptionFilter": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19522,9 +18523,6 @@
                         "AWS::Logs::SubscriptionFilter"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19536,9 +18534,6 @@
         "AWS::OpsWorks::App": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19632,9 +18627,6 @@
                         "AWS::OpsWorks::App"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19719,9 +18711,6 @@
         "AWS::OpsWorks::ElasticLoadBalancerAttachment": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19769,9 +18758,6 @@
                         "AWS::OpsWorks::ElasticLoadBalancerAttachment"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -19783,9 +18769,6 @@
         "AWS::OpsWorks::Instance": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -19903,9 +18886,6 @@
                         "AWS::OpsWorks::Instance"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -20025,9 +19005,6 @@
         "AWS::OpsWorks::Layer": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -20143,9 +19120,6 @@
                         "AWS::OpsWorks::Layer"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -20277,9 +19251,6 @@
         "AWS::OpsWorks::Stack": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -20409,9 +19380,6 @@
                         "AWS::OpsWorks::Stack"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -20506,9 +19474,6 @@
         "AWS::OpsWorks::UserProfile": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -20561,9 +19526,6 @@
                         "AWS::OpsWorks::UserProfile"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -20575,9 +19537,6 @@
         "AWS::OpsWorks::Volume": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -20631,9 +19590,6 @@
                         "AWS::OpsWorks::Volume"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -20645,9 +19601,6 @@
         "AWS::RDS::DBCluster": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -20748,9 +19701,6 @@
                         "AWS::RDS::DBCluster"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -20762,9 +19712,6 @@
         "AWS::RDS::DBClusterParameterGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -20822,9 +19769,6 @@
                         "AWS::RDS::DBClusterParameterGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -20836,9 +19780,6 @@
         "AWS::RDS::DBInstance": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21002,9 +19943,6 @@
                         "AWS::RDS::DBInstance"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21016,9 +19954,6 @@
         "AWS::RDS::DBParameterGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21081,9 +20016,6 @@
                         "AWS::RDS::DBParameterGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21095,9 +20027,6 @@
         "AWS::RDS::DBSecurityGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21157,9 +20086,6 @@
                         "AWS::RDS::DBSecurityGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21189,9 +20115,6 @@
         "AWS::RDS::DBSecurityGroupIngress": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21247,9 +20170,6 @@
                         "AWS::RDS::DBSecurityGroupIngress"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21261,9 +20181,6 @@
         "AWS::RDS::DBSubnetGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21320,9 +20237,6 @@
                         "AWS::RDS::DBSubnetGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21334,9 +20248,6 @@
         "AWS::RDS::EventSubscription": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21398,9 +20309,6 @@
                         "AWS::RDS::EventSubscription"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21412,9 +20320,6 @@
         "AWS::RDS::OptionGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21479,9 +20384,6 @@
                         "AWS::RDS::OptionGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21535,9 +20437,6 @@
         "AWS::Redshift::Cluster": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21678,9 +20577,6 @@
                         "AWS::Redshift::Cluster"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21707,9 +20603,6 @@
         "AWS::Redshift::ClusterParameterGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21769,9 +20662,6 @@
                         "AWS::Redshift::ClusterParameterGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21799,9 +20689,6 @@
         "AWS::Redshift::ClusterSecurityGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21851,9 +20738,6 @@
                         "AWS::Redshift::ClusterSecurityGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21865,9 +20749,6 @@
         "AWS::Redshift::ClusterSecurityGroupIngress": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21920,9 +20801,6 @@
                         "AWS::Redshift::ClusterSecurityGroupIngress"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -21934,9 +20812,6 @@
         "AWS::Redshift::ClusterSubnetGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -21993,9 +20868,6 @@
                         "AWS::Redshift::ClusterSubnetGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -22007,9 +20879,6 @@
         "AWS::Route53::HealthCheck": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -22059,9 +20928,6 @@
                         "AWS::Route53::HealthCheck"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -22162,9 +21028,6 @@
         "AWS::Route53::HostedZone": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -22223,9 +21086,6 @@
                         "AWS::Route53::HostedZone"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -22278,9 +21138,6 @@
         "AWS::Route53::RecordSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -22367,9 +21224,6 @@
                         "AWS::Route53::RecordSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -22415,9 +21269,6 @@
         "AWS::Route53::RecordSetGroup": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -22470,9 +21321,6 @@
                         "AWS::Route53::RecordSetGroup"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -22572,9 +21420,6 @@
         "AWS::S3::Bucket": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -22666,9 +21511,6 @@
                         "AWS::S3::Bucket"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23296,9 +22138,6 @@
         "AWS::S3::BucketPolicy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23346,9 +22185,6 @@
                         "AWS::S3::BucketPolicy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23360,9 +22196,6 @@
         "AWS::SDB::Domain": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23403,9 +22236,6 @@
                         "AWS::SDB::Domain"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23416,9 +22246,6 @@
         "AWS::SNS::Subscription": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23465,9 +22292,6 @@
                         "AWS::SNS::Subscription"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23478,9 +22302,6 @@
         "AWS::SNS::Topic": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23530,9 +22351,6 @@
                         "AWS::SNS::Topic"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23559,9 +22377,6 @@
         "AWS::SNS::TopicPolicy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23612,9 +22427,6 @@
                         "AWS::SNS::TopicPolicy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23626,9 +22438,6 @@
         "AWS::SQS::Queue": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23699,9 +22508,6 @@
                         "AWS::SQS::Queue"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23712,9 +22518,6 @@
         "AWS::SQS::QueuePolicy": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23765,9 +22568,6 @@
                         "AWS::SQS::QueuePolicy"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23779,9 +22579,6 @@
         "AWS::SSM::Association": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23849,9 +22646,6 @@
                         "AWS::SSM::Association"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23897,9 +22691,6 @@
         "AWS::SSM::Document": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -23946,9 +22737,6 @@
                         "AWS::SSM::Document"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -23960,9 +22748,6 @@
         "AWS::SSM::Parameter": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24019,9 +22804,6 @@
                         "AWS::SSM::Parameter"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24033,9 +22815,6 @@
         "AWS::StepFunctions::Activity": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24079,9 +22858,6 @@
                         "AWS::StepFunctions::Activity"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24093,9 +22869,6 @@
         "AWS::StepFunctions::StateMachine": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24143,9 +22916,6 @@
                         "AWS::StepFunctions::StateMachine"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24157,9 +22927,6 @@
         "AWS::WAF::ByteMatchSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24209,9 +22976,6 @@
                         "AWS::WAF::ByteMatchSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24264,9 +23028,6 @@
         "AWS::WAF::IPSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24316,9 +23077,6 @@
                         "AWS::WAF::IPSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24346,9 +23104,6 @@
         "AWS::WAF::Rule": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24402,9 +23157,6 @@
                         "AWS::WAF::Rule"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24436,9 +23188,6 @@
         "AWS::WAF::SizeConstraintSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24489,9 +23238,6 @@
                         "AWS::WAF::SizeConstraintSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24542,9 +23288,6 @@
         "AWS::WAF::SqlInjectionMatchSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24594,9 +23337,6 @@
                         "AWS::WAF::SqlInjectionMatchSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24639,9 +23379,6 @@
         "AWS::WAF::WebACL": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24699,9 +23436,6 @@
                         "AWS::WAF::WebACL"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24745,9 +23479,6 @@
         "AWS::WAF::XssMatchSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24798,9 +23529,6 @@
                         "AWS::WAF::XssMatchSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24843,9 +23571,6 @@
         "AWS::WAFRegional::ByteMatchSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -24895,9 +23620,6 @@
                         "AWS::WAFRegional::ByteMatchSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -24950,9 +23672,6 @@
         "AWS::WAFRegional::IPSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25002,9 +23721,6 @@
                         "AWS::WAFRegional::IPSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -25032,9 +23748,6 @@
         "AWS::WAFRegional::Rule": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25088,9 +23801,6 @@
                         "AWS::WAFRegional::Rule"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -25122,9 +23832,6 @@
         "AWS::WAFRegional::SizeConstraintSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25174,9 +23881,6 @@
                         "AWS::WAFRegional::SizeConstraintSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -25227,9 +23931,6 @@
         "AWS::WAFRegional::SqlInjectionMatchSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25279,9 +23980,6 @@
                         "AWS::WAFRegional::SqlInjectionMatchSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -25324,9 +24022,6 @@
         "AWS::WAFRegional::WebACL": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25384,9 +24079,6 @@
                         "AWS::WAFRegional::WebACL"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -25430,9 +24122,6 @@
         "AWS::WAFRegional::WebACLAssociation": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25480,9 +24169,6 @@
                         "AWS::WAFRegional::WebACLAssociation"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -25494,9 +24180,6 @@
         "AWS::WAFRegional::XssMatchSet": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25546,9 +24229,6 @@
                         "AWS::WAFRegional::XssMatchSet"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
@@ -25591,9 +24271,6 @@
         "AWS::WorkSpaces::Workspace": {
             "additionalProperties": false,
             "properties": {
-                "CreationPolicy": {
-                    "type": "object"
-                },
                 "DeletionPolicy": {
                     "enum": [
                         "Delete",
@@ -25654,9 +24331,6 @@
                         "AWS::WorkSpaces::Workspace"
                     ],
                     "type": "string"
-                },
-                "UpdatePolicy": {
-                    "type": "object"
                 }
             },
             "required": [
