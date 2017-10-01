@@ -16,10 +16,21 @@ var _ = Describe("Goformation-generated JSON schemas", func() {
 
 		pwd, _ := os.Getwd()
 		schemaLoader := NewReferenceLoader("file://" + pwd + "/schema/cloudformation.schema.json")
-		documentLoader := NewReferenceLoader("file://" + pwd + "/test/json/valid-template.json")
 
-		result, err := Validate(schemaLoader, documentLoader)
 		It("should successfully validate the CloudFormation template", func() {
+			documentLoader := NewReferenceLoader("file://" + pwd + "/test/json/valid-template.json")
+			result, err := Validate(schemaLoader, documentLoader)
+
+			Expect(err).To(BeNil())
+			Expect(result).ShouldNot(BeNil())
+			Expect(result.Errors()).Should(BeEmpty())
+			Expect(result.Valid()).Should(BeTrue())
+		})
+
+		It("should successfully validate a template with resource attributes", func() {
+			documentLoader := NewReferenceLoader("file://" + pwd + "/test/json/valid-template-resource-attributes.json")
+			result, err := Validate(schemaLoader, documentLoader)
+
 			Expect(err).To(BeNil())
 			Expect(result).ShouldNot(BeNil())
 			Expect(result.Errors()).Should(BeEmpty())

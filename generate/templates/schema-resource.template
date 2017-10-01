@@ -25,6 +25,38 @@
             "enum": [
                 "{{.Name}}"
             ]
+        },
+        "CreationPolicy": {
+            "type": "object"
+        },
+        "DeletionPolicy": {
+            "type": "string",
+            "enum": [
+                "Delete",
+                "Retain",
+                "Snapshot"
+            ]
+        },
+        "DependsOn": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9]+$"
+                },
+                {
+                    "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9]+$"
+                    },
+                    "type": "array"
+                }
+            ]
+        },
+        "Metadata": {
+            "type": "object"
+        },
+        "UpdatePolicy": {
+            "type": "object"
         }
     },
     {{end}}
