@@ -23,12 +23,12 @@ type AWSSSMMaintenanceWindowTask struct {
 	// MaxConcurrency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxconcurrency
-	MaxConcurrency int `json:"MaxConcurrency,omitempty"`
+	MaxConcurrency string `json:"MaxConcurrency,omitempty"`
 
 	// MaxErrors AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxerrors
-	MaxErrors int `json:"MaxErrors,omitempty"`
+	MaxErrors string `json:"MaxErrors,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
