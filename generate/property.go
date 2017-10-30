@@ -73,7 +73,7 @@ func (p Property) Schema(name, parent string) string {
 	// available in the template to be used to detect when trailing commas
 	// are required in the JSON when looping through maps
 	tmpl, err := template.New("schema-property.template").Funcs(template.FuncMap{
-		"counter": counter,
+		"counter":           counter,
 		"convertToJSONType": convertTypeToJSON,
 	}).ParseFiles("generate/templates/schema-property.template")
 
@@ -138,7 +138,7 @@ func (p Property) IsCustomType() bool {
 
 // GoType returns the correct type for this property
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
-func (p Property) GoType(basename string) string {
+func (p Property) GoType(basename string, name string) string {
 
 	if p.IsPolymorphic() {
 
@@ -153,9 +153,8 @@ func (p Property) GoType(basename string) string {
 			types = append(types, "ListOf"+t)
 		}
 
-		name := basename + "_" + strings.Join(types, "Or")
-		generatePolymorphicProperty(name, p)
-		return name
+		generatePolymorphicProperty(basename+"_"+name, p)
+		return basename + "_" + name
 
 	}
 

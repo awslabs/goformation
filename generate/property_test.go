@@ -55,7 +55,7 @@ var _ = Describe("Goformation Code Generator", func() {
 			Context("specified as a Go struct", func() {
 
 				value := "test-primitive-value"
-				property := &cloudformation.AWSServerlessFunction_StringOrS3Location{
+				property := &cloudformation.AWSServerlessFunction_CodeUri{
 					String: &value,
 				}
 
@@ -72,11 +72,11 @@ var _ = Describe("Goformation Code Generator", func() {
 
 				property := []byte(`"test-primitive-value"`)
 				value := "test-primitive-value"
-				expected := &cloudformation.AWSServerlessFunction_StringOrS3Location{
+				expected := &cloudformation.AWSServerlessFunction_CodeUri{
 					String: &value,
 				}
 
-				result := &cloudformation.AWSServerlessFunction_StringOrS3Location{}
+				result := &cloudformation.AWSServerlessFunction_CodeUri{}
 				err := json.Unmarshal(property, result)
 				It("should unmarshal to a Go struct successfully", func() {
 					Expect(result).To(Equal(expected))
@@ -91,7 +91,7 @@ var _ = Describe("Goformation Code Generator", func() {
 
 			Context("specified as a Go struct", func() {
 
-				property := &cloudformation.AWSServerlessFunction_StringOrS3Location{
+				property := &cloudformation.AWSServerlessFunction_CodeUri{
 					S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 						Bucket:  "test-bucket",
 						Key:     "test-key",
@@ -113,7 +113,7 @@ var _ = Describe("Goformation Code Generator", func() {
 
 				property := []byte(`{"Bucket":"test-bucket","Key":"test-key","Version":123}`)
 
-				expected := &cloudformation.AWSServerlessFunction_StringOrS3Location{
+				expected := &cloudformation.AWSServerlessFunction_CodeUri{
 					S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 						Bucket:  "test-bucket",
 						Key:     "test-key",
@@ -121,7 +121,7 @@ var _ = Describe("Goformation Code Generator", func() {
 					},
 				}
 
-				result := &cloudformation.AWSServerlessFunction_StringOrS3Location{}
+				result := &cloudformation.AWSServerlessFunction_CodeUri{}
 				err := json.Unmarshal(property, result)
 				It("should unmarshal to a Go struct successfully", func() {
 					Expect(result).To(Equal(expected))

@@ -323,7 +323,7 @@ var _ = Describe("Goformation", func() {
 				Resources: map[string]interface{}{
 					"MySAMFunction": cloudformation.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
+						CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
 							S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 								Bucket:  "test-bucket",
 								Key:     "test-key",
@@ -355,7 +355,7 @@ var _ = Describe("Goformation", func() {
 				Resources: map[string]interface{}{
 					"MySAMFunction": cloudformation.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
+						CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
 							String: &codeuri,
 						},
 					},

@@ -6,14 +6,14 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWSServerlessFunction_StringOrListOfString is a helper struct that can hold either a String or String value
-type AWSServerlessFunction_StringOrListOfString struct {
+// AWSServerlessFunction_Events is a helper struct that can hold either a String or String value
+type AWSServerlessFunction_Events struct {
 	String *string
 
 	StringArray *[]string
 }
 
-func (r AWSServerlessFunction_StringOrListOfString) value() interface{} {
+func (r AWSServerlessFunction_Events) value() interface{} {
 
 	if r.String != nil {
 		return r.String
@@ -27,12 +27,12 @@ func (r AWSServerlessFunction_StringOrListOfString) value() interface{} {
 
 }
 
-func (r *AWSServerlessFunction_StringOrListOfString) MarshalJSON() ([]byte, error) {
+func (r *AWSServerlessFunction_Events) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 
 // Hook into the marshaller
-func (r *AWSServerlessFunction_StringOrListOfString) UnmarshalJSON(b []byte) error {
+func (r *AWSServerlessFunction_Events) UnmarshalJSON(b []byte) error {
 
 	// Unmarshal into interface{} to check it's type
 	var typecheck interface{}
