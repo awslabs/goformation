@@ -20,7 +20,7 @@ var _ = Describe("Resource", func() {
 				codeuri := "s3://bucket/key"
 				resource := &cloudformation.AWSServerlessFunction{
 					Runtime: "nodejs6.10",
-					CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
+					CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
 						String: &codeuri,
 					},
 				}
@@ -39,7 +39,7 @@ var _ = Describe("Resource", func() {
 
 				resource := &cloudformation.AWSServerlessFunction{
 					Runtime: "nodejs6.10",
-					CodeUri: &cloudformation.AWSServerlessFunction_StringOrS3Location{
+					CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
 						S3Location: &cloudformation.AWSServerlessFunction_S3Location{
 							Bucket:  "test-bucket",
 							Key:     "test-key",
@@ -70,7 +70,7 @@ var _ = Describe("Resource", func() {
 
 				subproperty := &cloudformation.AWSServerlessFunction_S3Event{
 					Bucket: "my-bucket",
-					Events: &cloudformation.AWSServerlessFunction_StringOrListOfString{
+					Events: &cloudformation.AWSServerlessFunction_Events{
 						StringArray: &[]string{"s3:ObjectCreated:*", "s3:ObjectRemoved:*"},
 					},
 				}
@@ -90,7 +90,7 @@ var _ = Describe("Resource", func() {
 				event := "s3:ObjectCreated:*"
 				subproperty := &cloudformation.AWSServerlessFunction_S3Event{
 					Bucket: "my-bucket",
-					Events: &cloudformation.AWSServerlessFunction_StringOrListOfString{
+					Events: &cloudformation.AWSServerlessFunction_Events{
 						String: &event,
 					},
 				}
