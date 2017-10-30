@@ -6,8 +6,8 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEventOrScheduleEventOrCloudWatchEventEventOrIoTRuleEventOrAlexaSkillEvent is a helper struct that can hold either a S3Event, SNSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, IoTRuleEvent, or AlexaSkillEvent value
-type AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEventOrScheduleEventOrCloudWatchEventEventOrIoTRuleEventOrAlexaSkillEvent struct {
+// AWSServerlessFunction_Properties is a helper struct that can hold either a S3Event, SNSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, IoTRuleEvent, or AlexaSkillEvent value
+type AWSServerlessFunction_Properties struct {
 	S3Event              *AWSServerlessFunction_S3Event
 	SNSEvent             *AWSServerlessFunction_SNSEvent
 	KinesisEvent         *AWSServerlessFunction_KinesisEvent
@@ -19,7 +19,7 @@ type AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEv
 	AlexaSkillEvent      *AWSServerlessFunction_AlexaSkillEvent
 }
 
-func (r AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEventOrScheduleEventOrCloudWatchEventEventOrIoTRuleEventOrAlexaSkillEvent) value() interface{} {
+func (r AWSServerlessFunction_Properties) value() interface{} {
 
 	if r.S3Event != nil {
 		return r.S3Event
@@ -61,12 +61,12 @@ func (r AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrAp
 
 }
 
-func (r *AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEventOrScheduleEventOrCloudWatchEventEventOrIoTRuleEventOrAlexaSkillEvent) MarshalJSON() ([]byte, error) {
+func (r *AWSServerlessFunction_Properties) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 
 // Hook into the marshaller
-func (r *AWSServerlessFunction_S3EventOrSNSEventOrKinesisEventOrDynamoDBEventOrApiEventOrScheduleEventOrCloudWatchEventEventOrIoTRuleEventOrAlexaSkillEvent) UnmarshalJSON(b []byte) error {
+func (r *AWSServerlessFunction_Properties) UnmarshalJSON(b []byte) error {
 
 	// Unmarshal into interface{} to check it's type
 	var typecheck interface{}

@@ -6,8 +6,8 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAMPolicyDocument is a helper struct that can hold either a String, String, IAMPolicyDocument, or IAMPolicyDocument value
-type AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAMPolicyDocument struct {
+// AWSServerlessFunction_Policies is a helper struct that can hold either a String, String, IAMPolicyDocument, or IAMPolicyDocument value
+type AWSServerlessFunction_Policies struct {
 	String *string
 
 	StringArray *[]string
@@ -17,7 +17,7 @@ type AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAMPol
 	IAMPolicyDocumentArray *[]AWSServerlessFunction_IAMPolicyDocument
 }
 
-func (r AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAMPolicyDocument) value() interface{} {
+func (r AWSServerlessFunction_Policies) value() interface{} {
 
 	if r.String != nil {
 		return r.String
@@ -39,12 +39,12 @@ func (r AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAM
 
 }
 
-func (r *AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAMPolicyDocument) MarshalJSON() ([]byte, error) {
+func (r *AWSServerlessFunction_Policies) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 
 // Hook into the marshaller
-func (r *AWSServerlessFunction_StringOrIAMPolicyDocumentOrListOfStringOrListOfIAMPolicyDocument) UnmarshalJSON(b []byte) error {
+func (r *AWSServerlessFunction_Policies) UnmarshalJSON(b []byte) error {
 
 	// Unmarshal into interface{} to check it's type
 	var typecheck interface{}
