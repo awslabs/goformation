@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"go/format"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -255,8 +254,6 @@ func (rg *ResourceGenerator) generateJSONSchema(specname string, spec *CloudForm
 }
 
 func generatePolymorphicProperty(name string, property Property) {
-
-	log.Printf("LOG: Generating %s\n", name)
 
 	// Open the polymorphic property template
 	tmpl, err := template.New("polymorphic-property.template").Funcs(template.FuncMap{
