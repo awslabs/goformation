@@ -21,7 +21,7 @@ type AWSSSMMaintenanceWindowTask struct {
 	LoggingInfo *AWSSSMMaintenanceWindowTask_LoggingInfo `json:"LoggingInfo,omitempty"`
 
 	// MaxConcurrency AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxconcurrency
 	MaxConcurrency string `json:"MaxConcurrency,omitempty"`
 

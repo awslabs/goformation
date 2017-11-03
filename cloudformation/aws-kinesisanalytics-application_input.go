@@ -9,6 +9,11 @@ type AWSKinesisAnalyticsApplication_Input struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputparallelism
 	InputParallelism *AWSKinesisAnalyticsApplication_InputParallelism `json:"InputParallelism,omitempty"`
 
+	// InputProcessingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputprocessingconfiguration
+	InputProcessingConfiguration *AWSKinesisAnalyticsApplication_InputProcessingConfiguration `json:"InputProcessingConfiguration,omitempty"`
+
 	// InputSchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputschema
