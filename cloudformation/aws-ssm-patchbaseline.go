@@ -48,7 +48,7 @@ type AWSSSMPatchBaseline struct {
 	// PatchGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-patchgroups
-	PatchGroups []AWSSSMPatchBaseline_PatchGroup `json:"PatchGroups,omitempty"`
+	PatchGroups []string `json:"PatchGroups,omitempty"`
 
 	// RejectedPatches AWS CloudFormation Property
 	// Required: false

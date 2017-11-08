@@ -10,11 +10,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
 type AWSAutoScalingAutoScalingGroup struct {
 
-	// AsTags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-	AsTags []AWSAutoScalingAutoScalingGroup_TagProperty `json:"AsTags,omitempty"`
-
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
@@ -84,6 +79,11 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
 	PlacementGroup string `json:"PlacementGroup,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
+	Tags []AWSAutoScalingAutoScalingGroup_TagProperty `json:"Tags,omitempty"`
 
 	// TargetGroupARNs AWS CloudFormation Property
 	// Required: false
