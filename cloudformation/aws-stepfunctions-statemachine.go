@@ -19,6 +19,11 @@ type AWSStepFunctionsStateMachine struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
 	RoleArn string `json:"RoleArn,omitempty"`
+
+	// StateMachineName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
+	StateMachineName string `json:"StateMachineName,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
