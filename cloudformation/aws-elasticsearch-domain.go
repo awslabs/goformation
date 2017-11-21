@@ -49,6 +49,11 @@ type AWSElasticsearchDomain struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-tags
 	Tags []Tag `json:"Tags,omitempty"`
+
+	// VPCOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-vpcoptions
+	VPCOptions *AWSElasticsearchDomain_VPCOptions `json:"VPCOptions,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
