@@ -15,6 +15,16 @@ type AWSCodeBuildProject struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-artifacts
 	Artifacts *AWSCodeBuildProject_Artifacts `json:"Artifacts,omitempty"`
 
+	// BadgeEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
+	BadgeEnabled bool `json:"BadgeEnabled,omitempty"`
+
+	// Cache AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
+	Cache *AWSCodeBuildProject_ProjectCache `json:"Cache,omitempty"`
+
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
@@ -54,6 +64,11 @@ type AWSCodeBuildProject struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
 	TimeoutInMinutes int `json:"TimeoutInMinutes,omitempty"`
+
+	// VpcConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-vpcconfig
+	VpcConfig *AWSCodeBuildProject_VpcConfig `json:"VpcConfig,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

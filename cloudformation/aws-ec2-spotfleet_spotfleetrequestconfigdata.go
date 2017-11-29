@@ -30,7 +30,7 @@ type AWSEC2SpotFleet_SpotFleetRequestConfigData struct {
 	ReplaceUnhealthyInstances bool `json:"ReplaceUnhealthyInstances,omitempty"`
 
 	// SpotPrice AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
 	SpotPrice string `json:"SpotPrice,omitempty"`
 
