@@ -25,10 +25,20 @@ type AWSECSService struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
 	DesiredCount int `json:"DesiredCount,omitempty"`
 
+	// LaunchType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
+	LaunchType string `json:"LaunchType,omitempty"`
+
 	// LoadBalancers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
 	LoadBalancers []AWSECSService_LoadBalancer `json:"LoadBalancers,omitempty"`
+
+	// NetworkConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
+	NetworkConfiguration *AWSECSService_NetworkConfiguration `json:"NetworkConfiguration,omitempty"`
 
 	// PlacementConstraints AWS CloudFormation Property
 	// Required: false
@@ -39,6 +49,11 @@ type AWSECSService struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
 	PlacementStrategies []AWSECSService_PlacementStrategy `json:"PlacementStrategies,omitempty"`
+
+	// PlatformVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
+	PlatformVersion string `json:"PlatformVersion,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false

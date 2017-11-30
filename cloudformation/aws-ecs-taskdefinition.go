@@ -15,10 +15,25 @@ type AWSECSTaskDefinition struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
 	ContainerDefinitions []AWSECSTaskDefinition_ContainerDefinition `json:"ContainerDefinitions,omitempty"`
 
+	// Cpu AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
+	Cpu string `json:"Cpu,omitempty"`
+
+	// ExecutionRoleArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
+	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
+
 	// Family AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
 	Family string `json:"Family,omitempty"`
+
+	// Memory AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
+	Memory string `json:"Memory,omitempty"`
 
 	// NetworkMode AWS CloudFormation Property
 	// Required: false
@@ -29,6 +44,11 @@ type AWSECSTaskDefinition struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
 	PlacementConstraints []AWSECSTaskDefinition_TaskDefinitionPlacementConstraint `json:"PlacementConstraints,omitempty"`
+
+	// RequiresCompatibilities AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
+	RequiresCompatibilities []string `json:"RequiresCompatibilities,omitempty"`
 
 	// TaskRoleArn AWS CloudFormation Property
 	// Required: false
