@@ -8,6 +8,11 @@ type AWSCodeDeployDeploymentGroup_DeploymentStyle struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html#cfn-codedeploy-deploymentgroup-deploymentstyle-deploymentoption
 	DeploymentOption string `json:"DeploymentOption,omitempty"`
+
+	// DeploymentType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html#cfn-codedeploy-deploymentgroup-deploymentstyle-deploymenttype
+	DeploymentType string `json:"DeploymentType,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

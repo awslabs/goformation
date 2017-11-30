@@ -6,30 +6,25 @@ import (
 	"fmt"
 )
 
-// AWSCodeDeployApplication AWS CloudFormation Resource (AWS::CodeDeploy::Application)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html
-type AWSCodeDeployApplication struct {
+// AWSGuardDutyDetector AWS CloudFormation Resource (AWS::GuardDuty::Detector)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
+type AWSGuardDutyDetector struct {
 
-	// ApplicationName AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html#cfn-codedeploy-application-applicationname
-	ApplicationName string `json:"ApplicationName,omitempty"`
-
-	// ComputePlatform AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html#cfn-codedeploy-application-computeplatform
-	ComputePlatform string `json:"ComputePlatform,omitempty"`
+	// Enable AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
+	Enable bool `json:"Enable,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSCodeDeployApplication) AWSCloudFormationType() string {
-	return "AWS::CodeDeploy::Application"
+func (r *AWSGuardDutyDetector) AWSCloudFormationType() string {
+	return "AWS::GuardDuty::Detector"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSCodeDeployApplication) MarshalJSON() ([]byte, error) {
-	type Properties AWSCodeDeployApplication
+func (r *AWSGuardDutyDetector) MarshalJSON() ([]byte, error) {
+	type Properties AWSGuardDutyDetector
 	return json.Marshal(&struct {
 		Type       string
 		Properties Properties
@@ -41,8 +36,8 @@ func (r *AWSCodeDeployApplication) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *AWSCodeDeployApplication) UnmarshalJSON(b []byte) error {
-	type Properties AWSCodeDeployApplication
+func (r *AWSGuardDutyDetector) UnmarshalJSON(b []byte) error {
+	type Properties AWSGuardDutyDetector
 	res := &struct {
 		Type       string
 		Properties *Properties
@@ -54,28 +49,28 @@ func (r *AWSCodeDeployApplication) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = AWSCodeDeployApplication(*res.Properties)
+		*r = AWSGuardDutyDetector(*res.Properties)
 	}
 
 	return nil
 }
 
-// GetAllAWSCodeDeployApplicationResources retrieves all AWSCodeDeployApplication items from an AWS CloudFormation template
-func (t *Template) GetAllAWSCodeDeployApplicationResources() map[string]AWSCodeDeployApplication {
-	results := map[string]AWSCodeDeployApplication{}
+// GetAllAWSGuardDutyDetectorResources retrieves all AWSGuardDutyDetector items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGuardDutyDetectorResources() map[string]AWSGuardDutyDetector {
+	results := map[string]AWSGuardDutyDetector{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSCodeDeployApplication:
+		case AWSGuardDutyDetector:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
 			// We found an untyped resource (likely from JSON) which *might* be
 			// the correct type, but we need to check it's 'Type' field
 			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::CodeDeploy::Application" {
+				if resType == "AWS::GuardDuty::Detector" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSCodeDeployApplication
+						var result AWSGuardDutyDetector
 						if err := json.Unmarshal(b, &result); err == nil {
 							results[name] = result
 						}
@@ -87,22 +82,22 @@ func (t *Template) GetAllAWSCodeDeployApplicationResources() map[string]AWSCodeD
 	return results
 }
 
-// GetAWSCodeDeployApplicationWithName retrieves all AWSCodeDeployApplication items from an AWS CloudFormation template
+// GetAWSGuardDutyDetectorWithName retrieves all AWSGuardDutyDetector items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSCodeDeployApplicationWithName(name string) (AWSCodeDeployApplication, error) {
+func (t *Template) GetAWSGuardDutyDetectorWithName(name string) (AWSGuardDutyDetector, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSCodeDeployApplication:
+		case AWSGuardDutyDetector:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
 			// We found an untyped resource (likely from JSON) which *might* be
 			// the correct type, but we need to check it's 'Type' field
 			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::CodeDeploy::Application" {
+				if resType == "AWS::GuardDuty::Detector" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSCodeDeployApplication
+						var result AWSGuardDutyDetector
 						if err := json.Unmarshal(b, &result); err == nil {
 							return result, nil
 						}
@@ -111,5 +106,5 @@ func (t *Template) GetAWSCodeDeployApplicationWithName(name string) (AWSCodeDepl
 			}
 		}
 	}
-	return AWSCodeDeployApplication{}, errors.New("resource not found")
+	return AWSGuardDutyDetector{}, errors.New("resource not found")
 }
