@@ -30,6 +30,11 @@ type AWSEC2Instance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings
 	BlockDeviceMappings []AWSEC2Instance_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
+	// CreditSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification
+	CreditSpecification *AWSEC2Instance_CreditSpecification `json:"CreditSpecification,omitempty"`
+
 	// DisableApiTermination AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination

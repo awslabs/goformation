@@ -4,10 +4,25 @@ package cloudformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html
 type AWSS3Bucket_ReplicationDestination struct {
 
+	// AccessControlTranslation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-accesscontroltranslation
+	AccessControlTranslation *AWSS3Bucket_AccessControlTranslation `json:"AccessControlTranslation,omitempty"`
+
+	// Account AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-account
+	Account string `json:"Account,omitempty"`
+
 	// Bucket AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-bucket
 	Bucket string `json:"Bucket,omitempty"`
+
+	// EncryptionConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-encryptionconfiguration
+	EncryptionConfiguration *AWSS3Bucket_EncryptionConfiguration `json:"EncryptionConfiguration,omitempty"`
 
 	// StorageClass AWS CloudFormation Property
 	// Required: false

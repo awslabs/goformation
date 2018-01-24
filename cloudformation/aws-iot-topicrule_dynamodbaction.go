@@ -25,7 +25,7 @@ type AWSIoTTopicRule_DynamoDBAction struct {
 	PayloadField string `json:"PayloadField,omitempty"`
 
 	// RangeKeyField AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield
 	RangeKeyField string `json:"RangeKeyField,omitempty"`
 
@@ -35,7 +35,7 @@ type AWSIoTTopicRule_DynamoDBAction struct {
 	RangeKeyType string `json:"RangeKeyType,omitempty"`
 
 	// RangeKeyValue AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue
 	RangeKeyValue string `json:"RangeKeyValue,omitempty"`
 

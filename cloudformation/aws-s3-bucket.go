@@ -25,6 +25,11 @@ type AWSS3Bucket struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations
 	AnalyticsConfigurations []AWSS3Bucket_AnalyticsConfiguration `json:"AnalyticsConfigurations,omitempty"`
 
+	// BucketEncryption AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-bucketencryption
+	BucketEncryption *AWSS3Bucket_BucketEncryption `json:"BucketEncryption,omitempty"`
+
 	// BucketName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name
