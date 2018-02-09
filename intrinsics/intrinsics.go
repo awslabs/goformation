@@ -142,7 +142,7 @@ func evaluateConditions(input interface{}, options *ProcessorOptions) {
 func search(input interface{}, template interface{}, options *ProcessorOptions) interface{} {
 
 	// If we dont want any intrinsic processing, skip it.
-	if options.SkipIntrinsicProcessing {
+	if options != nil && options.SkipIntrinsicProcessing {
 		return template
 	}
 
