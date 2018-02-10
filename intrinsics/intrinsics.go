@@ -39,6 +39,7 @@ var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
 type ProcessorOptions struct {
 	IntrinsicHandlerOverrides map[string]IntrinsicHandler
 	ParameterOverrides        map[string]interface{}
+	SkipIntrinsicProcessing   bool
 }
 
 // nonResolvingHandler is a simple example of an intrinsic function handler function
@@ -139,6 +140,11 @@ func evaluateConditions(input interface{}, options *ProcessorOptions) {
 // it the type of intrinsic function (e.g. 'Fn::Join'), and the contents. The intrinsic
 // handler is expected to return the value that is supposed to be there.
 func search(input interface{}, template interface{}, options *ProcessorOptions) interface{} {
+
+	// If we dont want any intrinsic processing, skip it.
+	if options != nil && options.SkipIntrinsicProcessing {
+		return template
+	}
 
 	switch value := input.(type) {
 
