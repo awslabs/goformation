@@ -1,6 +1,8 @@
 package goformation_test
 
 import (
+	"fmt"
+
 	"github.com/awslabs/goformation"
 	"github.com/awslabs/goformation/cloudformation"
 	"github.com/awslabs/goformation/intrinsics"
@@ -520,6 +522,21 @@ var _ = Describe("Goformation", func() {
 		It("it should have the correct values", func() {
 			Expect(function.Environment.Variables).To(HaveKeyWithValue("REF_ENV_VAR", "SomeNewValue"))
 		})
+	})
+
+	Context("with a YAML template with parameter overrides and skip intrinsics set", func() {
+		template, err := goformation.OpenWithOptions("test/yaml/aws-serverless-function-env-vars.yaml", &intrinsics.ProcessorOptions{
+			ParameterOverrides:      map[string]interface{}{"ExampleParameter": "SomeNewValue"},
+			SkipIntrinsicProcessing: true,
+		})
+
+		function, err := template.GetAWSServerlessFunctionWithName("SubEnvironmentVariableTestFunction")
+		It("should successfully validate the SAM template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		fmt.Println(function)
 	})
 
 })
