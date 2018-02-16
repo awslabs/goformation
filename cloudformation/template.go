@@ -10,7 +10,7 @@ import (
 // see: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 type Template struct {
 	AWSTemplateFormatVersion string                 `json:"AWSTemplateFormatVersion,omitempty"`
-	Transform                Transform              `json:"Transform,omitempty"`
+	Transform                *Transform             `json:"Transform,omitempty"`
 	Description              string                 `json:"Description,omitempty"`
 	Metadata                 map[string]interface{} `json:"Metadata,omitempty"`
 	Parameters               map[string]interface{} `json:"Parameters,omitempty"`
