@@ -80,6 +80,7 @@ go test -v ./...
 
 echo "Committing changes..."
 git add cloudformation/*
+git add schema/*
 git commit -m "${COMMIT_MSG}" 
 
 echo "Pushing changes..."
