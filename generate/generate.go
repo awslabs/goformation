@@ -247,6 +247,19 @@ func (rg *ResourceGenerator) generateJSONSchema(specname string, spec *CloudForm
 		return fmt.Errorf("failed to write JSON Schema: %s", err)
 	}
 
+	// Also create a Go importable version
+	var gocode []byte
+	gocode = append(gocode, []byte("package schema\n")...)
+	gocode = append(gocode, []byte("\n")...)
+	gocode = append(gocode, []byte("// "+specname+"Schema defined a JSON Schema that can be used to validate CloudFormation/SAM templates\n")...)
+	gocode = append(gocode, []byte("var "+specname+"Schema = `")...)
+	gocode = append(gocode, formatted...)
+	gocode = append(gocode, []byte("`\n")...)
+	gofilename := fmt.Sprintf("schema/%s.go", specname)
+	if err := ioutil.WriteFile(gofilename, gocode, 0644); err != nil {
+		return fmt.Errorf("failed to write Go version of JSON Schema: %s", err)
+	}
+
 	rg.Results.UpdatedSchemas[filename] = specname
 
 	return nil

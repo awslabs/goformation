@@ -1,4 +1,7 @@
-{
+package schema
+
+// samSchema defined a JSON Schema that can be used to validate CloudFormation/SAM templates
+var samSchema = `{
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": false,
     "definitions": {
@@ -29239,4 +29242,4 @@
         "Resources"
     ],
     "type": "object"
-}
+}`
