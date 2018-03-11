@@ -1236,6 +1236,9 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "ApiKeySourceType": {
+                            "type": "string"
+                        },
                         "BinaryMediaTypes": {
                             "items": {
                                 "type": "string"
@@ -1260,8 +1263,8 @@
                         "FailOnWarnings": {
                             "type": "boolean"
                         },
-                        "Mode": {
-                            "type": "string"
+                        "MinimumCompressionSize": {
+                            "type": "number"
                         },
                         "Name": {
                             "type": "string"
@@ -1612,6 +1615,70 @@
             ],
             "type": "object"
         },
+        "AWS::ApiGateway::VpcLink": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "TargetArns": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Name",
+                        "TargetArns"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::ApiGateway::VpcLink"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::ApplicationAutoScaling::ScalableTarget": {
             "additionalProperties": false,
             "properties": {
@@ -1913,6 +1980,9 @@
                 "CustomizedMetricSpecification": {
                     "$ref": "#/definitions/AWS::ApplicationAutoScaling::ScalingPolicy.CustomizedMetricSpecification"
                 },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                },
                 "PredefinedMetricSpecification": {
                     "$ref": "#/definitions/AWS::ApplicationAutoScaling::ScalingPolicy.PredefinedMetricSpecification"
                 },
@@ -2030,6 +2100,9 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AutoScalingGroupName": {
+                            "type": "string"
+                        },
                         "AvailabilityZones": {
                             "items": {
                                 "type": "string"
@@ -10400,6 +10473,12 @@
                 "SubnetId": {
                     "type": "string"
                 },
+                "TagSpecifications": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.SpotFleetTagSpecification"
+                    },
+                    "type": "array"
+                },
                 "UserData": {
                     "type": "string"
                 },
@@ -10467,6 +10546,15 @@
                 "LaunchSpecifications",
                 "TargetCapacity"
             ],
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.SpotFleetTagSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "ResourceType": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::EC2::SpotFleet.SpotPlacement": {
@@ -17477,6 +17565,136 @@
             ],
             "type": "object"
         },
+        "AWS::GuardDuty::Master": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DetectorId": {
+                            "type": "string"
+                        },
+                        "InvitationId": {
+                            "type": "string"
+                        },
+                        "MasterId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "DetectorId",
+                        "InvitationId",
+                        "MasterId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::GuardDuty::Master"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::GuardDuty::Member": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DetectorId": {
+                            "type": "string"
+                        },
+                        "Email": {
+                            "type": "string"
+                        },
+                        "MemberId": {
+                            "type": "string"
+                        },
+                        "Message": {
+                            "type": "string"
+                        },
+                        "Status": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "DetectorId",
+                        "Email",
+                        "MemberId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::GuardDuty::Member"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::GuardDuty::ThreatIntelSet": {
             "additionalProperties": false,
             "properties": {
@@ -22167,6 +22385,9 @@
                         "BackupRetentionPeriod": {
                             "type": "number"
                         },
+                        "DBClusterIdentifier": {
+                            "type": "string"
+                        },
                         "DBClusterParameterGroupName": {
                             "type": "string"
                         },
@@ -23015,6 +23236,9 @@
                         "AvailabilityZone": {
                             "type": "string"
                         },
+                        "ClusterIdentifier": {
+                            "type": "string"
+                        },
                         "ClusterParameterGroupName": {
                             "type": "string"
                         },
@@ -23530,6 +23754,12 @@
                 },
                 "Port": {
                     "type": "number"
+                },
+                "Regions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "RequestInterval": {
                     "type": "number"
@@ -24900,6 +25130,633 @@
             ],
             "type": "object"
         },
+        "AWS::SES::ConfigurationSet": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::SES::ConfigurationSet"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ConfigurationSetEventDestination": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ConfigurationSetName": {
+                            "type": "string"
+                        },
+                        "EventDestination": {
+                            "$ref": "#/definitions/AWS::SES::ConfigurationSetEventDestination.EventDestination"
+                        }
+                    },
+                    "required": [
+                        "ConfigurationSetName",
+                        "EventDestination"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::SES::ConfigurationSetEventDestination"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ConfigurationSetEventDestination.CloudWatchDestination": {
+            "additionalProperties": false,
+            "properties": {
+                "DimensionConfigurations": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::SES::ConfigurationSetEventDestination.DimensionConfiguration"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::SES::ConfigurationSetEventDestination.DimensionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DefaultDimensionValue": {
+                    "type": "string"
+                },
+                "DimensionName": {
+                    "type": "string"
+                },
+                "DimensionValueSource": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DefaultDimensionValue",
+                "DimensionName",
+                "DimensionValueSource"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ConfigurationSetEventDestination.EventDestination": {
+            "additionalProperties": false,
+            "properties": {
+                "CloudWatchDestination": {
+                    "$ref": "#/definitions/AWS::SES::ConfigurationSetEventDestination.CloudWatchDestination"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "KinesisFirehoseDestination": {
+                    "$ref": "#/definitions/AWS::SES::ConfigurationSetEventDestination.KinesisFirehoseDestination"
+                },
+                "MatchingEventTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "MatchingEventTypes"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ConfigurationSetEventDestination.KinesisFirehoseDestination": {
+            "additionalProperties": false,
+            "properties": {
+                "DeliveryStreamARN": {
+                    "type": "string"
+                },
+                "IAMRoleARN": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DeliveryStreamARN",
+                "IAMRoleARN"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptFilter": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Filter": {
+                            "$ref": "#/definitions/AWS::SES::ReceiptFilter.Filter"
+                        }
+                    },
+                    "required": [
+                        "Filter"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::SES::ReceiptFilter"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptFilter.Filter": {
+            "additionalProperties": false,
+            "properties": {
+                "IpFilter": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptFilter.IpFilter"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "IpFilter"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptFilter.IpFilter": {
+            "additionalProperties": false,
+            "properties": {
+                "Cidr": {
+                    "type": "string"
+                },
+                "Policy": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Cidr",
+                "Policy"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "After": {
+                            "type": "string"
+                        },
+                        "Rule": {
+                            "$ref": "#/definitions/AWS::SES::ReceiptRule.Rule"
+                        },
+                        "RuleSetName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Rule",
+                        "RuleSetName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::SES::ReceiptRule"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.Action": {
+            "additionalProperties": false,
+            "properties": {
+                "AddHeaderAction": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptRule.AddHeaderAction"
+                },
+                "BounceAction": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptRule.BounceAction"
+                },
+                "LambdaAction": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptRule.LambdaAction"
+                },
+                "S3Action": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptRule.S3Action"
+                },
+                "SNSAction": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptRule.SNSAction"
+                },
+                "StopAction": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptRule.StopAction"
+                },
+                "WorkmailAction": {
+                    "$ref": "#/definitions/AWS::SES::ReceiptRule.WorkmailAction"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.AddHeaderAction": {
+            "additionalProperties": false,
+            "properties": {
+                "HeaderName": {
+                    "type": "string"
+                },
+                "HeaderValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "HeaderName",
+                "HeaderValue"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.BounceAction": {
+            "additionalProperties": false,
+            "properties": {
+                "Message": {
+                    "type": "string"
+                },
+                "Sender": {
+                    "type": "string"
+                },
+                "SmtpReplyCode": {
+                    "type": "string"
+                },
+                "StatusCode": {
+                    "type": "string"
+                },
+                "TopicArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Message",
+                "Sender",
+                "SmtpReplyCode"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.LambdaAction": {
+            "additionalProperties": false,
+            "properties": {
+                "FunctionArn": {
+                    "type": "string"
+                },
+                "InvocationType": {
+                    "type": "string"
+                },
+                "TopicArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FunctionArn"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.Rule": {
+            "additionalProperties": false,
+            "properties": {
+                "Actions": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::SES::ReceiptRule.Action"
+                    },
+                    "type": "array"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Recipients": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ScanEnabled": {
+                    "type": "boolean"
+                },
+                "TlsPolicy": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.S3Action": {
+            "additionalProperties": false,
+            "properties": {
+                "BucketName": {
+                    "type": "string"
+                },
+                "KmsKeyArn": {
+                    "type": "string"
+                },
+                "ObjectKeyPrefix": {
+                    "type": "string"
+                },
+                "TopicArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BucketName"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.SNSAction": {
+            "additionalProperties": false,
+            "properties": {
+                "Encoding": {
+                    "type": "string"
+                },
+                "TopicArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.StopAction": {
+            "additionalProperties": false,
+            "properties": {
+                "Scope": {
+                    "type": "string"
+                },
+                "TopicArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Scope"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRule.WorkmailAction": {
+            "additionalProperties": false,
+            "properties": {
+                "OrganizationArn": {
+                    "type": "string"
+                },
+                "TopicArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OrganizationArn"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::ReceiptRuleSet": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "RuleSetName": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::SES::ReceiptRuleSet"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::Template": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Template": {
+                            "$ref": "#/definitions/AWS::SES::Template.Template"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::SES::Template"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::SES::Template.Template": {
+            "additionalProperties": false,
+            "properties": {
+                "HtmlPart": {
+                    "type": "string"
+                },
+                "SubjectPart": {
+                    "type": "string"
+                },
+                "TemplateName": {
+                    "type": "string"
+                },
+                "TextPart": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::SNS::Subscription": {
             "additionalProperties": false,
             "properties": {
@@ -25385,6 +26242,12 @@
                         },
                         "DocumentType": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -25763,6 +26626,9 @@
                         "ApprovedPatchesComplianceLevel": {
                             "type": "string"
                         },
+                        "ApprovedPatchesEnableNonSecurity": {
+                            "type": "boolean"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -25784,6 +26650,12 @@
                         "RejectedPatches": {
                             "items": {
                                 "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Sources": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::SSM::PatchBaseline.PatchSource"
                             },
                             "type": "array"
                         }
@@ -25833,6 +26705,24 @@
             },
             "type": "object"
         },
+        "AWS::SSM::PatchBaseline.PatchSource": {
+            "additionalProperties": false,
+            "properties": {
+                "Configuration": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Products": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
         "AWS::SSM::PatchBaseline.Rule": {
             "additionalProperties": false,
             "properties": {
@@ -25841,6 +26731,9 @@
                 },
                 "ComplianceLevel": {
                     "type": "string"
+                },
+                "EnableNonSecurity": {
+                    "type": "boolean"
                 },
                 "PatchFilterGroup": {
                     "$ref": "#/definitions/AWS::SSM::PatchBaseline.PatchFilterGroup"
@@ -28524,6 +29417,9 @@
                             "$ref": "#/definitions/AWS::ApiGateway::UsagePlanKey"
                         },
                         {
+                            "$ref": "#/definitions/AWS::ApiGateway::VpcLink"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::ApplicationAutoScaling::ScalableTarget"
                         },
                         {
@@ -28929,6 +29825,12 @@
                             "$ref": "#/definitions/AWS::GuardDuty::IPSet"
                         },
                         {
+                            "$ref": "#/definitions/AWS::GuardDuty::Master"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::GuardDuty::Member"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::GuardDuty::ThreatIntelSet"
                         },
                         {
@@ -29116,6 +30018,24 @@
                         },
                         {
                             "$ref": "#/definitions/AWS::SDB::Domain"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::SES::ConfigurationSet"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::SES::ConfigurationSetEventDestination"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::SES::ReceiptFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::SES::ReceiptRule"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::SES::ReceiptRuleSet"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::SES::Template"
                         },
                         {
                             "$ref": "#/definitions/AWS::SNS::Subscription"
