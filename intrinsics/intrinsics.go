@@ -40,6 +40,7 @@ var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
 type ProcessorOptions struct {
 	IntrinsicHandlerOverrides map[string]IntrinsicHandler
 	ParameterOverrides        map[string]interface{}
+	SkipCondition             bool
 }
 
 // nonResolvingHandler is a simple example of an intrinsic function handler function
@@ -206,7 +207,7 @@ func search(input interface{}, template interface{}, options *ProcessorOptions) 
 				return h(key, search(val, template, options), template)
 			}
 
-			if key == "Condition" {
+			if key == "Condition" && (options == nil || !options.SkipCondition) {
 				// This can lead to infinite recursion A -> B; B -> A;
 				// pass state of the conditions that we're evaluating so we can detect cycles
 				// in case of cycle, return nil
