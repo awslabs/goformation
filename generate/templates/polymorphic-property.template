@@ -2,6 +2,9 @@ package cloudformation
 
 import (
 	"encoding/json"
+	{{ if (.Property.Types) }}
+	"reflect"
+	{{end}}
 	{{ if (or .Property.Types .Property.ItemTypes .Property.PrimitiveItemTypes)}}
 	"github.com/mitchellh/mapstructure"
 	{{end}}
@@ -36,6 +39,12 @@ func (r {{.Name}}) value() interface{} {
 			return r.{{$type}}Array
 		}
 	{{end}}
+
+	{{range $type := $.Property.Types}}
+    		if r.{{$type}} != nil && !reflect.DeepEqual(r.{{$type}}, &{{$.Basename}}_{{$type}}{}) {
+      			return r.{{$type}}
+    		}
+  	{{end}}
 
 	{{range $type := $.Property.Types}}
 		if r.{{$type}} != nil {

@@ -3,6 +3,8 @@ package cloudformation
 import (
 	"encoding/json"
 
+	"reflect"
+
 	"github.com/mitchellh/mapstructure"
 )
 
@@ -17,6 +19,10 @@ func (r AWSServerlessFunction_CodeUri) value() interface{} {
 
 	if r.String != nil {
 		return r.String
+	}
+
+	if r.S3Location != nil && !reflect.DeepEqual(r.S3Location, &AWSServerlessFunction_S3Location{}) {
+		return r.S3Location
 	}
 
 	if r.S3Location != nil {
