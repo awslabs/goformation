@@ -10326,6 +10326,21 @@ var samSchema = `{
             },
             "type": "object"
         },
+        "AWS::EC2::SpotFleet.FleetLaunchTemplateSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "LaunchTemplateId": {
+                    "type": "string"
+                },
+                "LaunchTemplateName": {
+                    "type": "string"
+                },
+                "Version": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::EC2::SpotFleet.GroupIdentifier": {
             "additionalProperties": false,
             "properties": {
@@ -10403,6 +10418,42 @@ var samSchema = `{
                 },
                 "SubnetId": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.LaunchTemplateConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "LaunchTemplateSpecification": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.FleetLaunchTemplateSpecification"
+                },
+                "Overrides": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.LaunchTemplateOverrides"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.LaunchTemplateOverrides": {
+            "additionalProperties": false,
+            "properties": {
+                "AvailabilityZone": {
+                    "type": "string"
+                },
+                "InstanceType": {
+                    "type": "string"
+                },
+                "SpotPrice": {
+                    "type": "string"
+                },
+                "SubnetId": {
+                    "type": "string"
+                },
+                "WeightedCapacity": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -10522,6 +10573,12 @@ var samSchema = `{
                     },
                     "type": "array"
                 },
+                "LaunchTemplateConfigs": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::EC2::SpotFleet.LaunchTemplateConfig"
+                    },
+                    "type": "array"
+                },
                 "ReplaceUnhealthyInstances": {
                     "type": "boolean"
                 },
@@ -10546,7 +10603,6 @@ var samSchema = `{
             },
             "required": [
                 "IamFleetRole",
-                "LaunchSpecifications",
                 "TargetCapacity"
             ],
             "type": "object"
