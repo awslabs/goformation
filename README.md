@@ -4,16 +4,16 @@
 
 `GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates. 
 - [AWS GoFormation](#aws-goformation)
-    - [Main features](#main-features)
-    - [Installation](#installation)
-    - [Usage](#usage)
-        - [Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marshalling-cloudformationsam-described-with-go-structs-into-yamljson)
-        - [Unmarshalling CloudFormation YAML/JSON into Go structs](#unmarshalling-cloudformation-yamljson-into-go-structs)
-    - [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation-sam-resources-in-goformation)
-    - [Advanced](#advanced)
-        - [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
-            - [Resolving References (Ref)](#resolving-references-ref)
-    - [Contributing](#contributing)
+  - [Main features](#main-features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marshalling-cloudformationsam-described-with-go-structs-into-yamljson)
+    - [Unmarshalling CloudFormation YAML/JSON into Go structs](#unmarshalling-cloudformation-yamljson-into-go-structs)
+  - [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation-sam-resources-in-goformation)
+  - [Advanced](#advanced)
+    - [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
+      - [Resolving References (Ref)](#resolving-references-ref)
+  - [Contributing](#contributing)
 
 ## Main features
 
@@ -142,36 +142,38 @@ GoFormation also works the other way - parsing JSON/YAML CloudFormation/SAM temp
 package main
 
 import (
-    "fmt"
-    "github.com/awslabs/goformation"
-    "github.com/awslabs/goformation/cloudformation"
+	"log"
+
+	"github.com/awslabs/goformation"
 )
 
 func main() {
 
-    // Open a template from file (can be JSON or YAML)
-    template, err := goformation.Open("template.yaml")
+	// Open a template from file (can be JSON or YAML)
+	template, err := goformation.Open("template.yaml")
+	if err != nil {
+		log.Fatalf("There was an error processing the template: %s", err)
+	}
 
-    // ...or provide one as a byte array ([]byte)
-    template, err := goformation.ParseYAML(data)
+	// You can extract all resources of a certain type
+	// Each AWS CloudFormation resource is a strongly typed struct
+	functions := template.GetAllAWSServerlessFunctionResources()
+	for name, function := range functions {
 
-    // You can then inspect all of the values
-    for name, resource := range template.Resources {
+		// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
+		log.Printf("Found a %s named %s (runtime: %s)\n", function.AWSCloudFormationType(), name, function.Runtime)
 
-        // E.g. Found a resource with name MyLambdaFunction and type AWS::Lambda::Function
-        log.Printf("Found a resource with name %s and type %s", name, resource.Type)
+	}
 
-    }
+	// You can also search for specific resources by their logicalId
+	search := "GetHelloWorld"
+	function, err := template.GetAWSServerlessFunctionWithName(search)
+	if err != nil {
+		log.Fatalf("Function not found")
+	}
 
-    // You can extract all resources of a certain type
-    // Each AWS CloudFormation / SAM resource is a strongly typed struct
-    functions := template.GetAllAWSLambdaFunctionResources()
-    for name, function := range functions {
-
-        // E.g. Found a AWS::Lambda::Function with name MyLambdaFunction and nodejs6.10 handler 
-        log.Printf("Found a %s with name %s and %s handler", name, function.Type(), function.Handler)
-
-    }
+	// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
+	log.Printf("Found a %s named %s (runtime: %s)\n", function.AWSCloudFormationType(), search, function.Runtime)
 
 }
 ```
