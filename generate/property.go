@@ -142,17 +142,6 @@ func (p Property) GoType(basename string, name string) string {
 
 	if p.IsPolymorphic() {
 
-		types := append([]string{}, p.PrimitiveTypes...)
-		types = append(types, p.Types...)
-
-		for _, t := range p.PrimitiveItemTypes {
-			types = append(types, "ListOf"+t)
-		}
-
-		for _, t := range p.ItemTypes {
-			types = append(types, "ListOf"+t)
-		}
-
 		generatePolymorphicProperty(basename+"_"+name, p)
 		return basename + "_" + name
 
