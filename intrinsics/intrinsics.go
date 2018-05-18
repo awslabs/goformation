@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/imdario/mergo"
 	yamlwrapper "github.com/sanathkr/yaml"
 )
 
@@ -75,6 +76,8 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 		return nil, fmt.Errorf("invalid JSON: %s", err)
 	}
 
+	applyGlobals(unmarshalled, options)
+
 	overrideParameters(unmarshalled, options)
 
 	evaluateConditions(unmarshalled, options)
@@ -110,6 +113,51 @@ func overrideParameters(input interface{}, options *ProcessorOptions) {
 						if parameter, ok := uparameter.(map[string]interface{}); ok {
 							// Set the default value
 							parameter["Default"] = value
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+var supportedGlobalResources = map[string]string{
+	"Function": "AWS::Serverless::Function",
+	"Api":      "AWS::Serverless::Api",
+}
+
+// applyGlobals adds AWS SAM Globals into resources
+func applyGlobals(input interface{}, options *ProcessorOptions) {
+	if template, ok := input.(map[string]interface{}); ok {
+		if uglobals, ok := template["Globals"]; ok {
+			if globals, ok := uglobals.(map[string]interface{}); ok {
+				for name, globalValues := range globals {
+					for supportedGlobalName, supportedGlobalType := range supportedGlobalResources {
+						if name == supportedGlobalName {
+							if uresources, ok := template["Resources"]; ok {
+								if resources, ok := uresources.(map[string]interface{}); ok {
+									for _, uresource := range resources {
+										if resource, ok := uresource.(map[string]interface{}); ok {
+											if resource["Type"] == supportedGlobalType {
+												properties := resource["Properties"].(map[string]interface{})
+												for globalProp, globalPropValue := range globalValues.(map[string]interface{}) {
+													if _, ok := properties[globalProp]; !ok {
+														properties[globalProp] = globalPropValue
+													} else if gArray, ok := globalPropValue.([]interface{}); ok {
+														if pArray, ok := properties[globalProp].([]interface{}); ok {
+															properties[globalProp] = append(pArray, gArray...)
+														}
+													} else if gMap, ok := globalPropValue.(map[string]interface{}); ok {
+														if pMap, ok := properties[globalProp].(map[string]interface{}); ok {
+															mergo.Merge(&pMap, gMap)
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
 						}
 					}
 				}
