@@ -3861,6 +3861,222 @@ var cloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Budgets::Budget": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Budget": {
+                            "$ref": "#/definitions/AWS::Budgets::Budget.BudgetData"
+                        },
+                        "NotificationsWithSubscribers": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Budgets::Budget.NotificationWithSubscribers"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Budget"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Budgets::Budget"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Budgets::Budget.BudgetData": {
+            "additionalProperties": false,
+            "properties": {
+                "BudgetLimit": {
+                    "$ref": "#/definitions/AWS::Budgets::Budget.Spend"
+                },
+                "BudgetName": {
+                    "type": "string"
+                },
+                "BudgetType": {
+                    "type": "string"
+                },
+                "CostFilters": {
+                    "type": "object"
+                },
+                "CostTypes": {
+                    "$ref": "#/definitions/AWS::Budgets::Budget.CostTypes"
+                },
+                "TimePeriod": {
+                    "$ref": "#/definitions/AWS::Budgets::Budget.TimePeriod"
+                },
+                "TimeUnit": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BudgetType",
+                "TimeUnit"
+            ],
+            "type": "object"
+        },
+        "AWS::Budgets::Budget.CostTypes": {
+            "additionalProperties": false,
+            "properties": {
+                "IncludeCredit": {
+                    "type": "boolean"
+                },
+                "IncludeDiscount": {
+                    "type": "boolean"
+                },
+                "IncludeOtherSubscription": {
+                    "type": "boolean"
+                },
+                "IncludeRecurring": {
+                    "type": "boolean"
+                },
+                "IncludeRefund": {
+                    "type": "boolean"
+                },
+                "IncludeSubscription": {
+                    "type": "boolean"
+                },
+                "IncludeSupport": {
+                    "type": "boolean"
+                },
+                "IncludeTax": {
+                    "type": "boolean"
+                },
+                "IncludeUpfront": {
+                    "type": "boolean"
+                },
+                "UseAmortized": {
+                    "type": "boolean"
+                },
+                "UseBlended": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Budgets::Budget.Notification": {
+            "additionalProperties": false,
+            "properties": {
+                "ComparisonOperator": {
+                    "type": "string"
+                },
+                "NotificationType": {
+                    "type": "string"
+                },
+                "Threshold": {
+                    "type": "number"
+                },
+                "ThresholdType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ComparisonOperator",
+                "NotificationType",
+                "Threshold"
+            ],
+            "type": "object"
+        },
+        "AWS::Budgets::Budget.NotificationWithSubscribers": {
+            "additionalProperties": false,
+            "properties": {
+                "Notification": {
+                    "$ref": "#/definitions/AWS::Budgets::Budget.Notification"
+                },
+                "Subscribers": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Budgets::Budget.Subscriber"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Notification",
+                "Subscribers"
+            ],
+            "type": "object"
+        },
+        "AWS::Budgets::Budget.Spend": {
+            "additionalProperties": false,
+            "properties": {
+                "Amount": {
+                    "type": "number"
+                },
+                "Unit": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Amount",
+                "Unit"
+            ],
+            "type": "object"
+        },
+        "AWS::Budgets::Budget.Subscriber": {
+            "additionalProperties": false,
+            "properties": {
+                "Address": {
+                    "type": "string"
+                },
+                "SubscriptionType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Address",
+                "SubscriptionType"
+            ],
+            "type": "object"
+        },
+        "AWS::Budgets::Budget.TimePeriod": {
+            "additionalProperties": false,
+            "properties": {
+                "End": {
+                    "type": "string"
+                },
+                "Start": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::CertificateManager::Certificate": {
             "additionalProperties": false,
             "properties": {
@@ -29949,6 +30165,10 @@ var cloudformationSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },
@@ -30118,6 +30338,9 @@ var cloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Batch::JobQueue"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Budgets::Budget"
                         },
                         {
                             "$ref": "#/definitions/AWS::CertificateManager::Certificate"
