@@ -40,6 +40,11 @@ type AWSElasticsearchDomain struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchversion
 	ElasticsearchVersion string `json:"ElasticsearchVersion,omitempty"`
 
+	// EncryptionAtRestOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-encryptionatrestoptions
+	EncryptionAtRestOptions *AWSElasticsearchDomain_EncryptionAtRestOptions `json:"EncryptionAtRestOptions,omitempty"`
+
 	// SnapshotOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-snapshotoptions

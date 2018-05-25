@@ -31,7 +31,7 @@ type AWSLambdaEventSourceMapping struct {
 	FunctionName string `json:"FunctionName,omitempty"`
 
 	// StartingPosition AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
 	StartingPosition string `json:"StartingPosition,omitempty"`
 }
