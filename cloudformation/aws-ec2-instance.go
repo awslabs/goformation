@@ -61,7 +61,7 @@ type AWSEC2Instance struct {
 	IamInstanceProfile string `json:"IamInstanceProfile,omitempty"`
 
 	// ImageId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-imageid
 	ImageId string `json:"ImageId,omitempty"`
 
@@ -94,6 +94,11 @@ type AWSEC2Instance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-keyname
 	KeyName string `json:"KeyName,omitempty"`
+
+	// LaunchTemplate AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-launchtemplate
+	LaunchTemplate *AWSEC2Instance_LaunchTemplateSpecification `json:"LaunchTemplate,omitempty"`
 
 	// Monitoring AWS CloudFormation Property
 	// Required: false

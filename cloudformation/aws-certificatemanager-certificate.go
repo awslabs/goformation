@@ -29,6 +29,11 @@ type AWSCertificateManagerCertificate struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags
 	Tags []Tag `json:"Tags,omitempty"`
+
+	// ValidationMethod AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-validationmethod
+	ValidationMethod string `json:"ValidationMethod,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

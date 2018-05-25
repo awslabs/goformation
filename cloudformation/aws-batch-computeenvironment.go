@@ -16,7 +16,7 @@ type AWSBatchComputeEnvironment struct {
 	ComputeEnvironmentName string `json:"ComputeEnvironmentName,omitempty"`
 
 	// ComputeResources AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeresources
 	ComputeResources *AWSBatchComputeEnvironment_ComputeResources `json:"ComputeResources,omitempty"`
 

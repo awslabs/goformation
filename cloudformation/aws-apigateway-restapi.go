@@ -64,6 +64,11 @@ type AWSApiGatewayRestApi struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters
 	Parameters map[string]string `json:"Parameters,omitempty"`
+
+	// Policy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
+	Policy interface{} `json:"Policy,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

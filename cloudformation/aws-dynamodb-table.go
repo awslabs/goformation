@@ -30,6 +30,11 @@ type AWSDynamoDBTable struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi
 	LocalSecondaryIndexes []AWSDynamoDBTable_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
 
+	// PointInTimeRecoverySpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification
+	PointInTimeRecoverySpecification *AWSDynamoDBTable_PointInTimeRecoverySpecification `json:"PointInTimeRecoverySpecification,omitempty"`
+
 	// ProvisionedThroughput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
