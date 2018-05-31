@@ -16,7 +16,7 @@ type AWSGuardDutyMaster struct {
 	DetectorId string `json:"DetectorId,omitempty"`
 
 	// InvitationId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-invitationid
 	InvitationId string `json:"InvitationId,omitempty"`
 
