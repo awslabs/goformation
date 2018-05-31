@@ -19072,7 +19072,6 @@
                     },
                     "required": [
                         "DetectorId",
-                        "InvitationId",
                         "MasterId"
                     ],
                     "type": "object"
@@ -22776,6 +22775,403 @@
                 "Type": {
                     "enum": [
                         "AWS::Logs::SubscriptionFilter"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Neptune::DBCluster": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AvailabilityZones": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "BackupRetentionPeriod": {
+                            "type": "number"
+                        },
+                        "DBClusterIdentifier": {
+                            "type": "string"
+                        },
+                        "DBClusterParameterGroupName": {
+                            "type": "string"
+                        },
+                        "DBSubnetGroupName": {
+                            "type": "string"
+                        },
+                        "IamAuthEnabled": {
+                            "type": "boolean"
+                        },
+                        "KmsKeyId": {
+                            "type": "string"
+                        },
+                        "Port": {
+                            "type": "number"
+                        },
+                        "PreferredBackupWindow": {
+                            "type": "string"
+                        },
+                        "PreferredMaintenanceWindow": {
+                            "type": "string"
+                        },
+                        "SnapshotIdentifier": {
+                            "type": "string"
+                        },
+                        "StorageEncrypted": {
+                            "type": "boolean"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "VpcSecurityGroupIds": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Neptune::DBCluster"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Neptune::DBClusterParameterGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Family": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Parameters": {
+                            "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Description",
+                        "Family",
+                        "Parameters"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Neptune::DBClusterParameterGroup"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Neptune::DBInstance": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AllowMajorVersionUpgrade": {
+                            "type": "boolean"
+                        },
+                        "AutoMinorVersionUpgrade": {
+                            "type": "boolean"
+                        },
+                        "AvailabilityZone": {
+                            "type": "string"
+                        },
+                        "DBClusterIdentifier": {
+                            "type": "string"
+                        },
+                        "DBInstanceClass": {
+                            "type": "string"
+                        },
+                        "DBInstanceIdentifier": {
+                            "type": "string"
+                        },
+                        "DBParameterGroupName": {
+                            "type": "string"
+                        },
+                        "DBSnapshotIdentifier": {
+                            "type": "string"
+                        },
+                        "DBSubnetGroupName": {
+                            "type": "string"
+                        },
+                        "PreferredMaintenanceWindow": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "DBInstanceClass"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Neptune::DBInstance"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Neptune::DBParameterGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Family": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Parameters": {
+                            "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Description",
+                        "Family",
+                        "Parameters"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Neptune::DBParameterGroup"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Neptune::DBSubnetGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DBSubnetGroupDescription": {
+                            "type": "string"
+                        },
+                        "DBSubnetGroupName": {
+                            "type": "string"
+                        },
+                        "SubnetIds": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "DBSubnetGroupDescription",
+                        "SubnetIds"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Neptune::DBSubnetGroup"
                     ],
                     "type": "string"
                 }
@@ -31717,6 +32113,21 @@
                         },
                         {
                             "$ref": "#/definitions/AWS::Logs::SubscriptionFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Neptune::DBCluster"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Neptune::DBClusterParameterGroup"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Neptune::DBInstance"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Neptune::DBParameterGroup"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Neptune::DBSubnetGroup"
                         },
                         {
                             "$ref": "#/definitions/AWS::OpsWorks::App"
