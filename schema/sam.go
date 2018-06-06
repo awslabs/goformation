@@ -13901,6 +13901,91 @@ var samSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EKS::Cluster": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Name": {
+                            "type": "string"
+                        },
+                        "ResourcesVpcConfig": {
+                            "$ref": "#/definitions/AWS::EKS::Cluster.ResourcesVpcConfig"
+                        },
+                        "RoleArn": {
+                            "type": "string"
+                        },
+                        "Version": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ResourcesVpcConfig",
+                        "RoleArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EKS::Cluster"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EKS::Cluster.ResourcesVpcConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "SecurityGroupIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SubnetIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "SubnetIds"
+            ],
+            "type": "object"
+        },
         "AWS::EMR::Cluster": {
             "additionalProperties": false,
             "properties": {
@@ -32532,6 +32617,9 @@ var samSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::EFS::MountTarget"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EKS::Cluster"
                         },
                         {
                             "$ref": "#/definitions/AWS::EMR::Cluster"
