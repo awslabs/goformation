@@ -222,6 +222,11 @@ The intrinsic 'Ref' function as implemented will resolve all of the [pseudo para
 
 If a reference is not a pseudo parameter, GoFormation will try to resolve it within the AWS CloudFormation template. **Currently, this implementation only searches for `Parameters` with a name that matches the ref, and returns the `Default` if it has one.**
 
+
+## Versioning
+
+This library is automatically versioned and tagged using [semantic-release](https://github.com/semantic-release/semantic-release).
+
 ## Contributing
 
 Contributions and feedback are welcome! Proposals and pull requests will be considered and responded to. For more information, see the [CONTRIBUTING](CONTRIBUTING.md) file.
