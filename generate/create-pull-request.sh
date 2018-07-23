@@ -90,6 +90,7 @@ git push --quiet --set-upstream origin-push ${REQUEST_BRANCH}
 echo "Installing GitHub Hub"
 git clone https://github.com/github/hub.git /tmp/hub
 cd /tmp/hub
+go get ./...
 ./script/build 
 
 echo "Generating Pull Request for merging ${REPO}/${REQUEST_BRANCH} to ${REPO}/${DST_BRANCH}..."
