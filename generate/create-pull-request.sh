@@ -29,6 +29,8 @@ COMMIT_NAME="AWS GoFormation"
 COMMIT_EMAIL="goformation@amazon.com"
 COMMIT_MSG="AWS CloudFormation Update ($(date +%F))"
 
+echo "Build Type: ${TRAVIS_EVENT_TYPE}"
+
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_EVENT_TYPE" != "cron" ]; then
     echo "Skipping auto generation of AWS CloudFormation resources; just doing a build."
