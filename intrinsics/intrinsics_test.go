@@ -318,7 +318,8 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 						"StringProperty": "Simple string example",						
 						"BooleanProperty": true,
 						"NumberProperty": 123.45,
-						"JoinIntrinsicProperty": { "Fn::Join": [ "some", "name" ] },				
+						"JoinIntrinsicPropertyString": { "Fn::Join": [ "some", "name" ] },		
+						"JoinIntrinsicPropertyArray": { "Fn::Join": [ "-", [ "some", "hyphenated", "name" ] ] },		
 						"JoinNestedIntrinsicProperty": { "Fn::Join": [ "some", { "Fn::Join": [ "joined", "value" ] } ] },
 						"SubIntrinsicProperty": { "Fn::Sub": [ "some ${replaced}", { "replaced": "value" } ] },
 						"SplitIntrinsicProperty": { "Fn::Split" : [ ",", "some,string,to,be,split" ] },
@@ -368,8 +369,12 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 				Expect(properties["NumberProperty"]).To(Equal(123.45))
 			})
 
-			It("should have the correct value for a Fn::Join intrinsic property", func() {
-				Expect(properties["JoinIntrinsicProperty"]).To(Equal("somename"))
+			It("should have the correct value for a Fn::Join intrinsic property with an array of strings", func() {
+				Expect(properties["JoinIntrinsicPropertyString"]).To(Equal("somename"))
+			})
+
+			It("should have the correct value for a Fn::Join intrinsic property with a delimiter and an array of strings", func() {
+				Expect(properties["JoinIntrinsicPropertyArray"]).To(Equal("some-hyphenated-name"))
 			})
 
 			It("should have the correct value for a nested Fn::Join intrinsic property", func() {
@@ -474,7 +479,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 			})
 
 			It("should have the correct value for an intrinsic property", func() {
-				Expect(properties["JoinIntrinsicProperty"]).To(Equal("overridden"))
+				Expect(properties["JoinIntrinsicPropertyString"]).To(Equal("overridden"))
 			})
 
 			It("should have the correct value for a nested intrinsic property", func() {
