@@ -38,16 +38,15 @@ func FnJoin(name string, input interface{}, template interface{}) interface{} {
 					}
 				}
 
-				if str, ok := value.(string); ok {
-					parts = append(parts, str)
-					continue
-				}
-
-				if subarr, ok := value.([]interface{}); ok {
-					for _, subvalue := range subarr {
+				switch v := value.(type) {
+				case string:
+					// This element is a string; add it to the array of parts that need joining
+					parts = append(parts, v)
+				case []interface{}:
+					// This element is an array; check if it contains strings and add them to the array of parts that need joining
+					for _, subvalue := range v {
 						if str, ok := subvalue.(string); ok {
 							parts = append(parts, str)
-							continue
 						}
 					}
 				}
