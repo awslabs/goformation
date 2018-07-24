@@ -31,17 +31,17 @@ COMMIT_MSG="AWS CloudFormation Update ($(date +%F))"
 
 echo "Build Type: ${TRAVIS_EVENT_TYPE}"
 
-# Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-if [ "$TRAVIS_EVENT_TYPE" != "cron" ]; then
-    echo "Skipping auto generation of AWS CloudFormation resources; just doing a build."
-    exit 0
-fi
+# # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
+# if [ "$TRAVIS_EVENT_TYPE" != "cron" ]; then
+#     echo "Skipping auto generation of AWS CloudFormation resources; just doing a build."
+#     exit 0
+# fi
 
-# Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SRC_BRANCH" ]; then
-    echo "Skipping deploy; just doing a build."
-    exit 0
-fi
+# # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
+# if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SRC_BRANCH" ]; then
+#     echo "Skipping deploy; just doing a build."
+#     exit 0
+# fi
 
 # Configure the Git user for any commits
 git config --global user.name "${COMMIT_NAME}"
