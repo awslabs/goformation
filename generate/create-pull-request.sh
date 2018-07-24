@@ -19,7 +19,7 @@
 #set -e
 
 # The repo/branch to create the PR against
-SRC_REPO="goformation/goformation"
+SRC_REPO="aws-goformation/goformation"
 SRC_BRANCH="master"
 DST_REPO="awslabs/goformation"
 DST_BRANCH="master"
