@@ -207,7 +207,7 @@ func (p Property) GetJSONPrimitiveType() string {
 func convertTypeToGo(pt string) string {
 	switch pt {
 	case "String":
-		return "string"
+		return "*stringIntrinsic"
 	case "Long":
 		return "int64"
 	case "Integer":
