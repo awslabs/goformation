@@ -4,7 +4,8 @@ go:
 
 after_success:
   # Check for updated CloudFormation resources, and submit a PR 
-  - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
+  # - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
+  - ./generate/create-pull-request.sh
 
 # deploy:
 #   provider: script
