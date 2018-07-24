@@ -29,17 +29,19 @@ COMMIT_NAME="AWS GoFormation"
 COMMIT_EMAIL="goformation@amazon.com"
 COMMIT_MSG="AWS CloudFormation Update ($(date +%F))"
 
-# Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-if [ "$TRAVIS_EVENT_TYPE" != "cron" ]; then
-    echo "Skipping auto generation of AWS CloudFormation resources; just doing a build."
-    exit 0
-fi
+echo "Build Type: ${TRAVIS_EVENT_TYPE}"
 
-# Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SRC_BRANCH" ]; then
-    echo "Skipping deploy; just doing a build."
-    exit 0
-fi
+# # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
+# if [ "$TRAVIS_EVENT_TYPE" != "cron" ]; then
+#     echo "Skipping auto generation of AWS CloudFormation resources; just doing a build."
+#     exit 0
+# fi
+
+# # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
+# if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SRC_BRANCH" ]; then
+#     echo "Skipping deploy; just doing a build."
+#     exit 0
+# fi
 
 # Configure the Git user for any commits
 git config --global user.name "${COMMIT_NAME}"
@@ -90,6 +92,7 @@ git push --quiet --set-upstream origin-push ${REQUEST_BRANCH}
 echo "Installing GitHub Hub"
 git clone https://github.com/github/hub.git /tmp/hub
 cd /tmp/hub
+go get ./...
 ./script/build 
 
 echo "Generating Pull Request for merging ${REPO}/${REQUEST_BRANCH} to ${REPO}/${DST_BRANCH}..."
