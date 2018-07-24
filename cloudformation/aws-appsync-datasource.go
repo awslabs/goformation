@@ -30,6 +30,11 @@ type AWSAppSyncDataSource struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig
 	ElasticsearchConfig *AWSAppSyncDataSource_ElasticsearchConfig `json:"ElasticsearchConfig,omitempty"`
 
+	// HttpConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig
+	HttpConfig *AWSAppSyncDataSource_HttpConfig `json:"HttpConfig,omitempty"`
+
 	// LambdaConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig
