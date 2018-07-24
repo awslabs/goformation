@@ -25,6 +25,11 @@ type AWSServiceDiscoveryService struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckconfig
 	HealthCheckConfig *AWSServiceDiscoveryService_HealthCheckConfig `json:"HealthCheckConfig,omitempty"`
 
+	// HealthCheckCustomConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckcustomconfig
+	HealthCheckCustomConfig *AWSServiceDiscoveryService_HealthCheckCustomConfig `json:"HealthCheckCustomConfig,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-name
