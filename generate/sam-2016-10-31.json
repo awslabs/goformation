@@ -212,7 +212,7 @@
                 "Properties": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-types",
                     "Required": true,
-                    "Types": [ "S3Event", "SNSEvent", "KinesisEvent", "DynamoDBEvent", "ApiEvent", "ScheduleEvent", "CloudWatchEventEvent", "IoTRuleEvent", "AlexaSkillEvent" ],
+                    "Types": [ "S3Event", "SNSEvent", "SQSEvent", "KinesisEvent", "DynamoDBEvent", "ApiEvent", "ScheduleEvent", "CloudWatchEventEvent", "IoTRuleEvent", "AlexaSkillEvent" ],
                     "UpdateType": "Immutable"
                 }
             }
@@ -303,6 +303,23 @@
                 "BatchSize": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb",
                     "Required": true,
+                    "PrimitiveType": "Integer",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.SQSEvent": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs",
+            "Properties": {
+                "Queue": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "BatchSize": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs",
+                    "Required": false,
                     "PrimitiveType": "Integer",
                     "UpdateType": "Immutable"
                 }

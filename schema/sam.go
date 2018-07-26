@@ -30314,6 +30314,9 @@ var samSchema = `{
                             "$ref": "#/definitions/AWS::Serverless::Function.SNSEvent"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Serverless::Function.SQSEvent"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Serverless::Function.KinesisEvent"
                         },
                         {
@@ -30482,6 +30485,21 @@ var samSchema = `{
             },
             "required": [
                 "Topic"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.SQSEvent": {
+            "additionalProperties": false,
+            "properties": {
+                "BatchSize": {
+                    "type": "number"
+                },
+                "Queue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Queue"
             ],
             "type": "object"
         },
