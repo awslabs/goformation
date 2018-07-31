@@ -8,10 +8,11 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// AWSServerlessFunction_Properties is a helper struct that can hold either a S3Event, SNSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, IoTRuleEvent, or AlexaSkillEvent value
+// AWSServerlessFunction_Properties is a helper struct that can hold either a S3Event, SNSEvent, SQSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, IoTRuleEvent, or AlexaSkillEvent value
 type AWSServerlessFunction_Properties struct {
 	S3Event              *AWSServerlessFunction_S3Event
 	SNSEvent             *AWSServerlessFunction_SNSEvent
+	SQSEvent             *AWSServerlessFunction_SQSEvent
 	KinesisEvent         *AWSServerlessFunction_KinesisEvent
 	DynamoDBEvent        *AWSServerlessFunction_DynamoDBEvent
 	ApiEvent             *AWSServerlessFunction_ApiEvent
@@ -29,6 +30,10 @@ func (r AWSServerlessFunction_Properties) value() interface{} {
 
 	if r.SNSEvent != nil && !reflect.DeepEqual(r.SNSEvent, &AWSServerlessFunction_SNSEvent{}) {
 		return r.SNSEvent
+	}
+
+	if r.SQSEvent != nil && !reflect.DeepEqual(r.SQSEvent, &AWSServerlessFunction_SQSEvent{}) {
+		return r.SQSEvent
 	}
 
 	if r.KinesisEvent != nil && !reflect.DeepEqual(r.KinesisEvent, &AWSServerlessFunction_KinesisEvent{}) {
@@ -65,6 +70,10 @@ func (r AWSServerlessFunction_Properties) value() interface{} {
 
 	if r.SNSEvent != nil {
 		return r.SNSEvent
+	}
+
+	if r.SQSEvent != nil {
+		return r.SQSEvent
 	}
 
 	if r.KinesisEvent != nil {
@@ -119,6 +128,8 @@ func (r *AWSServerlessFunction_Properties) UnmarshalJSON(b []byte) error {
 		mapstructure.Decode(val, &r.S3Event)
 
 		mapstructure.Decode(val, &r.SNSEvent)
+
+		mapstructure.Decode(val, &r.SQSEvent)
 
 		mapstructure.Decode(val, &r.KinesisEvent)
 
