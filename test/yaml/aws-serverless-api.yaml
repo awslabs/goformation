@@ -53,3 +53,16 @@ Resources:
       CacheClusterSize: test-cache-cluster-size
       Variables:
         NAME: VALUE 
+
+  ServerlessApiWithMethodSettingsAsYAML:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: test-name
+      StageName: test-stage-name
+      MethodSettings:
+        LoggingLevel: ERROR
+        MetricsEnabled: true
+      CacheClusterEnabled: true
+      CacheClusterSize: test-cache-cluster-size
+      Variables:
+        NAME: VALUE

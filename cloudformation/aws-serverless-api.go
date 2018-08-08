@@ -30,6 +30,11 @@ type AWSServerlessApi struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
 	DefinitionUri *AWSServerlessApi_DefinitionUri `json:"DefinitionUri,omitempty"`
 
+	// MethodSettings AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+	MethodSettings interface{} `json:"MethodSettings,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
