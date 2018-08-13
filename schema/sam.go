@@ -5900,6 +5900,9 @@ var samSchema = `{
         "AWS::CodeBuild::Project.Artifacts": {
             "additionalProperties": false,
             "properties": {
+                "EncryptionDisabled": {
+                    "type": "boolean"
+                },
                 "Location": {
                     "type": "string"
                 },
@@ -5908,6 +5911,9 @@ var samSchema = `{
                 },
                 "NamespaceType": {
                     "type": "string"
+                },
+                "OverrideArtifactName": {
+                    "type": "boolean"
                 },
                 "Packaging": {
                     "type": "string"
@@ -13049,6 +13055,66 @@ var samSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EC2::VPCEndpointServicePermissions": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AllowedPrincipals": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "ServiceId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ServiceId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::VPCEndpointServicePermissions"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::EC2::VPCGatewayAttachment": {
             "additionalProperties": false,
             "properties": {
@@ -18388,6 +18454,12 @@ var samSchema = `{
                     "properties": {
                         "GrokClassifier": {
                             "$ref": "#/definitions/AWS::Glue::Classifier.GrokClassifier"
+                        },
+                        "JsonClassifier": {
+                            "$ref": "#/definitions/AWS::Glue::Classifier.JsonClassifier"
+                        },
+                        "XMLClassifier": {
+                            "$ref": "#/definitions/AWS::Glue::Classifier.XMLClassifier"
                         }
                     },
                     "type": "object"
@@ -18423,6 +18495,40 @@ var samSchema = `{
             "required": [
                 "Classification",
                 "GrokPattern"
+            ],
+            "type": "object"
+        },
+        "AWS::Glue::Classifier.JsonClassifier": {
+            "additionalProperties": false,
+            "properties": {
+                "JsonPath": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "JsonPath"
+            ],
+            "type": "object"
+        },
+        "AWS::Glue::Classifier.XMLClassifier": {
+            "additionalProperties": false,
+            "properties": {
+                "Classification": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "RowTag": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Classification",
+                "RowTag"
             ],
             "type": "object"
         },
@@ -18570,6 +18676,9 @@ var samSchema = `{
                                 "type": "string"
                             },
                             "type": "array"
+                        },
+                        "Configuration": {
+                            "type": "string"
                         },
                         "DatabaseName": {
                             "type": "string"
@@ -33395,10 +33504,6 @@ var samSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "Key",
-                "Value"
-            ],
             "type": "object"
         }
     },
@@ -33811,6 +33916,9 @@ var samSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::VPCEndpointConnectionNotification"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::VPCEndpointServicePermissions"
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::VPCGatewayAttachment"

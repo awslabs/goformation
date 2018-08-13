@@ -14,6 +14,16 @@ type AWSGlueClassifier struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-grokclassifier
 	GrokClassifier *AWSGlueClassifier_GrokClassifier `json:"GrokClassifier,omitempty"`
+
+	// JsonClassifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-jsonclassifier
+	JsonClassifier *AWSGlueClassifier_JsonClassifier `json:"JsonClassifier,omitempty"`
+
+	// XMLClassifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-xmlclassifier
+	XMLClassifier *AWSGlueClassifier_XMLClassifier `json:"XMLClassifier,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
