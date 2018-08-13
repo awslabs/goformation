@@ -30126,6 +30126,9 @@ var samSchema = `{
                                 }
                             ]
                         },
+                        "MethodSettings": {
+                            "type": "object"
+                        },
                         "Name": {
                             "type": "string"
                         },

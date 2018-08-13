@@ -20,8 +20,12 @@
                 "CodeUri": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
                     "Required": true,
-                    "PrimitiveTypes": [ "String" ],
-                    "Types": [ "S3Location" ],
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "Types": [
+                        "S3Location"
+                    ],
                     "UpdateType": "Immutable"
                 },
                 "FunctionName": {
@@ -57,10 +61,18 @@
                 "Policies": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
                     "Required": false,
-                    "PrimitiveTypes": [ "String" ],
-                    "PrimitiveItemTypes": [ "String" ],
-                    "Types": [ "IAMPolicyDocument" ] ,
-                    "ItemTypes": [ "IAMPolicyDocument" ],
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "PrimitiveItemTypes": [
+                        "String"
+                    ],
+                    "Types": [
+                        "IAMPolicyDocument"
+                    ],
+                    "ItemTypes": [
+                        "IAMPolicyDocument"
+                    ],
                     "UpdateType": "Immutable"
                 },
                 "Environment": {
@@ -127,8 +139,12 @@
                 "DefinitionUri": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
                     "Required": false,
-                    "PrimitiveTypes": [ "String" ],
-                    "Types": [ "S3Location" ],
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "Types": [
+                        "S3Location"
+                    ],
                     "UpdateType": "Immutable"
                 },
                 "DefinitionBody": {
@@ -149,11 +165,17 @@
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 },
-                "Variables" :{
+                "Variables": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
                     "Required": false,
                     "Type": "Map",
                     "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "MethodSettings": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
+                    "Required": false,
+                    "PrimitiveType": "Json",
                     "UpdateType": "Immutable"
                 }
             }
@@ -212,7 +234,18 @@
                 "Properties": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-types",
                     "Required": true,
-                    "Types": [ "S3Event", "SNSEvent", "SQSEvent", "KinesisEvent", "DynamoDBEvent", "ApiEvent", "ScheduleEvent", "CloudWatchEventEvent", "IoTRuleEvent", "AlexaSkillEvent" ],
+                    "Types": [
+                        "S3Event",
+                        "SNSEvent",
+                        "SQSEvent",
+                        "KinesisEvent",
+                        "DynamoDBEvent",
+                        "ApiEvent",
+                        "ScheduleEvent",
+                        "CloudWatchEventEvent",
+                        "IoTRuleEvent",
+                        "AlexaSkillEvent"
+                    ],
                     "UpdateType": "Immutable"
                 }
             }
@@ -229,8 +262,12 @@
                 "Events": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3",
                     "Required": true,
-                    "PrimitiveTypes": [ "String" ],
-                    "PrimitiveItemTypes": [ "String" ]
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "PrimitiveItemTypes": [
+                        "String"
+                    ]
                 },
                 "Filter": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3",
