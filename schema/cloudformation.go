@@ -58,6 +58,9 @@ var cloudformationSchema = `{
                         "HostInstanceType": {
                             "type": "string"
                         },
+                        "Logs": {
+                            "$ref": "#/definitions/AWS::AmazonMQ::Broker.LogList"
+                        },
                         "MaintenanceWindowStartTime": {
                             "$ref": "#/definitions/AWS::AmazonMQ::Broker.MaintenanceWindow"
                         },
@@ -122,6 +125,18 @@ var cloudformationSchema = `{
                 "Id",
                 "Revision"
             ],
+            "type": "object"
+        },
+        "AWS::AmazonMQ::Broker.LogList": {
+            "additionalProperties": false,
+            "properties": {
+                "Audit": {
+                    "type": "boolean"
+                },
+                "General": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::AmazonMQ::Broker.MaintenanceWindow": {
@@ -8465,6 +8480,9 @@ var cloudformationSchema = `{
                         "ReplicationFactor": {
                             "type": "number"
                         },
+                        "SSESpecification": {
+                            "$ref": "#/definitions/AWS::DAX::Cluster.SSESpecification"
+                        },
                         "SecurityGroupIds": {
                             "items": {
                                 "type": "string"
@@ -8496,6 +8514,15 @@ var cloudformationSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::DAX::Cluster.SSESpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "SSEEnabled": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::DAX::ParameterGroup": {
@@ -13210,6 +13237,9 @@ var cloudformationSchema = `{
                         "PeerOwnerId": {
                             "type": "string"
                         },
+                        "PeerRegion": {
+                            "type": "string"
+                        },
                         "PeerRoleArn": {
                             "type": "string"
                         },
@@ -14488,6 +14518,12 @@ var cloudformationSchema = `{
                         },
                         "PerformanceMode": {
                             "type": "string"
+                        },
+                        "ProvisionedThroughputInMibps": {
+                            "type": "number"
+                        },
+                        "ThroughputMode": {
+                            "type": "string"
                         }
                     },
                     "type": "object"
@@ -14740,6 +14776,9 @@ var cloudformationSchema = `{
                         },
                         "JobFlowRole": {
                             "type": "string"
+                        },
+                        "KerberosAttributes": {
+                            "$ref": "#/definitions/AWS::EMR::Cluster.KerberosAttributes"
                         },
                         "LogUri": {
                             "type": "string"
@@ -15103,6 +15142,31 @@ var cloudformationSchema = `{
                     "type": "boolean"
                 }
             },
+            "type": "object"
+        },
+        "AWS::EMR::Cluster.KerberosAttributes": {
+            "additionalProperties": false,
+            "properties": {
+                "ADDomainJoinPassword": {
+                    "type": "string"
+                },
+                "ADDomainJoinUser": {
+                    "type": "string"
+                },
+                "CrossRealmTrustPrincipalPassword": {
+                    "type": "string"
+                },
+                "KdcAdminPassword": {
+                    "type": "string"
+                },
+                "Realm": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "KdcAdminPassword",
+                "Realm"
+            ],
             "type": "object"
         },
         "AWS::EMR::Cluster.MetricDimension": {
@@ -28584,10 +28648,22 @@ var cloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "DeliveryPolicy": {
+                            "type": "object"
+                        },
                         "Endpoint": {
                             "type": "string"
                         },
+                        "FilterPolicy": {
+                            "type": "object"
+                        },
                         "Protocol": {
+                            "type": "string"
+                        },
+                        "RawMessageDelivery": {
+                            "type": "boolean"
+                        },
+                        "Region": {
                             "type": "string"
                         },
                         "TopicArn": {
@@ -28805,6 +28881,12 @@ var cloudformationSchema = `{
                         },
                         "RedrivePolicy": {
                             "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         },
                         "VisibilityTimeout": {
                             "type": "number"
@@ -31880,7 +31962,6 @@ var cloudformationSchema = `{
                 }
             },
             "required": [
-                "Action",
                 "Priority",
                 "RuleId"
             ],
@@ -32842,6 +32923,10 @@ var cloudformationSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },

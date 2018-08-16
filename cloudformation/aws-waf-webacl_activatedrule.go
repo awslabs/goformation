@@ -5,7 +5,7 @@ package cloudformation
 type AWSWAFWebACL_ActivatedRule struct {
 
 	// Action AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-action
 	Action *AWSWAFWebACL_WafAction `json:"Action,omitempty"`
 

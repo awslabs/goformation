@@ -29,6 +29,16 @@ type AWSEFSFileSystem struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
 	PerformanceMode string `json:"PerformanceMode,omitempty"`
+
+	// ProvisionedThroughputInMibps AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-provisionedthroughputinmibps
+	ProvisionedThroughputInMibps float64 `json:"ProvisionedThroughputInMibps,omitempty"`
+
+	// ThroughputMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-throughputmode
+	ThroughputMode string `json:"ThroughputMode,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
