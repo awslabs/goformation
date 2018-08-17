@@ -55,6 +55,9 @@
                         "HostInstanceType": {
                             "type": "string"
                         },
+                        "Logs": {
+                            "$ref": "#/definitions/AWS::AmazonMQ::Broker.LogList"
+                        },
                         "MaintenanceWindowStartTime": {
                             "$ref": "#/definitions/AWS::AmazonMQ::Broker.MaintenanceWindow"
                         },
@@ -119,6 +122,18 @@
                 "Id",
                 "Revision"
             ],
+            "type": "object"
+        },
+        "AWS::AmazonMQ::Broker.LogList": {
+            "additionalProperties": false,
+            "properties": {
+                "Audit": {
+                    "type": "boolean"
+                },
+                "General": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::AmazonMQ::Broker.MaintenanceWindow": {
@@ -8462,6 +8477,9 @@
                         "ReplicationFactor": {
                             "type": "number"
                         },
+                        "SSESpecification": {
+                            "$ref": "#/definitions/AWS::DAX::Cluster.SSESpecification"
+                        },
                         "SecurityGroupIds": {
                             "items": {
                                 "type": "string"
@@ -8493,6 +8511,15 @@
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::DAX::Cluster.SSESpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "SSEEnabled": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::DAX::ParameterGroup": {
@@ -13207,6 +13234,9 @@
                         "PeerOwnerId": {
                             "type": "string"
                         },
+                        "PeerRegion": {
+                            "type": "string"
+                        },
                         "PeerRoleArn": {
                             "type": "string"
                         },
@@ -14485,6 +14515,12 @@
                         },
                         "PerformanceMode": {
                             "type": "string"
+                        },
+                        "ProvisionedThroughputInMibps": {
+                            "type": "number"
+                        },
+                        "ThroughputMode": {
+                            "type": "string"
                         }
                     },
                     "type": "object"
@@ -14737,6 +14773,9 @@
                         },
                         "JobFlowRole": {
                             "type": "string"
+                        },
+                        "KerberosAttributes": {
+                            "$ref": "#/definitions/AWS::EMR::Cluster.KerberosAttributes"
                         },
                         "LogUri": {
                             "type": "string"
@@ -15100,6 +15139,31 @@
                     "type": "boolean"
                 }
             },
+            "type": "object"
+        },
+        "AWS::EMR::Cluster.KerberosAttributes": {
+            "additionalProperties": false,
+            "properties": {
+                "ADDomainJoinPassword": {
+                    "type": "string"
+                },
+                "ADDomainJoinUser": {
+                    "type": "string"
+                },
+                "CrossRealmTrustPrincipalPassword": {
+                    "type": "string"
+                },
+                "KdcAdminPassword": {
+                    "type": "string"
+                },
+                "Realm": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "KdcAdminPassword",
+                "Realm"
+            ],
             "type": "object"
         },
         "AWS::EMR::Cluster.MetricDimension": {
@@ -28581,10 +28645,22 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "DeliveryPolicy": {
+                            "type": "object"
+                        },
                         "Endpoint": {
                             "type": "string"
                         },
+                        "FilterPolicy": {
+                            "type": "object"
+                        },
                         "Protocol": {
+                            "type": "string"
+                        },
+                        "RawMessageDelivery": {
+                            "type": "boolean"
+                        },
+                        "Region": {
                             "type": "string"
                         },
                         "TopicArn": {
@@ -28802,6 +28878,12 @@
                         },
                         "RedrivePolicy": {
                             "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         },
                         "VisibilityTimeout": {
                             "type": "number"
@@ -32539,7 +32621,6 @@
                 }
             },
             "required": [
-                "Action",
                 "Priority",
                 "RuleId"
             ],
@@ -33501,6 +33582,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },
