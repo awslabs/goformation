@@ -50,6 +50,11 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchconfigurationname
 	LaunchConfigurationName string `json:"LaunchConfigurationName,omitempty"`
 
+	// LaunchTemplate AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchtemplate
+	LaunchTemplate *AWSAutoScalingAutoScalingGroup_LaunchTemplateSpecification `json:"LaunchTemplate,omitempty"`
+
 	// LifecycleHookSpecificationList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist
