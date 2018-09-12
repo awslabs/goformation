@@ -13,27 +13,27 @@ type AWSServiceCatalogCloudFormationProduct struct {
 	// AcceptLanguage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-acceptlanguage
-	AcceptLanguage string `json:"AcceptLanguage,omitempty"`
+	AcceptLanguage *Value `json:"AcceptLanguage,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-description
-	Description string `json:"Description,omitempty"`
+	Description *Value `json:"Description,omitempty"`
 
 	// Distributor AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-distributor
-	Distributor string `json:"Distributor,omitempty"`
+	Distributor *Value `json:"Distributor,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-name
-	Name string `json:"Name,omitempty"`
+	Name *Value `json:"Name,omitempty"`
 
 	// Owner AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-owner
-	Owner string `json:"Owner,omitempty"`
+	Owner *Value `json:"Owner,omitempty"`
 
 	// ProvisioningArtifactParameters AWS CloudFormation Property
 	// Required: true
@@ -43,17 +43,17 @@ type AWSServiceCatalogCloudFormationProduct struct {
 	// SupportDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-supportdescription
-	SupportDescription string `json:"SupportDescription,omitempty"`
+	SupportDescription *Value `json:"SupportDescription,omitempty"`
 
 	// SupportEmail AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-supportemail
-	SupportEmail string `json:"SupportEmail,omitempty"`
+	SupportEmail *Value `json:"SupportEmail,omitempty"`
 
 	// SupportUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-supporturl
-	SupportUrl string `json:"SupportUrl,omitempty"`
+	SupportUrl *Value `json:"SupportUrl,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -115,9 +115,9 @@ func (t *Template) GetAllAWSServiceCatalogCloudFormationProductResources() map[s
 				if resType == "AWS::ServiceCatalog::CloudFormationProduct" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSServiceCatalogCloudFormationProduct
-						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+						result := &AWSServiceCatalogCloudFormationProduct{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							results[name] = *result
 						}
 					}
 				}
@@ -142,9 +142,9 @@ func (t *Template) GetAWSServiceCatalogCloudFormationProductWithName(name string
 				if resType == "AWS::ServiceCatalog::CloudFormationProduct" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSServiceCatalogCloudFormationProduct
-						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+						result := &AWSServiceCatalogCloudFormationProduct{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							return *result, nil
 						}
 					}
 				}

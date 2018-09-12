@@ -80,9 +80,9 @@ func (t *Template) GetAllAWSGlueClassifierResources() map[string]AWSGlueClassifi
 				if resType == "AWS::Glue::Classifier" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSGlueClassifier
-						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+						result := &AWSGlueClassifier{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							results[name] = *result
 						}
 					}
 				}
@@ -107,9 +107,9 @@ func (t *Template) GetAWSGlueClassifierWithName(name string) (AWSGlueClassifier,
 				if resType == "AWS::Glue::Classifier" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSGlueClassifier
-						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+						result := &AWSGlueClassifier{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							return *result, nil
 						}
 					}
 				}

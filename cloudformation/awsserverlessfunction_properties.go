@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 
 	"reflect"
-
-	"github.com/mitchellh/mapstructure"
 )
 
 // AWSServerlessFunction_Properties is a helper struct that can hold either a S3Event, SNSEvent, SQSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, IoTRuleEvent, or AlexaSkillEvent value
@@ -124,28 +122,30 @@ func (r *AWSServerlessFunction_Properties) UnmarshalJSON(b []byte) error {
 	switch val := typecheck.(type) {
 
 	case map[string]interface{}:
+		_ = val
 
-		mapstructure.Decode(val, &r.S3Event)
+		json.Unmarshal(b, &r.S3Event)
 
-		mapstructure.Decode(val, &r.SNSEvent)
+		json.Unmarshal(b, &r.SNSEvent)
 
-		mapstructure.Decode(val, &r.SQSEvent)
+		json.Unmarshal(b, &r.SQSEvent)
 
-		mapstructure.Decode(val, &r.KinesisEvent)
+		json.Unmarshal(b, &r.KinesisEvent)
 
-		mapstructure.Decode(val, &r.DynamoDBEvent)
+		json.Unmarshal(b, &r.DynamoDBEvent)
 
-		mapstructure.Decode(val, &r.ApiEvent)
+		json.Unmarshal(b, &r.ApiEvent)
 
-		mapstructure.Decode(val, &r.ScheduleEvent)
+		json.Unmarshal(b, &r.ScheduleEvent)
 
-		mapstructure.Decode(val, &r.CloudWatchEventEvent)
+		json.Unmarshal(b, &r.CloudWatchEventEvent)
 
-		mapstructure.Decode(val, &r.IoTRuleEvent)
+		json.Unmarshal(b, &r.IoTRuleEvent)
 
-		mapstructure.Decode(val, &r.AlexaSkillEvent)
+		json.Unmarshal(b, &r.AlexaSkillEvent)
 
 	case []interface{}:
+		_ = val
 
 	}
 

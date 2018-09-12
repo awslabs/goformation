@@ -13,12 +13,12 @@ type AWSServerlessApi struct {
 	// CacheClusterEnabled AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	CacheClusterEnabled bool `json:"CacheClusterEnabled,omitempty"`
+	CacheClusterEnabled *Value `json:"CacheClusterEnabled,omitempty"`
 
 	// CacheClusterSize AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	CacheClusterSize string `json:"CacheClusterSize,omitempty"`
+	CacheClusterSize *Value `json:"CacheClusterSize,omitempty"`
 
 	// DefinitionBody AWS CloudFormation Property
 	// Required: false
@@ -38,17 +38,17 @@ type AWSServerlessApi struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	Name string `json:"Name,omitempty"`
+	Name *Value `json:"Name,omitempty"`
 
 	// StageName AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	StageName string `json:"StageName,omitempty"`
+	StageName *Value `json:"StageName,omitempty"`
 
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	Variables map[string]string `json:"Variables,omitempty"`
+	Variables map[string]*Value `json:"Variables,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -105,9 +105,9 @@ func (t *Template) GetAllAWSServerlessApiResources() map[string]AWSServerlessApi
 				if resType == "AWS::Serverless::Api" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSServerlessApi
-						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+						result := &AWSServerlessApi{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							results[name] = *result
 						}
 					}
 				}
@@ -132,9 +132,9 @@ func (t *Template) GetAWSServerlessApiWithName(name string) (AWSServerlessApi, e
 				if resType == "AWS::Serverless::Api" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSServerlessApi
-						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+						result := &AWSServerlessApi{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							return *result, nil
 						}
 					}
 				}
