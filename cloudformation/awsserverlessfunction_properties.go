@@ -108,7 +108,7 @@ func (r AWSServerlessFunction_Properties) value() interface{} {
 
 }
 
-func (r *AWSServerlessFunction_Properties) MarshalJSON() ([]byte, error) {
+func (r AWSServerlessFunction_Properties) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 

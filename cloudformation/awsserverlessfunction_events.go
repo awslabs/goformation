@@ -27,7 +27,7 @@ func (r AWSServerlessFunction_Events) value() interface{} {
 
 }
 
-func (r *AWSServerlessFunction_Events) MarshalJSON() ([]byte, error) {
+func (r AWSServerlessFunction_Events) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 
