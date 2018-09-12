@@ -10,6 +10,11 @@ func Ref(logicalName string) string {
 	return "%%Ref:" + logicalName + "%%"
 }
 
+// GetAtt creates a CloudFormation reference to an attribute of another resource in the template
+func GetAtt(logicalName string, attribute string) string {
+	return "%%Fn::GetAtt:" + logicalName + "." + attribute + "%%"
+}
+
 // processReferences is a post processor that replaces all goformation references
 // with proper CloudFormation references
 func processReferences(input interface{}) (interface{}, error) {
@@ -50,12 +55,22 @@ func replaceReferencesRecursive(input interface{}) interface{} {
 		return result
 
 	case string:
+
 		// Check if the string contains a goformation reference
-		re := regexp.MustCompile("%%Ref:(.*)%%")
-		matches := re.FindStringSubmatch(value)
-		if len(matches) > 0 {
+		refexp := regexp.MustCompile("%%Ref:(.*)%%")
+		refmatches := refexp.FindStringSubmatch(value)
+		if len(refmatches) > 0 {
 			return map[string]string{
-				"Ref": matches[1],
+				"Ref": refmatches[1],
+			}
+		}
+
+		// Check if the string containers a goformation GetAtt reference
+		getattexp := regexp.MustCompile(`%%Fn::GetAtt:(.*)\.(.*)%%`)
+		getattmatches := getattexp.FindStringSubmatch(value)
+		if len(getattmatches) > 0 {
+			return map[string][]string{
+				"Fn::GetAtt": []string{getattmatches[1], getattmatches[2]},
 			}
 		}
 		return value

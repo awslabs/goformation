@@ -620,4 +620,73 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a template that contains a Fn::GetAtt reference to another resource within the template", func() {
+
+		template := &cloudformation.Template{
+			Resources: map[string]interface{}{
+				"TestBucket": cloudformation.AWSS3Bucket{
+					BucketName: "test-bucket",
+				},
+				"TestBucketPolicy": cloudformation.AWSS3BucketPolicy{
+					Bucket: cloudformation.GetAtt("TestBucket", "WebsiteURL"),
+				},
+			},
+		}
+
+		It("should have the correct Fn::GetAtt reference object when converted to JSON", func() {
+
+			data, err := template.JSON()
+			Expect(err).To(BeNil())
+
+			var result map[string]interface{}
+			if err := json.Unmarshal(data, &result); err != nil {
+				Fail(err.Error())
+			}
+
+			resources, ok := result["Resources"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			bucket, ok := resources["TestBucketPolicy"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			properties, ok := bucket["Properties"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			reference, ok := properties["Bucket"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			Expect(reference["Fn::GetAtt"]).To(ContainElement("TestBucket"))
+			Expect(reference["Fn::GetAtt"]).To(ContainElement("WebsiteURL"))
+
+		})
+
+		It("should have the correct Fn::GetAtt reference object when converted to YAML", func() {
+
+			data, err := template.YAML()
+			Expect(err).To(BeNil())
+
+			var result map[string]interface{}
+			if err := yaml.Unmarshal(data, &result); err != nil {
+				Fail(err.Error())
+			}
+
+			resources, ok := result["Resources"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			bucket, ok := resources["TestBucketPolicy"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			properties, ok := bucket["Properties"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			reference, ok := properties["Bucket"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			Expect(reference["Fn::GetAtt"]).To(ContainElement("TestBucket"))
+			Expect(reference["Fn::GetAtt"]).To(ContainElement("WebsiteURL"))
+
+		})
+
+	})
+
 })
