@@ -5,9 +5,6 @@ import (
 	{{ if (.Property.Types) }}
 	"reflect"
 	{{end}}
-	{{ if (or .Property.Types .Property.ItemTypes .Property.PrimitiveItemTypes)}}
-	"github.com/mitchellh/mapstructure"
-	{{end}}
 )
 
 // {{.Name}} is a helper struct that can hold either a {{.TypesJoined}} value
@@ -88,16 +85,18 @@ func (r *{{.Name}}) UnmarshalJSON(b []byte) error {
 		{{end}}
 
 		case map[string]interface{}:
+		_ = val
 		{{range $type := $.Property.Types}}
-			mapstructure.Decode(val, &r.{{$type}})
+			json.Unmarshal(b, &r.{{$type}})
 		{{end}}
 
 		case []interface{}:
+		_ = val
 		{{range $type := $.Property.PrimitiveItemTypes}}
-			mapstructure.Decode(val, &r.{{$type}}Array)
+			json.Unmarshal(b, &r.{{$type}}Array)
 		{{end}}
 		{{range $type := $.Property.ItemTypes}}
-			mapstructure.Decode(val, &r.{{$type}}Array)
+			json.Unmarshal(b, &r.{{$type}}Array)
 		{{end}}
 
 	}
