@@ -10,9 +10,9 @@ func Ref(logicalName string) string {
 	return "%%Ref:" + logicalName + "%%"
 }
 
-// updateReferences is a post processor that replaces all goformation references
+// processReferences is a post processor that replaces all goformation references
 // with proper CloudFormation references
-func updateReferences(input interface{}) (interface{}, error) {
+func processReferences(input interface{}) (interface{}, error) {
 
 	// Marshal to JSON and back to convert from a typed template object to simple primitives
 	b, err := json.Marshal(input)
@@ -25,26 +25,27 @@ func updateReferences(input interface{}) (interface{}, error) {
 	}
 
 	// Recurse through the object tree, replacing any Goformation references
-	return updateReferencesRecursive(m), nil
+	return replaceReferencesRecursive(m), nil
 
 }
 
-// updateReferencesRecursive
-func updateReferencesRecursive(input interface{}) interface{} {
+// replaceReferencesRecursive recurses through an object, and replaces any strings that
+// contain '%%Ref:(.*)%%' with a proper AWS CloudFormation reference object
+func replaceReferencesRecursive(input interface{}) interface{} {
 
 	switch value := input.(type) {
 
 	case map[string]interface{}:
 		result := map[string]interface{}{}
 		for k, v := range value {
-			result[k] = updateReferencesRecursive(v)
+			result[k] = replaceReferencesRecursive(v)
 		}
 		return result
 
 	case []interface{}:
 		result := []interface{}{}
 		for _, v := range value {
-			result = append(result, updateReferencesRecursive(v))
+			result = append(result, replaceReferencesRecursive(v))
 		}
 		return result
 

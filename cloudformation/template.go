@@ -78,7 +78,7 @@ func NewTemplate() *Template {
 // JSON converts an AWS CloudFormation template object to JSON
 func (t *Template) JSON() ([]byte, error) {
 
-	template, err := updateReferences(t)
+	template, err := processReferences(t)
 	if err != nil {
 		return nil, errors.New("could not process CloudFormation references: " + err.Error())
 	}
@@ -89,7 +89,7 @@ func (t *Template) JSON() ([]byte, error) {
 // YAML converts an AWS CloudFormation template object to YAML
 func (t *Template) YAML() ([]byte, error) {
 
-	template, err := updateReferences(t)
+	template, err := processReferences(t)
 	if err != nil {
 		return nil, errors.New("could not process CloudFormation references: " + err.Error())
 	}
