@@ -99,6 +99,15 @@ func (v String) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&x)
 }
 
+type StringSlice []string
+
+func NewStringSlice(v ...string) *Value { return NewValue(StringSlice(v)) }
+
+func (v StringSlice) MarshalJSON() ([]byte, error) {
+	x := []string(v)
+	return json.Marshal(&x)
+}
+
 type AnythingMap map[string]interface{}
 
 func (v AnythingMap) MarshalJSON() ([]byte, error) {

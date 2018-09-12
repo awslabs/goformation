@@ -17,12 +17,10 @@ var _ = Describe("Resource", func() {
 
 			Context("with a simple primitive used for a polymorphic property", func() {
 
-				codeuri := "s3://bucket/key"
+				codeuri := cloudformation.NewString("s3://bucket/key")
 				resource := &cloudformation.AWSServerlessFunction{
-					Runtime: "nodejs6.10",
-					CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
-						String: &codeuri,
-					},
+					Runtime: cloudformation.NewString("nodejs6.10"),
+					CodeUri: codeuri,
 				}
 
 				expected := []byte(`{"Type":"AWS::Serverless::Function","Properties":{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10"}}`)
@@ -38,14 +36,12 @@ var _ = Describe("Resource", func() {
 			Context("with a custom type used for a polymorphic property", func() {
 
 				resource := &cloudformation.AWSServerlessFunction{
-					Runtime: "nodejs6.10",
-					CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
-						S3Location: &cloudformation.AWSServerlessFunction_S3Location{
-							Bucket:  "test-bucket",
-							Key:     "test-key",
-							Version: 123,
-						},
-					},
+					Runtime: cloudformation.NewString("nodejs6.10"),
+					CodeUri: cloudformation.NewValue(&cloudformation.AWSServerlessFunction_S3Location{
+						Bucket:  cloudformation.NewString("test-bucket"),
+						Key:     cloudformation.NewString("test-key"),
+						Version: cloudformation.NewInteger(123),
+					}),
 				}
 
 				expected := []byte(`{"Type":"AWS::Serverless::Function","Properties":{"CodeUri":{"Bucket":"test-bucket","Key":"test-key","Version":123},"Runtime":"nodejs6.10"}}`)
@@ -69,10 +65,8 @@ var _ = Describe("Resource", func() {
 			Context("with a list type", func() {
 
 				subproperty := &cloudformation.AWSServerlessFunction_S3Event{
-					Bucket: "my-bucket",
-					Events: &cloudformation.AWSServerlessFunction_Events{
-						StringArray: &[]string{"s3:ObjectCreated:*", "s3:ObjectRemoved:*"},
-					},
+					Bucket: cloudformation.NewString("my-bucket"),
+					Events: cloudformation.NewStringSlice("s3:ObjectCreated:*", "s3:ObjectRemoved:*"),
 				}
 
 				expected := []byte(`{"Bucket":"my-bucket","Events":["s3:ObjectCreated:*","s3:ObjectRemoved:*"]}`)
@@ -87,12 +81,10 @@ var _ = Describe("Resource", func() {
 
 			Context("with a primitive type", func() {
 
-				event := "s3:ObjectCreated:*"
+				event := cloudformation.NewString("s3:ObjectCreated:*")
 				subproperty := &cloudformation.AWSServerlessFunction_S3Event{
-					Bucket: "my-bucket",
-					Events: &cloudformation.AWSServerlessFunction_Events{
-						String: &event,
-					},
+					Bucket: cloudformation.NewString("my-bucket"),
+					Events: event,
 				}
 
 				expected := []byte(`{"Bucket":"my-bucket","Events":"s3:ObjectCreated:*"}`)
