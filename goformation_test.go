@@ -1,6 +1,10 @@
 package goformation_test
 
 import (
+	"encoding/json"
+
+	"github.com/sanathkr/yaml"
+
 	"github.com/awslabs/goformation"
 	"github.com/awslabs/goformation/cloudformation"
 	"github.com/awslabs/goformation/intrinsics"
@@ -547,6 +551,73 @@ var _ = Describe("Goformation", func() {
 			Expect(err).To(BeNil())
 			Expect(string(bytes)).To(Equal(eventString))
 		})
+	})
+
+	Context("with a template that contains a reference to another resource within the template", func() {
+
+		template := &cloudformation.Template{
+			Resources: map[string]interface{}{
+				"TestBucket": cloudformation.AWSS3Bucket{
+					BucketName: "test-bucket",
+				},
+				"TestBucketPolicy": cloudformation.AWSS3BucketPolicy{
+					Bucket: cloudformation.Ref("TestBucket"),
+				},
+			},
+		}
+
+		It("should have the correct reference object when converted to JSON", func() {
+
+			data, err := template.JSON()
+			Expect(err).To(BeNil())
+
+			var result map[string]interface{}
+			if err := json.Unmarshal(data, &result); err != nil {
+				Fail(err.Error())
+			}
+
+			resources, ok := result["Resources"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			bucket, ok := resources["TestBucketPolicy"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			properties, ok := bucket["Properties"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			reference, ok := properties["Bucket"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			Expect(reference["Ref"]).To(Equal("TestBucket"))
+
+		})
+
+		It("should have the correct reference object when converted to YAML", func() {
+
+			data, err := template.YAML()
+			Expect(err).To(BeNil())
+
+			var result map[string]interface{}
+			if err := yaml.Unmarshal(data, &result); err != nil {
+				Fail(err.Error())
+			}
+
+			resources, ok := result["Resources"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			bucket, ok := resources["TestBucketPolicy"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			properties, ok := bucket["Properties"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			reference, ok := properties["Bucket"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			Expect(reference["Ref"]).To(Equal("TestBucket"))
+
+		})
+
 	})
 
 })
