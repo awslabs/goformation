@@ -33,14 +33,14 @@ func (r *AWSSageMakerNotebookInstanceLifecycleConfig) AWSCloudFormationType() st
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSSageMakerNotebookInstanceLifecycleConfig) MarshalJSON() ([]byte, error) {
+func (r AWSSageMakerNotebookInstanceLifecycleConfig) MarshalJSON() ([]byte, error) {
 	type Properties AWSSageMakerNotebookInstanceLifecycleConfig
 	return json.Marshal(&struct {
 		Type       string
 		Properties Properties
 	}{
 		Type:       r.AWSCloudFormationType(),
-		Properties: (Properties)(*r),
+		Properties: (Properties)(r),
 	})
 }
 
