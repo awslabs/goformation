@@ -38,7 +38,7 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r {{.StructName}}) UnmarshalJSON(b []byte) error {
+func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 	type Properties {{.StructName}}
 	res := &struct {
 		Type string
@@ -51,7 +51,7 @@ func (r {{.StructName}}) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		r = {{.StructName}}(*res.Properties)
+		*r = {{.StructName}}(*res.Properties)
 	}
 	
 	return nil	

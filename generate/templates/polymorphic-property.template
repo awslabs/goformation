@@ -67,7 +67,7 @@ func (r {{.Name}}) MarshalJSON() ([]byte, error) {
 }
 
 // Hook into the marshaller
-func (r {{.Name}}) UnmarshalJSON(b []byte) error {
+func (r *{{.Name}}) UnmarshalJSON(b []byte) error {
 
 	// Unmarshal into interface{} to check it's type
 	var typecheck interface{}
