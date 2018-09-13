@@ -64,7 +64,7 @@ func main() {
 		Endpoint: "some.email@example.com",
 	}
 
-	// Let's see the JSON
+	// Let's see the JSON AWS CloudFormation template
 	j, err := template.JSON()
 	if err != nil {
 		fmt.Printf("Failed to generate JSON: %s\n", err)
@@ -72,6 +72,7 @@ func main() {
 		fmt.Printf("%s\n", string(j))
 	}
 
+	// and also the YAML AWS CloudFormation template
 	y, err := template.YAML()
 	if err != nil {
 		fmt.Printf("Failed to generate YAML: %s\n", err)
