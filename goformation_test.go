@@ -620,6 +620,67 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a template that contains nested intrinsics", func() {
+
+		template := &cloudformation.Template{
+			Resources: map[string]interface{}{
+				"TestBucket": cloudformation.AWSS3Bucket{
+					BucketName: cloudformation.Join("/", []string{
+						cloudformation.Join("-", []string{"test", "bucket"}),
+					}),
+				},
+			},
+		}
+
+		It("should have the correct nested intrinsics reference object when converted to JSON", func() {
+
+			data, err := template.JSON()
+			Expect(err).To(BeNil())
+
+			var result map[string]interface{}
+			if err := json.Unmarshal(data, &result); err != nil {
+				Fail(err.Error())
+			}
+
+			resources, ok := result["Resources"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			bucket, ok := resources["TestBucket"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			properties, ok := bucket["Properties"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			value, ok := properties["BucketName"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			firstJoin, ok := value["Fn::Join"].([]interface{})
+			Expect(ok).To(BeTrue())
+			Expect(firstJoin).To(HaveLen(2))
+			Expect(firstJoin[0]).To(Equal("/"))
+
+			firstJoinElements, ok := firstJoin[1].([]interface{})
+			Expect(ok).To(BeTrue())
+			Expect(firstJoinElements).To(HaveLen(1))
+
+			firstJoinFirstElement, ok := firstJoinElements[0].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+			Expect(firstJoinFirstElement).To(HaveLen(1))
+
+			secondJoin, ok := firstJoinFirstElement["Fn::Join"].([]interface{})
+			Expect(ok).To(BeTrue())
+			Expect(secondJoin).To(HaveLen(2))
+			Expect(secondJoin[0]).To(Equal("-"))
+
+			secondJoinElements, ok := secondJoin[1].([]interface{})
+			Expect(secondJoinElements).To(HaveLen(2))
+			Expect(secondJoinElements[0]).To(Equal("test"))
+			Expect(secondJoinElements[1]).To(Equal("bucket"))
+
+		})
+
+	})
+
 	Context("with a template that contains a Fn::GetAtt reference to another resource within the template", func() {
 
 		template := &cloudformation.Template{
