@@ -3,17 +3,17 @@
 [![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=0.1.0)](https://travis-ci.org/awslabs/goformation) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg) 
 
 `GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates. 
-- [AWS GoFormation](#aws-goformation)
-  - [Main features](#main-features)
-  - [Installation](#installation)
-  - [Usage](#usage)
-    - [Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marshalling-cloudformationsam-described-with-go-structs-into-yamljson)
-    - [Unmarshalling CloudFormation YAML/JSON into Go structs](#unmarshalling-cloudformation-yamljson-into-go-structs)
-  - [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation-sam-resources-in-goformation)
-  - [Advanced](#advanced)
-    - [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
-      - [Resolving References (Ref)](#resolving-references-ref)
-  - [Contributing](#contributing)
+- [Main features](#main-features)
+- [Installation](#installation)
+- [Usage](#usage)
+	- [Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marshalling-cloudformationsam-described-with-go-structs-into-yamljson)
+	- [Unmarshalling CloudFormation YAML/JSON into Go structs](#unmarshalling-cloudformation-yamljson-into-go-structs)
+- [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation--sam-resources-in-goformation)
+- [Advanced](#advanced)
+	- [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
+		- [Resolving References (Ref)](#resolving-references-ref)
+- [Versioning](#versioning)
+- [Contributing](#contributing)
 
 ## Main features
 
@@ -41,6 +41,8 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+	"time"
 
 	"github.com/awslabs/goformation/cloudformation"
 )
@@ -50,21 +52,16 @@ func main() {
 	// Create a new CloudFormation template
 	template := cloudformation.NewTemplate()
 
-	// An an example SNS Topic
-	template.Resources["MySNSTopic"] = &cloudformation.AWSSNSTopic{
-		DisplayName: "test-sns-topic-display-name",
-		TopicName:   "test-sns-topic-name",
-		Subscription: []cloudformation.AWSSNSTopic_Subscription{
-			cloudformation.AWSSNSTopic_Subscription{
-				Endpoint: "test-sns-topic-subscription-endpoint",
-				Protocol: "test-sns-topic-subscription-protocol",
-			},
-		},
+	// Create an Amazon SNS topic, with a unique name based off the current timestamp
+	template.Resources["MyTopic"] = &cloudformation.AWSSNSTopic{
+		TopicName: "my-topic-" + strconv.FormatInt(time.Now().Unix(), 10),
 	}
 
-	// ...and a Route 53 Hosted Zone too
-	template.Resources["MyRoute53HostedZone"] = &cloudformation.AWSRoute53HostedZone{
-		Name: "example.com",
+	// Create a subscription, connected to our topic, that forwards notifications to an email address
+	template.Resources["MyTopicSubscription"] = &cloudformation.AWSSNSSubscription{
+		TopicArn: cloudformation.Ref("MyTopic"),
+		Protocol: "email",
+		Endpoint: "some.email@example.com",
 	}
 
 	// Let's see the JSON
@@ -91,24 +88,21 @@ Would output the following JSON template:
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
-    "MyRoute53HostedZone": {
-      "Type": "AWS::Route53::HostedZone",
+    "MyTopic": {
       "Properties": {
-        "Name": "example.com"
-      }
+        "TopicName": "my-topic-1536878058"
+      },
+      "Type": "AWS::SNS::Topic"
     },
-    "MySNSTopic": {
-      "Type": "AWS::SNS::Topic",
+    "MyTopicSubscription": {
       "Properties": {
-        "DisplayName": "test-sns-topic-display-name",
-        "Subscription": [
-          {
-            "Endpoint": "test-sns-topic-subscription-endpoint",
-            "Protocol": "test-sns-topic-subscription-protocol"
-          }
-        ],
-        "TopicName": "test-sns-topic-name"
-      }
+        "Endpoint": "some.email@example.com",
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "MyTopic"
+        }
+      },
+      "Type": "AWS::SNS::Subscription"
     }
   }
 }
@@ -119,20 +113,32 @@ Would output the following JSON template:
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
-  MyRoute53HostedZone:
-    Type: AWS::Route53::HostedZone
+  MyTopic:
     Properties:
-      Name: example.com
-  MySNSTopic:
+      TopicName: my-topic-1536878058
     Type: AWS::SNS::Topic
+  MyTopicSubscription:
     Properties:
-      DisplayName: test-sns-topic-display-name
-      Subscription:
-      - Endpoint: test-sns-topic-subscription-endpoint
-        Protocol: test-sns-topic-subscription-protocol
-      TopicName: test-sns-topic-name
+      Endpoint: some.email@example.com
+      Protocol: email
+      TopicArn:
+        Ref: MyTopic
+    Type: AWS::SNS::Subscription
 ```
 
+When creating templates, you can use the following convenience functions to use [AWS CloudFormation Intrinsics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html):
+
+ - `cloudformation.Ref(logicalName string)`
+ - `cloudformation.GetAtt(logicalName string, attribute string)`
+ - `cloudformation.ImportValue(name string)`
+ - `cloudformation.Base64(input string)`
+ - `cloudformation.CIDR(ipBlock, count, cidrBits string)`
+ - `cloudformation.FindInMap(mapName, topLevelKey, secondLevelKey string)`
+ - `cloudformation.GetAZs(region string)`
+ - `cloudformation.Join(delimiter string, values []string)`
+ - `cloudformation.Select(index string, list []string)`
+ - `cloudformation.Split(delimiter, source string)`
+ - `cloudformation.Sub(value string)`
 
 ### Unmarshalling CloudFormation YAML/JSON into Go structs 
 
@@ -218,7 +224,7 @@ Any unsupported intrinsic functions will return `nil`.
 
 #### Resolving References (Ref)
 
-The intrinsic 'Ref' function as implemented will resolve all of the [pseudo parameters](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) such as `AWS::AccountId` with their default value as listed on [the bottom of this page](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html).
+When converting a YAML/JSON template to go, the intrinsic 'Ref' function as implemented will resolve all of the [pseudo parameters](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) such as `AWS::AccountId` with their default value as listed on [the bottom of this page](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html).
 
 If a reference is not a pseudo parameter, GoFormation will try to resolve it within the AWS CloudFormation template. **Currently, this implementation only searches for `Parameters` with a name that matches the ref, and returns the `Default` if it has one.**
 
