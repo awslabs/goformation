@@ -1,12 +1,13 @@
 package cloudformation
 
-{{if not .IsCustomProperty}}
 import (
 	"encoding/json"
+	{{- if not .IsCustomProperty}}
 	"fmt"
 	"errors"
+	{{end}}
 )
-{{end}}
+
 // {{.StructName}} AWS CloudFormation Resource ({{.Name}})
 // See: {{.Resource.Documentation}}
 type {{.StructName}} struct {
@@ -22,6 +23,13 @@ type {{.StructName}} struct {
 func (r *{{.StructName}}) AWSCloudFormationType() string {
     return "{{.Name}}"
 }
+
+{{if .IsCustomProperty}}
+func (r *{{.StructName}}) MarshalJSON() ([]byte, error) {
+	return json.Marshal(*r)
+}
+{{end}}
+
 {{if not .IsCustomProperty}}
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into 
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
@@ -72,9 +80,9 @@ func (t *Template) GetAll{{.StructName}}Resources () map[string]{{.StructName}} 
 				if resType == "{{.Name}}" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result {{.StructName}}
-						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+						result := &{{.StructName}}{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							results[name] = *result
 						}
 					}
 				}
@@ -99,9 +107,9 @@ func (t *Template) Get{{.StructName}}WithName (name string) ({{.StructName}}, er
 				if resType == "{{.Name}}" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result {{.StructName}}
-						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+						result := &{{.StructName}}{}
+						if err := result.UnmarshalJSON(b); err == nil {
+							return *result, nil
 						}
 					}
 				}

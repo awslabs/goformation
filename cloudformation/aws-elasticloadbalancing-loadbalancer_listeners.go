@@ -1,5 +1,9 @@
 package cloudformation
 
+import (
+	"encoding/json"
+)
+
 // AWSElasticLoadBalancingLoadBalancer_Listeners AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.Listeners)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html
 type AWSElasticLoadBalancingLoadBalancer_Listeners struct {
@@ -7,35 +11,39 @@ type AWSElasticLoadBalancingLoadBalancer_Listeners struct {
 	// InstancePort AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceport
-	InstancePort string `json:"InstancePort,omitempty"`
+	InstancePort *Value `json:"InstancePort,omitempty"`
 
 	// InstanceProtocol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceprotocol
-	InstanceProtocol string `json:"InstanceProtocol,omitempty"`
+	InstanceProtocol *Value `json:"InstanceProtocol,omitempty"`
 
 	// LoadBalancerPort AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-loadbalancerport
-	LoadBalancerPort string `json:"LoadBalancerPort,omitempty"`
+	LoadBalancerPort *Value `json:"LoadBalancerPort,omitempty"`
 
 	// PolicyNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames
-	PolicyNames []string `json:"PolicyNames,omitempty"`
+	PolicyNames []*Value `json:"PolicyNames,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol *Value `json:"Protocol,omitempty"`
 
 	// SSLCertificateId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-sslcertificateid
-	SSLCertificateId string `json:"SSLCertificateId,omitempty"`
+	SSLCertificateId *Value `json:"SSLCertificateId,omitempty"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSElasticLoadBalancingLoadBalancer_Listeners) AWSCloudFormationType() string {
 	return "AWS::ElasticLoadBalancing::LoadBalancer.Listeners"
+}
+
+func (r *AWSElasticLoadBalancingLoadBalancer_Listeners) MarshalJSON() ([]byte, error) {
+	return json.Marshal(*r)
 }
