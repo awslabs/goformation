@@ -33,7 +33,7 @@ func (r AWSServerlessApi_DefinitionUri) value() interface{} {
 
 }
 
-func (r *AWSServerlessApi_DefinitionUri) MarshalJSON() ([]byte, error) {
+func (r AWSServerlessApi_DefinitionUri) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 

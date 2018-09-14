@@ -38,14 +38,14 @@ func (r *AWSServiceCatalogPortfolioProductAssociation) AWSCloudFormationType() s
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSServiceCatalogPortfolioProductAssociation) MarshalJSON() ([]byte, error) {
+func (r AWSServiceCatalogPortfolioProductAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSServiceCatalogPortfolioProductAssociation
 	return json.Marshal(&struct {
 		Type       string
 		Properties Properties
 	}{
 		Type:       r.AWSCloudFormationType(),
-		Properties: (Properties)(*r),
+		Properties: (Properties)(r),
 	})
 }
 

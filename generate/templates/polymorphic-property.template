@@ -62,7 +62,7 @@ func (r {{.Name}}) value() interface{} {
 
 }
 
-func (r *{{.Name}}) MarshalJSON() ([]byte, error) {
+func (r {{.Name}}) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 
