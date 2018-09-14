@@ -45,7 +45,7 @@ func (r AWSServerlessFunction_Policies) value() interface{} {
 
 }
 
-func (r *AWSServerlessFunction_Policies) MarshalJSON() ([]byte, error) {
+func (r AWSServerlessFunction_Policies) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 

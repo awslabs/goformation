@@ -33,7 +33,7 @@ func (r AWSServerlessFunction_CodeUri) value() interface{} {
 
 }
 
-func (r *AWSServerlessFunction_CodeUri) MarshalJSON() ([]byte, error) {
+func (r AWSServerlessFunction_CodeUri) MarshalJSON() ([]byte, error) {
 	return json.Marshal(r.value())
 }
 

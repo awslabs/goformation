@@ -123,14 +123,14 @@ func (r *AWSElastiCacheCacheCluster) AWSCloudFormationType() string {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSElastiCacheCacheCluster) MarshalJSON() ([]byte, error) {
+func (r AWSElastiCacheCacheCluster) MarshalJSON() ([]byte, error) {
 	type Properties AWSElastiCacheCacheCluster
 	return json.Marshal(&struct {
 		Type       string
 		Properties Properties
 	}{
 		Type:       r.AWSCloudFormationType(),
-		Properties: (Properties)(*r),
+		Properties: (Properties)(r),
 	})
 }
 

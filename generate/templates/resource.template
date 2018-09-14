@@ -25,14 +25,14 @@ func (r *{{.StructName}}) AWSCloudFormationType() string {
 {{if not .IsCustomProperty}}
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into 
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *{{.StructName}}) MarshalJSON() ([]byte, error) {
+func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	type Properties {{.StructName}}
 	return json.Marshal(&struct{
 		Type string
 		{{if .IsCustomProperty}}Properties{{else}}Properties Properties{{end}}
 	}{
 		Type: r.AWSCloudFormationType(),
-		Properties: (Properties)(*r),
+		Properties: (Properties)(r),
 	})
 }
 

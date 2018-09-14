@@ -53,14 +53,14 @@ func (r *AWSEMRInstanceFleetConfig) AWSCloudFormationType() string {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSEMRInstanceFleetConfig) MarshalJSON() ([]byte, error) {
+func (r AWSEMRInstanceFleetConfig) MarshalJSON() ([]byte, error) {
 	type Properties AWSEMRInstanceFleetConfig
 	return json.Marshal(&struct {
 		Type       string
 		Properties Properties
 	}{
 		Type:       r.AWSCloudFormationType(),
-		Properties: (Properties)(*r),
+		Properties: (Properties)(r),
 	})
 }
 
