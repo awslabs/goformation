@@ -1,6 +1,6 @@
 language: go
 go:
-- 1.8
+- 1.11
 
 after_success:
   # Check for updated CloudFormation resources, and submit a PR 
