@@ -620,6 +620,130 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a template that is composed with all of the intrinsics", func() {
+
+		tests := []struct {
+			Name     string
+			Input    string
+			Expected map[string]interface{}
+		}{
+			{
+				Name:  "Ref",
+				Input: cloudformation.Ref("test-reference"),
+				Expected: map[string]interface{}{
+					"Ref": "test-reference",
+				},
+			},
+			{
+				Name:  "Fn::GetAtt",
+				Input: cloudformation.GetAtt("resource", "property"),
+				Expected: map[string]interface{}{
+					"Fn::GetAtt": []string{"resource", "property"},
+				},
+			},
+			{
+				Name:  "Fn::ImportValue",
+				Input: cloudformation.ImportValue("test-import"),
+				Expected: map[string]interface{}{
+					"Fn::ImportValue": "test-import",
+				},
+			},
+			{
+				Name:  "Fn::Base64",
+				Input: cloudformation.Base64("test-base64"),
+				Expected: map[string]interface{}{
+					"Fn::Base64": "test-base64",
+				},
+			},
+			{
+				Name:  "Fn::Cidr",
+				Input: cloudformation.CIDR("test-ip-block", "test-count", "test-cidr-bits"),
+				Expected: map[string]interface{}{
+					"Fn::Cidr": []string{"test-ip-block", "test-count", "test-cidr-bits"},
+				},
+			},
+			{
+				Name:  "Fn::FindInMap",
+				Input: cloudformation.FindInMap("test-map", "test-top-level-key", "test-second-level-key"),
+				Expected: map[string]interface{}{
+					"Fn::FindInMap": []string{"test-map", "test-top-level-key", "test-second-level-key"},
+				},
+			},
+			{
+				Name:  "Fn::GetAZs",
+				Input: cloudformation.GetAZs("test-region"),
+				Expected: map[string]interface{}{
+					"Fn::GetAZs": "test-region",
+				},
+			},
+			{
+				Name:  "Fn::Join",
+				Input: cloudformation.Join("test-delimiter", []string{"test-join-value-1", "test-join-value-2"}),
+				Expected: map[string]interface{}{
+					"Fn::Join": []interface{}{
+						"test-delimiter",
+						[]string{
+							"test-join-value-1",
+							"test-join-value-2",
+						},
+					},
+				},
+			},
+			{
+				Name:  "Fn::Select",
+				Input: cloudformation.Select("test-index", []string{"test-select-value-1", "test-select-value-2"}),
+				Expected: map[string]interface{}{
+					"Fn::Select": []interface{}{
+						"test-index",
+						[]string{
+							"test-select-value-1",
+							"test-select-value-2",
+						},
+					},
+				},
+			},
+			{
+				Name:  "Fn::Split",
+				Input: cloudformation.Split("test-delimiter", "test-split-source"),
+				Expected: map[string]interface{}{
+					"Fn::Split": []string{"test-delimiter", "test-split-source"},
+				},
+			},
+			{
+				Name:  "Fn::Sub",
+				Input: cloudformation.Sub("test-sub"),
+				Expected: map[string]interface{}{
+					"Fn::Sub": "test-sub",
+				},
+			},
+		}
+
+		for _, test := range tests {
+			It(test.Name+" should have the correct values", func() {
+
+				template := &cloudformation.Template{
+					Resources: map[string]interface{}{
+						"Intrinsic_" + test.Name: test.Input,
+					},
+				}
+
+				data, _ := template.JSON()
+				var result map[string]interface{}
+				json.Unmarshal(data, &result)
+
+				resources, ok := result["Resources"].(map[string]interface{})
+				Expect(ok).To(BeTrue())
+
+				intr, ok := resources["Intrinsic_"+test.Name].(map[string]interface{})
+				Expect(ok).To(BeTrue())
+				Expect(intr).To(HaveLen(1))
+				Expect(intr).To(Equal(test.Expected))
+
+			})
+		}
+
+	})
+
 	Context("with a template that contains nested intrinsics", func() {
 
 		template := &cloudformation.Template{
