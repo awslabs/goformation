@@ -142,6 +142,11 @@ func replaceIntrinsicsRecursive(input interface{}) interface{} {
 			"Fn::Split",
 			"Fn::Sub",
 			"Fn::Transform",
+			"Fn::And",
+			"Fn::Equals",
+			"Fn::If",
+			"Fn::Not",
+			"Fn::Or",
 		}
 
 		for name, v := range intrinsic {
