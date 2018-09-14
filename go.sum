@@ -18,6 +18,7 @@ github.com/xeipuuv/gojsonreference v0.0.0-20150808065054-e02fc20de94c h1:XZWnr3b
 github.com/xeipuuv/gojsonreference v0.0.0-20150808065054-e02fc20de94c/go.mod h1:GwrjFmJcFw6At/Gs6z4yjiIwzuJ1/+UwLxMQDVQXShQ=
 golang.org/x/net v0.0.0-20170809000501-1c05540f6879 h1:0rFa7EaCGdQPmZVbo9F7MNF65b8dyzS6EUnXjs9Cllk=
 golang.org/x/net v0.0.0-20170809000501-1c05540f6879/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
+golang.org/x/sys v0.0.0-20170814044513-c84c1ab9fd18 h1:IoiXxANYbZRybSGnlkI5TZv53JFaYJACyByrcuQnzSk=
 golang.org/x/sys v0.0.0-20170814044513-c84c1ab9fd18/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/text v0.0.0-20170814122439-e56139fd9c5b h1:9VCMGrhGmWCfBKMKtwYJ46kFshzRNQ29xaLeEajknQw=
 golang.org/x/text v0.0.0-20170814122439-e56139fd9c5b/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
