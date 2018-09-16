@@ -177,7 +177,7 @@ func (r AWSRedshiftCluster) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
-		DeletionPolicy DeletionPolicy
+		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),

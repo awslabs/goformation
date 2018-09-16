@@ -42,7 +42,7 @@ func (r AWSElasticLoadBalancingV2ListenerCertificate) MarshalJSON() ([]byte, err
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
-		DeletionPolicy DeletionPolicy
+		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),

@@ -155,9 +155,9 @@ func (r AWSAutoScalingAutoScalingGroup) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
-		DeletionPolicy DeletionPolicy
-		UpdatePolicy   *UpdatePolicy
-		CreationPolicy *CreationPolicy
+		DeletionPolicy DeletionPolicy  `json:"DeletionPolicy,omitempty"`
+		UpdatePolicy   *UpdatePolicy   `json:"UpdatePolicy,omitempty"`
+		CreationPolicy *CreationPolicy `json:"CreationPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),

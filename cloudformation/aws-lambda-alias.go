@@ -66,8 +66,8 @@ func (r AWSLambdaAlias) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
-		DeletionPolicy DeletionPolicy
-		UpdatePolicy   *UpdatePolicy
+		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		UpdatePolicy   *UpdatePolicy  `json:"UpdatePolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),

@@ -47,7 +47,7 @@ func (r AWSSageMakerNotebookInstanceLifecycleConfig) MarshalJSON() ([]byte, erro
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
-		DeletionPolicy DeletionPolicy
+		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
