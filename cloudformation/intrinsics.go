@@ -61,8 +61,8 @@ func Sub(value string) string {
 }
 
 // And returns true if all the specified conditions evaluate to true, or returns false if any one of the conditions evaluates to false. Fn::And acts as an AND operator. The minimum number of conditions that you can include is 2, and the maximum is 10.
-func And(condition string, list []string) string {
-	return encode(`{ "Fn::And": [ "` + condition + `", [ "` + strings.Trim(strings.Join(list, `", "`), `, "`) + `" ] ] }`)
+func And(conditions []string) string {
+	return encode(`{ "Fn::And": [ "` + strings.Trim(strings.Join(conditions, `", "`), `, "`) + `" ] }`)
 }
 
 // Equals compares if two values are equal. Returns true if the two values are equal or false if they aren't.

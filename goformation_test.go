@@ -638,7 +638,7 @@ var _ = Describe("Goformation", func() {
 				Name:  "Fn::GetAtt",
 				Input: cloudformation.GetAtt("resource", "property"),
 				Expected: map[string]interface{}{
-					"Fn::GetAtt": []string{"resource", "property"},
+					"Fn::GetAtt": []interface{}{"resource", "property"},
 				},
 			},
 			{
@@ -659,14 +659,14 @@ var _ = Describe("Goformation", func() {
 				Name:  "Fn::Cidr",
 				Input: cloudformation.CIDR("test-ip-block", "test-count", "test-cidr-bits"),
 				Expected: map[string]interface{}{
-					"Fn::Cidr": []string{"test-ip-block", "test-count", "test-cidr-bits"},
+					"Fn::Cidr": []interface{}{"test-ip-block", "test-count", "test-cidr-bits"},
 				},
 			},
 			{
 				Name:  "Fn::FindInMap",
 				Input: cloudformation.FindInMap("test-map", "test-top-level-key", "test-second-level-key"),
 				Expected: map[string]interface{}{
-					"Fn::FindInMap": []string{"test-map", "test-top-level-key", "test-second-level-key"},
+					"Fn::FindInMap": []interface{}{"test-map", "test-top-level-key", "test-second-level-key"},
 				},
 			},
 			{
@@ -682,7 +682,7 @@ var _ = Describe("Goformation", func() {
 				Expected: map[string]interface{}{
 					"Fn::Join": []interface{}{
 						"test-delimiter",
-						[]string{
+						[]interface{}{
 							"test-join-value-1",
 							"test-join-value-2",
 						},
@@ -695,7 +695,7 @@ var _ = Describe("Goformation", func() {
 				Expected: map[string]interface{}{
 					"Fn::Select": []interface{}{
 						"test-index",
-						[]string{
+						[]interface{}{
 							"test-select-value-1",
 							"test-select-value-2",
 						},
@@ -706,7 +706,7 @@ var _ = Describe("Goformation", func() {
 				Name:  "Fn::Split",
 				Input: cloudformation.Split("test-delimiter", "test-split-source"),
 				Expected: map[string]interface{}{
-					"Fn::Split": []string{"test-delimiter", "test-split-source"},
+					"Fn::Split": []interface{}{"test-delimiter", "test-split-source"},
 				},
 			},
 			{
@@ -716,9 +716,45 @@ var _ = Describe("Goformation", func() {
 					"Fn::Sub": "test-sub",
 				},
 			},
+			{
+				Name:  "Fn::And",
+				Input: cloudformation.And([]string{"test-and-first", "test-and-second", "test-and-third"}),
+				Expected: map[string]interface{}{
+					"Fn::And": []interface{}{"test-and-first", "test-and-second", "test-and-third"},
+				},
+			},
+			{
+				Name:  "Fn::Equals",
+				Input: cloudformation.Equals("test-equals-value1", "test-equals-value2"),
+				Expected: map[string]interface{}{
+					"Fn::Equals": []interface{}{"test-equals-value1", "test-equals-value2"},
+				},
+			},
+			{
+				Name:  "Fn::If",
+				Input: cloudformation.If("test-if-value1", "test-iftrue-value", "test-ifnottrue-value"),
+				Expected: map[string]interface{}{
+					"Fn::If": []interface{}{"test-if-value1", "test-iftrue-value", "test-ifnottrue-value"},
+				},
+			},
+			{
+				Name:  "Fn::Not",
+				Input: cloudformation.Not([]string{"test-not-value1", "test-not-value2", "test-not-value3"}),
+				Expected: map[string]interface{}{
+					"Fn::Not": []interface{}{"test-not-value1", "test-not-value2", "test-not-value3"},
+				},
+			},
+			{
+				Name:  "Fn::Or",
+				Input: cloudformation.Or([]string{"test-or-value1", "test-or-value2", "test-or-value3"}),
+				Expected: map[string]interface{}{
+					"Fn::Or": []interface{}{"test-or-value1", "test-or-value2", "test-or-value3"},
+				},
+			},
 		}
 
 		for _, test := range tests {
+			test := test // https://github.com/onsi/ginkgo/issues/175
 			It(test.Name+" should have the correct values", func() {
 
 				template := &cloudformation.Template{
@@ -737,7 +773,7 @@ var _ = Describe("Goformation", func() {
 				intr, ok := resources["Intrinsic_"+test.Name].(map[string]interface{})
 				Expect(ok).To(BeTrue())
 				Expect(intr).To(HaveLen(1))
-				Expect(intr).To(Equal(test.Expected))
+				Expect(intr).To(BeEquivalentTo(test.Expected))
 
 			})
 		}

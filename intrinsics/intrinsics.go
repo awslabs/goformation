@@ -33,6 +33,7 @@ var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
 	"Fn::Split":       FnSplit,
 	"Fn::Sub":         FnSub,
 	"Ref":             Ref,
+	"Fn::Cidr":        nonResolvingHandler,
 }
 
 // ProcessorOptions allows customisation of the intrinsic function processor behaviour.
