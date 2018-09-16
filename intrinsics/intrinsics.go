@@ -258,7 +258,7 @@ func search(input interface{}, template interface{}, options *ProcessorOptions) 
 		}
 
 		for key, val := range intrinsic {
-			// See if we have an intrinsic handler function for this object key provided in the
+			// See if this is a valid intrinsic function, by comparing the name with our list of registered handlers
 			if _, ok := handler(key, options); ok {
 				return map[string]interface{}{
 					key: search(val, template, options),
