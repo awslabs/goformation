@@ -63,6 +63,31 @@ func Sub(value string) string {
 	return encode(`{ "Fn::Sub" : "` + value + `" }`)
 }
 
+// And returns true if all the specified conditions evaluate to true, or returns false if any one of the conditions evaluates to false. Fn::And acts as an AND operator. The minimum number of conditions that you can include is 2, and the maximum is 10.
+func And(condition string, list []string) string {
+	return encode(`{ "Fn::And": [ "` + condition + `", [ "` + strings.Trim(strings.Join(list, `", "`), `, "`) + `" ] ] }`)
+}
+
+// Equals compares if two values are equal. Returns true if the two values are equal or false if they aren't.
+func Equals(value1, value2 string) string {
+	return encode(`{ "Fn::Equals" : [ "` + value1 + `", "` + value2 + `" ] }`)
+}
+
+// If returns one value if the specified condition evaluates to true and another value if the specified condition evaluates to false. Currently, AWS CloudFormation supports the Fn::If intrinsic function in the metadata attribute, update policy attribute, and property values in the Resources section and Outputs sections of a template. You can use the AWS::NoValue pseudo parameter as a return value to remove the corresponding property.
+func If(value, ifEqual, ifNotEqual string) string {
+	return encode(`{ "Fn::If" : [ "` + value + `", "` + ifEqual + `", "` + ifNotEqual + `" ] }`)
+}
+
+// Not returns true for a condition that evaluates to false or returns false for a condition that evaluates to true. Fn::Not acts as a NOT operator.
+func Not(conditions []string) string {
+	return encode(`{ "Fn::Not": [ "` + strings.Trim(strings.Join(conditions, `", "`), `, "`) + `" ] }`)
+}
+
+// Or returns true if any one of the specified conditions evaluate to true, or returns false if all of the conditions evaluates to false. Fn::Or acts as an OR operator. The minimum number of conditions that you can include is 2, and the maximum is 10.
+func Or(conditions []string) string {
+	return encode(`{ "Fn::Or": [ "` + strings.Trim(strings.Join(conditions, `", "`), `, "`) + `" ] }`)
+}
+
 // encode takes a string representation of an intrinsic function, and base64 encodes it.
 // This prevents the escaping issues when nesting multiple layers of intrinsic functions.
 func encode(value string) string {
