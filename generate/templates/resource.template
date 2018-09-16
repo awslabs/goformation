@@ -59,9 +59,9 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct{
 		Type string
 		{{if .IsCustomProperty}}Properties{{else}}Properties Properties{{end}}
-		DeletionPolicy DeletionPolicy
-		{{if .HasUpdatePolicy}}UpdatePolicy *UpdatePolicy{{end}}
-		{{if .HasCreationPolicy}}CreationPolicy *CreationPolicy{{end}}
+		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		{{if .HasUpdatePolicy}}UpdatePolicy *UpdatePolicy `json:"UpdatePolicy,omitempty"`{{end}}
+		{{if .HasCreationPolicy}}CreationPolicy *CreationPolicy `json:"CreationPolicy,omitempty"`{{end}}
 	}{
 		Type: r.AWSCloudFormationType(),
 		Properties: (Properties)(r),
