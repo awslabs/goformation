@@ -1,6 +1,7 @@
 package intrinsics
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 
@@ -32,6 +33,7 @@ var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
 	"Fn::Split":       FnSplit,
 	"Fn::Sub":         FnSub,
 	"Ref":             Ref,
+	"Fn::Cidr":        nonResolvingHandler,
 }
 
 // ProcessorOptions allows customisation of the intrinsic function processor behaviour.
@@ -235,6 +237,35 @@ func search(input interface{}, template interface{}, options *ProcessorOptions) 
 	case float64:
 		return value
 	case string:
+
+		// Check if the string can be unmarshalled into an intrinsic object
+		var decoded []byte
+		decoded, err := base64.StdEncoding.DecodeString(value)
+		if err != nil {
+			// The string value is not base64 encoded, so it's not an intrinsic so just pass it back
+			return value
+		}
+
+		var intrinsic map[string]interface{}
+		if err := json.Unmarshal([]byte(decoded), &intrinsic); err != nil {
+			// The string value is not JSON, so it's not an intrinsic so just pass it back
+			return value
+		}
+
+		// An intrinsic should be an object, with a single key containing a valid intrinsic name
+		if len(intrinsic) != 1 {
+			return value
+		}
+
+		for key, val := range intrinsic {
+			// See if this is a valid intrinsic function, by comparing the name with our list of registered handlers
+			if _, ok := handler(key, options); ok {
+				return map[string]interface{}{
+					key: search(val, template, options),
+				}
+			}
+		}
+
 		return value
 	default:
 		return nil

@@ -9,6 +9,7 @@
 package mergo
 
 import (
+	"fmt"
 	"reflect"
 )
 
@@ -26,6 +27,7 @@ func hasExportedField(dst reflect.Value) (exported bool) {
 
 type Config struct {
 	Overwrite    bool
+	AppendSlice  bool
 	Transformers Transformers
 }
 
@@ -102,7 +104,15 @@ func deepMerge(dst, src reflect.Value, visited map[uintptr]*visit, depth int, co
 				case reflect.Ptr:
 					fallthrough
 				case reflect.Map:
-					if err = deepMerge(dstElement, srcElement, visited, depth+1, config); err != nil {
+					srcMapElm := srcElement
+					dstMapElm := dstElement
+					if srcMapElm.CanInterface() {
+						srcMapElm = reflect.ValueOf(srcMapElm.Interface())
+						if dstMapElm.IsValid() {
+							dstMapElm = reflect.ValueOf(dstMapElm.Interface())
+						}
+					}
+					if err = deepMerge(dstMapElm, srcMapElm, visited, depth+1, config); err != nil {
 						return
 					}
 				case reflect.Slice:
@@ -115,7 +125,14 @@ func deepMerge(dst, src reflect.Value, visited map[uintptr]*visit, depth int, co
 						dstSlice = reflect.ValueOf(dstElement.Interface())
 					}
 
-					dstSlice = reflect.AppendSlice(dstSlice, srcSlice)
+					if !isEmptyValue(src) && (overwrite || isEmptyValue(dst)) && !config.AppendSlice {
+						dstSlice = srcSlice
+					} else if config.AppendSlice {
+						if srcSlice.Type() != dstSlice.Type() {
+							return fmt.Errorf("cannot append two slice with different type (%s, %s)", srcSlice.Type(), dstSlice.Type())
+						}
+						dstSlice = reflect.AppendSlice(dstSlice, srcSlice)
+					}
 					dst.SetMapIndex(key, dstSlice)
 				}
 			}
@@ -123,7 +140,7 @@ func deepMerge(dst, src reflect.Value, visited map[uintptr]*visit, depth int, co
 				continue
 			}
 
-			if srcElement.IsValid() && (overwrite || (!dstElement.IsValid() || isEmptyValue(dst))) {
+			if srcElement.IsValid() && (overwrite || (!dstElement.IsValid() || isEmptyValue(dstElement))) {
 				if dst.IsNil() {
 					dst.Set(reflect.MakeMap(dst.Type()))
 				}
@@ -134,9 +151,12 @@ func deepMerge(dst, src reflect.Value, visited map[uintptr]*visit, depth int, co
 		if !dst.CanSet() {
 			break
 		}
-		if !isEmptyValue(src) && (overwrite || isEmptyValue(dst)) {
+		if !isEmptyValue(src) && (overwrite || isEmptyValue(dst)) && !config.AppendSlice {
 			dst.Set(src)
-		} else {
+		} else if config.AppendSlice {
+			if src.Type() != dst.Type() {
+				return fmt.Errorf("cannot append two slice with different type (%s, %s)", src.Type(), dst.Type())
+			}
 			dst.Set(reflect.AppendSlice(dst, src))
 		}
 	case reflect.Ptr:
@@ -203,6 +223,11 @@ func WithTransformers(transformers Transformers) func(*Config) {
 // WithOverride will make merge override non-empty dst attributes with non-empty src attributes values.
 func WithOverride(config *Config) {
 	config.Overwrite = true
+}
+
+// WithAppendSlice will make merge append slices instead of overwriting it
+func WithAppendSlice(config *Config) {
+	config.AppendSlice = true
 }
 
 func merge(dst, src interface{}, opts ...func(*Config)) error {
