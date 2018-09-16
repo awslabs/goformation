@@ -5,9 +5,6 @@ import (
 	"strings"
 )
 
-// Note: Intrinsic objects are Base64 encoded, to prevent escaping (backslash) issues
-// with nested intrinsic functions.
-
 // Ref creates a CloudFormation Reference to another resource in the template
 func Ref(logicalName string) string {
 	return encode(`{ "Ref": "` + logicalName + `" }`)
