@@ -1,11 +1,12 @@
 package intrinsics
 
 import (
+	"encoding/base64"
 	"regexp"
 	"strings"
 )
 
-// FnSub resolves the 'Fn::Sub' AWS CloudFormation intrinsic function.
+// ResolveFnSub resolves the 'Fn::Sub' AWS CloudFormation intrinsic function.
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html
 func FnSub(name string, input interface{}, template interface{}) interface{} {
 
@@ -63,4 +64,10 @@ func FnSub(name string, input interface{}, template interface{}) interface{} {
 
 	return nil
 
+}
+
+// NewSub substitutes variables in an input string with values that you specify. In your templates, you can use this function to construct commands or outputs that include values that aren't available until you create or update a stack.
+func Sub(value string) string {
+	i := `{ "Fn::Sub" : "` + value + `" }`
+	return base64.StdEncoding.EncodeToString([]byte(i))
 }
