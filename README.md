@@ -140,6 +140,11 @@ When creating templates, you can use the following convenience functions to use 
  - `cloudformation.Select(index string, list []string)`
  - `cloudformation.Split(delimiter, source string)`
  - `cloudformation.Sub(value string)`
+ - `And(conditions []string)`
+ - `Equals(value1, value2 string)`
+ - `If(value, ifEqual, ifNotEqual string)`
+ - `Not(conditions []string)`
+ - `Or(conditions []string)`
 
 ### Unmarshalling CloudFormation YAML/JSON into Go structs 
 
