@@ -28,6 +28,23 @@ type ResourceGeneratorResults struct {
 	ProcessedCount   int
 }
 
+var (
+	// ResourcesThatSupportUpdatePolicies defines which CloudFormation resources support UpdatePolicies
+	// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
+	ResourcesThatSupportUpdatePolicies = []string{
+		"AWS::AutoScaling::AutoScalingGroup",
+		"AWS::Lambda::Alias",
+	}
+
+	// ResourcesThatSupportCreationPolicies defines which CloudFormation resources support CreationPolicies
+	// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
+	ResourcesThatSupportCreationPolicies = []string{
+		"AWS::AutoScaling::AutoScalingGroup",
+		"AWS::EC2::Instance",
+		"AWS::CloudFormation::WaitCondition",
+	}
+)
+
 // NewResourceGenerator contains a primary AWS CloudFormation Resource Specification
 // document and an array of fragment Resource Specification documents (such as transforms),
 // and generates Go structs and a JSON Schema from them.
@@ -157,25 +174,47 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 		return fmt.Errorf("failed to load resource template: %s", err)
 	}
 
+	// Check if this resource type allows specifying a CloudFormation UpdatePolicy
+	hasUpdatePolicy := false
+	for _, res := range ResourcesThatSupportUpdatePolicies {
+		if name == res {
+			hasUpdatePolicy = true
+			break
+		}
+	}
+
+	// Check if this resource type allows specifying a CloudFormation CreationPolicy
+	hasCreationPolicy := false
+	for _, res := range ResourcesThatSupportCreationPolicies {
+		if name == res {
+			hasCreationPolicy = true
+			break
+		}
+	}
+
 	// Pass in the following information into the template
 	sname := structName(name)
 	structNameParts := strings.Split(name, ".")
 	basename := structName(structNameParts[0])
 
 	templateData := struct {
-		Name             string
-		StructName       string
-		Basename         string
-		Resource         Resource
-		IsCustomProperty bool
-		Version          string
+		Name              string
+		StructName        string
+		Basename          string
+		Resource          Resource
+		IsCustomProperty  bool
+		Version           string
+		HasUpdatePolicy   bool
+		HasCreationPolicy bool
 	}{
-		Name:             name,
-		StructName:       sname,
-		Basename:         basename,
-		Resource:         resource,
-		IsCustomProperty: isCustomProperty,
-		Version:          spec.ResourceSpecificationVersion,
+		Name:              name,
+		StructName:        sname,
+		Basename:          basename,
+		Resource:          resource,
+		IsCustomProperty:  isCustomProperty,
+		Version:           spec.ResourceSpecificationVersion,
+		HasUpdatePolicy:   hasUpdatePolicy,
+		HasCreationPolicy: hasCreationPolicy,
 	}
 
 	// Execute the template, writing it to a buffer

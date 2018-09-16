@@ -16,12 +16,41 @@ type {{.StructName}} struct {
     // See: {{$property.Documentation}}
     {{$name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Basename $name}} `json:"{{$name}},omitempty"`
     {{end}}
+	{{if .HasUpdatePolicy }}// _updatePolicy represents a CloudFormation UpdatePolicy
+	_updatePolicy *UpdatePolicy{{ end }}
+
+	{{if .HasCreationPolicy }}// _creationPolicy represents a CloudFormation CreationPolicy
+	_creationPolicy *CreationPolicy
+	{{ end }}
+	// _deletionPolicy represents a CloudFormation DeletionPolicy
+	_deletionPolicy DeletionPolicy
+
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *{{.StructName}}) AWSCloudFormationType() string {
     return "{{.Name}}"
 }
+
+// SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *{{.StructName}}) SetDeletionPolicy(policy DeletionPolicy) {
+	r._deletionPolicy = policy
+}
+{{if .HasUpdatePolicy}}
+// SetUpdatePolicy applies an AWS CloudFormation UpdatePolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
+func (r *{{.StructName}}) SetUpdatePolicy(policy *UpdatePolicy) {
+	r._updatePolicy = policy
+}
+{{end}}
+{{if .HasCreationPolicy}}
+// SetCreationPolicy applies an AWS CloudFormation CreationPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
+func (r *{{.StructName}}) SetCreationPolicy(policy *CreationPolicy) {
+	r._creationPolicy = policy
+}
+{{end}}
 {{if not .IsCustomProperty}}
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into 
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
@@ -30,9 +59,15 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct{
 		Type string
 		{{if .IsCustomProperty}}Properties{{else}}Properties Properties{{end}}
+		DeletionPolicy DeletionPolicy
+		{{if .HasUpdatePolicy}}UpdatePolicy *UpdatePolicy{{end}}
+		{{if .HasCreationPolicy}}CreationPolicy *CreationPolicy{{end}}
 	}{
 		Type: r.AWSCloudFormationType(),
 		Properties: (Properties)(r),
+		DeletionPolicy: r._deletionPolicy,
+		{{if .HasUpdatePolicy}}UpdatePolicy: r._updatePolicy,{{end}}
+		{{if .HasCreationPolicy}}CreationPolicy: r._creationPolicy,{{end}}
 	})
 }
 
