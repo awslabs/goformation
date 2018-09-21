@@ -40,10 +40,25 @@ type AWSCodeBuildProject struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
 	Environment *AWSCodeBuildProject_Environment `json:"Environment,omitempty"`
 
+	// LogsConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig
+	LogsConfig *AWSCodeBuildProject_LogsConfig `json:"LogsConfig,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
 	Name string `json:"Name,omitempty"`
+
+	// SecondaryArtifacts AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
+	SecondaryArtifacts []AWSCodeBuildProject_Artifacts `json:"SecondaryArtifacts,omitempty"`
+
+	// SecondarySources AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysources
+	SecondarySources []AWSCodeBuildProject_Source `json:"SecondarySources,omitempty"`
 
 	// ServiceRole AWS CloudFormation Property
 	// Required: true

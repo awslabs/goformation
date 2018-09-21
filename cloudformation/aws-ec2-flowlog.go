@@ -11,12 +11,22 @@ import (
 type AWSEC2FlowLog struct {
 
 	// DeliverLogsPermissionArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
 	DeliverLogsPermissionArn string `json:"DeliverLogsPermissionArn,omitempty"`
 
+	// LogDestination AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
+	LogDestination string `json:"LogDestination,omitempty"`
+
+	// LogDestinationType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
+	LogDestinationType string `json:"LogDestinationType,omitempty"`
+
 	// LogGroupName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
 	LogGroupName string `json:"LogGroupName,omitempty"`
 

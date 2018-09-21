@@ -14,6 +14,11 @@ type AWSApiGatewayUsagePlan_ApiStage struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
 	Stage string `json:"Stage,omitempty"`
 
+	// Throttle AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+	Throttle map[string]AWSApiGatewayUsagePlan_ThrottleSettings `json:"Throttle,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 }

@@ -14,6 +14,16 @@ type AWSApiGatewayMethod_Integration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
 	CacheNamespace string `json:"CacheNamespace,omitempty"`
 
+	// ConnectionId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+	ConnectionId string `json:"ConnectionId,omitempty"`
+
+	// ConnectionType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+	ConnectionType string `json:"ConnectionType,omitempty"`
+
 	// ContentHandling AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
@@ -48,6 +58,11 @@ type AWSApiGatewayMethod_Integration struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
 	RequestTemplates map[string]string `json:"RequestTemplates,omitempty"`
+
+	// TimeoutInMillis AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+	TimeoutInMillis int `json:"TimeoutInMillis,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false

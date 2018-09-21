@@ -4,6 +4,11 @@ package cloudformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html
 type AWSApiGatewayDeployment_StageDescription struct {
 
+	// AccessLogSetting AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+	AccessLogSetting *AWSApiGatewayDeployment_AccessLogSetting `json:"AccessLogSetting,omitempty"`
+
 	// CacheClusterEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
@@ -28,6 +33,11 @@ type AWSApiGatewayDeployment_StageDescription struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
 	CachingEnabled bool `json:"CachingEnabled,omitempty"`
+
+	// CanarySetting AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+	CanarySetting *AWSApiGatewayDeployment_CanarySetting `json:"CanarySetting,omitempty"`
 
 	// ClientCertificateId AWS CloudFormation Property
 	// Required: false

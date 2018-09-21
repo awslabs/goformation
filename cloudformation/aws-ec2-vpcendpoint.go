@@ -10,15 +10,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
 type AWSEC2VPCEndpoint struct {
 
-	// IsPrivateDnsEnabled AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-isprivatednsenabled
-	IsPrivateDnsEnabled bool `json:"IsPrivateDnsEnabled,omitempty"`
-
 	// PolicyDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument
 	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
+
+	// PrivateDnsEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled
+	PrivateDnsEnabled bool `json:"PrivateDnsEnabled,omitempty"`
 
 	// RouteTableIds AWS CloudFormation Property
 	// Required: false
