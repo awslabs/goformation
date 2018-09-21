@@ -10,6 +10,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html
 type AWSApiGatewayStage struct {
 
+	// AccessLogSetting AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-accesslogsetting
+	AccessLogSetting *AWSApiGatewayStage_AccessLogSetting `json:"AccessLogSetting,omitempty"`
+
 	// CacheClusterEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclusterenabled
@@ -19,6 +24,11 @@ type AWSApiGatewayStage struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclustersize
 	CacheClusterSize string `json:"CacheClusterSize,omitempty"`
+
+	// CanarySetting AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-canarysetting
+	CanarySetting *AWSApiGatewayStage_CanarySetting `json:"CanarySetting,omitempty"`
 
 	// ClientCertificateId AWS CloudFormation Property
 	// Required: false

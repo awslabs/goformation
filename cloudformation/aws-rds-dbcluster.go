@@ -45,6 +45,11 @@ type AWSRDSDBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
 	Engine string `json:"Engine,omitempty"`
 
+	// EngineMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginemode
+	EngineMode string `json:"EngineMode,omitempty"`
+
 	// EngineVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
@@ -84,6 +89,11 @@ type AWSRDSDBCluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-replicationsourceidentifier
 	ReplicationSourceIdentifier string `json:"ReplicationSourceIdentifier,omitempty"`
+
+	// ScalingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
+	ScalingConfiguration *AWSRDSDBCluster_ScalingConfiguration `json:"ScalingConfiguration,omitempty"`
 
 	// SnapshotIdentifier AWS CloudFormation Property
 	// Required: false
