@@ -494,6 +494,38 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 
 	})
 
+	Context("with a processor options that has NoProcess set", func() {
+
+		input := `{"Resources":{"MyBucket":{"Type":"AWS::S3::Bucket","Properties":{"BucketName":{"Ref":"BucketNameParameter"}}}}}`
+
+		opts := &ProcessorOptions{
+			NoProcess: true,
+		}
+		processed, err := ProcessJSON([]byte(input), opts)
+		It("should successfully process the template", func() {
+			Expect(processed).ShouldNot(BeNil())
+			Expect(err).Should(BeNil())
+		})
+
+		var result interface{}
+		err = json.Unmarshal(processed, &result)
+		It("should be valid JSON, and marshal to a Go type", func() {
+			Expect(processed).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		template := result.(map[string]interface{})
+		resources := template["Resources"].(map[string]interface{})
+		resource := resources["MyBucket"].(map[string]interface{})
+		properties := resource["Properties"].(map[string]interface{})
+		bucketName := properties["BucketName"].(map[string]interface{})
+
+		It("should have an unprocessed Ref", func() {
+			Expect(bucketName["Ref"]).To(Equal("BucketNameParameter"))
+		})
+
+	})
+
 	Context("with a template that contains intrinsics and conditions", func() {
 
 		const template = `{
