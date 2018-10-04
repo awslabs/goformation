@@ -526,6 +526,18 @@ var _ = Describe("Goformation", func() {
 		})
 	})
 
+	Context("with a YAML template with processing disabled", func() {
+
+		template, err := goformation.OpenWithOptions("test/yaml/aws-serverless-function-env-vars.yaml", &intrinsics.ProcessorOptions{
+			NoProcess: true,
+		})
+
+		It("should successfully validate the SAM template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+	})
+
 	Context("with a SNS event source", func() {
 		event := cloudformation.AWSServerlessFunction_Properties{
 			SNSEvent: &cloudformation.AWSServerlessFunction_SNSEvent{
