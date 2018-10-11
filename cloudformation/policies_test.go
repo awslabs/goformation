@@ -137,7 +137,7 @@ var _ = Describe("Goformation", func() {
 					AutoScalingCreationPolicy: &cloudformation.AutoScalingCreationPolicy{
 						MinSuccessfulInstancesPercent: 10,
 					},
-					ResourcesSignal: &cloudformation.ResourcesSignal{
+					ResourceSignal: &cloudformation.ResourceSignal{
 						Count:   11,
 						Timeout: "test-timeout",
 					},
@@ -146,7 +146,7 @@ var _ = Describe("Goformation", func() {
 					"AutoScalingCreationPolicy": map[string]interface{}{
 						"MinSuccessfulInstancesPercent": float64(10),
 					},
-					"ResourcesSignal": map[string]interface{}{
+					"ResourceSignal": map[string]interface{}{
 						"Count":   float64(11),
 						"Timeout": "test-timeout",
 					},
