@@ -62,6 +62,86 @@ var _ = Describe("Resource", func() {
 
 	})
 
+	Context("with a resource that has some resource attributes defined", func() {
+
+		Context("described as Go structs", func() {
+
+			Context("with a dependency on another resource", func() {
+
+				resource := &cloudformation.AWSEC2Instance{
+					ImageId: "ami-0123456789",
+				}
+				resource.SetDependsOn([]string{"MyDependency"})
+
+				expected := []byte(`{"Type":"AWS::EC2::Instance","Properties":{"ImageId":"ami-0123456789"},"DependsOn":["MyDependency"]}`)
+
+				result, err := json.Marshal(resource)
+				It("should marshal to JSON successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
+			Context("with a metadata attribute", func() {
+
+				resource := &cloudformation.AWSS3Bucket{
+					BucketName: "MyBucket",
+				}
+				resource.SetMetadata(map[string]interface{}{"Object1": "Location1", "Object2": "Location2"})
+
+				expected := []byte(`{"Type":"AWS::S3::Bucket","Properties":{"BucketName":"MyBucket"},"Metadata":{"Object1":"Location1","Object2":"Location2"}}`)
+
+				result, err := json.Marshal(resource)
+				It("should marshal to JSON successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
+		})
+
+		Context("specified as JSON", func() {
+
+			Context("with a dependency on another resource", func() {
+
+				property := []byte(`{"Type":"AWS::EC2::Instance","Properties":{"ImageId":"ami-0123456789"},"DependsOn":["MyDependency"]}`)
+				expected := &cloudformation.AWSEC2Instance{
+					ImageId: "ami-0123456789",
+				}
+				expected.SetDependsOn([]string{"MyDependency"})
+
+				result := &cloudformation.AWSEC2Instance{}
+				err := json.Unmarshal(property, result)
+				It("should unmarshal to a Go struct successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
+			Context("with a metadata attribute", func() {
+
+				property := []byte(`{"Type":"AWS::S3::Bucket","Properties":{"BucketName":"MyBucket"},"Metadata":{"Object1":"Location1","Object2":"Location2"}}`)
+				expected := &cloudformation.AWSS3Bucket{
+					BucketName: "MyBucket",
+				}
+				expected.SetMetadata(map[string]interface{}{"Object1": "Location1", "Object2": "Location2"})
+
+				result := &cloudformation.AWSS3Bucket{}
+				err := json.Unmarshal(property, result)
+				It("should unmarshal to a Go struct successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
+		})
+
+	})
+
 	Context("with a custom property type resource", func() {
 
 		Context("described as Go structs", func() {
