@@ -33,7 +33,7 @@ type AWSEMRInstanceGroupConfig struct {
 	// InstanceCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfiginstancecount-
-	InstanceCount int `json:"InstanceCount,omitempty"`
+	InstanceCount int `json:"InstanceCount"`
 
 	// InstanceRole AWS CloudFormation Property
 	// Required: true

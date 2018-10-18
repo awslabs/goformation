@@ -13,7 +13,7 @@ type AWSEC2CustomerGateway struct {
 	// BgpAsn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html#cfn-ec2-customergateway-bgpasn
-	BgpAsn int `json:"BgpAsn,omitempty"`
+	BgpAsn int `json:"BgpAsn"`
 
 	// IpAddress AWS CloudFormation Property
 	// Required: true

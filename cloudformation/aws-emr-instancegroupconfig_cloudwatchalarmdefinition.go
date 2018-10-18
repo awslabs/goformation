@@ -32,7 +32,7 @@ type AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition struct {
 	// Period AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition-period
-	Period int `json:"Period,omitempty"`
+	Period int `json:"Period"`
 
 	// Statistic AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type AWSEMRInstanceGroupConfig_CloudWatchAlarmDefinition struct {
 	// Threshold AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition-threshold
-	Threshold float64 `json:"Threshold,omitempty"`
+	Threshold float64 `json:"Threshold"`
 
 	// Unit AWS CloudFormation Property
 	// Required: false

@@ -12,7 +12,7 @@ type AWSCloudFrontStreamingDistribution_TrustedSigners struct {
 	// Enabled AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

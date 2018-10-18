@@ -12,7 +12,7 @@ type AWSServerlessSimpleTable_ProvisionedThroughput struct {
 	// WriteCapacityUnits AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
-	WriteCapacityUnits int `json:"WriteCapacityUnits,omitempty"`
+	WriteCapacityUnits int `json:"WriteCapacityUnits"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

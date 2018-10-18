@@ -12,7 +12,7 @@ type AWSLambdaAlias_VersionWeight struct {
 	// FunctionWeight AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionweight
-	FunctionWeight float64 `json:"FunctionWeight,omitempty"`
+	FunctionWeight float64 `json:"FunctionWeight"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

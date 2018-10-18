@@ -37,7 +37,7 @@ type AWSCloudFrontDistribution_DistributionConfig struct {
 	// Enabled AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// HttpVersion AWS CloudFormation Property
 	// Required: false

@@ -37,12 +37,12 @@ type AWSBatchComputeEnvironment_ComputeResources struct {
 	// MaxvCpus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus
-	MaxvCpus int `json:"MaxvCpus,omitempty"`
+	MaxvCpus int `json:"MaxvCpus"`
 
 	// MinvCpus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
-	MinvCpus int `json:"MinvCpus,omitempty"`
+	MinvCpus int `json:"MinvCpus"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: true

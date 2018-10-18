@@ -18,12 +18,12 @@ type AWSOpsWorksLayer struct {
 	// AutoAssignElasticIps AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignelasticips
-	AutoAssignElasticIps bool `json:"AutoAssignElasticIps,omitempty"`
+	AutoAssignElasticIps bool `json:"AutoAssignElasticIps"`
 
 	// AutoAssignPublicIps AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignpublicips
-	AutoAssignPublicIps bool `json:"AutoAssignPublicIps,omitempty"`
+	AutoAssignPublicIps bool `json:"AutoAssignPublicIps"`
 
 	// CustomInstanceProfileArn AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type AWSOpsWorksLayer struct {
 	// EnableAutoHealing AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-enableautohealing
-	EnableAutoHealing bool `json:"EnableAutoHealing,omitempty"`
+	EnableAutoHealing bool `json:"EnableAutoHealing"`
 
 	// InstallUpdatesOnBoot AWS CloudFormation Property
 	// Required: false

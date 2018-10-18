@@ -17,7 +17,7 @@ type AWSBudgetsBudget_Notification struct {
 	// Threshold AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
-	Threshold float64 `json:"Threshold,omitempty"`
+	Threshold float64 `json:"Threshold"`
 
 	// ThresholdType AWS CloudFormation Property
 	// Required: false

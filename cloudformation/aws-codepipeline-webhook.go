@@ -48,7 +48,7 @@ type AWSCodePipelineWebhook struct {
 	// TargetPipelineVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipelineversion
-	TargetPipelineVersion int `json:"TargetPipelineVersion,omitempty"`
+	TargetPipelineVersion int `json:"TargetPipelineVersion"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

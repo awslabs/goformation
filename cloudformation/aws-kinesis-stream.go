@@ -23,7 +23,7 @@ type AWSKinesisStream struct {
 	// ShardCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-	ShardCount int `json:"ShardCount,omitempty"`
+	ShardCount int `json:"ShardCount"`
 
 	// StreamEncryption AWS CloudFormation Property
 	// Required: false

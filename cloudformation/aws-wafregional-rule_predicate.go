@@ -12,7 +12,7 @@ type AWSWAFRegionalRule_Predicate struct {
 	// Negated AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-negated
-	Negated bool `json:"Negated,omitempty"`
+	Negated bool `json:"Negated"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

@@ -13,12 +13,12 @@ type AWSApplicationAutoScalingScalableTarget struct {
 	// MaxCapacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
-	MaxCapacity int `json:"MaxCapacity,omitempty"`
+	MaxCapacity int `json:"MaxCapacity"`
 
 	// MinCapacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity
-	MinCapacity int `json:"MinCapacity,omitempty"`
+	MinCapacity int `json:"MinCapacity"`
 
 	// ResourceId AWS CloudFormation Property
 	// Required: true

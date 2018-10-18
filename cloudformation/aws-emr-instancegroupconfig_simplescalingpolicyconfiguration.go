@@ -17,7 +17,7 @@ type AWSEMRInstanceGroupConfig_SimpleScalingPolicyConfiguration struct {
 	// ScalingAdjustment AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration-scalingadjustment
-	ScalingAdjustment int `json:"ScalingAdjustment,omitempty"`
+	ScalingAdjustment int `json:"ScalingAdjustment"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

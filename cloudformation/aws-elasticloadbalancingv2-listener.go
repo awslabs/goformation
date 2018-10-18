@@ -28,7 +28,7 @@ type AWSElasticLoadBalancingV2Listener struct {
 	// Port AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port int `json:"Port,omitempty"`
+	Port int `json:"Port"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true

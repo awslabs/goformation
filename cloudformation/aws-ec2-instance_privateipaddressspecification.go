@@ -7,7 +7,7 @@ type AWSEC2Instance_PrivateIpAddressSpecification struct {
 	// Primary AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
-	Primary bool `json:"Primary,omitempty"`
+	Primary bool `json:"Primary"`
 
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: true

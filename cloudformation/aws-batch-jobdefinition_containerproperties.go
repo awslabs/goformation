@@ -27,7 +27,7 @@ type AWSBatchJobDefinition_ContainerProperties struct {
 	// Memory AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
-	Memory int `json:"Memory,omitempty"`
+	Memory int `json:"Memory"`
 
 	// MountPoints AWS CloudFormation Property
 	// Required: false
@@ -57,7 +57,7 @@ type AWSBatchJobDefinition_ContainerProperties struct {
 	// Vcpus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-vcpus
-	Vcpus int `json:"Vcpus,omitempty"`
+	Vcpus int `json:"Vcpus"`
 
 	// Volumes AWS CloudFormation Property
 	// Required: false

@@ -38,7 +38,7 @@ type AWSSSMMaintenanceWindowTask struct {
 	// Priority AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority int `json:"Priority"`
 
 	// ServiceRoleArn AWS CloudFormation Property
 	// Required: true

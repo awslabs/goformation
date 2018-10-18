@@ -12,7 +12,7 @@ type AWSS3Bucket_NoncurrentVersionTransition struct {
 	// TransitionInDays AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-transitionindays
-	TransitionInDays int `json:"TransitionInDays,omitempty"`
+	TransitionInDays int `json:"TransitionInDays"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

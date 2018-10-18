@@ -7,12 +7,12 @@ type AWSKinesisFirehoseDeliveryStream_ElasticsearchBufferingHints struct {
 	// IntervalInSeconds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-intervalinseconds
-	IntervalInSeconds int `json:"IntervalInSeconds,omitempty"`
+	IntervalInSeconds int `json:"IntervalInSeconds"`
 
 	// SizeInMBs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-sizeinmbs
-	SizeInMBs int `json:"SizeInMBs,omitempty"`
+	SizeInMBs int `json:"SizeInMBs"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

@@ -17,7 +17,7 @@ type AWSCloudFrontDistribution_ForwardedValues struct {
 	// QueryString AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
-	QueryString bool `json:"QueryString,omitempty"`
+	QueryString bool `json:"QueryString"`
 
 	// QueryStringCacheKeys AWS CloudFormation Property
 	// Required: false

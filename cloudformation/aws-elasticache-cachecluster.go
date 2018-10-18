@@ -63,7 +63,7 @@ type AWSElastiCacheCacheCluster struct {
 	// NumCacheNodes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-numcachenodes
-	NumCacheNodes int `json:"NumCacheNodes,omitempty"`
+	NumCacheNodes int `json:"NumCacheNodes"`
 
 	// Port AWS CloudFormation Property
 	// Required: false

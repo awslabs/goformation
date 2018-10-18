@@ -7,7 +7,7 @@ type AWSS3Bucket_AbortIncompleteMultipartUpload struct {
 	// DaysAfterInitiation AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html#cfn-s3-bucket-abortincompletemultipartupload-daysafterinitiation
-	DaysAfterInitiation int `json:"DaysAfterInitiation,omitempty"`
+	DaysAfterInitiation int `json:"DaysAfterInitiation"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

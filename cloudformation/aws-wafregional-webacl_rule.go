@@ -12,7 +12,7 @@ type AWSWAFRegionalWebACL_Rule struct {
 	// Priority AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority int `json:"Priority"`
 
 	// RuleId AWS CloudFormation Property
 	// Required: true

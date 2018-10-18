@@ -7,7 +7,7 @@ type AWSECSTaskDefinition_Ulimit struct {
 	// HardLimit AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
-	HardLimit int `json:"HardLimit,omitempty"`
+	HardLimit int `json:"HardLimit"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -17,7 +17,7 @@ type AWSECSTaskDefinition_Ulimit struct {
 	// SoftLimit AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-softlimit
-	SoftLimit int `json:"SoftLimit,omitempty"`
+	SoftLimit int `json:"SoftLimit"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

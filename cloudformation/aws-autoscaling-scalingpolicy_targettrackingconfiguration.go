@@ -22,7 +22,7 @@ type AWSAutoScalingScalingPolicy_TargetTrackingConfiguration struct {
 	// TargetValue AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-targetvalue
-	TargetValue float64 `json:"TargetValue,omitempty"`
+	TargetValue float64 `json:"TargetValue"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
