@@ -17,7 +17,7 @@ type AWSWAFSizeConstraintSet_SizeConstraint struct {
 	// Size AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-size
-	Size int `json:"Size,omitempty"`
+	Size int `json:"Size"`
 
 	// TextTransformation AWS CloudFormation Property
 	// Required: true

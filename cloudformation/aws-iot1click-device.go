@@ -18,7 +18,7 @@ type AWSIoT1ClickDevice struct {
 	// Enabled AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

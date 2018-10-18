@@ -23,7 +23,7 @@ type AWSInspectorAssessmentTemplate struct {
 	// DurationInSeconds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-durationinseconds
-	DurationInSeconds int `json:"DurationInSeconds,omitempty"`
+	DurationInSeconds int `json:"DurationInSeconds"`
 
 	// RulesPackageArns AWS CloudFormation Property
 	// Required: true

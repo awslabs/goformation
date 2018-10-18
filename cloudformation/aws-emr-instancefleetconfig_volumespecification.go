@@ -12,7 +12,7 @@ type AWSEMRInstanceFleetConfig_VolumeSpecification struct {
 	// SizeInGB AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html#cfn-elasticmapreduce-instancefleetconfig-volumespecification-sizeingb
-	SizeInGB int `json:"SizeInGB,omitempty"`
+	SizeInGB int `json:"SizeInGB"`
 
 	// VolumeType AWS CloudFormation Property
 	// Required: true

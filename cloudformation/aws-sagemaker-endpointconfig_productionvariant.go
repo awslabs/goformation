@@ -7,12 +7,12 @@ type AWSSageMakerEndpointConfig_ProductionVariant struct {
 	// InitialInstanceCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
-	InitialInstanceCount int `json:"InitialInstanceCount,omitempty"`
+	InitialInstanceCount int `json:"InitialInstanceCount"`
 
 	// InitialVariantWeight AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
-	InitialVariantWeight float64 `json:"InitialVariantWeight,omitempty"`
+	InitialVariantWeight float64 `json:"InitialVariantWeight"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: true

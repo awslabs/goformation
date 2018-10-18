@@ -38,7 +38,7 @@ type AWSCloudTrailTrail struct {
 	// IsLogging AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-islogging
-	IsLogging bool `json:"IsLogging,omitempty"`
+	IsLogging bool `json:"IsLogging"`
 
 	// IsMultiRegionTrail AWS CloudFormation Property
 	// Required: false

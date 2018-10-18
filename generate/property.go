@@ -111,6 +111,14 @@ func (p Property) IsPrimitive() bool {
 	return p.PrimitiveType != ""
 }
 
+func (p Property) IsNumeric() bool {
+	return p.IsPrimitive() &&
+		(p.PrimitiveType == "Long" ||
+			p.PrimitiveType == "Integer" ||
+			p.PrimitiveType == "Double" ||
+			p.PrimitiveType == "Boolean")
+}
+
 // IsMap checks whether a property should be a map (map[string]...)
 func (p Property) IsMap() bool {
 	return p.Type == "Map"

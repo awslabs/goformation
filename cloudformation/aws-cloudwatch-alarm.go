@@ -48,7 +48,7 @@ type AWSCloudWatchAlarm struct {
 	// EvaluationPeriods AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-evaluationperiods
-	EvaluationPeriods int `json:"EvaluationPeriods,omitempty"`
+	EvaluationPeriods int `json:"EvaluationPeriods"`
 
 	// ExtendedStatistic AWS CloudFormation Property
 	// Required: false
@@ -78,7 +78,7 @@ type AWSCloudWatchAlarm struct {
 	// Period AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-period
-	Period int `json:"Period,omitempty"`
+	Period int `json:"Period"`
 
 	// Statistic AWS CloudFormation Property
 	// Required: false
@@ -88,7 +88,7 @@ type AWSCloudWatchAlarm struct {
 	// Threshold AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-threshold
-	Threshold float64 `json:"Threshold,omitempty"`
+	Threshold float64 `json:"Threshold"`
 
 	// TreatMissingData AWS CloudFormation Property
 	// Required: false

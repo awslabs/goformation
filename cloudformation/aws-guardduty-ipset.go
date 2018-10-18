@@ -13,7 +13,7 @@ type AWSGuardDutyIPSet struct {
 	// Activate AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
-	Activate bool `json:"Activate,omitempty"`
+	Activate bool `json:"Activate"`
 
 	// DetectorId AWS CloudFormation Property
 	// Required: true

@@ -13,7 +13,7 @@ type AWSAmazonMQBroker struct {
 	// AutoMinorVersionUpgrade AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
-	AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade,omitempty"`
+	AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade"`
 
 	// BrokerName AWS CloudFormation Property
 	// Required: true
@@ -58,7 +58,7 @@ type AWSAmazonMQBroker struct {
 	// PubliclyAccessible AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible
-	PubliclyAccessible bool `json:"PubliclyAccessible,omitempty"`
+	PubliclyAccessible bool `json:"PubliclyAccessible"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false

@@ -53,7 +53,7 @@ type AWSDAXCluster struct {
 	// ReplicationFactor AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-replicationfactor
-	ReplicationFactor int `json:"ReplicationFactor,omitempty"`
+	ReplicationFactor int `json:"ReplicationFactor"`
 
 	// SSESpecification AWS CloudFormation Property
 	// Required: false

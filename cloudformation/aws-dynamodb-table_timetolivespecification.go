@@ -12,7 +12,7 @@ type AWSDynamoDBTable_TimeToLiveSpecification struct {
 	// Enabled AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

@@ -13,7 +13,7 @@ type AWSGuardDutyThreatIntelSet struct {
 	// Activate AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-activate
-	Activate bool `json:"Activate,omitempty"`
+	Activate bool `json:"Activate"`
 
 	// DetectorId AWS CloudFormation Property
 	// Required: true

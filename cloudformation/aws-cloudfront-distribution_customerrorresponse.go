@@ -12,7 +12,7 @@ type AWSCloudFrontDistribution_CustomErrorResponse struct {
 	// ErrorCode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
-	ErrorCode int `json:"ErrorCode,omitempty"`
+	ErrorCode int `json:"ErrorCode"`
 
 	// ResponseCode AWS CloudFormation Property
 	// Required: false

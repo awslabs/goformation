@@ -17,7 +17,7 @@ type AWSWAFRegionalSizeConstraintSet_SizeConstraint struct {
 	// Size AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-size
-	Size int `json:"Size,omitempty"`
+	Size int `json:"Size"`
 
 	// TextTransformation AWS CloudFormation Property
 	// Required: true

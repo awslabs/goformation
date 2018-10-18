@@ -12,7 +12,7 @@ type AWSS3Bucket_InventoryConfiguration struct {
 	// Enabled AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// Id AWS CloudFormation Property
 	// Required: true

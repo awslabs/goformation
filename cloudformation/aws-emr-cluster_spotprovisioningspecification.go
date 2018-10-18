@@ -17,7 +17,7 @@ type AWSEMRCluster_SpotProvisioningSpecification struct {
 	// TimeoutDurationMinutes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutdurationminutes
-	TimeoutDurationMinutes int `json:"TimeoutDurationMinutes,omitempty"`
+	TimeoutDurationMinutes int `json:"TimeoutDurationMinutes"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

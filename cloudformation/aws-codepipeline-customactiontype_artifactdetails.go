@@ -7,12 +7,12 @@ type AWSCodePipelineCustomActionType_ArtifactDetails struct {
 	// MaximumCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-maximumcount
-	MaximumCount int `json:"MaximumCount,omitempty"`
+	MaximumCount int `json:"MaximumCount"`
 
 	// MinimumCount AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-minimumcount
-	MinimumCount int `json:"MinimumCount,omitempty"`
+	MinimumCount int `json:"MinimumCount"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

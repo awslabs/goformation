@@ -43,7 +43,7 @@ type AWSEC2NetworkAclEntry struct {
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-protocol
-	Protocol int `json:"Protocol,omitempty"`
+	Protocol int `json:"Protocol"`
 
 	// RuleAction AWS CloudFormation Property
 	// Required: true
@@ -53,7 +53,7 @@ type AWSEC2NetworkAclEntry struct {
 	// RuleNumber AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-rulenumber
-	RuleNumber int `json:"RuleNumber,omitempty"`
+	RuleNumber int `json:"RuleNumber"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

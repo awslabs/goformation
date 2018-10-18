@@ -23,7 +23,7 @@ type AWSGameLiftFleet struct {
 	// DesiredEC2Instances AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
-	DesiredEC2Instances int `json:"DesiredEC2Instances,omitempty"`
+	DesiredEC2Instances int `json:"DesiredEC2Instances"`
 
 	// EC2InboundPermissions AWS CloudFormation Property
 	// Required: false

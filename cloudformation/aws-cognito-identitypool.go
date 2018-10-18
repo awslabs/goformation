@@ -13,7 +13,7 @@ type AWSCognitoIdentityPool struct {
 	// AllowUnauthenticatedIdentities AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowunauthenticatedidentities
-	AllowUnauthenticatedIdentities bool `json:"AllowUnauthenticatedIdentities,omitempty"`
+	AllowUnauthenticatedIdentities bool `json:"AllowUnauthenticatedIdentities"`
 
 	// CognitoEvents AWS CloudFormation Property
 	// Required: false

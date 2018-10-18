@@ -7,7 +7,7 @@ type AWSDynamoDBTable_SSESpecification struct {
 	// SSEEnabled AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
-	SSEEnabled bool `json:"SSEEnabled,omitempty"`
+	SSEEnabled bool `json:"SSEEnabled"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
