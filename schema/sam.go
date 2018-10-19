@@ -18512,6 +18512,86 @@ var samSchema = `{
             },
             "type": "object"
         },
+        "AWS::Events::EventBusPolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Action": {
+                            "type": "string"
+                        },
+                        "Condition": {
+                            "$ref": "#/definitions/AWS::Events::EventBusPolicy.Condition"
+                        },
+                        "Principal": {
+                            "type": "string"
+                        },
+                        "StatementId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Action",
+                        "Principal",
+                        "StatementId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Events::EventBusPolicy"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Events::EventBusPolicy.Condition": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Events::Rule": {
             "additionalProperties": false,
             "properties": {
@@ -20215,6 +20295,9 @@ var samSchema = `{
                     "properties": {
                         "Enable": {
                             "type": "boolean"
+                        },
+                        "FindingPublishingFrequency": {
+                            "type": "string"
                         }
                     },
                     "required": [
@@ -30294,6 +30377,9 @@ var samSchema = `{
                             },
                             "type": "array"
                         },
+                        "RejectedPatchesAction": {
+                            "type": "string"
+                        },
                         "Sources": {
                             "items": {
                                 "$ref": "#/definitions/AWS::SSM::PatchBaseline.PatchSource"
@@ -34347,10 +34433,6 @@ var samSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "Key",
-                "Value"
-            ],
             "type": "object"
         }
     },
@@ -34877,6 +34959,9 @@ var samSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Elasticsearch::Domain"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Events::EventBusPolicy"
                         },
                         {
                             "$ref": "#/definitions/AWS::Events::Rule"
