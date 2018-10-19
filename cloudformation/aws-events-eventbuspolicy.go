@@ -6,39 +6,49 @@ import (
 	"fmt"
 )
 
-// AWSGuardDutyDetector AWS CloudFormation Resource (AWS::GuardDuty::Detector)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
-type AWSGuardDutyDetector struct {
+// AWSEventsEventBusPolicy AWS CloudFormation Resource (AWS::Events::EventBusPolicy)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html
+type AWSEventsEventBusPolicy struct {
 
-	// Enable AWS CloudFormation Property
+	// Action AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
-	Enable bool `json:"Enable"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
+	Action string `json:"Action,omitempty"`
 
-	// FindingPublishingFrequency AWS CloudFormation Property
+	// Condition AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
-	FindingPublishingFrequency string `json:"FindingPublishingFrequency,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
+	Condition *AWSEventsEventBusPolicy_Condition `json:"Condition,omitempty"`
+
+	// Principal AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
+	Principal string `json:"Principal,omitempty"`
+
+	// StatementId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
+	StatementId string `json:"StatementId,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSGuardDutyDetector) AWSCloudFormationType() string {
-	return "AWS::GuardDuty::Detector"
+func (r *AWSEventsEventBusPolicy) AWSCloudFormationType() string {
+	return "AWS::Events::EventBusPolicy"
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSGuardDutyDetector) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *AWSEventsEventBusPolicy) SetDeletionPolicy(policy DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSGuardDutyDetector) MarshalJSON() ([]byte, error) {
-	type Properties AWSGuardDutyDetector
+func (r AWSEventsEventBusPolicy) MarshalJSON() ([]byte, error) {
+	type Properties AWSEventsEventBusPolicy
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -52,8 +62,8 @@ func (r AWSGuardDutyDetector) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *AWSGuardDutyDetector) UnmarshalJSON(b []byte) error {
-	type Properties AWSGuardDutyDetector
+func (r *AWSEventsEventBusPolicy) UnmarshalJSON(b []byte) error {
+	type Properties AWSEventsEventBusPolicy
 	res := &struct {
 		Type       string
 		Properties *Properties
@@ -65,28 +75,28 @@ func (r *AWSGuardDutyDetector) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = AWSGuardDutyDetector(*res.Properties)
+		*r = AWSEventsEventBusPolicy(*res.Properties)
 	}
 
 	return nil
 }
 
-// GetAllAWSGuardDutyDetectorResources retrieves all AWSGuardDutyDetector items from an AWS CloudFormation template
-func (t *Template) GetAllAWSGuardDutyDetectorResources() map[string]AWSGuardDutyDetector {
-	results := map[string]AWSGuardDutyDetector{}
+// GetAllAWSEventsEventBusPolicyResources retrieves all AWSEventsEventBusPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEventsEventBusPolicyResources() map[string]AWSEventsEventBusPolicy {
+	results := map[string]AWSEventsEventBusPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSGuardDutyDetector:
+		case AWSEventsEventBusPolicy:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
 			// We found an untyped resource (likely from JSON) which *might* be
 			// the correct type, but we need to check it's 'Type' field
 			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::GuardDuty::Detector" {
+				if resType == "AWS::Events::EventBusPolicy" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSGuardDutyDetector
+						var result AWSEventsEventBusPolicy
 						if err := json.Unmarshal(b, &result); err == nil {
 							results[name] = result
 						}
@@ -98,22 +108,22 @@ func (t *Template) GetAllAWSGuardDutyDetectorResources() map[string]AWSGuardDuty
 	return results
 }
 
-// GetAWSGuardDutyDetectorWithName retrieves all AWSGuardDutyDetector items from an AWS CloudFormation template
+// GetAWSEventsEventBusPolicyWithName retrieves all AWSEventsEventBusPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSGuardDutyDetectorWithName(name string) (AWSGuardDutyDetector, error) {
+func (t *Template) GetAWSEventsEventBusPolicyWithName(name string) (AWSEventsEventBusPolicy, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSGuardDutyDetector:
+		case AWSEventsEventBusPolicy:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
 			// We found an untyped resource (likely from JSON) which *might* be
 			// the correct type, but we need to check it's 'Type' field
 			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::GuardDuty::Detector" {
+				if resType == "AWS::Events::EventBusPolicy" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSGuardDutyDetector
+						var result AWSEventsEventBusPolicy
 						if err := json.Unmarshal(b, &result); err == nil {
 							return result, nil
 						}
@@ -122,5 +132,5 @@ func (t *Template) GetAWSGuardDutyDetectorWithName(name string) (AWSGuardDutyDet
 			}
 		}
 	}
-	return AWSGuardDutyDetector{}, errors.New("resource not found")
+	return AWSEventsEventBusPolicy{}, errors.New("resource not found")
 }
