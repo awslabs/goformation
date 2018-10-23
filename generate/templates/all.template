@@ -1,0 +1,8 @@
+package cloudformation
+
+// AllResources fetches an iterable map all CloudFormation and SAM resources
+func AllResources() map[string]interface{} {
+    return map[string]interface{}{ {{range $name, $resource := .Resources}}
+        "{{$name}}": {{$resource}}{},{{end}}
+    }
+}

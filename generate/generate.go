@@ -23,6 +23,7 @@ type ResourceGenerator struct {
 
 // ResourceGeneratorResults contains a summary of the items generated
 type ResourceGeneratorResults struct {
+	AllResources     map[string]string
 	UpdatedResources map[string]string
 	UpdatedSchemas   map[string]string
 	ProcessedCount   int
@@ -56,6 +57,7 @@ func NewResourceGenerator(primaryUrl string, fragmentUrls map[string]string) (*R
 		fragmentUrls: fragmentUrls,
 		Results: &ResourceGeneratorResults{
 			UpdatedResources: map[string]string{},
+			AllResources:     map[string]string{},
 			UpdatedSchemas:   map[string]string{},
 			ProcessedCount:   0,
 		},
@@ -105,6 +107,10 @@ func (rg *ResourceGenerator) Generate() error {
 		}
 	}
 
+	if err := rg.generateAllResourcesMap(rg.Results.AllResources); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -148,6 +154,11 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 		return nil, err
 	}
 
+	// Add the resources processed to the ResourceGenerator output
+	for name := range spec.Resources {
+		rg.Results.AllResources[name] = structName(name)
+	}
+
 	// Write all of the resources in the spec file
 	for name, resource := range spec.Resources {
 		if err := rg.generateResources(name, resource, false, spec); err != nil {
@@ -163,6 +174,42 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 	}
 
 	return spec, nil
+
+}
+
+func (rg *ResourceGenerator) generateAllResourcesMap(resources map[string]string) error {
+
+	// Open the all resources template
+	tmpl, err := template.ParseFiles("generate/templates/all.template")
+	if err != nil {
+		return fmt.Errorf("failed to load resource template: %s", err)
+	}
+
+	templateData := struct {
+		Resources map[string]string
+	}{
+		Resources: resources,
+	}
+
+	// Execute the template, writing it to a buffer
+	var buf bytes.Buffer
+	err = tmpl.Execute(&buf, templateData)
+	if err != nil {
+		return fmt.Errorf("failed to generate iterable map of all resources: %s", err)
+	}
+
+	// Format the generated Go code with gofmt
+	formatted, err := format.Source(buf.Bytes())
+	if err != nil {
+		return fmt.Errorf("failed to format Go file for iterable map of all resources: %s", err)
+	}
+
+	// Write the file contents out
+	if err := ioutil.WriteFile("cloudformation/all.go", formatted, 0644); err != nil {
+		return fmt.Errorf("failed to write Go file for iterable map of all resources: %s", err)
+	}
+
+	return nil
 
 }
 
