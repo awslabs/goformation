@@ -32,11 +32,41 @@ type AWSEC2NetworkInterfaceAttachment struct {
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
+
+	// _dependsOn stores the logical ID of the resources to be created before this resource
+	_dependsOn []string
+
+	// _metadata stores structured data associated with this resource
+	_metadata map[string]interface{}
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2NetworkInterfaceAttachment) AWSCloudFormationType() string {
 	return "AWS::EC2::NetworkInterfaceAttachment"
+}
+
+// DependsOn returns a slice of logical ID names this resource depends on.
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
+func (r *AWSEC2NetworkInterfaceAttachment) DependsOn() []string {
+	return r._dependsOn
+}
+
+// SetDependsOn specify that the creation of this resource follows another.
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
+func (r *AWSEC2NetworkInterfaceAttachment) SetDependsOn(dependencies []string) {
+	r._dependsOn = dependencies
+}
+
+// Metadata returns the metadata associated with this resource.
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
+func (r *AWSEC2NetworkInterfaceAttachment) Metadata() map[string]interface{} {
+	return r._metadata
+}
+
+// SetMetadata enables you to associate structured data with this resource.
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
+func (r *AWSEC2NetworkInterfaceAttachment) SetMetadata(metadata map[string]interface{}) {
+	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
@@ -52,10 +82,14 @@ func (r AWSEC2NetworkInterfaceAttachment) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
-		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		DependsOn      []string               `json:"DependsOn,omitempty"`
+		Metadata       map[string]interface{} `json:"Metadata,omitempty"`
+		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
+		DependsOn:      r._dependsOn,
+		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
 	})
 }
@@ -67,6 +101,8 @@ func (r *AWSEC2NetworkInterfaceAttachment) UnmarshalJSON(b []byte) error {
 	res := &struct {
 		Type       string
 		Properties *Properties
+		DependsOn  []string
+		Metadata   map[string]interface{}
 	}{}
 	if err := json.Unmarshal(b, &res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
@@ -76,6 +112,12 @@ func (r *AWSEC2NetworkInterfaceAttachment) UnmarshalJSON(b []byte) error {
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
 		*r = AWSEC2NetworkInterfaceAttachment(*res.Properties)
+	}
+	if res.DependsOn != nil {
+		r._dependsOn = res.DependsOn
+	}
+	if res.Metadata != nil {
+		r._metadata = res.Metadata
 	}
 
 	return nil
