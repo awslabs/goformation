@@ -1,18 +1,18 @@
 package cloudformation
 
-// Tag AWS CloudFormation Resource (Tag)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html
-type Tag struct {
+// AWSAppStreamStack_ApplicationSettings AWS CloudFormation Resource (AWS::AppStream::Stack.ApplicationSettings)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html
+type AWSAppStreamStack_ApplicationSettings struct {
 
-	// Key AWS CloudFormation Property
+	// Enabled AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-	Key string `json:"Key,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-enabled
+	Enabled bool `json:"Enabled"`
 
-	// Value AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-	Value string `json:"Value,omitempty"`
+	// SettingsGroup AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-settingsgroup
+	SettingsGroup string `json:"SettingsGroup,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
@@ -25,36 +25,36 @@ type Tag struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Tag) AWSCloudFormationType() string {
-	return "Tag"
+func (r *AWSAppStreamStack_ApplicationSettings) AWSCloudFormationType() string {
+	return "AWS::AppStream::Stack.ApplicationSettings"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) DependsOn() []string {
+func (r *AWSAppStreamStack_ApplicationSettings) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) SetDependsOn(dependencies []string) {
+func (r *AWSAppStreamStack_ApplicationSettings) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) Metadata() map[string]interface{} {
+func (r *AWSAppStreamStack_ApplicationSettings) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSAppStreamStack_ApplicationSettings) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Tag) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *AWSAppStreamStack_ApplicationSettings) SetDeletionPolicy(policy DeletionPolicy) {
 	r._deletionPolicy = policy
 }
