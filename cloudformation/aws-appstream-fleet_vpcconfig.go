@@ -1,18 +1,18 @@
 package cloudformation
 
-// Tag AWS CloudFormation Resource (Tag)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html
-type Tag struct {
+// AWSAppStreamFleet_VpcConfig AWS CloudFormation Resource (AWS::AppStream::Fleet.VpcConfig)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html
+type AWSAppStreamFleet_VpcConfig struct {
 
-	// Key AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-	Key string `json:"Key,omitempty"`
+	// SecurityGroupIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-securitygroupids
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
-	// Value AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-	Value string `json:"Value,omitempty"`
+	// SubnetIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-subnetids
+	SubnetIds []string `json:"SubnetIds,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
@@ -25,36 +25,36 @@ type Tag struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Tag) AWSCloudFormationType() string {
-	return "Tag"
+func (r *AWSAppStreamFleet_VpcConfig) AWSCloudFormationType() string {
+	return "AWS::AppStream::Fleet.VpcConfig"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) DependsOn() []string {
+func (r *AWSAppStreamFleet_VpcConfig) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) SetDependsOn(dependencies []string) {
+func (r *AWSAppStreamFleet_VpcConfig) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) Metadata() map[string]interface{} {
+func (r *AWSAppStreamFleet_VpcConfig) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSAppStreamFleet_VpcConfig) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Tag) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *AWSAppStreamFleet_VpcConfig) SetDeletionPolicy(policy DeletionPolicy) {
 	r._deletionPolicy = policy
 }

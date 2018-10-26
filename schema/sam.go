@@ -2062,6 +2062,659 @@ var samSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppStream::DirectoryConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DirectoryName": {
+                            "type": "string"
+                        },
+                        "OrganizationalUnitDistinguishedNames": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "ServiceAccountCredentials": {
+                            "$ref": "#/definitions/AWS::AppStream::DirectoryConfig.ServiceAccountCredentials"
+                        }
+                    },
+                    "required": [
+                        "DirectoryName",
+                        "OrganizationalUnitDistinguishedNames",
+                        "ServiceAccountCredentials"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppStream::DirectoryConfig"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::DirectoryConfig.ServiceAccountCredentials": {
+            "additionalProperties": false,
+            "properties": {
+                "AccountName": {
+                    "type": "string"
+                },
+                "AccountPassword": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AccountName",
+                "AccountPassword"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::Fleet": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ComputeCapacity": {
+                            "$ref": "#/definitions/AWS::AppStream::Fleet.ComputeCapacity"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DisconnectTimeoutInSeconds": {
+                            "type": "number"
+                        },
+                        "DisplayName": {
+                            "type": "string"
+                        },
+                        "DomainJoinInfo": {
+                            "$ref": "#/definitions/AWS::AppStream::Fleet.DomainJoinInfo"
+                        },
+                        "EnableDefaultInternetAccess": {
+                            "type": "boolean"
+                        },
+                        "FleetType": {
+                            "type": "string"
+                        },
+                        "ImageArn": {
+                            "type": "string"
+                        },
+                        "ImageName": {
+                            "type": "string"
+                        },
+                        "InstanceType": {
+                            "type": "string"
+                        },
+                        "MaxUserDurationInSeconds": {
+                            "type": "number"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "VpcConfig": {
+                            "$ref": "#/definitions/AWS::AppStream::Fleet.VpcConfig"
+                        }
+                    },
+                    "required": [
+                        "ComputeCapacity",
+                        "InstanceType"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppStream::Fleet"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::Fleet.ComputeCapacity": {
+            "additionalProperties": false,
+            "properties": {
+                "DesiredInstances": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "DesiredInstances"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::Fleet.DomainJoinInfo": {
+            "additionalProperties": false,
+            "properties": {
+                "DirectoryName": {
+                    "type": "string"
+                },
+                "OrganizationalUnitDistinguishedName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppStream::Fleet.VpcConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "SecurityGroupIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SubnetIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppStream::ImageBuilder": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AppstreamAgentVersion": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DisplayName": {
+                            "type": "string"
+                        },
+                        "DomainJoinInfo": {
+                            "$ref": "#/definitions/AWS::AppStream::ImageBuilder.DomainJoinInfo"
+                        },
+                        "EnableDefaultInternetAccess": {
+                            "type": "boolean"
+                        },
+                        "ImageArn": {
+                            "type": "string"
+                        },
+                        "ImageName": {
+                            "type": "string"
+                        },
+                        "InstanceType": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "VpcConfig": {
+                            "$ref": "#/definitions/AWS::AppStream::ImageBuilder.VpcConfig"
+                        }
+                    },
+                    "required": [
+                        "InstanceType"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppStream::ImageBuilder"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::ImageBuilder.DomainJoinInfo": {
+            "additionalProperties": false,
+            "properties": {
+                "DirectoryName": {
+                    "type": "string"
+                },
+                "OrganizationalUnitDistinguishedName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppStream::ImageBuilder.VpcConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "SecurityGroupIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SubnetIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppStream::Stack": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ApplicationSettings": {
+                            "$ref": "#/definitions/AWS::AppStream::Stack.ApplicationSettings"
+                        },
+                        "AttributesToDelete": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "DeleteStorageConnectors": {
+                            "type": "boolean"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DisplayName": {
+                            "type": "string"
+                        },
+                        "FeedbackURL": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "RedirectURL": {
+                            "type": "string"
+                        },
+                        "StorageConnectors": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::AppStream::Stack.StorageConnector"
+                            },
+                            "type": "array"
+                        },
+                        "UserSettings": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::AppStream::Stack.UserSetting"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppStream::Stack"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::Stack.ApplicationSettings": {
+            "additionalProperties": false,
+            "properties": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "SettingsGroup": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Enabled"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::Stack.StorageConnector": {
+            "additionalProperties": false,
+            "properties": {
+                "ConnectorType": {
+                    "type": "string"
+                },
+                "Domains": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ResourceIdentifier": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ConnectorType"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::Stack.UserSetting": {
+            "additionalProperties": false,
+            "properties": {
+                "Action": {
+                    "type": "string"
+                },
+                "Permission": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Action",
+                "Permission"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::StackFleetAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "FleetName": {
+                            "type": "string"
+                        },
+                        "StackName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "FleetName",
+                        "StackName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppStream::StackFleetAssociation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::StackUserAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AuthenticationType": {
+                            "type": "string"
+                        },
+                        "SendEmailNotification": {
+                            "type": "boolean"
+                        },
+                        "StackName": {
+                            "type": "string"
+                        },
+                        "UserName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "AuthenticationType",
+                        "StackName",
+                        "UserName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppStream::StackUserAssociation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppStream::User": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AuthenticationType": {
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "type": "string"
+                        },
+                        "LastName": {
+                            "type": "string"
+                        },
+                        "MessageAction": {
+                            "type": "string"
+                        },
+                        "UserName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "AuthenticationType",
+                        "UserName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppStream::User"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::AppSync::ApiKey": {
             "additionalProperties": false,
             "properties": {
@@ -34433,6 +35086,10 @@ var samSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },
@@ -34557,6 +35214,27 @@ var samSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::ApiGateway::VpcLink"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppStream::DirectoryConfig"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppStream::Fleet"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppStream::ImageBuilder"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppStream::Stack"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppStream::StackFleetAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppStream::StackUserAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppStream::User"
                         },
                         {
                             "$ref": "#/definitions/AWS::AppSync::ApiKey"
