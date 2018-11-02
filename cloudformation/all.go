@@ -269,6 +269,7 @@ func AllResources() map[string]interface{} {
 		"AWS::SQS::QueuePolicy":                                 AWSSQSQueuePolicy{},
 		"AWS::SSM::Association":                                 AWSSSMAssociation{},
 		"AWS::SSM::Document":                                    AWSSSMDocument{},
+		"AWS::SSM::MaintenanceWindow":                           AWSSSMMaintenanceWindow{},
 		"AWS::SSM::MaintenanceWindowTask":                       AWSSSMMaintenanceWindowTask{},
 		"AWS::SSM::Parameter":                                   AWSSSMParameter{},
 		"AWS::SSM::PatchBaseline":                               AWSSSMPatchBaseline{},
