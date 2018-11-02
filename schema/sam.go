@@ -30645,6 +30645,88 @@ var samSchema = `{
             ],
             "type": "object"
         },
+        "AWS::SSM::MaintenanceWindow": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AllowUnassociatedTargets": {
+                            "type": "boolean"
+                        },
+                        "Cutoff": {
+                            "type": "number"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Duration": {
+                            "type": "number"
+                        },
+                        "EndDate": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Schedule": {
+                            "type": "string"
+                        },
+                        "ScheduleTimezone": {
+                            "type": "string"
+                        },
+                        "StartDate": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "AllowUnassociatedTargets",
+                        "Cutoff",
+                        "Duration",
+                        "Name",
+                        "Schedule"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::SSM::MaintenanceWindow"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::SSM::MaintenanceWindowTask": {
             "additionalProperties": false,
             "properties": {
@@ -35086,10 +35168,6 @@ var samSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "Key",
-                "Value"
-            ],
             "type": "object"
         }
     },
@@ -35949,6 +36027,9 @@ var samSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::SSM::Document"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::SSM::MaintenanceWindow"
                         },
                         {
                             "$ref": "#/definitions/AWS::SSM::MaintenanceWindowTask"
