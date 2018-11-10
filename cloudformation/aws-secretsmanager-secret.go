@@ -6,44 +6,39 @@ import (
 	"fmt"
 )
 
-// AWSIAMRole AWS CloudFormation Resource (AWS::IAM::Role)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
-type AWSIAMRole struct {
+// AWSSecretsManagerSecret AWS CloudFormation Resource (AWS::SecretsManager::Secret)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
+type AWSSecretsManagerSecret struct {
 
-	// AssumeRolePolicyDocument AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument
-	AssumeRolePolicyDocument interface{} `json:"AssumeRolePolicyDocument,omitempty"`
-
-	// ManagedPolicyArns AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
-	ManagedPolicyArns []string `json:"ManagedPolicyArns,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-description
+	Description string `json:"Description,omitempty"`
 
-	// MaxSessionDuration AWS CloudFormation Property
+	// GenerateSecretString AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-maxsessionduration
-	MaxSessionDuration int `json:"MaxSessionDuration,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-generatesecretstring
+	GenerateSecretString *AWSSecretsManagerSecret_GenerateSecretString `json:"GenerateSecretString,omitempty"`
 
-	// Path AWS CloudFormation Property
+	// KmsKeyId AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-path
-	Path string `json:"Path,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-kmskeyid
+	KmsKeyId string `json:"KmsKeyId,omitempty"`
 
-	// PermissionsBoundary AWS CloudFormation Property
+	// Name AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-permissionsboundary
-	PermissionsBoundary string `json:"PermissionsBoundary,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-name
+	Name string `json:"Name,omitempty"`
 
-	// Policies AWS CloudFormation Property
+	// SecretString AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-policies
-	Policies []AWSIAMRole_Policy `json:"Policies,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-secretstring
+	SecretString string `json:"SecretString,omitempty"`
 
-	// RoleName AWS CloudFormation Property
+	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-rolename
-	RoleName string `json:"RoleName,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-tags
+	Tags []Tag `json:"Tags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
@@ -56,44 +51,44 @@ type AWSIAMRole struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSIAMRole) AWSCloudFormationType() string {
-	return "AWS::IAM::Role"
+func (r *AWSSecretsManagerSecret) AWSCloudFormationType() string {
+	return "AWS::SecretsManager::Secret"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSIAMRole) DependsOn() []string {
+func (r *AWSSecretsManagerSecret) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSIAMRole) SetDependsOn(dependencies []string) {
+func (r *AWSSecretsManagerSecret) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSIAMRole) Metadata() map[string]interface{} {
+func (r *AWSSecretsManagerSecret) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSIAMRole) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSSecretsManagerSecret) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSIAMRole) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *AWSSecretsManagerSecret) SetDeletionPolicy(policy DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSIAMRole) MarshalJSON() ([]byte, error) {
-	type Properties AWSIAMRole
+func (r AWSSecretsManagerSecret) MarshalJSON() ([]byte, error) {
+	type Properties AWSSecretsManagerSecret
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -111,8 +106,8 @@ func (r AWSIAMRole) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *AWSIAMRole) UnmarshalJSON(b []byte) error {
-	type Properties AWSIAMRole
+func (r *AWSSecretsManagerSecret) UnmarshalJSON(b []byte) error {
+	type Properties AWSSecretsManagerSecret
 	res := &struct {
 		Type       string
 		Properties *Properties
@@ -126,7 +121,7 @@ func (r *AWSIAMRole) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = AWSIAMRole(*res.Properties)
+		*r = AWSSecretsManagerSecret(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn
@@ -138,22 +133,22 @@ func (r *AWSIAMRole) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-// GetAllAWSIAMRoleResources retrieves all AWSIAMRole items from an AWS CloudFormation template
-func (t *Template) GetAllAWSIAMRoleResources() map[string]AWSIAMRole {
-	results := map[string]AWSIAMRole{}
+// GetAllAWSSecretsManagerSecretResources retrieves all AWSSecretsManagerSecret items from an AWS CloudFormation template
+func (t *Template) GetAllAWSSecretsManagerSecretResources() map[string]AWSSecretsManagerSecret {
+	results := map[string]AWSSecretsManagerSecret{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSIAMRole:
+		case AWSSecretsManagerSecret:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
 			// We found an untyped resource (likely from JSON) which *might* be
 			// the correct type, but we need to check it's 'Type' field
 			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::IAM::Role" {
+				if resType == "AWS::SecretsManager::Secret" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSIAMRole
+						var result AWSSecretsManagerSecret
 						if err := json.Unmarshal(b, &result); err == nil {
 							results[name] = result
 						}
@@ -165,22 +160,22 @@ func (t *Template) GetAllAWSIAMRoleResources() map[string]AWSIAMRole {
 	return results
 }
 
-// GetAWSIAMRoleWithName retrieves all AWSIAMRole items from an AWS CloudFormation template
+// GetAWSSecretsManagerSecretWithName retrieves all AWSSecretsManagerSecret items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSIAMRoleWithName(name string) (AWSIAMRole, error) {
+func (t *Template) GetAWSSecretsManagerSecretWithName(name string) (AWSSecretsManagerSecret, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSIAMRole:
+		case AWSSecretsManagerSecret:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
 			// We found an untyped resource (likely from JSON) which *might* be
 			// the correct type, but we need to check it's 'Type' field
 			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::IAM::Role" {
+				if resType == "AWS::SecretsManager::Secret" {
 					// The resource is correct, unmarshal it into the results
 					if b, err := json.Marshal(resource); err == nil {
-						var result AWSIAMRole
+						var result AWSSecretsManagerSecret
 						if err := json.Unmarshal(b, &result); err == nil {
 							return result, nil
 						}
@@ -189,5 +184,5 @@ func (t *Template) GetAWSIAMRoleWithName(name string) (AWSIAMRole, error) {
 			}
 		}
 	}
-	return AWSIAMRole{}, errors.New("resource not found")
+	return AWSSecretsManagerSecret{}, errors.New("resource not found")
 }
