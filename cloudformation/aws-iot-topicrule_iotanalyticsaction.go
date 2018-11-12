@@ -1,18 +1,18 @@
 package cloudformation
 
-// Tag AWS CloudFormation Resource (Tag)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html
-type Tag struct {
+// AWSIoTTopicRule_IotAnalyticsAction AWS CloudFormation Resource (AWS::IoT::TopicRule.IotAnalyticsAction)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html
+type AWSIoTTopicRule_IotAnalyticsAction struct {
 
-	// Key AWS CloudFormation Property
+	// ChannelName AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-	Key string `json:"Key,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
+	ChannelName string `json:"ChannelName,omitempty"`
 
-	// Value AWS CloudFormation Property
+	// RoleArn AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-	Value string `json:"Value,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
+	RoleArn string `json:"RoleArn,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
@@ -25,36 +25,36 @@ type Tag struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Tag) AWSCloudFormationType() string {
-	return "Tag"
+func (r *AWSIoTTopicRule_IotAnalyticsAction) AWSCloudFormationType() string {
+	return "AWS::IoT::TopicRule.IotAnalyticsAction"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) DependsOn() []string {
+func (r *AWSIoTTopicRule_IotAnalyticsAction) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) SetDependsOn(dependencies []string) {
+func (r *AWSIoTTopicRule_IotAnalyticsAction) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) Metadata() map[string]interface{} {
+func (r *AWSIoTTopicRule_IotAnalyticsAction) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSIoTTopicRule_IotAnalyticsAction) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Tag) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *AWSIoTTopicRule_IotAnalyticsAction) SetDeletionPolicy(policy DeletionPolicy) {
 	r._deletionPolicy = policy
 }
