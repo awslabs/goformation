@@ -2834,6 +2834,9 @@ var samSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "RelationalDatabaseConfig": {
+                            "$ref": "#/definitions/AWS::AppSync::DataSource.RelationalDatabaseConfig"
+                        },
                         "ServiceRoleArn": {
                             "type": "string"
                         },
@@ -2859,6 +2862,33 @@ var samSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::AppSync::DataSource.AuthorizationConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "AuthorizationType": {
+                    "type": "string"
+                },
+                "AwsIamConfig": {
+                    "$ref": "#/definitions/AWS::AppSync::DataSource.AwsIamConfig"
+                }
+            },
+            "required": [
+                "AuthorizationType"
+            ],
+            "type": "object"
+        },
+        "AWS::AppSync::DataSource.AwsIamConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "SigningRegion": {
+                    "type": "string"
+                },
+                "SigningServiceName": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::AppSync::DataSource.DynamoDBConfig": {
@@ -2899,6 +2929,9 @@ var samSchema = `{
         "AWS::AppSync::DataSource.HttpConfig": {
             "additionalProperties": false,
             "properties": {
+                "AuthorizationConfig": {
+                    "$ref": "#/definitions/AWS::AppSync::DataSource.AuthorizationConfig"
+                },
                 "Endpoint": {
                     "type": "string"
                 }
@@ -2917,6 +2950,47 @@ var samSchema = `{
             },
             "required": [
                 "LambdaFunctionArn"
+            ],
+            "type": "object"
+        },
+        "AWS::AppSync::DataSource.RdsHttpEndpointConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "AwsRegion": {
+                    "type": "string"
+                },
+                "AwsSecretStoreArn": {
+                    "type": "string"
+                },
+                "DatabaseName": {
+                    "type": "string"
+                },
+                "DbClusterIdentifier": {
+                    "type": "string"
+                },
+                "Schema": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AwsRegion",
+                "AwsSecretStoreArn",
+                "DbClusterIdentifier"
+            ],
+            "type": "object"
+        },
+        "AWS::AppSync::DataSource.RelationalDatabaseConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "RdsHttpEndpointConfig": {
+                    "$ref": "#/definitions/AWS::AppSync::DataSource.RdsHttpEndpointConfig"
+                },
+                "RelationalDatabaseSourceType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "RelationalDatabaseSourceType"
             ],
             "type": "object"
         },
@@ -3136,6 +3210,12 @@ var samSchema = `{
                         "FieldName": {
                             "type": "string"
                         },
+                        "Kind": {
+                            "type": "string"
+                        },
+                        "PipelineConfig": {
+                            "$ref": "#/definitions/AWS::AppSync::Resolver.PipelineConfig"
+                        },
                         "RequestMappingTemplate": {
                             "type": "string"
                         },
@@ -3154,7 +3234,6 @@ var samSchema = `{
                     },
                     "required": [
                         "ApiId",
-                        "DataSourceName",
                         "FieldName",
                         "TypeName"
                     ],
@@ -3171,6 +3250,18 @@ var samSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::AppSync::Resolver.PipelineConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Functions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
             "type": "object"
         },
         "AWS::ApplicationAutoScaling::ScalableTarget": {
@@ -6747,6 +6838,9 @@ var samSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "QueuedTimeoutInMinutes": {
+                            "type": "number"
+                        },
                         "SecondaryArtifacts": {
                             "items": {
                                 "$ref": "#/definitions/AWS::CodeBuild::Project.Artifacts"
@@ -7788,6 +7882,12 @@ var samSchema = `{
                         "ArtifactStore": {
                             "$ref": "#/definitions/AWS::CodePipeline::Pipeline.ArtifactStore"
                         },
+                        "ArtifactStores": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::CodePipeline::Pipeline.ArtifactStoreMap"
+                            },
+                            "type": "array"
+                        },
                         "DisableInboundStageTransitions": {
                             "items": {
                                 "$ref": "#/definitions/AWS::CodePipeline::Pipeline.StageTransition"
@@ -7811,7 +7911,6 @@ var samSchema = `{
                         }
                     },
                     "required": [
-                        "ArtifactStore",
                         "RoleArn",
                         "Stages"
                     ],
@@ -7853,6 +7952,9 @@ var samSchema = `{
                         "$ref": "#/definitions/AWS::CodePipeline::Pipeline.OutputArtifact"
                     },
                     "type": "array"
+                },
+                "Region": {
+                    "type": "string"
                 },
                 "RoleArn": {
                     "type": "string"
@@ -7907,6 +8009,22 @@ var samSchema = `{
             "required": [
                 "Location",
                 "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::CodePipeline::Pipeline.ArtifactStoreMap": {
+            "additionalProperties": false,
+            "properties": {
+                "ArtifactStore": {
+                    "$ref": "#/definitions/AWS::CodePipeline::Pipeline.ArtifactStore"
+                },
+                "Region": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ArtifactStore",
+                "Region"
             ],
             "type": "object"
         },
@@ -34085,11 +34203,11 @@ var samSchema = `{
                         },
                         "Name": {
                             "type": "string"
+                        },
+                        "NamespaceId": {
+                            "type": "string"
                         }
                     },
-                    "required": [
-                        "DnsConfig"
-                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -34100,8 +34218,7 @@ var samSchema = `{
                 }
             },
             "required": [
-                "Type",
-                "Properties"
+                "Type"
             ],
             "type": "object"
         },
@@ -34122,8 +34239,7 @@ var samSchema = `{
                 }
             },
             "required": [
-                "DnsRecords",
-                "NamespaceId"
+                "DnsRecords"
             ],
             "type": "object"
         },
