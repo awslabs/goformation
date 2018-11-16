@@ -50,6 +50,11 @@ type AWSCodeBuildProject struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
 	Name string `json:"Name,omitempty"`
 
+	// QueuedTimeoutInMinutes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-queuedtimeoutinminutes
+	QueuedTimeoutInMinutes int `json:"QueuedTimeoutInMinutes,omitempty"`
+
 	// SecondaryArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
