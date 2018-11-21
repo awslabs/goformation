@@ -66,12 +66,12 @@ type AWSCloudWatchAlarm struct {
 	InsufficientDataActions []string `json:"InsufficientDataActions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-metricname
 	MetricName string `json:"MetricName,omitempty"`
 
 	// Namespace AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-namespace
 	Namespace string `json:"Namespace,omitempty"`
 
@@ -81,9 +81,9 @@ type AWSCloudWatchAlarm struct {
 	OKActions []string `json:"OKActions,omitempty"`
 
 	// Period AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-period
-	Period int `json:"Period"`
+	Period int `json:"Period,omitempty"`
 
 	// Statistic AWS CloudFormation Property
 	// Required: false

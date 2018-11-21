@@ -15,6 +15,11 @@ type AWSSNSTopic struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname
 	DisplayName string `json:"DisplayName,omitempty"`
 
+	// KmsMasterKeyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-kmsmasterkeyid
+	KmsMasterKeyId string `json:"KmsMasterKeyId,omitempty"`
+
 	// Subscription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-subscription

@@ -36,7 +36,7 @@ type AWSDynamoDBTable struct {
 	PointInTimeRecoverySpecification *AWSDynamoDBTable_PointInTimeRecoverySpecification `json:"PointInTimeRecoverySpecification,omitempty"`
 
 	// ProvisionedThroughput AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
 	ProvisionedThroughput *AWSDynamoDBTable_ProvisionedThroughput `json:"ProvisionedThroughput,omitempty"`
 
