@@ -85,6 +85,16 @@ type AWSRDSDBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsubnetgroupname
 	DBSubnetGroupName string `json:"DBSubnetGroupName,omitempty"`
 
+	// DeleteAutomatedBackups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deleteautomatedbackups
+	DeleteAutomatedBackups bool `json:"DeleteAutomatedBackups,omitempty"`
+
+	// DeletionProtection AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deletionprotection
+	DeletionProtection bool `json:"DeletionProtection,omitempty"`
+
 	// Domain AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domain

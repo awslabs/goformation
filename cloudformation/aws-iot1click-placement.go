@@ -21,7 +21,7 @@ type AWSIoT1ClickPlacement struct {
 	Attributes interface{} `json:"Attributes,omitempty"`
 
 	// PlacementName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-placementname
 	PlacementName string `json:"PlacementName,omitempty"`
 
