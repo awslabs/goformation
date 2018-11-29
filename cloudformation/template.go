@@ -14,7 +14,7 @@ type Template struct {
 	Transform                *Transform             `json:"Transform,omitempty"`
 	Description              string                 `json:"Description,omitempty"`
 	Metadata                 map[string]interface{} `json:"Metadata,omitempty"`
-	Parameters               map[string]interface{} `json:"Parameters,omitempty"`
+	Parameters               map[string]Parameter   `json:"Parameters,omitempty"`
 	Mappings                 map[string]interface{} `json:"Mappings,omitempty"`
 	Conditions               map[string]interface{} `json:"Conditions,omitempty"`
 	Resources                map[string]interface{} `json:"Resources,omitempty"`
@@ -67,7 +67,7 @@ func NewTemplate() *Template {
 		AWSTemplateFormatVersion: "2010-09-09",
 		Description:              "",
 		Metadata:                 map[string]interface{}{},
-		Parameters:               map[string]interface{}{},
+		Parameters:               map[string]Parameter{},
 		Mappings:                 map[string]interface{}{},
 		Conditions:               map[string]interface{}{},
 		Resources:                map[string]interface{}{},
