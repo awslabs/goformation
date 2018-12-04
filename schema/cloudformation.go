@@ -11170,6 +11170,9 @@ var cloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "BillingMode": {
+                            "type": "string"
+                        },
                         "GlobalSecondaryIndexes": {
                             "items": {
                                 "$ref": "#/definitions/AWS::DynamoDB::Table.GlobalSecondaryIndex"
@@ -12126,6 +12129,12 @@ var cloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "ElasticInferenceAccelerators": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::EC2::Instance.ElasticInferenceAccelerator"
+                            },
+                            "type": "array"
+                        },
                         "HostId": {
                             "type": "string"
                         },
@@ -12158,6 +12167,12 @@ var cloudformationSchema = `{
                         },
                         "LaunchTemplate": {
                             "$ref": "#/definitions/AWS::EC2::Instance.LaunchTemplateSpecification"
+                        },
+                        "LicenseSpecifications": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::EC2::Instance.LicenseSpecification"
+                            },
+                            "type": "array"
                         },
                         "Monitoring": {
                             "type": "boolean"
@@ -12319,6 +12334,18 @@ var cloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EC2::Instance.ElasticInferenceAccelerator": {
+            "additionalProperties": false,
+            "properties": {
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
         "AWS::EC2::Instance.InstanceIpv6Address": {
             "additionalProperties": false,
             "properties": {
@@ -12346,6 +12373,18 @@ var cloudformationSchema = `{
             },
             "required": [
                 "Version"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::Instance.LicenseSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "LicenseConfigurationArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LicenseConfigurationArn"
             ],
             "type": "object"
         },
@@ -14574,6 +14613,390 @@ var cloudformationSchema = `{
                 "Type": {
                     "enum": [
                         "AWS::EC2::SubnetRouteTableAssociation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TransitGateway": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AmazonSideAsn": {
+                            "type": "number"
+                        },
+                        "AutoAcceptSharedAttachments": {
+                            "type": "string"
+                        },
+                        "DefaultRouteTableAssociation": {
+                            "type": "string"
+                        },
+                        "DefaultRouteTablePropagation": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DnsSupport": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "VpnEcmpSupport": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TransitGateway"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TransitGatewayAttachment": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "SubnetIds": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "TransitGatewayId": {
+                            "type": "string"
+                        },
+                        "VpcId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "SubnetIds",
+                        "TransitGatewayId",
+                        "VpcId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TransitGatewayAttachment"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TransitGatewayRoute": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Blackhole": {
+                            "type": "boolean"
+                        },
+                        "DestinationCidrBlock": {
+                            "type": "string"
+                        },
+                        "TransitGatewayAttachmentId": {
+                            "type": "string"
+                        },
+                        "TransitGatewayRouteTableId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "TransitGatewayRouteTableId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TransitGatewayRoute"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TransitGatewayRouteTable": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "TransitGatewayId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "TransitGatewayId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TransitGatewayRouteTable"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TransitGatewayRouteTableAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "TransitGatewayAttachmentId": {
+                            "type": "string"
+                        },
+                        "TransitGatewayRouteTableId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "TransitGatewayAttachmentId",
+                        "TransitGatewayRouteTableId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TransitGatewayRouteTableAssociation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TransitGatewayRouteTablePropagation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "TransitGatewayAttachmentId": {
+                            "type": "string"
+                        },
+                        "TransitGatewayRouteTableId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "TransitGatewayAttachmentId",
+                        "TransitGatewayRouteTableId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TransitGatewayRouteTablePropagation"
                     ],
                     "type": "string"
                 }
@@ -25924,6 +26347,12 @@ var cloudformationSchema = `{
                         "KmsKeyArn": {
                             "type": "string"
                         },
+                        "Layers": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "MemorySize": {
                             "type": "number"
                         },
@@ -34467,6 +34896,63 @@ var cloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::ServiceDiscovery::HttpNamespace": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::ServiceDiscovery::HttpNamespace"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::ServiceDiscovery::Instance": {
             "additionalProperties": false,
             "properties": {
@@ -36553,6 +37039,10 @@ var cloudformationSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },
@@ -36980,6 +37470,24 @@ var cloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::SubnetRouteTableAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TransitGateway"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TransitGatewayAttachment"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TransitGatewayRoute"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TransitGatewayRouteTable"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TransitGatewayRouteTableAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TransitGatewayRouteTablePropagation"
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::TrunkInterfaceAssociation"
@@ -37511,6 +38019,9 @@ var cloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::ServiceCatalog::TagOptionAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ServiceDiscovery::HttpNamespace"
                         },
                         {
                             "$ref": "#/definitions/AWS::ServiceDiscovery::Instance"
