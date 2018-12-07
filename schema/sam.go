@@ -35648,7 +35648,7 @@ var samSchema = `{
                     "additionalProperties": false,
                     "properties": {
                         "InstanceAttributes": {
-                            "type": "object"
+                            "type": "Map"
                         },
                         "InstanceId": {
                             "type": "string"
@@ -37701,6 +37701,10 @@ var samSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },
