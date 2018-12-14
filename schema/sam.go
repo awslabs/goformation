@@ -253,6 +253,80 @@ var samSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AmazonMQ::ConfigurationAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Broker": {
+                            "type": "string"
+                        },
+                        "Configuration": {
+                            "$ref": "#/definitions/AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId"
+                        }
+                    },
+                    "required": [
+                        "Broker",
+                        "Configuration"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AmazonMQ::ConfigurationAssociation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId": {
+            "additionalProperties": false,
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Revision": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Id",
+                "Revision"
+            ],
+            "type": "object"
+        },
         "AWS::ApiGateway::Account": {
             "additionalProperties": false,
             "properties": {
@@ -24812,6 +24886,693 @@ var samSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IoTAnalytics::Channel": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ChannelName": {
+                            "type": "string"
+                        },
+                        "RetentionPeriod": {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Channel.RetentionPeriod"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTAnalytics::Channel"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Channel.RetentionPeriod": {
+            "additionalProperties": false,
+            "properties": {
+                "NumberOfDays": {
+                    "type": "number"
+                },
+                "Unlimited": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Actions": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.Action"
+                            },
+                            "type": "array"
+                        },
+                        "DatasetName": {
+                            "type": "string"
+                        },
+                        "RetentionPeriod": {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.RetentionPeriod"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "Triggers": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.Trigger"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Actions"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTAnalytics::Dataset"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.Action": {
+            "additionalProperties": false,
+            "properties": {
+                "ActionName": {
+                    "type": "string"
+                },
+                "ContainerAction": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.ContainerAction"
+                },
+                "QueryAction": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.QueryAction"
+                }
+            },
+            "required": [
+                "ActionName"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.ContainerAction": {
+            "additionalProperties": false,
+            "properties": {
+                "ExecutionRoleArn": {
+                    "type": "string"
+                },
+                "Image": {
+                    "type": "string"
+                },
+                "ResourceConfiguration": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.ResourceConfiguration"
+                },
+                "Variables": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.Variable"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ExecutionRoleArn",
+                "Image",
+                "ResourceConfiguration"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.DatasetContentVersionValue": {
+            "additionalProperties": false,
+            "properties": {
+                "DatasetName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.DeltaTime": {
+            "additionalProperties": false,
+            "properties": {
+                "OffsetSeconds": {
+                    "type": "number"
+                },
+                "TimeExpression": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OffsetSeconds",
+                "TimeExpression"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.Filter": {
+            "additionalProperties": false,
+            "properties": {
+                "DeltaTime": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.DeltaTime"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.OutputFileUriValue": {
+            "additionalProperties": false,
+            "properties": {
+                "FileName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.QueryAction": {
+            "additionalProperties": false,
+            "properties": {
+                "Filters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.Filter"
+                    },
+                    "type": "array"
+                },
+                "SqlQuery": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SqlQuery"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.ResourceConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ComputeType": {
+                    "type": "string"
+                },
+                "VolumeSizeInGB": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "ComputeType",
+                "VolumeSizeInGB"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.RetentionPeriod": {
+            "additionalProperties": false,
+            "properties": {
+                "NumberOfDays": {
+                    "type": "number"
+                },
+                "Unlimited": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "NumberOfDays",
+                "Unlimited"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.Schedule": {
+            "additionalProperties": false,
+            "properties": {
+                "ScheduleExpression": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ScheduleExpression"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.Trigger": {
+            "additionalProperties": false,
+            "properties": {
+                "Schedule": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.Schedule"
+                },
+                "TriggeringDataset": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.TriggeringDataset"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.TriggeringDataset": {
+            "additionalProperties": false,
+            "properties": {
+                "DatasetName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DatasetName"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.Variable": {
+            "additionalProperties": false,
+            "properties": {
+                "DatasetContentVersionValue": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.DatasetContentVersionValue"
+                },
+                "DoubleValue": {
+                    "type": "number"
+                },
+                "OutputFileUriValue": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.OutputFileUriValue"
+                },
+                "StringValue": {
+                    "type": "string"
+                },
+                "VariableName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "VariableName"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Datastore": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DatastoreName": {
+                            "type": "string"
+                        },
+                        "RetentionPeriod": {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.RetentionPeriod"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTAnalytics::Datastore"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Datastore.RetentionPeriod": {
+            "additionalProperties": false,
+            "properties": {
+                "NumberOfDays": {
+                    "type": "number"
+                },
+                "Unlimited": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "PipelineActivities": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.Activity"
+                            },
+                            "type": "array"
+                        },
+                        "PipelineName": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "PipelineActivities"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTAnalytics::Pipeline"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.Activity": {
+            "additionalProperties": false,
+            "properties": {
+                "AddAttributes": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.AddAttributes"
+                },
+                "Channel": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.Channel"
+                },
+                "Datastore": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.Datastore"
+                },
+                "DeviceRegistryEnrich": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich"
+                },
+                "DeviceShadowEnrich": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich"
+                },
+                "Filter": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.Filter"
+                },
+                "Lambda": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.Lambda"
+                },
+                "Math": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.Math"
+                },
+                "RemoveAttributes": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.RemoveAttributes"
+                },
+                "SelectAttributes": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline.SelectAttributes"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.AddAttributes": {
+            "additionalProperties": false,
+            "properties": {
+                "Attributes": {
+                    "type": "object"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.Channel": {
+            "additionalProperties": false,
+            "properties": {
+                "ChannelName": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.Datastore": {
+            "additionalProperties": false,
+            "properties": {
+                "DatastoreName": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich": {
+            "additionalProperties": false,
+            "properties": {
+                "Attribute": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                },
+                "RoleArn": {
+                    "type": "string"
+                },
+                "ThingName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich": {
+            "additionalProperties": false,
+            "properties": {
+                "Attribute": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                },
+                "RoleArn": {
+                    "type": "string"
+                },
+                "ThingName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.Filter": {
+            "additionalProperties": false,
+            "properties": {
+                "Filter": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.Lambda": {
+            "additionalProperties": false,
+            "properties": {
+                "BatchSize": {
+                    "type": "number"
+                },
+                "LambdaName": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.Math": {
+            "additionalProperties": false,
+            "properties": {
+                "Attribute": {
+                    "type": "string"
+                },
+                "Math": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.RemoveAttributes": {
+            "additionalProperties": false,
+            "properties": {
+                "Attributes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Pipeline.SelectAttributes": {
+            "additionalProperties": false,
+            "properties": {
+                "Attributes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::KMS::Alias": {
             "additionalProperties": false,
             "properties": {
@@ -33458,6 +34219,9 @@ var samSchema = `{
         "AWS::SageMaker::EndpointConfig.ProductionVariant": {
             "additionalProperties": false,
             "properties": {
+                "AcceleratorType": {
+                    "type": "string"
+                },
                 "InitialInstanceCount": {
                     "type": "number"
                 },
@@ -33515,6 +34279,12 @@ var samSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "Containers": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::SageMaker::Model.ContainerDefinition"
+                            },
+                            "type": "array"
+                        },
                         "ExecutionRoleArn": {
                             "type": "string"
                         },
@@ -33535,8 +34305,7 @@ var samSchema = `{
                         }
                     },
                     "required": [
-                        "ExecutionRoleArn",
-                        "PrimaryContainer"
+                        "ExecutionRoleArn"
                     ],
                     "type": "object"
                 },
@@ -37774,6 +38543,9 @@ var samSchema = `{
                             "$ref": "#/definitions/AWS::AmazonMQ::Configuration"
                         },
                         {
+                            "$ref": "#/definitions/AWS::AmazonMQ::ConfigurationAssociation"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::ApiGateway::Account"
                         },
                         {
@@ -38405,6 +39177,18 @@ var samSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::IoT::TopicRule"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Channel"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Dataset"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Datastore"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline"
                         },
                         {
                             "$ref": "#/definitions/AWS::KMS::Alias"

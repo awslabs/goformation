@@ -5,6 +5,7 @@ func AllResources() map[string]interface{} {
 	return map[string]interface{}{
 		"AWS::AmazonMQ::Broker":                                 AWSAmazonMQBroker{},
 		"AWS::AmazonMQ::Configuration":                          AWSAmazonMQConfiguration{},
+		"AWS::AmazonMQ::ConfigurationAssociation":               AWSAmazonMQConfigurationAssociation{},
 		"AWS::ApiGateway::Account":                              AWSApiGatewayAccount{},
 		"AWS::ApiGateway::ApiKey":                               AWSApiGatewayApiKey{},
 		"AWS::ApiGateway::Authorizer":                           AWSApiGatewayAuthorizer{},
@@ -216,6 +217,10 @@ func AllResources() map[string]interface{} {
 		"AWS::IoT::Thing":                                       AWSIoTThing{},
 		"AWS::IoT::ThingPrincipalAttachment":                    AWSIoTThingPrincipalAttachment{},
 		"AWS::IoT::TopicRule":                                   AWSIoTTopicRule{},
+		"AWS::IoTAnalytics::Channel":                            AWSIoTAnalyticsChannel{},
+		"AWS::IoTAnalytics::Dataset":                            AWSIoTAnalyticsDataset{},
+		"AWS::IoTAnalytics::Datastore":                          AWSIoTAnalyticsDatastore{},
+		"AWS::IoTAnalytics::Pipeline":                           AWSIoTAnalyticsPipeline{},
 		"AWS::KMS::Alias":                                       AWSKMSAlias{},
 		"AWS::KMS::Key":                                         AWSKMSKey{},
 		"AWS::Kinesis::Stream":                                  AWSKinesisStream{},
