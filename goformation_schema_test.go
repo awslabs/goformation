@@ -4,7 +4,7 @@ import (
 	// Note that this is a fork of the main repo: github.com/xeipuuv/gojsonschema
 	// CloudFormation uses nested schema def references, which is currently broken
 	// in the main repo: https://github.com/xeipuuv/gojsonschema/pull/146
-	. "github.com/johandorland/gojsonschema"
+	. "github.com/xeipuuv/gojsonschema"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"os"

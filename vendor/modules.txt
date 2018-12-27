@@ -1,10 +1,8 @@
 # github.com/imdario/mergo v0.3.6
 github.com/imdario/mergo
-# github.com/johandorland/gojsonschema v0.0.0-20180719132039-b84684d0e066
-github.com/johandorland/gojsonschema
-# github.com/mitchellh/mapstructure v0.0.0-20170523030023-d0303fe80992
+# github.com/mitchellh/mapstructure v1.1.0
 github.com/mitchellh/mapstructure
-# github.com/onsi/ginkgo v0.0.0-20170725030731-8382b23d18db
+# github.com/onsi/ginkgo v1.5.0
 github.com/onsi/ginkgo
 github.com/onsi/ginkgo/config
 github.com/onsi/ginkgo/internal/codelocation
@@ -46,6 +44,8 @@ github.com/sanathkr/yaml
 github.com/xeipuuv/gojsonpointer
 # github.com/xeipuuv/gojsonreference v0.0.0-20150808065054-e02fc20de94c
 github.com/xeipuuv/gojsonreference
+# github.com/xeipuuv/gojsonschema v0.0.0-20181112162635-ac52e6811b56
+github.com/xeipuuv/gojsonschema
 # golang.org/x/net v0.0.0-20170809000501-1c05540f6879
 golang.org/x/net/html/charset
 golang.org/x/net/html
@@ -68,5 +68,5 @@ golang.org/x/text/language
 golang.org/x/text/internal/utf8internal
 golang.org/x/text/runes
 golang.org/x/text/internal/tag
-# gopkg.in/yaml.v2 v2.0.0-20170812160011-eb3733d160e7
+# gopkg.in/yaml.v2 v2.2.2
 gopkg.in/yaml.v2
