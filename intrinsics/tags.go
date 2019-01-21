@@ -40,6 +40,6 @@ func registerTagMarshallers() {
 
 func unregisterTagMarshallers() {
 	for _, tag := range allTags {
-		yaml.RegisterTagUnmarshaler("!"+tag, tagUnmarshaller)
+		yaml.UnRegisterTagUnmarshaler("!" + tag)
 	}
 }
