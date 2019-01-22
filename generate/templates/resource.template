@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"errors"
+	"bytes"
 )
 {{end}}
 // {{.StructName}} AWS CloudFormation Resource ({{.Name}})
@@ -78,7 +79,7 @@ func (r *{{.StructName}}) SetCreationPolicy(policy *CreationPolicy) {
 }
 {{end}}
 {{if not .IsCustomProperty}}
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into 
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
 func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	type Properties {{.StructName}}
@@ -111,7 +112,11 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 		DependsOn []string
 		Metadata map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -126,8 +131,8 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-	
-	return nil	
+
+	return nil
 }
 
 // GetAll{{.StructName}}Resources retrieves all {{.StructName}} items from an AWS CloudFormation template
@@ -160,7 +165,7 @@ func (t *Template) GetAll{{.StructName}}Resources () map[string]{{.StructName}} 
 // Get{{.StructName}}WithName retrieves all {{.StructName}} items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
 func (t *Template) Get{{.StructName}}WithName (name string) ({{.StructName}}, error) {
-	if untyped, ok := t.Resources[name]; ok {		
+	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case {{.StructName}}:
 			// We found a strongly typed resource of the correct type; use it
@@ -178,7 +183,7 @@ func (t *Template) Get{{.StructName}}WithName (name string) ({{.StructName}}, er
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
     return {{.StructName}}{}, errors.New("resource not found")
