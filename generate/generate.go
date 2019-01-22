@@ -337,8 +337,8 @@ func (rg *ResourceGenerator) generateJSONSchema(specname string, spec *CloudForm
 	var gocode []byte
 	gocode = append(gocode, []byte("package schema\n")...)
 	gocode = append(gocode, []byte("\n")...)
-	gocode = append(gocode, []byte("// "+specname+"Schema defined a JSON Schema that can be used to validate CloudFormation/SAM templates\n")...)
-	gocode = append(gocode, []byte("var "+specname+"Schema = `")...)
+	gocode = append(gocode, []byte("// "+strings.Title(specname)+"Schema defined a JSON Schema that can be used to validate CloudFormation/SAM templates\n")...)
+	gocode = append(gocode, []byte("var "+strings.Title(specname)+"Schema = `")...)
 	gocode = append(gocode, formatted...)
 	gocode = append(gocode, []byte("`\n")...)
 	gofilename := fmt.Sprintf("schema/%s.go", specname)
