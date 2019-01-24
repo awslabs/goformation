@@ -30,7 +30,7 @@ func str2Wrap(fn func(interface{}, interface{}) string) intrinsics.IntrinsicHand
 func str3Wrap(fn func(interface{}, interface{}, interface{}) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
 		if arr, ok := input.([]interface{}); ok {
-			if len(arr) != 2 {
+			if len(arr) != 3 {
 				return nil
 			}
 			return fn(arr[0], arr[1], arr[2])
@@ -42,7 +42,6 @@ func str3Wrap(fn func(interface{}, interface{}, interface{}) string) intrinsics.
 func str2AWrap(fn func(interface{}, []string) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
 		if arr, ok := input.([]interface{}); ok {
-
 			switch len(arr) {
 			case 0:
 				return nil
@@ -50,7 +49,7 @@ func str2AWrap(fn func(interface{}, []string) string) intrinsics.IntrinsicHandle
 				return fn(arr[0], []string{})
 			case 2:
 				if ls, ok := arr[1].([]interface{}); ok {
-					fn(arr[0], interfaceAtostrA(ls))
+					return fn(arr[0], interfaceAtostrA(ls))
 				}
 			}
 			return nil
