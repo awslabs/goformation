@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # This script runs on a regular cron within Travis-CI.
-# 
+#
 # It does the following:
-# 
+#
 # 1. Clone github.com/goformation/goformation to local filesystem
 # 2. Switch to aws-goformation-updates branch (creating it if necessary)
 # 3. Merge in any changes from github.com/awslabs/goformation (upstream)
@@ -21,7 +21,7 @@
 # The repo/branch to create the PR against
 SRC_REPO="aws-goformation/goformation"
 SRC_BRANCH="master"
-DST_REPO="awslabs/goformation"
+DST_REPO="sanathkr/goformation"
 DST_BRANCH="master"
 
 # Git details (for the commit)
@@ -64,7 +64,7 @@ git pull --rebase origin ${REQUEST_BRANCH} || true
 git remote add upstream https://github.com/${DST_REPO}.git
 git pull --rebase upstream ${SRC_BRANCH} || true
 
- 
+
 echo "Auto-generating AWS CloudFormation resources..."
 go generate
 
@@ -73,7 +73,7 @@ if [[ -z $(git status -s | grep "cloudformation/") ]]; then
     echo "No changes - no pull request necessary."
     exit 0;
 fi
-  
+
 echo "Changes found:"
 git status -s
 
@@ -83,7 +83,7 @@ go test -v ./...
 echo "Committing changes..."
 git add cloudformation/*
 git add schema/*
-git commit -m "${COMMIT_MSG}" 
+git commit -m "${COMMIT_MSG}"
 
 echo "Pushing changes..."
 git remote add origin-push https://${GITHUB_TOKEN}@github.com/${SRC_REPO}.git > /dev/null 2>&1
@@ -93,7 +93,7 @@ echo "Installing GitHub Hub"
 git clone https://github.com/github/hub.git /tmp/hub
 cd /tmp/hub
 go get ./...
-./script/build 
+./script/build
 
 echo "Generating Pull Request for merging ${REPO}/${REQUEST_BRANCH} to ${REPO}/${DST_BRANCH}..."
 cd ${UPSTREAM_DIR}

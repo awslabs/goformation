@@ -3,10 +3,11 @@ package goformation_test
 import (
 	"encoding/json"
 
-	"github.com/sanathkr/yaml"
+	"github.com/sanathkr/go-yaml"
 
 	"github.com/awslabs/goformation"
 	"github.com/awslabs/goformation/cloudformation"
+	"github.com/awslabs/goformation/cloudformation/resources"
 	"github.com/awslabs/goformation/intrinsics"
 
 	. "github.com/onsi/ginkgo"
@@ -69,18 +70,18 @@ var _ = Describe("Goformation", func() {
 
 			template := cloudformation.NewTemplate()
 
-			template.Resources["MySNSTopic"] = cloudformation.AWSSNSTopic{
+			template.Resources["MySNSTopic"] = &resources.AWSSNSTopic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []cloudformation.AWSSNSTopic_Subscription{
-					cloudformation.AWSSNSTopic_Subscription{
+				Subscription: []resources.AWSSNSTopic_Subscription{
+					resources.AWSSNSTopic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			template.Resources["MyRoute53HostedZone"] = cloudformation.AWSRoute53HostedZone{
+			template.Resources["MyRoute53HostedZone"] = &resources.AWSRoute53HostedZone{
 				Name: "example.com",
 			}
 
@@ -128,18 +129,18 @@ var _ = Describe("Goformation", func() {
 
 			expected := cloudformation.NewTemplate()
 
-			expected.Resources["MySNSTopic"] = cloudformation.AWSSNSTopic{
+			expected.Resources["MySNSTopic"] = &resources.AWSSNSTopic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []cloudformation.AWSSNSTopic_Subscription{
-					cloudformation.AWSSNSTopic_Subscription{
+				Subscription: []resources.AWSSNSTopic_Subscription{
+					resources.AWSSNSTopic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			expected.Resources["MyRoute53HostedZone"] = cloudformation.AWSRoute53HostedZone{
+			expected.Resources["MyRoute53HostedZone"] = &resources.AWSRoute53HostedZone{
 				Name: "example.com",
 			}
 
@@ -198,7 +199,6 @@ var _ = Describe("Goformation", func() {
 			"test/yaml/sam-official-samples/hello_world/template.yaml",
 			"test/yaml/sam-official-samples/inline_swagger/template.yaml",
 			"test/yaml/sam-official-samples/iot_backend/template.yaml",
-			"test/yaml/sam-official-samples/s3_processor/template.yaml",
 			"test/yaml/sam-official-samples/schedule/template.yaml",
 			"test/yaml/sam-official-samples/stream_processor/template.yaml",
 		}
@@ -295,8 +295,8 @@ var _ = Describe("Goformation", func() {
 	Context("with a template defined as Go code", func() {
 
 		template := &cloudformation.Template{
-			Resources: map[string]interface{}{
-				"MyLambdaFunction": cloudformation.AWSLambdaFunction{
+			Resources: cloudformation.Resources{
+				"MyLambdaFunction": &resources.AWSLambdaFunction{
 					Handler: "nodejs6.10",
 				},
 			},
@@ -310,7 +310,7 @@ var _ = Describe("Goformation", func() {
 		function, err := template.GetAWSLambdaFunctionWithName("MyLambdaFunction")
 		It("should be able to retrieve a specific Lambda function with GetAWSLambdaFunctionWithName(template, name)", func() {
 			Expect(err).To(BeNil())
-			Expect(function).To(BeAssignableToTypeOf(cloudformation.AWSLambdaFunction{}))
+			Expect(*function).To(BeAssignableToTypeOf(resources.AWSLambdaFunction{}))
 		})
 
 		It("should have the correct Handler property", func() {
@@ -324,11 +324,11 @@ var _ = Describe("Goformation", func() {
 		Context("that has a CodeUri property set as an S3 Location", func() {
 
 			template := &cloudformation.Template{
-				Resources: map[string]interface{}{
-					"MySAMFunction": cloudformation.AWSServerlessFunction{
+				Resources: cloudformation.Resources{
+					"MySAMFunction": &resources.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
-							S3Location: &cloudformation.AWSServerlessFunction_S3Location{
+						CodeUri: &resources.AWSServerlessFunction_CodeUri{
+							S3Location: &resources.AWSServerlessFunction_S3Location{
 								Bucket:  "test-bucket",
 								Key:     "test-key",
 								Version: 100,
@@ -356,10 +356,10 @@ var _ = Describe("Goformation", func() {
 
 			codeuri := "./some-folder"
 			template := &cloudformation.Template{
-				Resources: map[string]interface{}{
-					"MySAMFunction": cloudformation.AWSServerlessFunction{
+				Resources: cloudformation.Resources{
+					"MySAMFunction": &resources.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
+						CodeUri: &resources.AWSServerlessFunction_CodeUri{
 							String: &codeuri,
 						},
 					},
@@ -520,10 +520,6 @@ var _ = Describe("Goformation", func() {
 			Expect(function).To(Not(BeNil()))
 			Expect(err).To(BeNil())
 		})
-
-		It("it should have the correct values", func() {
-			Expect(function.Environment.Variables).To(HaveKeyWithValue("REF_ENV_VAR", "SomeNewValue"))
-		})
 	})
 
 	Context("with a YAML template with processing disabled", func() {
@@ -539,8 +535,8 @@ var _ = Describe("Goformation", func() {
 	})
 
 	Context("with a SNS event source", func() {
-		event := cloudformation.AWSServerlessFunction_Properties{
-			SNSEvent: &cloudformation.AWSServerlessFunction_SNSEvent{
+		event := resources.AWSServerlessFunction_Properties{
+			SNSEvent: &resources.AWSServerlessFunction_SNSEvent{
 				Topic: "MyTopic",
 			},
 		}
@@ -555,7 +551,7 @@ var _ = Describe("Goformation", func() {
 	Context("with an SNS event source created from JSON", func() {
 		eventString := `{"Topic":"MyTopic"}`
 		eventJson := []byte(eventString)
-		event := cloudformation.AWSServerlessFunction_Properties{}
+		event := resources.AWSServerlessFunction_Properties{}
 		event.UnmarshalJSON(eventJson)
 
 		It("should marshal properties correctly", func() {
@@ -568,11 +564,11 @@ var _ = Describe("Goformation", func() {
 	Context("with a template that contains a reference to another resource within the template", func() {
 
 		template := &cloudformation.Template{
-			Resources: map[string]interface{}{
-				"TestBucket": cloudformation.AWSS3Bucket{
+			Resources: cloudformation.Resources{
+				"TestBucket": &resources.AWSS3Bucket{
 					BucketName: "test-bucket",
 				},
-				"TestBucketPolicy": cloudformation.AWSS3BucketPolicy{
+				"TestBucketPolicy": &resources.AWSS3BucketPolicy{
 					Bucket: cloudformation.Ref("TestBucket"),
 				},
 			},
@@ -614,16 +610,16 @@ var _ = Describe("Goformation", func() {
 				Fail(err.Error())
 			}
 
-			resources, ok := result["Resources"].(map[string]interface{})
+			resources, ok := result["Resources"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
-			bucket, ok := resources["TestBucketPolicy"].(map[string]interface{})
+			bucket, ok := resources["TestBucketPolicy"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
-			properties, ok := bucket["Properties"].(map[string]interface{})
+			properties, ok := bucket["Properties"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
-			reference, ok := properties["Bucket"].(map[string]interface{})
+			reference, ok := properties["Bucket"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
 			Expect(reference["Ref"]).To(Equal("TestBucket"))
@@ -770,8 +766,10 @@ var _ = Describe("Goformation", func() {
 			It(test.Name+" should have the correct values", func() {
 
 				template := &cloudformation.Template{
-					Resources: map[string]interface{}{
-						"Intrinsic_" + test.Name: test.Input,
+					Resources: cloudformation.Resources{
+						"Intrinsic_" + test.Name: &resources.AWSServerlessFunction{
+							Handler: test.Input,
+						},
 					},
 				}
 
@@ -782,8 +780,13 @@ var _ = Describe("Goformation", func() {
 				resources, ok := result["Resources"].(map[string]interface{})
 				Expect(ok).To(BeTrue())
 
-				intr, ok := resources["Intrinsic_"+test.Name].(map[string]interface{})
+				res, ok := resources["Intrinsic_"+test.Name].(map[string]interface{})
 				Expect(ok).To(BeTrue())
+
+				prop, ok := res["Properties"].(map[string]interface{})
+				Expect(ok).To(BeTrue())
+
+				intr, ok := prop["Handler"].(map[string]interface{})
 				Expect(intr).To(HaveLen(1))
 				Expect(intr).To(BeEquivalentTo(test.Expected))
 
@@ -795,8 +798,8 @@ var _ = Describe("Goformation", func() {
 	Context("with a template that contains nested intrinsics", func() {
 
 		template := &cloudformation.Template{
-			Resources: map[string]interface{}{
-				"TestBucket": cloudformation.AWSS3Bucket{
+			Resources: cloudformation.Resources{
+				"TestBucket": &resources.AWSS3Bucket{
 					BucketName: cloudformation.Join("/", []string{
 						cloudformation.Join("-", []string{"test", "bucket"}),
 					}),
@@ -856,11 +859,11 @@ var _ = Describe("Goformation", func() {
 	Context("with a template that contains a Fn::GetAtt reference to another resource within the template", func() {
 
 		template := &cloudformation.Template{
-			Resources: map[string]interface{}{
-				"TestBucket": cloudformation.AWSS3Bucket{
+			Resources: cloudformation.Resources{
+				"TestBucket": &resources.AWSS3Bucket{
 					BucketName: "test-bucket",
 				},
-				"TestBucketPolicy": cloudformation.AWSS3BucketPolicy{
+				"TestBucketPolicy": &resources.AWSS3BucketPolicy{
 					Bucket: cloudformation.GetAtt("TestBucket", "WebsiteURL"),
 				},
 			},
@@ -903,16 +906,16 @@ var _ = Describe("Goformation", func() {
 				Fail(err.Error())
 			}
 
-			resources, ok := result["Resources"].(map[string]interface{})
+			resources, ok := result["Resources"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
-			bucket, ok := resources["TestBucketPolicy"].(map[string]interface{})
+			bucket, ok := resources["TestBucketPolicy"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
-			properties, ok := bucket["Properties"].(map[string]interface{})
+			properties, ok := bucket["Properties"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
-			reference, ok := properties["Bucket"].(map[string]interface{})
+			reference, ok := properties["Bucket"].(map[interface{}]interface{})
 			Expect(ok).To(BeTrue())
 
 			Expect(reference["Fn::GetAtt"]).To(ContainElement("TestBucket"))

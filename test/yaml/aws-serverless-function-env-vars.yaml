@@ -5,7 +5,7 @@ Description: |
   Use this section to describe your Serverless project
 
 Parameters:
-  # Optional: Use parameters to pass in runtime configuration (such as a database connection string) 
+  # Optional: Use parameters to pass in runtime configuration (such as a database connection string)
   # See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
 
   ExampleParameter:
@@ -54,7 +54,7 @@ Resources:
       Handler: filename.method
       Environment:
         Variables:
-          SUB_ENV_VAR: !Sub Hello
+          SUB_ENV_VAR: Hello
       Events:
         GetRequest:
           Type: Api
@@ -70,7 +70,7 @@ Resources:
       Handler: filename.method
       Environment:
         Variables:
-          SUB_REF_ENV_VAR: !Sub Hello-${ThisReferenceDoesntExist}
+          SUB_REF_ENV_VAR: Hello-${ThisReferenceDoesntExist}
       Events:
         GetRequest:
           Type: Api
@@ -85,7 +85,7 @@ Resources:
       Handler: filename.method
       Environment:
         Variables:
-          REF_ENV_VAR: !Ref ExampleParameter
+          REF_ENV_VAR: ExampleParameter
       Events:
         GetRequest:
           Type: Api

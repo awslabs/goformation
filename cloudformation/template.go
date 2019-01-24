@@ -2,10 +2,13 @@ package cloudformation
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/awslabs/goformation/intrinsics"
-	"github.com/sanathkr/yaml"
+	"github.com/grahamjenson/yaml"
 )
+
+type Map interface{} // TODO for the broken instance service discovery
 
 // Template represents an AWS CloudFormation template
 // see: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
@@ -17,8 +20,62 @@ type Template struct {
 	Parameters               map[string]interface{} `json:"Parameters,omitempty"`
 	Mappings                 map[string]interface{} `json:"Mappings,omitempty"`
 	Conditions               map[string]interface{} `json:"Conditions,omitempty"`
-	Resources                map[string]interface{} `json:"Resources,omitempty"`
+	Resources                Resources              `json:"Resources,omitempty"`
 	Outputs                  map[string]interface{} `json:"Outputs,omitempty"`
+}
+
+type Resource interface {
+	AWSCloudFormationType() string
+}
+
+type Resources map[string]Resource
+
+func (resources *Resources) UnmarshalJSON(b []byte) error {
+	// Resources
+	var rawResources map[string]*json.RawMessage
+	err := json.Unmarshal(b, &rawResources)
+
+	if err != nil {
+		return err
+	}
+
+	newResources := Resources{}
+	for name, raw := range rawResources {
+		res, err := unmarshallResource(name, raw)
+		if err != nil {
+			return err
+		}
+		newResources[name] = res
+	}
+
+	*resources = newResources
+	return nil
+}
+
+func unmarshallResource(name string, raw_json *json.RawMessage) (Resource, error) {
+	var err error
+
+	type rType struct {
+		Type string
+	}
+
+	var rtype rType
+	if err = json.Unmarshal(*raw_json, &rtype); err != nil {
+		return nil, err
+	}
+
+	if rtype.Type == "" {
+		return nil, fmt.Errorf("Cannot find Type for %v", name)
+	}
+
+	resourceStruct := AllResources()[rtype.Type]
+	err = json.Unmarshal(*raw_json, resourceStruct)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return resourceStruct, nil
 }
 
 type Transform struct {
@@ -70,7 +127,7 @@ func NewTemplate() *Template {
 		Parameters:               map[string]interface{}{},
 		Mappings:                 map[string]interface{}{},
 		Conditions:               map[string]interface{}{},
-		Resources:                map[string]interface{}{},
+		Resources:                Resources{},
 		Outputs:                  map[string]interface{}{},
 	}
 }

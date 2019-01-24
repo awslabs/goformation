@@ -1,8 +1,43 @@
 package cloudformation
 
+import (
+	"fmt"
+	"github.com/awslabs/goformation/cloudformation/resources"
+)
+
 // AllResources fetches an iterable map all CloudFormation and SAM resources
-func AllResources() map[string]interface{} {
-    return map[string]interface{}{ {{range $name, $resource := .Resources}}
-        "{{$name}}": {{$resource}}{},{{end}}
+func AllResources() map[string]Resource {
+    return map[string]Resource{ {{range $name, $resource := .Resources}}
+        "{{$name}}": &resources.{{$resource}}{},{{end}}
     }
 }
+
+
+{{range $name, $resource := .Resources}}
+// GetAll{{$resource}}Resources retrieves all {{$resource}} items from an AWS CloudFormation template
+func (t *Template) GetAll{{$resource}}Resources () map[string]*resources.{{$resource}} {
+    results := map[string]*resources.{{$resource}}{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.{{$resource}}:
+			// We found a strongly typed resource of the correct type
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// Get{{$resource}}WithName retrieves all {{$resource}} items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) Get{{$resource}}WithName (name string) (*resources.{{$resource}}, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.{{$resource}}:
+			// We found a strongly typed resource of the correct type; use it
+			return resource, nil
+		}
+	}
+    return nil, fmt.Errorf("resource %q of type {{$resource}} not found", name)
+}
+
+{{end}}

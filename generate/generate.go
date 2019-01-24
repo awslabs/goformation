@@ -278,7 +278,7 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 	}
 
 	// Check if the file has changed since the last time generate ran
-	fn := "cloudformation/" + filename(name)
+	fn := "cloudformation/resources/" + filename(name)
 	current, err := ioutil.ReadFile(fn)
 
 	if err != nil || bytes.Compare(formatted, current) != 0 {
@@ -396,7 +396,7 @@ func generatePolymorphicProperty(name string, property Property) {
 	}
 
 	// Write the file out
-	if err := ioutil.WriteFile("cloudformation/"+filename(name), formatted, 0644); err != nil {
+	if err := ioutil.WriteFile("cloudformation/resources/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
 		os.Exit(1)
 	}

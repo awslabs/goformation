@@ -13,7 +13,7 @@ an issue to discuss it.
 
 1. Create a fork of the GoFormation repository [(quick link)](https://github.com/awslabs/goformation#fork-destination-box)
 2. Commit your changes to your fork
-3. Create a new pull request [(quick link)](https://github.com/awslabs/goformation/compare)  
+3. Create a new pull request [(quick link)](https://github.com/awslabs/goformation/compare)
 
 ### Testing
 

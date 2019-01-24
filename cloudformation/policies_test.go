@@ -1,9 +1,11 @@
 package cloudformation_test
 
 import (
-	"github.com/sanathkr/yaml"
+	"github.com/grahamjenson/go-yaml"
 
 	"github.com/awslabs/goformation/cloudformation"
+	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/awslabs/goformation/cloudformation/resources"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -15,26 +17,26 @@ var _ = Describe("Goformation", func() {
 
 		tests := []struct {
 			Name     string
-			Input    *cloudformation.UpdatePolicy
+			Input    *policies.UpdatePolicy
 			Expected interface{}
 		}{
 			{
 				Name: "AutoScalingReplacingUpdate",
-				Input: &cloudformation.UpdatePolicy{
-					AutoScalingReplacingUpdate: &cloudformation.AutoScalingReplacingUpdate{
+				Input: &policies.UpdatePolicy{
+					AutoScalingReplacingUpdate: &policies.AutoScalingReplacingUpdate{
 						WillReplace: true,
 					},
 				},
-				Expected: map[string]interface{}{
-					"AutoScalingReplacingUpdate": map[string]interface{}{
+				Expected: map[interface{}]interface{}{
+					"AutoScalingReplacingUpdate": map[interface{}]interface{}{
 						"WillReplace": true,
 					},
 				},
 			},
 			{
 				Name: "AutoScalingReplacingUpdate",
-				Input: &cloudformation.UpdatePolicy{
-					AutoScalingRollingUpdate: &cloudformation.AutoScalingRollingUpdate{
+				Input: &policies.UpdatePolicy{
+					AutoScalingRollingUpdate: &policies.AutoScalingRollingUpdate{
 						MaxBatchSize:                  10,
 						MinInstancesInService:         11,
 						MinSuccessfulInstancesPercent: 12,
@@ -43,11 +45,11 @@ var _ = Describe("Goformation", func() {
 						WaitOnResourceSignals:         true,
 					},
 				},
-				Expected: map[string]interface{}{
-					"AutoScalingRollingUpdate": map[string]interface{}{
-						"MaxBatchSize":                  float64(10),
-						"MinInstancesInService":         float64(11),
-						"MinSuccessfulInstancesPercent": float64(12),
+				Expected: map[interface{}]interface{}{
+					"AutoScalingRollingUpdate": map[interface{}]interface{}{
+						"MaxBatchSize":                  10,
+						"MinInstancesInService":         11,
+						"MinSuccessfulInstancesPercent": 12,
 						"PauseTime":                     "test-pause-time",
 						"SuspendProcesses":              []interface{}{"test-suspend1", "test-suspend2"},
 						"WaitOnResourceSignals":         true,
@@ -56,29 +58,29 @@ var _ = Describe("Goformation", func() {
 			},
 			{
 				Name: "AutoScalingScheduledAction",
-				Input: &cloudformation.UpdatePolicy{
-					AutoScalingScheduledAction: &cloudformation.AutoScalingScheduledAction{
+				Input: &policies.UpdatePolicy{
+					AutoScalingScheduledAction: &policies.AutoScalingScheduledAction{
 						IgnoreUnmodifiedGroupSizeProperties: true,
 					},
 				},
-				Expected: map[string]interface{}{
-					"AutoScalingScheduledAction": map[string]interface{}{
+				Expected: map[interface{}]interface{}{
+					"AutoScalingScheduledAction": map[interface{}]interface{}{
 						"IgnoreUnmodifiedGroupSizeProperties": true,
 					},
 				},
 			},
 			{
 				Name: "CodeDeployLambdaAliasUpdate",
-				Input: &cloudformation.UpdatePolicy{
-					CodeDeployLambdaAliasUpdate: &cloudformation.CodeDeployLambdaAliasUpdate{
+				Input: &policies.UpdatePolicy{
+					CodeDeployLambdaAliasUpdate: &policies.CodeDeployLambdaAliasUpdate{
 						ApplicationName:        "test-application-name",
 						DeploymentGroupName:    "test-deployment-group-name",
 						AfterAllowTrafficHook:  "test-after-allow-traffic-hook",
 						BeforeAllowTrafficHook: "test-before-allow-traffic-hook",
 					},
 				},
-				Expected: map[string]interface{}{
-					"CodeDeployLambdaAliasUpdate": map[string]interface{}{
+				Expected: map[interface{}]interface{}{
+					"CodeDeployLambdaAliasUpdate": map[interface{}]interface{}{
 						"ApplicationName":        "test-application-name",
 						"DeploymentGroupName":    "test-deployment-group-name",
 						"AfterAllowTrafficHook":  "test-after-allow-traffic-hook",
@@ -93,11 +95,11 @@ var _ = Describe("Goformation", func() {
 
 			It("should have the correct values for "+test.Name, func() {
 
-				asg := cloudformation.AWSAutoScalingAutoScalingGroup{}
+				asg := resources.AWSAutoScalingAutoScalingGroup{}
 				asg.SetUpdatePolicy(test.Input)
 
 				template := &cloudformation.Template{
-					Resources: map[string]interface{}{"AutoScalingGroup": asg},
+					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
 				}
 
 				data, err := template.JSON()
@@ -108,13 +110,13 @@ var _ = Describe("Goformation", func() {
 					Fail(err.Error())
 				}
 
-				resources, ok := result["Resources"].(map[string]interface{})
+				resources, ok := result["Resources"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 
-				bucket, ok := resources["AutoScalingGroup"].(map[string]interface{})
+				bucket, ok := resources["AutoScalingGroup"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 
-				policy, ok := bucket["UpdatePolicy"].(map[string]interface{})
+				policy, ok := bucket["UpdatePolicy"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 				Expect(policy).To(BeEquivalentTo(test.Expected))
 
@@ -128,26 +130,26 @@ var _ = Describe("Goformation", func() {
 
 		tests := []struct {
 			Name     string
-			Input    *cloudformation.CreationPolicy
+			Input    *policies.CreationPolicy
 			Expected interface{}
 		}{
 			{
 				Name: "CreationPolicy",
-				Input: &cloudformation.CreationPolicy{
-					AutoScalingCreationPolicy: &cloudformation.AutoScalingCreationPolicy{
+				Input: &policies.CreationPolicy{
+					AutoScalingCreationPolicy: &policies.AutoScalingCreationPolicy{
 						MinSuccessfulInstancesPercent: 10,
 					},
-					ResourceSignal: &cloudformation.ResourceSignal{
+					ResourceSignal: &policies.ResourceSignal{
 						Count:   11,
 						Timeout: "test-timeout",
 					},
 				},
-				Expected: map[string]interface{}{
-					"AutoScalingCreationPolicy": map[string]interface{}{
-						"MinSuccessfulInstancesPercent": float64(10),
+				Expected: map[interface{}]interface{}{
+					"AutoScalingCreationPolicy": map[interface{}]interface{}{
+						"MinSuccessfulInstancesPercent": 10,
 					},
-					"ResourceSignal": map[string]interface{}{
-						"Count":   float64(11),
+					"ResourceSignal": map[interface{}]interface{}{
+						"Count":   11,
 						"Timeout": "test-timeout",
 					},
 				},
@@ -159,11 +161,11 @@ var _ = Describe("Goformation", func() {
 
 			It("should have the correct values for "+test.Name, func() {
 
-				asg := cloudformation.AWSAutoScalingAutoScalingGroup{}
+				asg := resources.AWSAutoScalingAutoScalingGroup{}
 				asg.SetCreationPolicy(test.Input)
 
 				template := &cloudformation.Template{
-					Resources: map[string]interface{}{"AutoScalingGroup": asg},
+					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
 				}
 
 				data, err := template.JSON()
@@ -174,13 +176,13 @@ var _ = Describe("Goformation", func() {
 					Fail(err.Error())
 				}
 
-				resources, ok := result["Resources"].(map[string]interface{})
+				resources, ok := result["Resources"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 
-				bucket, ok := resources["AutoScalingGroup"].(map[string]interface{})
+				bucket, ok := resources["AutoScalingGroup"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 
-				policy, ok := bucket["CreationPolicy"].(map[string]interface{})
+				policy, ok := bucket["CreationPolicy"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 				Expect(policy).To(BeEquivalentTo(test.Expected))
 
@@ -194,7 +196,7 @@ var _ = Describe("Goformation", func() {
 
 		tests := []struct {
 			Name     string
-			Input    cloudformation.DeletionPolicy
+			Input    policies.DeletionPolicy
 			Expected interface{}
 		}{
 			{
@@ -219,11 +221,11 @@ var _ = Describe("Goformation", func() {
 
 			It("should have the correct values for "+test.Name, func() {
 
-				asg := cloudformation.AWSAutoScalingAutoScalingGroup{}
+				asg := resources.AWSAutoScalingAutoScalingGroup{}
 				asg.SetDeletionPolicy(test.Input)
 
 				template := &cloudformation.Template{
-					Resources: map[string]interface{}{"AutoScalingGroup": asg},
+					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
 				}
 
 				data, err := template.JSON()
@@ -234,10 +236,10 @@ var _ = Describe("Goformation", func() {
 					Fail(err.Error())
 				}
 
-				resources, ok := result["Resources"].(map[string]interface{})
+				resources, ok := result["Resources"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 
-				bucket, ok := resources["AutoScalingGroup"].(map[string]interface{})
+				bucket, ok := resources["AutoScalingGroup"].(map[interface{}]interface{})
 				Expect(ok).To(BeTrue())
 
 				policy, ok := bucket["DeletionPolicy"].(string)

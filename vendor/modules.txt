@@ -38,7 +38,7 @@ github.com/onsi/gomega/matchers/support/goraph/node
 github.com/onsi/gomega/matchers/support/goraph/util
 # github.com/sanathkr/go-yaml v0.0.0-20170819195128-ed9d249f429b
 github.com/sanathkr/go-yaml
-# github.com/sanathkr/yaml v0.0.0-20170819201035-0056894fa522
+# github.com/sanathkr/go-yaml v0.0.0-20170819201035-0056894fa522
 github.com/sanathkr/yaml
 # github.com/xeipuuv/gojsonpointer v0.0.0-20170225233418-6fe8760cad35
 github.com/xeipuuv/gojsonpointer

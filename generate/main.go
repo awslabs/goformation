@@ -9,8 +9,9 @@ func main() {
 
 	fmt.Printf("GoFormation Resource Generator\n")
 
-	cloudformationSpec := "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
-
+	//cloudformationSpec := "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
+	// The latest version has an error in it
+	cloudformationSpec := "https://d1uauaxba7bl26.cloudfront.net/2.16.0/gzip/CloudFormationResourceSpecification.json"
 	otherSpecs := map[string]string{
 		"sam": "file://generate/sam-2016-10-31.json",
 	}
