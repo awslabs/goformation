@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/intrinsics"
-	"github.com/grahamjenson/yaml"
+	"github.com/sanathkr/yaml"
 )
 
 type Map interface{} // TODO for the broken instance service discovery
