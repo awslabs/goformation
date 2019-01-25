@@ -97,7 +97,7 @@ var _ = Describe("Goformation", func() {
 				asg.SetUpdatePolicy(test.Input)
 
 				template := &cloudformation.Template{
-					Resources: map[string]interface{}{"AutoScalingGroup": asg},
+					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
 				}
 
 				data, err := template.JSON()
@@ -163,7 +163,7 @@ var _ = Describe("Goformation", func() {
 				asg.SetCreationPolicy(test.Input)
 
 				template := &cloudformation.Template{
-					Resources: map[string]interface{}{"AutoScalingGroup": asg},
+					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
 				}
 
 				data, err := template.JSON()
@@ -223,7 +223,7 @@ var _ = Describe("Goformation", func() {
 				asg.SetDeletionPolicy(test.Input)
 
 				template := &cloudformation.Template{
-					Resources: map[string]interface{}{"AutoScalingGroup": asg},
+					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
 				}
 
 				data, err := template.JSON()

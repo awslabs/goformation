@@ -166,10 +166,10 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 				"ExampleResource": {
 					"Type": "AWS::Example::Resource",
 					"Properties": {
-						"AZEmpty": { "Fn::GetAZs": "" },				
-						"AZDefault": { "Fn::GetAZs": { "Ref": "AWS::Region" } },				
-						"AZParam": { "Fn::GetAZs": "eu-west-1" },				
-						"FirstAZ": { 
+						"AZEmpty": { "Fn::GetAZs": "" },
+						"AZDefault": { "Fn::GetAZs": { "Ref": "AWS::Region" } },
+						"AZParam": { "Fn::GetAZs": "eu-west-1" },
+						"FirstAZ": {
 							"Fn::Select" : [ "0", { "Fn::GetAZs" : "eu-central-1" } ]
 						}
 					}
@@ -315,11 +315,11 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 				"ExampleResource": {
 					"Type": "AWS::Example::Resource",
 					"Properties": {
-						"StringProperty": "Simple string example",						
+						"StringProperty": "Simple string example",
 						"BooleanProperty": true,
 						"NumberProperty": 123.45,
-						"JoinIntrinsicPropertyString": { "Fn::Join": [ "some", "name" ] },		
-						"JoinIntrinsicPropertyArray": { "Fn::Join": [ "-", [ "some", "hyphenated", "name" ] ] },		
+						"JoinIntrinsicPropertyString": { "Fn::Join": [ "some", "name" ] },
+						"JoinIntrinsicPropertyArray": { "Fn::Join": [ "-", [ "some", "hyphenated", "name" ] ] },
 						"JoinNestedIntrinsicProperty": { "Fn::Join": [ "some", { "Fn::Join": [ "joined", "value" ] } ] },
 						"SubIntrinsicProperty": { "Fn::Sub": [ "some ${replaced}", { "replaced": "value" } ] },
 						"SplitIntrinsicProperty": { "Fn::Split" : [ ",", "some,string,to,be,split" ] },
@@ -331,7 +331,7 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 						"RefNoValue": { "Ref": "AWS::NoValue" },
 						"RefAWSRegion": { "Ref": "AWS::Region" },
 						"RefAWSStackId": { "Ref": "AWS::StackId" },
-						"RefAWSStackName": { "Ref": "AWS::StackName" }	
+						"RefAWSStackName": { "Ref": "AWS::StackName" }
 					}
 				}
 			}
@@ -549,10 +549,10 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 						"ExampleResource": {
 							"Type": "AWS::Example::Resource",
 							"Properties": {
-								"EqProp": { "Fn::If": [ "Eq", "OK", "false" ] },				
-								"Bucket": { "Fn::If": [ "UseBucketCondition", "Bucket", "NotBucket" ] },				
+								"EqProp": { "Fn::If": [ "Eq", "OK", "false" ] },
+								"Bucket": { "Fn::If": [ "UseBucketCondition", "Bucket", "NotBucket" ] },
 								"NotProp": { "Fn::If": [ "NotInline", "false", "OK" ] },
-								"NonExistant": { "Fn::If": [ "NonExistant", "false", "OK" ] }	
+								"NonExistant": { "Fn::If": [ "NonExistant", "false", "OK" ] }
 							}
 						}
 					}
