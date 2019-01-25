@@ -6,8 +6,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs4.3
-      CodeUri: s3://<bucket>/s3_processor.zip
+      Runtime: nodejs6.10
+      CodeUri: src/
       Policies: AmazonS3ReadOnlyAccess
       Events:
         PhotoUpload:
@@ -15,8 +15,10 @@ Resources:
           Properties:
             Bucket: !Ref Bucket
             Events: s3:ObjectCreated:*
-  
   Bucket:
     Type: AWS::S3::Bucket
-    Properties:
-      BucketName: Test
+
+Outputs:
+    S3Bucket:
+      Description: "S3 Bucket name that will trigger a Lambda function upon new objects insertion"
+      Value: !Ref Bucket
