@@ -1,8 +1,8 @@
 # AWS GoFormation
 
-[![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=0.1.0)](https://travis-ci.org/awslabs/goformation) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg) 
+[![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=0.1.0)](https://travis-ci.org/awslabs/goformation) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg)
 
-`GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates. 
+`GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates.
 - [Main features](#main-features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -45,6 +45,7 @@ import (
 	"time"
 
 	"github.com/awslabs/goformation/cloudformation"
+	"github.com/awslabs/goformation/cloudformation/resources"
 )
 
 func main() {
@@ -53,12 +54,12 @@ func main() {
 	template := cloudformation.NewTemplate()
 
 	// Create an Amazon SNS topic, with a unique name based off the current timestamp
-	template.Resources["MyTopic"] = &cloudformation.AWSSNSTopic{
+	template.Resources["MyTopic"] = &resources.AWSSNSTopic{
 		TopicName: "my-topic-" + strconv.FormatInt(time.Now().Unix(), 10),
 	}
 
 	// Create a subscription, connected to our topic, that forwards notifications to an email address
-	template.Resources["MyTopicSubscription"] = &cloudformation.AWSSNSSubscription{
+	template.Resources["MyTopicSubscription"] = &resources.AWSSNSSubscription{
 		TopicArn: cloudformation.Ref("MyTopic"),
 		Protocol: "email",
 		Endpoint: "some.email@example.com",
@@ -146,7 +147,7 @@ When creating templates, you can use the following convenience functions to use 
  - `Not(conditions []string)`
  - `Or(conditions []string)`
 
-### Unmarshalling CloudFormation YAML/JSON into Go structs 
+### Unmarshalling CloudFormation YAML/JSON into Go structs
 
 GoFormation also works the other way - parsing JSON/YAML CloudFormation/SAM templates into Go structs.
 
@@ -191,7 +192,7 @@ func main() {
 ```
 
 ## Updating CloudFormation / SAM Resources in GoFormation
- 
+
 AWS GoFormation contains automatically generated Go structs for every CloudFormation/SAM resource, located in the [cloudformation/](cloudformation/) directory. These can be generated, from the latest [AWS CloudFormation Resource Specification](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html) published for `us-east-1` by just running `go generate`:
 
 ```
@@ -216,13 +217,13 @@ The following [AWS CloudFormation Intrinsic Functions](http://docs.aws.amazon.co
 - [x] [Fn::Select](intrinsics/fnselect.go)
 - [x] [Fn::Split](intrinsics/fnsplit.go)
 - [x] [Fn::Sub](intrinsics/fnsub.go)
-- [x] [Ref](intrinsics/ref.go) 
-- [x] [Fn::And](intrinsics/fnand.go)      
-- [x] [Fn::Equals](intrinsics/fnequals.go)  
-- [x] [Fn::If](intrinsics/fnif.go)     
-- [x] [Fn::Not](intrinsics/fnnot.go)      
-- [x] [Fn::Or](intrinsics/fnor.go)       
-- [ ] Fn::GetAtt   
+- [x] [Ref](intrinsics/ref.go)
+- [x] [Fn::And](intrinsics/fnand.go)
+- [x] [Fn::Equals](intrinsics/fnequals.go)
+- [x] [Fn::If](intrinsics/fnif.go)
+- [x] [Fn::Not](intrinsics/fnnot.go)
+- [x] [Fn::Or](intrinsics/fnor.go)
+- [ ] Fn::GetAtt
 - [x] [Fn::GetAZs](intrinsics/fngetazs.go)
 - [ ] Fn::ImportValue
 

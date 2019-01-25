@@ -3,6 +3,8 @@ package goformation_test
 import (
 	"encoding/json"
 
+	"github.com/awslabs/goformation/cloudformation/resources"
+
 	"github.com/sanathkr/yaml"
 
 	"github.com/awslabs/goformation"
@@ -69,18 +71,18 @@ var _ = Describe("Goformation", func() {
 
 			template := cloudformation.NewTemplate()
 
-			template.Resources["MySNSTopic"] = &cloudformation.AWSSNSTopic{
+			template.Resources["MySNSTopic"] = &resources.AWSSNSTopic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []cloudformation.AWSSNSTopic_Subscription{
-					cloudformation.AWSSNSTopic_Subscription{
+				Subscription: []resources.AWSSNSTopic_Subscription{
+					resources.AWSSNSTopic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			template.Resources["MyRoute53HostedZone"] = &cloudformation.AWSRoute53HostedZone{
+			template.Resources["MyRoute53HostedZone"] = &resources.AWSRoute53HostedZone{
 				Name: "example.com",
 			}
 
@@ -128,18 +130,18 @@ var _ = Describe("Goformation", func() {
 
 			expected := cloudformation.NewTemplate()
 
-			expected.Resources["MySNSTopic"] = &cloudformation.AWSSNSTopic{
+			expected.Resources["MySNSTopic"] = &resources.AWSSNSTopic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []cloudformation.AWSSNSTopic_Subscription{
-					cloudformation.AWSSNSTopic_Subscription{
+				Subscription: []resources.AWSSNSTopic_Subscription{
+					resources.AWSSNSTopic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			expected.Resources["MyRoute53HostedZone"] = &cloudformation.AWSRoute53HostedZone{
+			expected.Resources["MyRoute53HostedZone"] = &resources.AWSRoute53HostedZone{
 				Name: "example.com",
 			}
 
@@ -296,7 +298,7 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"MyLambdaFunction": &cloudformation.AWSLambdaFunction{
+				"MyLambdaFunction": &resources.AWSLambdaFunction{
 					Handler: "nodejs6.10",
 				},
 			},
@@ -310,7 +312,7 @@ var _ = Describe("Goformation", func() {
 		function, err := template.GetAWSLambdaFunctionWithName("MyLambdaFunction")
 		It("should be able to retrieve a specific Lambda function with GetAWSLambdaFunctionWithName(template, name)", func() {
 			Expect(err).To(BeNil())
-			Expect(*function).To(BeAssignableToTypeOf(cloudformation.AWSLambdaFunction{}))
+			Expect(*function).To(BeAssignableToTypeOf(resources.AWSLambdaFunction{}))
 		})
 
 		It("should have the correct Handler property", func() {
@@ -325,10 +327,10 @@ var _ = Describe("Goformation", func() {
 
 			template := &cloudformation.Template{
 				Resources: cloudformation.Resources{
-					"MySAMFunction": &cloudformation.AWSServerlessFunction{
+					"MySAMFunction": &resources.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
-							S3Location: &cloudformation.AWSServerlessFunction_S3Location{
+						CodeUri: &resources.AWSServerlessFunction_CodeUri{
+							S3Location: &resources.AWSServerlessFunction_S3Location{
 								Bucket:  "test-bucket",
 								Key:     "test-key",
 								Version: 100,
@@ -357,9 +359,9 @@ var _ = Describe("Goformation", func() {
 			codeuri := "./some-folder"
 			template := &cloudformation.Template{
 				Resources: cloudformation.Resources{
-					"MySAMFunction": &cloudformation.AWSServerlessFunction{
+					"MySAMFunction": &resources.AWSServerlessFunction{
 						Handler: "nodejs6.10",
-						CodeUri: &cloudformation.AWSServerlessFunction_CodeUri{
+						CodeUri: &resources.AWSServerlessFunction_CodeUri{
 							String: &codeuri,
 						},
 					},
@@ -527,8 +529,8 @@ var _ = Describe("Goformation", func() {
 	})
 
 	Context("with a SNS event source", func() {
-		event := cloudformation.AWSServerlessFunction_Properties{
-			SNSEvent: &cloudformation.AWSServerlessFunction_SNSEvent{
+		event := resources.AWSServerlessFunction_Properties{
+			SNSEvent: &resources.AWSServerlessFunction_SNSEvent{
 				Topic: "MyTopic",
 			},
 		}
@@ -543,7 +545,7 @@ var _ = Describe("Goformation", func() {
 	Context("with an SNS event source created from JSON", func() {
 		eventString := `{"Topic":"MyTopic"}`
 		eventJson := []byte(eventString)
-		event := cloudformation.AWSServerlessFunction_Properties{}
+		event := resources.AWSServerlessFunction_Properties{}
 		event.UnmarshalJSON(eventJson)
 
 		It("should marshal properties correctly", func() {
@@ -557,10 +559,10 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"TestBucket": &cloudformation.AWSS3Bucket{
+				"TestBucket": &resources.AWSS3Bucket{
 					BucketName: "test-bucket",
 				},
-				"TestBucketPolicy": &cloudformation.AWSS3BucketPolicy{
+				"TestBucketPolicy": &resources.AWSS3BucketPolicy{
 					Bucket: cloudformation.Ref("TestBucket"),
 				},
 			},
@@ -779,7 +781,7 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"TestBucket": &cloudformation.AWSS3Bucket{
+				"TestBucket": &resources.AWSS3Bucket{
 					BucketName: cloudformation.Join("/", []string{
 						cloudformation.Join("-", []string{"test", "bucket"}),
 					}),
@@ -840,10 +842,10 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"TestBucket": &cloudformation.AWSS3Bucket{
+				"TestBucket": &resources.AWSS3Bucket{
 					BucketName: "test-bucket",
 				},
-				"TestBucketPolicy": &cloudformation.AWSS3BucketPolicy{
+				"TestBucketPolicy": &resources.AWSS3BucketPolicy{
 					Bucket: cloudformation.GetAtt("TestBucket", "WebsiteURL"),
 				},
 			},
