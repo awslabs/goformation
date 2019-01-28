@@ -6,7 +6,7 @@
             "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
             "Properties": {
                 "Handler": {
-                    "Documentfation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
                     "Required": true,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
