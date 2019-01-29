@@ -777,12 +777,10 @@
             "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html",
             "Properties": {
                 "SSEEnabled": {
-                    "Enabled": {
-                        "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html",
-                        "Required": false,
-                        "PrimitiveType": "Boolean",
-                        "UpdateType": "Immutable"
-                    }
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
                 }
             }
         }

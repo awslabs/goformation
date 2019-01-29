@@ -34950,7 +34950,7 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "SSEEnabled": {
-                    "$ref": "#/definitions/AWS::Serverless::SimpleTable."
+                    "type": "boolean"
                 }
             },
             "type": "object"

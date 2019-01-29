@@ -8,8 +8,8 @@ type AWSServerlessSimpleTable_SSESpecification struct {
 
 	// SSEEnabled AWS CloudFormation Property
 	// Required: false
-	// See:
-	SSEEnabled *AWSServerlessSimpleTable_ `json:"SSEEnabled,omitempty"`
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html
+	SSEEnabled bool `json:"SSEEnabled,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
