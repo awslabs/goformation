@@ -11,6 +11,16 @@ import (
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
 type AWSServerlessApi struct {
 
+	// Auth AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+	Auth *AWSServerlessApi_Auth `json:"Auth,omitempty"`
+
+	// BinaryMediaTypes AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+	BinaryMediaTypes []string `json:"BinaryMediaTypes,omitempty"`
+
 	// CacheClusterEnabled AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
@@ -21,6 +31,11 @@ type AWSServerlessApi struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
 	CacheClusterSize string `json:"CacheClusterSize,omitempty"`
 
+	// Cors AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+	Cors string `json:"Cors,omitempty"`
+
 	// DefinitionBody AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
@@ -30,6 +45,11 @@ type AWSServerlessApi struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
 	DefinitionUri *AWSServerlessApi_DefinitionUri `json:"DefinitionUri,omitempty"`
+
+	// EndpointConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+	EndpointConfiguration string `json:"EndpointConfiguration,omitempty"`
 
 	// MethodSettings AWS CloudFormation Property
 	// Required: false

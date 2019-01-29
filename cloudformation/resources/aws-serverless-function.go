@@ -11,6 +11,11 @@ import (
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 type AWSServerlessFunction struct {
 
+	// AutoPublishAlias AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	AutoPublishAlias string `json:"AutoPublishAlias,omitempty"`
+
 	// CodeUri AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -20,6 +25,11 @@ type AWSServerlessFunction struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	DeadLetterQueue *AWSServerlessFunction_DeadLetterQueue `json:"DeadLetterQueue,omitempty"`
+
+	// DeploymentPreference AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	DeploymentPreference *AWSServerlessFunction_DeploymentPreference `json:"DeploymentPreference,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -51,6 +61,11 @@ type AWSServerlessFunction struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	KmsKeyArn string `json:"KmsKeyArn,omitempty"`
 
+	// Layers AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	Layers []string `json:"Layers,omitempty"`
+
 	// MemorySize AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -60,6 +75,11 @@ type AWSServerlessFunction struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Policies *AWSServerlessFunction_Policies `json:"Policies,omitempty"`
+
+	// ReservedConcurrentExecutions AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	ReservedConcurrentExecutions int `json:"ReservedConcurrentExecutions,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false

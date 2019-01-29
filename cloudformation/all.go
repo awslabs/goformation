@@ -302,7 +302,9 @@ func AllResources() map[string]Resource {
 		"AWS::SecretsManager::Secret":                           &resources.AWSSecretsManagerSecret{},
 		"AWS::SecretsManager::SecretTargetAttachment":           &resources.AWSSecretsManagerSecretTargetAttachment{},
 		"AWS::Serverless::Api":                                  &resources.AWSServerlessApi{},
+		"AWS::Serverless::Application":                          &resources.AWSServerlessApplication{},
 		"AWS::Serverless::Function":                             &resources.AWSServerlessFunction{},
+		"AWS::Serverless::LayerVersion":                         &resources.AWSServerlessLayerVersion{},
 		"AWS::Serverless::SimpleTable":                          &resources.AWSServerlessSimpleTable{},
 		"AWS::ServiceCatalog::AcceptedPortfolioShare":           &resources.AWSServiceCatalogAcceptedPortfolioShare{},
 		"AWS::ServiceCatalog::CloudFormationProduct":            &resources.AWSServiceCatalogCloudFormationProduct{},
@@ -7399,6 +7401,30 @@ func (t *Template) GetAWSServerlessApiWithName(name string) (*resources.AWSServe
 	return nil, fmt.Errorf("resource %q of type AWSServerlessApi not found", name)
 }
 
+// GetAllAWSServerlessApplicationResources retrieves all AWSServerlessApplication items from an AWS CloudFormation template
+func (t *Template) GetAllAWSServerlessApplicationResources() map[string]*resources.AWSServerlessApplication {
+	results := map[string]*resources.AWSServerlessApplication{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSServerlessApplication:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSServerlessApplicationWithName retrieves all AWSServerlessApplication items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSServerlessApplicationWithName(name string) (*resources.AWSServerlessApplication, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSServerlessApplication:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSServerlessApplication not found", name)
+}
+
 // GetAllAWSServerlessFunctionResources retrieves all AWSServerlessFunction items from an AWS CloudFormation template
 func (t *Template) GetAllAWSServerlessFunctionResources() map[string]*resources.AWSServerlessFunction {
 	results := map[string]*resources.AWSServerlessFunction{}
@@ -7421,6 +7447,30 @@ func (t *Template) GetAWSServerlessFunctionWithName(name string) (*resources.AWS
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSServerlessFunction not found", name)
+}
+
+// GetAllAWSServerlessLayerVersionResources retrieves all AWSServerlessLayerVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSServerlessLayerVersionResources() map[string]*resources.AWSServerlessLayerVersion {
+	results := map[string]*resources.AWSServerlessLayerVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSServerlessLayerVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSServerlessLayerVersionWithName retrieves all AWSServerlessLayerVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSServerlessLayerVersionWithName(name string) (*resources.AWSServerlessLayerVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSServerlessLayerVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSServerlessLayerVersion not found", name)
 }
 
 // GetAllAWSServerlessSimpleTableResources retrieves all AWSServerlessSimpleTable items from an AWS CloudFormation template

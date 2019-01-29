@@ -7,34 +7,34 @@ import (
 	"github.com/awslabs/goformation/cloudformation/policies"
 )
 
-// AWSServerlessSimpleTable AWS CloudFormation Resource (AWS::Serverless::SimpleTable)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
-type AWSServerlessSimpleTable struct {
+// AWSServerlessApplication AWS CloudFormation Resource (AWS::Serverless::Application)
+// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+type AWSServerlessApplication struct {
 
-	// PrimaryKey AWS CloudFormation Property
-	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#primary-key-object
-	PrimaryKey *AWSServerlessSimpleTable_PrimaryKey `json:"PrimaryKey,omitempty"`
+	// Location AWS CloudFormation Property
+	// Required: true
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	Location string `json:"Location,omitempty"`
 
-	// ProvisionedThroughput AWS CloudFormation Property
+	// NotificationArns AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
-	ProvisionedThroughput *AWSServerlessSimpleTable_ProvisionedThroughput `json:"ProvisionedThroughput,omitempty"`
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	NotificationArns []string `json:"NotificationArns,omitempty"`
 
-	// SSESpecification AWS CloudFormation Property
+	// Parameters AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
-	SSESpecification *AWSServerlessSimpleTable_SSESpecification `json:"SSESpecification,omitempty"`
-
-	// TableName AWS CloudFormation Property
-	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
-	TableName string `json:"TableName,omitempty"`
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	Parameters map[string]string `json:"Parameters,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
 	Tags map[string]string `json:"Tags,omitempty"`
+
+	// TimeoutInMinutes AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	TimeoutInMinutes int `json:"TimeoutInMinutes,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -47,44 +47,44 @@ type AWSServerlessSimpleTable struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSServerlessSimpleTable) AWSCloudFormationType() string {
-	return "AWS::Serverless::SimpleTable"
+func (r *AWSServerlessApplication) AWSCloudFormationType() string {
+	return "AWS::Serverless::Application"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSServerlessSimpleTable) DependsOn() []string {
+func (r *AWSServerlessApplication) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSServerlessSimpleTable) SetDependsOn(dependencies []string) {
+func (r *AWSServerlessApplication) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSServerlessSimpleTable) Metadata() map[string]interface{} {
+func (r *AWSServerlessApplication) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSServerlessSimpleTable) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSServerlessApplication) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSServerlessSimpleTable) SetDeletionPolicy(policy policies.DeletionPolicy) {
+func (r *AWSServerlessApplication) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSServerlessSimpleTable) MarshalJSON() ([]byte, error) {
-	type Properties AWSServerlessSimpleTable
+func (r *AWSServerlessApplication) MarshalJSON() ([]byte, error) {
+	type Properties AWSServerlessApplication
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -102,8 +102,8 @@ func (r *AWSServerlessSimpleTable) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *AWSServerlessSimpleTable) UnmarshalJSON(b []byte) error {
-	type Properties AWSServerlessSimpleTable
+func (r *AWSServerlessApplication) UnmarshalJSON(b []byte) error {
+	type Properties AWSServerlessApplication
 	res := &struct {
 		Type       string
 		Properties *Properties
@@ -121,7 +121,7 @@ func (r *AWSServerlessSimpleTable) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = AWSServerlessSimpleTable(*res.Properties)
+		*r = AWSServerlessApplication(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn

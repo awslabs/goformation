@@ -34080,10 +34080,22 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "Auth": {
+                            "$ref": "#/definitions/AWS::Serverless::Api.Auth"
+                        },
+                        "BinaryMediaTypes": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "CacheClusterEnabled": {
                             "type": "boolean"
                         },
                         "CacheClusterSize": {
+                            "type": "string"
+                        },
+                        "Cors": {
                             "type": "string"
                         },
                         "DefinitionBody": {
@@ -34100,6 +34112,9 @@ var SamSchema = `{
                                     "$ref": "#/definitions/AWS::Serverless::Api.S3Location"
                                 }
                             ]
+                        },
+                        "EndpointConfiguration": {
+                            "type": "string"
                         },
                         "MethodSettings": {
                             "type": "object"
@@ -34138,6 +34153,18 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Serverless::Api.Auth": {
+            "additionalProperties": false,
+            "properties": {
+                "Authorizers": {
+                    "type": "object"
+                },
+                "DefaultAuthorizer": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Serverless::Api.S3Location": {
             "additionalProperties": false,
             "properties": {
@@ -34155,6 +34182,87 @@ var SamSchema = `{
                 "Bucket",
                 "Key",
                 "Version"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Application": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Location": {
+                            "type": "string"
+                        },
+                        "NotificationArns": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Parameters": {
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Tags": {
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "TimeoutInMinutes": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "Location"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Serverless::Application"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -34190,6 +34298,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AutoPublishAlias": {
+                            "type": "string"
+                        },
                         "CodeUri": {
                             "anyOf": [
                                 {
@@ -34204,6 +34315,9 @@ var SamSchema = `{
                         },
                         "DeadLetterQueue": {
                             "$ref": "#/definitions/AWS::Serverless::Function.DeadLetterQueue"
+                        },
+                        "DeploymentPreference": {
+                            "$ref": "#/definitions/AWS::Serverless::Function.DeploymentPreference"
                         },
                         "Description": {
                             "type": "string"
@@ -34228,6 +34342,12 @@ var SamSchema = `{
                         },
                         "KmsKeyArn": {
                             "type": "string"
+                        },
+                        "Layers": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
                         },
                         "MemorySize": {
                             "type": "number"
@@ -34255,6 +34375,9 @@ var SamSchema = `{
                                     "type": "array"
                                 }
                             ]
+                        },
+                        "ReservedConcurrentExecutions": {
+                            "type": "number"
                         },
                         "Role": {
                             "type": "string"
@@ -34367,6 +34490,36 @@ var SamSchema = `{
                 "TargetArn",
                 "Type"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.DeploymentPreference": {
+            "additionalProperties": false,
+            "properties": {
+                "Alarms": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Hooks": {
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[a-zA-Z0-9]+$": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Role": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Serverless::Function.DynamoDBEvent": {
@@ -34627,6 +34780,74 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Serverless::LayerVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CompatibleRuntimes": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "ContentUri": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "LayerName": {
+                            "type": "string"
+                        },
+                        "LicenseInfo": {
+                            "type": "string"
+                        },
+                        "RetentionPolicy": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Serverless::LayerVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::SimpleTable": {
             "additionalProperties": false,
             "properties": {
@@ -34664,6 +34885,21 @@ var SamSchema = `{
                         },
                         "ProvisionedThroughput": {
                             "$ref": "#/definitions/AWS::Serverless::SimpleTable.ProvisionedThroughput"
+                        },
+                        "SSESpecification": {
+                            "$ref": "#/definitions/AWS::Serverless::SimpleTable.SSESpecification"
+                        },
+                        "TableName": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
                         }
                     },
                     "type": "object"
@@ -34708,6 +34944,15 @@ var SamSchema = `{
             "required": [
                 "WriteCapacityUnits"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::SimpleTable.SSESpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "SSEEnabled": {
+                    "$ref": "#/definitions/AWS::Serverless::SimpleTable."
+                }
+            },
             "type": "object"
         },
         "AWS::ServiceCatalog::AcceptedPortfolioShare": {
@@ -38646,7 +38891,13 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::Serverless::Api"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Serverless::Application"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Serverless::Function"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::LayerVersion"
                         },
                         {
                             "$ref": "#/definitions/AWS::Serverless::SimpleTable"
