@@ -69,7 +69,7 @@
             }
         },
         {{end}}
-        "additionalProperties": false
+        "additionalProperties": true
     {{end}}
 
     {{if .Property.IsList}}
