@@ -58,6 +58,7 @@
                 "type": "{{.Property.GetJSONPrimitiveType}}"
             }
         },
+        "additionalProperties": true
         {{else}}
         "patternProperties": {
             "^[a-zA-Z0-9]+$": {
@@ -68,8 +69,8 @@
                 {{end}}
             }
         },
+        "additionalProperties": false
         {{end}}
-        "additionalProperties": true
     {{end}}
 
     {{if .Property.IsList}}
