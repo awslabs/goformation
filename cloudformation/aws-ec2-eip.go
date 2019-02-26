@@ -20,6 +20,11 @@ type AWSEC2EIP struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-instanceid
 	InstanceId string `json:"InstanceId,omitempty"`
 
+	// PublicIpv4Pool AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-publicipv4pool
+	PublicIpv4Pool string `json:"PublicIpv4Pool,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 }

@@ -21,7 +21,7 @@ type AWSIoT1ClickProject struct {
 	PlacementTemplate *AWSIoT1ClickProject_PlacementTemplate `json:"PlacementTemplate,omitempty"`
 
 	// ProjectName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-projectname
 	ProjectName string `json:"ProjectName,omitempty"`
 

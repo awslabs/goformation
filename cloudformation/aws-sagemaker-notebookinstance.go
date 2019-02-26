@@ -55,6 +55,11 @@ type AWSSageMakerNotebookInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-tags
 	Tags []Tag `json:"Tags,omitempty"`
 
+	// VolumeSizeInGB AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-volumesizeingb
+	VolumeSizeInGB int `json:"VolumeSizeInGB,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 }

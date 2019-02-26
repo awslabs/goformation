@@ -16,7 +16,7 @@ type AWSServiceDiscoveryService struct {
 	Description string `json:"Description,omitempty"`
 
 	// DnsConfig AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-dnsconfig
 	DnsConfig *AWSServiceDiscoveryService_DnsConfig `json:"DnsConfig,omitempty"`
 
@@ -34,6 +34,11 @@ type AWSServiceDiscoveryService struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-name
 	Name string `json:"Name,omitempty"`
+
+	// NamespaceId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-namespaceid
+	NamespaceId string `json:"NamespaceId,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

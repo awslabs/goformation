@@ -34,6 +34,11 @@ type AWSIoTTopicRule_Action struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
 	Firehose *AWSIoTTopicRule_FirehoseAction `json:"Firehose,omitempty"`
 
+	// IotAnalytics AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
+	IotAnalytics *AWSIoTTopicRule_IotAnalyticsAction `json:"IotAnalytics,omitempty"`
+
 	// Kinesis AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
@@ -63,6 +68,11 @@ type AWSIoTTopicRule_Action struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
 	Sqs *AWSIoTTopicRule_SqsAction `json:"Sqs,omitempty"`
+
+	// StepFunctions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
+	StepFunctions *AWSIoTTopicRule_StepFunctionsAction `json:"StepFunctions,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

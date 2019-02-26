@@ -16,7 +16,7 @@ type AWSInspectorAssessmentTarget struct {
 	AssessmentTargetName string `json:"AssessmentTargetName,omitempty"`
 
 	// ResourceGroupArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-resourcegrouparn
 	ResourceGroupArn string `json:"ResourceGroupArn,omitempty"`
 

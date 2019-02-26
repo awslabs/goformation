@@ -24,10 +24,20 @@ type AWSCodeBuildProject_Environment struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-image
 	Image string `json:"Image,omitempty"`
 
+	// ImagePullCredentialsType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-imagepullcredentialstype
+	ImagePullCredentialsType string `json:"ImagePullCredentialsType,omitempty"`
+
 	// PrivilegedMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-privilegedmode
 	PrivilegedMode bool `json:"PrivilegedMode,omitempty"`
+
+	// RegistryCredential AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-registrycredential
+	RegistryCredential *AWSCodeBuildProject_RegistryCredential `json:"RegistryCredential,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

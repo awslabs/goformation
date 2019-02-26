@@ -85,6 +85,16 @@ type AWSRDSDBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsubnetgroupname
 	DBSubnetGroupName string `json:"DBSubnetGroupName,omitempty"`
 
+	// DeleteAutomatedBackups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deleteautomatedbackups
+	DeleteAutomatedBackups bool `json:"DeleteAutomatedBackups,omitempty"`
+
+	// DeletionProtection AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deletionprotection
+	DeletionProtection bool `json:"DeletionProtection,omitempty"`
+
 	// Domain AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domain
@@ -94,6 +104,21 @@ type AWSRDSDBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domainiamrolename
 	DomainIAMRoleName string `json:"DomainIAMRoleName,omitempty"`
+
+	// EnableCloudwatchLogsExports AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enablecloudwatchlogsexports
+	EnableCloudwatchLogsExports []string `json:"EnableCloudwatchLogsExports,omitempty"`
+
+	// EnableIAMDatabaseAuthentication AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableiamdatabaseauthentication
+	EnableIAMDatabaseAuthentication bool `json:"EnableIAMDatabaseAuthentication,omitempty"`
+
+	// EnablePerformanceInsights AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights
+	EnablePerformanceInsights bool `json:"EnablePerformanceInsights,omitempty"`
 
 	// Engine AWS CloudFormation Property
 	// Required: false
@@ -150,6 +175,16 @@ type AWSRDSDBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-optiongroupname
 	OptionGroupName string `json:"OptionGroupName,omitempty"`
 
+	// PerformanceInsightsKMSKeyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightskmskeyid
+	PerformanceInsightsKMSKeyId string `json:"PerformanceInsightsKMSKeyId,omitempty"`
+
+	// PerformanceInsightsRetentionPeriod AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightsretentionperiod
+	PerformanceInsightsRetentionPeriod int `json:"PerformanceInsightsRetentionPeriod,omitempty"`
+
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port
@@ -164,6 +199,16 @@ type AWSRDSDBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredmaintenancewindow
 	PreferredMaintenanceWindow string `json:"PreferredMaintenanceWindow,omitempty"`
+
+	// ProcessorFeatures AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-processorfeatures
+	ProcessorFeatures []AWSRDSDBInstance_ProcessorFeature `json:"ProcessorFeatures,omitempty"`
+
+	// PromotionTier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-promotiontier
+	PromotionTier int `json:"PromotionTier,omitempty"`
 
 	// PubliclyAccessible AWS CloudFormation Property
 	// Required: false
@@ -199,6 +244,11 @@ type AWSRDSDBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-timezone
 	Timezone string `json:"Timezone,omitempty"`
+
+	// UseDefaultProcessorFeatures AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-usedefaultprocessorfeatures
+	UseDefaultProcessorFeatures bool `json:"UseDefaultProcessorFeatures,omitempty"`
 
 	// VPCSecurityGroups AWS CloudFormation Property
 	// Required: false

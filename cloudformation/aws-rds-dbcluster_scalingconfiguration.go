@@ -19,10 +19,10 @@ type AWSRDSDBCluster_ScalingConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
 	MinCapacity int `json:"MinCapacity,omitempty"`
 
-	// SecondsBeforeAutoPause AWS CloudFormation Property
+	// SecondsUntilAutoPause AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsbeforeautopause
-	SecondsBeforeAutoPause int `json:"SecondsBeforeAutoPause,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
+	SecondsUntilAutoPause int `json:"SecondsUntilAutoPause,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy

@@ -15,6 +15,11 @@ type AWSRDSDBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
 	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
 
+	// BacktrackWindow AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
+	BacktrackWindow int64 `json:"BacktrackWindow,omitempty"`
+
 	// BackupRetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
@@ -39,6 +44,21 @@ type AWSRDSDBCluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
 	DatabaseName string `json:"DatabaseName,omitempty"`
+
+	// DeletionProtection AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection
+	DeletionProtection bool `json:"DeletionProtection,omitempty"`
+
+	// EnableCloudwatchLogsExports AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
+	EnableCloudwatchLogsExports []string `json:"EnableCloudwatchLogsExports,omitempty"`
+
+	// EnableIAMDatabaseAuthentication AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
+	EnableIAMDatabaseAuthentication bool `json:"EnableIAMDatabaseAuthentication,omitempty"`
 
 	// Engine AWS CloudFormation Property
 	// Required: true
@@ -99,6 +119,11 @@ type AWSRDSDBCluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
 	SnapshotIdentifier string `json:"SnapshotIdentifier,omitempty"`
+
+	// SourceRegion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
+	SourceRegion string `json:"SourceRegion,omitempty"`
 
 	// StorageEncrypted AWS CloudFormation Property
 	// Required: false

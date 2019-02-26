@@ -40,6 +40,11 @@ type AWSApiGatewayApiKey struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
 	StageKeys []AWSApiGatewayApiKey_StageKey `json:"StageKeys,omitempty"`
 
+	// Value AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
+	Value string `json:"Value,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 }
