@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -122,7 +123,7 @@ func (r *AWSCloudTrailTrail) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSCloudTrailTrail) MarshalJSON() ([]byte, error) {
+func (r *AWSCloudTrailTrail) MarshalJSON() ([]byte, error) {
 	type Properties AWSCloudTrailTrail
 	return json.Marshal(&struct {
 		Type           string
@@ -132,7 +133,7 @@ func (r AWSCloudTrailTrail) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -149,7 +150,11 @@ func (r *AWSCloudTrailTrail) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -169,11 +174,11 @@ func (r *AWSCloudTrailTrail) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSCloudTrailTrailResources retrieves all AWSCloudTrailTrail items from an AWS CloudFormation template
-func (t *Template) GetAllAWSCloudTrailTrailResources() map[string]AWSCloudTrailTrail {
-	results := map[string]AWSCloudTrailTrail{}
+func (t *Template) GetAllAWSCloudTrailTrailResources() map[string]*AWSCloudTrailTrail {
+	results := map[string]*AWSCloudTrailTrail{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSCloudTrailTrail:
+		case *AWSCloudTrailTrail:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -185,7 +190,8 @@ func (t *Template) GetAllAWSCloudTrailTrailResources() map[string]AWSCloudTrailT
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCloudTrailTrail
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -197,10 +203,10 @@ func (t *Template) GetAllAWSCloudTrailTrailResources() map[string]AWSCloudTrailT
 
 // GetAWSCloudTrailTrailWithName retrieves all AWSCloudTrailTrail items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSCloudTrailTrailWithName(name string) (AWSCloudTrailTrail, error) {
+func (t *Template) GetAWSCloudTrailTrailWithName(name string) (*AWSCloudTrailTrail, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSCloudTrailTrail:
+		case *AWSCloudTrailTrail:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -212,12 +218,13 @@ func (t *Template) GetAWSCloudTrailTrailWithName(name string) (AWSCloudTrailTrai
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCloudTrailTrail
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSCloudTrailTrail{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

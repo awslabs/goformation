@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -67,7 +68,7 @@ func (r *AWSWAFIPSet) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSWAFIPSet) MarshalJSON() ([]byte, error) {
+func (r *AWSWAFIPSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFIPSet
 	return json.Marshal(&struct {
 		Type           string
@@ -77,7 +78,7 @@ func (r AWSWAFIPSet) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -94,7 +95,11 @@ func (r *AWSWAFIPSet) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,11 @@ func (r *AWSWAFIPSet) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSWAFIPSetResources retrieves all AWSWAFIPSet items from an AWS CloudFormation template
-func (t *Template) GetAllAWSWAFIPSetResources() map[string]AWSWAFIPSet {
-	results := map[string]AWSWAFIPSet{}
+func (t *Template) GetAllAWSWAFIPSetResources() map[string]*AWSWAFIPSet {
+	results := map[string]*AWSWAFIPSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSWAFIPSet:
+		case *AWSWAFIPSet:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +135,8 @@ func (t *Template) GetAllAWSWAFIPSetResources() map[string]AWSWAFIPSet {
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSWAFIPSet
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +148,10 @@ func (t *Template) GetAllAWSWAFIPSetResources() map[string]AWSWAFIPSet {
 
 // GetAWSWAFIPSetWithName retrieves all AWSWAFIPSet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSWAFIPSetWithName(name string) (AWSWAFIPSet, error) {
+func (t *Template) GetAWSWAFIPSetWithName(name string) (*AWSWAFIPSet, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSWAFIPSet:
+		case *AWSWAFIPSet:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +163,13 @@ func (t *Template) GetAWSWAFIPSetWithName(name string) (AWSWAFIPSet, error) {
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSWAFIPSet
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSWAFIPSet{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

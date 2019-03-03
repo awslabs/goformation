@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -102,7 +103,7 @@ func (r *AWSElasticLoadBalancingV2LoadBalancer) SetDeletionPolicy(policy Deletio
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSElasticLoadBalancingV2LoadBalancer) MarshalJSON() ([]byte, error) {
+func (r *AWSElasticLoadBalancingV2LoadBalancer) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticLoadBalancingV2LoadBalancer
 	return json.Marshal(&struct {
 		Type           string
@@ -112,7 +113,7 @@ func (r AWSElasticLoadBalancingV2LoadBalancer) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -129,7 +130,11 @@ func (r *AWSElasticLoadBalancingV2LoadBalancer) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -149,11 +154,11 @@ func (r *AWSElasticLoadBalancingV2LoadBalancer) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSElasticLoadBalancingV2LoadBalancerResources retrieves all AWSElasticLoadBalancingV2LoadBalancer items from an AWS CloudFormation template
-func (t *Template) GetAllAWSElasticLoadBalancingV2LoadBalancerResources() map[string]AWSElasticLoadBalancingV2LoadBalancer {
-	results := map[string]AWSElasticLoadBalancingV2LoadBalancer{}
+func (t *Template) GetAllAWSElasticLoadBalancingV2LoadBalancerResources() map[string]*AWSElasticLoadBalancingV2LoadBalancer {
+	results := map[string]*AWSElasticLoadBalancingV2LoadBalancer{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSElasticLoadBalancingV2LoadBalancer:
+		case *AWSElasticLoadBalancingV2LoadBalancer:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -165,7 +170,8 @@ func (t *Template) GetAllAWSElasticLoadBalancingV2LoadBalancerResources() map[st
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElasticLoadBalancingV2LoadBalancer
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -177,10 +183,10 @@ func (t *Template) GetAllAWSElasticLoadBalancingV2LoadBalancerResources() map[st
 
 // GetAWSElasticLoadBalancingV2LoadBalancerWithName retrieves all AWSElasticLoadBalancingV2LoadBalancer items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSElasticLoadBalancingV2LoadBalancerWithName(name string) (AWSElasticLoadBalancingV2LoadBalancer, error) {
+func (t *Template) GetAWSElasticLoadBalancingV2LoadBalancerWithName(name string) (*AWSElasticLoadBalancingV2LoadBalancer, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSElasticLoadBalancingV2LoadBalancer:
+		case *AWSElasticLoadBalancingV2LoadBalancer:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -192,12 +198,13 @@ func (t *Template) GetAWSElasticLoadBalancingV2LoadBalancerWithName(name string)
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElasticLoadBalancingV2LoadBalancer
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSElasticLoadBalancingV2LoadBalancer{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -72,7 +73,7 @@ func (r *AWSConfigConfigurationRecorder) SetDeletionPolicy(policy DeletionPolicy
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSConfigConfigurationRecorder) MarshalJSON() ([]byte, error) {
+func (r *AWSConfigConfigurationRecorder) MarshalJSON() ([]byte, error) {
 	type Properties AWSConfigConfigurationRecorder
 	return json.Marshal(&struct {
 		Type           string
@@ -82,7 +83,7 @@ func (r AWSConfigConfigurationRecorder) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -99,7 +100,11 @@ func (r *AWSConfigConfigurationRecorder) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -119,11 +124,11 @@ func (r *AWSConfigConfigurationRecorder) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSConfigConfigurationRecorderResources retrieves all AWSConfigConfigurationRecorder items from an AWS CloudFormation template
-func (t *Template) GetAllAWSConfigConfigurationRecorderResources() map[string]AWSConfigConfigurationRecorder {
-	results := map[string]AWSConfigConfigurationRecorder{}
+func (t *Template) GetAllAWSConfigConfigurationRecorderResources() map[string]*AWSConfigConfigurationRecorder {
+	results := map[string]*AWSConfigConfigurationRecorder{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSConfigConfigurationRecorder:
+		case *AWSConfigConfigurationRecorder:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -135,7 +140,8 @@ func (t *Template) GetAllAWSConfigConfigurationRecorderResources() map[string]AW
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSConfigConfigurationRecorder
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -147,10 +153,10 @@ func (t *Template) GetAllAWSConfigConfigurationRecorderResources() map[string]AW
 
 // GetAWSConfigConfigurationRecorderWithName retrieves all AWSConfigConfigurationRecorder items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSConfigConfigurationRecorderWithName(name string) (AWSConfigConfigurationRecorder, error) {
+func (t *Template) GetAWSConfigConfigurationRecorderWithName(name string) (*AWSConfigConfigurationRecorder, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSConfigConfigurationRecorder:
+		case *AWSConfigConfigurationRecorder:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -162,12 +168,13 @@ func (t *Template) GetAWSConfigConfigurationRecorderWithName(name string) (AWSCo
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSConfigConfigurationRecorder
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSConfigConfigurationRecorder{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

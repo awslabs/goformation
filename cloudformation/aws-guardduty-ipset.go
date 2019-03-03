@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -82,7 +83,7 @@ func (r *AWSGuardDutyIPSet) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSGuardDutyIPSet) MarshalJSON() ([]byte, error) {
+func (r *AWSGuardDutyIPSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSGuardDutyIPSet
 	return json.Marshal(&struct {
 		Type           string
@@ -92,7 +93,7 @@ func (r AWSGuardDutyIPSet) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -109,7 +110,11 @@ func (r *AWSGuardDutyIPSet) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -129,11 +134,11 @@ func (r *AWSGuardDutyIPSet) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSGuardDutyIPSetResources retrieves all AWSGuardDutyIPSet items from an AWS CloudFormation template
-func (t *Template) GetAllAWSGuardDutyIPSetResources() map[string]AWSGuardDutyIPSet {
-	results := map[string]AWSGuardDutyIPSet{}
+func (t *Template) GetAllAWSGuardDutyIPSetResources() map[string]*AWSGuardDutyIPSet {
+	results := map[string]*AWSGuardDutyIPSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSGuardDutyIPSet:
+		case *AWSGuardDutyIPSet:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -145,7 +150,8 @@ func (t *Template) GetAllAWSGuardDutyIPSetResources() map[string]AWSGuardDutyIPS
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSGuardDutyIPSet
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -157,10 +163,10 @@ func (t *Template) GetAllAWSGuardDutyIPSetResources() map[string]AWSGuardDutyIPS
 
 // GetAWSGuardDutyIPSetWithName retrieves all AWSGuardDutyIPSet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSGuardDutyIPSetWithName(name string) (AWSGuardDutyIPSet, error) {
+func (t *Template) GetAWSGuardDutyIPSetWithName(name string) (*AWSGuardDutyIPSet, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSGuardDutyIPSet:
+		case *AWSGuardDutyIPSet:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -172,12 +178,13 @@ func (t *Template) GetAWSGuardDutyIPSetWithName(name string) (AWSGuardDutyIPSet,
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSGuardDutyIPSet
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSGuardDutyIPSet{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

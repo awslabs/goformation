@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -77,7 +78,7 @@ func (r *AWSLogsDestination) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSLogsDestination) MarshalJSON() ([]byte, error) {
+func (r *AWSLogsDestination) MarshalJSON() ([]byte, error) {
 	type Properties AWSLogsDestination
 	return json.Marshal(&struct {
 		Type           string
@@ -87,7 +88,7 @@ func (r AWSLogsDestination) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -104,7 +105,11 @@ func (r *AWSLogsDestination) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -124,11 +129,11 @@ func (r *AWSLogsDestination) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSLogsDestinationResources retrieves all AWSLogsDestination items from an AWS CloudFormation template
-func (t *Template) GetAllAWSLogsDestinationResources() map[string]AWSLogsDestination {
-	results := map[string]AWSLogsDestination{}
+func (t *Template) GetAllAWSLogsDestinationResources() map[string]*AWSLogsDestination {
+	results := map[string]*AWSLogsDestination{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSLogsDestination:
+		case *AWSLogsDestination:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -140,7 +145,8 @@ func (t *Template) GetAllAWSLogsDestinationResources() map[string]AWSLogsDestina
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSLogsDestination
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -152,10 +158,10 @@ func (t *Template) GetAllAWSLogsDestinationResources() map[string]AWSLogsDestina
 
 // GetAWSLogsDestinationWithName retrieves all AWSLogsDestination items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSLogsDestinationWithName(name string) (AWSLogsDestination, error) {
+func (t *Template) GetAWSLogsDestinationWithName(name string) (*AWSLogsDestination, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSLogsDestination:
+		case *AWSLogsDestination:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -167,12 +173,13 @@ func (t *Template) GetAWSLogsDestinationWithName(name string) (AWSLogsDestinatio
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSLogsDestination
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSLogsDestination{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

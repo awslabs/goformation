@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -82,7 +83,7 @@ func (r *AWSApiGatewayModel) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSApiGatewayModel) MarshalJSON() ([]byte, error) {
+func (r *AWSApiGatewayModel) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayModel
 	return json.Marshal(&struct {
 		Type           string
@@ -92,7 +93,7 @@ func (r AWSApiGatewayModel) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -109,7 +110,11 @@ func (r *AWSApiGatewayModel) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -129,11 +134,11 @@ func (r *AWSApiGatewayModel) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSApiGatewayModelResources retrieves all AWSApiGatewayModel items from an AWS CloudFormation template
-func (t *Template) GetAllAWSApiGatewayModelResources() map[string]AWSApiGatewayModel {
-	results := map[string]AWSApiGatewayModel{}
+func (t *Template) GetAllAWSApiGatewayModelResources() map[string]*AWSApiGatewayModel {
+	results := map[string]*AWSApiGatewayModel{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSApiGatewayModel:
+		case *AWSApiGatewayModel:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -145,7 +150,8 @@ func (t *Template) GetAllAWSApiGatewayModelResources() map[string]AWSApiGatewayM
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSApiGatewayModel
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -157,10 +163,10 @@ func (t *Template) GetAllAWSApiGatewayModelResources() map[string]AWSApiGatewayM
 
 // GetAWSApiGatewayModelWithName retrieves all AWSApiGatewayModel items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSApiGatewayModelWithName(name string) (AWSApiGatewayModel, error) {
+func (t *Template) GetAWSApiGatewayModelWithName(name string) (*AWSApiGatewayModel, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSApiGatewayModel:
+		case *AWSApiGatewayModel:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -172,12 +178,13 @@ func (t *Template) GetAWSApiGatewayModelWithName(name string) (AWSApiGatewayMode
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSApiGatewayModel
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSApiGatewayModel{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -55,6 +56,11 @@ type AWSSSMMaintenanceWindow struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-startdate
 	StartDate string `json:"StartDate,omitempty"`
 
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 
@@ -102,7 +108,7 @@ func (r *AWSSSMMaintenanceWindow) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSSSMMaintenanceWindow) MarshalJSON() ([]byte, error) {
+func (r *AWSSSMMaintenanceWindow) MarshalJSON() ([]byte, error) {
 	type Properties AWSSSMMaintenanceWindow
 	return json.Marshal(&struct {
 		Type           string
@@ -112,7 +118,7 @@ func (r AWSSSMMaintenanceWindow) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -129,7 +135,11 @@ func (r *AWSSSMMaintenanceWindow) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -149,11 +159,11 @@ func (r *AWSSSMMaintenanceWindow) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSSSMMaintenanceWindowResources retrieves all AWSSSMMaintenanceWindow items from an AWS CloudFormation template
-func (t *Template) GetAllAWSSSMMaintenanceWindowResources() map[string]AWSSSMMaintenanceWindow {
-	results := map[string]AWSSSMMaintenanceWindow{}
+func (t *Template) GetAllAWSSSMMaintenanceWindowResources() map[string]*AWSSSMMaintenanceWindow {
+	results := map[string]*AWSSSMMaintenanceWindow{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSSSMMaintenanceWindow:
+		case *AWSSSMMaintenanceWindow:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -165,7 +175,8 @@ func (t *Template) GetAllAWSSSMMaintenanceWindowResources() map[string]AWSSSMMai
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSSMMaintenanceWindow
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -177,10 +188,10 @@ func (t *Template) GetAllAWSSSMMaintenanceWindowResources() map[string]AWSSSMMai
 
 // GetAWSSSMMaintenanceWindowWithName retrieves all AWSSSMMaintenanceWindow items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSSSMMaintenanceWindowWithName(name string) (AWSSSMMaintenanceWindow, error) {
+func (t *Template) GetAWSSSMMaintenanceWindowWithName(name string) (*AWSSSMMaintenanceWindow, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSSSMMaintenanceWindow:
+		case *AWSSSMMaintenanceWindow:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -192,12 +203,13 @@ func (t *Template) GetAWSSSMMaintenanceWindowWithName(name string) (AWSSSMMainte
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSSMMaintenanceWindow
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSSSMMaintenanceWindow{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

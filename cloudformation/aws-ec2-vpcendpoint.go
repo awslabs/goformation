@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -40,10 +41,10 @@ type AWSEC2VPCEndpoint struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids
 	SubnetIds []string `json:"SubnetIds,omitempty"`
 
-	// VPCEndpointType AWS CloudFormation Property
+	// VpcEndpointType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype
-	VPCEndpointType string `json:"VPCEndpointType,omitempty"`
+	VpcEndpointType string `json:"VpcEndpointType,omitempty"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: true
@@ -97,7 +98,7 @@ func (r *AWSEC2VPCEndpoint) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSEC2VPCEndpoint) MarshalJSON() ([]byte, error) {
+func (r *AWSEC2VPCEndpoint) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPCEndpoint
 	return json.Marshal(&struct {
 		Type           string
@@ -107,7 +108,7 @@ func (r AWSEC2VPCEndpoint) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -124,7 +125,11 @@ func (r *AWSEC2VPCEndpoint) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -144,11 +149,11 @@ func (r *AWSEC2VPCEndpoint) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSEC2VPCEndpointResources retrieves all AWSEC2VPCEndpoint items from an AWS CloudFormation template
-func (t *Template) GetAllAWSEC2VPCEndpointResources() map[string]AWSEC2VPCEndpoint {
-	results := map[string]AWSEC2VPCEndpoint{}
+func (t *Template) GetAllAWSEC2VPCEndpointResources() map[string]*AWSEC2VPCEndpoint {
+	results := map[string]*AWSEC2VPCEndpoint{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSEC2VPCEndpoint:
+		case *AWSEC2VPCEndpoint:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -160,7 +165,8 @@ func (t *Template) GetAllAWSEC2VPCEndpointResources() map[string]AWSEC2VPCEndpoi
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2VPCEndpoint
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -172,10 +178,10 @@ func (t *Template) GetAllAWSEC2VPCEndpointResources() map[string]AWSEC2VPCEndpoi
 
 // GetAWSEC2VPCEndpointWithName retrieves all AWSEC2VPCEndpoint items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSEC2VPCEndpointWithName(name string) (AWSEC2VPCEndpoint, error) {
+func (t *Template) GetAWSEC2VPCEndpointWithName(name string) (*AWSEC2VPCEndpoint, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSEC2VPCEndpoint:
+		case *AWSEC2VPCEndpoint:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -187,12 +193,13 @@ func (t *Template) GetAWSEC2VPCEndpointWithName(name string) (AWSEC2VPCEndpoint,
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2VPCEndpoint
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSEC2VPCEndpoint{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

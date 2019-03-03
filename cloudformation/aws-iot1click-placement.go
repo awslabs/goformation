@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -77,7 +78,7 @@ func (r *AWSIoT1ClickPlacement) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSIoT1ClickPlacement) MarshalJSON() ([]byte, error) {
+func (r *AWSIoT1ClickPlacement) MarshalJSON() ([]byte, error) {
 	type Properties AWSIoT1ClickPlacement
 	return json.Marshal(&struct {
 		Type           string
@@ -87,7 +88,7 @@ func (r AWSIoT1ClickPlacement) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -104,7 +105,11 @@ func (r *AWSIoT1ClickPlacement) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -124,11 +129,11 @@ func (r *AWSIoT1ClickPlacement) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSIoT1ClickPlacementResources retrieves all AWSIoT1ClickPlacement items from an AWS CloudFormation template
-func (t *Template) GetAllAWSIoT1ClickPlacementResources() map[string]AWSIoT1ClickPlacement {
-	results := map[string]AWSIoT1ClickPlacement{}
+func (t *Template) GetAllAWSIoT1ClickPlacementResources() map[string]*AWSIoT1ClickPlacement {
+	results := map[string]*AWSIoT1ClickPlacement{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSIoT1ClickPlacement:
+		case *AWSIoT1ClickPlacement:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -140,7 +145,8 @@ func (t *Template) GetAllAWSIoT1ClickPlacementResources() map[string]AWSIoT1Clic
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSIoT1ClickPlacement
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -152,10 +158,10 @@ func (t *Template) GetAllAWSIoT1ClickPlacementResources() map[string]AWSIoT1Clic
 
 // GetAWSIoT1ClickPlacementWithName retrieves all AWSIoT1ClickPlacement items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSIoT1ClickPlacementWithName(name string) (AWSIoT1ClickPlacement, error) {
+func (t *Template) GetAWSIoT1ClickPlacementWithName(name string) (*AWSIoT1ClickPlacement, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSIoT1ClickPlacement:
+		case *AWSIoT1ClickPlacement:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -167,12 +173,13 @@ func (t *Template) GetAWSIoT1ClickPlacementWithName(name string) (AWSIoT1ClickPl
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSIoT1ClickPlacement
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSIoT1ClickPlacement{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

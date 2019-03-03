@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -9,6 +10,11 @@ import (
 // AWSServerlessFunction AWS CloudFormation Resource (AWS::Serverless::Function)
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 type AWSServerlessFunction struct {
+
+	// AutoPublishAlias AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	AutoPublishAlias string `json:"AutoPublishAlias,omitempty"`
 
 	// CodeUri AWS CloudFormation Property
 	// Required: true
@@ -19,6 +25,11 @@ type AWSServerlessFunction struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	DeadLetterQueue *AWSServerlessFunction_DeadLetterQueue `json:"DeadLetterQueue,omitempty"`
+
+	// DeploymentPreference AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	DeploymentPreference *AWSServerlessFunction_DeploymentPreference `json:"DeploymentPreference,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -50,6 +61,11 @@ type AWSServerlessFunction struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	KmsKeyArn string `json:"KmsKeyArn,omitempty"`
 
+	// Layers AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	Layers []string `json:"Layers,omitempty"`
+
 	// MemorySize AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -59,6 +75,11 @@ type AWSServerlessFunction struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Policies *AWSServerlessFunction_Policies `json:"Policies,omitempty"`
+
+	// ReservedConcurrentExecutions AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	ReservedConcurrentExecutions int `json:"ReservedConcurrentExecutions,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false
@@ -137,7 +158,7 @@ func (r *AWSServerlessFunction) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSServerlessFunction) MarshalJSON() ([]byte, error) {
+func (r *AWSServerlessFunction) MarshalJSON() ([]byte, error) {
 	type Properties AWSServerlessFunction
 	return json.Marshal(&struct {
 		Type           string
@@ -147,7 +168,7 @@ func (r AWSServerlessFunction) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -164,7 +185,11 @@ func (r *AWSServerlessFunction) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -184,11 +209,11 @@ func (r *AWSServerlessFunction) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSServerlessFunctionResources retrieves all AWSServerlessFunction items from an AWS CloudFormation template
-func (t *Template) GetAllAWSServerlessFunctionResources() map[string]AWSServerlessFunction {
-	results := map[string]AWSServerlessFunction{}
+func (t *Template) GetAllAWSServerlessFunctionResources() map[string]*AWSServerlessFunction {
+	results := map[string]*AWSServerlessFunction{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSServerlessFunction:
+		case *AWSServerlessFunction:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -200,7 +225,8 @@ func (t *Template) GetAllAWSServerlessFunctionResources() map[string]AWSServerle
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServerlessFunction
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -212,10 +238,10 @@ func (t *Template) GetAllAWSServerlessFunctionResources() map[string]AWSServerle
 
 // GetAWSServerlessFunctionWithName retrieves all AWSServerlessFunction items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSServerlessFunctionWithName(name string) (AWSServerlessFunction, error) {
+func (t *Template) GetAWSServerlessFunctionWithName(name string) (*AWSServerlessFunction, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSServerlessFunction:
+		case *AWSServerlessFunction:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -227,12 +253,13 @@ func (t *Template) GetAWSServerlessFunctionWithName(name string) (AWSServerlessF
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServerlessFunction
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSServerlessFunction{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

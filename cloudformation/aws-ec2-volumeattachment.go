@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -72,7 +73,7 @@ func (r *AWSEC2VolumeAttachment) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSEC2VolumeAttachment) MarshalJSON() ([]byte, error) {
+func (r *AWSEC2VolumeAttachment) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VolumeAttachment
 	return json.Marshal(&struct {
 		Type           string
@@ -82,7 +83,7 @@ func (r AWSEC2VolumeAttachment) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -99,7 +100,11 @@ func (r *AWSEC2VolumeAttachment) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -119,11 +124,11 @@ func (r *AWSEC2VolumeAttachment) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSEC2VolumeAttachmentResources retrieves all AWSEC2VolumeAttachment items from an AWS CloudFormation template
-func (t *Template) GetAllAWSEC2VolumeAttachmentResources() map[string]AWSEC2VolumeAttachment {
-	results := map[string]AWSEC2VolumeAttachment{}
+func (t *Template) GetAllAWSEC2VolumeAttachmentResources() map[string]*AWSEC2VolumeAttachment {
+	results := map[string]*AWSEC2VolumeAttachment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSEC2VolumeAttachment:
+		case *AWSEC2VolumeAttachment:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -135,7 +140,8 @@ func (t *Template) GetAllAWSEC2VolumeAttachmentResources() map[string]AWSEC2Volu
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2VolumeAttachment
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -147,10 +153,10 @@ func (t *Template) GetAllAWSEC2VolumeAttachmentResources() map[string]AWSEC2Volu
 
 // GetAWSEC2VolumeAttachmentWithName retrieves all AWSEC2VolumeAttachment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSEC2VolumeAttachmentWithName(name string) (AWSEC2VolumeAttachment, error) {
+func (t *Template) GetAWSEC2VolumeAttachmentWithName(name string) (*AWSEC2VolumeAttachment, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSEC2VolumeAttachment:
+		case *AWSEC2VolumeAttachment:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -162,12 +168,13 @@ func (t *Template) GetAWSEC2VolumeAttachmentWithName(name string) (AWSEC2VolumeA
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2VolumeAttachment
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSEC2VolumeAttachment{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

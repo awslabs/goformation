@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -202,7 +203,7 @@ func (r *AWSRedshiftCluster) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSRedshiftCluster) MarshalJSON() ([]byte, error) {
+func (r *AWSRedshiftCluster) MarshalJSON() ([]byte, error) {
 	type Properties AWSRedshiftCluster
 	return json.Marshal(&struct {
 		Type           string
@@ -212,7 +213,7 @@ func (r AWSRedshiftCluster) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -229,7 +230,11 @@ func (r *AWSRedshiftCluster) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -249,11 +254,11 @@ func (r *AWSRedshiftCluster) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSRedshiftClusterResources retrieves all AWSRedshiftCluster items from an AWS CloudFormation template
-func (t *Template) GetAllAWSRedshiftClusterResources() map[string]AWSRedshiftCluster {
-	results := map[string]AWSRedshiftCluster{}
+func (t *Template) GetAllAWSRedshiftClusterResources() map[string]*AWSRedshiftCluster {
+	results := map[string]*AWSRedshiftCluster{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSRedshiftCluster:
+		case *AWSRedshiftCluster:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -265,7 +270,8 @@ func (t *Template) GetAllAWSRedshiftClusterResources() map[string]AWSRedshiftClu
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRedshiftCluster
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -277,10 +283,10 @@ func (t *Template) GetAllAWSRedshiftClusterResources() map[string]AWSRedshiftClu
 
 // GetAWSRedshiftClusterWithName retrieves all AWSRedshiftCluster items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSRedshiftClusterWithName(name string) (AWSRedshiftCluster, error) {
+func (t *Template) GetAWSRedshiftClusterWithName(name string) (*AWSRedshiftCluster, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSRedshiftCluster:
+		case *AWSRedshiftCluster:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -292,12 +298,13 @@ func (t *Template) GetAWSRedshiftClusterWithName(name string) (AWSRedshiftCluste
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRedshiftCluster
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSRedshiftCluster{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

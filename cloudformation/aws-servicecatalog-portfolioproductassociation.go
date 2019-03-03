@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -77,7 +78,7 @@ func (r *AWSServiceCatalogPortfolioProductAssociation) SetDeletionPolicy(policy 
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSServiceCatalogPortfolioProductAssociation) MarshalJSON() ([]byte, error) {
+func (r *AWSServiceCatalogPortfolioProductAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSServiceCatalogPortfolioProductAssociation
 	return json.Marshal(&struct {
 		Type           string
@@ -87,7 +88,7 @@ func (r AWSServiceCatalogPortfolioProductAssociation) MarshalJSON() ([]byte, err
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -104,7 +105,11 @@ func (r *AWSServiceCatalogPortfolioProductAssociation) UnmarshalJSON(b []byte) e
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -124,11 +129,11 @@ func (r *AWSServiceCatalogPortfolioProductAssociation) UnmarshalJSON(b []byte) e
 }
 
 // GetAllAWSServiceCatalogPortfolioProductAssociationResources retrieves all AWSServiceCatalogPortfolioProductAssociation items from an AWS CloudFormation template
-func (t *Template) GetAllAWSServiceCatalogPortfolioProductAssociationResources() map[string]AWSServiceCatalogPortfolioProductAssociation {
-	results := map[string]AWSServiceCatalogPortfolioProductAssociation{}
+func (t *Template) GetAllAWSServiceCatalogPortfolioProductAssociationResources() map[string]*AWSServiceCatalogPortfolioProductAssociation {
+	results := map[string]*AWSServiceCatalogPortfolioProductAssociation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSServiceCatalogPortfolioProductAssociation:
+		case *AWSServiceCatalogPortfolioProductAssociation:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -140,7 +145,8 @@ func (t *Template) GetAllAWSServiceCatalogPortfolioProductAssociationResources()
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceCatalogPortfolioProductAssociation
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -152,10 +158,10 @@ func (t *Template) GetAllAWSServiceCatalogPortfolioProductAssociationResources()
 
 // GetAWSServiceCatalogPortfolioProductAssociationWithName retrieves all AWSServiceCatalogPortfolioProductAssociation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSServiceCatalogPortfolioProductAssociationWithName(name string) (AWSServiceCatalogPortfolioProductAssociation, error) {
+func (t *Template) GetAWSServiceCatalogPortfolioProductAssociationWithName(name string) (*AWSServiceCatalogPortfolioProductAssociation, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSServiceCatalogPortfolioProductAssociation:
+		case *AWSServiceCatalogPortfolioProductAssociation:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -167,12 +173,13 @@ func (t *Template) GetAWSServiceCatalogPortfolioProductAssociationWithName(name 
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceCatalogPortfolioProductAssociation
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSServiceCatalogPortfolioProductAssociation{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

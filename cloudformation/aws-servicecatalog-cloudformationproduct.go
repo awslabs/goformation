@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -107,7 +108,7 @@ func (r *AWSServiceCatalogCloudFormationProduct) SetDeletionPolicy(policy Deleti
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSServiceCatalogCloudFormationProduct) MarshalJSON() ([]byte, error) {
+func (r *AWSServiceCatalogCloudFormationProduct) MarshalJSON() ([]byte, error) {
 	type Properties AWSServiceCatalogCloudFormationProduct
 	return json.Marshal(&struct {
 		Type           string
@@ -117,7 +118,7 @@ func (r AWSServiceCatalogCloudFormationProduct) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -134,7 +135,11 @@ func (r *AWSServiceCatalogCloudFormationProduct) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -154,11 +159,11 @@ func (r *AWSServiceCatalogCloudFormationProduct) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSServiceCatalogCloudFormationProductResources retrieves all AWSServiceCatalogCloudFormationProduct items from an AWS CloudFormation template
-func (t *Template) GetAllAWSServiceCatalogCloudFormationProductResources() map[string]AWSServiceCatalogCloudFormationProduct {
-	results := map[string]AWSServiceCatalogCloudFormationProduct{}
+func (t *Template) GetAllAWSServiceCatalogCloudFormationProductResources() map[string]*AWSServiceCatalogCloudFormationProduct {
+	results := map[string]*AWSServiceCatalogCloudFormationProduct{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSServiceCatalogCloudFormationProduct:
+		case *AWSServiceCatalogCloudFormationProduct:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -170,7 +175,8 @@ func (t *Template) GetAllAWSServiceCatalogCloudFormationProductResources() map[s
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceCatalogCloudFormationProduct
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -182,10 +188,10 @@ func (t *Template) GetAllAWSServiceCatalogCloudFormationProductResources() map[s
 
 // GetAWSServiceCatalogCloudFormationProductWithName retrieves all AWSServiceCatalogCloudFormationProduct items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSServiceCatalogCloudFormationProductWithName(name string) (AWSServiceCatalogCloudFormationProduct, error) {
+func (t *Template) GetAWSServiceCatalogCloudFormationProductWithName(name string) (*AWSServiceCatalogCloudFormationProduct, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSServiceCatalogCloudFormationProduct:
+		case *AWSServiceCatalogCloudFormationProduct:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -197,12 +203,13 @@ func (t *Template) GetAWSServiceCatalogCloudFormationProductWithName(name string
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceCatalogCloudFormationProduct
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSServiceCatalogCloudFormationProduct{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

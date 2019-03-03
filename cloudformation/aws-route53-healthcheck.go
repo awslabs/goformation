@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -67,7 +68,7 @@ func (r *AWSRoute53HealthCheck) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSRoute53HealthCheck) MarshalJSON() ([]byte, error) {
+func (r *AWSRoute53HealthCheck) MarshalJSON() ([]byte, error) {
 	type Properties AWSRoute53HealthCheck
 	return json.Marshal(&struct {
 		Type           string
@@ -77,7 +78,7 @@ func (r AWSRoute53HealthCheck) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
+		Properties:     (Properties)(*r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -94,7 +95,11 @@ func (r *AWSRoute53HealthCheck) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,11 @@ func (r *AWSRoute53HealthCheck) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSRoute53HealthCheckResources retrieves all AWSRoute53HealthCheck items from an AWS CloudFormation template
-func (t *Template) GetAllAWSRoute53HealthCheckResources() map[string]AWSRoute53HealthCheck {
-	results := map[string]AWSRoute53HealthCheck{}
+func (t *Template) GetAllAWSRoute53HealthCheckResources() map[string]*AWSRoute53HealthCheck {
+	results := map[string]*AWSRoute53HealthCheck{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case AWSRoute53HealthCheck:
+		case *AWSRoute53HealthCheck:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +135,8 @@ func (t *Template) GetAllAWSRoute53HealthCheckResources() map[string]AWSRoute53H
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRoute53HealthCheck
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +148,10 @@ func (t *Template) GetAllAWSRoute53HealthCheckResources() map[string]AWSRoute53H
 
 // GetAWSRoute53HealthCheckWithName retrieves all AWSRoute53HealthCheck items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSRoute53HealthCheckWithName(name string) (AWSRoute53HealthCheck, error) {
+func (t *Template) GetAWSRoute53HealthCheckWithName(name string) (*AWSRoute53HealthCheck, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case AWSRoute53HealthCheck:
+		case *AWSRoute53HealthCheck:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +163,13 @@ func (t *Template) GetAWSRoute53HealthCheckWithName(name string) (AWSRoute53Heal
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRoute53HealthCheck
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSRoute53HealthCheck{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }
