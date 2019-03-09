@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -94,7 +95,11 @@ func (r *AWSCodeDeployApplication) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,13 @@ func (r *AWSCodeDeployApplication) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSCodeDeployApplicationResources retrieves all AWSCodeDeployApplication items from an AWS CloudFormation template
-func (t *Template) GetAllAWSCodeDeployApplicationResources() map[string]AWSCodeDeployApplication {
-	results := map[string]AWSCodeDeployApplication{}
+func (t *Template) GetAllAWSCodeDeployApplicationResources() map[string]*AWSCodeDeployApplication {
+	results := map[string]*AWSCodeDeployApplication{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployApplication:
+			results[name] = &resource
+		case *AWSCodeDeployApplication:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +137,8 @@ func (t *Template) GetAllAWSCodeDeployApplicationResources() map[string]AWSCodeD
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCodeDeployApplication
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +150,12 @@ func (t *Template) GetAllAWSCodeDeployApplicationResources() map[string]AWSCodeD
 
 // GetAWSCodeDeployApplicationWithName retrieves all AWSCodeDeployApplication items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSCodeDeployApplicationWithName(name string) (AWSCodeDeployApplication, error) {
+func (t *Template) GetAWSCodeDeployApplicationWithName(name string) (*AWSCodeDeployApplication, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployApplication:
+			return &resource, nil
+		case *AWSCodeDeployApplication:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +167,13 @@ func (t *Template) GetAWSCodeDeployApplicationWithName(name string) (AWSCodeDepl
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCodeDeployApplication
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSCodeDeployApplication{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

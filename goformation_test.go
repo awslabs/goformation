@@ -310,7 +310,7 @@ var _ = Describe("Goformation", func() {
 		function, err := template.GetAWSLambdaFunctionWithName("MyLambdaFunction")
 		It("should be able to retrieve a specific Lambda function with GetAWSLambdaFunctionWithName(template, name)", func() {
 			Expect(err).To(BeNil())
-			Expect(function).To(BeAssignableToTypeOf(cloudformation.AWSLambdaFunction{}))
+			Expect(function).To(BeAssignableToTypeOf(&cloudformation.AWSLambdaFunction{}))
 		})
 
 		It("should have the correct Handler property", func() {

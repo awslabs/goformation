@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -129,7 +130,11 @@ func (r *AWSAppSyncFunctionConfiguration) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -149,11 +154,13 @@ func (r *AWSAppSyncFunctionConfiguration) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSAppSyncFunctionConfigurationResources retrieves all AWSAppSyncFunctionConfiguration items from an AWS CloudFormation template
-func (t *Template) GetAllAWSAppSyncFunctionConfigurationResources() map[string]AWSAppSyncFunctionConfiguration {
-	results := map[string]AWSAppSyncFunctionConfiguration{}
+func (t *Template) GetAllAWSAppSyncFunctionConfigurationResources() map[string]*AWSAppSyncFunctionConfiguration {
+	results := map[string]*AWSAppSyncFunctionConfiguration{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSAppSyncFunctionConfiguration:
+			results[name] = &resource
+		case *AWSAppSyncFunctionConfiguration:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -165,7 +172,8 @@ func (t *Template) GetAllAWSAppSyncFunctionConfigurationResources() map[string]A
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSAppSyncFunctionConfiguration
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -177,10 +185,12 @@ func (t *Template) GetAllAWSAppSyncFunctionConfigurationResources() map[string]A
 
 // GetAWSAppSyncFunctionConfigurationWithName retrieves all AWSAppSyncFunctionConfiguration items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSAppSyncFunctionConfigurationWithName(name string) (AWSAppSyncFunctionConfiguration, error) {
+func (t *Template) GetAWSAppSyncFunctionConfigurationWithName(name string) (*AWSAppSyncFunctionConfiguration, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSAppSyncFunctionConfiguration:
+			return &resource, nil
+		case *AWSAppSyncFunctionConfiguration:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -192,12 +202,13 @@ func (t *Template) GetAWSAppSyncFunctionConfigurationWithName(name string) (AWSA
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSAppSyncFunctionConfiguration
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSAppSyncFunctionConfiguration{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

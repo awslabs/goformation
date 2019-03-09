@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -99,7 +100,11 @@ func (r *AWSElastiCacheSecurityGroupIngress) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -119,11 +124,13 @@ func (r *AWSElastiCacheSecurityGroupIngress) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSElastiCacheSecurityGroupIngressResources retrieves all AWSElastiCacheSecurityGroupIngress items from an AWS CloudFormation template
-func (t *Template) GetAllAWSElastiCacheSecurityGroupIngressResources() map[string]AWSElastiCacheSecurityGroupIngress {
-	results := map[string]AWSElastiCacheSecurityGroupIngress{}
+func (t *Template) GetAllAWSElastiCacheSecurityGroupIngressResources() map[string]*AWSElastiCacheSecurityGroupIngress {
+	results := map[string]*AWSElastiCacheSecurityGroupIngress{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheSecurityGroupIngress:
+			results[name] = &resource
+		case *AWSElastiCacheSecurityGroupIngress:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -135,7 +142,8 @@ func (t *Template) GetAllAWSElastiCacheSecurityGroupIngressResources() map[strin
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElastiCacheSecurityGroupIngress
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -147,10 +155,12 @@ func (t *Template) GetAllAWSElastiCacheSecurityGroupIngressResources() map[strin
 
 // GetAWSElastiCacheSecurityGroupIngressWithName retrieves all AWSElastiCacheSecurityGroupIngress items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSElastiCacheSecurityGroupIngressWithName(name string) (AWSElastiCacheSecurityGroupIngress, error) {
+func (t *Template) GetAWSElastiCacheSecurityGroupIngressWithName(name string) (*AWSElastiCacheSecurityGroupIngress, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheSecurityGroupIngress:
+			return &resource, nil
+		case *AWSElastiCacheSecurityGroupIngress:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -162,12 +172,13 @@ func (t *Template) GetAWSElastiCacheSecurityGroupIngressWithName(name string) (A
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElastiCacheSecurityGroupIngress
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSElastiCacheSecurityGroupIngress{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

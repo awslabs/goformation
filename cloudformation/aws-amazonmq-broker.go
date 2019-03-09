@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -69,6 +70,11 @@ type AWSAmazonMQBroker struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
 	SubnetIds []string `json:"SubnetIds,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
+	Tags []AWSAmazonMQBroker_TagsEntry `json:"Tags,omitempty"`
 
 	// Users AWS CloudFormation Property
 	// Required: true
@@ -149,7 +155,11 @@ func (r *AWSAmazonMQBroker) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -169,11 +179,13 @@ func (r *AWSAmazonMQBroker) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSAmazonMQBrokerResources retrieves all AWSAmazonMQBroker items from an AWS CloudFormation template
-func (t *Template) GetAllAWSAmazonMQBrokerResources() map[string]AWSAmazonMQBroker {
-	results := map[string]AWSAmazonMQBroker{}
+func (t *Template) GetAllAWSAmazonMQBrokerResources() map[string]*AWSAmazonMQBroker {
+	results := map[string]*AWSAmazonMQBroker{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSAmazonMQBroker:
+			results[name] = &resource
+		case *AWSAmazonMQBroker:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -185,7 +197,8 @@ func (t *Template) GetAllAWSAmazonMQBrokerResources() map[string]AWSAmazonMQBrok
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSAmazonMQBroker
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -197,10 +210,12 @@ func (t *Template) GetAllAWSAmazonMQBrokerResources() map[string]AWSAmazonMQBrok
 
 // GetAWSAmazonMQBrokerWithName retrieves all AWSAmazonMQBroker items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSAmazonMQBrokerWithName(name string) (AWSAmazonMQBroker, error) {
+func (t *Template) GetAWSAmazonMQBrokerWithName(name string) (*AWSAmazonMQBroker, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSAmazonMQBroker:
+			return &resource, nil
+		case *AWSAmazonMQBroker:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -212,12 +227,13 @@ func (t *Template) GetAWSAmazonMQBrokerWithName(name string) (AWSAmazonMQBroker,
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSAmazonMQBroker
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSAmazonMQBroker{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

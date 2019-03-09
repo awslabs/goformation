@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -94,7 +95,11 @@ func (r *AWSCloudFrontStreamingDistribution) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,13 @@ func (r *AWSCloudFrontStreamingDistribution) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSCloudFrontStreamingDistributionResources retrieves all AWSCloudFrontStreamingDistribution items from an AWS CloudFormation template
-func (t *Template) GetAllAWSCloudFrontStreamingDistributionResources() map[string]AWSCloudFrontStreamingDistribution {
-	results := map[string]AWSCloudFrontStreamingDistribution{}
+func (t *Template) GetAllAWSCloudFrontStreamingDistributionResources() map[string]*AWSCloudFrontStreamingDistribution {
+	results := map[string]*AWSCloudFrontStreamingDistribution{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCloudFrontStreamingDistribution:
+			results[name] = &resource
+		case *AWSCloudFrontStreamingDistribution:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +137,8 @@ func (t *Template) GetAllAWSCloudFrontStreamingDistributionResources() map[strin
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCloudFrontStreamingDistribution
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +150,12 @@ func (t *Template) GetAllAWSCloudFrontStreamingDistributionResources() map[strin
 
 // GetAWSCloudFrontStreamingDistributionWithName retrieves all AWSCloudFrontStreamingDistribution items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSCloudFrontStreamingDistributionWithName(name string) (AWSCloudFrontStreamingDistribution, error) {
+func (t *Template) GetAWSCloudFrontStreamingDistributionWithName(name string) (*AWSCloudFrontStreamingDistribution, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCloudFrontStreamingDistribution:
+			return &resource, nil
+		case *AWSCloudFrontStreamingDistribution:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +167,13 @@ func (t *Template) GetAWSCloudFrontStreamingDistributionWithName(name string) (A
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCloudFrontStreamingDistribution
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSCloudFrontStreamingDistribution{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

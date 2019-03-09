@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -26,7 +27,7 @@ type AWSSNSSubscription struct {
 	FilterPolicy interface{} `json:"FilterPolicy,omitempty"`
 
 	// Protocol AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
 	Protocol string `json:"Protocol,omitempty"`
 
@@ -41,7 +42,7 @@ type AWSSNSSubscription struct {
 	Region string `json:"Region,omitempty"`
 
 	// TopicArn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
 	TopicArn string `json:"TopicArn,omitempty"`
 
@@ -119,7 +120,11 @@ func (r *AWSSNSSubscription) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -139,11 +144,13 @@ func (r *AWSSNSSubscription) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSSNSSubscriptionResources retrieves all AWSSNSSubscription items from an AWS CloudFormation template
-func (t *Template) GetAllAWSSNSSubscriptionResources() map[string]AWSSNSSubscription {
-	results := map[string]AWSSNSSubscription{}
+func (t *Template) GetAllAWSSNSSubscriptionResources() map[string]*AWSSNSSubscription {
+	results := map[string]*AWSSNSSubscription{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSNSSubscription:
+			results[name] = &resource
+		case *AWSSNSSubscription:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -155,7 +162,8 @@ func (t *Template) GetAllAWSSNSSubscriptionResources() map[string]AWSSNSSubscrip
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSNSSubscription
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -167,10 +175,12 @@ func (t *Template) GetAllAWSSNSSubscriptionResources() map[string]AWSSNSSubscrip
 
 // GetAWSSNSSubscriptionWithName retrieves all AWSSNSSubscription items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSSNSSubscriptionWithName(name string) (AWSSNSSubscription, error) {
+func (t *Template) GetAWSSNSSubscriptionWithName(name string) (*AWSSNSSubscription, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSNSSubscription:
+			return &resource, nil
+		case *AWSSNSSubscription:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -182,12 +192,13 @@ func (t *Template) GetAWSSNSSubscriptionWithName(name string) (AWSSNSSubscriptio
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSNSSubscription
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSSNSSubscription{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

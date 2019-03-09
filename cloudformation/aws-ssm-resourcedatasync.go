@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -114,7 +115,11 @@ func (r *AWSSSMResourceDataSync) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -134,11 +139,13 @@ func (r *AWSSSMResourceDataSync) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSSSMResourceDataSyncResources retrieves all AWSSSMResourceDataSync items from an AWS CloudFormation template
-func (t *Template) GetAllAWSSSMResourceDataSyncResources() map[string]AWSSSMResourceDataSync {
-	results := map[string]AWSSSMResourceDataSync{}
+func (t *Template) GetAllAWSSSMResourceDataSyncResources() map[string]*AWSSSMResourceDataSync {
+	results := map[string]*AWSSSMResourceDataSync{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSSMResourceDataSync:
+			results[name] = &resource
+		case *AWSSSMResourceDataSync:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -150,7 +157,8 @@ func (t *Template) GetAllAWSSSMResourceDataSyncResources() map[string]AWSSSMReso
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSSMResourceDataSync
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -162,10 +170,12 @@ func (t *Template) GetAllAWSSSMResourceDataSyncResources() map[string]AWSSSMReso
 
 // GetAWSSSMResourceDataSyncWithName retrieves all AWSSSMResourceDataSync items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSSSMResourceDataSyncWithName(name string) (AWSSSMResourceDataSync, error) {
+func (t *Template) GetAWSSSMResourceDataSyncWithName(name string) (*AWSSSMResourceDataSync, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSSMResourceDataSync:
+			return &resource, nil
+		case *AWSSSMResourceDataSync:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -177,12 +187,13 @@ func (t *Template) GetAWSSSMResourceDataSyncWithName(name string) (AWSSSMResourc
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSSMResourceDataSync
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSSSMResourceDataSync{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

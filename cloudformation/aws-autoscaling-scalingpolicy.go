@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -134,7 +135,11 @@ func (r *AWSAutoScalingScalingPolicy) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -154,11 +159,13 @@ func (r *AWSAutoScalingScalingPolicy) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSAutoScalingScalingPolicyResources retrieves all AWSAutoScalingScalingPolicy items from an AWS CloudFormation template
-func (t *Template) GetAllAWSAutoScalingScalingPolicyResources() map[string]AWSAutoScalingScalingPolicy {
-	results := map[string]AWSAutoScalingScalingPolicy{}
+func (t *Template) GetAllAWSAutoScalingScalingPolicyResources() map[string]*AWSAutoScalingScalingPolicy {
+	results := map[string]*AWSAutoScalingScalingPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSAutoScalingScalingPolicy:
+			results[name] = &resource
+		case *AWSAutoScalingScalingPolicy:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -170,7 +177,8 @@ func (t *Template) GetAllAWSAutoScalingScalingPolicyResources() map[string]AWSAu
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSAutoScalingScalingPolicy
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -182,10 +190,12 @@ func (t *Template) GetAllAWSAutoScalingScalingPolicyResources() map[string]AWSAu
 
 // GetAWSAutoScalingScalingPolicyWithName retrieves all AWSAutoScalingScalingPolicy items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSAutoScalingScalingPolicyWithName(name string) (AWSAutoScalingScalingPolicy, error) {
+func (t *Template) GetAWSAutoScalingScalingPolicyWithName(name string) (*AWSAutoScalingScalingPolicy, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSAutoScalingScalingPolicy:
+			return &resource, nil
+		case *AWSAutoScalingScalingPolicy:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -197,12 +207,13 @@ func (t *Template) GetAWSAutoScalingScalingPolicyWithName(name string) (AWSAutoS
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSAutoScalingScalingPolicy
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSAutoScalingScalingPolicy{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -164,7 +165,11 @@ func (r *AWSS3Bucket) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -184,11 +189,13 @@ func (r *AWSS3Bucket) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSS3BucketResources retrieves all AWSS3Bucket items from an AWS CloudFormation template
-func (t *Template) GetAllAWSS3BucketResources() map[string]AWSS3Bucket {
-	results := map[string]AWSS3Bucket{}
+func (t *Template) GetAllAWSS3BucketResources() map[string]*AWSS3Bucket {
+	results := map[string]*AWSS3Bucket{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSS3Bucket:
+			results[name] = &resource
+		case *AWSS3Bucket:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -200,7 +207,8 @@ func (t *Template) GetAllAWSS3BucketResources() map[string]AWSS3Bucket {
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSS3Bucket
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -212,10 +220,12 @@ func (t *Template) GetAllAWSS3BucketResources() map[string]AWSS3Bucket {
 
 // GetAWSS3BucketWithName retrieves all AWSS3Bucket items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSS3BucketWithName(name string) (AWSS3Bucket, error) {
+func (t *Template) GetAWSS3BucketWithName(name string) (*AWSS3Bucket, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSS3Bucket:
+			return &resource, nil
+		case *AWSS3Bucket:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -227,12 +237,13 @@ func (t *Template) GetAWSS3BucketWithName(name string) (AWSS3Bucket, error) {
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSS3Bucket
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSS3Bucket{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

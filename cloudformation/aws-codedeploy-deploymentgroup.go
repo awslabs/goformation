@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -159,7 +160,11 @@ func (r *AWSCodeDeployDeploymentGroup) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -179,11 +184,13 @@ func (r *AWSCodeDeployDeploymentGroup) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSCodeDeployDeploymentGroupResources retrieves all AWSCodeDeployDeploymentGroup items from an AWS CloudFormation template
-func (t *Template) GetAllAWSCodeDeployDeploymentGroupResources() map[string]AWSCodeDeployDeploymentGroup {
-	results := map[string]AWSCodeDeployDeploymentGroup{}
+func (t *Template) GetAllAWSCodeDeployDeploymentGroupResources() map[string]*AWSCodeDeployDeploymentGroup {
+	results := map[string]*AWSCodeDeployDeploymentGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployDeploymentGroup:
+			results[name] = &resource
+		case *AWSCodeDeployDeploymentGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -195,7 +202,8 @@ func (t *Template) GetAllAWSCodeDeployDeploymentGroupResources() map[string]AWSC
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCodeDeployDeploymentGroup
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -207,10 +215,12 @@ func (t *Template) GetAllAWSCodeDeployDeploymentGroupResources() map[string]AWSC
 
 // GetAWSCodeDeployDeploymentGroupWithName retrieves all AWSCodeDeployDeploymentGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSCodeDeployDeploymentGroupWithName(name string) (AWSCodeDeployDeploymentGroup, error) {
+func (t *Template) GetAWSCodeDeployDeploymentGroupWithName(name string) (*AWSCodeDeployDeploymentGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSCodeDeployDeploymentGroup:
+			return &resource, nil
+		case *AWSCodeDeployDeploymentGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -222,12 +232,13 @@ func (t *Template) GetAWSCodeDeployDeploymentGroupWithName(name string) (AWSCode
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSCodeDeployDeploymentGroup
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSCodeDeployDeploymentGroup{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

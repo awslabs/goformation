@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -99,7 +100,11 @@ func (r *AWSElastiCacheSubnetGroup) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -119,11 +124,13 @@ func (r *AWSElastiCacheSubnetGroup) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSElastiCacheSubnetGroupResources retrieves all AWSElastiCacheSubnetGroup items from an AWS CloudFormation template
-func (t *Template) GetAllAWSElastiCacheSubnetGroupResources() map[string]AWSElastiCacheSubnetGroup {
-	results := map[string]AWSElastiCacheSubnetGroup{}
+func (t *Template) GetAllAWSElastiCacheSubnetGroupResources() map[string]*AWSElastiCacheSubnetGroup {
+	results := map[string]*AWSElastiCacheSubnetGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheSubnetGroup:
+			results[name] = &resource
+		case *AWSElastiCacheSubnetGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -135,7 +142,8 @@ func (t *Template) GetAllAWSElastiCacheSubnetGroupResources() map[string]AWSElas
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElastiCacheSubnetGroup
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -147,10 +155,12 @@ func (t *Template) GetAllAWSElastiCacheSubnetGroupResources() map[string]AWSElas
 
 // GetAWSElastiCacheSubnetGroupWithName retrieves all AWSElastiCacheSubnetGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSElastiCacheSubnetGroupWithName(name string) (AWSElastiCacheSubnetGroup, error) {
+func (t *Template) GetAWSElastiCacheSubnetGroupWithName(name string) (*AWSElastiCacheSubnetGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheSubnetGroup:
+			return &resource, nil
+		case *AWSElastiCacheSubnetGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -162,12 +172,13 @@ func (t *Template) GetAWSElastiCacheSubnetGroupWithName(name string) (AWSElastiC
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElastiCacheSubnetGroup
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSElastiCacheSubnetGroup{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

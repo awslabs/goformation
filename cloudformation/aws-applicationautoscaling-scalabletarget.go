@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -119,7 +120,11 @@ func (r *AWSApplicationAutoScalingScalableTarget) UnmarshalJSON(b []byte) error 
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -139,11 +144,13 @@ func (r *AWSApplicationAutoScalingScalableTarget) UnmarshalJSON(b []byte) error 
 }
 
 // GetAllAWSApplicationAutoScalingScalableTargetResources retrieves all AWSApplicationAutoScalingScalableTarget items from an AWS CloudFormation template
-func (t *Template) GetAllAWSApplicationAutoScalingScalableTargetResources() map[string]AWSApplicationAutoScalingScalableTarget {
-	results := map[string]AWSApplicationAutoScalingScalableTarget{}
+func (t *Template) GetAllAWSApplicationAutoScalingScalableTargetResources() map[string]*AWSApplicationAutoScalingScalableTarget {
+	results := map[string]*AWSApplicationAutoScalingScalableTarget{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApplicationAutoScalingScalableTarget:
+			results[name] = &resource
+		case *AWSApplicationAutoScalingScalableTarget:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -155,7 +162,8 @@ func (t *Template) GetAllAWSApplicationAutoScalingScalableTargetResources() map[
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSApplicationAutoScalingScalableTarget
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -167,10 +175,12 @@ func (t *Template) GetAllAWSApplicationAutoScalingScalableTargetResources() map[
 
 // GetAWSApplicationAutoScalingScalableTargetWithName retrieves all AWSApplicationAutoScalingScalableTarget items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSApplicationAutoScalingScalableTargetWithName(name string) (AWSApplicationAutoScalingScalableTarget, error) {
+func (t *Template) GetAWSApplicationAutoScalingScalableTargetWithName(name string) (*AWSApplicationAutoScalingScalableTarget, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApplicationAutoScalingScalableTarget:
+			return &resource, nil
+		case *AWSApplicationAutoScalingScalableTarget:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -182,12 +192,13 @@ func (t *Template) GetAWSApplicationAutoScalingScalableTargetWithName(name strin
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSApplicationAutoScalingScalableTarget
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSApplicationAutoScalingScalableTarget{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

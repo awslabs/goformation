@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -120,6 +121,11 @@ type AWSRDSDBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
 	SnapshotIdentifier string `json:"SnapshotIdentifier,omitempty"`
 
+	// SourceRegion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
+	SourceRegion string `json:"SourceRegion,omitempty"`
+
 	// StorageEncrypted AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
@@ -209,7 +215,11 @@ func (r *AWSRDSDBCluster) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -229,11 +239,13 @@ func (r *AWSRDSDBCluster) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSRDSDBClusterResources retrieves all AWSRDSDBCluster items from an AWS CloudFormation template
-func (t *Template) GetAllAWSRDSDBClusterResources() map[string]AWSRDSDBCluster {
-	results := map[string]AWSRDSDBCluster{}
+func (t *Template) GetAllAWSRDSDBClusterResources() map[string]*AWSRDSDBCluster {
+	results := map[string]*AWSRDSDBCluster{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRDSDBCluster:
+			results[name] = &resource
+		case *AWSRDSDBCluster:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -245,7 +257,8 @@ func (t *Template) GetAllAWSRDSDBClusterResources() map[string]AWSRDSDBCluster {
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRDSDBCluster
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -257,10 +270,12 @@ func (t *Template) GetAllAWSRDSDBClusterResources() map[string]AWSRDSDBCluster {
 
 // GetAWSRDSDBClusterWithName retrieves all AWSRDSDBCluster items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSRDSDBClusterWithName(name string) (AWSRDSDBCluster, error) {
+func (t *Template) GetAWSRDSDBClusterWithName(name string) (*AWSRDSDBCluster, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRDSDBCluster:
+			return &resource, nil
+		case *AWSRDSDBCluster:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -272,12 +287,13 @@ func (t *Template) GetAWSRDSDBClusterWithName(name string) (AWSRDSDBCluster, err
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRDSDBCluster
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSRDSDBCluster{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -104,7 +105,11 @@ func (r *AWSEC2TransitGatewayAttachment) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -124,11 +129,13 @@ func (r *AWSEC2TransitGatewayAttachment) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSEC2TransitGatewayAttachmentResources retrieves all AWSEC2TransitGatewayAttachment items from an AWS CloudFormation template
-func (t *Template) GetAllAWSEC2TransitGatewayAttachmentResources() map[string]AWSEC2TransitGatewayAttachment {
-	results := map[string]AWSEC2TransitGatewayAttachment{}
+func (t *Template) GetAllAWSEC2TransitGatewayAttachmentResources() map[string]*AWSEC2TransitGatewayAttachment {
+	results := map[string]*AWSEC2TransitGatewayAttachment{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2TransitGatewayAttachment:
+			results[name] = &resource
+		case *AWSEC2TransitGatewayAttachment:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -140,7 +147,8 @@ func (t *Template) GetAllAWSEC2TransitGatewayAttachmentResources() map[string]AW
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2TransitGatewayAttachment
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -152,10 +160,12 @@ func (t *Template) GetAllAWSEC2TransitGatewayAttachmentResources() map[string]AW
 
 // GetAWSEC2TransitGatewayAttachmentWithName retrieves all AWSEC2TransitGatewayAttachment items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSEC2TransitGatewayAttachmentWithName(name string) (AWSEC2TransitGatewayAttachment, error) {
+func (t *Template) GetAWSEC2TransitGatewayAttachmentWithName(name string) (*AWSEC2TransitGatewayAttachment, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2TransitGatewayAttachment:
+			return &resource, nil
+		case *AWSEC2TransitGatewayAttachment:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -167,12 +177,13 @@ func (t *Template) GetAWSEC2TransitGatewayAttachmentWithName(name string) (AWSEC
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2TransitGatewayAttachment
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSEC2TransitGatewayAttachment{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

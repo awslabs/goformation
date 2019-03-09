@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -94,7 +95,11 @@ func (r *AWSWAFRegionalXssMatchSet) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,13 @@ func (r *AWSWAFRegionalXssMatchSet) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSWAFRegionalXssMatchSetResources retrieves all AWSWAFRegionalXssMatchSet items from an AWS CloudFormation template
-func (t *Template) GetAllAWSWAFRegionalXssMatchSetResources() map[string]AWSWAFRegionalXssMatchSet {
-	results := map[string]AWSWAFRegionalXssMatchSet{}
+func (t *Template) GetAllAWSWAFRegionalXssMatchSetResources() map[string]*AWSWAFRegionalXssMatchSet {
+	results := map[string]*AWSWAFRegionalXssMatchSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalXssMatchSet:
+			results[name] = &resource
+		case *AWSWAFRegionalXssMatchSet:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +137,8 @@ func (t *Template) GetAllAWSWAFRegionalXssMatchSetResources() map[string]AWSWAFR
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSWAFRegionalXssMatchSet
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +150,12 @@ func (t *Template) GetAllAWSWAFRegionalXssMatchSetResources() map[string]AWSWAFR
 
 // GetAWSWAFRegionalXssMatchSetWithName retrieves all AWSWAFRegionalXssMatchSet items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSWAFRegionalXssMatchSetWithName(name string) (AWSWAFRegionalXssMatchSet, error) {
+func (t *Template) GetAWSWAFRegionalXssMatchSetWithName(name string) (*AWSWAFRegionalXssMatchSet, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSWAFRegionalXssMatchSet:
+			return &resource, nil
+		case *AWSWAFRegionalXssMatchSet:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +167,13 @@ func (t *Template) GetAWSWAFRegionalXssMatchSetWithName(name string) (AWSWAFRegi
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSWAFRegionalXssMatchSet
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSWAFRegionalXssMatchSet{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

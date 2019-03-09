@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -189,7 +190,11 @@ func (r *AWSOpsWorksInstance) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -209,11 +214,13 @@ func (r *AWSOpsWorksInstance) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSOpsWorksInstanceResources retrieves all AWSOpsWorksInstance items from an AWS CloudFormation template
-func (t *Template) GetAllAWSOpsWorksInstanceResources() map[string]AWSOpsWorksInstance {
-	results := map[string]AWSOpsWorksInstance{}
+func (t *Template) GetAllAWSOpsWorksInstanceResources() map[string]*AWSOpsWorksInstance {
+	results := map[string]*AWSOpsWorksInstance{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSOpsWorksInstance:
+			results[name] = &resource
+		case *AWSOpsWorksInstance:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -225,7 +232,8 @@ func (t *Template) GetAllAWSOpsWorksInstanceResources() map[string]AWSOpsWorksIn
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSOpsWorksInstance
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -237,10 +245,12 @@ func (t *Template) GetAllAWSOpsWorksInstanceResources() map[string]AWSOpsWorksIn
 
 // GetAWSOpsWorksInstanceWithName retrieves all AWSOpsWorksInstance items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSOpsWorksInstanceWithName(name string) (AWSOpsWorksInstance, error) {
+func (t *Template) GetAWSOpsWorksInstanceWithName(name string) (*AWSOpsWorksInstance, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSOpsWorksInstance:
+			return &resource, nil
+		case *AWSOpsWorksInstance:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -252,12 +262,13 @@ func (t *Template) GetAWSOpsWorksInstanceWithName(name string) (AWSOpsWorksInsta
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSOpsWorksInstance
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSOpsWorksInstance{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }
