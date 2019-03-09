@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -109,7 +110,11 @@ func (r *AWSInspectorAssessmentTemplate) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -129,11 +134,13 @@ func (r *AWSInspectorAssessmentTemplate) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSInspectorAssessmentTemplateResources retrieves all AWSInspectorAssessmentTemplate items from an AWS CloudFormation template
-func (t *Template) GetAllAWSInspectorAssessmentTemplateResources() map[string]AWSInspectorAssessmentTemplate {
-	results := map[string]AWSInspectorAssessmentTemplate{}
+func (t *Template) GetAllAWSInspectorAssessmentTemplateResources() map[string]*AWSInspectorAssessmentTemplate {
+	results := map[string]*AWSInspectorAssessmentTemplate{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSInspectorAssessmentTemplate:
+			results[name] = &resource
+		case *AWSInspectorAssessmentTemplate:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -145,7 +152,8 @@ func (t *Template) GetAllAWSInspectorAssessmentTemplateResources() map[string]AW
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSInspectorAssessmentTemplate
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -157,10 +165,12 @@ func (t *Template) GetAllAWSInspectorAssessmentTemplateResources() map[string]AW
 
 // GetAWSInspectorAssessmentTemplateWithName retrieves all AWSInspectorAssessmentTemplate items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSInspectorAssessmentTemplateWithName(name string) (AWSInspectorAssessmentTemplate, error) {
+func (t *Template) GetAWSInspectorAssessmentTemplateWithName(name string) (*AWSInspectorAssessmentTemplate, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSInspectorAssessmentTemplate:
+			return &resource, nil
+		case *AWSInspectorAssessmentTemplate:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -172,12 +182,13 @@ func (t *Template) GetAWSInspectorAssessmentTemplateWithName(name string) (AWSIn
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSInspectorAssessmentTemplate
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSInspectorAssessmentTemplate{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

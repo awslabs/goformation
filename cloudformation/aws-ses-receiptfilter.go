@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -89,7 +90,11 @@ func (r *AWSSESReceiptFilter) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -109,11 +114,13 @@ func (r *AWSSESReceiptFilter) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSSESReceiptFilterResources retrieves all AWSSESReceiptFilter items from an AWS CloudFormation template
-func (t *Template) GetAllAWSSESReceiptFilterResources() map[string]AWSSESReceiptFilter {
-	results := map[string]AWSSESReceiptFilter{}
+func (t *Template) GetAllAWSSESReceiptFilterResources() map[string]*AWSSESReceiptFilter {
+	results := map[string]*AWSSESReceiptFilter{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSESReceiptFilter:
+			results[name] = &resource
+		case *AWSSESReceiptFilter:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -125,7 +132,8 @@ func (t *Template) GetAllAWSSESReceiptFilterResources() map[string]AWSSESReceipt
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSESReceiptFilter
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -137,10 +145,12 @@ func (t *Template) GetAllAWSSESReceiptFilterResources() map[string]AWSSESReceipt
 
 // GetAWSSESReceiptFilterWithName retrieves all AWSSESReceiptFilter items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSSESReceiptFilterWithName(name string) (AWSSESReceiptFilter, error) {
+func (t *Template) GetAWSSESReceiptFilterWithName(name string) (*AWSSESReceiptFilter, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSESReceiptFilter:
+			return &resource, nil
+		case *AWSSESReceiptFilter:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -152,12 +162,13 @@ func (t *Template) GetAWSSESReceiptFilterWithName(name string) (AWSSESReceiptFil
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSESReceiptFilter
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSSESReceiptFilter{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

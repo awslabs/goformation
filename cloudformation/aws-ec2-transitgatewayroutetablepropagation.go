@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -94,7 +95,11 @@ func (r *AWSEC2TransitGatewayRouteTablePropagation) UnmarshalJSON(b []byte) erro
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,13 @@ func (r *AWSEC2TransitGatewayRouteTablePropagation) UnmarshalJSON(b []byte) erro
 }
 
 // GetAllAWSEC2TransitGatewayRouteTablePropagationResources retrieves all AWSEC2TransitGatewayRouteTablePropagation items from an AWS CloudFormation template
-func (t *Template) GetAllAWSEC2TransitGatewayRouteTablePropagationResources() map[string]AWSEC2TransitGatewayRouteTablePropagation {
-	results := map[string]AWSEC2TransitGatewayRouteTablePropagation{}
+func (t *Template) GetAllAWSEC2TransitGatewayRouteTablePropagationResources() map[string]*AWSEC2TransitGatewayRouteTablePropagation {
+	results := map[string]*AWSEC2TransitGatewayRouteTablePropagation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2TransitGatewayRouteTablePropagation:
+			results[name] = &resource
+		case *AWSEC2TransitGatewayRouteTablePropagation:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +137,8 @@ func (t *Template) GetAllAWSEC2TransitGatewayRouteTablePropagationResources() ma
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2TransitGatewayRouteTablePropagation
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +150,12 @@ func (t *Template) GetAllAWSEC2TransitGatewayRouteTablePropagationResources() ma
 
 // GetAWSEC2TransitGatewayRouteTablePropagationWithName retrieves all AWSEC2TransitGatewayRouteTablePropagation items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSEC2TransitGatewayRouteTablePropagationWithName(name string) (AWSEC2TransitGatewayRouteTablePropagation, error) {
+func (t *Template) GetAWSEC2TransitGatewayRouteTablePropagationWithName(name string) (*AWSEC2TransitGatewayRouteTablePropagation, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2TransitGatewayRouteTablePropagation:
+			return &resource, nil
+		case *AWSEC2TransitGatewayRouteTablePropagation:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +167,13 @@ func (t *Template) GetAWSEC2TransitGatewayRouteTablePropagationWithName(name str
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2TransitGatewayRouteTablePropagation
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSEC2TransitGatewayRouteTablePropagation{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

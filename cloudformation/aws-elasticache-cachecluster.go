@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -189,7 +190,11 @@ func (r *AWSElastiCacheCacheCluster) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -209,11 +214,13 @@ func (r *AWSElastiCacheCacheCluster) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSElastiCacheCacheClusterResources retrieves all AWSElastiCacheCacheCluster items from an AWS CloudFormation template
-func (t *Template) GetAllAWSElastiCacheCacheClusterResources() map[string]AWSElastiCacheCacheCluster {
-	results := map[string]AWSElastiCacheCacheCluster{}
+func (t *Template) GetAllAWSElastiCacheCacheClusterResources() map[string]*AWSElastiCacheCacheCluster {
+	results := map[string]*AWSElastiCacheCacheCluster{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheCacheCluster:
+			results[name] = &resource
+		case *AWSElastiCacheCacheCluster:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -225,7 +232,8 @@ func (t *Template) GetAllAWSElastiCacheCacheClusterResources() map[string]AWSEla
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElastiCacheCacheCluster
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -237,10 +245,12 @@ func (t *Template) GetAllAWSElastiCacheCacheClusterResources() map[string]AWSEla
 
 // GetAWSElastiCacheCacheClusterWithName retrieves all AWSElastiCacheCacheCluster items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSElastiCacheCacheClusterWithName(name string) (AWSElastiCacheCacheCluster, error) {
+func (t *Template) GetAWSElastiCacheCacheClusterWithName(name string) (*AWSElastiCacheCacheCluster, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSElastiCacheCacheCluster:
+			return &resource, nil
+		case *AWSElastiCacheCacheCluster:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -252,12 +262,13 @@ func (t *Template) GetAWSElastiCacheCacheClusterWithName(name string) (AWSElasti
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSElastiCacheCacheCluster
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSElastiCacheCacheCluster{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

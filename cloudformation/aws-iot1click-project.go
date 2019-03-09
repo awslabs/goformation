@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -99,7 +100,11 @@ func (r *AWSIoT1ClickProject) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -119,11 +124,13 @@ func (r *AWSIoT1ClickProject) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSIoT1ClickProjectResources retrieves all AWSIoT1ClickProject items from an AWS CloudFormation template
-func (t *Template) GetAllAWSIoT1ClickProjectResources() map[string]AWSIoT1ClickProject {
-	results := map[string]AWSIoT1ClickProject{}
+func (t *Template) GetAllAWSIoT1ClickProjectResources() map[string]*AWSIoT1ClickProject {
+	results := map[string]*AWSIoT1ClickProject{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSIoT1ClickProject:
+			results[name] = &resource
+		case *AWSIoT1ClickProject:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -135,7 +142,8 @@ func (t *Template) GetAllAWSIoT1ClickProjectResources() map[string]AWSIoT1ClickP
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSIoT1ClickProject
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -147,10 +155,12 @@ func (t *Template) GetAllAWSIoT1ClickProjectResources() map[string]AWSIoT1ClickP
 
 // GetAWSIoT1ClickProjectWithName retrieves all AWSIoT1ClickProject items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSIoT1ClickProjectWithName(name string) (AWSIoT1ClickProject, error) {
+func (t *Template) GetAWSIoT1ClickProjectWithName(name string) (*AWSIoT1ClickProject, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSIoT1ClickProject:
+			return &resource, nil
+		case *AWSIoT1ClickProject:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -162,12 +172,13 @@ func (t *Template) GetAWSIoT1ClickProjectWithName(name string) (AWSIoT1ClickProj
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSIoT1ClickProject
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSIoT1ClickProject{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

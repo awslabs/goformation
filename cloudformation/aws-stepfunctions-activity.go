@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -14,6 +15,11 @@ type AWSStepFunctionsActivity struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name
 	Name string `json:"Name,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-tags
+	Tags []AWSStepFunctionsActivity_TagsEntry `json:"Tags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
@@ -89,7 +95,11 @@ func (r *AWSStepFunctionsActivity) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -109,11 +119,13 @@ func (r *AWSStepFunctionsActivity) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSStepFunctionsActivityResources retrieves all AWSStepFunctionsActivity items from an AWS CloudFormation template
-func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]AWSStepFunctionsActivity {
-	results := map[string]AWSStepFunctionsActivity{}
+func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]*AWSStepFunctionsActivity {
+	results := map[string]*AWSStepFunctionsActivity{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSStepFunctionsActivity:
+			results[name] = &resource
+		case *AWSStepFunctionsActivity:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -125,7 +137,8 @@ func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]AWSStepF
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSStepFunctionsActivity
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -137,10 +150,12 @@ func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]AWSStepF
 
 // GetAWSStepFunctionsActivityWithName retrieves all AWSStepFunctionsActivity items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSStepFunctionsActivityWithName(name string) (AWSStepFunctionsActivity, error) {
+func (t *Template) GetAWSStepFunctionsActivityWithName(name string) (*AWSStepFunctionsActivity, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSStepFunctionsActivity:
+			return &resource, nil
+		case *AWSStepFunctionsActivity:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -152,12 +167,13 @@ func (t *Template) GetAWSStepFunctionsActivityWithName(name string) (AWSStepFunc
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSStepFunctionsActivity
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSStepFunctionsActivity{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

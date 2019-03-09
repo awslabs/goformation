@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -104,7 +105,11 @@ func (r *AWSApiGatewayRequestValidator) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -124,11 +129,13 @@ func (r *AWSApiGatewayRequestValidator) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSApiGatewayRequestValidatorResources retrieves all AWSApiGatewayRequestValidator items from an AWS CloudFormation template
-func (t *Template) GetAllAWSApiGatewayRequestValidatorResources() map[string]AWSApiGatewayRequestValidator {
-	results := map[string]AWSApiGatewayRequestValidator{}
+func (t *Template) GetAllAWSApiGatewayRequestValidatorResources() map[string]*AWSApiGatewayRequestValidator {
+	results := map[string]*AWSApiGatewayRequestValidator{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayRequestValidator:
+			results[name] = &resource
+		case *AWSApiGatewayRequestValidator:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -140,7 +147,8 @@ func (t *Template) GetAllAWSApiGatewayRequestValidatorResources() map[string]AWS
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSApiGatewayRequestValidator
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -152,10 +160,12 @@ func (t *Template) GetAllAWSApiGatewayRequestValidatorResources() map[string]AWS
 
 // GetAWSApiGatewayRequestValidatorWithName retrieves all AWSApiGatewayRequestValidator items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSApiGatewayRequestValidatorWithName(name string) (AWSApiGatewayRequestValidator, error) {
+func (t *Template) GetAWSApiGatewayRequestValidatorWithName(name string) (*AWSApiGatewayRequestValidator, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSApiGatewayRequestValidator:
+			return &resource, nil
+		case *AWSApiGatewayRequestValidator:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -167,12 +177,13 @@ func (t *Template) GetAWSApiGatewayRequestValidatorWithName(name string) (AWSApi
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSApiGatewayRequestValidator
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSApiGatewayRequestValidator{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

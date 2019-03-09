@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -114,7 +115,11 @@ func (r *AWSGuardDutyFilter) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -134,11 +139,13 @@ func (r *AWSGuardDutyFilter) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSGuardDutyFilterResources retrieves all AWSGuardDutyFilter items from an AWS CloudFormation template
-func (t *Template) GetAllAWSGuardDutyFilterResources() map[string]AWSGuardDutyFilter {
-	results := map[string]AWSGuardDutyFilter{}
+func (t *Template) GetAllAWSGuardDutyFilterResources() map[string]*AWSGuardDutyFilter {
+	results := map[string]*AWSGuardDutyFilter{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSGuardDutyFilter:
+			results[name] = &resource
+		case *AWSGuardDutyFilter:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -150,7 +157,8 @@ func (t *Template) GetAllAWSGuardDutyFilterResources() map[string]AWSGuardDutyFi
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSGuardDutyFilter
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -162,10 +170,12 @@ func (t *Template) GetAllAWSGuardDutyFilterResources() map[string]AWSGuardDutyFi
 
 // GetAWSGuardDutyFilterWithName retrieves all AWSGuardDutyFilter items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSGuardDutyFilterWithName(name string) (AWSGuardDutyFilter, error) {
+func (t *Template) GetAWSGuardDutyFilterWithName(name string) (*AWSGuardDutyFilter, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSGuardDutyFilter:
+			return &resource, nil
+		case *AWSGuardDutyFilter:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -177,12 +187,13 @@ func (t *Template) GetAWSGuardDutyFilterWithName(name string) (AWSGuardDutyFilte
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSGuardDutyFilter
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSGuardDutyFilter{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

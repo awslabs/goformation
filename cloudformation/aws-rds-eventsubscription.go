@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -109,7 +110,11 @@ func (r *AWSRDSEventSubscription) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -129,11 +134,13 @@ func (r *AWSRDSEventSubscription) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSRDSEventSubscriptionResources retrieves all AWSRDSEventSubscription items from an AWS CloudFormation template
-func (t *Template) GetAllAWSRDSEventSubscriptionResources() map[string]AWSRDSEventSubscription {
-	results := map[string]AWSRDSEventSubscription{}
+func (t *Template) GetAllAWSRDSEventSubscriptionResources() map[string]*AWSRDSEventSubscription {
+	results := map[string]*AWSRDSEventSubscription{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSRDSEventSubscription:
+			results[name] = &resource
+		case *AWSRDSEventSubscription:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -145,7 +152,8 @@ func (t *Template) GetAllAWSRDSEventSubscriptionResources() map[string]AWSRDSEve
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRDSEventSubscription
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -157,10 +165,12 @@ func (t *Template) GetAllAWSRDSEventSubscriptionResources() map[string]AWSRDSEve
 
 // GetAWSRDSEventSubscriptionWithName retrieves all AWSRDSEventSubscription items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSRDSEventSubscriptionWithName(name string) (AWSRDSEventSubscription, error) {
+func (t *Template) GetAWSRDSEventSubscriptionWithName(name string) (*AWSRDSEventSubscription, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSRDSEventSubscription:
+			return &resource, nil
+		case *AWSRDSEventSubscription:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -172,12 +182,13 @@ func (t *Template) GetAWSRDSEventSubscriptionWithName(name string) (AWSRDSEventS
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSRDSEventSubscription
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSRDSEventSubscription{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

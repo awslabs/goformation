@@ -9,6 +9,16 @@ type AWSEC2LaunchTemplate_LaunchTemplateData struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-blockdevicemappings
 	BlockDeviceMappings []AWSEC2LaunchTemplate_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
+	// CapacityReservationSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification
+	CapacityReservationSpecification *AWSEC2LaunchTemplate_CapacityReservationSpecification `json:"CapacityReservationSpecification,omitempty"`
+
+	// CpuOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions
+	CpuOptions *AWSEC2LaunchTemplate_CpuOptions `json:"CpuOptions,omitempty"`
+
 	// CreditSpecification AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification
@@ -28,6 +38,16 @@ type AWSEC2LaunchTemplate_LaunchTemplateData struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications
 	ElasticGpuSpecifications []AWSEC2LaunchTemplate_ElasticGpuSpecification `json:"ElasticGpuSpecifications,omitempty"`
+
+	// ElasticInferenceAccelerators AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
+	ElasticInferenceAccelerators []AWSEC2LaunchTemplate_LaunchTemplateElasticInferenceAccelerator `json:"ElasticInferenceAccelerators,omitempty"`
+
+	// HibernationOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
+	HibernationOptions *AWSEC2LaunchTemplate_HibernationOptions `json:"HibernationOptions,omitempty"`
 
 	// IamInstanceProfile AWS CloudFormation Property
 	// Required: false
@@ -63,6 +83,11 @@ type AWSEC2LaunchTemplate_LaunchTemplateData struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-keyname
 	KeyName string `json:"KeyName,omitempty"`
+
+	// LicenseSpecifications AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
+	LicenseSpecifications []AWSEC2LaunchTemplate_LicenseSpecification `json:"LicenseSpecifications,omitempty"`
 
 	// Monitoring AWS CloudFormation Property
 	// Required: false
