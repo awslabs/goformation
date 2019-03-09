@@ -108,7 +108,7 @@ func (r *AWSCognitoIdentityPool) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSCognitoIdentityPool) MarshalJSON() ([]byte, error) {
+func (r AWSCognitoIdentityPool) MarshalJSON() ([]byte, error) {
 	type Properties AWSCognitoIdentityPool
 	return json.Marshal(&struct {
 		Type           string
@@ -118,7 +118,7 @@ func (r *AWSCognitoIdentityPool) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -163,6 +163,8 @@ func (t *Template) GetAllAWSCognitoIdentityPoolResources() map[string]*AWSCognit
 	results := map[string]*AWSCognitoIdentityPool{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSCognitoIdentityPool:
+			results[name] = &resource
 		case *AWSCognitoIdentityPool:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -191,6 +193,8 @@ func (t *Template) GetAllAWSCognitoIdentityPoolResources() map[string]*AWSCognit
 func (t *Template) GetAWSCognitoIdentityPoolWithName(name string) (*AWSCognitoIdentityPool, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSCognitoIdentityPool:
+			return &resource, nil
 		case *AWSCognitoIdentityPool:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

@@ -82,7 +82,7 @@ func (r *AWSCloudFormationWaitCondition) SetCreationPolicy(policy *CreationPolic
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSCloudFormationWaitCondition) MarshalJSON() ([]byte, error) {
+func (r AWSCloudFormationWaitCondition) MarshalJSON() ([]byte, error) {
 	type Properties AWSCloudFormationWaitCondition
 	return json.Marshal(&struct {
 		Type           string
@@ -94,7 +94,7 @@ func (r *AWSCloudFormationWaitCondition) MarshalJSON() ([]byte, error) {
 		CreationPolicy *CreationPolicy `json:"CreationPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -141,6 +141,8 @@ func (t *Template) GetAllAWSCloudFormationWaitConditionResources() map[string]*A
 	results := map[string]*AWSCloudFormationWaitCondition{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSCloudFormationWaitCondition:
+			results[name] = &resource
 		case *AWSCloudFormationWaitCondition:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -169,6 +171,8 @@ func (t *Template) GetAllAWSCloudFormationWaitConditionResources() map[string]*A
 func (t *Template) GetAWSCloudFormationWaitConditionWithName(name string) (*AWSCloudFormationWaitCondition, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSCloudFormationWaitCondition:
+			return &resource, nil
 		case *AWSCloudFormationWaitCondition:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

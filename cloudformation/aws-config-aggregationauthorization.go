@@ -68,7 +68,7 @@ func (r *AWSConfigAggregationAuthorization) SetDeletionPolicy(policy DeletionPol
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSConfigAggregationAuthorization) MarshalJSON() ([]byte, error) {
+func (r AWSConfigAggregationAuthorization) MarshalJSON() ([]byte, error) {
 	type Properties AWSConfigAggregationAuthorization
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSConfigAggregationAuthorization) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSConfigAggregationAuthorizationResources() map[string
 	results := map[string]*AWSConfigAggregationAuthorization{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSConfigAggregationAuthorization:
+			results[name] = &resource
 		case *AWSConfigAggregationAuthorization:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSConfigAggregationAuthorizationResources() map[string
 func (t *Template) GetAWSConfigAggregationAuthorizationWithName(name string) (*AWSConfigAggregationAuthorization, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSConfigAggregationAuthorization:
+			return &resource, nil
 		case *AWSConfigAggregationAuthorization:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

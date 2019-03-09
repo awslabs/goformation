@@ -93,7 +93,7 @@ func (r *AWSElasticBeanstalkConfigurationTemplate) SetDeletionPolicy(policy Dele
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSElasticBeanstalkConfigurationTemplate) MarshalJSON() ([]byte, error) {
+func (r AWSElasticBeanstalkConfigurationTemplate) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticBeanstalkConfigurationTemplate
 	return json.Marshal(&struct {
 		Type           string
@@ -103,7 +103,7 @@ func (r *AWSElasticBeanstalkConfigurationTemplate) MarshalJSON() ([]byte, error)
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -148,6 +148,8 @@ func (t *Template) GetAllAWSElasticBeanstalkConfigurationTemplateResources() map
 	results := map[string]*AWSElasticBeanstalkConfigurationTemplate{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSElasticBeanstalkConfigurationTemplate:
+			results[name] = &resource
 		case *AWSElasticBeanstalkConfigurationTemplate:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -176,6 +178,8 @@ func (t *Template) GetAllAWSElasticBeanstalkConfigurationTemplateResources() map
 func (t *Template) GetAWSElasticBeanstalkConfigurationTemplateWithName(name string) (*AWSElasticBeanstalkConfigurationTemplate, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSElasticBeanstalkConfigurationTemplate:
+			return &resource, nil
 		case *AWSElasticBeanstalkConfigurationTemplate:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

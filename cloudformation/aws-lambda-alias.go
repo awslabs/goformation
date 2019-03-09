@@ -92,7 +92,7 @@ func (r *AWSLambdaAlias) SetUpdatePolicy(policy *UpdatePolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSLambdaAlias) MarshalJSON() ([]byte, error) {
+func (r AWSLambdaAlias) MarshalJSON() ([]byte, error) {
 	type Properties AWSLambdaAlias
 	return json.Marshal(&struct {
 		Type           string
@@ -103,7 +103,7 @@ func (r *AWSLambdaAlias) MarshalJSON() ([]byte, error) {
 		UpdatePolicy   *UpdatePolicy          `json:"UpdatePolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -149,6 +149,8 @@ func (t *Template) GetAllAWSLambdaAliasResources() map[string]*AWSLambdaAlias {
 	results := map[string]*AWSLambdaAlias{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSLambdaAlias:
+			results[name] = &resource
 		case *AWSLambdaAlias:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -177,6 +179,8 @@ func (t *Template) GetAllAWSLambdaAliasResources() map[string]*AWSLambdaAlias {
 func (t *Template) GetAWSLambdaAliasWithName(name string) (*AWSLambdaAlias, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSLambdaAlias:
+			return &resource, nil
 		case *AWSLambdaAlias:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

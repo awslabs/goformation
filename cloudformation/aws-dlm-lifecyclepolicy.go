@@ -78,7 +78,7 @@ func (r *AWSDLMLifecyclePolicy) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSDLMLifecyclePolicy) MarshalJSON() ([]byte, error) {
+func (r AWSDLMLifecyclePolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSDLMLifecyclePolicy
 	return json.Marshal(&struct {
 		Type           string
@@ -88,7 +88,7 @@ func (r *AWSDLMLifecyclePolicy) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -133,6 +133,8 @@ func (t *Template) GetAllAWSDLMLifecyclePolicyResources() map[string]*AWSDLMLife
 	results := map[string]*AWSDLMLifecyclePolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSDLMLifecyclePolicy:
+			results[name] = &resource
 		case *AWSDLMLifecyclePolicy:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -161,6 +163,8 @@ func (t *Template) GetAllAWSDLMLifecyclePolicyResources() map[string]*AWSDLMLife
 func (t *Template) GetAWSDLMLifecyclePolicyWithName(name string) (*AWSDLMLifecyclePolicy, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSDLMLifecyclePolicy:
+			return &resource, nil
 		case *AWSDLMLifecyclePolicy:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

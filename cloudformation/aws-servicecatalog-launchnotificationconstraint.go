@@ -83,7 +83,7 @@ func (r *AWSServiceCatalogLaunchNotificationConstraint) SetDeletionPolicy(policy
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSServiceCatalogLaunchNotificationConstraint) MarshalJSON() ([]byte, error) {
+func (r AWSServiceCatalogLaunchNotificationConstraint) MarshalJSON() ([]byte, error) {
 	type Properties AWSServiceCatalogLaunchNotificationConstraint
 	return json.Marshal(&struct {
 		Type           string
@@ -93,7 +93,7 @@ func (r *AWSServiceCatalogLaunchNotificationConstraint) MarshalJSON() ([]byte, e
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -138,6 +138,8 @@ func (t *Template) GetAllAWSServiceCatalogLaunchNotificationConstraintResources(
 	results := map[string]*AWSServiceCatalogLaunchNotificationConstraint{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSServiceCatalogLaunchNotificationConstraint:
+			results[name] = &resource
 		case *AWSServiceCatalogLaunchNotificationConstraint:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -166,6 +168,8 @@ func (t *Template) GetAllAWSServiceCatalogLaunchNotificationConstraintResources(
 func (t *Template) GetAWSServiceCatalogLaunchNotificationConstraintWithName(name string) (*AWSServiceCatalogLaunchNotificationConstraint, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSServiceCatalogLaunchNotificationConstraint:
+			return &resource, nil
 		case *AWSServiceCatalogLaunchNotificationConstraint:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

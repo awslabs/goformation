@@ -73,7 +73,7 @@ func (r *AWSWAFRule) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSWAFRule) MarshalJSON() ([]byte, error) {
+func (r AWSWAFRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFRule
 	return json.Marshal(&struct {
 		Type           string
@@ -83,7 +83,7 @@ func (r *AWSWAFRule) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -128,6 +128,8 @@ func (t *Template) GetAllAWSWAFRuleResources() map[string]*AWSWAFRule {
 	results := map[string]*AWSWAFRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSWAFRule:
+			results[name] = &resource
 		case *AWSWAFRule:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -156,6 +158,8 @@ func (t *Template) GetAllAWSWAFRuleResources() map[string]*AWSWAFRule {
 func (t *Template) GetAWSWAFRuleWithName(name string) (*AWSWAFRule, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSWAFRule:
+			return &resource, nil
 		case *AWSWAFRule:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

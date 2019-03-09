@@ -68,7 +68,7 @@ func (r *AWSWAFSizeConstraintSet) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSWAFSizeConstraintSet) MarshalJSON() ([]byte, error) {
+func (r AWSWAFSizeConstraintSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFSizeConstraintSet
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSWAFSizeConstraintSet) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSWAFSizeConstraintSetResources() map[string]*AWSWAFSi
 	results := map[string]*AWSWAFSizeConstraintSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSWAFSizeConstraintSet:
+			results[name] = &resource
 		case *AWSWAFSizeConstraintSet:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSWAFSizeConstraintSetResources() map[string]*AWSWAFSi
 func (t *Template) GetAWSWAFSizeConstraintSetWithName(name string) (*AWSWAFSizeConstraintSet, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSWAFSizeConstraintSet:
+			return &resource, nil
 		case *AWSWAFSizeConstraintSet:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

@@ -68,7 +68,7 @@ func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) SetDeletionPol
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) MarshalJSON() ([]byte, error) {
+func (r AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) MarshalJSON() ([]byte, error) {
 	type Properties AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) MarshalJSON() 
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption
 	results := map[string]*AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
+			results[name] = &resource
 		case *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption
 func (t *Template) GetAWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOptionWithName(name string) (*AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
+			return &resource, nil
 		case *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

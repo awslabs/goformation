@@ -1,17 +1,17 @@
 package cloudformation
 
-// Tag AWS CloudFormation Resource (Tag)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-tag.html
-type Tag struct {
+// AWSStepFunctionsStateMachine_TagsEntry AWS CloudFormation Resource (AWS::StepFunctions::StateMachine.TagsEntry)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html
+type AWSStepFunctionsStateMachine_TagsEntry struct {
 
 	// Key AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-tag.html#cfn-dms-endpoint-tag-key
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
 	Key string `json:"Key,omitempty"`
 
 	// Value AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-tag.html#cfn-dms-endpoint-tag-value
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-value
 	Value string `json:"Value,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
@@ -25,36 +25,36 @@ type Tag struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Tag) AWSCloudFormationType() string {
-	return "Tag"
+func (r *AWSStepFunctionsStateMachine_TagsEntry) AWSCloudFormationType() string {
+	return "AWS::StepFunctions::StateMachine.TagsEntry"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) DependsOn() []string {
+func (r *AWSStepFunctionsStateMachine_TagsEntry) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Tag) SetDependsOn(dependencies []string) {
+func (r *AWSStepFunctionsStateMachine_TagsEntry) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) Metadata() map[string]interface{} {
+func (r *AWSStepFunctionsStateMachine_TagsEntry) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Tag) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSStepFunctionsStateMachine_TagsEntry) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Tag) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *AWSStepFunctionsStateMachine_TagsEntry) SetDeletionPolicy(policy DeletionPolicy) {
 	r._deletionPolicy = policy
 }

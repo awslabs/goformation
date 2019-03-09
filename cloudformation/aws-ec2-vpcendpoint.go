@@ -98,7 +98,7 @@ func (r *AWSEC2VPCEndpoint) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSEC2VPCEndpoint) MarshalJSON() ([]byte, error) {
+func (r AWSEC2VPCEndpoint) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2VPCEndpoint
 	return json.Marshal(&struct {
 		Type           string
@@ -108,7 +108,7 @@ func (r *AWSEC2VPCEndpoint) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -153,6 +153,8 @@ func (t *Template) GetAllAWSEC2VPCEndpointResources() map[string]*AWSEC2VPCEndpo
 	results := map[string]*AWSEC2VPCEndpoint{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSEC2VPCEndpoint:
+			results[name] = &resource
 		case *AWSEC2VPCEndpoint:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -181,6 +183,8 @@ func (t *Template) GetAllAWSEC2VPCEndpointResources() map[string]*AWSEC2VPCEndpo
 func (t *Template) GetAWSEC2VPCEndpointWithName(name string) (*AWSEC2VPCEndpoint, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSEC2VPCEndpoint:
+			return &resource, nil
 		case *AWSEC2VPCEndpoint:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

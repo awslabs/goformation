@@ -68,7 +68,7 @@ func (r *AWSBudgetsBudget) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSBudgetsBudget) MarshalJSON() ([]byte, error) {
+func (r AWSBudgetsBudget) MarshalJSON() ([]byte, error) {
 	type Properties AWSBudgetsBudget
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSBudgetsBudget) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSBudgetsBudgetResources() map[string]*AWSBudgetsBudge
 	results := map[string]*AWSBudgetsBudget{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSBudgetsBudget:
+			results[name] = &resource
 		case *AWSBudgetsBudget:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSBudgetsBudgetResources() map[string]*AWSBudgetsBudge
 func (t *Template) GetAWSBudgetsBudgetWithName(name string) (*AWSBudgetsBudget, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSBudgetsBudget:
+			return &resource, nil
 		case *AWSBudgetsBudget:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

@@ -108,7 +108,7 @@ func (r *AWSEMRInstanceGroupConfig) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSEMRInstanceGroupConfig) MarshalJSON() ([]byte, error) {
+func (r AWSEMRInstanceGroupConfig) MarshalJSON() ([]byte, error) {
 	type Properties AWSEMRInstanceGroupConfig
 	return json.Marshal(&struct {
 		Type           string
@@ -118,7 +118,7 @@ func (r *AWSEMRInstanceGroupConfig) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -163,6 +163,8 @@ func (t *Template) GetAllAWSEMRInstanceGroupConfigResources() map[string]*AWSEMR
 	results := map[string]*AWSEMRInstanceGroupConfig{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSEMRInstanceGroupConfig:
+			results[name] = &resource
 		case *AWSEMRInstanceGroupConfig:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -191,6 +193,8 @@ func (t *Template) GetAllAWSEMRInstanceGroupConfigResources() map[string]*AWSEMR
 func (t *Template) GetAWSEMRInstanceGroupConfigWithName(name string) (*AWSEMRInstanceGroupConfig, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSEMRInstanceGroupConfig:
+			return &resource, nil
 		case *AWSEMRInstanceGroupConfig:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

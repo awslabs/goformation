@@ -143,7 +143,7 @@ func (r *AWSCodeBuildProject) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSCodeBuildProject) MarshalJSON() ([]byte, error) {
+func (r AWSCodeBuildProject) MarshalJSON() ([]byte, error) {
 	type Properties AWSCodeBuildProject
 	return json.Marshal(&struct {
 		Type           string
@@ -153,7 +153,7 @@ func (r *AWSCodeBuildProject) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -198,6 +198,8 @@ func (t *Template) GetAllAWSCodeBuildProjectResources() map[string]*AWSCodeBuild
 	results := map[string]*AWSCodeBuildProject{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSCodeBuildProject:
+			results[name] = &resource
 		case *AWSCodeBuildProject:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -226,6 +228,8 @@ func (t *Template) GetAllAWSCodeBuildProjectResources() map[string]*AWSCodeBuild
 func (t *Template) GetAWSCodeBuildProjectWithName(name string) (*AWSCodeBuildProject, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSCodeBuildProject:
+			return &resource, nil
 		case *AWSCodeBuildProject:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

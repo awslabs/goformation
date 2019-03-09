@@ -78,7 +78,7 @@ func (r *AWSBatchJobQueue) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSBatchJobQueue) MarshalJSON() ([]byte, error) {
+func (r AWSBatchJobQueue) MarshalJSON() ([]byte, error) {
 	type Properties AWSBatchJobQueue
 	return json.Marshal(&struct {
 		Type           string
@@ -88,7 +88,7 @@ func (r *AWSBatchJobQueue) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -133,6 +133,8 @@ func (t *Template) GetAllAWSBatchJobQueueResources() map[string]*AWSBatchJobQueu
 	results := map[string]*AWSBatchJobQueue{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSBatchJobQueue:
+			results[name] = &resource
 		case *AWSBatchJobQueue:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -161,6 +163,8 @@ func (t *Template) GetAllAWSBatchJobQueueResources() map[string]*AWSBatchJobQueu
 func (t *Template) GetAWSBatchJobQueueWithName(name string) (*AWSBatchJobQueue, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSBatchJobQueue:
+			return &resource, nil
 		case *AWSBatchJobQueue:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

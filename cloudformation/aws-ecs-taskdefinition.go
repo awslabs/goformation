@@ -108,7 +108,7 @@ func (r *AWSECSTaskDefinition) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSECSTaskDefinition) MarshalJSON() ([]byte, error) {
+func (r AWSECSTaskDefinition) MarshalJSON() ([]byte, error) {
 	type Properties AWSECSTaskDefinition
 	return json.Marshal(&struct {
 		Type           string
@@ -118,7 +118,7 @@ func (r *AWSECSTaskDefinition) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -163,6 +163,8 @@ func (t *Template) GetAllAWSECSTaskDefinitionResources() map[string]*AWSECSTaskD
 	results := map[string]*AWSECSTaskDefinition{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSECSTaskDefinition:
+			results[name] = &resource
 		case *AWSECSTaskDefinition:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -191,6 +193,8 @@ func (t *Template) GetAllAWSECSTaskDefinitionResources() map[string]*AWSECSTaskD
 func (t *Template) GetAWSECSTaskDefinitionWithName(name string) (*AWSECSTaskDefinition, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSECSTaskDefinition:
+			return &resource, nil
 		case *AWSECSTaskDefinition:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

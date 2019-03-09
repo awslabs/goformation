@@ -73,7 +73,7 @@ func (r *AWSIoTAnalyticsDatastore) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSIoTAnalyticsDatastore) MarshalJSON() ([]byte, error) {
+func (r AWSIoTAnalyticsDatastore) MarshalJSON() ([]byte, error) {
 	type Properties AWSIoTAnalyticsDatastore
 	return json.Marshal(&struct {
 		Type           string
@@ -83,7 +83,7 @@ func (r *AWSIoTAnalyticsDatastore) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -128,6 +128,8 @@ func (t *Template) GetAllAWSIoTAnalyticsDatastoreResources() map[string]*AWSIoTA
 	results := map[string]*AWSIoTAnalyticsDatastore{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSIoTAnalyticsDatastore:
+			results[name] = &resource
 		case *AWSIoTAnalyticsDatastore:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -156,6 +158,8 @@ func (t *Template) GetAllAWSIoTAnalyticsDatastoreResources() map[string]*AWSIoTA
 func (t *Template) GetAWSIoTAnalyticsDatastoreWithName(name string) (*AWSIoTAnalyticsDatastore, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSIoTAnalyticsDatastore:
+			return &resource, nil
 		case *AWSIoTAnalyticsDatastore:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

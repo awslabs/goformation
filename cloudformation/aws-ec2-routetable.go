@@ -68,7 +68,7 @@ func (r *AWSEC2RouteTable) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSEC2RouteTable) MarshalJSON() ([]byte, error) {
+func (r AWSEC2RouteTable) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2RouteTable
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSEC2RouteTable) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSEC2RouteTableResources() map[string]*AWSEC2RouteTabl
 	results := map[string]*AWSEC2RouteTable{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSEC2RouteTable:
+			results[name] = &resource
 		case *AWSEC2RouteTable:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSEC2RouteTableResources() map[string]*AWSEC2RouteTabl
 func (t *Template) GetAWSEC2RouteTableWithName(name string) (*AWSEC2RouteTable, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSEC2RouteTable:
+			return &resource, nil
 		case *AWSEC2RouteTable:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

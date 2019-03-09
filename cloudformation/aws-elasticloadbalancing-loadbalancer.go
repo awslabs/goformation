@@ -138,7 +138,7 @@ func (r *AWSElasticLoadBalancingLoadBalancer) SetDeletionPolicy(policy DeletionP
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSElasticLoadBalancingLoadBalancer) MarshalJSON() ([]byte, error) {
+func (r AWSElasticLoadBalancingLoadBalancer) MarshalJSON() ([]byte, error) {
 	type Properties AWSElasticLoadBalancingLoadBalancer
 	return json.Marshal(&struct {
 		Type           string
@@ -148,7 +148,7 @@ func (r *AWSElasticLoadBalancingLoadBalancer) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -193,6 +193,8 @@ func (t *Template) GetAllAWSElasticLoadBalancingLoadBalancerResources() map[stri
 	results := map[string]*AWSElasticLoadBalancingLoadBalancer{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSElasticLoadBalancingLoadBalancer:
+			results[name] = &resource
 		case *AWSElasticLoadBalancingLoadBalancer:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -221,6 +223,8 @@ func (t *Template) GetAllAWSElasticLoadBalancingLoadBalancerResources() map[stri
 func (t *Template) GetAWSElasticLoadBalancingLoadBalancerWithName(name string) (*AWSElasticLoadBalancingLoadBalancer, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSElasticLoadBalancingLoadBalancer:
+			return &resource, nil
 		case *AWSElasticLoadBalancingLoadBalancer:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

@@ -88,7 +88,7 @@ func (r *AWSRoute53ResolverResolverRule) SetDeletionPolicy(policy DeletionPolicy
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSRoute53ResolverResolverRule) MarshalJSON() ([]byte, error) {
+func (r AWSRoute53ResolverResolverRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSRoute53ResolverResolverRule
 	return json.Marshal(&struct {
 		Type           string
@@ -98,7 +98,7 @@ func (r *AWSRoute53ResolverResolverRule) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -143,6 +143,8 @@ func (t *Template) GetAllAWSRoute53ResolverResolverRuleResources() map[string]*A
 	results := map[string]*AWSRoute53ResolverResolverRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSRoute53ResolverResolverRule:
+			results[name] = &resource
 		case *AWSRoute53ResolverResolverRule:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -171,6 +173,8 @@ func (t *Template) GetAllAWSRoute53ResolverResolverRuleResources() map[string]*A
 func (t *Template) GetAWSRoute53ResolverResolverRuleWithName(name string) (*AWSRoute53ResolverResolverRule, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSRoute53ResolverResolverRule:
+			return &resource, nil
 		case *AWSRoute53ResolverResolverRule:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

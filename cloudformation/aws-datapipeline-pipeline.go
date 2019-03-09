@@ -93,7 +93,7 @@ func (r *AWSDataPipelinePipeline) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSDataPipelinePipeline) MarshalJSON() ([]byte, error) {
+func (r AWSDataPipelinePipeline) MarshalJSON() ([]byte, error) {
 	type Properties AWSDataPipelinePipeline
 	return json.Marshal(&struct {
 		Type           string
@@ -103,7 +103,7 @@ func (r *AWSDataPipelinePipeline) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -148,6 +148,8 @@ func (t *Template) GetAllAWSDataPipelinePipelineResources() map[string]*AWSDataP
 	results := map[string]*AWSDataPipelinePipeline{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSDataPipelinePipeline:
+			results[name] = &resource
 		case *AWSDataPipelinePipeline:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -176,6 +178,8 @@ func (t *Template) GetAllAWSDataPipelinePipelineResources() map[string]*AWSDataP
 func (t *Template) GetAWSDataPipelinePipelineWithName(name string) (*AWSDataPipelinePipeline, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSDataPipelinePipeline:
+			return &resource, nil
 		case *AWSDataPipelinePipeline:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

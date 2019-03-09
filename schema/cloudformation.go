@@ -37171,6 +37171,12 @@ var CloudformationSchema = `{
                                 "$ref": "#/definitions/AWS::SSM::PatchBaseline.PatchSource"
                             },
                             "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -39318,6 +39324,12 @@ var CloudformationSchema = `{
                     "properties": {
                         "Name": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::StepFunctions::Activity.TagsEntry"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -39335,6 +39347,22 @@ var CloudformationSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::StepFunctions::Activity.TagsEntry": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -39378,6 +39406,12 @@ var CloudformationSchema = `{
                         },
                         "StateMachineName": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::StepFunctions::StateMachine.TagsEntry"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -39396,6 +39430,22 @@ var CloudformationSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::StepFunctions::StateMachine.TagsEntry": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -41062,10 +41112,6 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "Key",
-                "Value"
-            ],
             "type": "object"
         }
     },

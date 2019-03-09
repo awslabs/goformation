@@ -93,7 +93,7 @@ func (r *AWSEC2Subnet) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSEC2Subnet) MarshalJSON() ([]byte, error) {
+func (r AWSEC2Subnet) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2Subnet
 	return json.Marshal(&struct {
 		Type           string
@@ -103,7 +103,7 @@ func (r *AWSEC2Subnet) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -148,6 +148,8 @@ func (t *Template) GetAllAWSEC2SubnetResources() map[string]*AWSEC2Subnet {
 	results := map[string]*AWSEC2Subnet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSEC2Subnet:
+			results[name] = &resource
 		case *AWSEC2Subnet:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -176,6 +178,8 @@ func (t *Template) GetAllAWSEC2SubnetResources() map[string]*AWSEC2Subnet {
 func (t *Template) GetAWSEC2SubnetWithName(name string) (*AWSEC2Subnet, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSEC2Subnet:
+			return &resource, nil
 		case *AWSEC2Subnet:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

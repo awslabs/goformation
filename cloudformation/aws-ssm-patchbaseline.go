@@ -71,6 +71,11 @@ type AWSSSMPatchBaseline struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
 	Sources []AWSSSMPatchBaseline_PatchSource `json:"Sources,omitempty"`
 
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-tags
+	Tags []Tag `json:"Tags,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 
@@ -118,7 +123,7 @@ func (r *AWSSSMPatchBaseline) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSSSMPatchBaseline) MarshalJSON() ([]byte, error) {
+func (r AWSSSMPatchBaseline) MarshalJSON() ([]byte, error) {
 	type Properties AWSSSMPatchBaseline
 	return json.Marshal(&struct {
 		Type           string
@@ -128,7 +133,7 @@ func (r *AWSSSMPatchBaseline) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -173,6 +178,8 @@ func (t *Template) GetAllAWSSSMPatchBaselineResources() map[string]*AWSSSMPatchB
 	results := map[string]*AWSSSMPatchBaseline{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSSSMPatchBaseline:
+			results[name] = &resource
 		case *AWSSSMPatchBaseline:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -201,6 +208,8 @@ func (t *Template) GetAllAWSSSMPatchBaselineResources() map[string]*AWSSSMPatchB
 func (t *Template) GetAWSSSMPatchBaselineWithName(name string) (*AWSSSMPatchBaseline, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSSSMPatchBaseline:
+			return &resource, nil
 		case *AWSSSMPatchBaseline:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

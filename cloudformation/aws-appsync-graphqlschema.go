@@ -73,7 +73,7 @@ func (r *AWSAppSyncGraphQLSchema) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSAppSyncGraphQLSchema) MarshalJSON() ([]byte, error) {
+func (r AWSAppSyncGraphQLSchema) MarshalJSON() ([]byte, error) {
 	type Properties AWSAppSyncGraphQLSchema
 	return json.Marshal(&struct {
 		Type           string
@@ -83,7 +83,7 @@ func (r *AWSAppSyncGraphQLSchema) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -128,6 +128,8 @@ func (t *Template) GetAllAWSAppSyncGraphQLSchemaResources() map[string]*AWSAppSy
 	results := map[string]*AWSAppSyncGraphQLSchema{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSAppSyncGraphQLSchema:
+			results[name] = &resource
 		case *AWSAppSyncGraphQLSchema:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -156,6 +158,8 @@ func (t *Template) GetAllAWSAppSyncGraphQLSchemaResources() map[string]*AWSAppSy
 func (t *Template) GetAWSAppSyncGraphQLSchemaWithName(name string) (*AWSAppSyncGraphQLSchema, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSAppSyncGraphQLSchema:
+			return &resource, nil
 		case *AWSAppSyncGraphQLSchema:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

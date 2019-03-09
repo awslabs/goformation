@@ -98,7 +98,7 @@ func (r *AWSApplicationAutoScalingScalingPolicy) SetDeletionPolicy(policy Deleti
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSApplicationAutoScalingScalingPolicy) MarshalJSON() ([]byte, error) {
+func (r AWSApplicationAutoScalingScalingPolicy) MarshalJSON() ([]byte, error) {
 	type Properties AWSApplicationAutoScalingScalingPolicy
 	return json.Marshal(&struct {
 		Type           string
@@ -108,7 +108,7 @@ func (r *AWSApplicationAutoScalingScalingPolicy) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -153,6 +153,8 @@ func (t *Template) GetAllAWSApplicationAutoScalingScalingPolicyResources() map[s
 	results := map[string]*AWSApplicationAutoScalingScalingPolicy{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSApplicationAutoScalingScalingPolicy:
+			results[name] = &resource
 		case *AWSApplicationAutoScalingScalingPolicy:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -181,6 +183,8 @@ func (t *Template) GetAllAWSApplicationAutoScalingScalingPolicyResources() map[s
 func (t *Template) GetAWSApplicationAutoScalingScalingPolicyWithName(name string) (*AWSApplicationAutoScalingScalingPolicy, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSApplicationAutoScalingScalingPolicy:
+			return &resource, nil
 		case *AWSApplicationAutoScalingScalingPolicy:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

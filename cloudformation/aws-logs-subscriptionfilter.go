@@ -78,7 +78,7 @@ func (r *AWSLogsSubscriptionFilter) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSLogsSubscriptionFilter) MarshalJSON() ([]byte, error) {
+func (r AWSLogsSubscriptionFilter) MarshalJSON() ([]byte, error) {
 	type Properties AWSLogsSubscriptionFilter
 	return json.Marshal(&struct {
 		Type           string
@@ -88,7 +88,7 @@ func (r *AWSLogsSubscriptionFilter) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -133,6 +133,8 @@ func (t *Template) GetAllAWSLogsSubscriptionFilterResources() map[string]*AWSLog
 	results := map[string]*AWSLogsSubscriptionFilter{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSLogsSubscriptionFilter:
+			results[name] = &resource
 		case *AWSLogsSubscriptionFilter:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -161,6 +163,8 @@ func (t *Template) GetAllAWSLogsSubscriptionFilterResources() map[string]*AWSLog
 func (t *Template) GetAWSLogsSubscriptionFilterWithName(name string) (*AWSLogsSubscriptionFilter, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSLogsSubscriptionFilter:
+			return &resource, nil
 		case *AWSLogsSubscriptionFilter:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

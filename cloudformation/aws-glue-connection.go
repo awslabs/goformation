@@ -68,7 +68,7 @@ func (r *AWSGlueConnection) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSGlueConnection) MarshalJSON() ([]byte, error) {
+func (r AWSGlueConnection) MarshalJSON() ([]byte, error) {
 	type Properties AWSGlueConnection
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSGlueConnection) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSGlueConnectionResources() map[string]*AWSGlueConnect
 	results := map[string]*AWSGlueConnection{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSGlueConnection:
+			results[name] = &resource
 		case *AWSGlueConnection:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSGlueConnectionResources() map[string]*AWSGlueConnect
 func (t *Template) GetAWSGlueConnectionWithName(name string) (*AWSGlueConnection, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSGlueConnection:
+			return &resource, nil
 		case *AWSGlueConnection:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

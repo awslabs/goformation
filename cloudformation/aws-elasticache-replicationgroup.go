@@ -203,7 +203,7 @@ func (r *AWSElastiCacheReplicationGroup) SetDeletionPolicy(policy DeletionPolicy
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSElastiCacheReplicationGroup) MarshalJSON() ([]byte, error) {
+func (r AWSElastiCacheReplicationGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSElastiCacheReplicationGroup
 	return json.Marshal(&struct {
 		Type           string
@@ -213,7 +213,7 @@ func (r *AWSElastiCacheReplicationGroup) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -258,6 +258,8 @@ func (t *Template) GetAllAWSElastiCacheReplicationGroupResources() map[string]*A
 	results := map[string]*AWSElastiCacheReplicationGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSElastiCacheReplicationGroup:
+			results[name] = &resource
 		case *AWSElastiCacheReplicationGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -286,6 +288,8 @@ func (t *Template) GetAllAWSElastiCacheReplicationGroupResources() map[string]*A
 func (t *Template) GetAWSElastiCacheReplicationGroupWithName(name string) (*AWSElastiCacheReplicationGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSElastiCacheReplicationGroup:
+			return &resource, nil
 		case *AWSElastiCacheReplicationGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

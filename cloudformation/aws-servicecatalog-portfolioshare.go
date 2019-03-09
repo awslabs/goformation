@@ -73,7 +73,7 @@ func (r *AWSServiceCatalogPortfolioShare) SetDeletionPolicy(policy DeletionPolic
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSServiceCatalogPortfolioShare) MarshalJSON() ([]byte, error) {
+func (r AWSServiceCatalogPortfolioShare) MarshalJSON() ([]byte, error) {
 	type Properties AWSServiceCatalogPortfolioShare
 	return json.Marshal(&struct {
 		Type           string
@@ -83,7 +83,7 @@ func (r *AWSServiceCatalogPortfolioShare) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -128,6 +128,8 @@ func (t *Template) GetAllAWSServiceCatalogPortfolioShareResources() map[string]*
 	results := map[string]*AWSServiceCatalogPortfolioShare{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSServiceCatalogPortfolioShare:
+			results[name] = &resource
 		case *AWSServiceCatalogPortfolioShare:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -156,6 +158,8 @@ func (t *Template) GetAllAWSServiceCatalogPortfolioShareResources() map[string]*
 func (t *Template) GetAWSServiceCatalogPortfolioShareWithName(name string) (*AWSServiceCatalogPortfolioShare, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSServiceCatalogPortfolioShare:
+			return &resource, nil
 		case *AWSServiceCatalogPortfolioShare:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

@@ -83,7 +83,7 @@ func (r *AWSDocDBDBClusterParameterGroup) SetDeletionPolicy(policy DeletionPolic
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSDocDBDBClusterParameterGroup) MarshalJSON() ([]byte, error) {
+func (r AWSDocDBDBClusterParameterGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSDocDBDBClusterParameterGroup
 	return json.Marshal(&struct {
 		Type           string
@@ -93,7 +93,7 @@ func (r *AWSDocDBDBClusterParameterGroup) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -138,6 +138,8 @@ func (t *Template) GetAllAWSDocDBDBClusterParameterGroupResources() map[string]*
 	results := map[string]*AWSDocDBDBClusterParameterGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSDocDBDBClusterParameterGroup:
+			results[name] = &resource
 		case *AWSDocDBDBClusterParameterGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -166,6 +168,8 @@ func (t *Template) GetAllAWSDocDBDBClusterParameterGroupResources() map[string]*
 func (t *Template) GetAWSDocDBDBClusterParameterGroupWithName(name string) (*AWSDocDBDBClusterParameterGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSDocDBDBClusterParameterGroup:
+			return &resource, nil
 		case *AWSDocDBDBClusterParameterGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

@@ -237,7 +237,7 @@ func (r *AWSEC2Instance) SetCreationPolicy(policy *CreationPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSEC2Instance) MarshalJSON() ([]byte, error) {
+func (r AWSEC2Instance) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2Instance
 	return json.Marshal(&struct {
 		Type           string
@@ -249,7 +249,7 @@ func (r *AWSEC2Instance) MarshalJSON() ([]byte, error) {
 		CreationPolicy *CreationPolicy `json:"CreationPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -296,6 +296,8 @@ func (t *Template) GetAllAWSEC2InstanceResources() map[string]*AWSEC2Instance {
 	results := map[string]*AWSEC2Instance{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSEC2Instance:
+			results[name] = &resource
 		case *AWSEC2Instance:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -324,6 +326,8 @@ func (t *Template) GetAllAWSEC2InstanceResources() map[string]*AWSEC2Instance {
 func (t *Template) GetAWSEC2InstanceWithName(name string) (*AWSEC2Instance, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSEC2Instance:
+			return &resource, nil
 		case *AWSEC2Instance:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

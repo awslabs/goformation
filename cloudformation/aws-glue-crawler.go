@@ -108,7 +108,7 @@ func (r *AWSGlueCrawler) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSGlueCrawler) MarshalJSON() ([]byte, error) {
+func (r AWSGlueCrawler) MarshalJSON() ([]byte, error) {
 	type Properties AWSGlueCrawler
 	return json.Marshal(&struct {
 		Type           string
@@ -118,7 +118,7 @@ func (r *AWSGlueCrawler) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -163,6 +163,8 @@ func (t *Template) GetAllAWSGlueCrawlerResources() map[string]*AWSGlueCrawler {
 	results := map[string]*AWSGlueCrawler{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSGlueCrawler:
+			results[name] = &resource
 		case *AWSGlueCrawler:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -191,6 +193,8 @@ func (t *Template) GetAllAWSGlueCrawlerResources() map[string]*AWSGlueCrawler {
 func (t *Template) GetAWSGlueCrawlerWithName(name string) (*AWSGlueCrawler, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSGlueCrawler:
+			return &resource, nil
 		case *AWSGlueCrawler:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

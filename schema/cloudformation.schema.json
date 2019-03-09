@@ -37168,6 +37168,12 @@
                                 "$ref": "#/definitions/AWS::SSM::PatchBaseline.PatchSource"
                             },
                             "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -39315,6 +39321,12 @@
                     "properties": {
                         "Name": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::StepFunctions::Activity.TagsEntry"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -39332,6 +39344,22 @@
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::StepFunctions::Activity.TagsEntry": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -39375,6 +39403,12 @@
                         },
                         "StateMachineName": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::StepFunctions::StateMachine.TagsEntry"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -39393,6 +39427,22 @@
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::StepFunctions::StateMachine.TagsEntry": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -41059,10 +41109,6 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "Key",
-                "Value"
-            ],
             "type": "object"
         }
     },

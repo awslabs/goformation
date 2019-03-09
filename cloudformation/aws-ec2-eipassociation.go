@@ -83,7 +83,7 @@ func (r *AWSEC2EIPAssociation) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSEC2EIPAssociation) MarshalJSON() ([]byte, error) {
+func (r AWSEC2EIPAssociation) MarshalJSON() ([]byte, error) {
 	type Properties AWSEC2EIPAssociation
 	return json.Marshal(&struct {
 		Type           string
@@ -93,7 +93,7 @@ func (r *AWSEC2EIPAssociation) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -138,6 +138,8 @@ func (t *Template) GetAllAWSEC2EIPAssociationResources() map[string]*AWSEC2EIPAs
 	results := map[string]*AWSEC2EIPAssociation{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSEC2EIPAssociation:
+			results[name] = &resource
 		case *AWSEC2EIPAssociation:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -166,6 +168,8 @@ func (t *Template) GetAllAWSEC2EIPAssociationResources() map[string]*AWSEC2EIPAs
 func (t *Template) GetAWSEC2EIPAssociationWithName(name string) (*AWSEC2EIPAssociation, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSEC2EIPAssociation:
+			return &resource, nil
 		case *AWSEC2EIPAssociation:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

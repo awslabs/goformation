@@ -68,7 +68,7 @@ func (r *AWSKinesisAnalyticsV2ApplicationOutput) SetDeletionPolicy(policy Deleti
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSKinesisAnalyticsV2ApplicationOutput) MarshalJSON() ([]byte, error) {
+func (r AWSKinesisAnalyticsV2ApplicationOutput) MarshalJSON() ([]byte, error) {
 	type Properties AWSKinesisAnalyticsV2ApplicationOutput
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSKinesisAnalyticsV2ApplicationOutput) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSKinesisAnalyticsV2ApplicationOutputResources() map[s
 	results := map[string]*AWSKinesisAnalyticsV2ApplicationOutput{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSKinesisAnalyticsV2ApplicationOutput:
+			results[name] = &resource
 		case *AWSKinesisAnalyticsV2ApplicationOutput:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSKinesisAnalyticsV2ApplicationOutputResources() map[s
 func (t *Template) GetAWSKinesisAnalyticsV2ApplicationOutputWithName(name string) (*AWSKinesisAnalyticsV2ApplicationOutput, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSKinesisAnalyticsV2ApplicationOutput:
+			return &resource, nil
 		case *AWSKinesisAnalyticsV2ApplicationOutput:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

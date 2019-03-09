@@ -118,7 +118,7 @@ func (r *AWSDynamoDBTable) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSDynamoDBTable) MarshalJSON() ([]byte, error) {
+func (r AWSDynamoDBTable) MarshalJSON() ([]byte, error) {
 	type Properties AWSDynamoDBTable
 	return json.Marshal(&struct {
 		Type           string
@@ -128,7 +128,7 @@ func (r *AWSDynamoDBTable) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -173,6 +173,8 @@ func (t *Template) GetAllAWSDynamoDBTableResources() map[string]*AWSDynamoDBTabl
 	results := map[string]*AWSDynamoDBTable{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSDynamoDBTable:
+			results[name] = &resource
 		case *AWSDynamoDBTable:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -201,6 +203,8 @@ func (t *Template) GetAllAWSDynamoDBTableResources() map[string]*AWSDynamoDBTabl
 func (t *Template) GetAWSDynamoDBTableWithName(name string) (*AWSDynamoDBTable, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSDynamoDBTable:
+			return &resource, nil
 		case *AWSDynamoDBTable:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

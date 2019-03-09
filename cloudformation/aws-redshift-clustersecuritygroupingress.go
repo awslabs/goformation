@@ -78,7 +78,7 @@ func (r *AWSRedshiftClusterSecurityGroupIngress) SetDeletionPolicy(policy Deleti
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSRedshiftClusterSecurityGroupIngress) MarshalJSON() ([]byte, error) {
+func (r AWSRedshiftClusterSecurityGroupIngress) MarshalJSON() ([]byte, error) {
 	type Properties AWSRedshiftClusterSecurityGroupIngress
 	return json.Marshal(&struct {
 		Type           string
@@ -88,7 +88,7 @@ func (r *AWSRedshiftClusterSecurityGroupIngress) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -133,6 +133,8 @@ func (t *Template) GetAllAWSRedshiftClusterSecurityGroupIngressResources() map[s
 	results := map[string]*AWSRedshiftClusterSecurityGroupIngress{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSRedshiftClusterSecurityGroupIngress:
+			results[name] = &resource
 		case *AWSRedshiftClusterSecurityGroupIngress:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -161,6 +163,8 @@ func (t *Template) GetAllAWSRedshiftClusterSecurityGroupIngressResources() map[s
 func (t *Template) GetAWSRedshiftClusterSecurityGroupIngressWithName(name string) (*AWSRedshiftClusterSecurityGroupIngress, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSRedshiftClusterSecurityGroupIngress:
+			return &resource, nil
 		case *AWSRedshiftClusterSecurityGroupIngress:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

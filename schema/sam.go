@@ -37171,6 +37171,12 @@ var SamSchema = `{
                                 "$ref": "#/definitions/AWS::SSM::PatchBaseline.PatchSource"
                             },
                             "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -40245,6 +40251,12 @@ var SamSchema = `{
                     "properties": {
                         "Name": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::StepFunctions::Activity.TagsEntry"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -40262,6 +40274,22 @@ var SamSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::StepFunctions::Activity.TagsEntry": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -40305,6 +40333,12 @@ var SamSchema = `{
                         },
                         "StateMachineName": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::StepFunctions::StateMachine.TagsEntry"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -40323,6 +40357,22 @@ var SamSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::StepFunctions::StateMachine.TagsEntry": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
             ],
             "type": "object"
         },
@@ -41989,10 +42039,6 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "Key",
-                "Value"
-            ],
             "type": "object"
         }
     },

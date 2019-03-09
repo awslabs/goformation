@@ -73,7 +73,7 @@ func (r *AWSSESReceiptRule) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSSESReceiptRule) MarshalJSON() ([]byte, error) {
+func (r AWSSESReceiptRule) MarshalJSON() ([]byte, error) {
 	type Properties AWSSESReceiptRule
 	return json.Marshal(&struct {
 		Type           string
@@ -83,7 +83,7 @@ func (r *AWSSESReceiptRule) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -128,6 +128,8 @@ func (t *Template) GetAllAWSSESReceiptRuleResources() map[string]*AWSSESReceiptR
 	results := map[string]*AWSSESReceiptRule{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSSESReceiptRule:
+			results[name] = &resource
 		case *AWSSESReceiptRule:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -156,6 +158,8 @@ func (t *Template) GetAllAWSSESReceiptRuleResources() map[string]*AWSSESReceiptR
 func (t *Template) GetAWSSESReceiptRuleWithName(name string) (*AWSSESReceiptRule, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSSESReceiptRule:
+			return &resource, nil
 		case *AWSSESReceiptRule:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

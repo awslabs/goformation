@@ -83,7 +83,7 @@ func (r *AWSApiGatewayV2Model) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSApiGatewayV2Model) MarshalJSON() ([]byte, error) {
+func (r AWSApiGatewayV2Model) MarshalJSON() ([]byte, error) {
 	type Properties AWSApiGatewayV2Model
 	return json.Marshal(&struct {
 		Type           string
@@ -93,7 +93,7 @@ func (r *AWSApiGatewayV2Model) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -138,6 +138,8 @@ func (t *Template) GetAllAWSApiGatewayV2ModelResources() map[string]*AWSApiGatew
 	results := map[string]*AWSApiGatewayV2Model{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSApiGatewayV2Model:
+			results[name] = &resource
 		case *AWSApiGatewayV2Model:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -166,6 +168,8 @@ func (t *Template) GetAllAWSApiGatewayV2ModelResources() map[string]*AWSApiGatew
 func (t *Template) GetAWSApiGatewayV2ModelWithName(name string) (*AWSApiGatewayV2Model, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSApiGatewayV2Model:
+			return &resource, nil
 		case *AWSApiGatewayV2Model:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

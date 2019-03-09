@@ -133,7 +133,7 @@ func (r *AWSCodeDeployDeploymentGroup) SetDeletionPolicy(policy DeletionPolicy) 
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSCodeDeployDeploymentGroup) MarshalJSON() ([]byte, error) {
+func (r AWSCodeDeployDeploymentGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSCodeDeployDeploymentGroup
 	return json.Marshal(&struct {
 		Type           string
@@ -143,7 +143,7 @@ func (r *AWSCodeDeployDeploymentGroup) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -188,6 +188,8 @@ func (t *Template) GetAllAWSCodeDeployDeploymentGroupResources() map[string]*AWS
 	results := map[string]*AWSCodeDeployDeploymentGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSCodeDeployDeploymentGroup:
+			results[name] = &resource
 		case *AWSCodeDeployDeploymentGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -216,6 +218,8 @@ func (t *Template) GetAllAWSCodeDeployDeploymentGroupResources() map[string]*AWS
 func (t *Template) GetAWSCodeDeployDeploymentGroupWithName(name string) (*AWSCodeDeployDeploymentGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSCodeDeployDeploymentGroup:
+			return &resource, nil
 		case *AWSCodeDeployDeploymentGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

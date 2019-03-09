@@ -83,7 +83,7 @@ func (r *AWSNeptuneDBParameterGroup) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSNeptuneDBParameterGroup) MarshalJSON() ([]byte, error) {
+func (r AWSNeptuneDBParameterGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSNeptuneDBParameterGroup
 	return json.Marshal(&struct {
 		Type           string
@@ -93,7 +93,7 @@ func (r *AWSNeptuneDBParameterGroup) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -138,6 +138,8 @@ func (t *Template) GetAllAWSNeptuneDBParameterGroupResources() map[string]*AWSNe
 	results := map[string]*AWSNeptuneDBParameterGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSNeptuneDBParameterGroup:
+			results[name] = &resource
 		case *AWSNeptuneDBParameterGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -166,6 +168,8 @@ func (t *Template) GetAllAWSNeptuneDBParameterGroupResources() map[string]*AWSNe
 func (t *Template) GetAWSNeptuneDBParameterGroupWithName(name string) (*AWSNeptuneDBParameterGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSNeptuneDBParameterGroup:
+			return &resource, nil
 		case *AWSNeptuneDBParameterGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

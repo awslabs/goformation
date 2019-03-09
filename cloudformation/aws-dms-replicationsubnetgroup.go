@@ -78,7 +78,7 @@ func (r *AWSDMSReplicationSubnetGroup) SetDeletionPolicy(policy DeletionPolicy) 
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSDMSReplicationSubnetGroup) MarshalJSON() ([]byte, error) {
+func (r AWSDMSReplicationSubnetGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSDMSReplicationSubnetGroup
 	return json.Marshal(&struct {
 		Type           string
@@ -88,7 +88,7 @@ func (r *AWSDMSReplicationSubnetGroup) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -133,6 +133,8 @@ func (t *Template) GetAllAWSDMSReplicationSubnetGroupResources() map[string]*AWS
 	results := map[string]*AWSDMSReplicationSubnetGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSDMSReplicationSubnetGroup:
+			results[name] = &resource
 		case *AWSDMSReplicationSubnetGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -161,6 +163,8 @@ func (t *Template) GetAllAWSDMSReplicationSubnetGroupResources() map[string]*AWS
 func (t *Template) GetAWSDMSReplicationSubnetGroupWithName(name string) (*AWSDMSReplicationSubnetGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSDMSReplicationSubnetGroup:
+			return &resource, nil
 		case *AWSDMSReplicationSubnetGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

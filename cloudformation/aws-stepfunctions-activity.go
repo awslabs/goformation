@@ -16,6 +16,11 @@ type AWSStepFunctionsActivity struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name
 	Name string `json:"Name,omitempty"`
 
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-tags
+	Tags []AWSStepFunctionsActivity_TagsEntry `json:"Tags,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy DeletionPolicy
 
@@ -63,7 +68,7 @@ func (r *AWSStepFunctionsActivity) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSStepFunctionsActivity) MarshalJSON() ([]byte, error) {
+func (r AWSStepFunctionsActivity) MarshalJSON() ([]byte, error) {
 	type Properties AWSStepFunctionsActivity
 	return json.Marshal(&struct {
 		Type           string
@@ -73,7 +78,7 @@ func (r *AWSStepFunctionsActivity) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -118,6 +123,8 @@ func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]*AWSStep
 	results := map[string]*AWSStepFunctionsActivity{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSStepFunctionsActivity:
+			results[name] = &resource
 		case *AWSStepFunctionsActivity:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -146,6 +153,8 @@ func (t *Template) GetAllAWSStepFunctionsActivityResources() map[string]*AWSStep
 func (t *Template) GetAWSStepFunctionsActivityWithName(name string) (*AWSStepFunctionsActivity, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSStepFunctionsActivity:
+			return &resource, nil
 		case *AWSStepFunctionsActivity:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

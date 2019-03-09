@@ -186,7 +186,7 @@ func (r *AWSAutoScalingAutoScalingGroup) SetCreationPolicy(policy *CreationPolic
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSAutoScalingAutoScalingGroup) MarshalJSON() ([]byte, error) {
+func (r AWSAutoScalingAutoScalingGroup) MarshalJSON() ([]byte, error) {
 	type Properties AWSAutoScalingAutoScalingGroup
 	return json.Marshal(&struct {
 		Type           string
@@ -198,7 +198,7 @@ func (r *AWSAutoScalingAutoScalingGroup) MarshalJSON() ([]byte, error) {
 		CreationPolicy *CreationPolicy        `json:"CreationPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -245,6 +245,8 @@ func (t *Template) GetAllAWSAutoScalingAutoScalingGroupResources() map[string]*A
 	results := map[string]*AWSAutoScalingAutoScalingGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSAutoScalingAutoScalingGroup:
+			results[name] = &resource
 		case *AWSAutoScalingAutoScalingGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -273,6 +275,8 @@ func (t *Template) GetAllAWSAutoScalingAutoScalingGroupResources() map[string]*A
 func (t *Template) GetAWSAutoScalingAutoScalingGroupWithName(name string) (*AWSAutoScalingAutoScalingGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSAutoScalingAutoScalingGroup:
+			return &resource, nil
 		case *AWSAutoScalingAutoScalingGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil

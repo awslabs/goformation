@@ -68,7 +68,7 @@ func (r *AWSWAFByteMatchSet) SetDeletionPolicy(policy DeletionPolicy) {
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *AWSWAFByteMatchSet) MarshalJSON() ([]byte, error) {
+func (r AWSWAFByteMatchSet) MarshalJSON() ([]byte, error) {
 	type Properties AWSWAFByteMatchSet
 	return json.Marshal(&struct {
 		Type           string
@@ -78,7 +78,7 @@ func (r *AWSWAFByteMatchSet) MarshalJSON() ([]byte, error) {
 		DeletionPolicy DeletionPolicy         `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(*r),
+		Properties:     (Properties)(r),
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -123,6 +123,8 @@ func (t *Template) GetAllAWSWAFByteMatchSetResources() map[string]*AWSWAFByteMat
 	results := map[string]*AWSWAFByteMatchSet{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
+		case AWSWAFByteMatchSet:
+			results[name] = &resource
 		case *AWSWAFByteMatchSet:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
@@ -151,6 +153,8 @@ func (t *Template) GetAllAWSWAFByteMatchSetResources() map[string]*AWSWAFByteMat
 func (t *Template) GetAWSWAFByteMatchSetWithName(name string) (*AWSWAFByteMatchSet, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
+		case AWSWAFByteMatchSet:
+			return &resource, nil
 		case *AWSWAFByteMatchSet:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
