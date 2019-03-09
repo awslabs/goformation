@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -120,7 +121,11 @@ func (r *AWSLambdaAlias) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -140,11 +145,13 @@ func (r *AWSLambdaAlias) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSLambdaAliasResources retrieves all AWSLambdaAlias items from an AWS CloudFormation template
-func (t *Template) GetAllAWSLambdaAliasResources() map[string]AWSLambdaAlias {
-	results := map[string]AWSLambdaAlias{}
+func (t *Template) GetAllAWSLambdaAliasResources() map[string]*AWSLambdaAlias {
+	results := map[string]*AWSLambdaAlias{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSLambdaAlias:
+			results[name] = &resource
+		case *AWSLambdaAlias:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -156,7 +163,8 @@ func (t *Template) GetAllAWSLambdaAliasResources() map[string]AWSLambdaAlias {
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSLambdaAlias
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -168,10 +176,12 @@ func (t *Template) GetAllAWSLambdaAliasResources() map[string]AWSLambdaAlias {
 
 // GetAWSLambdaAliasWithName retrieves all AWSLambdaAlias items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSLambdaAliasWithName(name string) (AWSLambdaAlias, error) {
+func (t *Template) GetAWSLambdaAliasWithName(name string) (*AWSLambdaAlias, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSLambdaAlias:
+			return &resource, nil
+		case *AWSLambdaAlias:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -183,12 +193,13 @@ func (t *Template) GetAWSLambdaAliasWithName(name string) (AWSLambdaAlias, error
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSLambdaAlias
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSLambdaAlias{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

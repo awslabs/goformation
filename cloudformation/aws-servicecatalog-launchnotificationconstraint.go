@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -109,7 +110,11 @@ func (r *AWSServiceCatalogLaunchNotificationConstraint) UnmarshalJSON(b []byte) 
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -129,11 +134,13 @@ func (r *AWSServiceCatalogLaunchNotificationConstraint) UnmarshalJSON(b []byte) 
 }
 
 // GetAllAWSServiceCatalogLaunchNotificationConstraintResources retrieves all AWSServiceCatalogLaunchNotificationConstraint items from an AWS CloudFormation template
-func (t *Template) GetAllAWSServiceCatalogLaunchNotificationConstraintResources() map[string]AWSServiceCatalogLaunchNotificationConstraint {
-	results := map[string]AWSServiceCatalogLaunchNotificationConstraint{}
+func (t *Template) GetAllAWSServiceCatalogLaunchNotificationConstraintResources() map[string]*AWSServiceCatalogLaunchNotificationConstraint {
+	results := map[string]*AWSServiceCatalogLaunchNotificationConstraint{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSServiceCatalogLaunchNotificationConstraint:
+			results[name] = &resource
+		case *AWSServiceCatalogLaunchNotificationConstraint:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -145,7 +152,8 @@ func (t *Template) GetAllAWSServiceCatalogLaunchNotificationConstraintResources(
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceCatalogLaunchNotificationConstraint
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -157,10 +165,12 @@ func (t *Template) GetAllAWSServiceCatalogLaunchNotificationConstraintResources(
 
 // GetAWSServiceCatalogLaunchNotificationConstraintWithName retrieves all AWSServiceCatalogLaunchNotificationConstraint items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSServiceCatalogLaunchNotificationConstraintWithName(name string) (AWSServiceCatalogLaunchNotificationConstraint, error) {
+func (t *Template) GetAWSServiceCatalogLaunchNotificationConstraintWithName(name string) (*AWSServiceCatalogLaunchNotificationConstraint, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSServiceCatalogLaunchNotificationConstraint:
+			return &resource, nil
+		case *AWSServiceCatalogLaunchNotificationConstraint:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -172,12 +182,13 @@ func (t *Template) GetAWSServiceCatalogLaunchNotificationConstraintWithName(name
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceCatalogLaunchNotificationConstraint
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSServiceCatalogLaunchNotificationConstraint{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

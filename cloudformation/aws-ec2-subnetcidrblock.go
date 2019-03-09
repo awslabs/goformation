@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -94,7 +95,11 @@ func (r *AWSEC2SubnetCidrBlock) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,13 @@ func (r *AWSEC2SubnetCidrBlock) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSEC2SubnetCidrBlockResources retrieves all AWSEC2SubnetCidrBlock items from an AWS CloudFormation template
-func (t *Template) GetAllAWSEC2SubnetCidrBlockResources() map[string]AWSEC2SubnetCidrBlock {
-	results := map[string]AWSEC2SubnetCidrBlock{}
+func (t *Template) GetAllAWSEC2SubnetCidrBlockResources() map[string]*AWSEC2SubnetCidrBlock {
+	results := map[string]*AWSEC2SubnetCidrBlock{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSEC2SubnetCidrBlock:
+			results[name] = &resource
+		case *AWSEC2SubnetCidrBlock:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +137,8 @@ func (t *Template) GetAllAWSEC2SubnetCidrBlockResources() map[string]AWSEC2Subne
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2SubnetCidrBlock
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +150,12 @@ func (t *Template) GetAllAWSEC2SubnetCidrBlockResources() map[string]AWSEC2Subne
 
 // GetAWSEC2SubnetCidrBlockWithName retrieves all AWSEC2SubnetCidrBlock items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSEC2SubnetCidrBlockWithName(name string) (AWSEC2SubnetCidrBlock, error) {
+func (t *Template) GetAWSEC2SubnetCidrBlockWithName(name string) (*AWSEC2SubnetCidrBlock, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSEC2SubnetCidrBlock:
+			return &resource, nil
+		case *AWSEC2SubnetCidrBlock:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +167,13 @@ func (t *Template) GetAWSEC2SubnetCidrBlockWithName(name string) (AWSEC2SubnetCi
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSEC2SubnetCidrBlock
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSEC2SubnetCidrBlock{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

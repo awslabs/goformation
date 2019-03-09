@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -94,7 +95,11 @@ func (r *AWSLogsLogGroup) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,13 @@ func (r *AWSLogsLogGroup) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSLogsLogGroupResources retrieves all AWSLogsLogGroup items from an AWS CloudFormation template
-func (t *Template) GetAllAWSLogsLogGroupResources() map[string]AWSLogsLogGroup {
-	results := map[string]AWSLogsLogGroup{}
+func (t *Template) GetAllAWSLogsLogGroupResources() map[string]*AWSLogsLogGroup {
+	results := map[string]*AWSLogsLogGroup{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSLogsLogGroup:
+			results[name] = &resource
+		case *AWSLogsLogGroup:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +137,8 @@ func (t *Template) GetAllAWSLogsLogGroupResources() map[string]AWSLogsLogGroup {
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSLogsLogGroup
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +150,12 @@ func (t *Template) GetAllAWSLogsLogGroupResources() map[string]AWSLogsLogGroup {
 
 // GetAWSLogsLogGroupWithName retrieves all AWSLogsLogGroup items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSLogsLogGroupWithName(name string) (AWSLogsLogGroup, error) {
+func (t *Template) GetAWSLogsLogGroupWithName(name string) (*AWSLogsLogGroup, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSLogsLogGroup:
+			return &resource, nil
+		case *AWSLogsLogGroup:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +167,13 @@ func (t *Template) GetAWSLogsLogGroupWithName(name string) (AWSLogsLogGroup, err
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSLogsLogGroup
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSLogsLogGroup{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

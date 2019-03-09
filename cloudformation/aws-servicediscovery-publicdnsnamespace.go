@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -94,7 +95,11 @@ func (r *AWSServiceDiscoveryPublicDnsNamespace) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -114,11 +119,13 @@ func (r *AWSServiceDiscoveryPublicDnsNamespace) UnmarshalJSON(b []byte) error {
 }
 
 // GetAllAWSServiceDiscoveryPublicDnsNamespaceResources retrieves all AWSServiceDiscoveryPublicDnsNamespace items from an AWS CloudFormation template
-func (t *Template) GetAllAWSServiceDiscoveryPublicDnsNamespaceResources() map[string]AWSServiceDiscoveryPublicDnsNamespace {
-	results := map[string]AWSServiceDiscoveryPublicDnsNamespace{}
+func (t *Template) GetAllAWSServiceDiscoveryPublicDnsNamespaceResources() map[string]*AWSServiceDiscoveryPublicDnsNamespace {
+	results := map[string]*AWSServiceDiscoveryPublicDnsNamespace{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSServiceDiscoveryPublicDnsNamespace:
+			results[name] = &resource
+		case *AWSServiceDiscoveryPublicDnsNamespace:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -130,7 +137,8 @@ func (t *Template) GetAllAWSServiceDiscoveryPublicDnsNamespaceResources() map[st
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceDiscoveryPublicDnsNamespace
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -142,10 +150,12 @@ func (t *Template) GetAllAWSServiceDiscoveryPublicDnsNamespaceResources() map[st
 
 // GetAWSServiceDiscoveryPublicDnsNamespaceWithName retrieves all AWSServiceDiscoveryPublicDnsNamespace items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSServiceDiscoveryPublicDnsNamespaceWithName(name string) (AWSServiceDiscoveryPublicDnsNamespace, error) {
+func (t *Template) GetAWSServiceDiscoveryPublicDnsNamespaceWithName(name string) (*AWSServiceDiscoveryPublicDnsNamespace, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSServiceDiscoveryPublicDnsNamespace:
+			return &resource, nil
+		case *AWSServiceDiscoveryPublicDnsNamespace:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -157,12 +167,13 @@ func (t *Template) GetAWSServiceDiscoveryPublicDnsNamespaceWithName(name string)
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSServiceDiscoveryPublicDnsNamespace
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSServiceDiscoveryPublicDnsNamespace{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }

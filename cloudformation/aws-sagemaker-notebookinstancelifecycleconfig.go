@@ -1,6 +1,7 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -99,7 +100,11 @@ func (r *AWSSageMakerNotebookInstanceLifecycleConfig) UnmarshalJSON(b []byte) er
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -119,11 +124,13 @@ func (r *AWSSageMakerNotebookInstanceLifecycleConfig) UnmarshalJSON(b []byte) er
 }
 
 // GetAllAWSSageMakerNotebookInstanceLifecycleConfigResources retrieves all AWSSageMakerNotebookInstanceLifecycleConfig items from an AWS CloudFormation template
-func (t *Template) GetAllAWSSageMakerNotebookInstanceLifecycleConfigResources() map[string]AWSSageMakerNotebookInstanceLifecycleConfig {
-	results := map[string]AWSSageMakerNotebookInstanceLifecycleConfig{}
+func (t *Template) GetAllAWSSageMakerNotebookInstanceLifecycleConfigResources() map[string]*AWSSageMakerNotebookInstanceLifecycleConfig {
+	results := map[string]*AWSSageMakerNotebookInstanceLifecycleConfig{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
 		case AWSSageMakerNotebookInstanceLifecycleConfig:
+			results[name] = &resource
+		case *AWSSageMakerNotebookInstanceLifecycleConfig:
 			// We found a strongly typed resource of the correct type; use it
 			results[name] = resource
 		case map[string]interface{}:
@@ -135,7 +142,8 @@ func (t *Template) GetAllAWSSageMakerNotebookInstanceLifecycleConfigResources() 
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSageMakerNotebookInstanceLifecycleConfig
 						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
+							t.Resources[name] = &result
+							results[name] = &result
 						}
 					}
 				}
@@ -147,10 +155,12 @@ func (t *Template) GetAllAWSSageMakerNotebookInstanceLifecycleConfigResources() 
 
 // GetAWSSageMakerNotebookInstanceLifecycleConfigWithName retrieves all AWSSageMakerNotebookInstanceLifecycleConfig items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSSageMakerNotebookInstanceLifecycleConfigWithName(name string) (AWSSageMakerNotebookInstanceLifecycleConfig, error) {
+func (t *Template) GetAWSSageMakerNotebookInstanceLifecycleConfigWithName(name string) (*AWSSageMakerNotebookInstanceLifecycleConfig, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
 		case AWSSageMakerNotebookInstanceLifecycleConfig:
+			return &resource, nil
+		case *AWSSageMakerNotebookInstanceLifecycleConfig:
 			// We found a strongly typed resource of the correct type; use it
 			return resource, nil
 		case map[string]interface{}:
@@ -162,12 +172,13 @@ func (t *Template) GetAWSSageMakerNotebookInstanceLifecycleConfigWithName(name s
 					if b, err := json.Marshal(resource); err == nil {
 						var result AWSSageMakerNotebookInstanceLifecycleConfig
 						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
+							t.Resources[name] = &result
+							return &result, nil
 						}
 					}
 				}
 			}
 		}
 	}
-	return AWSSageMakerNotebookInstanceLifecycleConfig{}, errors.New("resource not found")
+	return nil, errors.New("resource not found")
 }
