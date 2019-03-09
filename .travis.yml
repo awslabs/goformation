@@ -12,19 +12,37 @@ env:
 
 install: true
 
-after_success:
-  # Check for updated CloudFormation resources, and submit a PR
-  - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
-  # - ./generate/create-pull-request.sh
+# after_success:
+#   # Check for updated CloudFormation resources, and submit a PR
+#   - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
+#   # - ./generate/create-pull-request.sh
 
 jobs:
   include:
+    # Define a stage that will auto-generate CloudFormation resources from the official
+    # AWS CloudFormation Resource Specification on a daily basis (run via a travis cron)
+    - stage: regenerate
+      script: test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
+
     # Define the release stage that runs semantic-release
     - stage: release
+      language: node_js
+      node_js: lts/*
+      before_install: skip
+      script:
+        # # Update AUTHORS.md
+        # - export MAINTAINER_TOKEN=${GH_TOKEN}
+        # - go get github.com/myii/maintainer
+        # - maintainer contributor
+
+        # Install all dependencies required for `semantic-release`
+        - npm install @semantic-release/changelog@3 -D
+        - npm install @semantic-release/exec@3 -D
+        - npm install @semantic-release/git@7 -D
+
       deploy:
         provider: script
         skip_cleanup: true
         script:
-          # Use nvm to install and use the Node LTS version (nvm is installed on all Travis images)
-          - nvm install lts/*
-          - npx semantic-release
+          # Run `semantic-release`
+          - npx semantic-release@15
