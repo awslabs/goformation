@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -191,64 +190,4 @@ func (r *AWSElasticLoadBalancingV2TargetGroup) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSElasticLoadBalancingV2TargetGroupResources retrieves all AWSElasticLoadBalancingV2TargetGroup items from an AWS CloudFormation template
-func (t *Template) GetAllAWSElasticLoadBalancingV2TargetGroupResources() map[string]*AWSElasticLoadBalancingV2TargetGroup {
-	results := map[string]*AWSElasticLoadBalancingV2TargetGroup{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSElasticLoadBalancingV2TargetGroup:
-			results[name] = &resource
-		case *AWSElasticLoadBalancingV2TargetGroup:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ElasticLoadBalancingV2::TargetGroup" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSElasticLoadBalancingV2TargetGroup
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSElasticLoadBalancingV2TargetGroupWithName retrieves all AWSElasticLoadBalancingV2TargetGroup items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSElasticLoadBalancingV2TargetGroupWithName(name string) (*AWSElasticLoadBalancingV2TargetGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSElasticLoadBalancingV2TargetGroup:
-			return &resource, nil
-		case *AWSElasticLoadBalancingV2TargetGroup:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ElasticLoadBalancingV2::TargetGroup" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSElasticLoadBalancingV2TargetGroup
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

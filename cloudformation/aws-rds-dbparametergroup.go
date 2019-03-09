@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -126,64 +125,4 @@ func (r *AWSRDSDBParameterGroup) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSRDSDBParameterGroupResources retrieves all AWSRDSDBParameterGroup items from an AWS CloudFormation template
-func (t *Template) GetAllAWSRDSDBParameterGroupResources() map[string]*AWSRDSDBParameterGroup {
-	results := map[string]*AWSRDSDBParameterGroup{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSRDSDBParameterGroup:
-			results[name] = &resource
-		case *AWSRDSDBParameterGroup:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::RDS::DBParameterGroup" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSRDSDBParameterGroup
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSRDSDBParameterGroupWithName retrieves all AWSRDSDBParameterGroup items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSRDSDBParameterGroupWithName(name string) (*AWSRDSDBParameterGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSRDSDBParameterGroup:
-			return &resource, nil
-		case *AWSRDSDBParameterGroup:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::RDS::DBParameterGroup" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSRDSDBParameterGroup
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -116,64 +115,4 @@ func (r *AWSIoT1ClickDevice) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSIoT1ClickDeviceResources retrieves all AWSIoT1ClickDevice items from an AWS CloudFormation template
-func (t *Template) GetAllAWSIoT1ClickDeviceResources() map[string]*AWSIoT1ClickDevice {
-	results := map[string]*AWSIoT1ClickDevice{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSIoT1ClickDevice:
-			results[name] = &resource
-		case *AWSIoT1ClickDevice:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::IoT1Click::Device" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSIoT1ClickDevice
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSIoT1ClickDeviceWithName retrieves all AWSIoT1ClickDevice items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSIoT1ClickDeviceWithName(name string) (*AWSIoT1ClickDevice, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSIoT1ClickDevice:
-			return &resource, nil
-		case *AWSIoT1ClickDevice:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::IoT1Click::Device" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSIoT1ClickDevice
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }
