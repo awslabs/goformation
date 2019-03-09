@@ -2,10 +2,10 @@ language: go
 
 matrix:
   include:
-  - go: "1.10.x"
-    script:  go test -v ./...
-  - go: "1.11.x"
-    script: go test -v -mod=vendor ./...
+    - go: "1.10.x"
+      script: go test -v ./...
+    - go: "1.11.x"
+      script: go test -v -mod=vendor ./...
 
 env:
   - GO111MODULE=on
@@ -13,17 +13,16 @@ env:
 install: true
 
 after_success:
-  # Check for updated CloudFormation resources, and submit a PR 
-  # - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
-  - ./generate/create-pull-request.sh
+  # Check for updated CloudFormation resources, and submit a PR
+  - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
+  # - ./generate/create-pull-request.sh
 
-# deploy:
-#   provider: script
-#   skip_cleanup: true
-#   script: 
-    
-#     # Use nvm to install and use the Node LTS version (nvm is installed on all Travis images)
-#     - nvm install lts/*
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    # Use nvm to install and use the Node LTS version (nvm is installed on all Travis images)
+    - nvm install lts/*
 
-#     # Run semantic-release only on one job, after all other are successful
-#     - npx travis-deploy-once "npx semantic-release"
+    # Run semantic-release only on one job, after all other are successful
+    - npx travis-deploy-once "npx semantic-release"
