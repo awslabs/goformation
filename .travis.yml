@@ -22,7 +22,8 @@ jobs:
     # Define a stage that will auto-generate CloudFormation resources from the official
     # AWS CloudFormation Resource Specification on a daily basis (run via a travis cron)
     - stage: regenerate
-      script: test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
+      if: type = cron
+      script: generate/create-pull-request.sh
 
     # Define the release stage that runs semantic-release
     - stage: release
