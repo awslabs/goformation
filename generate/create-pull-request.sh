@@ -27,7 +27,7 @@ DST_BRANCH="master"
 # Git details (for the commit)
 COMMIT_NAME="AWS GoFormation"
 COMMIT_EMAIL="goformation@amazon.com"
-COMMIT_MSG="AWS CloudFormation Update ($(date +%F))"
+COMMIT_MSG="feat(schema): AWS CloudFormation Update ($(date +%F))"
 
 echo "Build Type: ${TRAVIS_EVENT_TYPE}"
 

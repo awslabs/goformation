@@ -1,13 +1,16 @@
-package cloudformation
+package resources
 
 {{if not .IsCustomProperty}}
 import (
 	"encoding/json"
 	"fmt"
-	"errors"
 	"bytes"
+	"github.com/awslabs/goformation/cloudformation/policies"
 )
+{{else}}
+import "github.com/awslabs/goformation/cloudformation/policies"
 {{end}}
+
 // {{.StructName}} AWS CloudFormation Resource ({{.Name}})
 // See: {{.Resource.Documentation}}
 type {{.StructName}} struct {
@@ -18,13 +21,13 @@ type {{.StructName}} struct {
     {{$name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
     {{end}}
 	{{if .HasUpdatePolicy }}// _updatePolicy represents a CloudFormation UpdatePolicy
-	_updatePolicy *UpdatePolicy{{ end }}
+	_updatePolicy *policies.UpdatePolicy{{ end }}
 
 	{{if .HasCreationPolicy }}// _creationPolicy represents a CloudFormation CreationPolicy
-	_creationPolicy *CreationPolicy
+	_creationPolicy *policies.CreationPolicy
 	{{ end }}
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy DeletionPolicy
+	_deletionPolicy policies.DeletionPolicy
 
     // _dependsOn stores the logical ID of the resources to be created before this resource
     _dependsOn []string
@@ -61,39 +64,39 @@ func (r *{{.StructName}}) SetMetadata(metadata map[string]interface{}) {
 }
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *{{.StructName}}) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *{{.StructName}}) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 {{if .HasUpdatePolicy}}
 // SetUpdatePolicy applies an AWS CloudFormation UpdatePolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
-func (r *{{.StructName}}) SetUpdatePolicy(policy *UpdatePolicy) {
+func (r *{{.StructName}}) SetUpdatePolicy(policy *policies.UpdatePolicy) {
 	r._updatePolicy = policy
 }
 {{end}}
 {{if .HasCreationPolicy}}
 // SetCreationPolicy applies an AWS CloudFormation CreationPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
-func (r *{{.StructName}}) SetCreationPolicy(policy *CreationPolicy) {
+func (r *{{.StructName}}) SetCreationPolicy(policy *policies.CreationPolicy) {
 	r._creationPolicy = policy
 }
 {{end}}
 {{if not .IsCustomProperty}}
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r *{{.StructName}}) MarshalJSON() ([]byte, error) {
+func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	type Properties {{.StructName}}
 	return json.Marshal(&struct{
 		Type string
 		{{if .IsCustomProperty}}Properties{{else}}Properties Properties{{end}}
 		DependsOn []string `json:"DependsOn,omitempty"`
 		Metadata  map[string]interface{} `json:"Metadata,omitempty"`
-		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
-		{{if .HasUpdatePolicy}}UpdatePolicy *UpdatePolicy `json:"UpdatePolicy,omitempty"`{{end}}
-		{{if .HasCreationPolicy}}CreationPolicy *CreationPolicy `json:"CreationPolicy,omitempty"`{{end}}
+		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		{{if .HasUpdatePolicy}}UpdatePolicy *policies.UpdatePolicy `json:"UpdatePolicy,omitempty"`{{end}}
+		{{if .HasCreationPolicy}}CreationPolicy *policies.CreationPolicy `json:"CreationPolicy,omitempty"`{{end}}
 	}{
 		Type: r.AWSCloudFormationType(),
-		Properties: (Properties)(*r),
+		Properties: (Properties)(r),
 		DependsOn: r._dependsOn,
 		Metadata: r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -135,59 +138,4 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-// GetAll{{.StructName}}Resources retrieves all {{.StructName}} items from an AWS CloudFormation template
-func (t *Template) GetAll{{.StructName}}Resources () map[string]*{{.StructName}} {
-    results := map[string]*{{.StructName}}{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case *{{.StructName}}:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "{{.Name}}" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result {{.StructName}}
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// Get{{.StructName}}WithName retrieves all {{.StructName}} items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) Get{{.StructName}}WithName (name string) (*{{.StructName}}, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case *{{.StructName}}:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "{{.Name}}" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result {{.StructName}}
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-    return nil, errors.New("resource not found")
-}
 {{end}}

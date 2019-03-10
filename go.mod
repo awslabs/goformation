@@ -5,7 +5,7 @@ require (
 	github.com/golang/protobuf v1.2.0 // indirect
 	github.com/imdario/mergo v0.3.6
 	github.com/kr/pretty v0.1.0 // indirect
-	github.com/mitchellh/mapstructure v1.1.0
+	github.com/mitchellh/mapstructure v1.1.2
 	github.com/onsi/ginkgo v1.5.0
 	github.com/onsi/gomega v1.2.0
 	github.com/pmezard/go-difflib v1.0.0 // indirect
