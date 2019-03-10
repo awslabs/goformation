@@ -1,5 +1,19 @@
 # Semantic Versioning Changelog
 
+# [2.0.0](https://github.com/awslabs/goformation/compare/v1.4.1...v2.0.0) (2019-03-10)
+
+
+### Code Refactoring
+
+* **generator:** moving resources and policies into their own packages ([#161](https://github.com/awslabs/goformation/issues/161)) ([03a0123](https://github.com/awslabs/goformation/commit/03a0123))
+
+
+### BREAKING CHANGES
+
+* **generator:** this PR refactors the auto-generated CloudFormation resources out of the cloudformation package and into a dedicated package (resources). This helps keep the auto generated files separate from others.
+
+E.g. cloudformation.AWSSnsTopic{} becomes resources.AWSSnsTopic{}
+
 ## [1.4.1](https://github.com/awslabs/goformation/compare/v1.4.0...v1.4.1) (2019-03-10)
 
 
