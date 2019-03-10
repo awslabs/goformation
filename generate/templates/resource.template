@@ -1,11 +1,14 @@
-package cloudformation
+package resources
 
 {{if not .IsCustomProperty}}
 import (
 	"encoding/json"
 	"fmt"
 	"bytes"
+	"github.com/awslabs/goformation/cloudformation/policies"
 )
+{{else}}
+import "github.com/awslabs/goformation/cloudformation/policies"
 {{end}}
 
 // {{.StructName}} AWS CloudFormation Resource ({{.Name}})
@@ -18,13 +21,13 @@ type {{.StructName}} struct {
     {{$name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
     {{end}}
 	{{if .HasUpdatePolicy }}// _updatePolicy represents a CloudFormation UpdatePolicy
-	_updatePolicy *UpdatePolicy{{ end }}
+	_updatePolicy *policies.UpdatePolicy{{ end }}
 
 	{{if .HasCreationPolicy }}// _creationPolicy represents a CloudFormation CreationPolicy
-	_creationPolicy *CreationPolicy
+	_creationPolicy *policies.CreationPolicy
 	{{ end }}
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy DeletionPolicy
+	_deletionPolicy policies.DeletionPolicy
 
     // _dependsOn stores the logical ID of the resources to be created before this resource
     _dependsOn []string
@@ -61,20 +64,20 @@ func (r *{{.StructName}}) SetMetadata(metadata map[string]interface{}) {
 }
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *{{.StructName}}) SetDeletionPolicy(policy DeletionPolicy) {
+func (r *{{.StructName}}) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 {{if .HasUpdatePolicy}}
 // SetUpdatePolicy applies an AWS CloudFormation UpdatePolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
-func (r *{{.StructName}}) SetUpdatePolicy(policy *UpdatePolicy) {
+func (r *{{.StructName}}) SetUpdatePolicy(policy *policies.UpdatePolicy) {
 	r._updatePolicy = policy
 }
 {{end}}
 {{if .HasCreationPolicy}}
 // SetCreationPolicy applies an AWS CloudFormation CreationPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
-func (r *{{.StructName}}) SetCreationPolicy(policy *CreationPolicy) {
+func (r *{{.StructName}}) SetCreationPolicy(policy *policies.CreationPolicy) {
 	r._creationPolicy = policy
 }
 {{end}}
@@ -88,9 +91,9 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 		{{if .IsCustomProperty}}Properties{{else}}Properties Properties{{end}}
 		DependsOn []string `json:"DependsOn,omitempty"`
 		Metadata  map[string]interface{} `json:"Metadata,omitempty"`
-		DeletionPolicy DeletionPolicy `json:"DeletionPolicy,omitempty"`
-		{{if .HasUpdatePolicy}}UpdatePolicy *UpdatePolicy `json:"UpdatePolicy,omitempty"`{{end}}
-		{{if .HasCreationPolicy}}CreationPolicy *CreationPolicy `json:"CreationPolicy,omitempty"`{{end}}
+		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		{{if .HasUpdatePolicy}}UpdatePolicy *policies.UpdatePolicy `json:"UpdatePolicy,omitempty"`{{end}}
+		{{if .HasCreationPolicy}}CreationPolicy *policies.CreationPolicy `json:"CreationPolicy,omitempty"`{{end}}
 	}{
 		Type: r.AWSCloudFormationType(),
 		Properties: (Properties)(r),
