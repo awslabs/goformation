@@ -10,11 +10,6 @@ env:
 
 install: true
 
-# after_success:
-#   # Check for updated CloudFormation resources, and submit a PR
-#   - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
-#   # - ./generate/create-pull-request.sh
-
 jobs:
   include:
     # Define a stage that will auto-generate CloudFormation resources from the official
@@ -25,23 +20,23 @@ jobs:
 
     # Define the release stage that runs semantic-release
     - stage: release
-      if: branch = master AND type = push
+      if: branch = master
       language: node_js
       node_js: lts/*
       before_install: skip
-      script:
-        # Update AUTHORS.md
-        - go get github.com/myii/maintainer
-        - maintainer contributor
-
-        # Install all dependencies required for `semantic-release`
-        - npm install @semantic-release/changelog@3 -D
-        - npm install @semantic-release/exec@3 -D
-        - npm install @semantic-release/git@7 -D
-
       deploy:
         provider: script
         skip_cleanup: true
         script:
+          # Install tool for updating AUTHORS.md
+          # Update the AUTHORS.md file
+          - go get github.com/myii/maintainer
+          - maintainer contributor
+
+          # Install all dependencies required for `semantic-release`
+          - npm install @semantic-release/changelog@3 -D
+          - npm install @semantic-release/exec@3 -D
+          - npm install @semantic-release/git@7 -D
+
           # Run `semantic-release`
           - npx semantic-release@15
