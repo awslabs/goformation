@@ -1,8 +1,8 @@
 package cloudformation
 
 import (
+	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -124,7 +124,11 @@ func (r *AWSKinesisFirehoseDeliveryStream) UnmarshalJSON(b []byte) error {
 		DependsOn  []string
 		Metadata   map[string]interface{}
 	}{}
-	if err := json.Unmarshal(b, &res); err != nil {
+
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
+
+	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
@@ -141,58 +145,4 @@ func (r *AWSKinesisFirehoseDeliveryStream) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSKinesisFirehoseDeliveryStreamResources retrieves all AWSKinesisFirehoseDeliveryStream items from an AWS CloudFormation template
-func (t *Template) GetAllAWSKinesisFirehoseDeliveryStreamResources() map[string]AWSKinesisFirehoseDeliveryStream {
-	results := map[string]AWSKinesisFirehoseDeliveryStream{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSKinesisFirehoseDeliveryStream:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::KinesisFirehose::DeliveryStream" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSKinesisFirehoseDeliveryStream
-						if err := json.Unmarshal(b, &result); err == nil {
-							results[name] = result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSKinesisFirehoseDeliveryStreamWithName retrieves all AWSKinesisFirehoseDeliveryStream items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSKinesisFirehoseDeliveryStreamWithName(name string) (AWSKinesisFirehoseDeliveryStream, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSKinesisFirehoseDeliveryStream:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::KinesisFirehose::DeliveryStream" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSKinesisFirehoseDeliveryStream
-						if err := json.Unmarshal(b, &result); err == nil {
-							return result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return AWSKinesisFirehoseDeliveryStream{}, errors.New("resource not found")
 }
