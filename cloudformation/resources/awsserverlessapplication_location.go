@@ -1,9 +1,9 @@
 package resources
 
 import (
-	"encoding/json"
+	"sort"
 
-	"reflect"
+	"encoding/json"
 
 	"github.com/mitchellh/mapstructure"
 )
@@ -15,12 +15,15 @@ type AWSServerlessApplication_Location struct {
 
 func (r AWSServerlessApplication_Location) value() interface{} {
 
-	if r.ApplicationLocation != nil && !reflect.DeepEqual(r.ApplicationLocation, &AWSServerlessApplication_ApplicationLocation{}) {
-		return r.ApplicationLocation
-	}
+	ret := []interface{}{}
 
 	if r.ApplicationLocation != nil {
-		return r.ApplicationLocation
+		ret = append(ret, *r.ApplicationLocation)
+	}
+
+	sort.Sort(byJSONLength(ret))
+	if len(ret) > 0 {
+		return ret[0]
 	}
 
 	return nil

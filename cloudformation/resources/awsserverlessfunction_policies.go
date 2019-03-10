@@ -1,9 +1,9 @@
 package resources
 
 import (
-	"encoding/json"
+	"sort"
 
-	"reflect"
+	"encoding/json"
 
 	"github.com/mitchellh/mapstructure"
 )
@@ -29,12 +29,15 @@ func (r AWSServerlessFunction_Policies) value() interface{} {
 		return r.StringArray
 	}
 
-	if r.IAMPolicyDocument != nil && !reflect.DeepEqual(r.IAMPolicyDocument, &AWSServerlessFunction_IAMPolicyDocument{}) {
-		return r.IAMPolicyDocument
-	}
+	ret := []interface{}{}
 
 	if r.IAMPolicyDocument != nil {
-		return r.IAMPolicyDocument
+		ret = append(ret, *r.IAMPolicyDocument)
+	}
+
+	sort.Sort(byJSONLength(ret))
+	if len(ret) > 0 {
+		return ret[0]
 	}
 
 	if r.IAMPolicyDocumentArray != nil {

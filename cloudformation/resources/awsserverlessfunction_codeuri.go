@@ -1,9 +1,9 @@
 package resources
 
 import (
-	"encoding/json"
+	"sort"
 
-	"reflect"
+	"encoding/json"
 
 	"github.com/mitchellh/mapstructure"
 )
@@ -21,12 +21,15 @@ func (r AWSServerlessFunction_CodeUri) value() interface{} {
 		return r.String
 	}
 
-	if r.S3Location != nil && !reflect.DeepEqual(r.S3Location, &AWSServerlessFunction_S3Location{}) {
-		return r.S3Location
-	}
+	ret := []interface{}{}
 
 	if r.S3Location != nil {
-		return r.S3Location
+		ret = append(ret, *r.S3Location)
+	}
+
+	sort.Sort(byJSONLength(ret))
+	if len(ret) > 0 {
+		return ret[0]
 	}
 
 	return nil
