@@ -27,6 +27,7 @@ jobs:
 
     # Define the release stage that runs semantic-release
     - stage: release
+      if: branch = master AND type = push
       language: node_js
       node_js: lts/*
       before_install: skip
