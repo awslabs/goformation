@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -116,64 +115,4 @@ func (r *AWSServiceDiscoveryPublicDnsNamespace) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSServiceDiscoveryPublicDnsNamespaceResources retrieves all AWSServiceDiscoveryPublicDnsNamespace items from an AWS CloudFormation template
-func (t *Template) GetAllAWSServiceDiscoveryPublicDnsNamespaceResources() map[string]*AWSServiceDiscoveryPublicDnsNamespace {
-	results := map[string]*AWSServiceDiscoveryPublicDnsNamespace{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSServiceDiscoveryPublicDnsNamespace:
-			results[name] = &resource
-		case *AWSServiceDiscoveryPublicDnsNamespace:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ServiceDiscovery::PublicDnsNamespace" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSServiceDiscoveryPublicDnsNamespace
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSServiceDiscoveryPublicDnsNamespaceWithName retrieves all AWSServiceDiscoveryPublicDnsNamespace items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSServiceDiscoveryPublicDnsNamespaceWithName(name string) (*AWSServiceDiscoveryPublicDnsNamespace, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSServiceDiscoveryPublicDnsNamespace:
-			return &resource, nil
-		case *AWSServiceDiscoveryPublicDnsNamespace:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ServiceDiscovery::PublicDnsNamespace" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSServiceDiscoveryPublicDnsNamespace
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }
