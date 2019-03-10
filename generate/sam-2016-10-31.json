@@ -236,8 +236,8 @@
                 "Location": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication",
                     "Required": true,
-                    "PrimitiveType": "String",
-                    "Types": ["ApplicationLocation"],
+                    "PrimitiveTypes": [ "String" ],
+                    "Types": [ "ApplicationLocation" ],
                     "UpdateType": "Immutable"
                 },
                 "Parameters": {
