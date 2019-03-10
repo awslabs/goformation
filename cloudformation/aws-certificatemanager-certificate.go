@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -131,64 +130,4 @@ func (r *AWSCertificateManagerCertificate) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSCertificateManagerCertificateResources retrieves all AWSCertificateManagerCertificate items from an AWS CloudFormation template
-func (t *Template) GetAllAWSCertificateManagerCertificateResources() map[string]*AWSCertificateManagerCertificate {
-	results := map[string]*AWSCertificateManagerCertificate{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSCertificateManagerCertificate:
-			results[name] = &resource
-		case *AWSCertificateManagerCertificate:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::CertificateManager::Certificate" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSCertificateManagerCertificate
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSCertificateManagerCertificateWithName retrieves all AWSCertificateManagerCertificate items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSCertificateManagerCertificateWithName(name string) (*AWSCertificateManagerCertificate, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSCertificateManagerCertificate:
-			return &resource, nil
-		case *AWSCertificateManagerCertificate:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::CertificateManager::Certificate" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSCertificateManagerCertificate
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

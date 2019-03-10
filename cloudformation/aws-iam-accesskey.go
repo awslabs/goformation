@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -121,64 +120,4 @@ func (r *AWSIAMAccessKey) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSIAMAccessKeyResources retrieves all AWSIAMAccessKey items from an AWS CloudFormation template
-func (t *Template) GetAllAWSIAMAccessKeyResources() map[string]*AWSIAMAccessKey {
-	results := map[string]*AWSIAMAccessKey{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSIAMAccessKey:
-			results[name] = &resource
-		case *AWSIAMAccessKey:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::IAM::AccessKey" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSIAMAccessKey
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSIAMAccessKeyWithName retrieves all AWSIAMAccessKey items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSIAMAccessKeyWithName(name string) (*AWSIAMAccessKey, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSIAMAccessKey:
-			return &resource, nil
-		case *AWSIAMAccessKey:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::IAM::AccessKey" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSIAMAccessKey
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

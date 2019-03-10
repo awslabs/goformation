@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -116,64 +115,4 @@ func (r *AWSS3BucketPolicy) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSS3BucketPolicyResources retrieves all AWSS3BucketPolicy items from an AWS CloudFormation template
-func (t *Template) GetAllAWSS3BucketPolicyResources() map[string]*AWSS3BucketPolicy {
-	results := map[string]*AWSS3BucketPolicy{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSS3BucketPolicy:
-			results[name] = &resource
-		case *AWSS3BucketPolicy:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::S3::BucketPolicy" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSS3BucketPolicy
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSS3BucketPolicyWithName retrieves all AWSS3BucketPolicy items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSS3BucketPolicyWithName(name string) (*AWSS3BucketPolicy, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSS3BucketPolicy:
-			return &resource, nil
-		case *AWSS3BucketPolicy:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::S3::BucketPolicy" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSS3BucketPolicy
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

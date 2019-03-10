@@ -1,8 +1,40 @@
 package cloudformation
 
+import (
+	"fmt"
+)
+
 // AllResources fetches an iterable map all CloudFormation and SAM resources
-func AllResources() map[string]interface{} {
-    return map[string]interface{}{ {{range $name, $resource := .Resources}}
-        "{{$name}}": {{$resource}}{},{{end}}
+func AllResources() map[string]Resource {
+    return map[string]Resource{ {{range $name, $resource := .Resources}}
+        "{{$name}}": &{{$resource}}{},{{end}}
     }
 }
+
+
+{{range $name, $resource := .Resources}}
+// GetAll{{$resource}}Resources retrieves all {{$resource}} items from an AWS CloudFormation template
+func (t *Template) GetAll{{$resource}}Resources () map[string]*{{$resource}} {
+    results := map[string]*{{$resource}}{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *{{$resource}}:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// Get{{$resource}}WithName retrieves all {{$resource}} items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) Get{{$resource}}WithName (name string) (*{{$resource}}, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *{{$resource}}:
+			return resource, nil
+		}
+	}
+    return nil, fmt.Errorf("resource %q of type {{$resource}} not found", name)
+}
+
+{{end}}

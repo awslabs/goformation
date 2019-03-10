@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -136,64 +135,4 @@ func (r *AWSElasticLoadBalancingV2Listener) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSElasticLoadBalancingV2ListenerResources retrieves all AWSElasticLoadBalancingV2Listener items from an AWS CloudFormation template
-func (t *Template) GetAllAWSElasticLoadBalancingV2ListenerResources() map[string]*AWSElasticLoadBalancingV2Listener {
-	results := map[string]*AWSElasticLoadBalancingV2Listener{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSElasticLoadBalancingV2Listener:
-			results[name] = &resource
-		case *AWSElasticLoadBalancingV2Listener:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ElasticLoadBalancingV2::Listener" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSElasticLoadBalancingV2Listener
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSElasticLoadBalancingV2ListenerWithName retrieves all AWSElasticLoadBalancingV2Listener items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSElasticLoadBalancingV2ListenerWithName(name string) (*AWSElasticLoadBalancingV2Listener, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSElasticLoadBalancingV2Listener:
-			return &resource, nil
-		case *AWSElasticLoadBalancingV2Listener:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ElasticLoadBalancingV2::Listener" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSElasticLoadBalancingV2Listener
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

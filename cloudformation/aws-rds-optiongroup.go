@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -131,64 +130,4 @@ func (r *AWSRDSOptionGroup) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSRDSOptionGroupResources retrieves all AWSRDSOptionGroup items from an AWS CloudFormation template
-func (t *Template) GetAllAWSRDSOptionGroupResources() map[string]*AWSRDSOptionGroup {
-	results := map[string]*AWSRDSOptionGroup{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSRDSOptionGroup:
-			results[name] = &resource
-		case *AWSRDSOptionGroup:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::RDS::OptionGroup" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSRDSOptionGroup
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSRDSOptionGroupWithName retrieves all AWSRDSOptionGroup items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSRDSOptionGroupWithName(name string) (*AWSRDSOptionGroup, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSRDSOptionGroup:
-			return &resource, nil
-		case *AWSRDSOptionGroup:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::RDS::OptionGroup" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSRDSOptionGroup
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

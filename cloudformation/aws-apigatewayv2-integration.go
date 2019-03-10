@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -171,64 +170,4 @@ func (r *AWSApiGatewayV2Integration) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSApiGatewayV2IntegrationResources retrieves all AWSApiGatewayV2Integration items from an AWS CloudFormation template
-func (t *Template) GetAllAWSApiGatewayV2IntegrationResources() map[string]*AWSApiGatewayV2Integration {
-	results := map[string]*AWSApiGatewayV2Integration{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSApiGatewayV2Integration:
-			results[name] = &resource
-		case *AWSApiGatewayV2Integration:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ApiGatewayV2::Integration" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSApiGatewayV2Integration
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSApiGatewayV2IntegrationWithName retrieves all AWSApiGatewayV2Integration items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSApiGatewayV2IntegrationWithName(name string) (*AWSApiGatewayV2Integration, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSApiGatewayV2Integration:
-			return &resource, nil
-		case *AWSApiGatewayV2Integration:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ApiGatewayV2::Integration" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSApiGatewayV2Integration
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

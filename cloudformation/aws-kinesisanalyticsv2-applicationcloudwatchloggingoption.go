@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -116,64 +115,4 @@ func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) UnmarshalJSON(
 	}
 
 	return nil
-}
-
-// GetAllAWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOptionResources retrieves all AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption items from an AWS CloudFormation template
-func (t *Template) GetAllAWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOptionResources() map[string]*AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption {
-	results := map[string]*AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
-			results[name] = &resource
-		case *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOptionWithName retrieves all AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOptionWithName(name string) (*AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
-			return &resource, nil
-		case *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }

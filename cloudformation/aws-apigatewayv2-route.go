@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -166,64 +165,4 @@ func (r *AWSApiGatewayV2Route) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
-}
-
-// GetAllAWSApiGatewayV2RouteResources retrieves all AWSApiGatewayV2Route items from an AWS CloudFormation template
-func (t *Template) GetAllAWSApiGatewayV2RouteResources() map[string]*AWSApiGatewayV2Route {
-	results := map[string]*AWSApiGatewayV2Route{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case AWSApiGatewayV2Route:
-			results[name] = &resource
-		case *AWSApiGatewayV2Route:
-			// We found a strongly typed resource of the correct type; use it
-			results[name] = resource
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ApiGatewayV2::Route" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSApiGatewayV2Route
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							results[name] = &result
-						}
-					}
-				}
-			}
-		}
-	}
-	return results
-}
-
-// GetAWSApiGatewayV2RouteWithName retrieves all AWSApiGatewayV2Route items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSApiGatewayV2RouteWithName(name string) (*AWSApiGatewayV2Route, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case AWSApiGatewayV2Route:
-			return &resource, nil
-		case *AWSApiGatewayV2Route:
-			// We found a strongly typed resource of the correct type; use it
-			return resource, nil
-		case map[string]interface{}:
-			// We found an untyped resource (likely from JSON) which *might* be
-			// the correct type, but we need to check it's 'Type' field
-			if resType, ok := resource["Type"]; ok {
-				if resType == "AWS::ApiGatewayV2::Route" {
-					// The resource is correct, unmarshal it into the results
-					if b, err := json.Marshal(resource); err == nil {
-						var result AWSApiGatewayV2Route
-						if err := json.Unmarshal(b, &result); err == nil {
-							t.Resources[name] = &result
-							return &result, nil
-						}
-					}
-				}
-			}
-		}
-	}
-	return nil, errors.New("resource not found")
 }
