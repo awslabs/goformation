@@ -32,9 +32,8 @@ jobs:
       before_install: skip
       script:
         # Update AUTHORS.md
-        - export MAINTAINER_TOKEN=${GITHUB_TOKEN}
         - go get github.com/myii/maintainer
-        - maintainer contributor
+        - MAINTAINER_TOKEN=${GITHUB_TOKEN} maintainer contributor
 
         # Install all dependencies required for `semantic-release`
         - npm install @semantic-release/changelog@3 -D
