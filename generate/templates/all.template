@@ -2,23 +2,24 @@ package cloudformation
 
 import (
 	"fmt"
+	"github.com/awslabs/goformation/cloudformation/resources"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
 func AllResources() map[string]Resource {
     return map[string]Resource{ {{range $name, $resource := .Resources}}
-        "{{$name}}": &{{$resource}}{},{{end}}
+        "{{$name}}": &resources.{{$resource}}{},{{end}}
     }
 }
 
 
 {{range $name, $resource := .Resources}}
 // GetAll{{$resource}}Resources retrieves all {{$resource}} items from an AWS CloudFormation template
-func (t *Template) GetAll{{$resource}}Resources () map[string]*{{$resource}} {
-    results := map[string]*{{$resource}}{}
+func (t *Template) GetAll{{$resource}}Resources () map[string]*resources.{{$resource}} {
+    results := map[string]*resources.{{$resource}}{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case *{{$resource}}:
+		case *resources.{{$resource}}:
 			results[name] = resource
 		}
 	}
@@ -27,10 +28,10 @@ func (t *Template) GetAll{{$resource}}Resources () map[string]*{{$resource}} {
 
 // Get{{$resource}}WithName retrieves all {{$resource}} items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) Get{{$resource}}WithName (name string) (*{{$resource}}, error) {
+func (t *Template) Get{{$resource}}WithName (name string) (*resources.{{$resource}}, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case *{{$resource}}:
+		case *resources.{{$resource}}:
 			return resource, nil
 		}
 	}
