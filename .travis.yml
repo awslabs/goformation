@@ -2,9 +2,7 @@ language: go
 
 matrix:
   include:
-    - go: "1.10.x"
-      script: go test -v ./...
-    - go: "1.11.x"
+    - go: "1.12.x"
       script: go test -v -mod=vendor ./...
 
 env:
@@ -27,14 +25,14 @@ jobs:
 
     # Define the release stage that runs semantic-release
     - stage: release
+      if: branch = master AND type = push
       language: node_js
       node_js: lts/*
       before_install: skip
       script:
-        # # Update AUTHORS.md
-        # - export MAINTAINER_TOKEN=${GH_TOKEN}
-        # - go get github.com/myii/maintainer
-        # - maintainer contributor
+        # Update AUTHORS.md
+        - go get github.com/myii/maintainer
+        - maintainer contributor
 
         # Install all dependencies required for `semantic-release`
         - npm install @semantic-release/changelog@3 -D
