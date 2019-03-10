@@ -10,11 +10,6 @@ env:
 
 install: true
 
-# after_success:
-#   # Check for updated CloudFormation resources, and submit a PR
-#   - test "${TRAVIS_EVENT_TYPE}" = "cron" && ./generate/create-pull-request.sh
-#   # - ./generate/create-pull-request.sh
-
 jobs:
   include:
     # Define a stage that will auto-generate CloudFormation resources from the official
@@ -25,7 +20,7 @@ jobs:
 
     # Define the release stage that runs semantic-release
     - stage: release
-      if: branch = master AND type = push
+      if: branch = master
       language: node_js
       node_js: lts/*
       before_install: skip
