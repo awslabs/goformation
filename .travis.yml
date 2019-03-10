@@ -27,16 +27,10 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
-        script:
-          # Install tool for updating AUTHORS.md
-          # Update the AUTHORS.md file
-          - go get github.com/myii/maintainer
-          - maintainer contributor
-
-          # Install all dependencies required for `semantic-release`
-          - npm install @semantic-release/changelog@3 -D
-          - npm install @semantic-release/exec@3 -D
-          - npm install @semantic-release/git@7 -D
-
-          # Run `semantic-release`
-          - npx semantic-release@15
+        script: >-
+          go get github.com/myii/maintainer &&
+          maintainer contributor &&
+          npm install @semantic-release/changelog@3 -D &&
+          npm install @semantic-release/exec@3 -D &&
+          npm install @semantic-release/git@7 -D &&
+          npx semantic-release@15
