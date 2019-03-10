@@ -38186,7 +38186,7 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "Authorizers": {
-                    "type": "string"
+                    "type": "object"
                 },
                 "DefaultAuthorizer": {
                     "type": "string"
