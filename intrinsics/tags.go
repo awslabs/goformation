@@ -24,7 +24,7 @@ func (t *tagUnmarshalerType) UnmarshalYAMLTag(tag string, fieldValue reflect.Val
 
 	tag = prefix + tag
 
-	output := reflect.ValueOf(make(map[string]interface{}))
+	output := reflect.ValueOf(make(map[interface{}]interface{}))
 	key := reflect.ValueOf(tag)
 
 	output.SetMapIndex(key, fieldValue)
