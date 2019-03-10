@@ -2,7 +2,7 @@ package schema
 
 // CloudformationSchema defined a JSON Schema that can be used to validate CloudFormation/SAM templates
 var CloudformationSchema = `{
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": false,
     "definitions": {
         "AWS::AmazonMQ::Broker": {
@@ -787,7 +787,7 @@ var CloudformationSchema = `{
                     "type": "number"
                 },
                 "StageVariableOverrides": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -808,7 +808,7 @@ var CloudformationSchema = `{
                     "type": "number"
                 },
                 "StageVariableOverrides": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -922,7 +922,7 @@ var CloudformationSchema = `{
                     "type": "boolean"
                 },
                 "Variables": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1185,7 +1185,7 @@ var CloudformationSchema = `{
                     "additionalProperties": false,
                     "properties": {
                         "ResponseParameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1194,7 +1194,7 @@ var CloudformationSchema = `{
                             "type": "object"
                         },
                         "ResponseTemplates": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1294,7 +1294,7 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "RequestModels": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1303,7 +1303,7 @@ var CloudformationSchema = `{
                             "type": "object"
                         },
                         "RequestParameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "boolean"
@@ -1378,7 +1378,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "RequestParameters": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1387,7 +1387,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "RequestTemplates": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1414,7 +1414,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "ResponseParameters": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1423,7 +1423,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "ResponseTemplates": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1447,7 +1447,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "ResponseModels": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1456,7 +1456,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "ResponseParameters": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "boolean"
@@ -1730,7 +1730,7 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Parameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1864,7 +1864,7 @@ var CloudformationSchema = `{
                             "type": "boolean"
                         },
                         "Variables": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1913,7 +1913,7 @@ var CloudformationSchema = `{
                     "type": "number"
                 },
                 "StageVariableOverrides": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -6763,7 +6763,7 @@ var CloudformationSchema = `{
                             "type": "array"
                         },
                         "Parameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -17919,7 +17919,7 @@ var CloudformationSchema = `{
                     "type": "array"
                 },
                 "DockerLabels": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18057,7 +18057,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "DriverOpts": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18066,7 +18066,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Labels": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18196,7 +18196,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "Options": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18696,7 +18696,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AdditionalInfo": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18803,7 +18803,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "ConfigurationProperties": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -19344,7 +19344,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "ConfigurationProperties": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -19626,7 +19626,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "ConfigurationProperties": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -20124,7 +20124,7 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Properties": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -21348,7 +21348,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -21389,7 +21389,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -21668,7 +21668,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -21709,7 +21709,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -22120,7 +22120,7 @@ var CloudformationSchema = `{
                             "type": "object"
                         },
                         "AdvancedOptions": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -22433,7 +22433,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "InputPathsMap": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -25895,7 +25895,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "Attributes": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -29531,7 +29531,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "Variables": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -30619,7 +30619,7 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::OpsWorks::App.Source"
                         },
                         "Attributes": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -30989,7 +30989,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "Friday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -30998,7 +30998,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Monday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31007,7 +31007,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Saturday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31016,7 +31016,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Sunday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31025,7 +31025,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Thursday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31034,7 +31034,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Tuesday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31043,7 +31043,7 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Wednesday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31087,7 +31087,7 @@ var CloudformationSchema = `{
                     "additionalProperties": false,
                     "properties": {
                         "Attributes": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -31345,7 +31345,7 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Attributes": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -32356,7 +32356,7 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Parameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
