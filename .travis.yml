@@ -1,9 +1,6 @@
 language: go
-
-matrix:
-  include:
-    - go: "1.12.x"
-      script: go test -v -mod=vendor ./...
+go:
+  - 1.11.x
 
 env:
   - GO111MODULE=on
@@ -12,6 +9,9 @@ install: true
 
 jobs:
   include:
+    - stage: test
+      script: go test -v -mod=vendor ./...
+
     # Define a stage that will auto-generate CloudFormation resources from the official
     # AWS CloudFormation Resource Specification on a daily basis (run via a travis cron)
     - stage: regenerate
@@ -24,19 +24,13 @@ jobs:
       language: node_js
       node_js: lts/*
       before_install: skip
-      script:
-        # Update AUTHORS.md
-        - go get github.com/myii/maintainer
-        - maintainer contributor
-
-        # Install all dependencies required for `semantic-release`
-        - npm install @semantic-release/changelog@3 -D
-        - npm install @semantic-release/exec@3 -D
-        - npm install @semantic-release/git@7 -D
-
       deploy:
         provider: script
         skip_cleanup: true
-        script:
-          # Run `semantic-release`
-          - npx semantic-release@15
+        script: >-
+          go get github.com/myii/maintainer &&
+          maintainer contributor &&
+          npm install @semantic-release/changelog@3 -D &&
+          npm install @semantic-release/exec@3 -D &&
+          npm install @semantic-release/git@7 -D &&
+          npx semantic-release@15
