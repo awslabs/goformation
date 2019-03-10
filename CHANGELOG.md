@@ -1,3 +1,12 @@
+# GoFormation Versioning Changelog
+
+# [2.1.0](https://github.com/awslabs/goformation/compare/v2.0.0...v2.1.0) (2019-03-10)
+
+
+### Features
+
+* **CI:** auto-generate AUTHORS.md file ([b37af7b](https://github.com/awslabs/goformation/commit/b37af7b))
+
 # Semantic Versioning Changelog
 
 # [2.0.0](https://github.com/awslabs/goformation/compare/v1.4.1...v2.0.0) (2019-03-10)
