@@ -50,6 +50,26 @@ var _ = Describe("Goformation Code Generator", func() {
 
 	Context("with a polymorphic property", func() {
 
+		Context("with multiple types", func() {
+
+			Context("properly marshals and unmarshals values", func() {
+
+				property := []byte(`{"Properties":{"BatchSize":10,"StartingPosition":"LATEST","Stream":"arn"},"Type":"Kinesis"}`)
+
+				result := &resources.AWSServerlessFunction_EventSource{}
+				err := json.Unmarshal(property, result)
+				output, err2 := json.Marshal(result)
+
+				It("should marshal and unmarhal to same value", func() {
+					Expect(err).To(BeNil())
+					Expect(err2).To(BeNil())
+					Expect(output).To(Equal(property))
+				})
+
+			})
+
+		})
+
 		Context("with a primitive value", func() {
 
 			Context("specified as a Go struct", func() {
