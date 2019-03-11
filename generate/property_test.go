@@ -68,6 +68,23 @@ var _ = Describe("Goformation Code Generator", func() {
 
 			})
 
+			Context("properly Marshals best value", func() {
+				expected := []byte(`{"BatchSize":10,"Stream":"arn"}`)
+
+				result := &resources.AWSServerlessFunction_Properties{
+					SQSEvent:     &resources.AWSServerlessFunction_SQSEvent{BatchSize: 10},
+					KinesisEvent: &resources.AWSServerlessFunction_KinesisEvent{BatchSize: 10, Stream: "arn"},
+				}
+
+				output, err := result.MarshalJSON()
+
+				It("should marshal and unmarhal to same value", func() {
+					Expect(err).To(BeNil())
+					Expect(output).To(Equal(expected))
+				})
+
+			})
+
 		})
 
 		Context("with a primitive value", func() {
