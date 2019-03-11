@@ -7,26 +7,20 @@
             "@semantic-release/changelog",
             {
                 "changelogFile": "CHANGELOG.md",
-                "changelogTitle": "# Semantic Versioning Changelog"
+                "changelogTitle": "# GoFormation Versioning Changelog"
             }
         ],
         [
             "@semantic-release/git",
             {
                 "assets": [
-                    "CHANGELOG.md"
+                    "CHANGELOG.md",
+                    "AUTHORS.md"
                 ]
             }
         ],
         [
-            "@semantic-release/github",
-            {
-                "assets": [
-                    {
-                        "path": "**"
-                    }
-                ]
-            }
+            "@semantic-release/github"
         ]
     ]
 }

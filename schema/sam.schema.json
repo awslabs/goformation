@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": false,
     "definitions": {
         "AWS::AmazonMQ::Broker": {
@@ -784,7 +784,7 @@
                     "type": "number"
                 },
                 "StageVariableOverrides": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -805,7 +805,7 @@
                     "type": "number"
                 },
                 "StageVariableOverrides": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -919,7 +919,7 @@
                     "type": "boolean"
                 },
                 "Variables": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1182,7 +1182,7 @@
                     "additionalProperties": false,
                     "properties": {
                         "ResponseParameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1191,7 +1191,7 @@
                             "type": "object"
                         },
                         "ResponseTemplates": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1291,7 +1291,7 @@
                             "type": "string"
                         },
                         "RequestModels": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1300,7 +1300,7 @@
                             "type": "object"
                         },
                         "RequestParameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "boolean"
@@ -1375,7 +1375,7 @@
                     "type": "string"
                 },
                 "RequestParameters": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1384,7 +1384,7 @@
                     "type": "object"
                 },
                 "RequestTemplates": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1411,7 +1411,7 @@
                     "type": "string"
                 },
                 "ResponseParameters": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1420,7 +1420,7 @@
                     "type": "object"
                 },
                 "ResponseTemplates": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1444,7 +1444,7 @@
             "additionalProperties": false,
             "properties": {
                 "ResponseModels": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -1453,7 +1453,7 @@
                     "type": "object"
                 },
                 "ResponseParameters": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "boolean"
@@ -1727,7 +1727,7 @@
                             "type": "string"
                         },
                         "Parameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1861,7 +1861,7 @@
                             "type": "boolean"
                         },
                         "Variables": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -1910,7 +1910,7 @@
                     "type": "number"
                 },
                 "StageVariableOverrides": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -6760,7 +6760,7 @@
                             "type": "array"
                         },
                         "Parameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -17916,7 +17916,7 @@
                     "type": "array"
                 },
                 "DockerLabels": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18054,7 +18054,7 @@
                     "type": "string"
                 },
                 "DriverOpts": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18063,7 +18063,7 @@
                     "type": "object"
                 },
                 "Labels": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18193,7 +18193,7 @@
                     "type": "string"
                 },
                 "Options": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18693,7 +18693,7 @@
             "additionalProperties": false,
             "properties": {
                 "AdditionalInfo": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -18800,7 +18800,7 @@
                     "type": "string"
                 },
                 "ConfigurationProperties": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -19341,7 +19341,7 @@
                     "type": "string"
                 },
                 "ConfigurationProperties": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -19623,7 +19623,7 @@
                     "type": "string"
                 },
                 "ConfigurationProperties": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -20121,7 +20121,7 @@
                             "type": "string"
                         },
                         "Properties": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -21345,7 +21345,7 @@
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -21386,7 +21386,7 @@
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -21665,7 +21665,7 @@
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -21706,7 +21706,7 @@
             "additionalProperties": false,
             "properties": {
                 "AuthenticationRequestExtraParams": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -22117,7 +22117,7 @@
                             "type": "object"
                         },
                         "AdvancedOptions": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -22430,7 +22430,7 @@
             "additionalProperties": false,
             "properties": {
                 "InputPathsMap": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -25892,7 +25892,7 @@
             "additionalProperties": false,
             "properties": {
                 "Attributes": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -29528,7 +29528,7 @@
             "additionalProperties": false,
             "properties": {
                 "Variables": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -30616,7 +30616,7 @@
                             "$ref": "#/definitions/AWS::OpsWorks::App.Source"
                         },
                         "Attributes": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -30986,7 +30986,7 @@
             "additionalProperties": false,
             "properties": {
                 "Friday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -30995,7 +30995,7 @@
                     "type": "object"
                 },
                 "Monday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31004,7 +31004,7 @@
                     "type": "object"
                 },
                 "Saturday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31013,7 +31013,7 @@
                     "type": "object"
                 },
                 "Sunday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31022,7 +31022,7 @@
                     "type": "object"
                 },
                 "Thursday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31031,7 +31031,7 @@
                     "type": "object"
                 },
                 "Tuesday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31040,7 +31040,7 @@
                     "type": "object"
                 },
                 "Wednesday": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -31084,7 +31084,7 @@
                     "additionalProperties": false,
                     "properties": {
                         "Attributes": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -31342,7 +31342,7 @@
                             "type": "string"
                         },
                         "Attributes": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -32353,7 +32353,7 @@
                             "type": "string"
                         },
                         "Parameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -38152,7 +38152,7 @@
                             "type": "string"
                         },
                         "Variables": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -38246,6 +38246,11 @@
                         "Location": {
                             "anyOf": [
                                 {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                {
                                     "$ref": "#/definitions/AWS::Serverless::Application.ApplicationLocation"
                                 }
                             ]
@@ -38257,7 +38262,7 @@
                             "type": "array"
                         },
                         "Parameters": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -38266,7 +38271,7 @@
                             "type": "object"
                         },
                         "Tags": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -38432,7 +38437,7 @@
                             "type": "string"
                         },
                         "Tags": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"
@@ -38474,7 +38479,7 @@
             "additionalProperties": false,
             "properties": {
                 "Variables": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -38551,7 +38556,7 @@
                     "type": "boolean"
                 },
                 "Hooks": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -38639,7 +38644,7 @@
             "additionalProperties": false,
             "properties": {
                 "Variables": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "patternProperties": {
                         "^[a-zA-Z0-9]+$": {
                             "type": "string"
@@ -38939,7 +38944,7 @@
                             "type": "string"
                         },
                         "Tags": {
-                            "additionalProperties": false,
+                            "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
                                     "type": "string"

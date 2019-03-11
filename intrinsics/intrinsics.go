@@ -219,8 +219,10 @@ func search(input interface{}, template interface{}, options *ProcessorOptions) 
 			if key == "Condition" {
 				// This can lead to infinite recursion A -> B; B -> A;
 				// pass state of the conditions that we're evaluating so we can detect cycles
-				// in case of cycle, return nil
-				return condition(key, search(val, template, options), template, options)
+				// in case of cycle or not found, do nothing
+				if con := condition(key, search(val, template, options), template, options); con != nil {
+					return con
+				}
 			}
 
 			// This is not an intrinsic function, recurse through it normally
