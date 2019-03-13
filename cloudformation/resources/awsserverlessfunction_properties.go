@@ -1,9 +1,9 @@
 package resources
 
 import (
-	"encoding/json"
+	"sort"
 
-	"reflect"
+	"encoding/json"
 
 	"github.com/mitchellh/mapstructure"
 )
@@ -24,84 +24,51 @@ type AWSServerlessFunction_Properties struct {
 
 func (r AWSServerlessFunction_Properties) value() interface{} {
 
-	if r.S3Event != nil && !reflect.DeepEqual(r.S3Event, &AWSServerlessFunction_S3Event{}) {
-		return r.S3Event
-	}
-
-	if r.SNSEvent != nil && !reflect.DeepEqual(r.SNSEvent, &AWSServerlessFunction_SNSEvent{}) {
-		return r.SNSEvent
-	}
-
-	if r.SQSEvent != nil && !reflect.DeepEqual(r.SQSEvent, &AWSServerlessFunction_SQSEvent{}) {
-		return r.SQSEvent
-	}
-
-	if r.KinesisEvent != nil && !reflect.DeepEqual(r.KinesisEvent, &AWSServerlessFunction_KinesisEvent{}) {
-		return r.KinesisEvent
-	}
-
-	if r.DynamoDBEvent != nil && !reflect.DeepEqual(r.DynamoDBEvent, &AWSServerlessFunction_DynamoDBEvent{}) {
-		return r.DynamoDBEvent
-	}
-
-	if r.ApiEvent != nil && !reflect.DeepEqual(r.ApiEvent, &AWSServerlessFunction_ApiEvent{}) {
-		return r.ApiEvent
-	}
-
-	if r.ScheduleEvent != nil && !reflect.DeepEqual(r.ScheduleEvent, &AWSServerlessFunction_ScheduleEvent{}) {
-		return r.ScheduleEvent
-	}
-
-	if r.CloudWatchEventEvent != nil && !reflect.DeepEqual(r.CloudWatchEventEvent, &AWSServerlessFunction_CloudWatchEventEvent{}) {
-		return r.CloudWatchEventEvent
-	}
-
-	if r.IoTRuleEvent != nil && !reflect.DeepEqual(r.IoTRuleEvent, &AWSServerlessFunction_IoTRuleEvent{}) {
-		return r.IoTRuleEvent
-	}
-
-	if r.AlexaSkillEvent != nil && !reflect.DeepEqual(r.AlexaSkillEvent, &AWSServerlessFunction_AlexaSkillEvent{}) {
-		return r.AlexaSkillEvent
-	}
+	ret := []interface{}{}
 
 	if r.S3Event != nil {
-		return r.S3Event
+		ret = append(ret, *r.S3Event)
 	}
 
 	if r.SNSEvent != nil {
-		return r.SNSEvent
+		ret = append(ret, *r.SNSEvent)
 	}
 
 	if r.SQSEvent != nil {
-		return r.SQSEvent
+		ret = append(ret, *r.SQSEvent)
 	}
 
 	if r.KinesisEvent != nil {
-		return r.KinesisEvent
+		ret = append(ret, *r.KinesisEvent)
 	}
 
 	if r.DynamoDBEvent != nil {
-		return r.DynamoDBEvent
+		ret = append(ret, *r.DynamoDBEvent)
 	}
 
 	if r.ApiEvent != nil {
-		return r.ApiEvent
+		ret = append(ret, *r.ApiEvent)
 	}
 
 	if r.ScheduleEvent != nil {
-		return r.ScheduleEvent
+		ret = append(ret, *r.ScheduleEvent)
 	}
 
 	if r.CloudWatchEventEvent != nil {
-		return r.CloudWatchEventEvent
+		ret = append(ret, *r.CloudWatchEventEvent)
 	}
 
 	if r.IoTRuleEvent != nil {
-		return r.IoTRuleEvent
+		ret = append(ret, *r.IoTRuleEvent)
 	}
 
 	if r.AlexaSkillEvent != nil {
-		return r.AlexaSkillEvent
+		ret = append(ret, *r.AlexaSkillEvent)
+	}
+
+	sort.Sort(byJSONLength(ret))
+	if len(ret) > 0 {
+		return ret[0]
 	}
 
 	return nil

@@ -1,10 +1,10 @@
 package resources
 
 import (
-	"encoding/json"
 	{{ if (.Property.Types) }}
-	"reflect"
+	"sort"
 	{{end}}
+	"encoding/json"
 	{{ if (or .Property.Types .Property.ItemTypes .Property.PrimitiveItemTypes)}}
 	"github.com/mitchellh/mapstructure"
 	{{end}}
@@ -12,7 +12,6 @@ import (
 
 // {{.Name}} is a helper struct that can hold either a {{.TypesJoined}} value
 type {{.Name}} struct {
-
 	{{range $type := $.Property.PrimitiveTypes}}
 	{{$type}} *{{convertToGoType $type}}{{end}}
 
@@ -40,15 +39,16 @@ func (r {{.Name}}) value() interface{} {
 		}
 	{{end}}
 
-	{{range $type := $.Property.Types}}
-    		if r.{{$type}} != nil && !reflect.DeepEqual(r.{{$type}}, &{{$.Basename}}_{{$type}}{}) {
-      			return r.{{$type}}
-    		}
-  	{{end}}
-
-	{{range $type := $.Property.Types}}
-		if r.{{$type}} != nil {
-			return r.{{$type}}
+	{{ if (.Property.Types) }}
+		ret := []interface{}{}
+		{{range $type := $.Property.Types}}
+			if r.{{$type}} != nil {
+				ret = append(ret, *r.{{$type}})
+			}
+		{{end}}
+		sort.Sort(byJSONLength(ret))
+		if len(ret) > 0 {
+			return ret[0]
 		}
 	{{end}}
 
