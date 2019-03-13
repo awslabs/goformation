@@ -4,8 +4,6 @@ import (
 	"sort"
 
 	"encoding/json"
-
-	"github.com/mitchellh/mapstructure"
 )
 
 // AWSServerlessApi_DefinitionUri is a helper struct that can hold either a String or S3Location value
@@ -55,8 +53,9 @@ func (r *AWSServerlessApi_DefinitionUri) UnmarshalJSON(b []byte) error {
 		r.String = &val
 
 	case map[string]interface{}:
+		val = val // This ensures val is used to stop an error
 
-		mapstructure.Decode(val, &r.S3Location)
+		json.Unmarshal(b, &r.S3Location)
 
 	case []interface{}:
 

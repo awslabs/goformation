@@ -506,7 +506,7 @@
                 },
                 "BatchSize": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb",
-                    "Required": true,
+                    "Required": false,
                     "PrimitiveType": "Integer",
                     "UpdateType": "Immutable"
                 }

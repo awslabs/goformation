@@ -38587,7 +38587,6 @@
                 }
             },
             "required": [
-                "BatchSize",
                 "StartingPosition",
                 "Stream"
             ],
