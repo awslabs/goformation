@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [2.2.2](https://github.com/PaulMaddox/goformation/compare/v2.2.1...v2.2.2) (2019-03-13)
+
+
+### Bug Fixes
+
+* **parser:** Select the correct AWS CloudFormation resource type based on similarity ([#183](https://github.com/PaulMaddox/goformation/issues/183)) ([5749b23](https://github.com/PaulMaddox/goformation/commit/5749b23))
+
 ## [2.2.1](https://github.com/awslabs/goformation/compare/v2.2.0...v2.2.1) (2019-03-10)
 
 
