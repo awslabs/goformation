@@ -209,6 +209,21 @@ func AllResources() map[string]Resource {
 		"AWS::Glue::Partition":                                        &resources.AWSGluePartition{},
 		"AWS::Glue::Table":                                            &resources.AWSGlueTable{},
 		"AWS::Glue::Trigger":                                          &resources.AWSGlueTrigger{},
+		"AWS::Greengrass::ConnectorDefinition":                        &resources.AWSGreengrassConnectorDefinition{},
+		"AWS::Greengrass::ConnectorDefinitionVersion":                 &resources.AWSGreengrassConnectorDefinitionVersion{},
+		"AWS::Greengrass::CoreDefinition":                             &resources.AWSGreengrassCoreDefinition{},
+		"AWS::Greengrass::CoreDefinitionVersion":                      &resources.AWSGreengrassCoreDefinitionVersion{},
+		"AWS::Greengrass::DeviceDefinition":                           &resources.AWSGreengrassDeviceDefinition{},
+		"AWS::Greengrass::DeviceDefinitionVersion":                    &resources.AWSGreengrassDeviceDefinitionVersion{},
+		"AWS::Greengrass::FunctionDefinition":                         &resources.AWSGreengrassFunctionDefinition{},
+		"AWS::Greengrass::FunctionDefinitionVersion":                  &resources.AWSGreengrassFunctionDefinitionVersion{},
+		"AWS::Greengrass::Group":                                      &resources.AWSGreengrassGroup{},
+		"AWS::Greengrass::GroupVersion":                               &resources.AWSGreengrassGroupVersion{},
+		"AWS::Greengrass::LoggerDefinition":                           &resources.AWSGreengrassLoggerDefinition{},
+		"AWS::Greengrass::LoggerDefinitionVersion":                    &resources.AWSGreengrassLoggerDefinitionVersion{},
+		"AWS::Greengrass::ResourceDefinitionVersion":                  &resources.AWSGreengrassResourceDefinitionVersion{},
+		"AWS::Greengrass::SubscriptionDefinition":                     &resources.AWSGreengrassSubscriptionDefinition{},
+		"AWS::Greengrass::SubscriptionDefinitionVersion":              &resources.AWSGreengrassSubscriptionDefinitionVersion{},
 		"AWS::GuardDuty::Detector":                                    &resources.AWSGuardDutyDetector{},
 		"AWS::GuardDuty::Filter":                                      &resources.AWSGuardDutyFilter{},
 		"AWS::GuardDuty::IPSet":                                       &resources.AWSGuardDutyIPSet{},
@@ -5201,6 +5216,366 @@ func (t *Template) GetAWSGlueTriggerWithName(name string) (*resources.AWSGlueTri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSGlueTrigger not found", name)
+}
+
+// GetAllAWSGreengrassConnectorDefinitionResources retrieves all AWSGreengrassConnectorDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassConnectorDefinitionResources() map[string]*resources.AWSGreengrassConnectorDefinition {
+	results := map[string]*resources.AWSGreengrassConnectorDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassConnectorDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassConnectorDefinitionWithName retrieves all AWSGreengrassConnectorDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassConnectorDefinitionWithName(name string) (*resources.AWSGreengrassConnectorDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassConnectorDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassConnectorDefinition not found", name)
+}
+
+// GetAllAWSGreengrassConnectorDefinitionVersionResources retrieves all AWSGreengrassConnectorDefinitionVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassConnectorDefinitionVersionResources() map[string]*resources.AWSGreengrassConnectorDefinitionVersion {
+	results := map[string]*resources.AWSGreengrassConnectorDefinitionVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassConnectorDefinitionVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassConnectorDefinitionVersionWithName retrieves all AWSGreengrassConnectorDefinitionVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassConnectorDefinitionVersionWithName(name string) (*resources.AWSGreengrassConnectorDefinitionVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassConnectorDefinitionVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassConnectorDefinitionVersion not found", name)
+}
+
+// GetAllAWSGreengrassCoreDefinitionResources retrieves all AWSGreengrassCoreDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassCoreDefinitionResources() map[string]*resources.AWSGreengrassCoreDefinition {
+	results := map[string]*resources.AWSGreengrassCoreDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassCoreDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassCoreDefinitionWithName retrieves all AWSGreengrassCoreDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassCoreDefinitionWithName(name string) (*resources.AWSGreengrassCoreDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassCoreDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassCoreDefinition not found", name)
+}
+
+// GetAllAWSGreengrassCoreDefinitionVersionResources retrieves all AWSGreengrassCoreDefinitionVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassCoreDefinitionVersionResources() map[string]*resources.AWSGreengrassCoreDefinitionVersion {
+	results := map[string]*resources.AWSGreengrassCoreDefinitionVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassCoreDefinitionVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassCoreDefinitionVersionWithName retrieves all AWSGreengrassCoreDefinitionVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassCoreDefinitionVersionWithName(name string) (*resources.AWSGreengrassCoreDefinitionVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassCoreDefinitionVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassCoreDefinitionVersion not found", name)
+}
+
+// GetAllAWSGreengrassDeviceDefinitionResources retrieves all AWSGreengrassDeviceDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassDeviceDefinitionResources() map[string]*resources.AWSGreengrassDeviceDefinition {
+	results := map[string]*resources.AWSGreengrassDeviceDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassDeviceDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassDeviceDefinitionWithName retrieves all AWSGreengrassDeviceDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassDeviceDefinitionWithName(name string) (*resources.AWSGreengrassDeviceDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassDeviceDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassDeviceDefinition not found", name)
+}
+
+// GetAllAWSGreengrassDeviceDefinitionVersionResources retrieves all AWSGreengrassDeviceDefinitionVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassDeviceDefinitionVersionResources() map[string]*resources.AWSGreengrassDeviceDefinitionVersion {
+	results := map[string]*resources.AWSGreengrassDeviceDefinitionVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassDeviceDefinitionVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassDeviceDefinitionVersionWithName retrieves all AWSGreengrassDeviceDefinitionVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassDeviceDefinitionVersionWithName(name string) (*resources.AWSGreengrassDeviceDefinitionVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassDeviceDefinitionVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassDeviceDefinitionVersion not found", name)
+}
+
+// GetAllAWSGreengrassFunctionDefinitionResources retrieves all AWSGreengrassFunctionDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassFunctionDefinitionResources() map[string]*resources.AWSGreengrassFunctionDefinition {
+	results := map[string]*resources.AWSGreengrassFunctionDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassFunctionDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassFunctionDefinitionWithName retrieves all AWSGreengrassFunctionDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassFunctionDefinitionWithName(name string) (*resources.AWSGreengrassFunctionDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassFunctionDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassFunctionDefinition not found", name)
+}
+
+// GetAllAWSGreengrassFunctionDefinitionVersionResources retrieves all AWSGreengrassFunctionDefinitionVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassFunctionDefinitionVersionResources() map[string]*resources.AWSGreengrassFunctionDefinitionVersion {
+	results := map[string]*resources.AWSGreengrassFunctionDefinitionVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassFunctionDefinitionVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassFunctionDefinitionVersionWithName retrieves all AWSGreengrassFunctionDefinitionVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassFunctionDefinitionVersionWithName(name string) (*resources.AWSGreengrassFunctionDefinitionVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassFunctionDefinitionVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassFunctionDefinitionVersion not found", name)
+}
+
+// GetAllAWSGreengrassGroupResources retrieves all AWSGreengrassGroup items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassGroupResources() map[string]*resources.AWSGreengrassGroup {
+	results := map[string]*resources.AWSGreengrassGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassGroupWithName retrieves all AWSGreengrassGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassGroupWithName(name string) (*resources.AWSGreengrassGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassGroup not found", name)
+}
+
+// GetAllAWSGreengrassGroupVersionResources retrieves all AWSGreengrassGroupVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassGroupVersionResources() map[string]*resources.AWSGreengrassGroupVersion {
+	results := map[string]*resources.AWSGreengrassGroupVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassGroupVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassGroupVersionWithName retrieves all AWSGreengrassGroupVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassGroupVersionWithName(name string) (*resources.AWSGreengrassGroupVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassGroupVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassGroupVersion not found", name)
+}
+
+// GetAllAWSGreengrassLoggerDefinitionResources retrieves all AWSGreengrassLoggerDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassLoggerDefinitionResources() map[string]*resources.AWSGreengrassLoggerDefinition {
+	results := map[string]*resources.AWSGreengrassLoggerDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassLoggerDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassLoggerDefinitionWithName retrieves all AWSGreengrassLoggerDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassLoggerDefinitionWithName(name string) (*resources.AWSGreengrassLoggerDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassLoggerDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassLoggerDefinition not found", name)
+}
+
+// GetAllAWSGreengrassLoggerDefinitionVersionResources retrieves all AWSGreengrassLoggerDefinitionVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassLoggerDefinitionVersionResources() map[string]*resources.AWSGreengrassLoggerDefinitionVersion {
+	results := map[string]*resources.AWSGreengrassLoggerDefinitionVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassLoggerDefinitionVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassLoggerDefinitionVersionWithName retrieves all AWSGreengrassLoggerDefinitionVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassLoggerDefinitionVersionWithName(name string) (*resources.AWSGreengrassLoggerDefinitionVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassLoggerDefinitionVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassLoggerDefinitionVersion not found", name)
+}
+
+// GetAllAWSGreengrassResourceDefinitionVersionResources retrieves all AWSGreengrassResourceDefinitionVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassResourceDefinitionVersionResources() map[string]*resources.AWSGreengrassResourceDefinitionVersion {
+	results := map[string]*resources.AWSGreengrassResourceDefinitionVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassResourceDefinitionVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassResourceDefinitionVersionWithName retrieves all AWSGreengrassResourceDefinitionVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassResourceDefinitionVersionWithName(name string) (*resources.AWSGreengrassResourceDefinitionVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassResourceDefinitionVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassResourceDefinitionVersion not found", name)
+}
+
+// GetAllAWSGreengrassSubscriptionDefinitionResources retrieves all AWSGreengrassSubscriptionDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassSubscriptionDefinitionResources() map[string]*resources.AWSGreengrassSubscriptionDefinition {
+	results := map[string]*resources.AWSGreengrassSubscriptionDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassSubscriptionDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassSubscriptionDefinitionWithName retrieves all AWSGreengrassSubscriptionDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassSubscriptionDefinitionWithName(name string) (*resources.AWSGreengrassSubscriptionDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassSubscriptionDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassSubscriptionDefinition not found", name)
+}
+
+// GetAllAWSGreengrassSubscriptionDefinitionVersionResources retrieves all AWSGreengrassSubscriptionDefinitionVersion items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassSubscriptionDefinitionVersionResources() map[string]*resources.AWSGreengrassSubscriptionDefinitionVersion {
+	results := map[string]*resources.AWSGreengrassSubscriptionDefinitionVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassSubscriptionDefinitionVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassSubscriptionDefinitionVersionWithName retrieves all AWSGreengrassSubscriptionDefinitionVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassSubscriptionDefinitionVersionWithName(name string) (*resources.AWSGreengrassSubscriptionDefinitionVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassSubscriptionDefinitionVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassSubscriptionDefinitionVersion not found", name)
 }
 
 // GetAllAWSGuardDutyDetectorResources retrieves all AWSGuardDutyDetector items from an AWS CloudFormation template

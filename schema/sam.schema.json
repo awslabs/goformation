@@ -3096,6 +3096,12 @@
                         "Name": {
                             "type": "string"
                         },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
                         "VpcConfig": {
                             "$ref": "#/definitions/AWS::AppStream::Fleet.VpcConfig"
                         }
@@ -3220,6 +3226,12 @@
                         "Name": {
                             "type": "string"
                         },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
                         "VpcConfig": {
                             "$ref": "#/definitions/AWS::AppStream::ImageBuilder.VpcConfig"
                         }
@@ -3334,6 +3346,12 @@
                         "StorageConnectors": {
                             "items": {
                                 "$ref": "#/definitions/AWS::AppStream::Stack.StorageConnector"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
                             },
                             "type": "array"
                         },
@@ -8237,6 +8255,18 @@
             "properties": {},
             "type": "object"
         },
+        "AWS::CodeBuild::Project.GitSubmodulesConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "FetchSubmodules": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "FetchSubmodules"
+            ],
+            "type": "object"
+        },
         "AWS::CodeBuild::Project.LogsConfig": {
             "additionalProperties": false,
             "properties": {
@@ -8304,6 +8334,9 @@
         "AWS::CodeBuild::Project.S3LogsConfig": {
             "additionalProperties": false,
             "properties": {
+                "EncryptionDisabled": {
+                    "type": "boolean"
+                },
                 "Location": {
                     "type": "string"
                 },
@@ -8327,6 +8360,9 @@
                 },
                 "GitCloneDepth": {
                     "type": "number"
+                },
+                "GitSubmodulesConfig": {
+                    "$ref": "#/definitions/AWS::CodeBuild::Project.GitSubmodulesConfig"
                 },
                 "InsecureSsl": {
                     "type": "boolean"
@@ -24150,6 +24186,1651 @@
             },
             "type": "object"
         },
+        "AWS::Greengrass::ConnectorDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::ConnectorDefinition.ConnectorDefinitionVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::ConnectorDefinition"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ConnectorDefinition.Connector": {
+            "additionalProperties": false,
+            "properties": {
+                "ConnectorArn": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "Parameters": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "ConnectorArn",
+                "Id"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ConnectorDefinition.ConnectorDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "Connectors": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::ConnectorDefinition.Connector"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Connectors"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ConnectorDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ConnectorDefinitionId": {
+                            "type": "string"
+                        },
+                        "Connectors": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Greengrass::ConnectorDefinitionVersion.Connector"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "ConnectorDefinitionId",
+                        "Connectors"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::ConnectorDefinitionVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ConnectorDefinitionVersion.Connector": {
+            "additionalProperties": false,
+            "properties": {
+                "ConnectorArn": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "Parameters": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "ConnectorArn",
+                "Id"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::CoreDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::CoreDefinition.CoreDefinitionVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::CoreDefinition"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::CoreDefinition.Core": {
+            "additionalProperties": false,
+            "properties": {
+                "CertificateArn": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "SyncShadow": {
+                    "type": "boolean"
+                },
+                "ThingArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CertificateArn",
+                "Id",
+                "ThingArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::CoreDefinition.CoreDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "Cores": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::CoreDefinition.Core"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Cores"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::CoreDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CoreDefinitionId": {
+                            "type": "string"
+                        },
+                        "Cores": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Greengrass::CoreDefinitionVersion.Core"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "CoreDefinitionId",
+                        "Cores"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::CoreDefinitionVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::CoreDefinitionVersion.Core": {
+            "additionalProperties": false,
+            "properties": {
+                "CertificateArn": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "SyncShadow": {
+                    "type": "boolean"
+                },
+                "ThingArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CertificateArn",
+                "Id",
+                "ThingArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::DeviceDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::DeviceDefinition.DeviceDefinitionVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::DeviceDefinition"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::DeviceDefinition.Device": {
+            "additionalProperties": false,
+            "properties": {
+                "CertificateArn": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "SyncShadow": {
+                    "type": "boolean"
+                },
+                "ThingArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CertificateArn",
+                "Id",
+                "ThingArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::DeviceDefinition.DeviceDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "Devices": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::DeviceDefinition.Device"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Devices"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::DeviceDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DeviceDefinitionId": {
+                            "type": "string"
+                        },
+                        "Devices": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Greengrass::DeviceDefinitionVersion.Device"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "DeviceDefinitionId",
+                        "Devices"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::DeviceDefinitionVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::DeviceDefinitionVersion.Device": {
+            "additionalProperties": false,
+            "properties": {
+                "CertificateArn": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "SyncShadow": {
+                    "type": "boolean"
+                },
+                "ThingArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CertificateArn",
+                "Id",
+                "ThingArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.FunctionDefinitionVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::FunctionDefinition"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.DefaultConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Execution": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.Execution"
+                }
+            },
+            "required": [
+                "Execution"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.Environment": {
+            "additionalProperties": false,
+            "properties": {
+                "AccessSysfs": {
+                    "type": "boolean"
+                },
+                "Execution": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.Execution"
+                },
+                "ResourceAccessPolicies": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.ResourceAccessPolicy"
+                    },
+                    "type": "array"
+                },
+                "Variables": {
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.Execution": {
+            "additionalProperties": false,
+            "properties": {
+                "IsolationMode": {
+                    "type": "string"
+                },
+                "RunAs": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.RunAs"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.Function": {
+            "additionalProperties": false,
+            "properties": {
+                "FunctionArn": {
+                    "type": "string"
+                },
+                "FunctionConfiguration": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.FunctionConfiguration"
+                },
+                "Id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FunctionArn",
+                "FunctionConfiguration",
+                "Id"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.FunctionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "EncodingType": {
+                    "type": "string"
+                },
+                "Environment": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.Environment"
+                },
+                "ExecArgs": {
+                    "type": "string"
+                },
+                "Executable": {
+                    "type": "string"
+                },
+                "MemorySize": {
+                    "type": "number"
+                },
+                "Pinned": {
+                    "type": "boolean"
+                },
+                "Timeout": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "MemorySize",
+                "Timeout"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.FunctionDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DefaultConfig": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.DefaultConfig"
+                },
+                "Functions": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition.Function"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Functions"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.ResourceAccessPolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "Permission": {
+                    "type": "string"
+                },
+                "ResourceId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ResourceId"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinition.RunAs": {
+            "additionalProperties": false,
+            "properties": {
+                "Gid": {
+                    "type": "number"
+                },
+                "Uid": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DefaultConfig": {
+                            "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.DefaultConfig"
+                        },
+                        "FunctionDefinitionId": {
+                            "type": "string"
+                        },
+                        "Functions": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.Function"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "FunctionDefinitionId",
+                        "Functions"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::FunctionDefinitionVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion.DefaultConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Execution": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.Execution"
+                }
+            },
+            "required": [
+                "Execution"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion.Environment": {
+            "additionalProperties": false,
+            "properties": {
+                "AccessSysfs": {
+                    "type": "boolean"
+                },
+                "Execution": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.Execution"
+                },
+                "ResourceAccessPolicies": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.ResourceAccessPolicy"
+                    },
+                    "type": "array"
+                },
+                "Variables": {
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion.Execution": {
+            "additionalProperties": false,
+            "properties": {
+                "IsolationMode": {
+                    "type": "string"
+                },
+                "RunAs": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.RunAs"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion.Function": {
+            "additionalProperties": false,
+            "properties": {
+                "FunctionArn": {
+                    "type": "string"
+                },
+                "FunctionConfiguration": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration"
+                },
+                "Id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FunctionArn",
+                "FunctionConfiguration",
+                "Id"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "EncodingType": {
+                    "type": "string"
+                },
+                "Environment": {
+                    "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion.Environment"
+                },
+                "ExecArgs": {
+                    "type": "string"
+                },
+                "Executable": {
+                    "type": "string"
+                },
+                "MemorySize": {
+                    "type": "number"
+                },
+                "Pinned": {
+                    "type": "boolean"
+                },
+                "Timeout": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "MemorySize",
+                "Timeout"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion.ResourceAccessPolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "Permission": {
+                    "type": "string"
+                },
+                "ResourceId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ResourceId"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::FunctionDefinitionVersion.RunAs": {
+            "additionalProperties": false,
+            "properties": {
+                "Gid": {
+                    "type": "number"
+                },
+                "Uid": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::Group": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::Group.GroupVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "RoleArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::Group"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::Group.GroupVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "ConnectorDefinitionVersionArn": {
+                    "type": "string"
+                },
+                "CoreDefinitionVersionArn": {
+                    "type": "string"
+                },
+                "DeviceDefinitionVersionArn": {
+                    "type": "string"
+                },
+                "FunctionDefinitionVersionArn": {
+                    "type": "string"
+                },
+                "LoggerDefinitionVersionArn": {
+                    "type": "string"
+                },
+                "ResourceDefinitionVersionArn": {
+                    "type": "string"
+                },
+                "SubscriptionDefinitionVersionArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::GroupVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ConnectorDefinitionVersionArn": {
+                            "type": "string"
+                        },
+                        "CoreDefinitionVersionArn": {
+                            "type": "string"
+                        },
+                        "DeviceDefinitionVersionArn": {
+                            "type": "string"
+                        },
+                        "FunctionDefinitionVersionArn": {
+                            "type": "string"
+                        },
+                        "GroupId": {
+                            "type": "string"
+                        },
+                        "LoggerDefinitionVersionArn": {
+                            "type": "string"
+                        },
+                        "ResourceDefinitionVersionArn": {
+                            "type": "string"
+                        },
+                        "SubscriptionDefinitionVersionArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "GroupId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::GroupVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::LoggerDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::LoggerDefinition.LoggerDefinitionVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::LoggerDefinition"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::LoggerDefinition.Logger": {
+            "additionalProperties": false,
+            "properties": {
+                "Component": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "Level": {
+                    "type": "string"
+                },
+                "Space": {
+                    "type": "number"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Component",
+                "Id",
+                "Level",
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::LoggerDefinition.LoggerDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "Loggers": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::LoggerDefinition.Logger"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Loggers"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::LoggerDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "LoggerDefinitionId": {
+                            "type": "string"
+                        },
+                        "Loggers": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Greengrass::LoggerDefinitionVersion.Logger"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "LoggerDefinitionId",
+                        "Loggers"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::LoggerDefinitionVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::LoggerDefinitionVersion.Logger": {
+            "additionalProperties": false,
+            "properties": {
+                "Component": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "Level": {
+                    "type": "string"
+                },
+                "Space": {
+                    "type": "number"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Component",
+                "Id",
+                "Level",
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ResourceDefinitionId": {
+                            "type": "string"
+                        },
+                        "Resources": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.ResourceInstance"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "ResourceDefinitionId",
+                        "Resources"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::ResourceDefinitionVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting": {
+            "additionalProperties": false,
+            "properties": {
+                "AutoAddGroupOwner": {
+                    "type": "boolean"
+                },
+                "GroupOwner": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AutoAddGroupOwner"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.LocalDeviceResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "GroupOwnerSetting": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting"
+                },
+                "SourcePath": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SourcePath"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.LocalVolumeResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "DestinationPath": {
+                    "type": "string"
+                },
+                "GroupOwnerSetting": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting"
+                },
+                "SourcePath": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DestinationPath",
+                "SourcePath"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.ResourceDataContainer": {
+            "additionalProperties": false,
+            "properties": {
+                "LocalDeviceResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.LocalDeviceResourceData"
+                },
+                "LocalVolumeResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.LocalVolumeResourceData"
+                },
+                "S3MachineLearningModelResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.S3MachineLearningModelResourceData"
+                },
+                "SageMakerMachineLearningModelResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData"
+                },
+                "SecretsManagerSecretResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.SecretsManagerSecretResourceData"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.ResourceInstance": {
+            "additionalProperties": false,
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "ResourceDataContainer": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion.ResourceDataContainer"
+                }
+            },
+            "required": [
+                "Id",
+                "Name",
+                "ResourceDataContainer"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.S3MachineLearningModelResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "DestinationPath": {
+                    "type": "string"
+                },
+                "S3Uri": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DestinationPath",
+                "S3Uri"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "DestinationPath": {
+                    "type": "string"
+                },
+                "SageMakerJobArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DestinationPath",
+                "SageMakerJobArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinitionVersion.SecretsManagerSecretResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "ARN": {
+                    "type": "string"
+                },
+                "AdditionalStagingLabelsToDownload": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ARN"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::SubscriptionDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::SubscriptionDefinition.SubscriptionDefinitionVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::SubscriptionDefinition"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::SubscriptionDefinition.Subscription": {
+            "additionalProperties": false,
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Source": {
+                    "type": "string"
+                },
+                "Subject": {
+                    "type": "string"
+                },
+                "Target": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Id",
+                "Source",
+                "Subject",
+                "Target"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::SubscriptionDefinition.SubscriptionDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "Subscriptions": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::SubscriptionDefinition.Subscription"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Subscriptions"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::SubscriptionDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "SubscriptionDefinitionId": {
+                            "type": "string"
+                        },
+                        "Subscriptions": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Greengrass::SubscriptionDefinitionVersion.Subscription"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "SubscriptionDefinitionId",
+                        "Subscriptions"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::SubscriptionDefinitionVersion"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::SubscriptionDefinitionVersion.Subscription": {
+            "additionalProperties": false,
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Source": {
+                    "type": "string"
+                },
+                "Subject": {
+                    "type": "string"
+                },
+                "Target": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Id",
+                "Source",
+                "Subject",
+                "Target"
+            ],
+            "type": "object"
+        },
         "AWS::GuardDuty::Detector": {
             "additionalProperties": false,
             "properties": {
@@ -37672,6 +39353,9 @@
                         "RoleArn": {
                             "type": "string"
                         },
+                        "RootAccess": {
+                            "type": "string"
+                        },
                         "SecurityGroupIds": {
                             "items": {
                                 "type": "string"
@@ -42704,6 +44388,51 @@
                         },
                         {
                             "$ref": "#/definitions/AWS::Glue::Trigger"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::ConnectorDefinition"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::ConnectorDefinitionVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::CoreDefinition"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::CoreDefinitionVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::DeviceDefinition"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::DeviceDefinitionVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::FunctionDefinition"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::FunctionDefinitionVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::Group"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::GroupVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::LoggerDefinition"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::LoggerDefinitionVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::SubscriptionDefinition"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::SubscriptionDefinitionVersion"
                         },
                         {
                             "$ref": "#/definitions/AWS::GuardDuty::Detector"
