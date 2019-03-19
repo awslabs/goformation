@@ -4,8 +4,6 @@ import (
 	"sort"
 
 	"encoding/json"
-
-	"github.com/mitchellh/mapstructure"
 )
 
 // AWSServerlessFunction_Policies is a helper struct that can hold either a String, String, IAMPolicyDocument, or IAMPolicyDocument value
@@ -70,14 +68,15 @@ func (r *AWSServerlessFunction_Policies) UnmarshalJSON(b []byte) error {
 		r.StringArray = &val
 
 	case map[string]interface{}:
+		val = val // This ensures val is used to stop an error
 
-		mapstructure.Decode(val, &r.IAMPolicyDocument)
+		json.Unmarshal(b, &r.IAMPolicyDocument)
 
 	case []interface{}:
 
-		mapstructure.Decode(val, &r.StringArray)
+		json.Unmarshal(b, &r.StringArray)
 
-		mapstructure.Decode(val, &r.IAMPolicyDocumentArray)
+		json.Unmarshal(b, &r.IAMPolicyDocumentArray)
 
 	}
 

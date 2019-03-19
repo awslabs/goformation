@@ -2,8 +2,6 @@ package resources
 
 import (
 	"encoding/json"
-
-	"github.com/mitchellh/mapstructure"
 )
 
 // AWSServerlessFunction_Events is a helper struct that can hold either a String or String value
@@ -49,10 +47,11 @@ func (r *AWSServerlessFunction_Events) UnmarshalJSON(b []byte) error {
 		r.StringArray = &val
 
 	case map[string]interface{}:
+		val = val // This ensures val is used to stop an error
 
 	case []interface{}:
 
-		mapstructure.Decode(val, &r.StringArray)
+		json.Unmarshal(b, &r.StringArray)
 
 	}
 

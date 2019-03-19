@@ -4,8 +4,6 @@ import (
 	"sort"
 
 	"encoding/json"
-
-	"github.com/mitchellh/mapstructure"
 )
 
 // AWSServerlessApplication_Location is a helper struct that can hold either a String or ApplicationLocation value
@@ -55,8 +53,9 @@ func (r *AWSServerlessApplication_Location) UnmarshalJSON(b []byte) error {
 		r.String = &val
 
 	case map[string]interface{}:
+		val = val // This ensures val is used to stop an error
 
-		mapstructure.Decode(val, &r.ApplicationLocation)
+		json.Unmarshal(b, &r.ApplicationLocation)
 
 	case []interface{}:
 

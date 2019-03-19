@@ -7,9 +7,9 @@ import "github.com/awslabs/goformation/cloudformation/policies"
 type AWSServerlessFunction_DynamoDBEvent struct {
 
 	// BatchSize AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
-	BatchSize int `json:"BatchSize"`
+	BatchSize int `json:"BatchSize,omitempty"`
 
 	// StartingPosition AWS CloudFormation Property
 	// Required: true

@@ -40274,7 +40274,6 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "BatchSize",
                 "StartingPosition",
                 "Stream"
             ],

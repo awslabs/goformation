@@ -68,6 +68,22 @@ var _ = Describe("Goformation Code Generator", func() {
 
 			})
 
+			Context("properly marshals and unmarshals polymorphic values", func() {
+
+				property := []byte(`{"Properties":{"Bucket":"asd","Events":"LATEST"},"Type":"S3"}`)
+
+				result := &resources.AWSServerlessFunction_EventSource{}
+				err := json.Unmarshal(property, result)
+				output, err2 := json.Marshal(result)
+
+				It("should marshal and unmarhal to same value", func() {
+					Expect(err).To(BeNil())
+					Expect(err2).To(BeNil())
+					Expect(output).To(Equal(property))
+				})
+
+			})
+
 			Context("properly Marshals best value", func() {
 				expected := []byte(`{"BatchSize":10,"Stream":"arn"}`)
 

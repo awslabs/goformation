@@ -40271,7 +40271,6 @@
                 }
             },
             "required": [
-                "BatchSize",
                 "StartingPosition",
                 "Stream"
             ],
