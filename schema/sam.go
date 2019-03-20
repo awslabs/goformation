@@ -39838,6 +39838,9 @@ var SamSchema = `{
                         "StageName": {
                             "type": "string"
                         },
+                        "TracingEnabled": {
+                            "type": "boolean"
+                        },
                         "Variables": {
                             "additionalProperties": true,
                             "patternProperties": {
@@ -40090,6 +40093,9 @@ var SamSchema = `{
                         "MemorySize": {
                             "type": "number"
                         },
+                        "PermissionsBoundary": {
+                            "type": "string"
+                        },
                         "Policies": {
                             "anyOf": [
                                 {
@@ -40266,6 +40272,9 @@ var SamSchema = `{
                 "BatchSize": {
                     "type": "number"
                 },
+                "Enabled": {
+                    "type": "boolean"
+                },
                 "StartingPosition": {
                     "type": "string"
                 },
@@ -40377,6 +40386,9 @@ var SamSchema = `{
                 "BatchSize": {
                     "type": "number"
                 },
+                "Enabled": {
+                    "type": "boolean"
+                },
                 "StartingPosition": {
                     "type": "string"
                 },
@@ -40470,6 +40482,9 @@ var SamSchema = `{
             "properties": {
                 "BatchSize": {
                     "type": "number"
+                },
+                "Enabled": {
+                    "type": "boolean"
                 },
                 "Queue": {
                     "type": "string"

@@ -39835,6 +39835,9 @@
                         "StageName": {
                             "type": "string"
                         },
+                        "TracingEnabled": {
+                            "type": "boolean"
+                        },
                         "Variables": {
                             "additionalProperties": true,
                             "patternProperties": {
@@ -40087,6 +40090,9 @@
                         "MemorySize": {
                             "type": "number"
                         },
+                        "PermissionsBoundary": {
+                            "type": "string"
+                        },
                         "Policies": {
                             "anyOf": [
                                 {
@@ -40263,6 +40269,9 @@
                 "BatchSize": {
                     "type": "number"
                 },
+                "Enabled": {
+                    "type": "boolean"
+                },
                 "StartingPosition": {
                     "type": "string"
                 },
@@ -40374,6 +40383,9 @@
                 "BatchSize": {
                     "type": "number"
                 },
+                "Enabled": {
+                    "type": "boolean"
+                },
                 "StartingPosition": {
                     "type": "string"
                 },
@@ -40467,6 +40479,9 @@
             "properties": {
                 "BatchSize": {
                     "type": "number"
+                },
+                "Enabled": {
+                    "type": "boolean"
                 },
                 "Queue": {
                     "type": "string"

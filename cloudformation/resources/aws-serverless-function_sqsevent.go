@@ -11,6 +11,11 @@ type AWSServerlessFunction_SQSEvent struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
 	BatchSize int `json:"BatchSize,omitempty"`
 
+	// Enabled AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
+	Enabled bool `json:"Enabled,omitempty"`
+
 	// Queue AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
