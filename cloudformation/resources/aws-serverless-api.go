@@ -66,6 +66,11 @@ type AWSServerlessApi struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
 	StageName string `json:"StageName,omitempty"`
 
+	// TracingEnabled AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+	TracingEnabled bool `json:"TracingEnabled,omitempty"`
+
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
