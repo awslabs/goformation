@@ -2,19 +2,14 @@ package resources
 
 import "github.com/awslabs/goformation/cloudformation/policies"
 
-// AWSServiceDiscoveryService_DnsRecord AWS CloudFormation Resource (AWS::ServiceDiscovery::Service.DnsRecord)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html
-type AWSServiceDiscoveryService_DnsRecord struct {
+// AWSAppMeshRoute_HttpRouteMatch AWS CloudFormation Resource (AWS::AppMesh::Route.HttpRouteMatch)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html
+type AWSAppMeshRoute_HttpRouteMatch struct {
 
-	// TTL AWS CloudFormation Property
+	// Prefix AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
-	TTL float64 `json:"TTL"`
-
-	// Type AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type
-	Type string `json:"Type,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-prefix
+	Prefix string `json:"Prefix,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -27,36 +22,36 @@ type AWSServiceDiscoveryService_DnsRecord struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSServiceDiscoveryService_DnsRecord) AWSCloudFormationType() string {
-	return "AWS::ServiceDiscovery::Service.DnsRecord"
+func (r *AWSAppMeshRoute_HttpRouteMatch) AWSCloudFormationType() string {
+	return "AWS::AppMesh::Route.HttpRouteMatch"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSServiceDiscoveryService_DnsRecord) DependsOn() []string {
+func (r *AWSAppMeshRoute_HttpRouteMatch) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSServiceDiscoveryService_DnsRecord) SetDependsOn(dependencies []string) {
+func (r *AWSAppMeshRoute_HttpRouteMatch) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSServiceDiscoveryService_DnsRecord) Metadata() map[string]interface{} {
+func (r *AWSAppMeshRoute_HttpRouteMatch) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSServiceDiscoveryService_DnsRecord) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSAppMeshRoute_HttpRouteMatch) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSServiceDiscoveryService_DnsRecord) SetDeletionPolicy(policy policies.DeletionPolicy) {
+func (r *AWSAppMeshRoute_HttpRouteMatch) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }

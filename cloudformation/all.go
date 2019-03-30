@@ -39,6 +39,11 @@ func AllResources() map[string]Resource {
 		"AWS::ApiGatewayV2::Route":                                    &resources.AWSApiGatewayV2Route{},
 		"AWS::ApiGatewayV2::RouteResponse":                            &resources.AWSApiGatewayV2RouteResponse{},
 		"AWS::ApiGatewayV2::Stage":                                    &resources.AWSApiGatewayV2Stage{},
+		"AWS::AppMesh::Mesh":                                          &resources.AWSAppMeshMesh{},
+		"AWS::AppMesh::Route":                                         &resources.AWSAppMeshRoute{},
+		"AWS::AppMesh::VirtualNode":                                   &resources.AWSAppMeshVirtualNode{},
+		"AWS::AppMesh::VirtualRouter":                                 &resources.AWSAppMeshVirtualRouter{},
+		"AWS::AppMesh::VirtualService":                                &resources.AWSAppMeshVirtualService{},
 		"AWS::AppStream::DirectoryConfig":                             &resources.AWSAppStreamDirectoryConfig{},
 		"AWS::AppStream::Fleet":                                       &resources.AWSAppStreamFleet{},
 		"AWS::AppStream::ImageBuilder":                                &resources.AWSAppStreamImageBuilder{},
@@ -1136,6 +1141,126 @@ func (t *Template) GetAWSApiGatewayV2StageWithName(name string) (*resources.AWSA
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSApiGatewayV2Stage not found", name)
+}
+
+// GetAllAWSAppMeshMeshResources retrieves all AWSAppMeshMesh items from an AWS CloudFormation template
+func (t *Template) GetAllAWSAppMeshMeshResources() map[string]*resources.AWSAppMeshMesh {
+	results := map[string]*resources.AWSAppMeshMesh{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshMesh:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSAppMeshMeshWithName retrieves all AWSAppMeshMesh items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSAppMeshMeshWithName(name string) (*resources.AWSAppMeshMesh, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshMesh:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSAppMeshMesh not found", name)
+}
+
+// GetAllAWSAppMeshRouteResources retrieves all AWSAppMeshRoute items from an AWS CloudFormation template
+func (t *Template) GetAllAWSAppMeshRouteResources() map[string]*resources.AWSAppMeshRoute {
+	results := map[string]*resources.AWSAppMeshRoute{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshRoute:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSAppMeshRouteWithName retrieves all AWSAppMeshRoute items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSAppMeshRouteWithName(name string) (*resources.AWSAppMeshRoute, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshRoute:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSAppMeshRoute not found", name)
+}
+
+// GetAllAWSAppMeshVirtualNodeResources retrieves all AWSAppMeshVirtualNode items from an AWS CloudFormation template
+func (t *Template) GetAllAWSAppMeshVirtualNodeResources() map[string]*resources.AWSAppMeshVirtualNode {
+	results := map[string]*resources.AWSAppMeshVirtualNode{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshVirtualNode:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSAppMeshVirtualNodeWithName retrieves all AWSAppMeshVirtualNode items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSAppMeshVirtualNodeWithName(name string) (*resources.AWSAppMeshVirtualNode, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshVirtualNode:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSAppMeshVirtualNode not found", name)
+}
+
+// GetAllAWSAppMeshVirtualRouterResources retrieves all AWSAppMeshVirtualRouter items from an AWS CloudFormation template
+func (t *Template) GetAllAWSAppMeshVirtualRouterResources() map[string]*resources.AWSAppMeshVirtualRouter {
+	results := map[string]*resources.AWSAppMeshVirtualRouter{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshVirtualRouter:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSAppMeshVirtualRouterWithName retrieves all AWSAppMeshVirtualRouter items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSAppMeshVirtualRouterWithName(name string) (*resources.AWSAppMeshVirtualRouter, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshVirtualRouter:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSAppMeshVirtualRouter not found", name)
+}
+
+// GetAllAWSAppMeshVirtualServiceResources retrieves all AWSAppMeshVirtualService items from an AWS CloudFormation template
+func (t *Template) GetAllAWSAppMeshVirtualServiceResources() map[string]*resources.AWSAppMeshVirtualService {
+	results := map[string]*resources.AWSAppMeshVirtualService{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshVirtualService:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSAppMeshVirtualServiceWithName retrieves all AWSAppMeshVirtualService items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSAppMeshVirtualServiceWithName(name string) (*resources.AWSAppMeshVirtualService, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSAppMeshVirtualService:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSAppMeshVirtualService not found", name)
 }
 
 // GetAllAWSAppStreamDirectoryConfigResources retrieves all AWSAppStreamDirectoryConfig items from an AWS CloudFormation template

@@ -2,19 +2,14 @@ package resources
 
 import "github.com/awslabs/goformation/cloudformation/policies"
 
-// AWSServiceDiscoveryService_DnsRecord AWS CloudFormation Resource (AWS::ServiceDiscovery::Service.DnsRecord)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html
-type AWSServiceDiscoveryService_DnsRecord struct {
+// AWSAppMeshVirtualService_VirtualServiceSpec AWS CloudFormation Resource (AWS::AppMesh::VirtualService.VirtualServiceSpec)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html
+type AWSAppMeshVirtualService_VirtualServiceSpec struct {
 
-	// TTL AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
-	TTL float64 `json:"TTL"`
-
-	// Type AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type
-	Type string `json:"Type,omitempty"`
+	// Provider AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html#cfn-appmesh-virtualservice-virtualservicespec-provider
+	Provider *AWSAppMeshVirtualService_VirtualServiceProvider `json:"Provider,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -27,36 +22,36 @@ type AWSServiceDiscoveryService_DnsRecord struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSServiceDiscoveryService_DnsRecord) AWSCloudFormationType() string {
-	return "AWS::ServiceDiscovery::Service.DnsRecord"
+func (r *AWSAppMeshVirtualService_VirtualServiceSpec) AWSCloudFormationType() string {
+	return "AWS::AppMesh::VirtualService.VirtualServiceSpec"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSServiceDiscoveryService_DnsRecord) DependsOn() []string {
+func (r *AWSAppMeshVirtualService_VirtualServiceSpec) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSServiceDiscoveryService_DnsRecord) SetDependsOn(dependencies []string) {
+func (r *AWSAppMeshVirtualService_VirtualServiceSpec) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSServiceDiscoveryService_DnsRecord) Metadata() map[string]interface{} {
+func (r *AWSAppMeshVirtualService_VirtualServiceSpec) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSServiceDiscoveryService_DnsRecord) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSAppMeshVirtualService_VirtualServiceSpec) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSServiceDiscoveryService_DnsRecord) SetDeletionPolicy(policy policies.DeletionPolicy) {
+func (r *AWSAppMeshVirtualService_VirtualServiceSpec) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }

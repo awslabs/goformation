@@ -2950,6 +2950,791 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::AppMesh::Mesh": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "MeshName": {
+                            "type": "string"
+                        },
+                        "Spec": {
+                            "$ref": "#/definitions/AWS::AppMesh::Mesh.MeshSpec"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::AppMesh::Mesh.TagRef"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "MeshName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppMesh::Mesh"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Mesh.EgressFilter": {
+            "additionalProperties": false,
+            "properties": {
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Mesh.MeshSpec": {
+            "additionalProperties": false,
+            "properties": {
+                "EgressFilter": {
+                    "$ref": "#/definitions/AWS::AppMesh::Mesh.EgressFilter"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::Mesh.TagRef": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "MeshName": {
+                            "type": "string"
+                        },
+                        "RouteName": {
+                            "type": "string"
+                        },
+                        "Spec": {
+                            "$ref": "#/definitions/AWS::AppMesh::Route.RouteSpec"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::AppMesh::Route.TagRef"
+                            },
+                            "type": "array"
+                        },
+                        "VirtualRouterName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "MeshName",
+                        "RouteName",
+                        "Spec",
+                        "VirtualRouterName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppMesh::Route"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.HttpRoute": {
+            "additionalProperties": false,
+            "properties": {
+                "Action": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpRouteAction"
+                },
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpRouteMatch"
+                }
+            },
+            "required": [
+                "Action",
+                "Match"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.HttpRouteAction": {
+            "additionalProperties": false,
+            "properties": {
+                "WeightedTargets": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::Route.WeightedTarget"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "WeightedTargets"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.HttpRouteMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Prefix": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Prefix"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.RouteSpec": {
+            "additionalProperties": false,
+            "properties": {
+                "HttpRoute": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpRoute"
+                },
+                "TcpRoute": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.TcpRoute"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.TagRef": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.TcpRoute": {
+            "additionalProperties": false,
+            "properties": {
+                "Action": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.TcpRouteAction"
+                }
+            },
+            "required": [
+                "Action"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.TcpRouteAction": {
+            "additionalProperties": false,
+            "properties": {
+                "WeightedTargets": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::Route.WeightedTarget"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "WeightedTargets"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.WeightedTarget": {
+            "additionalProperties": false,
+            "properties": {
+                "VirtualNode": {
+                    "type": "string"
+                },
+                "Weight": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "VirtualNode",
+                "Weight"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "MeshName": {
+                            "type": "string"
+                        },
+                        "Spec": {
+                            "$ref": "#/definitions/AWS::AppMesh::VirtualNode.VirtualNodeSpec"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::AppMesh::VirtualNode.TagRef"
+                            },
+                            "type": "array"
+                        },
+                        "VirtualNodeName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "MeshName",
+                        "Spec",
+                        "VirtualNodeName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppMesh::VirtualNode"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.AccessLog": {
+            "additionalProperties": false,
+            "properties": {
+                "File": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.FileAccessLog"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.Backend": {
+            "additionalProperties": false,
+            "properties": {
+                "VirtualService": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.VirtualServiceBackend"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.DnsServiceDiscovery": {
+            "additionalProperties": false,
+            "properties": {
+                "Hostname": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Hostname"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.FileAccessLog": {
+            "additionalProperties": false,
+            "properties": {
+                "Path": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Path"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.HealthCheck": {
+            "additionalProperties": false,
+            "properties": {
+                "HealthyThreshold": {
+                    "type": "number"
+                },
+                "IntervalMillis": {
+                    "type": "number"
+                },
+                "Path": {
+                    "type": "string"
+                },
+                "Port": {
+                    "type": "number"
+                },
+                "Protocol": {
+                    "type": "string"
+                },
+                "TimeoutMillis": {
+                    "type": "number"
+                },
+                "UnhealthyThreshold": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "HealthyThreshold",
+                "IntervalMillis",
+                "Protocol",
+                "TimeoutMillis",
+                "UnhealthyThreshold"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.Listener": {
+            "additionalProperties": false,
+            "properties": {
+                "HealthCheck": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.HealthCheck"
+                },
+                "PortMapping": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.PortMapping"
+                }
+            },
+            "required": [
+                "PortMapping"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.Logging": {
+            "additionalProperties": false,
+            "properties": {
+                "AccessLog": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.AccessLog"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.PortMapping": {
+            "additionalProperties": false,
+            "properties": {
+                "Port": {
+                    "type": "number"
+                },
+                "Protocol": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Port",
+                "Protocol"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.ServiceDiscovery": {
+            "additionalProperties": false,
+            "properties": {
+                "DNS": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.DnsServiceDiscovery"
+                }
+            },
+            "required": [
+                "DNS"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.TagRef": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.VirtualNodeSpec": {
+            "additionalProperties": false,
+            "properties": {
+                "Backends": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Backend"
+                    },
+                    "type": "array"
+                },
+                "Listeners": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Listener"
+                    },
+                    "type": "array"
+                },
+                "Logging": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Logging"
+                },
+                "ServiceDiscovery": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.ServiceDiscovery"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.VirtualServiceBackend": {
+            "additionalProperties": false,
+            "properties": {
+                "VirtualServiceName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "VirtualServiceName"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualRouter": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "MeshName": {
+                            "type": "string"
+                        },
+                        "Spec": {
+                            "$ref": "#/definitions/AWS::AppMesh::VirtualRouter.VirtualRouterSpec"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::AppMesh::VirtualRouter.TagRef"
+                            },
+                            "type": "array"
+                        },
+                        "VirtualRouterName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "MeshName",
+                        "Spec",
+                        "VirtualRouterName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppMesh::VirtualRouter"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualRouter.PortMapping": {
+            "additionalProperties": false,
+            "properties": {
+                "Port": {
+                    "type": "number"
+                },
+                "Protocol": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Port",
+                "Protocol"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualRouter.TagRef": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualRouter.VirtualRouterListener": {
+            "additionalProperties": false,
+            "properties": {
+                "PortMapping": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualRouter.PortMapping"
+                }
+            },
+            "required": [
+                "PortMapping"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualRouter.VirtualRouterSpec": {
+            "additionalProperties": false,
+            "properties": {
+                "Listeners": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::VirtualRouter.VirtualRouterListener"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Listeners"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualService": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "MeshName": {
+                            "type": "string"
+                        },
+                        "Spec": {
+                            "$ref": "#/definitions/AWS::AppMesh::VirtualService.VirtualServiceSpec"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::AppMesh::VirtualService.TagRef"
+                            },
+                            "type": "array"
+                        },
+                        "VirtualServiceName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "MeshName",
+                        "Spec",
+                        "VirtualServiceName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppMesh::VirtualService"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualService.TagRef": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualService.VirtualNodeServiceProvider": {
+            "additionalProperties": false,
+            "properties": {
+                "VirtualNodeName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "VirtualNodeName"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualService.VirtualRouterServiceProvider": {
+            "additionalProperties": false,
+            "properties": {
+                "VirtualRouterName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "VirtualRouterName"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualService.VirtualServiceProvider": {
+            "additionalProperties": false,
+            "properties": {
+                "VirtualNode": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualService.VirtualNodeServiceProvider"
+                },
+                "VirtualRouter": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualService.VirtualRouterServiceProvider"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualService.VirtualServiceSpec": {
+            "additionalProperties": false,
+            "properties": {
+                "Provider": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualService.VirtualServiceProvider"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppStream::DirectoryConfig": {
             "additionalProperties": false,
             "properties": {
@@ -40935,7 +41720,7 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "TTL": {
-                    "type": "string"
+                    "type": "number"
                 },
                 "Type": {
                     "type": "string"
@@ -42796,6 +43581,10 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Key",
+                "Value"
+            ],
             "type": "object"
         }
     },
@@ -42950,6 +43739,21 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::ApiGatewayV2::Stage"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppMesh::Mesh"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppMesh::Route"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppMesh::VirtualNode"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppMesh::VirtualRouter"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::AppMesh::VirtualService"
                         },
                         {
                             "$ref": "#/definitions/AWS::AppStream::DirectoryConfig"
