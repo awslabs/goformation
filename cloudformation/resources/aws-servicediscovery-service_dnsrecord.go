@@ -9,7 +9,7 @@ type AWSServiceDiscoveryService_DnsRecord struct {
 	// TTL AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
-	TTL string `json:"TTL,omitempty"`
+	TTL float64 `json:"TTL"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
