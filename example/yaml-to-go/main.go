@@ -20,10 +20,10 @@ func main() {
 		},
 	}, map[string]func() cloudformation.Resource{
 		"Custom::PublishLambdaVersion": func() cloudformation.Resource {
-			return &CustomPublishLambdaVersion{}
+			return &cloudformation.BasicCustomResource{}
 		},
 		"Custom::SoftStackRef": func() cloudformation.Resource {
-			return &CustomSoftStackRef{}
+			return &cloudformation.BasicCustomResource{}
 		},
 	},
 	)
@@ -52,18 +52,4 @@ func main() {
 	// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
 	log.Printf("Found a %s named %s (runtime: %s)\n", function.AWSCloudFormationType(), search, function.Runtime)
 
-}
-
-type CustomSoftStackRef struct {
-}
-
-func (r CustomSoftStackRef) AWSCloudFormationType() string {
-	return "Custom::SoftStackRef"
-}
-
-type CustomPublishLambdaVersion struct {
-}
-
-func (r CustomPublishLambdaVersion) AWSCloudFormationType() string {
-	return "Custom::PublishLambdaVersion"
 }

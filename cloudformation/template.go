@@ -161,3 +161,11 @@ var customResources map[string]func() Resource
 func RegisterCustomResource(resources map[string]func() Resource) {
 	customResources = resources
 }
+
+type BasicCustomResource struct {
+	Type string `json:"type,omitempty"`
+}
+
+func (r BasicCustomResource) AWSCloudFormationType() string {
+	return "Custom::SoftStackRef"
+}
