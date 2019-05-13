@@ -510,7 +510,7 @@ var _ = Describe("Goformation", func() {
 
 		template, err := goformation.OpenWithOptions("test/yaml/aws-serverless-function-env-vars.yaml", &intrinsics.ProcessorOptions{
 			ParameterOverrides: map[string]interface{}{"ExampleParameter": "SomeNewValue"},
-		})
+		}, nil)
 
 		It("should successfully validate the SAM template", func() {
 			Expect(err).To(BeNil())

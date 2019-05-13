@@ -38,6 +38,7 @@ func FnSub(name string, input interface{}, template interface{}) interface{} {
 			for _, variable := range variables {
 				src = strings.Replace(src, variable[0], getParamValue(variable[0][2:len(variable[0])-1], template), -1)
 			}
+			return src
 		}
 
 	case string:

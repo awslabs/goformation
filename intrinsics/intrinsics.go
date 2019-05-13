@@ -100,7 +100,6 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid JSON: %s", err)
 	}
-	fmt.Println("Json2: ", string(result))
 
 	return result, nil
 }
