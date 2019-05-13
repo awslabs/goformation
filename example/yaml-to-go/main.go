@@ -2,14 +2,31 @@ package main
 
 import (
 	"log"
+	"time"
 
 	"github.com/awslabs/goformation"
+	"github.com/awslabs/goformation/cloudformation"
+	"github.com/awslabs/goformation/intrinsics"
 )
 
 func main() {
 
 	// Open a template from file (can be JSON or YAML)
-	template, err := goformation.Open("template.yaml")
+	template, err := goformation.OpenWithOptions("/Users/zhouy4l/go/src/stash.abc-dev.net.au/ter/serverless-event-management/deployments/aws/ingestor-sam.yaml", &intrinsics.ProcessorOptions{
+		ParameterOverrides: map[string]interface{}{
+			"HostEnv":        "staging",
+			"DeployTime":     time.Now().String(),
+			"QueueStackName": "QueueStack",
+		},
+	}, map[string]func() cloudformation.Resource{
+		"Custom::PublishLambdaVersion": func() cloudformation.Resource {
+			return &CustomPublishLambdaVersion{}
+		},
+		"Custom::SoftStackRef": func() cloudformation.Resource {
+			return &CustomSoftStackRef{}
+		},
+	},
+	)
 	if err != nil {
 		log.Fatalf("There was an error processing the template: %s", err)
 	}
@@ -21,6 +38,7 @@ func main() {
 
 		// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
 		log.Printf("Found a %s named %s (runtime: %s)\n", function.AWSCloudFormationType(), name, function.Runtime)
+		log.Printf("\tEnvironment: %v\n", function.Environment.Variables)
 
 	}
 
@@ -34,4 +52,18 @@ func main() {
 	// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
 	log.Printf("Found a %s named %s (runtime: %s)\n", function.AWSCloudFormationType(), search, function.Runtime)
 
+}
+
+type CustomSoftStackRef struct {
+}
+
+func (r CustomSoftStackRef) AWSCloudFormationType() string {
+	return "Custom::SoftStackRef"
+}
+
+type CustomPublishLambdaVersion struct {
+}
+
+func (r CustomPublishLambdaVersion) AWSCloudFormationType() string {
+	return "Custom::PublishLambdaVersion"
 }

@@ -2,6 +2,7 @@ package intrinsics
 
 import (
 	"encoding/base64"
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -30,7 +31,12 @@ func FnSub(name string, input interface{}, template interface{}) interface{} {
 						src = strings.Replace(src, "${"+key+"}", value, -1)
 					}
 				}
-				return src
+			}
+			// Replace rest with parameters
+			regex := regexp.MustCompile(`\$\{.*\}`)
+			variables := regex.FindAllStringSubmatch(src, -1)
+			for _, variable := range variables {
+				src = strings.Replace(src, variable[0], getParamValue(variable[0][2:len(variable[0])-1], template), -1)
 			}
 		}
 
@@ -59,11 +65,67 @@ func FnSub(name string, input interface{}, template interface{}) interface{} {
 			}
 
 		}
+
+		// Replace rest with parameters
+		regex = regexp.MustCompile(`\$\{.*\}`)
+		variables = regex.FindAllStringSubmatch(val, -1)
+		for _, variable := range variables {
+			val = strings.Replace(val, variable[0], getParamValue(variable[0][2:len(variable[0])-1], template), -1)
+		}
 		return val
 	}
 
 	return nil
+}
 
+func getParamValue(name string, template interface{}) string {
+	switch name {
+
+	case "AWS::AccountId":
+		return "123456789012"
+	case "AWS::NotificationARNs": //
+		return "arn:aws:sns:us-east-1:123456789012:MyTopic"
+	case "AWS::NoValue":
+		return ""
+	case "AWS::Region":
+		return "us-east-1"
+	case "AWS::StackId":
+		return "arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/1c2fa620-982a-11e3-aff7-50e2416294e0"
+	case "AWS::StackName":
+		return "goformation-stack"
+
+	default:
+
+		// This isn't a pseudo 'Ref' paramater, so we need to look inside the CloudFormation template
+		// to see if we can resolve the reference. This implementation just looks at the Parameters section
+		// to see if there is a parameter matching the name, and if so, return the default value.
+
+		// Check the template is a map
+		if template, ok := template.(map[string]interface{}); ok {
+			// Check there is a parameters section
+			if uparameters, ok := template["Parameters"]; ok {
+				// Check the parameters section is a map
+				if parameters, ok := uparameters.(map[string]interface{}); ok {
+					// Check there is a parameter with the same name as the Ref
+					if uparameter, ok := parameters[name]; ok {
+						// Check the parameter is a map
+						if parameter, ok := uparameter.(map[string]interface{}); ok {
+							// Check the parameter has a default
+							if def, ok := parameter["Default"]; ok {
+								if src, ok := def.(string); ok {
+									return src
+								} else {
+									return fmt.Sprintf("%v", def)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return ""
 }
 
 // NewSub substitutes variables in an input string with values that you specify. In your templates, you can use this function to construct commands or outputs that include values that aren't available until you create or update a stack.

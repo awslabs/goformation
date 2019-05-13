@@ -1,0 +1,920 @@
+Json2:  {
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Conditions": {
+    "IsAWS": false,
+    "IsCluster": true
+  },
+  "Description": "Terminus V2 ingestors",
+  "Globals": {
+    "Function": {
+      "Environment": {
+        "Variables": {
+          "TERMINUS_CACHE_CLUSTER": "true",
+          "TERMINUS_CACHE_HOST": null,
+          "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+          "TERMINUS_HOST_ENV": "staging",
+          "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+          "TERMINUS_LOG_LEVEL": "info",
+          "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+          "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+          "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+          "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+          "TERMINUS_TTL_LIVE": "1s"
+        }
+      },
+      "Handler": "main",
+      "MemorySize": 256,
+      "Runtime": "go1.x",
+      "Tags": {
+        "environment": "local",
+        "product": "terminus"
+      },
+      "Timeout": 60,
+      "Tracing": "Active"
+    }
+  },
+  "Mappings": {
+    "EnvironmentMapping": {
+      "development": {
+        "HostedZoneName": "terminus.abc-test.net.au",
+        "abbreviation": "dev"
+      },
+      "preview": {
+        "HostedZoneName": "terminus.abc-prod.net.au",
+        "abbreviation": "prod"
+      },
+      "production": {
+        "HostedZoneName": "terminus.abc-prod.net.au",
+        "abbreviation": "prod"
+      },
+      "staging": {
+        "HostedZoneName": "terminus.abc-prod.net.au",
+        "abbreviation": "stage"
+      },
+      "testing": {
+        "HostedZoneName": "terminus.abc-test.net.au",
+        "abbreviation": "test"
+      }
+    }
+  },
+  "Outputs": {
+    "CapiContentRequestARN": {
+      "Value": null
+    },
+    "CapiContentRequestName": {
+      "Value": "goformation-stack-CapiContentRequest"
+    },
+    "CapiContentRequestVersion": {
+      "Value": null
+    },
+    "CapiSearchRequestARN": {
+      "Value": null
+    },
+    "CapiSearchRequestName": {
+      "Value": "goformation-stack-CapiSearchRequest"
+    },
+    "CapiSearchRequestVersion": {
+      "Value": null
+    },
+    "IViewContentRequestARN": {
+      "Value": null
+    },
+    "IViewContentRequestName": {
+      "Value": "goformation-stack-IViewContentRequest"
+    },
+    "IViewContentRequestVersion": {
+      "Value": null
+    },
+    "MapiContentRequestARN": {
+      "Value": null
+    },
+    "MapiContentRequestName": {
+      "Value": "goformation-stack-MapiContentRequest"
+    },
+    "MapiContentRequestVersion": {
+      "Value": null
+    },
+    "MapiLiveRequestARN": {
+      "Value": null
+    },
+    "MapiLiveRequestName": {
+      "Value": "goformation-stack-MapiLiveRequest"
+    },
+    "MapiLiveRequestVersion": {
+      "Value": null
+    },
+    "MapiSearchRequestARN": {
+      "Value": null
+    },
+    "MapiSearchRequestName": {
+      "Value": "goformation-stack-MapiSearchRequest"
+    },
+    "MapiSearchRequestVersion": {
+      "Value": null
+    },
+    "PapiContentRequestARN": {
+      "Value": null
+    },
+    "PapiContentRequestName": {
+      "Value": "goformation-stack-PapiContentRequest"
+    },
+    "PapiContentRequestVersion": {
+      "Value": null
+    },
+    "PapiLiveRequestARN": {
+      "Value": null
+    },
+    "PapiLiveRequestName": {
+      "Value": "goformation-stack-PapiLiveRequest"
+    },
+    "PapiLiveRequestVersion": {
+      "Value": null
+    },
+    "PapiSearchRequestARN": {
+      "Value": null
+    },
+    "PapiSearchRequestName": {
+      "Value": "goformation-stack-PapiSearchRequest"
+    },
+    "PapiSearchRequestVersion": {
+      "Value": null
+    }
+  },
+  "Parameters": {
+    "CacheHost": {
+      "Default": "terminus-${Environment}-${CacheType}.private.${HostedZoneName}:6379",
+      "Description": "Point to a specific cache endpoint",
+      "Type": "String"
+    },
+    "CacheType": {
+      "Default": "rediscluster",
+      "Type": "String"
+    },
+    "CapiContentConcurrentExecutions": {
+      "Default": 1,
+      "Description": "CAPI origin itself has a hard limit of 30/s for incoming HTTP requests. But we use CGAPI, so for now there is no upstream limit.",
+      "Type": "Number"
+    },
+    "CapiLongTTL": {
+      "Default": "30d",
+      "Description": "CAPI long TTL value",
+      "Type": "String"
+    },
+    "CapiRandomLongTTL": {
+      "Default": "43700m,43900m",
+      "Description": "CAPI random long TTL value",
+      "Type": "String"
+    },
+    "CapiRandomShortTTL": {
+      "Default": "250s,350s",
+      "Description": "CAPI random short TTL value",
+      "Type": "String"
+    },
+    "CapiSearchConcurrentExecutions": {
+      "Default": 1,
+      "Description": "CAPI origin's incoming limit of 30/s applies to this too.  So we technically have a limit 2x what capi origin can handle.",
+      "Type": "Number"
+    },
+    "CapiShortTTL": {
+      "Default": "5m",
+      "Description": "CAPI short TTL value",
+      "Type": "String"
+    },
+    "DefaultSearchConcurrentExecutions": {
+      "Default": 1,
+      "Description": "The default lambda concurrency rate if a custom value is not specified. HTTP 429 are returned for excess requests",
+      "Type": "Number"
+    },
+    "DeployTime": {
+      "Default": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+      "Type": "String"
+    },
+    "Environment": {
+      "AllowedValues": [
+        "local",
+        "development",
+        "testing",
+        "staging",
+        "production",
+        "preview"
+      ],
+      "Default": "local",
+      "Description": "Environment",
+      "Type": "String"
+    },
+    "HostEnv": {
+      "Default": "staging",
+      "Description": "For HOST_ENV",
+      "Type": "String"
+    },
+    "IViewLongTTL": {
+      "Default": "30d",
+      "Description": "iView long TTL value",
+      "Type": "String"
+    },
+    "IViewRandomLongTTL": {
+      "Default": "43700m,43900m",
+      "Description": "iView random long TTL value",
+      "Type": "String"
+    },
+    "IViewRandomShortTTL": {
+      "Default": "250s,350s",
+      "Description": "iView random short TTL value",
+      "Type": "String"
+    },
+    "IViewShortTTL": {
+      "Default": "5m",
+      "Description": "iView short TTL value",
+      "Type": "String"
+    },
+    "LiveTTL": {
+      "Default": "1s",
+      "Description": "Live TTL value",
+      "Type": "String"
+    },
+    "LogLevel": {
+      "Default": "info",
+      "Type": "String"
+    },
+    "MapiLiveReservedConcurrentExecutions": {
+      "Default": 19,
+      "Description": "The maximum of concurrent executions to reserve for the MapiLiveRequest. There are 19 channel/timezone permutations",
+      "Type": "Number"
+    },
+    "MapiLongTTL": {
+      "Default": "30d",
+      "Description": "MAPI long TTL value",
+      "Type": "String"
+    },
+    "MapiPastSearchPlayTTL": {
+      "Default": "5m",
+      "Description": "Mapi Search caching TTL value for requests more than 5min in the past.",
+      "Type": "String"
+    },
+    "MapiRandomLongTTL": {
+      "Default": "43700m,43900m",
+      "Description": "MAPI random long TTL value",
+      "Type": "String"
+    },
+    "MapiRandomShortTTL": {
+      "Default": "250s,350s",
+      "Description": "MAPI random short TTL value",
+      "Type": "String"
+    },
+    "MapiSearchPlayTTL": {
+      "Default": "15s",
+      "Description": "Mapi Search caching TTL value for MAPI Play docType",
+      "Type": "String"
+    },
+    "MapiShortTTL": {
+      "Default": "5m",
+      "Description": "MAPI short TTL value",
+      "Type": "String"
+    },
+    "PapiLongTTL": {
+      "Default": "30d",
+      "Description": "PAPI long TTL value",
+      "Type": "String"
+    },
+    "PapiRandomLongTTL": {
+      "Default": "43700m,43900m",
+      "Description": "PAPI random long TTL value",
+      "Type": "String"
+    },
+    "PapiRandomShortTTL": {
+      "Default": "250s,350s",
+      "Description": "PAPI random short TTL value",
+      "Type": "String"
+    },
+    "PapiShortTTL": {
+      "Default": "5m",
+      "Description": "PAPI short TTL value",
+      "Type": "String"
+    },
+    "QueueStackName": {
+      "Default": "QueueStack",
+      "Type": "String"
+    },
+    "RandomMicroTTL": {
+      "Default": "5s,10s",
+      "Description": "Generic very small random TTL, for caching unexpected errors.",
+      "Type": "String"
+    },
+    "SumoEndpoint": {
+      "Default": "/terminus/sumoendpoint",
+      "Type": "AWS::SSM::Parameter::Value\u003cString\u003e"
+    },
+    "TERMINUSCAPIBASE": {
+      "Default": "http://master.cgapi.abc-prod.net.au/api/v2",
+      "Description": "CAPI base url",
+      "Type": "String"
+    },
+    "TERMINUSIVIEWBASE": {
+      "Default": "https://api.iview.abc.net.au",
+      "Description": "IVIEW base url",
+      "Type": "String"
+    },
+    "TERMINUSMAPIBASE": {
+      "Default": "http://music-dev.abcradio.net.au",
+      "Description": "MAPI base url",
+      "Type": "String"
+    },
+    "TERMINUSPAPIBASE": {
+      "Default": "http://program-dev.abcradio.net.au",
+      "Description": "CAPI base url",
+      "Type": "String"
+    },
+    "TransformActions": {
+      "Default": "{}",
+      "Description": "Mapping of transform actions",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "CapiContentRequest": {
+      "Properties": {
+        "CodeUri": "build/package/CapiContentRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TRANSFORM_ACTIONS": "{}",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "Events": {
+          "IngestorEvent": {
+            "Properties": {
+              "BatchSize": 1,
+              "Queue": null
+            },
+            "Type": "SQS"
+          }
+        },
+        "FunctionName": "goformation-stack-CapiContentRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "CapiContentVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-CapiContentRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "CapiSearchRequest": {
+      "Properties": {
+        "CodeUri": "build/package/CapiSearchRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "FunctionName": "goformation-stack-CapiSearchRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "CapiSearchVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-CapiSearchRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "IViewContentRequest": {
+      "Properties": {
+        "CodeUri": "build/package/IViewContentRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "FunctionName": "goformation-stack-IViewContentRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "IViewContentVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-IViewContentRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "LambdaExecutionRole": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+          "arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess"
+        ],
+        "Path": "/customer/",
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Statement": [
+                {
+                  "Action": [
+                    "kms:Decrypt",
+                    "ssm:GetParameter",
+                    "ssm:GetParameters"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+                },
+                {
+                  "Action": [
+                    "sqs:ChangeMessageVisibility",
+                    "sqs:DeleteMessage",
+                    "sqs:GetQueueAttributes",
+                    "sqs:ReceiveMessage"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+                },
+                {
+                  "Action": [
+                    "lambda:InvokeFunction"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+                }
+              ],
+              "Version": "2012-10-17"
+            },
+            "PolicyName": "IngestorLambda"
+          }
+        ],
+        "RoleName": "goformation-stack-lambda-execution-role"
+      },
+      "Type": "AWS::IAM::Role"
+    },
+    "MapiContentRequest": {
+      "Properties": {
+        "CodeUri": "build/package/MapiContentRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "Events": {
+          "IngestorEvent": {
+            "Properties": {
+              "BatchSize": 1,
+              "Queue": null
+            },
+            "Type": "SQS"
+          }
+        },
+        "FunctionName": "goformation-stack-MapiContentRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "MapiContentVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-MapiContentRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "MapiLiveRequest": {
+      "Properties": {
+        "CodeUri": "build/package/MapiLiveRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "FunctionName": "goformation-stack-MapiLiveRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 19,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "MapiLiveVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-MapiLiveRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "MapiSearchRequest": {
+      "Properties": {
+        "CodeUri": "build/package/MapiSearchRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MAPI_PAST_SEARCH_PLAY": "5m",
+            "TERMINUS_TTL_MAPI_SEARCH_PLAY": "15s",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "FunctionName": "goformation-stack-MapiSearchRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "MapiSearchVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-MapiSearchRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "PapiContentRequest": {
+      "Properties": {
+        "CodeUri": "build/package/PapiContentRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "Events": {
+          "IngestorEvent": {
+            "Properties": {
+              "BatchSize": 1,
+              "Queue": null
+            },
+            "Type": "SQS"
+          }
+        },
+        "FunctionName": "goformation-stack-PapiContentRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "PapiContentVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-PapiContentRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "PapiLiveRequest": {
+      "Properties": {
+        "CodeUri": "build/package/PapiLiveRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "FunctionName": "goformation-stack-PapiLiveRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "PapiLiveVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-PapiLiveRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "PapiSearchRequest": {
+      "Properties": {
+        "CodeUri": "build/package/PapiSearchRequest.zip",
+        "Environment": {
+          "Variables": {
+            "TERMINUS_CACHE_CLUSTER": "true",
+            "TERMINUS_CACHE_HOST": null,
+            "TERMINUS_CAPI_BASE": "http://master.cgapi.abc-prod.net.au/api/v2",
+            "TERMINUS_HOST_ENV": "staging",
+            "TERMINUS_IVIEW_BASE": "https://api.iview.abc.net.au",
+            "TERMINUS_LOG_LEVEL": "info",
+            "TERMINUS_MAPI_BASE": "http://music-dev.abcradio.net.au",
+            "TERMINUS_NEWRELIC_LICENSE_PATH": "/terminus/newrelic_license_key",
+            "TERMINUS_PAPI_BASE": "http://program-dev.abcradio.net.au",
+            "TERMINUS_PAPI_LIVE_TTL_THRESHOLD": "60",
+            "TERMINUS_TTL_LIVE": "1s",
+            "TERMINUS_TTL_LONG": "30d",
+            "TERMINUS_TTL_LONG_RANDOM": "43700m,43900m",
+            "TERMINUS_TTL_MICRO_RANDOM": "5s,10s",
+            "TERMINUS_TTL_SHORT": "5m",
+            "TERMINUS_TTL_SHORT_RANDOM": "250s,350s"
+          }
+        },
+        "FunctionName": "goformation-stack-PapiSearchRequest",
+        "Handler": "main",
+        "MemorySize": 256,
+        "ReservedConcurrentExecutions": 1,
+        "Role": null,
+        "Runtime": "go1.x",
+        "Tags": {
+          "environment": "local",
+          "product": "terminus",
+          "role": "sem"
+        },
+        "Timeout": 60,
+        "Tracing": "Active",
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            null
+          ],
+          "SubnetIds": []
+        }
+      },
+      "Type": "AWS::Serverless::Function"
+    },
+    "PapiSearchVersion": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "Description": "Version up",
+        "FunctionName": "goformation-stack-PapiSearchRequest",
+        "ServiceToken": null
+      },
+      "Type": "Custom::PublishLambdaVersion"
+    },
+    "QueueStack": {
+      "Properties": {
+        "DeployTime": "2019-05-13 16:30:10.956393 +1000 AEST m=+0.000719506",
+        "ServiceToken": null,
+        "StackName": "QueueStack"
+      },
+      "Type": "Custom::SoftStackRef"
+    }
+  },
+  "Transform": "AWS::Serverless-2016-10-31"
+}

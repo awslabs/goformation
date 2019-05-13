@@ -66,9 +66,11 @@ func unmarshallResource(name string, raw_json *json.RawMessage) (Resource, error
 		return nil, fmt.Errorf("Cannot find Type for %v", name)
 	}
 
-	resourceStruct := AllResources()[rtype.Type]
+	resourceStruct, ok := AllResources()[rtype.Type]
+	if !ok {
+		resourceStruct = customResources[rtype.Type]()
+	}
 	err = json.Unmarshal(*raw_json, resourceStruct)
-
 	if err != nil {
 		return nil, err
 	}
@@ -152,4 +154,10 @@ func (t *Template) YAML() ([]byte, error) {
 
 	return yaml.JSONToYAML(j)
 
+}
+
+var customResources map[string]func() Resource
+
+func RegisterCustomResource(resources map[string]func() Resource) {
+	customResources = resources
 }

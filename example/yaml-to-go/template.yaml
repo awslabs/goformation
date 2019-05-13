@@ -7,6 +7,7 @@ Parameters:
   ProjectId:
     Type: String
     Description: AWS CodeStar projectID used to associate new resources to team members
+    Default: ProjectTerminus
 
 Resources:
   GetHelloWorld:
@@ -17,6 +18,9 @@ Resources:
       Role:
         Fn::ImportValue:
           !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
+      Environment:
+        Variables:
+          PROJECT: !Ref ProjectId
       Events:
         GetEvent:
           Type: Api

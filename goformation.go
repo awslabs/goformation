@@ -14,14 +14,14 @@ import (
 // Open and parse a AWS CloudFormation template from file.
 // Works with either JSON or YAML formatted templates.
 func Open(filename string) (*cloudformation.Template, error) {
-	return OpenWithOptions(filename, nil)
+	return OpenWithOptions(filename, nil, nil)
 }
 
 // OpenWithOptions opens and parse a AWS CloudFormation template from file.
 // Works with either JSON or YAML formatted templates.
 // Parsing can be tweaked via the specified options.
-func OpenWithOptions(filename string, options *intrinsics.ProcessorOptions) (*cloudformation.Template, error) {
-
+func OpenWithOptions(filename string, options *intrinsics.ProcessorOptions, customResources map[string]func() cloudformation.Resource) (*cloudformation.Template, error) {
+	cloudformation.RegisterCustomResource(customResources)
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err

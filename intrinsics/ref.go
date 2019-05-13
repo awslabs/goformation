@@ -48,6 +48,42 @@ func Ref(name string, input interface{}, template interface{}) interface{} {
 						}
 					}
 				}
+				if uresources, ok := template["Resources"]; ok {
+					// Check the resources section is a map
+					if resources, ok := uresources.(map[string]interface{}); ok {
+						// Check there is a resource with the same name as the Ref
+						if uresource, ok := resources[name]; ok {
+							// Check the resource is a map
+							if resource, ok := uresource.(map[string]interface{}); ok {
+								// Check the resource type
+								if _type, ok := resource["Type"]; ok {
+									switch _type {
+									case "AWS::Serverless::Function":
+										if uprops, ok := resource["Properties"]; ok {
+											if props, ok := uprops.(map[string]interface{}); ok {
+												if funcName, ok := props["FunctionName"]; ok {
+													switch v := funcName.(type) {
+													case string:
+														return v
+													case map[string]interface{}:
+														for key, value := range v {
+															if key == "Fn::Sub" {
+																return FnSub(key, value, v)
+															}
+														}
+														return v
+													}
+												} else {
+													return name
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 

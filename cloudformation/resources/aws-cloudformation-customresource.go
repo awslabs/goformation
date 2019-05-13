@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+
 	"github.com/awslabs/goformation/cloudformation/policies"
 )
 
@@ -92,7 +93,7 @@ func (r *AWSCloudFormationCustomResource) UnmarshalJSON(b []byte) error {
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
-	dec.DisallowUnknownFields() // Force error if unknown field is found
+	//dec.DisallowUnknownFields() // Force error if unknown field is found
 
 	if err := dec.Decode(&res); err != nil {
 		fmt.Printf("ERROR: %s\n", err)
