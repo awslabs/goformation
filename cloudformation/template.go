@@ -68,7 +68,12 @@ func unmarshallResource(name string, raw_json *json.RawMessage) (Resource, error
 
 	resourceStruct, ok := AllResources()[rtype.Type]
 	if !ok {
-		resourceStruct = customResources[rtype.Type]()
+		f, ok := customResources[rtype.Type]
+		if ok {
+			resourceStruct = f()
+		} else {
+			resourceStruct = &BasicCustomResource{Type: rtype.Type}
+		}
 	}
 	err = json.Unmarshal(*raw_json, resourceStruct)
 	if err != nil {

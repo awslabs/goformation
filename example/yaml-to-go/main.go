@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/awslabs/goformation"
-	"github.com/awslabs/goformation/cloudformation"
 	"github.com/awslabs/goformation/intrinsics"
 )
 
@@ -18,15 +17,7 @@ func main() {
 			"DeployTime":     time.Now().String(),
 			"QueueStackName": "QueueStack",
 		},
-	}, map[string]func() cloudformation.Resource{
-		"Custom::PublishLambdaVersion": func() cloudformation.Resource {
-			return &cloudformation.BasicCustomResource{}
-		},
-		"Custom::SoftStackRef": func() cloudformation.Resource {
-			return &cloudformation.BasicCustomResource{}
-		},
-	},
-	)
+	}, nil)
 	if err != nil {
 		log.Fatalf("There was an error processing the template: %s", err)
 	}
