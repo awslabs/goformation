@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/vrealzhou/goformation/cloudformation/policies"
 
 // AWSCodePipelinePipeline_StageDeclaration AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.StageDeclaration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html

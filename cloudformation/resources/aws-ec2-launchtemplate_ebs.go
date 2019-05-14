@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/vrealzhou/goformation/cloudformation/policies"
 
 // AWSEC2LaunchTemplate_Ebs AWS CloudFormation Resource (AWS::EC2::LaunchTemplate.Ebs)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/vrealzhou/goformation/cloudformation/policies"
 )
 
 // AWSCognitoUserPoolClient AWS CloudFormation Resource (AWS::Cognito::UserPoolClient)

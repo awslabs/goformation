@@ -4,8 +4,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/awslabs/goformation"
-	"github.com/awslabs/goformation/intrinsics"
+	"github.com/vrealzhou/goformation"
+	"github.com/vrealzhou/goformation/intrinsics"
 )
 
 func main() {

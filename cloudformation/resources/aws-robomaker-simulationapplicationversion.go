@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/vrealzhou/goformation/cloudformation/policies"
 )
 
 // AWSRoboMakerSimulationApplicationVersion AWS CloudFormation Resource (AWS::RoboMaker::SimulationApplicationVersion)

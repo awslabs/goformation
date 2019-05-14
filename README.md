@@ -1,6 +1,6 @@
 # AWS GoFormation
 
-[![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=0.1.0)](https://travis-ci.org/awslabs/goformation) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg)
+[![Build Status](https://travis-ci.org/awslabs/goformation.svg?branch=0.1.0)](https://travis-ci.org/awslabs/goformation) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/vrealzhou/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg)
 
 `GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates.
 - [Main features](#main-features)
@@ -27,7 +27,7 @@
 As with other Go libraries, GoFormation can be installed with `go get`.
 
 ```
-$ go get github.com/awslabs/goformation
+$ go get github.com/vrealzhou/goformation
 ```
 
 ## Usage
@@ -44,8 +44,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/awslabs/goformation/cloudformation"
-	"github.com/awslabs/goformation/cloudformation/resources"
+	"github.com/vrealzhou/goformation/cloudformation"
+	"github.com/vrealzhou/goformation/cloudformation/resources"
 )
 
 func main() {
@@ -157,7 +157,7 @@ package main
 import (
 	"log"
 
-	"github.com/awslabs/goformation"
+	"github.com/vrealzhou/goformation"
 )
 
 func main() {

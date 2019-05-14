@@ -6,12 +6,12 @@
 # 
 # 1. Clone github.com/goformation/goformation to local filesystem
 # 2. Switch to aws-goformation-updates branch (creating it if necessary)
-# 3. Merge in any changes from github.com/awslabs/goformation (upstream)
+# 3. Merge in any changes from github.com/vrealzhou/goformation (upstream)
 # 4. Run 'go generate'
 # 5. Check whether any resources changed
 # 6. Run 'go test' to ensure all tests pass
 # 7. Commit any changes and push to github.com/goformation/goformation
-# 8. Create a pull request from github.com/goformation/goformation (branch: aws-goformation-updates) to github.com/awslabs/goformation (master)
+# 8. Create a pull request from github.com/goformation/goformation (branch: aws-goformation-updates) to github.com/vrealzhou/goformation (master)
 #
 # It relies on the environment GITHUB_TOKEN containing a Personal Access Token for the github.com/goformation user.
 
@@ -48,7 +48,7 @@ git config --global user.name "${COMMIT_NAME}"
 git config --global user.email "${COMMIT_EMAIL}"
 
 echo "Checking out github.com/${SRC_REPO}..."
-UPSTREAM_DIR=/tmp/upstream/src/github.com/awslabs/goformation
+UPSTREAM_DIR=/tmp/upstream/src/github.com/vrealzhou/goformation
 mkdir -p ${UPSTREAM_DIR}
 git clone https://github.com/${SRC_REPO}.git ${UPSTREAM_DIR} > /dev/null 2>&1
 GOPATH=/tmp/upstream

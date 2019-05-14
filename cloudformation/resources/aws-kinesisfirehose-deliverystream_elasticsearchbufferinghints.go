@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/vrealzhou/goformation/cloudformation/policies"
 
 // AWSKinesisFirehoseDeliveryStream_ElasticsearchBufferingHints AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.ElasticsearchBufferingHints)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html

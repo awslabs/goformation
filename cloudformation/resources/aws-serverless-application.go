@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/vrealzhou/goformation/cloudformation/policies"
 )
 
 // AWSServerlessApplication AWS CloudFormation Resource (AWS::Serverless::Application)

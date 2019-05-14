@@ -165,7 +165,7 @@ $ git clone https://github.com/<your-github-user>/goformation
 # Navigate to the newly cloned directory
 $ cd goformation
 # Assign the original repo to a remote called "upstream"
-$ git remote add upstream https://github.com/awslabs/goformation
+$ git remote add upstream https://github.com/vrealzhou/goformation
 ```
 
 ### Tests
@@ -178,7 +178,7 @@ $ go test ./...
 
 ### Commits
 
-The [GoFormation](https://github.com/awslabs/goformation) repository uses [semantic-release](https://github.com/semantic-release/semantic-release) to automatically generate CHANGELOG entries, and cut releases based on commit messages. It's important to follow the [commit message guidelines](#commit-message-guidelines) so that this process continues to work.
+The [GoFormation](https://github.com/vrealzhou/goformation) repository uses [semantic-release](https://github.com/semantic-release/semantic-release) to automatically generate CHANGELOG entries, and cut releases based on commit messages. It's important to follow the [commit message guidelines](#commit-message-guidelines) so that this process continues to work.
 
 To make things easier, you can use a tool like [Commitizen CLI](https://github.com/commitizen/cz-cli) to help you craft your commit messages. 
 

@@ -2,7 +2,7 @@ package cloudformation
 
 import (
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/resources"
+	"github.com/vrealzhou/goformation/cloudformation/resources"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
