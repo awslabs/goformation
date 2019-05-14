@@ -1,7 +1,6 @@
 module github.com/vrealzhou/goformation
 
 require (
-	github.com/vrealzhou/goformation v1.4.1
 	github.com/imdario/mergo v0.3.6
 	github.com/mitchellh/mapstructure v1.1.2
 	github.com/onsi/ginkgo v1.5.0
