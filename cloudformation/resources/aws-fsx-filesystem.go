@@ -49,7 +49,7 @@ type AWSFSxFileSystem struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags
-	Tags []AWSFSxFileSystem_TagEntry `json:"Tags,omitempty"`
+	Tags []Tag `json:"Tags,omitempty"`
 
 	// WindowsConfiguration AWS CloudFormation Property
 	// Required: false

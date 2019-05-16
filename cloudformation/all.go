@@ -31,8 +31,10 @@ func AllResources() map[string]Resource {
 		"AWS::ApiGateway::UsagePlanKey":                               &resources.AWSApiGatewayUsagePlanKey{},
 		"AWS::ApiGateway::VpcLink":                                    &resources.AWSApiGatewayVpcLink{},
 		"AWS::ApiGatewayV2::Api":                                      &resources.AWSApiGatewayV2Api{},
+		"AWS::ApiGatewayV2::ApiMapping":                               &resources.AWSApiGatewayV2ApiMapping{},
 		"AWS::ApiGatewayV2::Authorizer":                               &resources.AWSApiGatewayV2Authorizer{},
 		"AWS::ApiGatewayV2::Deployment":                               &resources.AWSApiGatewayV2Deployment{},
+		"AWS::ApiGatewayV2::DomainName":                               &resources.AWSApiGatewayV2DomainName{},
 		"AWS::ApiGatewayV2::Integration":                              &resources.AWSApiGatewayV2Integration{},
 		"AWS::ApiGatewayV2::IntegrationResponse":                      &resources.AWSApiGatewayV2IntegrationResponse{},
 		"AWS::ApiGatewayV2::Model":                                    &resources.AWSApiGatewayV2Model{},
@@ -155,7 +157,6 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::TransitGatewayRouteTable":                          &resources.AWSEC2TransitGatewayRouteTable{},
 		"AWS::EC2::TransitGatewayRouteTableAssociation":               &resources.AWSEC2TransitGatewayRouteTableAssociation{},
 		"AWS::EC2::TransitGatewayRouteTablePropagation":               &resources.AWSEC2TransitGatewayRouteTablePropagation{},
-		"AWS::EC2::TrunkInterfaceAssociation":                         &resources.AWSEC2TrunkInterfaceAssociation{},
 		"AWS::EC2::VPC":                                               &resources.AWSEC2VPC{},
 		"AWS::EC2::VPCCidrBlock":                                      &resources.AWSEC2VPCCidrBlock{},
 		"AWS::EC2::VPCDHCPOptionsAssociation":                         &resources.AWSEC2VPCDHCPOptionsAssociation{},
@@ -226,6 +227,7 @@ func AllResources() map[string]Resource {
 		"AWS::Greengrass::GroupVersion":                               &resources.AWSGreengrassGroupVersion{},
 		"AWS::Greengrass::LoggerDefinition":                           &resources.AWSGreengrassLoggerDefinition{},
 		"AWS::Greengrass::LoggerDefinitionVersion":                    &resources.AWSGreengrassLoggerDefinitionVersion{},
+		"AWS::Greengrass::ResourceDefinition":                         &resources.AWSGreengrassResourceDefinition{},
 		"AWS::Greengrass::ResourceDefinitionVersion":                  &resources.AWSGreengrassResourceDefinitionVersion{},
 		"AWS::Greengrass::SubscriptionDefinition":                     &resources.AWSGreengrassSubscriptionDefinition{},
 		"AWS::Greengrass::SubscriptionDefinitionVersion":              &resources.AWSGreengrassSubscriptionDefinitionVersion{},
@@ -951,6 +953,30 @@ func (t *Template) GetAWSApiGatewayV2ApiWithName(name string) (*resources.AWSApi
 	return nil, fmt.Errorf("resource %q of type AWSApiGatewayV2Api not found", name)
 }
 
+// GetAllAWSApiGatewayV2ApiMappingResources retrieves all AWSApiGatewayV2ApiMapping items from an AWS CloudFormation template
+func (t *Template) GetAllAWSApiGatewayV2ApiMappingResources() map[string]*resources.AWSApiGatewayV2ApiMapping {
+	results := map[string]*resources.AWSApiGatewayV2ApiMapping{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSApiGatewayV2ApiMapping:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSApiGatewayV2ApiMappingWithName retrieves all AWSApiGatewayV2ApiMapping items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSApiGatewayV2ApiMappingWithName(name string) (*resources.AWSApiGatewayV2ApiMapping, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSApiGatewayV2ApiMapping:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSApiGatewayV2ApiMapping not found", name)
+}
+
 // GetAllAWSApiGatewayV2AuthorizerResources retrieves all AWSApiGatewayV2Authorizer items from an AWS CloudFormation template
 func (t *Template) GetAllAWSApiGatewayV2AuthorizerResources() map[string]*resources.AWSApiGatewayV2Authorizer {
 	results := map[string]*resources.AWSApiGatewayV2Authorizer{}
@@ -997,6 +1023,30 @@ func (t *Template) GetAWSApiGatewayV2DeploymentWithName(name string) (*resources
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSApiGatewayV2Deployment not found", name)
+}
+
+// GetAllAWSApiGatewayV2DomainNameResources retrieves all AWSApiGatewayV2DomainName items from an AWS CloudFormation template
+func (t *Template) GetAllAWSApiGatewayV2DomainNameResources() map[string]*resources.AWSApiGatewayV2DomainName {
+	results := map[string]*resources.AWSApiGatewayV2DomainName{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSApiGatewayV2DomainName:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSApiGatewayV2DomainNameWithName retrieves all AWSApiGatewayV2DomainName items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSApiGatewayV2DomainNameWithName(name string) (*resources.AWSApiGatewayV2DomainName, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSApiGatewayV2DomainName:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSApiGatewayV2DomainName not found", name)
 }
 
 // GetAllAWSApiGatewayV2IntegrationResources retrieves all AWSApiGatewayV2Integration items from an AWS CloudFormation template
@@ -3927,30 +3977,6 @@ func (t *Template) GetAWSEC2TransitGatewayRouteTablePropagationWithName(name str
 	return nil, fmt.Errorf("resource %q of type AWSEC2TransitGatewayRouteTablePropagation not found", name)
 }
 
-// GetAllAWSEC2TrunkInterfaceAssociationResources retrieves all AWSEC2TrunkInterfaceAssociation items from an AWS CloudFormation template
-func (t *Template) GetAllAWSEC2TrunkInterfaceAssociationResources() map[string]*resources.AWSEC2TrunkInterfaceAssociation {
-	results := map[string]*resources.AWSEC2TrunkInterfaceAssociation{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case *resources.AWSEC2TrunkInterfaceAssociation:
-			results[name] = resource
-		}
-	}
-	return results
-}
-
-// GetAWSEC2TrunkInterfaceAssociationWithName retrieves all AWSEC2TrunkInterfaceAssociation items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetAWSEC2TrunkInterfaceAssociationWithName(name string) (*resources.AWSEC2TrunkInterfaceAssociation, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case *resources.AWSEC2TrunkInterfaceAssociation:
-			return resource, nil
-		}
-	}
-	return nil, fmt.Errorf("resource %q of type AWSEC2TrunkInterfaceAssociation not found", name)
-}
-
 // GetAllAWSEC2VPCResources retrieves all AWSEC2VPC items from an AWS CloudFormation template
 func (t *Template) GetAllAWSEC2VPCResources() map[string]*resources.AWSEC2VPC {
 	results := map[string]*resources.AWSEC2VPC{}
@@ -5629,6 +5655,30 @@ func (t *Template) GetAWSGreengrassLoggerDefinitionVersionWithName(name string) 
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSGreengrassLoggerDefinitionVersion not found", name)
+}
+
+// GetAllAWSGreengrassResourceDefinitionResources retrieves all AWSGreengrassResourceDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGreengrassResourceDefinitionResources() map[string]*resources.AWSGreengrassResourceDefinition {
+	results := map[string]*resources.AWSGreengrassResourceDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassResourceDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGreengrassResourceDefinitionWithName retrieves all AWSGreengrassResourceDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGreengrassResourceDefinitionWithName(name string) (*resources.AWSGreengrassResourceDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGreengrassResourceDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGreengrassResourceDefinition not found", name)
 }
 
 // GetAllAWSGreengrassResourceDefinitionVersionResources retrieves all AWSGreengrassResourceDefinitionVersion items from an AWS CloudFormation template

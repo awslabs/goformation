@@ -7,39 +7,19 @@ import (
 	"github.com/awslabs/goformation/cloudformation/policies"
 )
 
-// AWSSSMParameter AWS CloudFormation Resource (AWS::SSM::Parameter)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html
-type AWSSSMParameter struct {
+// AWSGreengrassResourceDefinition AWS CloudFormation Resource (AWS::Greengrass::ResourceDefinition)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html
+type AWSGreengrassResourceDefinition struct {
 
-	// AllowedPattern AWS CloudFormation Property
+	// InitialVersion AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern
-	AllowedPattern string `json:"AllowedPattern,omitempty"`
-
-	// Description AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description
-	Description string `json:"Description,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html#cfn-greengrass-resourcedefinition-initialversion
+	InitialVersion *AWSGreengrassResourceDefinition_ResourceDefinitionVersion `json:"InitialVersion,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-name
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html#cfn-greengrass-resourcedefinition-name
 	Name string `json:"Name,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-tags
-	Tags interface{} `json:"Tags,omitempty"`
-
-	// Type AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-type
-	Type string `json:"Type,omitempty"`
-
-	// Value AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-value
-	Value string `json:"Value,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -52,44 +32,44 @@ type AWSSSMParameter struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSSSMParameter) AWSCloudFormationType() string {
-	return "AWS::SSM::Parameter"
+func (r *AWSGreengrassResourceDefinition) AWSCloudFormationType() string {
+	return "AWS::Greengrass::ResourceDefinition"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSSSMParameter) DependsOn() []string {
+func (r *AWSGreengrassResourceDefinition) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSSSMParameter) SetDependsOn(dependencies []string) {
+func (r *AWSGreengrassResourceDefinition) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSSSMParameter) Metadata() map[string]interface{} {
+func (r *AWSGreengrassResourceDefinition) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSSSMParameter) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSGreengrassResourceDefinition) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSSSMParameter) SetDeletionPolicy(policy policies.DeletionPolicy) {
+func (r *AWSGreengrassResourceDefinition) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSSSMParameter) MarshalJSON() ([]byte, error) {
-	type Properties AWSSSMParameter
+func (r AWSGreengrassResourceDefinition) MarshalJSON() ([]byte, error) {
+	type Properties AWSGreengrassResourceDefinition
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -107,8 +87,8 @@ func (r AWSSSMParameter) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *AWSSSMParameter) UnmarshalJSON(b []byte) error {
-	type Properties AWSSSMParameter
+func (r *AWSGreengrassResourceDefinition) UnmarshalJSON(b []byte) error {
+	type Properties AWSGreengrassResourceDefinition
 	res := &struct {
 		Type       string
 		Properties *Properties
@@ -126,7 +106,7 @@ func (r *AWSSSMParameter) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = AWSSSMParameter(*res.Properties)
+		*r = AWSGreengrassResourceDefinition(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn
