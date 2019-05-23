@@ -2276,6 +2276,71 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::ApiGatewayV2::ApiMapping": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ApiId": {
+                            "type": "string"
+                        },
+                        "ApiMappingKey": {
+                            "type": "string"
+                        },
+                        "DomainName": {
+                            "type": "string"
+                        },
+                        "Stage": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ApiId",
+                        "DomainName",
+                        "Stage"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::ApiGatewayV2::ApiMapping"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::ApiGatewayV2::Authorizer": {
             "additionalProperties": false,
             "properties": {
@@ -2416,6 +2481,81 @@ var CloudformationSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::ApiGatewayV2::DomainName": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DomainName": {
+                            "type": "string"
+                        },
+                        "DomainNameConfigurations": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::ApiGatewayV2::DomainName.DomainNameConfiguration"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "DomainName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::ApiGatewayV2::DomainName"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::ApiGatewayV2::DomainName.DomainNameConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "CertificateArn": {
+                    "type": "string"
+                },
+                "CertificateName": {
+                    "type": "string"
+                },
+                "EndpointType": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::ApiGatewayV2::Integration": {
@@ -6775,6 +6915,12 @@ var CloudformationSchema = `{
                 "ReadonlyRootFilesystem": {
                     "type": "boolean"
                 },
+                "ResourceRequirements": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Batch::JobDefinition.ResourceRequirement"
+                    },
+                    "type": "array"
+                },
                 "Ulimits": {
                     "items": {
                         "$ref": "#/definitions/AWS::Batch::JobDefinition.Ulimit"
@@ -6864,6 +7010,18 @@ var CloudformationSchema = `{
             "required": [
                 "TargetNodes"
             ],
+            "type": "object"
+        },
+        "AWS::Batch::JobDefinition.ResourceRequirement": {
+            "additionalProperties": false,
+            "properties": {
+                "Type": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Batch::JobDefinition.RetryStrategy": {
@@ -10734,6 +10892,9 @@ var CloudformationSchema = `{
         "AWS::Cognito::UserPool.EmailConfiguration": {
             "additionalProperties": false,
             "properties": {
+                "EmailSendingAccount": {
+                    "type": "string"
+                },
                 "ReplyToEmailAddress": {
                     "type": "string"
                 },
@@ -17273,70 +17434,6 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
-        "AWS::EC2::TrunkInterfaceAssociation": {
-            "additionalProperties": false,
-            "properties": {
-                "DeletionPolicy": {
-                    "enum": [
-                        "Delete",
-                        "Retain",
-                        "Snapshot"
-                    ],
-                    "type": "string"
-                },
-                "DependsOn": {
-                    "anyOf": [
-                        {
-                            "pattern": "^[a-zA-Z0-9]+$",
-                            "type": "string"
-                        },
-                        {
-                            "items": {
-                                "pattern": "^[a-zA-Z0-9]+$",
-                                "type": "string"
-                            },
-                            "type": "array"
-                        }
-                    ]
-                },
-                "Metadata": {
-                    "type": "object"
-                },
-                "Properties": {
-                    "additionalProperties": false,
-                    "properties": {
-                        "BranchInterfaceId": {
-                            "type": "string"
-                        },
-                        "GREKey": {
-                            "type": "number"
-                        },
-                        "TrunkInterfaceId": {
-                            "type": "string"
-                        },
-                        "VLANId": {
-                            "type": "number"
-                        }
-                    },
-                    "required": [
-                        "BranchInterfaceId",
-                        "TrunkInterfaceId"
-                    ],
-                    "type": "object"
-                },
-                "Type": {
-                    "enum": [
-                        "AWS::EC2::TrunkInterfaceAssociation"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Type",
-                "Properties"
-            ],
-            "type": "object"
-        },
         "AWS::EC2::VPC": {
             "additionalProperties": false,
             "properties": {
@@ -23430,7 +23527,7 @@ var CloudformationSchema = `{
                         },
                         "Tags": {
                             "items": {
-                                "$ref": "#/definitions/AWS::FSx::FileSystem.TagEntry"
+                                "$ref": "#/definitions/Tag"
                             },
                             "type": "array"
                         },
@@ -23468,22 +23565,6 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "type": "object"
-        },
-        "AWS::FSx::FileSystem.TagEntry": {
-            "additionalProperties": false,
-            "properties": {
-                "Key": {
-                    "type": "string"
-                },
-                "Value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Key",
-                "Value"
-            ],
             "type": "object"
         },
         "AWS::FSx::FileSystem.WindowsConfiguration": {
@@ -25650,10 +25731,6 @@ var CloudformationSchema = `{
                     "type": "number"
                 }
             },
-            "required": [
-                "MemorySize",
-                "Timeout"
-            ],
             "type": "object"
         },
         "AWS::Greengrass::FunctionDefinition.FunctionDefinitionVersion": {
@@ -25855,10 +25932,6 @@ var CloudformationSchema = `{
                     "type": "number"
                 }
             },
-            "required": [
-                "MemorySize",
-                "Timeout"
-            ],
             "type": "object"
         },
         "AWS::Greengrass::FunctionDefinitionVersion.ResourceAccessPolicy": {
@@ -26234,6 +26307,218 @@ var CloudformationSchema = `{
                 "Id",
                 "Level",
                 "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InitialVersion": {
+                            "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.ResourceDefinitionVersion"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Greengrass::ResourceDefinition"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.GroupOwnerSetting": {
+            "additionalProperties": false,
+            "properties": {
+                "AutoAddGroupOwner": {
+                    "type": "boolean"
+                },
+                "GroupOwner": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AutoAddGroupOwner"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.LocalDeviceResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "GroupOwnerSetting": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.GroupOwnerSetting"
+                },
+                "SourcePath": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SourcePath"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.LocalVolumeResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "DestinationPath": {
+                    "type": "string"
+                },
+                "GroupOwnerSetting": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.GroupOwnerSetting"
+                },
+                "SourcePath": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DestinationPath",
+                "SourcePath"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.ResourceDataContainer": {
+            "additionalProperties": false,
+            "properties": {
+                "LocalDeviceResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.LocalDeviceResourceData"
+                },
+                "LocalVolumeResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.LocalVolumeResourceData"
+                },
+                "S3MachineLearningModelResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.S3MachineLearningModelResourceData"
+                },
+                "SageMakerMachineLearningModelResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.SageMakerMachineLearningModelResourceData"
+                },
+                "SecretsManagerSecretResourceData": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.SecretsManagerSecretResourceData"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.ResourceDefinitionVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "Resources": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.ResourceInstance"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Resources"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.ResourceInstance": {
+            "additionalProperties": false,
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "ResourceDataContainer": {
+                    "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition.ResourceDataContainer"
+                }
+            },
+            "required": [
+                "Id",
+                "Name",
+                "ResourceDataContainer"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.S3MachineLearningModelResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "DestinationPath": {
+                    "type": "string"
+                },
+                "S3Uri": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DestinationPath",
+                "S3Uri"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.SageMakerMachineLearningModelResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "DestinationPath": {
+                    "type": "string"
+                },
+                "SageMakerJobArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DestinationPath",
+                "SageMakerJobArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Greengrass::ResourceDefinition.SecretsManagerSecretResourceData": {
+            "additionalProperties": false,
+            "properties": {
+                "ARN": {
+                    "type": "string"
+                },
+                "AdditionalStagingLabelsToDownload": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ARN"
             ],
             "type": "object"
         },
@@ -39532,6 +39817,9 @@ var CloudformationSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "Tags": {
+                            "type": "object"
+                        },
                         "Type": {
                             "type": "string"
                         },
@@ -43544,24 +43832,24 @@ var CloudformationSchema = `{
                         "AWS::SSM::Parameter::Value\u003cString\u003e",
                         "AWS::SSM::Parameter::Value\u003cList\u003cString\u003e\u003e",
                         "AWS::SSM::Parameter::Value\u003cCommaDelimitedList\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::AvailabilityZone::Name\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::Image::Id\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::Instance::Id\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::SecurityGroup::GroupName\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::SecurityGroup::Id\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::Subnet::Id\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::Volume::Id\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::EC2::VPC::Id\u003e",
-                        "AWS::SSM:Parameter::Value\u003cAWS::Route53::HostedZone::Id\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::AvailabilityZone::Name\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::Image::Id\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::Instance::Id\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::SecurityGroup::GroupName\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::SecurityGroup::Id\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::Subnet::Id\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::Volume::Id\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::EC2::VPC::Id\u003e\u003e",
-                        "AWS::SSM:Parameter::Value\u003cList\u003cAWS::Route53::HostedZone::Id\u003e\u003e"
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::AvailabilityZone::Name\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::Image::Id\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::Instance::Id\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::SecurityGroup::GroupName\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::SecurityGroup::Id\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::Subnet::Id\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::Volume::Id\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::EC2::VPC::Id\u003e",
+                        "AWS::SSM::Parameter::Value\u003cAWS::Route53::HostedZone::Id\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::AvailabilityZone::Name\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::Image::Id\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::Instance::Id\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::SecurityGroup::GroupName\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::SecurityGroup::Id\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::Subnet::Id\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::Volume::Id\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::EC2::VPC::Id\u003e\u003e",
+                        "AWS::SSM::Parameter::Value\u003cList\u003cAWS::Route53::HostedZone::Id\u003e\u003e"
                     ],
                     "type": "string"
                 }
@@ -43717,10 +44005,16 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::ApiGatewayV2::Api"
                         },
                         {
+                            "$ref": "#/definitions/AWS::ApiGatewayV2::ApiMapping"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::ApiGatewayV2::Authorizer"
                         },
                         {
                             "$ref": "#/definitions/AWS::ApiGatewayV2::Deployment"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ApiGatewayV2::DomainName"
                         },
                         {
                             "$ref": "#/definitions/AWS::ApiGatewayV2::Integration"
@@ -44089,9 +44383,6 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::EC2::TransitGatewayRouteTablePropagation"
                         },
                         {
-                            "$ref": "#/definitions/AWS::EC2::TrunkInterfaceAssociation"
-                        },
-                        {
                             "$ref": "#/definitions/AWS::EC2::VPC"
                         },
                         {
@@ -44300,6 +44591,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Greengrass::LoggerDefinitionVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Greengrass::ResourceDefinition"
                         },
                         {
                             "$ref": "#/definitions/AWS::Greengrass::ResourceDefinitionVersion"

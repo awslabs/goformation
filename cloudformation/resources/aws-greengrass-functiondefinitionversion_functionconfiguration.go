@@ -27,9 +27,9 @@ type AWSGreengrassFunctionDefinitionVersion_FunctionConfiguration struct {
 	Executable string `json:"Executable,omitempty"`
 
 	// MemorySize AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-memorysize
-	MemorySize int `json:"MemorySize"`
+	MemorySize int `json:"MemorySize,omitempty"`
 
 	// Pinned AWS CloudFormation Property
 	// Required: false
@@ -37,9 +37,9 @@ type AWSGreengrassFunctionDefinitionVersion_FunctionConfiguration struct {
 	Pinned bool `json:"Pinned,omitempty"`
 
 	// Timeout AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-timeout
-	Timeout int `json:"Timeout"`
+	Timeout int `json:"Timeout,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
