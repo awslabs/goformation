@@ -70,6 +70,12 @@ func (r *AWSEventsEventBusPolicy) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSEventsEventBusPolicy) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSEventsEventBusPolicy) SetDeletionPolicy(policy policies.DeletionPolicy) {

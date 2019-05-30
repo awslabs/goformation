@@ -11,6 +11,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html
 type AWSGlueClassifier struct {
 
+	// CsvClassifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-csvclassifier
+	CsvClassifier *AWSGlueClassifier_CsvClassifier `json:"CsvClassifier,omitempty"`
+
 	// GrokClassifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-grokclassifier
@@ -63,6 +68,12 @@ func (r *AWSGlueClassifier) Metadata() map[string]interface{} {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *AWSGlueClassifier) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSGlueClassifier) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource

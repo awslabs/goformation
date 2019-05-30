@@ -11,6 +11,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
 type AWSAppSyncGraphQLApi struct {
 
+	// AdditionalAuthenticationProviders AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
+	AdditionalAuthenticationProviders *AWSAppSyncGraphQLApi_AdditionalAuthenticationProviders `json:"AdditionalAuthenticationProviders,omitempty"`
+
 	// AuthenticationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
@@ -30,6 +35,11 @@ type AWSAppSyncGraphQLApi struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
 	OpenIDConnectConfig *AWSAppSyncGraphQLApi_OpenIDConnectConfig `json:"OpenIDConnectConfig,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
+	Tags *AWSAppSyncGraphQLApi_Tags `json:"Tags,omitempty"`
 
 	// UserPoolConfig AWS CloudFormation Property
 	// Required: false
@@ -73,6 +83,12 @@ func (r *AWSAppSyncGraphQLApi) Metadata() map[string]interface{} {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *AWSAppSyncGraphQLApi) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSAppSyncGraphQLApi) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource

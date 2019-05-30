@@ -70,6 +70,12 @@ func (r *AWSRedshiftClusterParameterGroup) SetMetadata(metadata map[string]inter
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSRedshiftClusterParameterGroup) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSRedshiftClusterParameterGroup) SetDeletionPolicy(policy policies.DeletionPolicy) {

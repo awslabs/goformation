@@ -60,6 +60,12 @@ func (r *AWSEC2TransitGatewayRouteTablePropagation) SetMetadata(metadata map[str
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSEC2TransitGatewayRouteTablePropagation) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSEC2TransitGatewayRouteTablePropagation) SetDeletionPolicy(policy policies.DeletionPolicy) {

@@ -55,6 +55,12 @@ func (r *AWSAmazonMQBroker_ConfigurationId) SetMetadata(metadata map[string]inte
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSAmazonMQBroker_ConfigurationId) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSAmazonMQBroker_ConfigurationId) SetDeletionPolicy(policy policies.DeletionPolicy) {

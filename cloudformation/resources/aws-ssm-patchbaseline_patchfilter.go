@@ -55,6 +55,12 @@ func (r *AWSSSMPatchBaseline_PatchFilter) SetMetadata(metadata map[string]interf
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSSSMPatchBaseline_PatchFilter) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSSSMPatchBaseline_PatchFilter) SetDeletionPolicy(policy policies.DeletionPolicy) {

@@ -61,6 +61,11 @@ type AWSCodeBuildProject struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
 	SecondaryArtifacts []AWSCodeBuildProject_Artifacts `json:"SecondaryArtifacts,omitempty"`
 
+	// SecondarySourceVersions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysourceversions
+	SecondarySourceVersions []AWSCodeBuildProject_ProjectSourceVersion `json:"SecondarySourceVersions,omitempty"`
+
 	// SecondarySources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysources
@@ -75,6 +80,11 @@ type AWSCodeBuildProject struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
 	Source *AWSCodeBuildProject_Source `json:"Source,omitempty"`
+
+	// SourceVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
+	SourceVersion string `json:"SourceVersion,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -133,6 +143,12 @@ func (r *AWSCodeBuildProject) Metadata() map[string]interface{} {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *AWSCodeBuildProject) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSCodeBuildProject) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource

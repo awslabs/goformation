@@ -46,6 +46,11 @@ type AWSECSTaskDefinition struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
 	PlacementConstraints []AWSECSTaskDefinition_TaskDefinitionPlacementConstraint `json:"PlacementConstraints,omitempty"`
 
+	// ProxyConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
+	ProxyConfiguration *AWSECSTaskDefinition_ProxyConfiguration `json:"ProxyConfiguration,omitempty"`
+
 	// RequiresCompatibilities AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
@@ -98,6 +103,12 @@ func (r *AWSECSTaskDefinition) Metadata() map[string]interface{} {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *AWSECSTaskDefinition) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSECSTaskDefinition) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource

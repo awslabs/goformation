@@ -65,6 +65,12 @@ func (r *AWSEMRStep_HadoopJarStepConfig) SetMetadata(metadata map[string]interfa
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSEMRStep_HadoopJarStepConfig) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSEMRStep_HadoopJarStepConfig) SetDeletionPolicy(policy policies.DeletionPolicy) {

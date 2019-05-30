@@ -11,6 +11,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
 type AWSCodeCommitRepository struct {
 
+	// Code AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-code
+	Code *AWSCodeCommitRepository_Code `json:"Code,omitempty"`
+
 	// RepositoryDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription
@@ -63,6 +68,12 @@ func (r *AWSCodeCommitRepository) Metadata() map[string]interface{} {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *AWSCodeCommitRepository) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSCodeCommitRepository) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource

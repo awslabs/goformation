@@ -50,6 +50,12 @@ func (r *AWSCloudFrontDistribution_S3OriginConfig) SetMetadata(metadata map[stri
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSCloudFrontDistribution_S3OriginConfig) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSCloudFrontDistribution_S3OriginConfig) SetDeletionPolicy(policy policies.DeletionPolicy) {

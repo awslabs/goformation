@@ -105,6 +105,12 @@ func (r *AWSEC2Instance_NetworkInterface) SetMetadata(metadata map[string]interf
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSEC2Instance_NetworkInterface) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSEC2Instance_NetworkInterface) SetDeletionPolicy(policy policies.DeletionPolicy) {

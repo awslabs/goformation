@@ -17,7 +17,7 @@ type AWSAppSyncFunctionConfiguration struct {
 	ApiId string `json:"ApiId,omitempty"`
 
 	// DataSourceName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-datasourcename
 	DataSourceName string `json:"DataSourceName,omitempty"`
 
@@ -27,12 +27,12 @@ type AWSAppSyncFunctionConfiguration struct {
 	Description string `json:"Description,omitempty"`
 
 	// FunctionVersion AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-functionversion
 	FunctionVersion string `json:"FunctionVersion,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-name
 	Name string `json:"Name,omitempty"`
 
@@ -93,6 +93,12 @@ func (r *AWSAppSyncFunctionConfiguration) Metadata() map[string]interface{} {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *AWSAppSyncFunctionConfiguration) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSAppSyncFunctionConfiguration) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
