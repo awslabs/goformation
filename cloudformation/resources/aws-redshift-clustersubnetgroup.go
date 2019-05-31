@@ -65,6 +65,12 @@ func (r *AWSRedshiftClusterSubnetGroup) SetMetadata(metadata map[string]interfac
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSRedshiftClusterSubnetGroup) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSRedshiftClusterSubnetGroup) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -95,10 +101,11 @@ func (r AWSRedshiftClusterSubnetGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSRedshiftClusterSubnetGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSRedshiftClusterSubnetGroup
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -119,6 +126,8 @@ func (r *AWSRedshiftClusterSubnetGroup) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

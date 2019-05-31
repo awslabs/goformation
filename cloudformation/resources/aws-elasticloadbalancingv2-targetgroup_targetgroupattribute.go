@@ -55,6 +55,12 @@ func (r *AWSElasticLoadBalancingV2TargetGroup_TargetGroupAttribute) SetMetadata(
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSElasticLoadBalancingV2TargetGroup_TargetGroupAttribute) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSElasticLoadBalancingV2TargetGroup_TargetGroupAttribute) SetDeletionPolicy(policy policies.DeletionPolicy) {

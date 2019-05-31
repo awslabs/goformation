@@ -60,6 +60,12 @@ func (r *AWSServerlessFunction_ApiEvent) SetMetadata(metadata map[string]interfa
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSServerlessFunction_ApiEvent) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSServerlessFunction_ApiEvent) SetDeletionPolicy(policy policies.DeletionPolicy) {

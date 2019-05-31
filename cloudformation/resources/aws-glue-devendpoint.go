@@ -32,7 +32,7 @@ type AWSGlueDevEndpoint struct {
 	NumberOfNodes int `json:"NumberOfNodes,omitempty"`
 
 	// PublicKey AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-publickey
 	PublicKey string `json:"PublicKey,omitempty"`
 
@@ -40,6 +40,11 @@ type AWSGlueDevEndpoint struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-rolearn
 	RoleArn string `json:"RoleArn,omitempty"`
+
+	// SecurityConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-securityconfiguration
+	SecurityConfiguration string `json:"SecurityConfiguration,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
@@ -50,6 +55,11 @@ type AWSGlueDevEndpoint struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-subnetid
 	SubnetId string `json:"SubnetId,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-tags
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -90,6 +100,12 @@ func (r *AWSGlueDevEndpoint) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSGlueDevEndpoint) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSGlueDevEndpoint) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -120,10 +136,11 @@ func (r AWSGlueDevEndpoint) MarshalJSON() ([]byte, error) {
 func (r *AWSGlueDevEndpoint) UnmarshalJSON(b []byte) error {
 	type Properties AWSGlueDevEndpoint
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -144,6 +161,8 @@ func (r *AWSGlueDevEndpoint) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

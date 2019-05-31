@@ -70,6 +70,12 @@ func (r *AWSEC2LaunchTemplate_Placement) SetMetadata(metadata map[string]interfa
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSEC2LaunchTemplate_Placement) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSEC2LaunchTemplate_Placement) SetDeletionPolicy(policy policies.DeletionPolicy) {

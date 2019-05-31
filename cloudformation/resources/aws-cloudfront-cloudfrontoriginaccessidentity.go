@@ -55,6 +55,12 @@ func (r *AWSCloudFrontCloudFrontOriginAccessIdentity) SetMetadata(metadata map[s
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSCloudFrontCloudFrontOriginAccessIdentity) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSCloudFrontCloudFrontOriginAccessIdentity) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -85,10 +91,11 @@ func (r AWSCloudFrontCloudFrontOriginAccessIdentity) MarshalJSON() ([]byte, erro
 func (r *AWSCloudFrontCloudFrontOriginAccessIdentity) UnmarshalJSON(b []byte) error {
 	type Properties AWSCloudFrontCloudFrontOriginAccessIdentity
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -109,6 +116,8 @@ func (r *AWSCloudFrontCloudFrontOriginAccessIdentity) UnmarshalJSON(b []byte) er
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

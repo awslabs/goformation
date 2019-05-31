@@ -70,6 +70,12 @@ func (r *AWSApiGatewayMethod_IntegrationResponse) SetMetadata(metadata map[strin
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSApiGatewayMethod_IntegrationResponse) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSApiGatewayMethod_IntegrationResponse) SetDeletionPolicy(policy policies.DeletionPolicy) {

@@ -50,6 +50,12 @@ func (r *AWSS3Bucket_AccelerateConfiguration) SetMetadata(metadata map[string]in
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSS3Bucket_AccelerateConfiguration) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSS3Bucket_AccelerateConfiguration) SetDeletionPolicy(policy policies.DeletionPolicy) {

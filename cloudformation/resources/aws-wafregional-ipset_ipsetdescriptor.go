@@ -55,6 +55,12 @@ func (r *AWSWAFRegionalIPSet_IPSetDescriptor) SetMetadata(metadata map[string]in
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSWAFRegionalIPSet_IPSetDescriptor) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSWAFRegionalIPSet_IPSetDescriptor) SetDeletionPolicy(policy policies.DeletionPolicy) {

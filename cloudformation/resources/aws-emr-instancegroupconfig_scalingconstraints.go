@@ -55,6 +55,12 @@ func (r *AWSEMRInstanceGroupConfig_ScalingConstraints) SetMetadata(metadata map[
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSEMRInstanceGroupConfig_ScalingConstraints) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSEMRInstanceGroupConfig_ScalingConstraints) SetDeletionPolicy(policy policies.DeletionPolicy) {
