@@ -45,7 +45,7 @@ var _ = Describe("Goformation", func() {
 			Expect(f.MemorySize).To(Equal(128))
 			Expect(f.Timeout).To(Equal(30))
 			Expect(f.Role).To(Equal("aws::arn::123456789012::some/role"))
-			Expect(f.Policies.StringArray).To(PointTo(ContainElement("AmazonDynamoDBFullAccess")))
+			Expect((*f.Policies.SAMPolicyTemplateArray)[0].DynamoDBCrudPolicy.TableName).To(Equal("table_arn"))
 			Expect(f.Environment).ToNot(BeNil())
 			Expect(f.Environment.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
 

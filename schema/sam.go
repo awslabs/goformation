@@ -42276,6 +42276,12 @@ var SamSchema = `{
                                         "$ref": "#/definitions/AWS::Serverless::Function.IAMPolicyDocument"
                                     },
                                     "type": "array"
+                                },
+                                {
+                                    "items": {
+                                        "$ref": "#/definitions/AWS::Serverless::Function.SAMPolicyTemplate"
+                                    },
+                                    "type": "array"
                                 }
                             ]
                         },
@@ -42361,6 +42367,18 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Serverless::Function.BucketSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "BucketName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BucketName"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::Function.CloudWatchEventEvent": {
             "additionalProperties": false,
             "properties": {
@@ -42376,6 +42394,18 @@ var SamSchema = `{
             },
             "required": [
                 "Pattern"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.CollectionSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "CollectionId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CollectionId"
             ],
             "type": "object"
         },
@@ -42425,6 +42455,18 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::Serverless::Function.DomainSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "DomainName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DomainName"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::Function.DynamoDBEvent": {
             "additionalProperties": false,
             "properties": {
@@ -42445,6 +42487,11 @@ var SamSchema = `{
                 "StartingPosition",
                 "Stream"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.EmptySAMPT": {
+            "additionalProperties": false,
+            "properties": {},
             "type": "object"
         },
         "AWS::Serverless::Function.EventSource": {
@@ -42512,6 +42559,18 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Serverless::Function.FunctionSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "FunctionName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FunctionName"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::Function.IAMPolicyDocument": {
             "additionalProperties": false,
             "properties": {
@@ -42521,6 +42580,18 @@ var SamSchema = `{
             },
             "required": [
                 "Statement"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.IdentitySAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "IdentityName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "IdentityName"
             ],
             "type": "object"
         },
@@ -42536,6 +42607,18 @@ var SamSchema = `{
             },
             "required": [
                 "Sql"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.KeySAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "KeyId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "KeyId"
             ],
             "type": "object"
         },
@@ -42558,6 +42641,30 @@ var SamSchema = `{
             "required": [
                 "StartingPosition",
                 "Stream"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.LogGroupSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "LogGroupName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LogGroupName"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.QueueSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "QueueName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "QueueName"
             ],
             "type": "object"
         },
@@ -42624,6 +42731,102 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Serverless::Function.SAMPolicyTemplate": {
+            "additionalProperties": false,
+            "properties": {
+                "AMIDescribePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                },
+                "CloudFormationDescribeStacksPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                },
+                "CloudWatchPutMetricPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                },
+                "DynamoDBCrudPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.TableSAMPT"
+                },
+                "DynamoDBReadPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.TableSAMPT"
+                },
+                "DynamoDBStreamReadPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.TableStreamSAMPT"
+                },
+                "EC2DescribePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                },
+                "ElasticsearchHttpPostPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.DomainSAMPT"
+                },
+                "FilterLogEventsPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.LogGroupSAMPT"
+                },
+                "KMSDecryptPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.KeySAMPT"
+                },
+                "KinesisCrudPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.StreamSAMPT"
+                },
+                "KinesisStreamReadPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.StreamSAMPT"
+                },
+                "LambdaInvokePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.FunctionSAMPT"
+                },
+                "RekognitionDetectOnlyPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                },
+                "RekognitionLabelsPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                },
+                "RekognitionNoDataAccessPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.CollectionSAMPT"
+                },
+                "RekognitionReadPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.CollectionSAMPT"
+                },
+                "RekognitionWriteOnlyAccessPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.CollectionSAMPT"
+                },
+                "S3CrudPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.BucketSAMPT"
+                },
+                "S3ReadPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.BucketSAMPT"
+                },
+                "SESBulkTemplatedCrudPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.IdentitySAMPT"
+                },
+                "SESCrudPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.IdentitySAMPT"
+                },
+                "SESEmailTemplateCrudPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                },
+                "SESSendBouncePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.IdentitySAMPT"
+                },
+                "SNSCrudPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.TopicSAMPT"
+                },
+                "SNSPublishMessagePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.TopicSAMPT"
+                },
+                "SQSPollerPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.QueueSAMPT"
+                },
+                "SQSSendMessagePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.QueueSAMPT"
+                },
+                "StepFunctionsExecutionPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.StateMachineSAMPT"
+                },
+                "VPCAccessPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.EmptySAMPT"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Serverless::Function.SNSEvent": {
             "additionalProperties": false,
             "properties": {
@@ -42666,6 +42869,70 @@ var SamSchema = `{
             },
             "required": [
                 "Schedule"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.StateMachineSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "StateMachineName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StateMachineName"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.StreamSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "StreamName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StreamName"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.TableSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "TableName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TableName"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.TableStreamSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "StreamName": {
+                    "type": "string"
+                },
+                "TableName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StreamName",
+                "TableName"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.TopicSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "TopicName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TopicName"
             ],
             "type": "object"
         },

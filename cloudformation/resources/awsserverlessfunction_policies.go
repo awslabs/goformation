@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 )
 
-// AWSServerlessFunction_Policies is a helper struct that can hold either a String, String, IAMPolicyDocument, or IAMPolicyDocument value
+// AWSServerlessFunction_Policies is a helper struct that can hold either a String, String, IAMPolicyDocument, SAMPolicyTemplate, or IAMPolicyDocument value
 type AWSServerlessFunction_Policies struct {
 	String *string
 
@@ -15,35 +15,38 @@ type AWSServerlessFunction_Policies struct {
 	IAMPolicyDocument *AWSServerlessFunction_IAMPolicyDocument
 
 	IAMPolicyDocumentArray *[]AWSServerlessFunction_IAMPolicyDocument
+	SAMPolicyTemplateArray *[]AWSServerlessFunction_SAMPolicyTemplate
 }
 
 func (r AWSServerlessFunction_Policies) value() interface{} {
+	ret := []interface{}{}
 
 	if r.String != nil {
-		return r.String
+		ret = append(ret, r.String)
 	}
 
 	if r.StringArray != nil {
-		return r.StringArray
+		ret = append(ret, r.StringArray)
 	}
-
-	ret := []interface{}{}
 
 	if r.IAMPolicyDocument != nil {
 		ret = append(ret, *r.IAMPolicyDocument)
 	}
 
-	sort.Sort(byJSONLength(ret))
+	if r.IAMPolicyDocumentArray != nil {
+		ret = append(ret, r.IAMPolicyDocumentArray)
+	}
+
+	if r.SAMPolicyTemplateArray != nil {
+		ret = append(ret, r.SAMPolicyTemplateArray)
+	}
+
+	sort.Sort(byJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
 		return ret[0]
 	}
 
-	if r.IAMPolicyDocumentArray != nil {
-		return r.IAMPolicyDocumentArray
-	}
-
 	return nil
-
 }
 
 func (r AWSServerlessFunction_Policies) MarshalJSON() ([]byte, error) {
@@ -77,6 +80,8 @@ func (r *AWSServerlessFunction_Policies) UnmarshalJSON(b []byte) error {
 		json.Unmarshal(b, &r.StringArray)
 
 		json.Unmarshal(b, &r.IAMPolicyDocumentArray)
+
+		json.Unmarshal(b, &r.SAMPolicyTemplateArray)
 
 	}
 
