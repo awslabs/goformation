@@ -4,8 +4,9 @@ Description: A template for testing AWS::Serverless::SimpleTable resources
 Resources:
   TestSimpleTable:
     Type: AWS::Serverless::SimpleTable
+    DeletionPolicy: Retain
     Properties:
-      PrimaryKey: 
+      PrimaryKey:
         Name: test-primary-key-name
         Type: test-primary-key-type
       ProvisionedThroughput:
