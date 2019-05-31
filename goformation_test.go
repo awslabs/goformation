@@ -3,6 +3,7 @@ package goformation_test
 import (
 	"encoding/json"
 
+	"github.com/awslabs/goformation/cloudformation/policies"
 	"github.com/awslabs/goformation/cloudformation/resources"
 
 	"github.com/sanathkr/yaml"
@@ -427,6 +428,9 @@ var _ = Describe("Goformation", func() {
 			Expect(err).To(BeNil())
 		})
 
+		It("should have the correct DeletionPolicy", func() {
+			Expect(table.DeletionPolicy()).To(Equal(policies.DeletionPolicy("Retain")))
+		})
 	})
 
 	Context("with a YAML template that contains AWS::Serverless::Api resource(s)", func() {

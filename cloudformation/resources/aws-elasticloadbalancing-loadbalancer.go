@@ -166,10 +166,11 @@ func (r AWSElasticLoadBalancingLoadBalancer) MarshalJSON() ([]byte, error) {
 func (r *AWSElasticLoadBalancingLoadBalancer) UnmarshalJSON(b []byte) error {
 	type Properties AWSElasticLoadBalancingLoadBalancer
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -190,6 +191,8 @@ func (r *AWSElasticLoadBalancingLoadBalancer) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

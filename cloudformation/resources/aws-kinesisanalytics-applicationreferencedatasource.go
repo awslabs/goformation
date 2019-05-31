@@ -96,10 +96,11 @@ func (r AWSKinesisAnalyticsApplicationReferenceDataSource) MarshalJSON() ([]byte
 func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) UnmarshalJSON(b []byte) error {
 	type Properties AWSKinesisAnalyticsApplicationReferenceDataSource
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -120,6 +121,8 @@ func (r *AWSKinesisAnalyticsApplicationReferenceDataSource) UnmarshalJSON(b []by
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

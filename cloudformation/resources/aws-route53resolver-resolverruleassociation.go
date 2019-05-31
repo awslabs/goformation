@@ -101,10 +101,11 @@ func (r AWSRoute53ResolverResolverRuleAssociation) MarshalJSON() ([]byte, error)
 func (r *AWSRoute53ResolverResolverRuleAssociation) UnmarshalJSON(b []byte) error {
 	type Properties AWSRoute53ResolverResolverRuleAssociation
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -125,6 +126,8 @@ func (r *AWSRoute53ResolverResolverRuleAssociation) UnmarshalJSON(b []byte) erro
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

@@ -111,10 +111,11 @@ func (r AWSServiceCatalogLaunchTemplateConstraint) MarshalJSON() ([]byte, error)
 func (r *AWSServiceCatalogLaunchTemplateConstraint) UnmarshalJSON(b []byte) error {
 	type Properties AWSServiceCatalogLaunchTemplateConstraint
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -135,6 +136,8 @@ func (r *AWSServiceCatalogLaunchTemplateConstraint) UnmarshalJSON(b []byte) erro
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }
