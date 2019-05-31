@@ -55,6 +55,12 @@ func (r *AWSKinesisFirehoseDeliveryStream_BufferingHints) SetMetadata(metadata m
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSKinesisFirehoseDeliveryStream_BufferingHints) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSKinesisFirehoseDeliveryStream_BufferingHints) SetDeletionPolicy(policy policies.DeletionPolicy) {

@@ -60,6 +60,12 @@ func (r *AWSCodePipelinePipeline_ArtifactStore) SetMetadata(metadata map[string]
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSCodePipelinePipeline_ArtifactStore) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSCodePipelinePipeline_ArtifactStore) SetDeletionPolicy(policy policies.DeletionPolicy) {

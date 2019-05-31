@@ -1,6 +1,8 @@
 package resources
 
 import (
+	"sort"
+
 	"encoding/json"
 )
 
@@ -12,17 +14,22 @@ type AWSServerlessFunction_Events struct {
 }
 
 func (r AWSServerlessFunction_Events) value() interface{} {
+	ret := []interface{}{}
 
 	if r.String != nil {
-		return r.String
+		ret = append(ret, r.String)
 	}
 
 	if r.StringArray != nil {
-		return r.StringArray
+		ret = append(ret, r.StringArray)
+	}
+
+	sort.Sort(byJSONLength(ret)) // Heuristic to select best attribute
+	if len(ret) > 0 {
+		return ret[0]
 	}
 
 	return nil
-
 }
 
 func (r AWSServerlessFunction_Events) MarshalJSON() ([]byte, error) {

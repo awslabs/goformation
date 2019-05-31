@@ -14,24 +14,22 @@ type AWSServerlessApplication_Location struct {
 }
 
 func (r AWSServerlessApplication_Location) value() interface{} {
+	ret := []interface{}{}
 
 	if r.String != nil {
-		return r.String
+		ret = append(ret, r.String)
 	}
-
-	ret := []interface{}{}
 
 	if r.ApplicationLocation != nil {
 		ret = append(ret, *r.ApplicationLocation)
 	}
 
-	sort.Sort(byJSONLength(ret))
+	sort.Sort(byJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
 		return ret[0]
 	}
 
 	return nil
-
 }
 
 func (r AWSServerlessApplication_Location) MarshalJSON() ([]byte, error) {

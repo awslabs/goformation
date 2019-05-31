@@ -50,6 +50,12 @@ func (r *AWSAppMeshVirtualService_VirtualNodeServiceProvider) SetMetadata(metada
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSAppMeshVirtualService_VirtualNodeServiceProvider) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSAppMeshVirtualService_VirtualNodeServiceProvider) SetDeletionPolicy(policy policies.DeletionPolicy) {
