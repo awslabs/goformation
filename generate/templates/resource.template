@@ -15,10 +15,12 @@ import "github.com/awslabs/goformation/cloudformation/policies"
 // See: {{.Resource.Documentation}}
 type {{.StructName}} struct {
     {{range $name, $property := .Resource.Properties}}
+    {{$prop_name := $name}}
+    {{if (eq ($prop_name) ("DependsOn"))}}{{$prop_name = "DependsOnProp"}}{{end}}
     // {{$name}} AWS CloudFormation Property
     // Required: {{$property.Required}}
     // See: {{$property.Documentation}}
-    {{$name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
+    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
     {{end}}
 	{{if .HasUpdatePolicy }}// _updatePolicy represents a CloudFormation UpdatePolicy
 	_updatePolicy *policies.UpdatePolicy{{ end }}
@@ -61,6 +63,11 @@ func (r *{{.StructName}}) Metadata() map[string]interface{} {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *{{.StructName}}) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *{{.StructName}}) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
@@ -114,6 +121,7 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 		{{if .IsCustomProperty}}Properties{{else}}Properties *Properties{{end}}
 		DependsOn []string
 		Metadata map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -134,7 +142,9 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }
 
