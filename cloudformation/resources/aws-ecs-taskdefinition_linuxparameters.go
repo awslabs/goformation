@@ -70,6 +70,12 @@ func (r *AWSECSTaskDefinition_LinuxParameters) SetMetadata(metadata map[string]i
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSECSTaskDefinition_LinuxParameters) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSECSTaskDefinition_LinuxParameters) SetDeletionPolicy(policy policies.DeletionPolicy) {

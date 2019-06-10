@@ -75,6 +75,12 @@ func (r *AWSDocDBDBClusterParameterGroup) SetMetadata(metadata map[string]interf
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSDocDBDBClusterParameterGroup) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSDocDBDBClusterParameterGroup) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -105,10 +111,11 @@ func (r AWSDocDBDBClusterParameterGroup) MarshalJSON() ([]byte, error) {
 func (r *AWSDocDBDBClusterParameterGroup) UnmarshalJSON(b []byte) error {
 	type Properties AWSDocDBDBClusterParameterGroup
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -129,6 +136,8 @@ func (r *AWSDocDBDBClusterParameterGroup) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

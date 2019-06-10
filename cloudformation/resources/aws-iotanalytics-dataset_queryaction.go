@@ -55,6 +55,12 @@ func (r *AWSIoTAnalyticsDataset_QueryAction) SetMetadata(metadata map[string]int
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSIoTAnalyticsDataset_QueryAction) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSIoTAnalyticsDataset_QueryAction) SetDeletionPolicy(policy policies.DeletionPolicy) {

@@ -115,6 +115,12 @@ func (r *AWSBatchJobDefinition_ContainerProperties) SetMetadata(metadata map[str
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSBatchJobDefinition_ContainerProperties) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSBatchJobDefinition_ContainerProperties) SetDeletionPolicy(policy policies.DeletionPolicy) {
