@@ -14,24 +14,22 @@ type AWSServerlessFunction_CodeUri struct {
 }
 
 func (r AWSServerlessFunction_CodeUri) value() interface{} {
+	ret := []interface{}{}
 
 	if r.String != nil {
-		return r.String
+		ret = append(ret, r.String)
 	}
-
-	ret := []interface{}{}
 
 	if r.S3Location != nil {
 		ret = append(ret, *r.S3Location)
 	}
 
-	sort.Sort(byJSONLength(ret))
+	sort.Sort(byJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
 		return ret[0]
 	}
 
 	return nil
-
 }
 
 func (r AWSServerlessFunction_CodeUri) MarshalJSON() ([]byte, error) {

@@ -123,6 +123,7 @@ func AllResources() map[string]Resource {
 		"AWS::DocDB::DBInstance":                                      &resources.AWSDocDBDBInstance{},
 		"AWS::DocDB::DBSubnetGroup":                                   &resources.AWSDocDBDBSubnetGroup{},
 		"AWS::DynamoDB::Table":                                        &resources.AWSDynamoDBTable{},
+		"AWS::EC2::CapacityReservation":                               &resources.AWSEC2CapacityReservation{},
 		"AWS::EC2::CustomerGateway":                                   &resources.AWSEC2CustomerGateway{},
 		"AWS::EC2::DHCPOptions":                                       &resources.AWSEC2DHCPOptions{},
 		"AWS::EC2::EC2Fleet":                                          &resources.AWSEC2EC2Fleet{},
@@ -209,10 +210,12 @@ func AllResources() map[string]Resource {
 		"AWS::Glue::Classifier":                                       &resources.AWSGlueClassifier{},
 		"AWS::Glue::Connection":                                       &resources.AWSGlueConnection{},
 		"AWS::Glue::Crawler":                                          &resources.AWSGlueCrawler{},
+		"AWS::Glue::DataCatalogEncryptionSettings":                    &resources.AWSGlueDataCatalogEncryptionSettings{},
 		"AWS::Glue::Database":                                         &resources.AWSGlueDatabase{},
 		"AWS::Glue::DevEndpoint":                                      &resources.AWSGlueDevEndpoint{},
 		"AWS::Glue::Job":                                              &resources.AWSGlueJob{},
 		"AWS::Glue::Partition":                                        &resources.AWSGluePartition{},
+		"AWS::Glue::SecurityConfiguration":                            &resources.AWSGlueSecurityConfiguration{},
 		"AWS::Glue::Table":                                            &resources.AWSGlueTable{},
 		"AWS::Glue::Trigger":                                          &resources.AWSGlueTrigger{},
 		"AWS::Greengrass::ConnectorDefinition":                        &resources.AWSGreengrassConnectorDefinition{},
@@ -286,6 +289,7 @@ func AllResources() map[string]Resource {
 		"AWS::Logs::LogStream":                                        &resources.AWSLogsLogStream{},
 		"AWS::Logs::MetricFilter":                                     &resources.AWSLogsMetricFilter{},
 		"AWS::Logs::SubscriptionFilter":                               &resources.AWSLogsSubscriptionFilter{},
+		"AWS::MediaStore::Container":                                  &resources.AWSMediaStoreContainer{},
 		"AWS::Neptune::DBCluster":                                     &resources.AWSNeptuneDBCluster{},
 		"AWS::Neptune::DBClusterParameterGroup":                       &resources.AWSNeptuneDBClusterParameterGroup{},
 		"AWS::Neptune::DBInstance":                                    &resources.AWSNeptuneDBInstance{},
@@ -299,6 +303,10 @@ func AllResources() map[string]Resource {
 		"AWS::OpsWorks::UserProfile":                                  &resources.AWSOpsWorksUserProfile{},
 		"AWS::OpsWorks::Volume":                                       &resources.AWSOpsWorksVolume{},
 		"AWS::OpsWorksCM::Server":                                     &resources.AWSOpsWorksCMServer{},
+		"AWS::PinpointEmail::ConfigurationSet":                        &resources.AWSPinpointEmailConfigurationSet{},
+		"AWS::PinpointEmail::ConfigurationSetEventDestination":        &resources.AWSPinpointEmailConfigurationSetEventDestination{},
+		"AWS::PinpointEmail::DedicatedIpPool":                         &resources.AWSPinpointEmailDedicatedIpPool{},
+		"AWS::PinpointEmail::Identity":                                &resources.AWSPinpointEmailIdentity{},
 		"AWS::RAM::ResourceShare":                                     &resources.AWSRAMResourceShare{},
 		"AWS::RDS::DBCluster":                                         &resources.AWSRDSDBCluster{},
 		"AWS::RDS::DBClusterParameterGroup":                           &resources.AWSRDSDBClusterParameterGroup{},
@@ -372,6 +380,7 @@ func AllResources() map[string]Resource {
 		"AWS::ServiceCatalog::PortfolioPrincipalAssociation":          &resources.AWSServiceCatalogPortfolioPrincipalAssociation{},
 		"AWS::ServiceCatalog::PortfolioProductAssociation":            &resources.AWSServiceCatalogPortfolioProductAssociation{},
 		"AWS::ServiceCatalog::PortfolioShare":                         &resources.AWSServiceCatalogPortfolioShare{},
+		"AWS::ServiceCatalog::ResourceUpdateConstraint":               &resources.AWSServiceCatalogResourceUpdateConstraint{},
 		"AWS::ServiceCatalog::TagOption":                              &resources.AWSServiceCatalogTagOption{},
 		"AWS::ServiceCatalog::TagOptionAssociation":                   &resources.AWSServiceCatalogTagOptionAssociation{},
 		"AWS::ServiceDiscovery::HttpNamespace":                        &resources.AWSServiceDiscoveryHttpNamespace{},
@@ -381,6 +390,8 @@ func AllResources() map[string]Resource {
 		"AWS::ServiceDiscovery::Service":                              &resources.AWSServiceDiscoveryService{},
 		"AWS::StepFunctions::Activity":                                &resources.AWSStepFunctionsActivity{},
 		"AWS::StepFunctions::StateMachine":                            &resources.AWSStepFunctionsStateMachine{},
+		"AWS::Transfer::Server":                                       &resources.AWSTransferServer{},
+		"AWS::Transfer::User":                                         &resources.AWSTransferUser{},
 		"AWS::WAF::ByteMatchSet":                                      &resources.AWSWAFByteMatchSet{},
 		"AWS::WAF::IPSet":                                             &resources.AWSWAFIPSet{},
 		"AWS::WAF::Rule":                                              &resources.AWSWAFRule{},
@@ -389,7 +400,10 @@ func AllResources() map[string]Resource {
 		"AWS::WAF::WebACL":                                            &resources.AWSWAFWebACL{},
 		"AWS::WAF::XssMatchSet":                                       &resources.AWSWAFXssMatchSet{},
 		"AWS::WAFRegional::ByteMatchSet":                              &resources.AWSWAFRegionalByteMatchSet{},
+		"AWS::WAFRegional::GeoMatchSet":                               &resources.AWSWAFRegionalGeoMatchSet{},
 		"AWS::WAFRegional::IPSet":                                     &resources.AWSWAFRegionalIPSet{},
+		"AWS::WAFRegional::RateBasedRule":                             &resources.AWSWAFRegionalRateBasedRule{},
+		"AWS::WAFRegional::RegexPatternSet":                           &resources.AWSWAFRegionalRegexPatternSet{},
 		"AWS::WAFRegional::Rule":                                      &resources.AWSWAFRegionalRule{},
 		"AWS::WAFRegional::SizeConstraintSet":                         &resources.AWSWAFRegionalSizeConstraintSet{},
 		"AWS::WAFRegional::SqlInjectionMatchSet":                      &resources.AWSWAFRegionalSqlInjectionMatchSet{},
@@ -3161,6 +3175,30 @@ func (t *Template) GetAWSDynamoDBTableWithName(name string) (*resources.AWSDynam
 	return nil, fmt.Errorf("resource %q of type AWSDynamoDBTable not found", name)
 }
 
+// GetAllAWSEC2CapacityReservationResources retrieves all AWSEC2CapacityReservation items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEC2CapacityReservationResources() map[string]*resources.AWSEC2CapacityReservation {
+	results := map[string]*resources.AWSEC2CapacityReservation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2CapacityReservation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSEC2CapacityReservationWithName retrieves all AWSEC2CapacityReservation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSEC2CapacityReservationWithName(name string) (*resources.AWSEC2CapacityReservation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2CapacityReservation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSEC2CapacityReservation not found", name)
+}
+
 // GetAllAWSEC2CustomerGatewayResources retrieves all AWSEC2CustomerGateway items from an AWS CloudFormation template
 func (t *Template) GetAllAWSEC2CustomerGatewayResources() map[string]*resources.AWSEC2CustomerGateway {
 	results := map[string]*resources.AWSEC2CustomerGateway{}
@@ -5225,6 +5263,30 @@ func (t *Template) GetAWSGlueCrawlerWithName(name string) (*resources.AWSGlueCra
 	return nil, fmt.Errorf("resource %q of type AWSGlueCrawler not found", name)
 }
 
+// GetAllAWSGlueDataCatalogEncryptionSettingsResources retrieves all AWSGlueDataCatalogEncryptionSettings items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGlueDataCatalogEncryptionSettingsResources() map[string]*resources.AWSGlueDataCatalogEncryptionSettings {
+	results := map[string]*resources.AWSGlueDataCatalogEncryptionSettings{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGlueDataCatalogEncryptionSettings:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGlueDataCatalogEncryptionSettingsWithName retrieves all AWSGlueDataCatalogEncryptionSettings items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGlueDataCatalogEncryptionSettingsWithName(name string) (*resources.AWSGlueDataCatalogEncryptionSettings, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGlueDataCatalogEncryptionSettings:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGlueDataCatalogEncryptionSettings not found", name)
+}
+
 // GetAllAWSGlueDatabaseResources retrieves all AWSGlueDatabase items from an AWS CloudFormation template
 func (t *Template) GetAllAWSGlueDatabaseResources() map[string]*resources.AWSGlueDatabase {
 	results := map[string]*resources.AWSGlueDatabase{}
@@ -5319,6 +5381,30 @@ func (t *Template) GetAWSGluePartitionWithName(name string) (*resources.AWSGlueP
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSGluePartition not found", name)
+}
+
+// GetAllAWSGlueSecurityConfigurationResources retrieves all AWSGlueSecurityConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGlueSecurityConfigurationResources() map[string]*resources.AWSGlueSecurityConfiguration {
+	results := map[string]*resources.AWSGlueSecurityConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGlueSecurityConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGlueSecurityConfigurationWithName retrieves all AWSGlueSecurityConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGlueSecurityConfigurationWithName(name string) (*resources.AWSGlueSecurityConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGlueSecurityConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGlueSecurityConfiguration not found", name)
 }
 
 // GetAllAWSGlueTableResources retrieves all AWSGlueTable items from an AWS CloudFormation template
@@ -7073,6 +7159,30 @@ func (t *Template) GetAWSLogsSubscriptionFilterWithName(name string) (*resources
 	return nil, fmt.Errorf("resource %q of type AWSLogsSubscriptionFilter not found", name)
 }
 
+// GetAllAWSMediaStoreContainerResources retrieves all AWSMediaStoreContainer items from an AWS CloudFormation template
+func (t *Template) GetAllAWSMediaStoreContainerResources() map[string]*resources.AWSMediaStoreContainer {
+	results := map[string]*resources.AWSMediaStoreContainer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSMediaStoreContainer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSMediaStoreContainerWithName retrieves all AWSMediaStoreContainer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSMediaStoreContainerWithName(name string) (*resources.AWSMediaStoreContainer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSMediaStoreContainer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSMediaStoreContainer not found", name)
+}
+
 // GetAllAWSNeptuneDBClusterResources retrieves all AWSNeptuneDBCluster items from an AWS CloudFormation template
 func (t *Template) GetAllAWSNeptuneDBClusterResources() map[string]*resources.AWSNeptuneDBCluster {
 	results := map[string]*resources.AWSNeptuneDBCluster{}
@@ -7383,6 +7493,102 @@ func (t *Template) GetAWSOpsWorksCMServerWithName(name string) (*resources.AWSOp
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSOpsWorksCMServer not found", name)
+}
+
+// GetAllAWSPinpointEmailConfigurationSetResources retrieves all AWSPinpointEmailConfigurationSet items from an AWS CloudFormation template
+func (t *Template) GetAllAWSPinpointEmailConfigurationSetResources() map[string]*resources.AWSPinpointEmailConfigurationSet {
+	results := map[string]*resources.AWSPinpointEmailConfigurationSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailConfigurationSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSPinpointEmailConfigurationSetWithName retrieves all AWSPinpointEmailConfigurationSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSPinpointEmailConfigurationSetWithName(name string) (*resources.AWSPinpointEmailConfigurationSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailConfigurationSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSPinpointEmailConfigurationSet not found", name)
+}
+
+// GetAllAWSPinpointEmailConfigurationSetEventDestinationResources retrieves all AWSPinpointEmailConfigurationSetEventDestination items from an AWS CloudFormation template
+func (t *Template) GetAllAWSPinpointEmailConfigurationSetEventDestinationResources() map[string]*resources.AWSPinpointEmailConfigurationSetEventDestination {
+	results := map[string]*resources.AWSPinpointEmailConfigurationSetEventDestination{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailConfigurationSetEventDestination:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSPinpointEmailConfigurationSetEventDestinationWithName retrieves all AWSPinpointEmailConfigurationSetEventDestination items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSPinpointEmailConfigurationSetEventDestinationWithName(name string) (*resources.AWSPinpointEmailConfigurationSetEventDestination, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailConfigurationSetEventDestination:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSPinpointEmailConfigurationSetEventDestination not found", name)
+}
+
+// GetAllAWSPinpointEmailDedicatedIpPoolResources retrieves all AWSPinpointEmailDedicatedIpPool items from an AWS CloudFormation template
+func (t *Template) GetAllAWSPinpointEmailDedicatedIpPoolResources() map[string]*resources.AWSPinpointEmailDedicatedIpPool {
+	results := map[string]*resources.AWSPinpointEmailDedicatedIpPool{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailDedicatedIpPool:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSPinpointEmailDedicatedIpPoolWithName retrieves all AWSPinpointEmailDedicatedIpPool items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSPinpointEmailDedicatedIpPoolWithName(name string) (*resources.AWSPinpointEmailDedicatedIpPool, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailDedicatedIpPool:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSPinpointEmailDedicatedIpPool not found", name)
+}
+
+// GetAllAWSPinpointEmailIdentityResources retrieves all AWSPinpointEmailIdentity items from an AWS CloudFormation template
+func (t *Template) GetAllAWSPinpointEmailIdentityResources() map[string]*resources.AWSPinpointEmailIdentity {
+	results := map[string]*resources.AWSPinpointEmailIdentity{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailIdentity:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSPinpointEmailIdentityWithName retrieves all AWSPinpointEmailIdentity items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSPinpointEmailIdentityWithName(name string) (*resources.AWSPinpointEmailIdentity, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSPinpointEmailIdentity:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSPinpointEmailIdentity not found", name)
 }
 
 // GetAllAWSRAMResourceShareResources retrieves all AWSRAMResourceShare items from an AWS CloudFormation template
@@ -9137,6 +9343,30 @@ func (t *Template) GetAWSServiceCatalogPortfolioShareWithName(name string) (*res
 	return nil, fmt.Errorf("resource %q of type AWSServiceCatalogPortfolioShare not found", name)
 }
 
+// GetAllAWSServiceCatalogResourceUpdateConstraintResources retrieves all AWSServiceCatalogResourceUpdateConstraint items from an AWS CloudFormation template
+func (t *Template) GetAllAWSServiceCatalogResourceUpdateConstraintResources() map[string]*resources.AWSServiceCatalogResourceUpdateConstraint {
+	results := map[string]*resources.AWSServiceCatalogResourceUpdateConstraint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSServiceCatalogResourceUpdateConstraint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSServiceCatalogResourceUpdateConstraintWithName retrieves all AWSServiceCatalogResourceUpdateConstraint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSServiceCatalogResourceUpdateConstraintWithName(name string) (*resources.AWSServiceCatalogResourceUpdateConstraint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSServiceCatalogResourceUpdateConstraint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSServiceCatalogResourceUpdateConstraint not found", name)
+}
+
 // GetAllAWSServiceCatalogTagOptionResources retrieves all AWSServiceCatalogTagOption items from an AWS CloudFormation template
 func (t *Template) GetAllAWSServiceCatalogTagOptionResources() map[string]*resources.AWSServiceCatalogTagOption {
 	results := map[string]*resources.AWSServiceCatalogTagOption{}
@@ -9353,6 +9583,54 @@ func (t *Template) GetAWSStepFunctionsStateMachineWithName(name string) (*resour
 	return nil, fmt.Errorf("resource %q of type AWSStepFunctionsStateMachine not found", name)
 }
 
+// GetAllAWSTransferServerResources retrieves all AWSTransferServer items from an AWS CloudFormation template
+func (t *Template) GetAllAWSTransferServerResources() map[string]*resources.AWSTransferServer {
+	results := map[string]*resources.AWSTransferServer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSTransferServer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSTransferServerWithName retrieves all AWSTransferServer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSTransferServerWithName(name string) (*resources.AWSTransferServer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSTransferServer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSTransferServer not found", name)
+}
+
+// GetAllAWSTransferUserResources retrieves all AWSTransferUser items from an AWS CloudFormation template
+func (t *Template) GetAllAWSTransferUserResources() map[string]*resources.AWSTransferUser {
+	results := map[string]*resources.AWSTransferUser{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSTransferUser:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSTransferUserWithName retrieves all AWSTransferUser items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSTransferUserWithName(name string) (*resources.AWSTransferUser, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSTransferUser:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSTransferUser not found", name)
+}
+
 // GetAllAWSWAFByteMatchSetResources retrieves all AWSWAFByteMatchSet items from an AWS CloudFormation template
 func (t *Template) GetAllAWSWAFByteMatchSetResources() map[string]*resources.AWSWAFByteMatchSet {
 	results := map[string]*resources.AWSWAFByteMatchSet{}
@@ -9545,6 +9823,30 @@ func (t *Template) GetAWSWAFRegionalByteMatchSetWithName(name string) (*resource
 	return nil, fmt.Errorf("resource %q of type AWSWAFRegionalByteMatchSet not found", name)
 }
 
+// GetAllAWSWAFRegionalGeoMatchSetResources retrieves all AWSWAFRegionalGeoMatchSet items from an AWS CloudFormation template
+func (t *Template) GetAllAWSWAFRegionalGeoMatchSetResources() map[string]*resources.AWSWAFRegionalGeoMatchSet {
+	results := map[string]*resources.AWSWAFRegionalGeoMatchSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSWAFRegionalGeoMatchSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSWAFRegionalGeoMatchSetWithName retrieves all AWSWAFRegionalGeoMatchSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSWAFRegionalGeoMatchSetWithName(name string) (*resources.AWSWAFRegionalGeoMatchSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSWAFRegionalGeoMatchSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSWAFRegionalGeoMatchSet not found", name)
+}
+
 // GetAllAWSWAFRegionalIPSetResources retrieves all AWSWAFRegionalIPSet items from an AWS CloudFormation template
 func (t *Template) GetAllAWSWAFRegionalIPSetResources() map[string]*resources.AWSWAFRegionalIPSet {
 	results := map[string]*resources.AWSWAFRegionalIPSet{}
@@ -9567,6 +9869,54 @@ func (t *Template) GetAWSWAFRegionalIPSetWithName(name string) (*resources.AWSWA
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSWAFRegionalIPSet not found", name)
+}
+
+// GetAllAWSWAFRegionalRateBasedRuleResources retrieves all AWSWAFRegionalRateBasedRule items from an AWS CloudFormation template
+func (t *Template) GetAllAWSWAFRegionalRateBasedRuleResources() map[string]*resources.AWSWAFRegionalRateBasedRule {
+	results := map[string]*resources.AWSWAFRegionalRateBasedRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSWAFRegionalRateBasedRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSWAFRegionalRateBasedRuleWithName retrieves all AWSWAFRegionalRateBasedRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSWAFRegionalRateBasedRuleWithName(name string) (*resources.AWSWAFRegionalRateBasedRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSWAFRegionalRateBasedRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSWAFRegionalRateBasedRule not found", name)
+}
+
+// GetAllAWSWAFRegionalRegexPatternSetResources retrieves all AWSWAFRegionalRegexPatternSet items from an AWS CloudFormation template
+func (t *Template) GetAllAWSWAFRegionalRegexPatternSetResources() map[string]*resources.AWSWAFRegionalRegexPatternSet {
+	results := map[string]*resources.AWSWAFRegionalRegexPatternSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSWAFRegionalRegexPatternSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSWAFRegionalRegexPatternSetWithName retrieves all AWSWAFRegionalRegexPatternSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSWAFRegionalRegexPatternSetWithName(name string) (*resources.AWSWAFRegionalRegexPatternSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSWAFRegionalRegexPatternSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSWAFRegionalRegexPatternSet not found", name)
 }
 
 // GetAllAWSWAFRegionalRuleResources retrieves all AWSWAFRegionalRule items from an AWS CloudFormation template

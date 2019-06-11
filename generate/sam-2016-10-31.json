@@ -71,7 +71,8 @@
                         "IAMPolicyDocument"
                     ],
                     "ItemTypes": [
-                        "IAMPolicyDocument"
+                        "IAMPolicyDocument",
+                        "SAMPolicyTemplate"
                     ],
                     "UpdateType": "Immutable"
                 },
@@ -677,6 +678,315 @@
                     "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
                     "PrimitiveType": "Json",
                     "Required": true,
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.SAMPolicyTemplate": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "CloudWatchPutMetricPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "EC2DescribePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "AMIDescribePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "CloudFormationDescribeStacksPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "RekognitionDetectOnlyPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "RekognitionLabelsPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "VPCAccessPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SESEmailTemplateCrudPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "EmptySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SQSPollerPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "QueueSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SQSSendMessagePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "QueueSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "LambdaInvokePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "FunctionSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "DynamoDBCrudPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "TableSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "DynamoDBReadPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "TableSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "DynamoDBStreamReadPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "TableStreamSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SESSendBouncePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "IdentitySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SESCrudPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "IdentitySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SESBulkTemplatedCrudPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "IdentitySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "ElasticsearchHttpPostPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "DomainSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "S3ReadPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "BucketSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "S3CrudPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "BucketSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "RekognitionNoDataAccessPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "CollectionSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "RekognitionReadPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "CollectionSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "RekognitionWriteOnlyAccessPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "CollectionSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SNSCrudPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "TopicSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "SNSPublishMessagePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "TopicSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "KinesisStreamReadPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "StreamSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "KinesisCrudPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "StreamSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "KMSDecryptPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "KeySAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "FilterLogEventsPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "LogGroupSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "StepFunctionsExecutionPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "StateMachineSAMPT",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.EmptySAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {}
+        },
+        "AWS::Serverless::Function.QueueSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "QueueName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.FunctionSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "FunctionName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.TableStreamSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "TableName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "StreamName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.TableSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "TableName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.IdentitySAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "IdentityName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+
+        "AWS::Serverless::Function.DomainSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "DomainName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.BucketSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "BucketName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.CollectionSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "CollectionId": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.TopicSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "TopicName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.StreamSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "StreamName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.KeySAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "KeyId": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.LogGroupSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "LogGroupName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.StateMachineSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "StateMachineName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 }
             }
