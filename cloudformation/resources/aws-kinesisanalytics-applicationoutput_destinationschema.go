@@ -50,6 +50,12 @@ func (r *AWSKinesisAnalyticsApplicationOutput_DestinationSchema) SetMetadata(met
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSKinesisAnalyticsApplicationOutput_DestinationSchema) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSKinesisAnalyticsApplicationOutput_DestinationSchema) SetDeletionPolicy(policy policies.DeletionPolicy) {

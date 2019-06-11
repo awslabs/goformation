@@ -90,6 +90,12 @@ func (r *AWSIoTTopicRule_DynamoDBAction) SetMetadata(metadata map[string]interfa
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSIoTTopicRule_DynamoDBAction) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSIoTTopicRule_DynamoDBAction) SetDeletionPolicy(policy policies.DeletionPolicy) {

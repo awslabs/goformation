@@ -70,6 +70,12 @@ func (r *AWSServiceCatalogPortfolioProductAssociation) SetMetadata(metadata map[
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSServiceCatalogPortfolioProductAssociation) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSServiceCatalogPortfolioProductAssociation) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -100,10 +106,11 @@ func (r AWSServiceCatalogPortfolioProductAssociation) MarshalJSON() ([]byte, err
 func (r *AWSServiceCatalogPortfolioProductAssociation) UnmarshalJSON(b []byte) error {
 	type Properties AWSServiceCatalogPortfolioProductAssociation
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -124,6 +131,8 @@ func (r *AWSServiceCatalogPortfolioProductAssociation) UnmarshalJSON(b []byte) e
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

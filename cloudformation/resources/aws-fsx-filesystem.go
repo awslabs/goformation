@@ -49,7 +49,7 @@ type AWSFSxFileSystem struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags
-	Tags []AWSFSxFileSystem_TagEntry `json:"Tags,omitempty"`
+	Tags []Tag `json:"Tags,omitempty"`
 
 	// WindowsConfiguration AWS CloudFormation Property
 	// Required: false
@@ -95,6 +95,12 @@ func (r *AWSFSxFileSystem) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSFSxFileSystem) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSFSxFileSystem) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -125,10 +131,11 @@ func (r AWSFSxFileSystem) MarshalJSON() ([]byte, error) {
 func (r *AWSFSxFileSystem) UnmarshalJSON(b []byte) error {
 	type Properties AWSFSxFileSystem
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -149,6 +156,8 @@ func (r *AWSFSxFileSystem) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

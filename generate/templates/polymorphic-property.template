@@ -1,9 +1,8 @@
 package resources
 
 import (
-	{{ if (.Property.Types) }}
 	"sort"
-	{{end}}
+
 	"encoding/json"
 )
 
@@ -23,40 +22,40 @@ type {{.Name}} struct {
 }
 
 func (r {{.Name}}) value() interface{} {
+	ret := []interface{}{}
 
 	{{range $type := $.Property.PrimitiveTypes}}
 		if r.{{$type}} != nil {
-			return r.{{$type}}
+			ret = append(ret, r.{{$type}})
 		}
 	{{end}}
 
 	{{range $type := $.Property.PrimitiveItemTypes}}
 		if r.{{$type}}Array != nil {
-			return r.{{$type}}Array
+			ret = append(ret, r.{{$type}}Array)
 		}
 	{{end}}
 
 	{{ if (.Property.Types) }}
-		ret := []interface{}{}
 		{{range $type := $.Property.Types}}
 			if r.{{$type}} != nil {
 				ret = append(ret, *r.{{$type}})
 			}
 		{{end}}
-		sort.Sort(byJSONLength(ret))
-		if len(ret) > 0 {
-			return ret[0]
-		}
 	{{end}}
 
 	{{range $type := $.Property.ItemTypes}}
 		if r.{{$type}}Array != nil {
-			return r.{{$type}}Array
+			ret = append(ret, r.{{$type}}Array)
 		}
 	{{end}}
 
-	return nil
+	sort.Sort(byJSONLength(ret)) // Heuristic to select best attribute
+	if len(ret) > 0 {
+		return ret[0]
+	}
 
+	return nil
 }
 
 func (r {{.Name}}) MarshalJSON() ([]byte, error) {

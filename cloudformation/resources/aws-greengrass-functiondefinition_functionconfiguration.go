@@ -27,9 +27,9 @@ type AWSGreengrassFunctionDefinition_FunctionConfiguration struct {
 	Executable string `json:"Executable,omitempty"`
 
 	// MemorySize AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-memorysize
-	MemorySize int `json:"MemorySize"`
+	MemorySize int `json:"MemorySize,omitempty"`
 
 	// Pinned AWS CloudFormation Property
 	// Required: false
@@ -37,9 +37,9 @@ type AWSGreengrassFunctionDefinition_FunctionConfiguration struct {
 	Pinned bool `json:"Pinned,omitempty"`
 
 	// Timeout AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-timeout
-	Timeout int `json:"Timeout"`
+	Timeout int `json:"Timeout,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -78,6 +78,12 @@ func (r *AWSGreengrassFunctionDefinition_FunctionConfiguration) Metadata() map[s
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 func (r *AWSGreengrassFunctionDefinition_FunctionConfiguration) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
+}
+
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSGreengrassFunctionDefinition_FunctionConfiguration) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource

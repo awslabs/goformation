@@ -17,7 +17,7 @@ type AWSAppSyncFunctionConfiguration struct {
 	ApiId string `json:"ApiId,omitempty"`
 
 	// DataSourceName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-datasourcename
 	DataSourceName string `json:"DataSourceName,omitempty"`
 
@@ -27,12 +27,12 @@ type AWSAppSyncFunctionConfiguration struct {
 	Description string `json:"Description,omitempty"`
 
 	// FunctionVersion AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-functionversion
 	FunctionVersion string `json:"FunctionVersion,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-name
 	Name string `json:"Name,omitempty"`
 
@@ -95,6 +95,12 @@ func (r *AWSAppSyncFunctionConfiguration) SetMetadata(metadata map[string]interf
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSAppSyncFunctionConfiguration) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSAppSyncFunctionConfiguration) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -125,10 +131,11 @@ func (r AWSAppSyncFunctionConfiguration) MarshalJSON() ([]byte, error) {
 func (r *AWSAppSyncFunctionConfiguration) UnmarshalJSON(b []byte) error {
 	type Properties AWSAppSyncFunctionConfiguration
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -149,6 +156,8 @@ func (r *AWSAppSyncFunctionConfiguration) UnmarshalJSON(b []byte) error {
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

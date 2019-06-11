@@ -60,6 +60,12 @@ func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) SetMetadata(me
 	r._metadata = metadata
 }
 
+// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) DeletionPolicy() policies.DeletionPolicy {
+	return r._deletionPolicy
+}
+
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) SetDeletionPolicy(policy policies.DeletionPolicy) {
@@ -90,10 +96,11 @@ func (r AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) MarshalJSON() (
 func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) UnmarshalJSON(b []byte) error {
 	type Properties AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption
 	res := &struct {
-		Type       string
-		Properties *Properties
-		DependsOn  []string
-		Metadata   map[string]interface{}
+		Type           string
+		Properties     *Properties
+		DependsOn      []string
+		Metadata       map[string]interface{}
+		DeletionPolicy string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -114,6 +121,8 @@ func (r *AWSKinesisAnalyticsV2ApplicationCloudWatchLoggingOption) UnmarshalJSON(
 	if res.Metadata != nil {
 		r._metadata = res.Metadata
 	}
-
+	if res.DeletionPolicy != "" {
+		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
 	return nil
 }

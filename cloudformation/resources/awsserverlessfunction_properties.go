@@ -21,7 +21,6 @@ type AWSServerlessFunction_Properties struct {
 }
 
 func (r AWSServerlessFunction_Properties) value() interface{} {
-
 	ret := []interface{}{}
 
 	if r.S3Event != nil {
@@ -64,13 +63,12 @@ func (r AWSServerlessFunction_Properties) value() interface{} {
 		ret = append(ret, *r.AlexaSkillEvent)
 	}
 
-	sort.Sort(byJSONLength(ret))
+	sort.Sort(byJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
 		return ret[0]
 	}
 
 	return nil
-
 }
 
 func (r AWSServerlessFunction_Properties) MarshalJSON() ([]byte, error) {
