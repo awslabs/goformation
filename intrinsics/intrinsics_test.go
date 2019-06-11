@@ -38,6 +38,53 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 		})
 	})
 
+	Context("with a processor options that has ProcessOnlyGlobals set", func() {
+
+		input := `{"Globals": {"Function": {"Timeout": 120}},"Resources": {"MyServerlessFunction": {"Type": "AWS::Serverless::Function","Properties": {"Runtime": "nodejs6.10", "Role": { "Fn::GetAtt": ["FunctionNameRole", "Arn"]}}}},"Outputs": {"FnName": { "Condition": "foobar", "Value": 42}}}`
+		processed, err := ProcessJSON([]byte(input), &ProcessorOptions{ProcessOnlyGlobals: true})
+		It("should successfully process the template", func() {
+			Expect(processed).ShouldNot(BeNil())
+			Expect(err).Should(BeNil())
+		})
+
+		var result interface{}
+		err = json.Unmarshal(processed, &result)
+		It("should be valid JSON, and marshal to a Go type", func() {
+			Expect(processed).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		template := result.(map[string]interface{})
+		resources := template["Resources"].(map[string]interface{})
+		outputs := template["Outputs"].(map[string]interface{})
+
+		resolvedResources := `{
+            "MyServerlessFunction": {
+              "Properties": {
+                "Runtime": "nodejs6.10",
+				"Timeout": 120,
+				"Role": {
+                	"Fn::GetAtt": [ "FunctionNameRole", "Arn" ]
+              	}
+              },
+              "Type": "AWS::Serverless::Function"
+            }
+        }`
+		resolvedOutputs := `{
+			"FnName": {
+				"Condition": "foobar",
+				"Value": 42
+			}
+		}`
+		It("should interpolate only globals", func() {
+			Expect(json.Marshal(resources)).To(MatchJSON(resolvedResources))
+		})
+		It("but should not expand Conditions", func() {
+			Expect(json.Marshal(outputs)).To(MatchJSON(resolvedOutputs))
+		})
+
+	})
+
 	// Context("with a template that contains array globals", func() {
 	// 	input := `{"Globals": {"Function": {"VpcConfig": {"SecurityGroupIds": ["sg-123","sg-456"]}}},"Resources": {"MyServerlessFunction": {"Type": "AWS::Serverless::Function","Properties": {"VpcConfig": {"SecurityGroupIds": ["sg-first"]}}}}}`
 	// 	processed, err := ProcessJSON([]byte(input), nil)

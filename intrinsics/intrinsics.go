@@ -44,6 +44,7 @@ type ProcessorOptions struct {
 	IntrinsicHandlerOverrides map[string]IntrinsicHandler
 	ParameterOverrides        map[string]interface{}
 	NoProcess                 bool
+	ProcessOnlyGlobals        bool
 }
 
 // nonResolvingHandler is a simple example of an intrinsic function handler function
@@ -87,12 +88,16 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 	} else {
 		applyGlobals(unmarshalled, options)
 
-		overrideParameters(unmarshalled, options)
+		if options != nil && options.ProcessOnlyGlobals {
+			processed = unmarshalled
+		} else {
+			overrideParameters(unmarshalled, options)
 
-		evaluateConditions(unmarshalled, options)
+			evaluateConditions(unmarshalled, options)
 
-		// Process all of the intrinsic functions
-		processed = search(unmarshalled, unmarshalled, options)
+			// Process all of the intrinsic functions
+			processed = search(unmarshalled, unmarshalled, options)
+		}
 	}
 
 	// And return the result back as a []byte of JSON
