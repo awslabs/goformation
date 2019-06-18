@@ -3,6 +3,7 @@ package cloudformation
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 
 	"github.com/awslabs/goformation/intrinsics"
 	"github.com/sanathkr/yaml"
@@ -66,7 +67,15 @@ func unmarshallResource(name string, raw_json *json.RawMessage) (Resource, error
 		return nil, fmt.Errorf("Cannot find Type for %v", name)
 	}
 
-	resourceStruct := AllResources()[rtype.Type]
+	// Custom Resource Handler
+	var resourceStruct Resource
+
+	if strings.HasPrefix(rtype.Type, "Custom::") {
+		resourceStruct = &CustomResource{Type: rtype.Type}
+	} else {
+		resourceStruct = AllResources()[rtype.Type]
+	}
+
 	err = json.Unmarshal(*raw_json, resourceStruct)
 
 	if err != nil {
