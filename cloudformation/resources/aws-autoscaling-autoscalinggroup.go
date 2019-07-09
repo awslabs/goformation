@@ -19,7 +19,7 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
-	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
+	AvailabilityZones interface{} `json:"AvailabilityZones,omitempty"`
 
 	// Cooldown AWS CloudFormation Property
 	// Required: false
@@ -119,7 +119,7 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// VPCZoneIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
-	VPCZoneIdentifier []string `json:"VPCZoneIdentifier,omitempty"`
+	VPCZoneIdentifier interface{} `json:"VPCZoneIdentifier,omitempty"`
 
 	// _updatePolicy represents a CloudFormation UpdatePolicy
 	_updatePolicy *policies.UpdatePolicy
