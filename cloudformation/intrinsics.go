@@ -156,6 +156,9 @@ func Join(delimiter interface{}, values []string) string {
 
 // Select returns a single object from a list of objects by index.
 func Select(index interface{}, list []string) string {
+	if len(list) == 1 {
+		return encode(fmt.Sprintf(`{ "Fn::Select": [ "%v",  "%v" ] }`, index, list[0]))
+	}
 	return encode(fmt.Sprintf(`{ "Fn::Select": [ "%v", [ "%v" ] ] }`, index, strings.Trim(strings.Join(list, `", "`), `, "`)))
 }
 
