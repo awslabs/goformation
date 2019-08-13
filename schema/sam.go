@@ -47809,6 +47809,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AccessLogSetting": {
+                            "$ref": "#/definitions/AWS::Serverless::Api.AccessLogSetting"
+                        },
                         "Auth": {
                             "$ref": "#/definitions/AWS::Serverless::Api.Auth"
                         },
@@ -47883,6 +47886,18 @@ var SamSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::Api.AccessLogSetting": {
+            "additionalProperties": false,
+            "properties": {
+                "DestinationArn": {
+                    "type": "string"
+                },
+                "Format": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Serverless::Api.Auth": {

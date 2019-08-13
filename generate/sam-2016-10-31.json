@@ -240,6 +240,12 @@
                     "Required": false,
                     "PrimitiveType": "Boolean",
                     "UpdateType": "Immutable"
+                },
+                "AccessLogSetting": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
+                    "Required": false,
+                    "Type": "AccessLogSetting",
+                    "UpdateType": "Immutable"
                 }
             }
         },
@@ -1093,6 +1099,23 @@
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
                     "Required": false,
                     "PrimitiveType": "Json",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Api.AccessLogSetting": {
+            "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html",
+            "Properties": {
+                "DestinationArn": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Format": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format",
+                    "Required": false,
+                    "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 }
             }
