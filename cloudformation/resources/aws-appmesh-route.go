@@ -29,7 +29,7 @@ type AWSAppMeshRoute struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-tags
-	Tags []AWSAppMeshRoute_TagRef `json:"Tags,omitempty"`
+	Tags []Tag `json:"Tags,omitempty"`
 
 	// VirtualRouterName AWS CloudFormation Property
 	// Required: true

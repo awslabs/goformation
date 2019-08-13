@@ -26,13 +26,23 @@ type AWSKinesisFirehoseDeliveryStream_ExtendedS3DestinationConfiguration struct 
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
 	CompressionFormat string `json:"CompressionFormat,omitempty"`
 
+	// DataFormatConversionConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
+	DataFormatConversionConfiguration *AWSKinesisFirehoseDeliveryStream_DataFormatConversionConfiguration `json:"DataFormatConversionConfiguration,omitempty"`
+
 	// EncryptionConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
 	EncryptionConfiguration *AWSKinesisFirehoseDeliveryStream_EncryptionConfiguration `json:"EncryptionConfiguration,omitempty"`
 
+	// ErrorOutputPrefix AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
+	ErrorOutputPrefix string `json:"ErrorOutputPrefix,omitempty"`
+
 	// Prefix AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix
 	Prefix string `json:"Prefix,omitempty"`
 

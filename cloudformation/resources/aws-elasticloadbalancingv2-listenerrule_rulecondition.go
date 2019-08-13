@@ -11,6 +11,36 @@ type AWSElasticLoadBalancingV2ListenerRule_RuleCondition struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
 	Field string `json:"Field,omitempty"`
 
+	// HostHeaderConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
+	HostHeaderConfig *AWSElasticLoadBalancingV2ListenerRule_HostHeaderConfig `json:"HostHeaderConfig,omitempty"`
+
+	// HttpHeaderConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
+	HttpHeaderConfig *AWSElasticLoadBalancingV2ListenerRule_HttpHeaderConfig `json:"HttpHeaderConfig,omitempty"`
+
+	// HttpRequestMethodConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
+	HttpRequestMethodConfig *AWSElasticLoadBalancingV2ListenerRule_HttpRequestMethodConfig `json:"HttpRequestMethodConfig,omitempty"`
+
+	// PathPatternConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
+	PathPatternConfig *AWSElasticLoadBalancingV2ListenerRule_PathPatternConfig `json:"PathPatternConfig,omitempty"`
+
+	// QueryStringConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
+	QueryStringConfig *AWSElasticLoadBalancingV2ListenerRule_QueryStringConfig `json:"QueryStringConfig,omitempty"`
+
+	// SourceIpConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
+	SourceIpConfig *AWSElasticLoadBalancingV2ListenerRule_SourceIpConfig `json:"SourceIpConfig,omitempty"`
+
 	// Values AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
