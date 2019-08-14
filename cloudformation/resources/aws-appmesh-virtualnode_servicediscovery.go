@@ -6,8 +6,13 @@ import "github.com/awslabs/goformation/cloudformation/policies"
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html
 type AWSAppMeshVirtualNode_ServiceDiscovery struct {
 
+	// AWSCloudMap AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-awscloudmap
+	AWSCloudMap *AWSAppMeshVirtualNode_AwsCloudMapServiceDiscovery `json:"AWSCloudMap,omitempty"`
+
 	// DNS AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-dns
 	DNS *AWSAppMeshVirtualNode_DnsServiceDiscovery `json:"DNS,omitempty"`
 

@@ -46,6 +46,11 @@ type AWSAppStreamFleet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
 	FleetType string `json:"FleetType,omitempty"`
 
+	// IdleDisconnectTimeoutInSeconds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
+	IdleDisconnectTimeoutInSeconds int `json:"IdleDisconnectTimeoutInSeconds,omitempty"`
+
 	// ImageArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
