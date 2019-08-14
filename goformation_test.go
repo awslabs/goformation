@@ -542,6 +542,17 @@ var _ = Describe("Goformation", func() {
 			Expect(api4.DefinitionBody).To(Equal(expected))
 		})
 
+		api5, err := template.GetAWSServerlessApiWithName("ServerlessApiWithAccessLogSettingAsYAML")
+		It("should have an AWS::Serverless::Api named 'ServerlessApiWithAccessLogSettingAsYAML'", func() {
+			Expect(api5).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should have the correct value for AccessLogSetting", func() {
+			Expect(api5.AccessLogSetting.DestinationArn).To(Equal("arn:test"))
+			Expect(api5.AccessLogSetting.Format).To(Equal("{customKey: $context.Key}"))
+		})
+
 	})
 
 	Context("with a YAML template with paramter overrides", func() {

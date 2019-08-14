@@ -57,7 +57,7 @@ type AWSBatchComputeEnvironment_ComputeResources struct {
 	PlacementGroup string `json:"PlacementGroup,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
 	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 

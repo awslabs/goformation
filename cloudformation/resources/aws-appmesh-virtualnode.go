@@ -24,7 +24,7 @@ type AWSAppMeshVirtualNode struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-tags
-	Tags []AWSAppMeshVirtualNode_TagRef `json:"Tags,omitempty"`
+	Tags []Tag `json:"Tags,omitempty"`
 
 	// VirtualNodeName AWS CloudFormation Property
 	// Required: true
