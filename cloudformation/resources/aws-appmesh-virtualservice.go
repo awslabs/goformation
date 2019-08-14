@@ -24,7 +24,7 @@ type AWSAppMeshVirtualService struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-tags
-	Tags []AWSAppMeshVirtualService_TagRef `json:"Tags,omitempty"`
+	Tags []Tag `json:"Tags,omitempty"`
 
 	// VirtualServiceName AWS CloudFormation Property
 	// Required: true

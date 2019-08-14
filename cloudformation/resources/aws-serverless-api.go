@@ -11,6 +11,11 @@ import (
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
 type AWSServerlessApi struct {
 
+	// AccessLogSetting AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+	AccessLogSetting *AWSServerlessApi_AccessLogSetting `json:"AccessLogSetting,omitempty"`
+
 	// Auth AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi

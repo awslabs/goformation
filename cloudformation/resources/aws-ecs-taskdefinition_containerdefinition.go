@@ -136,6 +136,16 @@ type AWSECSTaskDefinition_ContainerDefinition struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
 	RepositoryCredentials *AWSECSTaskDefinition_RepositoryCredentials `json:"RepositoryCredentials,omitempty"`
 
+	// ResourceRequirements AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
+	ResourceRequirements []AWSECSTaskDefinition_ResourceRequirement `json:"ResourceRequirements,omitempty"`
+
+	// Secrets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
+	Secrets []AWSECSTaskDefinition_Secret `json:"Secrets,omitempty"`
+
 	// StartTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout

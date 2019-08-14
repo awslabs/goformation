@@ -12,7 +12,7 @@ type AWSRoute53ResolverResolverRule_TargetAddress struct {
 	Ip string `json:"Ip,omitempty"`
 
 	// Port AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port
 	Port string `json:"Port,omitempty"`
 

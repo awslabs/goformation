@@ -34,7 +34,7 @@ type AWSRDSDBInstance struct {
 	// BackupRetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod
-	BackupRetentionPeriod string `json:"BackupRetentionPeriod,omitempty"`
+	BackupRetentionPeriod int `json:"BackupRetentionPeriod,omitempty"`
 
 	// CharacterSetName AWS CloudFormation Property
 	// Required: false
