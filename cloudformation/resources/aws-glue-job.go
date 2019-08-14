@@ -41,10 +41,20 @@ type AWSGlueJob struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-executionproperty
 	ExecutionProperty *AWSGlueJob_ExecutionProperty `json:"ExecutionProperty,omitempty"`
 
+	// GlueVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-glueversion
+	GlueVersion string `json:"GlueVersion,omitempty"`
+
 	// LogUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-loguri
 	LogUri string `json:"LogUri,omitempty"`
+
+	// MaxCapacity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxcapacity
+	MaxCapacity float64 `json:"MaxCapacity,omitempty"`
 
 	// MaxRetries AWS CloudFormation Property
 	// Required: false
@@ -55,6 +65,11 @@ type AWSGlueJob struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-name
 	Name string `json:"Name,omitempty"`
+
+	// NumberOfWorkers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-numberofworkers
+	NumberOfWorkers int `json:"NumberOfWorkers,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: true
@@ -70,6 +85,11 @@ type AWSGlueJob struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-tags
 	Tags interface{} `json:"Tags,omitempty"`
+
+	// WorkerType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype
+	WorkerType string `json:"WorkerType,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
