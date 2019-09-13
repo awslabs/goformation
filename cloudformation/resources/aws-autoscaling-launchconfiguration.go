@@ -89,7 +89,8 @@ type AWSAutoScalingLaunchConfiguration struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups
-	SecurityGroups []string `json:"SecurityGroups,omitempty"`
+	// HACKHACK: previous type is []string, change it to interface{} to allow nested intrinsics functions
+	SecurityGroups interface{} `json:"SecurityGroups,omitempty"`
 
 	// SpotPrice AWS CloudFormation Property
 	// Required: false
@@ -99,7 +100,8 @@ type AWSAutoScalingLaunchConfiguration struct {
 	// UserData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-userdata
-	UserData string `json:"UserData,omitempty"`
+	// HACKHACK: previous type is string, change it to interface{} to allow nested intrinsics functions
+	UserData interface{} `json:"UserData,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy

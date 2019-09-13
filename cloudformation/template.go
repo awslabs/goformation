@@ -138,7 +138,10 @@ func (t *Template) JSON() ([]byte, error) {
 		return nil, err
 	}
 
-	return intrinsics.ProcessJSON(j, nil)
+	// HACKHACK: added ProcessorOptions, previously is nil
+	return intrinsics.ProcessJSON(j, &intrinsics.ProcessorOptions{
+		SkipResolve: true,
+	})
 
 }
 

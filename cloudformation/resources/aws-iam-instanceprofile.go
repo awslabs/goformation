@@ -26,6 +26,10 @@ type AWSIAMInstanceProfile struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
 	Roles []string `json:"Roles,omitempty"`
 
+	// HACKHACK: add _condition to allow adding condition to instance profile resource
+	// _condition define the circumstance under which this instance profile is created.
+	_condition string
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
 
@@ -39,6 +43,20 @@ type AWSIAMInstanceProfile struct {
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSIAMInstanceProfile) AWSCloudFormationType() string {
 	return "AWS::IAM::InstanceProfile"
+}
+
+// HACKHACK: added function to support get condition value
+// Condition return the condition under which this instance profile is created
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+func (r *AWSIAMInstanceProfile) Condition() string {
+	return r._condition
+}
+
+// HACKHACK: added function to support set the value of condition
+// SetCondition define the circumstance under which this instance profile is created
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+func (r *AWSIAMInstanceProfile) SetCondition(condition string) {
+	r._condition = condition
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
@@ -84,12 +102,14 @@ func (r AWSIAMInstanceProfile) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
+		Condition      string                  `json:"Condition,omitempty"` // HACKHACK: added Condition
 		DependsOn      []string                `json:"DependsOn,omitempty"`
 		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
+		Condition:      r._condition, // HACKHACK: added Condition
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -103,6 +123,7 @@ func (r *AWSIAMInstanceProfile) UnmarshalJSON(b []byte) error {
 	res := &struct {
 		Type           string
 		Properties     *Properties
+		Condition      string // HACKHACK: added Condition
 		DependsOn      []string
 		Metadata       map[string]interface{}
 		DeletionPolicy string
@@ -119,6 +140,9 @@ func (r *AWSIAMInstanceProfile) UnmarshalJSON(b []byte) error {
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
 		*r = AWSIAMInstanceProfile(*res.Properties)
+	}
+	if res.Condition != "" { // HACKHACK: added Condition
+		r._condition = res.Condition
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn

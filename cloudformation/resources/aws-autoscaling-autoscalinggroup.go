@@ -121,6 +121,10 @@ type AWSAutoScalingAutoScalingGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
 	VPCZoneIdentifier []string `json:"VPCZoneIdentifier,omitempty"`
 
+	// HACKHACK: add _condition to allow adding condition to auto scaling group
+	// _condition define the circumstance under which this auto scaling group is created.
+	_condition string
+
 	// _updatePolicy represents a CloudFormation UpdatePolicy
 	_updatePolicy *policies.UpdatePolicy
 
@@ -140,6 +144,20 @@ type AWSAutoScalingAutoScalingGroup struct {
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSAutoScalingAutoScalingGroup) AWSCloudFormationType() string {
 	return "AWS::AutoScaling::AutoScalingGroup"
+}
+
+// HACKHACK: added function to support get condition value
+// Condition return the condition under which this auto scaling group is created
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+func (r *AWSAutoScalingAutoScalingGroup) Condition() string {
+	return r._condition
+}
+
+// HACKHACK: added function to support set the value of condition
+// SetCondition define the circumstance under which this auto scaling group is created
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+func (r *AWSAutoScalingAutoScalingGroup) SetCondition(condition string) {
+	r._condition = condition
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
@@ -197,6 +215,7 @@ func (r AWSAutoScalingAutoScalingGroup) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
+		Condition      string                   `json:"Condition,omitempty"` // HACKHACK: added Condition
 		DependsOn      []string                 `json:"DependsOn,omitempty"`
 		Metadata       map[string]interface{}   `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy  `json:"DeletionPolicy,omitempty"`
@@ -205,6 +224,7 @@ func (r AWSAutoScalingAutoScalingGroup) MarshalJSON() ([]byte, error) {
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
+		Condition:      r._condition, // HACKHACK: added Condition
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -220,6 +240,7 @@ func (r *AWSAutoScalingAutoScalingGroup) UnmarshalJSON(b []byte) error {
 	res := &struct {
 		Type           string
 		Properties     *Properties
+		Condition      string // HACKHACK: added Condition
 		DependsOn      []string
 		Metadata       map[string]interface{}
 		DeletionPolicy string
@@ -236,6 +257,9 @@ func (r *AWSAutoScalingAutoScalingGroup) UnmarshalJSON(b []byte) error {
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
 		*r = AWSAutoScalingAutoScalingGroup(*res.Properties)
+	}
+	if res.Condition != "" { // HACKHACK: added Condition
+		r._condition = res.Condition
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn

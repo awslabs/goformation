@@ -139,7 +139,8 @@ type AWSEC2Instance struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
+	// HACKHACK: previous type is []string, change it to interface{} to allow nested intrinsics functions
+	SecurityGroupIds interface{} `json:"SecurityGroupIds,omitempty"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
@@ -174,12 +175,17 @@ type AWSEC2Instance struct {
 	// UserData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-userdata
-	UserData string `json:"UserData,omitempty"`
+	// HACKHACK: previous type is string, change it to interface{} to allow nested intrinsics functions
+	UserData interface{} `json:"UserData,omitempty"`
 
 	// Volumes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-volumes
 	Volumes []AWSEC2Instance_Volume `json:"Volumes,omitempty"`
+
+	// HACKHACK: add _condition to allow adding condition to ec2 instance resource
+	// _condition define the circumstance under which this ec2 instance is created.
+	_condition string
 
 	// _creationPolicy represents a CloudFormation CreationPolicy
 	_creationPolicy *policies.CreationPolicy
@@ -197,6 +203,20 @@ type AWSEC2Instance struct {
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AWSEC2Instance) AWSCloudFormationType() string {
 	return "AWS::EC2::Instance"
+}
+
+// HACKHACK: added function to support get condition value
+// Condition return the condition under which this EC2 instance is created
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+func (r *AWSEC2Instance) Condition() string {
+	return r._condition
+}
+
+// HACKHACK: added function to support set the value of condition
+// SetCondition define the circumstance under which this EC2 instance is created
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+func (r *AWSEC2Instance) SetCondition(condition string) {
+	r._condition = condition
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
@@ -248,6 +268,7 @@ func (r AWSEC2Instance) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
+		Condition      string                  `json:"Condition,omitempty"` // HACKHACK: added Condition
 		DependsOn      []string                `json:"DependsOn,omitempty"`
 		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
@@ -256,6 +277,7 @@ func (r AWSEC2Instance) MarshalJSON() ([]byte, error) {
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
+		Condition:      r._condition, // HACKHACK: added Condition
 		DependsOn:      r._dependsOn,
 		Metadata:       r._metadata,
 		DeletionPolicy: r._deletionPolicy,
@@ -271,6 +293,7 @@ func (r *AWSEC2Instance) UnmarshalJSON(b []byte) error {
 	res := &struct {
 		Type           string
 		Properties     *Properties
+		Condition      string // HACKHACK: added Condition
 		DependsOn      []string
 		Metadata       map[string]interface{}
 		DeletionPolicy string
@@ -287,6 +310,9 @@ func (r *AWSEC2Instance) UnmarshalJSON(b []byte) error {
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
 		*r = AWSEC2Instance(*res.Properties)
+	}
+	if res.Condition != "" { // HACKHACK: added Condition
+		r._condition = res.Condition
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn

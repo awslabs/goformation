@@ -21,7 +21,9 @@ type AutoScalingCreationPolicy struct {
 type ResourceSignal struct {
 
 	// Count is the number of success signals AWS CloudFormation must receive before it sets the resource status as CREATE_COMPLETE. If the resource receives a failure signal or doesn't receive the specified number of signals before the timeout period expires, the resource creation fails and AWS CloudFormation rolls the stack back.
-	Count float64 `json:"Count,omitempty"`
+	// HACKHACK: previous type is float64, change it to string to allow intrinsics reference to user-defined parameters
+	// e.g. "Count" : {Ref : "MastersCount"}
+	Count string `json:"Count,omitempty"`
 
 	// Timeout is the length of time that AWS CloudFormation waits for the number of signals that was specified in the Count property. The timeout period starts after AWS CloudFormation starts creating the resource, and the timeout expires no sooner than the time you specify but can occur shortly thereafter. The maximum time that you can specify is 12 hours.
 	// The value must be in ISO8601 duration format, in the form: "PT#H#M#S", where each # is the number of hours, minutes, and seconds, respectively. For best results, specify a period of time that gives your instances plenty of time to get up and running. A shorter timeout can cause a rollback.

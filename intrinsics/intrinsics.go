@@ -45,6 +45,10 @@ type ProcessorOptions struct {
 	ParameterOverrides        map[string]interface{}
 	NoProcess                 bool
 	ProcessOnlyGlobals        bool
+	// HACKHACK: add SkipResolve processor options to skip resolving conditions and intrinsics functions
+	// conditions and intrinsic functions in Alluxio CFT are based on user-given parameters
+	// and should not be resolved
+	SkipResolve               bool
 }
 
 // nonResolvingHandler is a simple example of an intrinsic function handler function
@@ -92,8 +96,9 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 			processed = unmarshalled
 		} else {
 			overrideParameters(unmarshalled, options)
-
-			evaluateConditions(unmarshalled, options)
+			if options != nil && !options.SkipResolve { // HACKHACK: added if check
+				evaluateConditions(unmarshalled, options)
+			}
 
 			// Process all of the intrinsic functions
 			processed = search(unmarshalled, unmarshalled, options)
@@ -214,19 +219,21 @@ func search(input interface{}, template interface{}, options *ProcessorOptions) 
 		processed := map[string]interface{}{}
 		for key, val := range value {
 
-			// See if we have an intrinsic handler function for this object key provided in the
-			if h, ok := handler(key, options); ok {
-				// This is an intrinsic function, so replace the intrinsic function object
-				// with the result of calling the intrinsic function handler for this type
-				return h(key, search(val, template, options), template)
-			}
+			if options != nil && !options.SkipResolve { // HACKHACK: added if check
+				// See if we have an intrinsic handler function for this object key provided in the
+				if h, ok := handler(key, options); ok {
+					// This is an intrinsic function, so replace the intrinsic function object
+					// with the result of calling the intrinsic function handler for this type
+					return h(key, search(val, template, options), template)
+				}
 
-			if key == "Condition" {
-				// This can lead to infinite recursion A -> B; B -> A;
-				// pass state of the conditions that we're evaluating so we can detect cycles
-				// in case of cycle or not found, do nothing
-				if con := condition(key, search(val, template, options), template, options); con != nil {
-					return con
+				if key == "Condition" {
+					// This can lead to infinite recursion A -> B; B -> A;
+					// pass state of the conditions that we're evaluating so we can detect cycles
+					// in case of cycle or not found, do nothing
+					if con := condition(key, search(val, template, options), template, options); con != nil {
+						return con
+					}
 				}
 			}
 
