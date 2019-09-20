@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSIoTTopicRule_CloudwatchMetricAction AWS CloudFormation Resource (AWS::IoT::TopicRule.CloudwatchMetricAction)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html

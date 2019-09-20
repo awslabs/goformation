@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSPinpointSegment_Groups AWS CloudFormation Resource (AWS::Pinpoint::Segment.Groups)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups.html

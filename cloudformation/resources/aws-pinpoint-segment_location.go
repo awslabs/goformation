@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSPinpointSegment_Location AWS CloudFormation Resource (AWS::Pinpoint::Segment.Location)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location.html

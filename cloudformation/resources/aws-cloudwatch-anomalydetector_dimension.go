@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSCloudWatchAnomalyDetector_Dimension AWS CloudFormation Resource (AWS::CloudWatch::AnomalyDetector.Dimension)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-dimension.html

@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSKinesisAnalyticsApplicationReferenceDataSource_S3ReferenceDataSource AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationReferenceDataSource.S3ReferenceDataSource)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html

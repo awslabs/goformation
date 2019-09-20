@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSGreengrassFunctionDefinitionVersion_ResourceAccessPolicy AWS CloudFormation Resource (AWS::Greengrass::FunctionDefinitionVersion.ResourceAccessPolicy)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-resourceaccesspolicy.html

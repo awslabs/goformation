@@ -1,19 +1,19 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_ScheduleEvent AWS CloudFormation Resource (AWS::Serverless::Function.ScheduleEvent)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
 type AWSServerlessFunction_ScheduleEvent struct {
 
 	// Input AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
 	Input string `json:"Input,omitempty"`
 
 	// Schedule AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
 	Schedule string `json:"Schedule,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

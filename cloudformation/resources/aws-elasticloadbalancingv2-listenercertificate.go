@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/TachyonNexus/goformation/cloudformation/policies"
 )
 
 // AWSElasticLoadBalancingV2ListenerCertificate AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::ListenerCertificate)

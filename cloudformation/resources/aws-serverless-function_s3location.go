@@ -1,24 +1,24 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_S3Location AWS CloudFormation Resource (AWS::Serverless::Function.S3Location)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3-location-object
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#s3-location-object
 type AWSServerlessFunction_S3Location struct {
 
 	// Bucket AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Bucket string `json:"Bucket,omitempty"`
 
 	// Key AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Key string `json:"Key,omitempty"`
 
 	// Version AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Version int `json:"Version"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

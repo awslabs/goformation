@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/TachyonNexus/goformation/cloudformation/policies"
 )
 
 // AWSKinesisAnalyticsV2ApplicationOutput AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::ApplicationOutput)

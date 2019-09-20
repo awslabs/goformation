@@ -4,116 +4,116 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/TachyonNexus/goformation/cloudformation/policies"
 )
 
 // AWSServerlessFunction AWS CloudFormation Resource (AWS::Serverless::Function)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 type AWSServerlessFunction struct {
 
 	// AutoPublishAlias AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	AutoPublishAlias string `json:"AutoPublishAlias,omitempty"`
 
 	// CodeUri AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	CodeUri *AWSServerlessFunction_CodeUri `json:"CodeUri,omitempty"`
 
 	// DeadLetterQueue AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	DeadLetterQueue *AWSServerlessFunction_DeadLetterQueue `json:"DeadLetterQueue,omitempty"`
 
 	// DeploymentPreference AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	DeploymentPreference *AWSServerlessFunction_DeploymentPreference `json:"DeploymentPreference,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Description string `json:"Description,omitempty"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Environment *AWSServerlessFunction_FunctionEnvironment `json:"Environment,omitempty"`
 
 	// Events AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Events map[string]AWSServerlessFunction_EventSource `json:"Events,omitempty"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	FunctionName string `json:"FunctionName,omitempty"`
 
 	// Handler AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Handler string `json:"Handler,omitempty"`
 
 	// KmsKeyArn AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	KmsKeyArn string `json:"KmsKeyArn,omitempty"`
 
 	// Layers AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Layers []string `json:"Layers,omitempty"`
 
 	// MemorySize AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	MemorySize int `json:"MemorySize,omitempty"`
 
 	// PermissionsBoundary AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	PermissionsBoundary string `json:"PermissionsBoundary,omitempty"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Policies *AWSServerlessFunction_Policies `json:"Policies,omitempty"`
 
 	// ReservedConcurrentExecutions AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	ReservedConcurrentExecutions int `json:"ReservedConcurrentExecutions,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Role string `json:"Role,omitempty"`
 
 	// Runtime AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Runtime string `json:"Runtime,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Timeout int `json:"Timeout,omitempty"`
 
 	// Tracing AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Tracing string `json:"Tracing,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	VpcConfig *AWSServerlessFunction_VpcConfig `json:"VpcConfig,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

@@ -1,14 +1,14 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_BucketSAMPT AWS CloudFormation Resource (AWS::Serverless::Function.BucketSAMPT)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/docs/policy_templates.rst
 type AWSServerlessFunction_BucketSAMPT struct {
 
 	// BucketName AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/docs/policy_templates.rst
 	BucketName string `json:"BucketName,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

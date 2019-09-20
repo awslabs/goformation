@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSAppSyncGraphQLApi_AdditionalAuthenticationProviders AWS CloudFormation Resource (AWS::AppSync::GraphQLApi.AdditionalAuthenticationProviders)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationproviders.html

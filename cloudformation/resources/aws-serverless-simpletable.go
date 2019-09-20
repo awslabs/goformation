@@ -4,16 +4,16 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/TachyonNexus/goformation/cloudformation/policies"
 )
 
 // AWSServerlessSimpleTable AWS CloudFormation Resource (AWS::Serverless::SimpleTable)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
 type AWSServerlessSimpleTable struct {
 
 	// PrimaryKey AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#primary-key-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#primary-key-object
 	PrimaryKey *AWSServerlessSimpleTable_PrimaryKey `json:"PrimaryKey,omitempty"`
 
 	// ProvisionedThroughput AWS CloudFormation Property
@@ -23,17 +23,17 @@ type AWSServerlessSimpleTable struct {
 
 	// SSESpecification AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
 	SSESpecification *AWSServerlessSimpleTable_SSESpecification `json:"SSESpecification,omitempty"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
 	TableName string `json:"TableName,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
 	Tags map[string]string `json:"Tags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

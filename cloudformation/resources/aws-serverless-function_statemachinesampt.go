@@ -1,14 +1,14 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_StateMachineSAMPT AWS CloudFormation Resource (AWS::Serverless::Function.StateMachineSAMPT)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/docs/policy_templates.rst
 type AWSServerlessFunction_StateMachineSAMPT struct {
 
 	// StateMachineName AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/docs/policy_templates.rst
 	StateMachineName string `json:"StateMachineName,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

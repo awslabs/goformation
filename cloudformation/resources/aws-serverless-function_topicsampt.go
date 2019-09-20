@@ -1,14 +1,14 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_TopicSAMPT AWS CloudFormation Resource (AWS::Serverless::Function.TopicSAMPT)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/docs/policy_templates.rst
 type AWSServerlessFunction_TopicSAMPT struct {
 
 	// TopicName AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/docs/policy_templates.rst
 	TopicName string `json:"TopicName,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

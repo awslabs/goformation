@@ -1,19 +1,19 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_DeadLetterQueue AWS CloudFormation Resource (AWS::Serverless::Function.DeadLetterQueue)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#deadletterqueue-object
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#deadletterqueue-object
 type AWSServerlessFunction_DeadLetterQueue struct {
 
 	// TargetArn AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	TargetArn string `json:"TargetArn,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Type string `json:"Type,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

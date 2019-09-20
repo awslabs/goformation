@@ -1,14 +1,14 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_FunctionEnvironment AWS CloudFormation Resource (AWS::Serverless::Function.FunctionEnvironment)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
 type AWSServerlessFunction_FunctionEnvironment struct {
 
 	// Variables AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
 	Variables map[string]string `json:"Variables,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

@@ -1,19 +1,19 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_EventSource AWS CloudFormation Resource (AWS::Serverless::Function.EventSource)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-object
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-object
 type AWSServerlessFunction_EventSource struct {
 
 	// Properties AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-types
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-types
 	Properties *AWSServerlessFunction_Properties `json:"Properties,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-object
 	Type string `json:"Type,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

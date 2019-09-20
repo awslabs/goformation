@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSKinesisAnalyticsApplicationOutput_KinesisFirehoseOutput AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationOutput.KinesisFirehoseOutput)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisfirehoseoutput.html

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/intrinsics"
+	"github.com/TachyonNexus/goformation/intrinsics"
 	"github.com/sanathkr/yaml"
 )
 

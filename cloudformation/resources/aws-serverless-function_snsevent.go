@@ -1,14 +1,14 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_SNSEvent AWS CloudFormation Resource (AWS::Serverless::Function.SNSEvent)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sns
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#sns
 type AWSServerlessFunction_SNSEvent struct {
 
 	// Topic AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sns
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#sns
 	Topic string `json:"Topic,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

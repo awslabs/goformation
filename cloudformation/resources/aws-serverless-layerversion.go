@@ -4,41 +4,41 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/TachyonNexus/goformation/cloudformation/policies"
 )
 
 // AWSServerlessLayerVersion AWS CloudFormation Resource (AWS::Serverless::LayerVersion)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
 type AWSServerlessLayerVersion struct {
 
 	// CompatibleRuntimes AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
 	CompatibleRuntimes []string `json:"CompatibleRuntimes,omitempty"`
 
 	// ContentUri AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
 	ContentUri string `json:"ContentUri,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
 	Description string `json:"Description,omitempty"`
 
 	// LayerName AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
 	LayerName string `json:"LayerName,omitempty"`
 
 	// LicenseInfo AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
 	LicenseInfo string `json:"LicenseInfo,omitempty"`
 
 	// RetentionPolicy AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
 	RetentionPolicy string `json:"RetentionPolicy,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

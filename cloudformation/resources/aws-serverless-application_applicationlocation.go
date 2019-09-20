@@ -1,19 +1,19 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessApplication_ApplicationLocation AWS CloudFormation Resource (AWS::Serverless::Application.ApplicationLocation)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
 type AWSServerlessApplication_ApplicationLocation struct {
 
 	// ApplicationId AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
 	ApplicationId string `json:"ApplicationId,omitempty"`
 
 	// SemanticVersion AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
 	SemanticVersion string `json:"SemanticVersion,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

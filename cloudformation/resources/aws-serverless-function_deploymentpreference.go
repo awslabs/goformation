@@ -1,34 +1,34 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_DeploymentPreference AWS CloudFormation Resource (AWS::Serverless::Function.DeploymentPreference)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
 type AWSServerlessFunction_DeploymentPreference struct {
 
 	// Alarms AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
 	Alarms []string `json:"Alarms,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
 	Enabled bool `json:"Enabled,omitempty"`
 
 	// Hooks AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
 	Hooks map[string]string `json:"Hooks,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
 	Role string `json:"Role,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#deploymentpreference-object
 	Type string `json:"Type,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

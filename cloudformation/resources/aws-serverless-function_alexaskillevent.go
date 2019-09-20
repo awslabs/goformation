@@ -1,14 +1,14 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_AlexaSkillEvent AWS CloudFormation Resource (AWS::Serverless::Function.AlexaSkillEvent)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill
 type AWSServerlessFunction_AlexaSkillEvent struct {
 
 	// Variables AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill
 	Variables map[string]string `json:"Variables,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

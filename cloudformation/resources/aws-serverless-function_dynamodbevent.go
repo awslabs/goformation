@@ -1,29 +1,29 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_DynamoDBEvent AWS CloudFormation Resource (AWS::Serverless::Function.DynamoDBEvent)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
 type AWSServerlessFunction_DynamoDBEvent struct {
 
 	// BatchSize AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
 	BatchSize int `json:"BatchSize,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
 	Enabled bool `json:"Enabled,omitempty"`
 
 	// StartingPosition AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
 	StartingPosition string `json:"StartingPosition,omitempty"`
 
 	// Stream AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
 	Stream string `json:"Stream,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

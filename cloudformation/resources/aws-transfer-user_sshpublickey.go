@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSTransferUser_SshPublicKey AWS CloudFormation Resource (AWS::Transfer::User.SshPublicKey)
 // See:

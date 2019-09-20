@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSElasticLoadBalancingV2ListenerRule_HttpRequestMethodConfig AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::ListenerRule.HttpRequestMethodConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html

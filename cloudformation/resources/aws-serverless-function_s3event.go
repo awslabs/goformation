@@ -1,24 +1,24 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_S3Event AWS CloudFormation Resource (AWS::Serverless::Function.S3Event)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#s3
 type AWSServerlessFunction_S3Event struct {
 
 	// Bucket AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#s3
 	Bucket string `json:"Bucket,omitempty"`
 
 	// Events AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#s3
 	Events *AWSServerlessFunction_Events `json:"Events,omitempty"`
 
 	// Filter AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#s3
 	Filter *AWSServerlessFunction_S3NotificationFilter `json:"Filter,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

@@ -1,24 +1,24 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_SQSEvent AWS CloudFormation Resource (AWS::Serverless::Function.SQSEvent)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
 type AWSServerlessFunction_SQSEvent struct {
 
 	// BatchSize AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
 	BatchSize int `json:"BatchSize,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
 	Enabled bool `json:"Enabled,omitempty"`
 
 	// Queue AWS CloudFormation Property
 	// Required: true
-	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
+	// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/versions/2016-10-31.md#sqs
 	Queue string `json:"Queue,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy

@@ -1,9 +1,9 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/TachyonNexus/goformation/cloudformation/policies"
 
 // AWSServerlessFunction_EmptySAMPT AWS CloudFormation Resource (AWS::Serverless::Function.EmptySAMPT)
-// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+// See: https://github.com/TachyonNexus/serverless-application-model/blob/master/docs/policy_templates.rst
 type AWSServerlessFunction_EmptySAMPT struct {
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
