@@ -19,7 +19,8 @@ type AWSAutoScalingLaunchConfiguration struct {
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-blockdevicemappings
-	BlockDeviceMappings []AWSAutoScalingLaunchConfiguration_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
+	// HACKHACK: previous type is []AWSAutoScalingLaunchConfiguration_BlockDeviceMapping, change it to allow adding intrinsics functions
+	BlockDeviceMappings []interface{} `json:"BlockDeviceMappings,omitempty"`
 
 	// ClassicLinkVPCId AWS CloudFormation Property
 	// Required: false
@@ -95,7 +96,8 @@ type AWSAutoScalingLaunchConfiguration struct {
 	// SpotPrice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-spotprice
-	SpotPrice string `json:"SpotPrice,omitempty"`
+	// HACKHACK: previous type is string, change it to interface{} to allow nested intrinsics functions
+	SpotPrice interface{} `json:"SpotPrice,omitempty"`
 
 	// UserData AWS CloudFormation Property
 	// Required: false
