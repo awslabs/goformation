@@ -69,7 +69,7 @@ type AWSCognitoUserPoolClient struct {
 	// RefreshTokenValidity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-refreshtokenvalidity
-	RefreshTokenValidity float64 `json:"RefreshTokenValidity,omitempty"`
+	RefreshTokenValidity int `json:"RefreshTokenValidity,omitempty"`
 
 	// SupportedIdentityProviders AWS CloudFormation Property
 	// Required: false

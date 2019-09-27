@@ -19,7 +19,7 @@ type AWSCognitoUserPool_AdminCreateUserConfig struct {
 	// UnusedAccountValidityDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-unusedaccountvaliditydays
-	UnusedAccountValidityDays float64 `json:"UnusedAccountValidityDays,omitempty"`
+	UnusedAccountValidityDays int `json:"UnusedAccountValidityDays,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy

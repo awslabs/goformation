@@ -114,6 +114,7 @@ func AllResources() map[string]Resource {
 		"AWS::Config::ConfigurationAggregator":                        &resources.AWSConfigConfigurationAggregator{},
 		"AWS::Config::ConfigurationRecorder":                          &resources.AWSConfigConfigurationRecorder{},
 		"AWS::Config::DeliveryChannel":                                &resources.AWSConfigDeliveryChannel{},
+		"AWS::Config::OrganizationConfigRule":                         &resources.AWSConfigOrganizationConfigRule{},
 		"AWS::Config::RemediationConfiguration":                       &resources.AWSConfigRemediationConfiguration{},
 		"AWS::DAX::Cluster":                                           &resources.AWSDAXCluster{},
 		"AWS::DAX::ParameterGroup":                                    &resources.AWSDAXParameterGroup{},
@@ -177,6 +178,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::VPCDHCPOptionsAssociation":                         &resources.AWSEC2VPCDHCPOptionsAssociation{},
 		"AWS::EC2::VPCEndpoint":                                       &resources.AWSEC2VPCEndpoint{},
 		"AWS::EC2::VPCEndpointConnectionNotification":                 &resources.AWSEC2VPCEndpointConnectionNotification{},
+		"AWS::EC2::VPCEndpointService":                                &resources.AWSEC2VPCEndpointService{},
 		"AWS::EC2::VPCEndpointServicePermissions":                     &resources.AWSEC2VPCEndpointServicePermissions{},
 		"AWS::EC2::VPCGatewayAttachment":                              &resources.AWSEC2VPCGatewayAttachment{},
 		"AWS::EC2::VPCPeeringConnection":                              &resources.AWSEC2VPCPeeringConnection{},
@@ -233,6 +235,7 @@ func AllResources() map[string]Resource {
 		"AWS::Glue::SecurityConfiguration":                            &resources.AWSGlueSecurityConfiguration{},
 		"AWS::Glue::Table":                                            &resources.AWSGlueTable{},
 		"AWS::Glue::Trigger":                                          &resources.AWSGlueTrigger{},
+		"AWS::Glue::Workflow":                                         &resources.AWSGlueWorkflow{},
 		"AWS::Greengrass::ConnectorDefinition":                        &resources.AWSGreengrassConnectorDefinition{},
 		"AWS::Greengrass::ConnectorDefinitionVersion":                 &resources.AWSGreengrassConnectorDefinitionVersion{},
 		"AWS::Greengrass::CoreDefinition":                             &resources.AWSGreengrassCoreDefinition{},
@@ -349,6 +352,7 @@ func AllResources() map[string]Resource {
 		"AWS::PinpointEmail::ConfigurationSetEventDestination":        &resources.AWSPinpointEmailConfigurationSetEventDestination{},
 		"AWS::PinpointEmail::DedicatedIpPool":                         &resources.AWSPinpointEmailDedicatedIpPool{},
 		"AWS::PinpointEmail::Identity":                                &resources.AWSPinpointEmailIdentity{},
+		"AWS::QLDB::Ledger":                                           &resources.AWSQLDBLedger{},
 		"AWS::RAM::ResourceShare":                                     &resources.AWSRAMResourceShare{},
 		"AWS::RDS::DBCluster":                                         &resources.AWSRDSDBCluster{},
 		"AWS::RDS::DBClusterParameterGroup":                           &resources.AWSRDSDBClusterParameterGroup{},
@@ -394,15 +398,18 @@ func AllResources() map[string]Resource {
 		"AWS::SSM::Association":                                       &resources.AWSSSMAssociation{},
 		"AWS::SSM::Document":                                          &resources.AWSSSMDocument{},
 		"AWS::SSM::MaintenanceWindow":                                 &resources.AWSSSMMaintenanceWindow{},
+		"AWS::SSM::MaintenanceWindowTarget":                           &resources.AWSSSMMaintenanceWindowTarget{},
 		"AWS::SSM::MaintenanceWindowTask":                             &resources.AWSSSMMaintenanceWindowTask{},
 		"AWS::SSM::Parameter":                                         &resources.AWSSSMParameter{},
 		"AWS::SSM::PatchBaseline":                                     &resources.AWSSSMPatchBaseline{},
 		"AWS::SSM::ResourceDataSync":                                  &resources.AWSSSMResourceDataSync{},
+		"AWS::SageMaker::CodeRepository":                              &resources.AWSSageMakerCodeRepository{},
 		"AWS::SageMaker::Endpoint":                                    &resources.AWSSageMakerEndpoint{},
 		"AWS::SageMaker::EndpointConfig":                              &resources.AWSSageMakerEndpointConfig{},
 		"AWS::SageMaker::Model":                                       &resources.AWSSageMakerModel{},
 		"AWS::SageMaker::NotebookInstance":                            &resources.AWSSageMakerNotebookInstance{},
 		"AWS::SageMaker::NotebookInstanceLifecycleConfig":             &resources.AWSSageMakerNotebookInstanceLifecycleConfig{},
+		"AWS::SageMaker::Workteam":                                    &resources.AWSSageMakerWorkteam{},
 		"AWS::SecretsManager::ResourcePolicy":                         &resources.AWSSecretsManagerResourcePolicy{},
 		"AWS::SecretsManager::RotationSchedule":                       &resources.AWSSecretsManagerRotationSchedule{},
 		"AWS::SecretsManager::Secret":                                 &resources.AWSSecretsManagerSecret{},
@@ -3003,6 +3010,30 @@ func (t *Template) GetAWSConfigDeliveryChannelWithName(name string) (*resources.
 	return nil, fmt.Errorf("resource %q of type AWSConfigDeliveryChannel not found", name)
 }
 
+// GetAllAWSConfigOrganizationConfigRuleResources retrieves all AWSConfigOrganizationConfigRule items from an AWS CloudFormation template
+func (t *Template) GetAllAWSConfigOrganizationConfigRuleResources() map[string]*resources.AWSConfigOrganizationConfigRule {
+	results := map[string]*resources.AWSConfigOrganizationConfigRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSConfigOrganizationConfigRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSConfigOrganizationConfigRuleWithName retrieves all AWSConfigOrganizationConfigRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSConfigOrganizationConfigRuleWithName(name string) (*resources.AWSConfigOrganizationConfigRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSConfigOrganizationConfigRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSConfigOrganizationConfigRule not found", name)
+}
+
 // GetAllAWSConfigRemediationConfigurationResources retrieves all AWSConfigRemediationConfiguration items from an AWS CloudFormation template
 func (t *Template) GetAllAWSConfigRemediationConfigurationResources() map[string]*resources.AWSConfigRemediationConfiguration {
 	results := map[string]*resources.AWSConfigRemediationConfiguration{}
@@ -4515,6 +4546,30 @@ func (t *Template) GetAWSEC2VPCEndpointConnectionNotificationWithName(name strin
 	return nil, fmt.Errorf("resource %q of type AWSEC2VPCEndpointConnectionNotification not found", name)
 }
 
+// GetAllAWSEC2VPCEndpointServiceResources retrieves all AWSEC2VPCEndpointService items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEC2VPCEndpointServiceResources() map[string]*resources.AWSEC2VPCEndpointService {
+	results := map[string]*resources.AWSEC2VPCEndpointService{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2VPCEndpointService:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSEC2VPCEndpointServiceWithName retrieves all AWSEC2VPCEndpointService items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSEC2VPCEndpointServiceWithName(name string) (*resources.AWSEC2VPCEndpointService, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2VPCEndpointService:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSEC2VPCEndpointService not found", name)
+}
+
 // GetAllAWSEC2VPCEndpointServicePermissionsResources retrieves all AWSEC2VPCEndpointServicePermissions items from an AWS CloudFormation template
 func (t *Template) GetAllAWSEC2VPCEndpointServicePermissionsResources() map[string]*resources.AWSEC2VPCEndpointServicePermissions {
 	results := map[string]*resources.AWSEC2VPCEndpointServicePermissions{}
@@ -5857,6 +5912,30 @@ func (t *Template) GetAWSGlueTriggerWithName(name string) (*resources.AWSGlueTri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSGlueTrigger not found", name)
+}
+
+// GetAllAWSGlueWorkflowResources retrieves all AWSGlueWorkflow items from an AWS CloudFormation template
+func (t *Template) GetAllAWSGlueWorkflowResources() map[string]*resources.AWSGlueWorkflow {
+	results := map[string]*resources.AWSGlueWorkflow{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSGlueWorkflow:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSGlueWorkflowWithName retrieves all AWSGlueWorkflow items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSGlueWorkflowWithName(name string) (*resources.AWSGlueWorkflow, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSGlueWorkflow:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSGlueWorkflow not found", name)
 }
 
 // GetAllAWSGreengrassConnectorDefinitionResources retrieves all AWSGreengrassConnectorDefinition items from an AWS CloudFormation template
@@ -8643,6 +8722,30 @@ func (t *Template) GetAWSPinpointEmailIdentityWithName(name string) (*resources.
 	return nil, fmt.Errorf("resource %q of type AWSPinpointEmailIdentity not found", name)
 }
 
+// GetAllAWSQLDBLedgerResources retrieves all AWSQLDBLedger items from an AWS CloudFormation template
+func (t *Template) GetAllAWSQLDBLedgerResources() map[string]*resources.AWSQLDBLedger {
+	results := map[string]*resources.AWSQLDBLedger{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSQLDBLedger:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSQLDBLedgerWithName retrieves all AWSQLDBLedger items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSQLDBLedgerWithName(name string) (*resources.AWSQLDBLedger, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSQLDBLedger:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSQLDBLedger not found", name)
+}
+
 // GetAllAWSRAMResourceShareResources retrieves all AWSRAMResourceShare items from an AWS CloudFormation template
 func (t *Template) GetAllAWSRAMResourceShareResources() map[string]*resources.AWSRAMResourceShare {
 	results := map[string]*resources.AWSRAMResourceShare{}
@@ -9723,6 +9826,30 @@ func (t *Template) GetAWSSSMMaintenanceWindowWithName(name string) (*resources.A
 	return nil, fmt.Errorf("resource %q of type AWSSSMMaintenanceWindow not found", name)
 }
 
+// GetAllAWSSSMMaintenanceWindowTargetResources retrieves all AWSSSMMaintenanceWindowTarget items from an AWS CloudFormation template
+func (t *Template) GetAllAWSSSMMaintenanceWindowTargetResources() map[string]*resources.AWSSSMMaintenanceWindowTarget {
+	results := map[string]*resources.AWSSSMMaintenanceWindowTarget{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSSSMMaintenanceWindowTarget:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSSSMMaintenanceWindowTargetWithName retrieves all AWSSSMMaintenanceWindowTarget items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSSSMMaintenanceWindowTargetWithName(name string) (*resources.AWSSSMMaintenanceWindowTarget, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSSSMMaintenanceWindowTarget:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSSSMMaintenanceWindowTarget not found", name)
+}
+
 // GetAllAWSSSMMaintenanceWindowTaskResources retrieves all AWSSSMMaintenanceWindowTask items from an AWS CloudFormation template
 func (t *Template) GetAllAWSSSMMaintenanceWindowTaskResources() map[string]*resources.AWSSSMMaintenanceWindowTask {
 	results := map[string]*resources.AWSSSMMaintenanceWindowTask{}
@@ -9817,6 +9944,30 @@ func (t *Template) GetAWSSSMResourceDataSyncWithName(name string) (*resources.AW
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSSSMResourceDataSync not found", name)
+}
+
+// GetAllAWSSageMakerCodeRepositoryResources retrieves all AWSSageMakerCodeRepository items from an AWS CloudFormation template
+func (t *Template) GetAllAWSSageMakerCodeRepositoryResources() map[string]*resources.AWSSageMakerCodeRepository {
+	results := map[string]*resources.AWSSageMakerCodeRepository{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSSageMakerCodeRepository:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSSageMakerCodeRepositoryWithName retrieves all AWSSageMakerCodeRepository items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSSageMakerCodeRepositoryWithName(name string) (*resources.AWSSageMakerCodeRepository, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSSageMakerCodeRepository:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSSageMakerCodeRepository not found", name)
 }
 
 // GetAllAWSSageMakerEndpointResources retrieves all AWSSageMakerEndpoint items from an AWS CloudFormation template
@@ -9937,6 +10088,30 @@ func (t *Template) GetAWSSageMakerNotebookInstanceLifecycleConfigWithName(name s
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSSageMakerNotebookInstanceLifecycleConfig not found", name)
+}
+
+// GetAllAWSSageMakerWorkteamResources retrieves all AWSSageMakerWorkteam items from an AWS CloudFormation template
+func (t *Template) GetAllAWSSageMakerWorkteamResources() map[string]*resources.AWSSageMakerWorkteam {
+	results := map[string]*resources.AWSSageMakerWorkteam{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSSageMakerWorkteam:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSSageMakerWorkteamWithName retrieves all AWSSageMakerWorkteam items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSSageMakerWorkteamWithName(name string) (*resources.AWSSageMakerWorkteam, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSSageMakerWorkteam:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSSageMakerWorkteam not found", name)
 }
 
 // GetAllAWSSecretsManagerResourcePolicyResources retrieves all AWSSecretsManagerResourcePolicy items from an AWS CloudFormation template

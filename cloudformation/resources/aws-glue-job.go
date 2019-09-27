@@ -66,6 +66,11 @@ type AWSGlueJob struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-name
 	Name string `json:"Name,omitempty"`
 
+	// NotificationProperty AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-notificationproperty
+	NotificationProperty *AWSGlueJob_NotificationProperty `json:"NotificationProperty,omitempty"`
+
 	// NumberOfWorkers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-numberofworkers
@@ -85,6 +90,11 @@ type AWSGlueJob struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-tags
 	Tags interface{} `json:"Tags,omitempty"`
+
+	// Timeout AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout
+	Timeout int `json:"Timeout,omitempty"`
 
 	// WorkerType AWS CloudFormation Property
 	// Required: false
