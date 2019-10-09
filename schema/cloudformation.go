@@ -8152,6 +8152,9 @@ var CloudformationSchema = `{
                 "CostTypes": {
                     "$ref": "#/definitions/AWS::Budgets::Budget.CostTypes"
                 },
+                "PlannedBudgetLimits": {
+                    "type": "object"
+                },
                 "TimePeriod": {
                     "$ref": "#/definitions/AWS::Budgets::Budget.TimePeriod"
                 },
@@ -12079,6 +12082,12 @@ var CloudformationSchema = `{
                         "EmailVerificationSubject": {
                             "type": "string"
                         },
+                        "EnabledMfas": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "LambdaConfig": {
                             "$ref": "#/definitions/AWS::Cognito::UserPool.LambdaConfig"
                         },
@@ -12496,6 +12505,76 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::Cognito::UserPoolDomain": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CustomDomainConfig": {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolDomain.CustomDomainConfigType"
+                        },
+                        "Domain": {
+                            "type": "string"
+                        },
+                        "UserPoolId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Domain",
+                        "UserPoolId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Cognito::UserPoolDomain"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolDomain.CustomDomainConfigType": {
+            "additionalProperties": false,
+            "properties": {
+                "CertificateArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Cognito::UserPoolGroup": {
             "additionalProperties": false,
             "properties": {
@@ -12552,6 +12631,431 @@ var CloudformationSchema = `{
                 "Type": {
                     "enum": [
                         "AWS::Cognito::UserPoolGroup"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolIdentityProvider": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AttributeMapping": {
+                            "type": "object"
+                        },
+                        "IdpIdentifiers": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "ProviderDetails": {
+                            "type": "object"
+                        },
+                        "ProviderName": {
+                            "type": "string"
+                        },
+                        "ProviderType": {
+                            "type": "string"
+                        },
+                        "UserPoolId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ProviderName",
+                        "ProviderType",
+                        "UserPoolId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Cognito::UserPoolIdentityProvider"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolResourceServer": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Identifier": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Scopes": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType"
+                            },
+                            "type": "array"
+                        },
+                        "UserPoolId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Identifier",
+                        "Name",
+                        "UserPoolId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Cognito::UserPoolResourceServer"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType": {
+            "additionalProperties": false,
+            "properties": {
+                "ScopeDescription": {
+                    "type": "string"
+                },
+                "ScopeName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ScopeDescription",
+                "ScopeName"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AccountTakeoverRiskConfiguration": {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationType"
+                        },
+                        "ClientId": {
+                            "type": "string"
+                        },
+                        "CompromisedCredentialsRiskConfiguration": {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationType"
+                        },
+                        "RiskExceptionConfiguration": {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType"
+                        },
+                        "UserPoolId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ClientId",
+                        "UserPoolId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Cognito::UserPoolRiskConfigurationAttachment"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType": {
+            "additionalProperties": false,
+            "properties": {
+                "EventAction": {
+                    "type": "string"
+                },
+                "Notify": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "EventAction",
+                "Notify"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionsType": {
+            "additionalProperties": false,
+            "properties": {
+                "HighAction": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType"
+                },
+                "LowAction": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType"
+                },
+                "MediumAction": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationType": {
+            "additionalProperties": false,
+            "properties": {
+                "Actions": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionsType"
+                },
+                "NotifyConfiguration": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyConfigurationType"
+                }
+            },
+            "required": [
+                "Actions"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType": {
+            "additionalProperties": false,
+            "properties": {
+                "EventAction": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "EventAction"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationType": {
+            "additionalProperties": false,
+            "properties": {
+                "Actions": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType"
+                },
+                "EventFilter": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Actions"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyConfigurationType": {
+            "additionalProperties": false,
+            "properties": {
+                "BlockEmail": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType"
+                },
+                "From": {
+                    "type": "string"
+                },
+                "MfaEmail": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType"
+                },
+                "NoActionEmail": {
+                    "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType"
+                },
+                "ReplyTo": {
+                    "type": "string"
+                },
+                "SourceArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SourceArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType": {
+            "additionalProperties": false,
+            "properties": {
+                "HtmlBody": {
+                    "type": "string"
+                },
+                "Subject": {
+                    "type": "string"
+                },
+                "TextBody": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Subject"
+            ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType": {
+            "additionalProperties": false,
+            "properties": {
+                "BlockedIPRangeList": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SkippedIPRangeList": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Cognito::UserPoolUICustomizationAttachment": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CSS": {
+                            "type": "string"
+                        },
+                        "ClientId": {
+                            "type": "string"
+                        },
+                        "UserPoolId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ClientId",
+                        "UserPoolId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Cognito::UserPoolUICustomizationAttachment"
                     ],
                     "type": "string"
                 }
@@ -19241,6 +19745,313 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EC2::TrafficMirrorFilter": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "NetworkServices": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TrafficMirrorFilter"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TrafficMirrorFilterRule": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DestinationCidrBlock": {
+                            "type": "string"
+                        },
+                        "DestinationPortRange": {
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest"
+                        },
+                        "Protocol": {
+                            "type": "number"
+                        },
+                        "RuleAction": {
+                            "type": "string"
+                        },
+                        "RuleNumber": {
+                            "type": "number"
+                        },
+                        "SourceCidrBlock": {
+                            "type": "string"
+                        },
+                        "SourcePortRange": {
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest"
+                        },
+                        "TrafficDirection": {
+                            "type": "string"
+                        },
+                        "TrafficMirrorFilterId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "DestinationCidrBlock",
+                        "RuleAction",
+                        "RuleNumber",
+                        "SourceCidrBlock",
+                        "TrafficDirection",
+                        "TrafficMirrorFilterId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TrafficMirrorFilterRule"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "FromPort": {
+                    "type": "number"
+                },
+                "ToPort": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "FromPort",
+                "ToPort"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TrafficMirrorSession": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "NetworkInterfaceId": {
+                            "type": "string"
+                        },
+                        "PacketLength": {
+                            "type": "number"
+                        },
+                        "SessionNumber": {
+                            "type": "number"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "TrafficMirrorFilterId": {
+                            "type": "string"
+                        },
+                        "TrafficMirrorTargetId": {
+                            "type": "string"
+                        },
+                        "VirtualNetworkId": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "NetworkInterfaceId",
+                        "SessionNumber",
+                        "TrafficMirrorFilterId",
+                        "TrafficMirrorTargetId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TrafficMirrorSession"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::TrafficMirrorTarget": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "NetworkInterfaceId": {
+                            "type": "string"
+                        },
+                        "NetworkLoadBalancerArn": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TrafficMirrorTarget"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
         "AWS::EC2::TransitGateway": {
             "additionalProperties": false,
             "properties": {
@@ -25784,6 +26595,9 @@ var CloudformationSchema = `{
                         },
                         "Condition": {
                             "$ref": "#/definitions/AWS::Events::EventBusPolicy.Condition"
+                        },
+                        "EventBusName": {
+                            "type": "string"
                         },
                         "Principal": {
                             "type": "string"
@@ -40439,6 +41253,9 @@ var CloudformationSchema = `{
                     "properties": {
                         "Name": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "type": "object"
                         }
                     },
                     "required": [
@@ -40709,6 +41526,9 @@ var CloudformationSchema = `{
                         },
                         "SegmentVersion": {
                             "type": "number"
+                        },
+                        "Tags": {
+                            "type": "object"
                         },
                         "TreatmentDescription": {
                             "type": "string"
@@ -41307,6 +42127,9 @@ var CloudformationSchema = `{
                         },
                         "SegmentGroups": {
                             "$ref": "#/definitions/AWS::Pinpoint::Segment.SegmentGroups"
+                        },
+                        "Tags": {
+                            "type": "object"
                         }
                     },
                     "required": [
@@ -52839,7 +53662,22 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::Cognito::UserPoolClient"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolDomain"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Cognito::UserPoolGroup"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolIdentityProvider"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolResourceServer"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolRiskConfigurationAttachment"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Cognito::UserPoolUICustomizationAttachment"
                         },
                         {
                             "$ref": "#/definitions/AWS::Cognito::UserPoolUser"
@@ -53020,6 +53858,18 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::SubnetRouteTableAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilterRule"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorSession"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorTarget"
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::TransitGateway"

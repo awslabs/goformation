@@ -7,19 +7,24 @@ import (
 	"github.com/awslabs/goformation/cloudformation/policies"
 )
 
-// AWSPinpointApp AWS CloudFormation Resource (AWS::Pinpoint::App)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html
-type AWSPinpointApp struct {
+// AWSCognitoUserPoolUICustomizationAttachment AWS CloudFormation Resource (AWS::Cognito::UserPoolUICustomizationAttachment)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html
+type AWSCognitoUserPoolUICustomizationAttachment struct {
 
-	// Name AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-name
-	Name string `json:"Name,omitempty"`
-
-	// Tags AWS CloudFormation Property
+	// CSS AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-css
+	CSS string `json:"CSS,omitempty"`
+
+	// ClientId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-clientid
+	ClientId string `json:"ClientId,omitempty"`
+
+	// UserPoolId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-userpoolid
+	UserPoolId string `json:"UserPoolId,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -32,50 +37,50 @@ type AWSPinpointApp struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *AWSPinpointApp) AWSCloudFormationType() string {
-	return "AWS::Pinpoint::App"
+func (r *AWSCognitoUserPoolUICustomizationAttachment) AWSCloudFormationType() string {
+	return "AWS::Cognito::UserPoolUICustomizationAttachment"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSPinpointApp) DependsOn() []string {
+func (r *AWSCognitoUserPoolUICustomizationAttachment) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AWSPinpointApp) SetDependsOn(dependencies []string) {
+func (r *AWSCognitoUserPoolUICustomizationAttachment) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSPinpointApp) Metadata() map[string]interface{} {
+func (r *AWSCognitoUserPoolUICustomizationAttachment) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AWSPinpointApp) SetMetadata(metadata map[string]interface{}) {
+func (r *AWSCognitoUserPoolUICustomizationAttachment) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSPinpointApp) DeletionPolicy() policies.DeletionPolicy {
+func (r *AWSCognitoUserPoolUICustomizationAttachment) DeletionPolicy() policies.DeletionPolicy {
 	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AWSPinpointApp) SetDeletionPolicy(policy policies.DeletionPolicy) {
+func (r *AWSCognitoUserPoolUICustomizationAttachment) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r AWSPinpointApp) MarshalJSON() ([]byte, error) {
-	type Properties AWSPinpointApp
+func (r AWSCognitoUserPoolUICustomizationAttachment) MarshalJSON() ([]byte, error) {
+	type Properties AWSCognitoUserPoolUICustomizationAttachment
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -93,8 +98,8 @@ func (r AWSPinpointApp) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *AWSPinpointApp) UnmarshalJSON(b []byte) error {
-	type Properties AWSPinpointApp
+func (r *AWSCognitoUserPoolUICustomizationAttachment) UnmarshalJSON(b []byte) error {
+	type Properties AWSCognitoUserPoolUICustomizationAttachment
 	res := &struct {
 		Type           string
 		Properties     *Properties
@@ -113,7 +118,7 @@ func (r *AWSPinpointApp) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = AWSPinpointApp(*res.Properties)
+		*r = AWSCognitoUserPoolUICustomizationAttachment(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn

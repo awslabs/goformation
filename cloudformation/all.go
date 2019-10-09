@@ -106,7 +106,12 @@ func AllResources() map[string]Resource {
 		"AWS::Cognito::IdentityPoolRoleAttachment":                    &resources.AWSCognitoIdentityPoolRoleAttachment{},
 		"AWS::Cognito::UserPool":                                      &resources.AWSCognitoUserPool{},
 		"AWS::Cognito::UserPoolClient":                                &resources.AWSCognitoUserPoolClient{},
+		"AWS::Cognito::UserPoolDomain":                                &resources.AWSCognitoUserPoolDomain{},
 		"AWS::Cognito::UserPoolGroup":                                 &resources.AWSCognitoUserPoolGroup{},
+		"AWS::Cognito::UserPoolIdentityProvider":                      &resources.AWSCognitoUserPoolIdentityProvider{},
+		"AWS::Cognito::UserPoolResourceServer":                        &resources.AWSCognitoUserPoolResourceServer{},
+		"AWS::Cognito::UserPoolRiskConfigurationAttachment":           &resources.AWSCognitoUserPoolRiskConfigurationAttachment{},
+		"AWS::Cognito::UserPoolUICustomizationAttachment":             &resources.AWSCognitoUserPoolUICustomizationAttachment{},
 		"AWS::Cognito::UserPoolUser":                                  &resources.AWSCognitoUserPoolUser{},
 		"AWS::Cognito::UserPoolUserToGroupAttachment":                 &resources.AWSCognitoUserPoolUserToGroupAttachment{},
 		"AWS::Config::AggregationAuthorization":                       &resources.AWSConfigAggregationAuthorization{},
@@ -167,6 +172,10 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::SubnetCidrBlock":                                   &resources.AWSEC2SubnetCidrBlock{},
 		"AWS::EC2::SubnetNetworkAclAssociation":                       &resources.AWSEC2SubnetNetworkAclAssociation{},
 		"AWS::EC2::SubnetRouteTableAssociation":                       &resources.AWSEC2SubnetRouteTableAssociation{},
+		"AWS::EC2::TrafficMirrorFilter":                               &resources.AWSEC2TrafficMirrorFilter{},
+		"AWS::EC2::TrafficMirrorFilterRule":                           &resources.AWSEC2TrafficMirrorFilterRule{},
+		"AWS::EC2::TrafficMirrorSession":                              &resources.AWSEC2TrafficMirrorSession{},
+		"AWS::EC2::TrafficMirrorTarget":                               &resources.AWSEC2TrafficMirrorTarget{},
 		"AWS::EC2::TransitGateway":                                    &resources.AWSEC2TransitGateway{},
 		"AWS::EC2::TransitGatewayAttachment":                          &resources.AWSEC2TransitGatewayAttachment{},
 		"AWS::EC2::TransitGatewayRoute":                               &resources.AWSEC2TransitGatewayRoute{},
@@ -2818,6 +2827,30 @@ func (t *Template) GetAWSCognitoUserPoolClientWithName(name string) (*resources.
 	return nil, fmt.Errorf("resource %q of type AWSCognitoUserPoolClient not found", name)
 }
 
+// GetAllAWSCognitoUserPoolDomainResources retrieves all AWSCognitoUserPoolDomain items from an AWS CloudFormation template
+func (t *Template) GetAllAWSCognitoUserPoolDomainResources() map[string]*resources.AWSCognitoUserPoolDomain {
+	results := map[string]*resources.AWSCognitoUserPoolDomain{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolDomain:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSCognitoUserPoolDomainWithName retrieves all AWSCognitoUserPoolDomain items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSCognitoUserPoolDomainWithName(name string) (*resources.AWSCognitoUserPoolDomain, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolDomain:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSCognitoUserPoolDomain not found", name)
+}
+
 // GetAllAWSCognitoUserPoolGroupResources retrieves all AWSCognitoUserPoolGroup items from an AWS CloudFormation template
 func (t *Template) GetAllAWSCognitoUserPoolGroupResources() map[string]*resources.AWSCognitoUserPoolGroup {
 	results := map[string]*resources.AWSCognitoUserPoolGroup{}
@@ -2840,6 +2873,102 @@ func (t *Template) GetAWSCognitoUserPoolGroupWithName(name string) (*resources.A
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSCognitoUserPoolGroup not found", name)
+}
+
+// GetAllAWSCognitoUserPoolIdentityProviderResources retrieves all AWSCognitoUserPoolIdentityProvider items from an AWS CloudFormation template
+func (t *Template) GetAllAWSCognitoUserPoolIdentityProviderResources() map[string]*resources.AWSCognitoUserPoolIdentityProvider {
+	results := map[string]*resources.AWSCognitoUserPoolIdentityProvider{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolIdentityProvider:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSCognitoUserPoolIdentityProviderWithName retrieves all AWSCognitoUserPoolIdentityProvider items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSCognitoUserPoolIdentityProviderWithName(name string) (*resources.AWSCognitoUserPoolIdentityProvider, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolIdentityProvider:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSCognitoUserPoolIdentityProvider not found", name)
+}
+
+// GetAllAWSCognitoUserPoolResourceServerResources retrieves all AWSCognitoUserPoolResourceServer items from an AWS CloudFormation template
+func (t *Template) GetAllAWSCognitoUserPoolResourceServerResources() map[string]*resources.AWSCognitoUserPoolResourceServer {
+	results := map[string]*resources.AWSCognitoUserPoolResourceServer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolResourceServer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSCognitoUserPoolResourceServerWithName retrieves all AWSCognitoUserPoolResourceServer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSCognitoUserPoolResourceServerWithName(name string) (*resources.AWSCognitoUserPoolResourceServer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolResourceServer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSCognitoUserPoolResourceServer not found", name)
+}
+
+// GetAllAWSCognitoUserPoolRiskConfigurationAttachmentResources retrieves all AWSCognitoUserPoolRiskConfigurationAttachment items from an AWS CloudFormation template
+func (t *Template) GetAllAWSCognitoUserPoolRiskConfigurationAttachmentResources() map[string]*resources.AWSCognitoUserPoolRiskConfigurationAttachment {
+	results := map[string]*resources.AWSCognitoUserPoolRiskConfigurationAttachment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolRiskConfigurationAttachment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSCognitoUserPoolRiskConfigurationAttachmentWithName retrieves all AWSCognitoUserPoolRiskConfigurationAttachment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSCognitoUserPoolRiskConfigurationAttachmentWithName(name string) (*resources.AWSCognitoUserPoolRiskConfigurationAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolRiskConfigurationAttachment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSCognitoUserPoolRiskConfigurationAttachment not found", name)
+}
+
+// GetAllAWSCognitoUserPoolUICustomizationAttachmentResources retrieves all AWSCognitoUserPoolUICustomizationAttachment items from an AWS CloudFormation template
+func (t *Template) GetAllAWSCognitoUserPoolUICustomizationAttachmentResources() map[string]*resources.AWSCognitoUserPoolUICustomizationAttachment {
+	results := map[string]*resources.AWSCognitoUserPoolUICustomizationAttachment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolUICustomizationAttachment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSCognitoUserPoolUICustomizationAttachmentWithName retrieves all AWSCognitoUserPoolUICustomizationAttachment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSCognitoUserPoolUICustomizationAttachmentWithName(name string) (*resources.AWSCognitoUserPoolUICustomizationAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSCognitoUserPoolUICustomizationAttachment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSCognitoUserPoolUICustomizationAttachment not found", name)
 }
 
 // GetAllAWSCognitoUserPoolUserResources retrieves all AWSCognitoUserPoolUser items from an AWS CloudFormation template
@@ -4280,6 +4409,102 @@ func (t *Template) GetAWSEC2SubnetRouteTableAssociationWithName(name string) (*r
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSEC2SubnetRouteTableAssociation not found", name)
+}
+
+// GetAllAWSEC2TrafficMirrorFilterResources retrieves all AWSEC2TrafficMirrorFilter items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEC2TrafficMirrorFilterResources() map[string]*resources.AWSEC2TrafficMirrorFilter {
+	results := map[string]*resources.AWSEC2TrafficMirrorFilter{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorFilter:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSEC2TrafficMirrorFilterWithName retrieves all AWSEC2TrafficMirrorFilter items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSEC2TrafficMirrorFilterWithName(name string) (*resources.AWSEC2TrafficMirrorFilter, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorFilter:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSEC2TrafficMirrorFilter not found", name)
+}
+
+// GetAllAWSEC2TrafficMirrorFilterRuleResources retrieves all AWSEC2TrafficMirrorFilterRule items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEC2TrafficMirrorFilterRuleResources() map[string]*resources.AWSEC2TrafficMirrorFilterRule {
+	results := map[string]*resources.AWSEC2TrafficMirrorFilterRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorFilterRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSEC2TrafficMirrorFilterRuleWithName retrieves all AWSEC2TrafficMirrorFilterRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSEC2TrafficMirrorFilterRuleWithName(name string) (*resources.AWSEC2TrafficMirrorFilterRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorFilterRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSEC2TrafficMirrorFilterRule not found", name)
+}
+
+// GetAllAWSEC2TrafficMirrorSessionResources retrieves all AWSEC2TrafficMirrorSession items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEC2TrafficMirrorSessionResources() map[string]*resources.AWSEC2TrafficMirrorSession {
+	results := map[string]*resources.AWSEC2TrafficMirrorSession{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorSession:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSEC2TrafficMirrorSessionWithName retrieves all AWSEC2TrafficMirrorSession items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSEC2TrafficMirrorSessionWithName(name string) (*resources.AWSEC2TrafficMirrorSession, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorSession:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSEC2TrafficMirrorSession not found", name)
+}
+
+// GetAllAWSEC2TrafficMirrorTargetResources retrieves all AWSEC2TrafficMirrorTarget items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEC2TrafficMirrorTargetResources() map[string]*resources.AWSEC2TrafficMirrorTarget {
+	results := map[string]*resources.AWSEC2TrafficMirrorTarget{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorTarget:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSEC2TrafficMirrorTargetWithName retrieves all AWSEC2TrafficMirrorTarget items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSEC2TrafficMirrorTargetWithName(name string) (*resources.AWSEC2TrafficMirrorTarget, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSEC2TrafficMirrorTarget:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSEC2TrafficMirrorTarget not found", name)
 }
 
 // GetAllAWSEC2TransitGatewayResources retrieves all AWSEC2TransitGateway items from an AWS CloudFormation template

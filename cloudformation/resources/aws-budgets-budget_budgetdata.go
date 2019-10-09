@@ -31,6 +31,11 @@ type AWSBudgetsBudget_BudgetData struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
 	CostTypes *AWSBudgetsBudget_CostTypes `json:"CostTypes,omitempty"`
 
+	// PlannedBudgetLimits AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+	PlannedBudgetLimits interface{} `json:"PlannedBudgetLimits,omitempty"`
+
 	// TimePeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
