@@ -50467,8 +50467,7 @@ var SamSchema = `{
             },
             "required": [
                 "Bucket",
-                "Key",
-                "Version"
+                "Key"
             ],
             "type": "object"
         },
