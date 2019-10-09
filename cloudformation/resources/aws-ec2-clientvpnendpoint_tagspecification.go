@@ -7,12 +7,12 @@ import "github.com/awslabs/goformation/cloudformation/policies"
 type AWSEC2ClientVpnEndpoint_TagSpecification struct {
 
 	// ResourceType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-resourcetype
 	ResourceType string `json:"ResourceType,omitempty"`
 
 	// Tags AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-tags
 	Tags []Tag `json:"Tags,omitempty"`
 

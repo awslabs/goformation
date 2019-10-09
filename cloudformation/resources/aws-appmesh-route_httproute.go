@@ -16,6 +16,11 @@ type AWSAppMeshRoute_HttpRoute struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-match
 	Match *AWSAppMeshRoute_HttpRouteMatch `json:"Match,omitempty"`
 
+	// RetryPolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-retrypolicy
+	RetryPolicy *AWSAppMeshRoute_HttpRetryPolicy `json:"RetryPolicy,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
 

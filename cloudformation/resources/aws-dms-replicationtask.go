@@ -11,10 +11,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html
 type AWSDMSReplicationTask struct {
 
+	// CdcStartPosition AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstartposition
+	CdcStartPosition string `json:"CdcStartPosition,omitempty"`
+
 	// CdcStartTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime
 	CdcStartTime float64 `json:"CdcStartTime,omitempty"`
+
+	// CdcStopPosition AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstopposition
+	CdcStopPosition string `json:"CdcStopPosition,omitempty"`
 
 	// MigrationType AWS CloudFormation Property
 	// Required: true

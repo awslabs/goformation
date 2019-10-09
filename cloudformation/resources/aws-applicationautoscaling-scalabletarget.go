@@ -46,6 +46,11 @@ type AWSApplicationAutoScalingScalableTarget struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace
 	ServiceNamespace string `json:"ServiceNamespace,omitempty"`
 
+	// SuspendedState AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-suspendedstate
+	SuspendedState *AWSApplicationAutoScalingScalableTarget_SuspendedState `json:"SuspendedState,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
 

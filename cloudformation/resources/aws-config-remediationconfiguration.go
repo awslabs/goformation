@@ -11,10 +11,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html
 type AWSConfigRemediationConfiguration struct {
 
+	// Automatic AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-automatic
+	Automatic bool `json:"Automatic,omitempty"`
+
 	// ConfigRuleName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-configrulename
 	ConfigRuleName string `json:"ConfigRuleName,omitempty"`
+
+	// ExecutionControls AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-executioncontrols
+	ExecutionControls *AWSConfigRemediationConfiguration_ExecutionControls `json:"ExecutionControls,omitempty"`
+
+	// MaximumAutomaticAttempts AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-maximumautomaticattempts
+	MaximumAutomaticAttempts int `json:"MaximumAutomaticAttempts,omitempty"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
@@ -25,6 +40,11 @@ type AWSConfigRemediationConfiguration struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-resourcetype
 	ResourceType string `json:"ResourceType,omitempty"`
+
+	// RetryAttemptSeconds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-retryattemptseconds
+	RetryAttemptSeconds int `json:"RetryAttemptSeconds,omitempty"`
 
 	// TargetId AWS CloudFormation Property
 	// Required: true

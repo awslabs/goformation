@@ -21,6 +21,11 @@ type AWSRDSDBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allowmajorversionupgrade
 	AllowMajorVersionUpgrade bool `json:"AllowMajorVersionUpgrade,omitempty"`
 
+	// AssociatedRoles AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-associatedroles
+	AssociatedRoles []AWSRDSDBInstance_DBInstanceRole `json:"AssociatedRoles,omitempty"`
+
 	// AutoMinorVersionUpgrade AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-autominorversionupgrade
