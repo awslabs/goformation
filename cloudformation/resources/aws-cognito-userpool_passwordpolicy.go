@@ -34,7 +34,7 @@ type AWSCognitoUserPool_PasswordPolicy struct {
 	// TemporaryPasswordValidityDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays
-	TemporaryPasswordValidityDays float64 `json:"TemporaryPasswordValidityDays,omitempty"`
+	TemporaryPasswordValidityDays int `json:"TemporaryPasswordValidityDays,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
