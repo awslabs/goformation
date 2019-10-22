@@ -16,6 +16,11 @@ type AWSIoTAnalyticsDataset struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-actions
 	Actions []AWSIoTAnalyticsDataset_Action `json:"Actions,omitempty"`
 
+	// ContentDeliveryRules AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-contentdeliveryrules
+	ContentDeliveryRules []AWSIoTAnalyticsDataset_DatasetContentDeliveryRule `json:"ContentDeliveryRules,omitempty"`
+
 	// DatasetName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-datasetname
@@ -35,6 +40,11 @@ type AWSIoTAnalyticsDataset struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers
 	Triggers []AWSIoTAnalyticsDataset_Trigger `json:"Triggers,omitempty"`
+
+	// VersioningConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-versioningconfiguration
+	VersioningConfiguration *AWSIoTAnalyticsDataset_VersioningConfiguration `json:"VersioningConfiguration,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy

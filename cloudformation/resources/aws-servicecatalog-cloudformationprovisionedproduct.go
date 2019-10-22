@@ -56,6 +56,11 @@ type AWSServiceCatalogCloudFormationProvisionedProduct struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
 	ProvisioningParameters []AWSServiceCatalogCloudFormationProvisionedProduct_ProvisioningParameter `json:"ProvisioningParameters,omitempty"`
 
+	// ProvisioningPreferences AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
+	ProvisioningPreferences *AWSServiceCatalogCloudFormationProvisionedProduct_ProvisioningPreferences `json:"ProvisioningPreferences,omitempty"`
+
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags

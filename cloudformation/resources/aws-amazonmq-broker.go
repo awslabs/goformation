@@ -31,6 +31,11 @@ type AWSAmazonMQBroker struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode
 	DeploymentMode string `json:"DeploymentMode,omitempty"`
 
+	// EncryptionOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-encryptionoptions
+	EncryptionOptions *AWSAmazonMQBroker_EncryptionOptions `json:"EncryptionOptions,omitempty"`
+
 	// EngineType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype

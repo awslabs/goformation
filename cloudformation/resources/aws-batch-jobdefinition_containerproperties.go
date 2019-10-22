@@ -31,6 +31,11 @@ type AWSBatchJobDefinition_ContainerProperties struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-jobrolearn
 	JobRoleArn string `json:"JobRoleArn,omitempty"`
 
+	// LinuxParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters
+	LinuxParameters *AWSBatchJobDefinition_LinuxParameters `json:"LinuxParameters,omitempty"`
+
 	// Memory AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
@@ -50,6 +55,11 @@ type AWSBatchJobDefinition_ContainerProperties struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
 	ReadonlyRootFilesystem bool `json:"ReadonlyRootFilesystem,omitempty"`
+
+	// ResourceRequirements AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
+	ResourceRequirements []AWSBatchJobDefinition_ResourceRequirement `json:"ResourceRequirements,omitempty"`
 
 	// Ulimits AWS CloudFormation Property
 	// Required: false

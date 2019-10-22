@@ -31,6 +31,11 @@ type AWSCognitoUserPool_PasswordPolicy struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requireuppercase
 	RequireUppercase bool `json:"RequireUppercase,omitempty"`
 
+	// TemporaryPasswordValidityDays AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays
+	TemporaryPasswordValidityDays int `json:"TemporaryPasswordValidityDays,omitempty"`
+
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
 

@@ -21,6 +21,11 @@ type AWSGlueCrawler struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration
 	Configuration string `json:"Configuration,omitempty"`
 
+	// CrawlerSecurityConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-crawlersecurityconfiguration
+	CrawlerSecurityConfiguration string `json:"CrawlerSecurityConfiguration,omitempty"`
+
 	// DatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-databasename
@@ -55,6 +60,11 @@ type AWSGlueCrawler struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix
 	TablePrefix string `json:"TablePrefix,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tags
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// Targets AWS CloudFormation Property
 	// Required: true

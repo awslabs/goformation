@@ -97,9 +97,14 @@ type AWSCloudWatchAlarm struct {
 	Statistic string `json:"Statistic,omitempty"`
 
 	// Threshold AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-threshold
-	Threshold float64 `json:"Threshold"`
+	Threshold float64 `json:"Threshold,omitempty"`
+
+	// ThresholdMetricId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-dynamic-threshold
+	ThresholdMetricId string `json:"ThresholdMetricId,omitempty"`
 
 	// TreatMissingData AWS CloudFormation Property
 	// Required: false

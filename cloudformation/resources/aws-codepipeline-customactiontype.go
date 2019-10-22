@@ -42,7 +42,7 @@ type AWSCodePipelineCustomActionType struct {
 	Settings *AWSCodePipelineCustomActionType_Settings `json:"Settings,omitempty"`
 
 	// Version AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-version
 	Version string `json:"Version,omitempty"`
 

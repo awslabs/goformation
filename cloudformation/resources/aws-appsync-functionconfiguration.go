@@ -17,7 +17,7 @@ type AWSAppSyncFunctionConfiguration struct {
 	ApiId string `json:"ApiId,omitempty"`
 
 	// DataSourceName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-datasourcename
 	DataSourceName string `json:"DataSourceName,omitempty"`
 
@@ -27,12 +27,12 @@ type AWSAppSyncFunctionConfiguration struct {
 	Description string `json:"Description,omitempty"`
 
 	// FunctionVersion AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-functionversion
 	FunctionVersion string `json:"FunctionVersion,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-name
 	Name string `json:"Name,omitempty"`
 

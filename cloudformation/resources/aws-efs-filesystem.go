@@ -26,6 +26,11 @@ type AWSEFSFileSystem struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
 	KmsKeyId string `json:"KmsKeyId,omitempty"`
 
+	// LifecyclePolicies AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-lifecyclepolicies
+	LifecyclePolicies []AWSEFSFileSystem_LifecyclePolicy `json:"LifecyclePolicies,omitempty"`
+
 	// PerformanceMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode

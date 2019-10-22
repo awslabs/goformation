@@ -16,6 +16,11 @@ type AWSIoTAnalyticsDatastore struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorename
 	DatastoreName string `json:"DatastoreName,omitempty"`
 
+	// DatastoreStorage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorestorage
+	DatastoreStorage *AWSIoTAnalyticsDatastore_DatastoreStorage `json:"DatastoreStorage,omitempty"`
+
 	// RetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-retentionperiod

@@ -42,7 +42,7 @@ type AWSSSMMaintenanceWindowTask struct {
 	Priority int `json:"Priority"`
 
 	// ServiceRoleArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-servicerolearn
 	ServiceRoleArn string `json:"ServiceRoleArn,omitempty"`
 
@@ -72,7 +72,7 @@ type AWSSSMMaintenanceWindowTask struct {
 	TaskType string `json:"TaskType,omitempty"`
 
 	// WindowId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-windowid
 	WindowId string `json:"WindowId,omitempty"`
 

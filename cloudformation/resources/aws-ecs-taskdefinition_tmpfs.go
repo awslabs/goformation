@@ -17,9 +17,9 @@ type AWSECSTaskDefinition_Tmpfs struct {
 	MountOptions []string `json:"MountOptions,omitempty"`
 
 	// Size AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
-	Size int `json:"Size,omitempty"`
+	Size int `json:"Size"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy

@@ -46,6 +46,11 @@ type AWSCognitoUserPool struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailverificationsubject
 	EmailVerificationSubject string `json:"EmailVerificationSubject,omitempty"`
 
+	// EnabledMfas AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-enabledmfas
+	EnabledMfas []string `json:"EnabledMfas,omitempty"`
+
 	// LambdaConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-lambdaconfig
@@ -81,6 +86,11 @@ type AWSCognitoUserPool struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-smsverificationmessage
 	SmsVerificationMessage string `json:"SmsVerificationMessage,omitempty"`
 
+	// UserPoolAddOns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooladdons
+	UserPoolAddOns *AWSCognitoUserPool_UserPoolAddOns `json:"UserPoolAddOns,omitempty"`
+
 	// UserPoolName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpoolname
@@ -95,6 +105,11 @@ type AWSCognitoUserPool struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameattributes
 	UsernameAttributes []string `json:"UsernameAttributes,omitempty"`
+
+	// VerificationMessageTemplate AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-verificationmessagetemplate
+	VerificationMessageTemplate *AWSCognitoUserPool_VerificationMessageTemplate `json:"VerificationMessageTemplate,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
