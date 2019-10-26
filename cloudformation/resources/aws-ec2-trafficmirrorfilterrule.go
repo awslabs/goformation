@@ -24,7 +24,7 @@ type AWSEC2TrafficMirrorFilterRule struct {
 	// DestinationPortRange AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationportrange
-	DestinationPortRange *AWSEC2TrafficMirrorFilterRule_TrafficMirrorPortRangeRequest `json:"DestinationPortRange,omitempty"`
+	DestinationPortRange *AWSEC2TrafficMirrorFilterRule_TrafficMirrorPortRange `json:"DestinationPortRange,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: false
@@ -49,7 +49,7 @@ type AWSEC2TrafficMirrorFilterRule struct {
 	// SourcePortRange AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourceportrange
-	SourcePortRange *AWSEC2TrafficMirrorFilterRule_TrafficMirrorPortRangeRequest `json:"SourcePortRange,omitempty"`
+	SourcePortRange *AWSEC2TrafficMirrorFilterRule_TrafficMirrorPortRange `json:"SourcePortRange,omitempty"`
 
 	// TrafficDirection AWS CloudFormation Property
 	// Required: true
