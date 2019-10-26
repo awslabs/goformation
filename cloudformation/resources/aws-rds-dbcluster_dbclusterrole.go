@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/awslabs/goformation/v2/cloudformation/policies"
 
 // AWSRDSDBCluster_DBClusterRole AWS CloudFormation Resource (AWS::RDS::DBCluster.DBClusterRole)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html

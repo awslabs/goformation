@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/awslabs/goformation/v2/cloudformation/policies"
 
 // AWSIoTEventsDetectorModel_OnEnter AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.OnEnter)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html

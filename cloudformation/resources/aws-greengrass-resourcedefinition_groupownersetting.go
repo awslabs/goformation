@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/awslabs/goformation/v2/cloudformation/policies"
 
 // AWSGreengrassResourceDefinition_GroupOwnerSetting AWS CloudFormation Resource (AWS::Greengrass::ResourceDefinition.GroupOwnerSetting)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html

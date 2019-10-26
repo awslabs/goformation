@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/awslabs/goformation/v2/cloudformation/policies"
 )
 
 // AWSEC2VPCEndpoint AWS CloudFormation Resource (AWS::EC2::VPCEndpoint)

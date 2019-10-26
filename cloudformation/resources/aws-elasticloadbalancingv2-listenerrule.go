@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/awslabs/goformation/v2/cloudformation/policies"
 )
 
 // AWSElasticLoadBalancingV2ListenerRule AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::ListenerRule)

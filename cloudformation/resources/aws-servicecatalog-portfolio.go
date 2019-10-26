@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/awslabs/goformation/v2/cloudformation/policies"
 )
 
 // AWSServiceCatalogPortfolio AWS CloudFormation Resource (AWS::ServiceCatalog::Portfolio)

@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/awslabs/goformation/v2/cloudformation/policies"
 
 // AWSElasticLoadBalancingLoadBalancer_HealthCheck AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.HealthCheck)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-health-check.html
