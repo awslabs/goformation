@@ -32,7 +32,7 @@ func main() {
 	if len(rg.Results.UpdatedResources) > 0 {
 		fmt.Printf("\nUpdated the following AWS CloudFormation resources:\n\n")
 		for _, updated := range rg.Results.UpdatedResources {
-			fmt.Printf(" - %s -> %s.%s\n", updated.Name, updated.PackageName, updated.StructName)
+			fmt.Printf(" - %s\n", updated.Name)
 		}
 		fmt.Printf("\n")
 	}

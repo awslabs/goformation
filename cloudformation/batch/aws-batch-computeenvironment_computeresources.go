@@ -1,7 +1,6 @@
 package batch
 
 import (
-	"github.com/awslabs/goformation/v3/cloudformation"
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
 )
 

@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v3/cloudformation"
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v3/cloudformation/tags"
 )
 
 // TransitGatewayRouteTable AWS CloudFormation Resource (AWS::EC2::TransitGatewayRouteTable)
@@ -16,7 +16,7 @@ type TransitGatewayRouteTable struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags
-	Tags []cloudformation.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TransitGatewayId AWS CloudFormation Property
 	// Required: true

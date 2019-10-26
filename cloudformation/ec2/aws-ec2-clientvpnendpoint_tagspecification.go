@@ -1,8 +1,8 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v3/cloudformation"
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v3/cloudformation/tags"
 )
 
 // ClientVpnEndpoint_TagSpecification AWS CloudFormation Resource (AWS::EC2::ClientVpnEndpoint.TagSpecification)
@@ -17,7 +17,7 @@ type ClientVpnEndpoint_TagSpecification struct {
 	// Tags AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-tags
-	Tags []cloudformation.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy

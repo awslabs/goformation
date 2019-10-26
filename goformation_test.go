@@ -8,7 +8,7 @@ import (
 
 	"github.com/sanathkr/yaml"
 
-	"github.com/awslabs/goformation/v2"
+	"github.com/awslabs/goformation/v3"
 	"github.com/awslabs/goformation/v3/cloudformation"
 	"github.com/awslabs/goformation/v3/intrinsics"
 

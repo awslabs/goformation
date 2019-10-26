@@ -271,8 +271,10 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 
 	// Check if this resource has tags
 	hasTags := false
-	if _, ok := resource.Properties["Tags"]; ok {
-		hasTags = true
+	if r, ok := resource.Properties["Tags"]; ok {
+		if r.ItemType == "Tag" {
+			hasTags = true
+		}
 	}
 
 	// Pass in the following information into the template

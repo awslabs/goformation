@@ -15,7 +15,7 @@ type ResourceGroup struct {
 	// ResourceGroupTags AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags
-	ResourceGroupTags []cloudformation.Tag `json:"ResourceGroupTags,omitempty"`
+	ResourceGroupTags []tags.Tag `json:"ResourceGroupTags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy

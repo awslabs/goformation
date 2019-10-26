@@ -1,4 +1,4 @@
-package cloudformation
+package tags
 
 import "github.com/awslabs/goformation/v3/cloudformation/policies"
 

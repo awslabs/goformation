@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"bytes"
 	{{if .HasTags}}
-	"github.com/awslabs/goformation/v3/cloudformation"{{end}}
+	"github.com/awslabs/goformation/v3/cloudformation/tags"{{end}}
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
 )
 {{else}}
 import ({{if .HasTags}}
-	"github.com/awslabs/goformation/v3/cloudformation"{{end}}
+	"github.com/awslabs/goformation/v3/cloudformation/tags"{{end}}
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
 )
 {{end}}

@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/awslabs/goformation/v2"
+	"github.com/awslabs/goformation/v3"
 )
 
 func main() {
@@ -16,22 +16,22 @@ func main() {
 
 	// You can extract all resources of a certain type
 	// Each AWS CloudFormation resource is a strongly typed struct
-	functions := template.GetAllAWSServerlessFunctionResources()
-	for name, function := range functions {
+	topics := template.GetAllSNSTopicResources()
+	for name, topic := range topics {
 
-		// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
-		log.Printf("Found a %s named %s (runtime: %s)\n", function.AWSCloudFormationType(), name, function.Runtime)
+		// E.g. Found a AWS::SNS::Topic with Logical ID ExampleTopic and TopicName 'example'
+		log.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), name, topic.TopicName)
 
 	}
 
 	// You can also search for specific resources by their logicalId
-	search := "GetHelloWorld"
-	function, err := template.GetAWSServerlessFunctionWithName(search)
+	search := "ExampleTopic"
+	topic, err := template.GetSNSTopicWithName(search)
 	if err != nil {
-		log.Fatalf("Function not found")
+		log.Fatalf("SNS topic with logical ID %s not found", search)
 	}
 
 	// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
-	log.Printf("Found a %s named %s (runtime: %s)\n", function.AWSCloudFormationType(), search, function.Runtime)
+	log.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), search, topic.TopicName)
 
 }

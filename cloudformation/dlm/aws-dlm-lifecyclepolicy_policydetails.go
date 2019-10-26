@@ -31,7 +31,7 @@ type LifecyclePolicy_PolicyDetails struct {
 	// TargetTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
-	TargetTags []cloudformation.Tag `json:"TargetTags,omitempty"`
+	TargetTags []tags.Tag `json:"TargetTags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy

@@ -149,6 +149,10 @@ func (p Property) IsCustomType() bool {
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
 func (p Property) GoType(typename string, basename string, name string) string {
 
+	if p.ItemType == "Tag" {
+		return "[]tags.Tag"
+	}
+
 	if p.IsPolymorphic() {
 
 		generatePolymorphicProperty(typename, basename+"_"+name, p)
@@ -162,10 +166,6 @@ func (p Property) GoType(typename string, basename string, name string) string {
 			return "map[string]" + convertTypeToGo(p.PrimitiveItemType)
 		}
 
-		if p.ItemType == "Tag" {
-			return "map[string]cloudformation.Tag"
-		}
-
 		return "map[string]" + basename + "_" + p.ItemType
 
 	}
@@ -174,10 +174,6 @@ func (p Property) GoType(typename string, basename string, name string) string {
 
 		if p.IsListOfPrimitives() {
 			return "[]" + convertTypeToGo(p.PrimitiveItemType)
-		}
-
-		if p.ItemType == "Tag" {
-			return "[]cloudformation.Tag"
 		}
 
 		return "[]" + basename + "_" + p.ItemType

@@ -31,12 +31,12 @@ type LifecyclePolicy_Schedule struct {
 	// TagsToAdd AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
-	TagsToAdd []cloudformation.Tag `json:"TagsToAdd,omitempty"`
+	TagsToAdd []tags.Tag `json:"TagsToAdd,omitempty"`
 
 	// VariableTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
-	VariableTags []cloudformation.Tag `json:"VariableTags,omitempty"`
+	VariableTags []tags.Tag `json:"VariableTags,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
