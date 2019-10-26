@@ -1,9 +1,10 @@
-package resources
+package {{.PackageName}}
 
 import (
 	"sort"
-
 	"encoding/json"
+
+	"github.com/awslabs/goformation/v3/cloudformation/utils"
 )
 
 // {{.Name}} is a helper struct that can hold either a {{.TypesJoined}} value
@@ -50,7 +51,7 @@ func (r {{.Name}}) value() interface{} {
 		}
 	{{end}}
 
-	sort.Sort(byJSONLength(ret)) // Heuristic to select best attribute
+	sort.Sort(utils.ByJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
 		return ret[0]
 	}

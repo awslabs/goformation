@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v3/cloudformation/tags"
 )
 
 // AssessmentTemplate AWS CloudFormation Resource (AWS::Inspector::AssessmentTemplate)

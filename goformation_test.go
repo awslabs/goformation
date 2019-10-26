@@ -3,13 +3,16 @@ package goformation_test
 import (
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v3/cloudformation/policies"
-	"github.com/awslabs/goformation/v3/cloudformation/resources"
-
 	"github.com/sanathkr/yaml"
 
 	"github.com/awslabs/goformation/v3"
 	"github.com/awslabs/goformation/v3/cloudformation"
+	"github.com/awslabs/goformation/v3/cloudformation/lambda"
+	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v3/cloudformation/route53"
+	"github.com/awslabs/goformation/v3/cloudformation/s3"
+	"github.com/awslabs/goformation/v3/cloudformation/serverless"
+	"github.com/awslabs/goformation/v3/cloudformation/sns"
 	"github.com/awslabs/goformation/v3/intrinsics"
 
 	. "github.com/onsi/ginkgo"
@@ -27,7 +30,7 @@ var _ = Describe("Goformation", func() {
 			Expect(template).ShouldNot(BeNil())
 		})
 
-		functions := template.GetAllAWSServerlessFunctionResources()
+		functions := template.GetAllServerlessFunctionResources()
 
 		It("should have exactly one function", func() {
 			Expect(functions).To(HaveLen(1))
@@ -106,28 +109,28 @@ var _ = Describe("Goformation", func() {
 
 			template := cloudformation.NewTemplate()
 
-			template.Resources["MySNSTopic"] = &resources.AWSSNSTopic{
+			template.Resources["MySNSTopic"] = &sns.Topic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []resources.AWSSNSTopic_Subscription{
-					resources.AWSSNSTopic_Subscription{
+				Subscription: []sns.Topic_Subscription{
+					sns.Topic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			template.Resources["MyRoute53HostedZone"] = &resources.AWSRoute53HostedZone{
+			template.Resources["MyRoute53HostedZone"] = &route53.HostedZone{
 				Name: "example.com",
 			}
 
-			topics := template.GetAllAWSSNSTopicResources()
+			topics := template.GetAllSNSTopicResources()
 			It("should have one AWS::SNS::Topic resource", func() {
 				Expect(topics).To(HaveLen(1))
 				Expect(topics).To(HaveKey("MySNSTopic"))
 			})
 
-			topic, err := template.GetAWSSNSTopicWithName("MySNSTopic")
+			topic, err := template.GetSNSTopicWithName("MySNSTopic")
 			It("should be able to find the AWS::SNS::Topic by name", func() {
 				Expect(topic).ToNot(BeNil())
 				Expect(err).To(BeNil())
@@ -141,13 +144,13 @@ var _ = Describe("Goformation", func() {
 				Expect(topic.Subscription[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
 			})
 
-			zones := template.GetAllAWSRoute53HostedZoneResources()
+			zones := template.GetAllRoute53HostedZoneResources()
 			It("should have one AWS::Route53::HostedZone resource", func() {
 				Expect(zones).To(HaveLen(1))
 				Expect(zones).To(HaveKey("MyRoute53HostedZone"))
 			})
 
-			zone, err := template.GetAWSRoute53HostedZoneWithName("MyRoute53HostedZone")
+			zone, err := template.GetRoute53HostedZoneWithName("MyRoute53HostedZone")
 			It("should be able to find the AWS::Route53::HostedZone by name", func() {
 				Expect(zone).ToNot(BeNil())
 				Expect(err).To(BeNil())
@@ -165,18 +168,18 @@ var _ = Describe("Goformation", func() {
 
 			expected := cloudformation.NewTemplate()
 
-			expected.Resources["MySNSTopic"] = &resources.AWSSNSTopic{
+			expected.Resources["MySNSTopic"] = &sns.Topic{
 				DisplayName: "test-sns-topic-display-name",
 				TopicName:   "test-sns-topic-name",
-				Subscription: []resources.AWSSNSTopic_Subscription{
-					resources.AWSSNSTopic_Subscription{
+				Subscription: []sns.Topic_Subscription{
+					sns.Topic_Subscription{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
 					},
 				},
 			}
 
-			expected.Resources["MyRoute53HostedZone"] = &resources.AWSRoute53HostedZone{
+			expected.Resources["MyRoute53HostedZone"] = &route53.HostedZone{
 				Name: "example.com",
 			}
 
@@ -185,13 +188,13 @@ var _ = Describe("Goformation", func() {
 				Expect(err).To(BeNil())
 			})
 
-			topics := result.GetAllAWSSNSTopicResources()
+			topics := result.GetAllSNSTopicResources()
 			It("should have one AWS::SNS::Topic resource", func() {
 				Expect(topics).To(HaveLen(1))
 				Expect(topics).To(HaveKey("MySNSTopic"))
 			})
 
-			topic, err := result.GetAWSSNSTopicWithName("MySNSTopic")
+			topic, err := result.GetSNSTopicWithName("MySNSTopic")
 			It("should be able to find the AWS::SNS::Topic by name", func() {
 				Expect(topic).ToNot(BeNil())
 				Expect(err).To(BeNil())
@@ -205,13 +208,13 @@ var _ = Describe("Goformation", func() {
 				Expect(topic.Subscription[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
 			})
 
-			zones := result.GetAllAWSRoute53HostedZoneResources()
+			zones := result.GetAllRoute53HostedZoneResources()
 			It("should have one AWS::Route53::HostedZone resource", func() {
 				Expect(zones).To(HaveLen(1))
 				Expect(zones).To(HaveKey("MyRoute53HostedZone"))
 			})
 
-			zone, err := result.GetAWSRoute53HostedZoneWithName("MyRoute53HostedZone")
+			zone, err := result.GetRoute53HostedZoneWithName("MyRoute53HostedZone")
 			It("should be able to find the AWS::Route53::HostedZone by name", func() {
 				Expect(zone).ToNot(BeNil())
 				Expect(err).To(BeNil())
@@ -281,7 +284,7 @@ var _ = Describe("Goformation", func() {
 			Expect(template).ShouldNot(PointTo(BeNil()))
 		})
 
-		function, err := template.GetAWSServerlessFunctionWithName("IntrinsicFunctionTest")
+		function, err := template.GetServerlessFunctionWithName("IntrinsicFunctionTest")
 		It("should have a function named 'IntrinsicFunctionTest'", func() {
 			Expect(function).To(Not(BeNil()))
 			Expect(err).To(BeNil())
@@ -302,7 +305,7 @@ var _ = Describe("Goformation", func() {
 			Expect(template).ShouldNot(BeNil())
 		})
 
-		functions := template.GetAllAWSServerlessFunctionResources()
+		functions := template.GetAllServerlessFunctionResources()
 
 		It("should have exactly three functions", func() {
 			Expect(functions).To(HaveLen(3))
@@ -333,21 +336,21 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"MyLambdaFunction": &resources.AWSLambdaFunction{
+				"MyLambdaFunction": &lambda.Function{
 					Handler: "nodejs6.10",
 				},
 			},
 		}
 
-		functions := template.GetAllAWSLambdaFunctionResources()
-		It("should be able to retrieve all Lambda functions with GetAllAWSLambdaFunction(template)", func() {
+		functions := template.GetAllLambdaFunctionResources()
+		It("should be able to retrieve all Lambda functions with GetAllLambdaFunction(template)", func() {
 			Expect(functions).To(HaveLen(1))
 		})
 
-		function, err := template.GetAWSLambdaFunctionWithName("MyLambdaFunction")
-		It("should be able to retrieve a specific Lambda function with GetAWSLambdaFunctionWithName(template, name)", func() {
+		function, err := template.GetLambdaFunctionWithName("MyLambdaFunction")
+		It("should be able to retrieve a specific Lambda function with GetLambdaFunctionWithName(template, name)", func() {
 			Expect(err).To(BeNil())
-			Expect(function).To(BeAssignableToTypeOf(&resources.AWSLambdaFunction{}))
+			Expect(function).To(BeAssignableToTypeOf(&lambda.Function{}))
 		})
 
 		It("should have the correct Handler property", func() {
@@ -362,10 +365,10 @@ var _ = Describe("Goformation", func() {
 
 			template := &cloudformation.Template{
 				Resources: cloudformation.Resources{
-					"MySAMFunction": &resources.AWSServerlessFunction{
+					"MySAMFunction": &serverless.Function{
 						Handler: "nodejs6.10",
-						CodeUri: &resources.AWSServerlessFunction_CodeUri{
-							S3Location: &resources.AWSServerlessFunction_S3Location{
+						CodeUri: &serverless.Function_CodeUri{
+							S3Location: &serverless.Function_S3Location{
 								Bucket:  "test-bucket",
 								Key:     "test-key",
 								Version: 100,
@@ -375,7 +378,7 @@ var _ = Describe("Goformation", func() {
 				},
 			}
 
-			function, err := template.GetAWSServerlessFunctionWithName("MySAMFunction")
+			function, err := template.GetServerlessFunctionWithName("MySAMFunction")
 			It("should have an AWS::Serverless::Function called MySAMFunction", func() {
 				Expect(function).ToNot(BeNil())
 				Expect(err).To(BeNil())
@@ -394,16 +397,16 @@ var _ = Describe("Goformation", func() {
 			codeuri := "./some-folder"
 			template := &cloudformation.Template{
 				Resources: cloudformation.Resources{
-					"MySAMFunction": &resources.AWSServerlessFunction{
+					"MySAMFunction": &serverless.Function{
 						Handler: "nodejs6.10",
-						CodeUri: &resources.AWSServerlessFunction_CodeUri{
+						CodeUri: &serverless.Function_CodeUri{
 							String: &codeuri,
 						},
 					},
 				},
 			}
 
-			function, err := template.GetAWSServerlessFunctionWithName("MySAMFunction")
+			function, err := template.GetServerlessFunctionWithName("MySAMFunction")
 			It("should have an AWS::Serverless::Function called MySAMFunction", func() {
 				Expect(function).ToNot(BeNil())
 				Expect(err).To(BeNil())
@@ -426,7 +429,7 @@ var _ = Describe("Goformation", func() {
 			Expect(err).To(BeNil())
 		})
 
-		table, err := template.GetAWSServerlessSimpleTableWithName("TestSimpleTable")
+		table, err := template.GetServerlessSimpleTableWithName("TestSimpleTable")
 		It("should have a table named 'TestSimpleTable'", func() {
 			Expect(table).ToNot(BeNil())
 			Expect(err).To(BeNil())
@@ -457,7 +460,7 @@ var _ = Describe("Goformation", func() {
 		})
 
 		It("should have a table named 'TestSimpleTableNoProperties'", func() {
-			nopropertiesTable, err := template.GetAWSServerlessSimpleTableWithName("TestSimpleTableNoProperties")
+			nopropertiesTable, err := template.GetServerlessSimpleTableWithName("TestSimpleTableNoProperties")
 			Expect(nopropertiesTable).ToNot(BeNil())
 			Expect(err).To(BeNil())
 		})
@@ -476,7 +479,7 @@ var _ = Describe("Goformation", func() {
 			Expect(err).To(BeNil())
 		})
 
-		api1, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionUriAsString")
+		api1, err := template.GetServerlessApiWithName("ServerlessApiWithDefinitionUriAsString")
 		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionUriAsString'", func() {
 			Expect(api1).ToNot(BeNil())
 			Expect(err).To(BeNil())
@@ -506,7 +509,7 @@ var _ = Describe("Goformation", func() {
 			Expect(api1.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
 		})
 
-		api2, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionUriAsS3Location")
+		api2, err := template.GetServerlessApiWithName("ServerlessApiWithDefinitionUriAsS3Location")
 		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionUriAsS3Location'", func() {
 			Expect(api2).ToNot(BeNil())
 			Expect(err).To(BeNil())
@@ -518,7 +521,7 @@ var _ = Describe("Goformation", func() {
 			Expect(api2.DefinitionUri.S3Location.Version).To(Equal(1))
 		})
 
-		api3, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionBodyAsJSON")
+		api3, err := template.GetServerlessApiWithName("ServerlessApiWithDefinitionBodyAsJSON")
 		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionBodyAsJSON'", func() {
 			Expect(api3).ToNot(BeNil())
 			Expect(err).To(BeNil())
@@ -528,7 +531,7 @@ var _ = Describe("Goformation", func() {
 			Expect(api3.DefinitionBody).To(Equal("{\n  \"DefinitionKey\": \"test-definition-value\"\n}\n"))
 		})
 
-		api4, err := template.GetAWSServerlessApiWithName("ServerlessApiWithDefinitionBodyAsYAML")
+		api4, err := template.GetServerlessApiWithName("ServerlessApiWithDefinitionBodyAsYAML")
 		It("should have an AWS::Serverless::Api named 'ServerlessApiWithDefinitionBodyAsYAML'", func() {
 			Expect(api4).ToNot(BeNil())
 			Expect(err).To(BeNil())
@@ -542,7 +545,7 @@ var _ = Describe("Goformation", func() {
 			Expect(api4.DefinitionBody).To(Equal(expected))
 		})
 
-		api5, err := template.GetAWSServerlessApiWithName("ServerlessApiWithAccessLogSettingAsYAML")
+		api5, err := template.GetServerlessApiWithName("ServerlessApiWithAccessLogSettingAsYAML")
 		It("should have an AWS::Serverless::Api named 'ServerlessApiWithAccessLogSettingAsYAML'", func() {
 			Expect(api5).ToNot(BeNil())
 			Expect(err).To(BeNil())
@@ -566,7 +569,7 @@ var _ = Describe("Goformation", func() {
 			Expect(template).ShouldNot(BeNil())
 		})
 
-		function, err := template.GetAWSServerlessFunctionWithName("IntrinsicEnvironmentVariableTestFunction")
+		function, err := template.GetServerlessFunctionWithName("IntrinsicEnvironmentVariableTestFunction")
 		It("should have a function named 'IntrinsicEnvironmentVariableTestFunction'", func() {
 			Expect(function).To(Not(BeNil()))
 			Expect(err).To(BeNil())
@@ -578,8 +581,8 @@ var _ = Describe("Goformation", func() {
 	})
 
 	Context("with a SNS event source", func() {
-		event := resources.AWSServerlessFunction_Properties{
-			SNSEvent: &resources.AWSServerlessFunction_SNSEvent{
+		event := serverless.Function_Properties{
+			SNSEvent: &serverless.Function_SNSEvent{
 				Topic: "MyTopic",
 			},
 		}
@@ -594,7 +597,7 @@ var _ = Describe("Goformation", func() {
 	Context("with an SNS event source created from JSON", func() {
 		eventString := `{"Topic":"MyTopic"}`
 		eventJson := []byte(eventString)
-		event := resources.AWSServerlessFunction_Properties{}
+		event := serverless.Function_Properties{}
 		event.UnmarshalJSON(eventJson)
 
 		It("should marshal properties correctly", func() {
@@ -608,10 +611,10 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"TestBucket": &resources.AWSS3Bucket{
+				"TestBucket": &s3.Bucket{
 					BucketName: "test-bucket",
 				},
-				"TestBucketPolicy": &resources.AWSS3BucketPolicy{
+				"TestBucketPolicy": &s3.BucketPolicy{
 					Bucket: cloudformation.Ref("TestBucket"),
 				},
 			},
@@ -830,7 +833,7 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"TestBucket": &resources.AWSS3Bucket{
+				"TestBucket": &s3.Bucket{
 					BucketName: cloudformation.Join("/", []string{
 						cloudformation.Join("-", []string{"test", "bucket"}),
 					}),
@@ -891,10 +894,10 @@ var _ = Describe("Goformation", func() {
 
 		template := &cloudformation.Template{
 			Resources: cloudformation.Resources{
-				"TestBucket": &resources.AWSS3Bucket{
+				"TestBucket": &s3.Bucket{
 					BucketName: "test-bucket",
 				},
-				"TestBucketPolicy": &resources.AWSS3BucketPolicy{
+				"TestBucketPolicy": &s3.BucketPolicy{
 					Bucket: cloudformation.GetAtt("TestBucket", "WebsiteURL"),
 				},
 			},

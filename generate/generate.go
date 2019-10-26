@@ -269,11 +269,14 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 		}
 	}
 
-	// Check if this resource has tags
+	// Check if this resource has any tag properties
+	// note: the property might not always be called 'Tags'
+	// see: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
 	hasTags := false
-	if r, ok := resource.Properties["Tags"]; ok {
-		if r.ItemType == "Tag" {
+	for _, property := range resource.Properties {
+		if property.ItemType == "Tag" {
 			hasTags = true
+			break
 		}
 	}
 

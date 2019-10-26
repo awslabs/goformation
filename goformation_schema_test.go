@@ -4,10 +4,11 @@ import (
 	// Note that this is a fork of the main repo: github.com/xeipuuv/gojsonschema
 	// CloudFormation uses nested schema def references, which is currently broken
 	// in the main repo: https://github.com/xeipuuv/gojsonschema/pull/146
-	. "github.com/xeipuuv/gojsonschema"
+	"os"
+
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"os"
+	. "github.com/xeipuuv/gojsonschema"
 )
 
 var _ = Describe("Goformation-generated JSON schemas", func() {

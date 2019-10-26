@@ -2,6 +2,7 @@ package dlm
 
 import (
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v3/cloudformation/tags"
 )
 
 // LifecyclePolicy_PolicyDetails AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.PolicyDetails)

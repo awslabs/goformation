@@ -9,14 +9,14 @@ func main() {
 
 	fmt.Printf("GoFormation Resource Generator\n")
 
-	// cloudformationSpec := "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
-	cloudformationSpec := "file://generate/cfn-2019-10-26.json"
+	// Fetch and process the AWS published CloudFormation Resource Specification
+	cloudformationSpec := "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 
-	// // TODO(pmaddox): commented out until I work out what SAMPT means in the spec
-	// otherSpecs := map[string]string{
-	// 	"sam": "file://generate/sam-2016-10-31.json",
-	// }
-	otherSpecs := map[string]string{}
+	otherSpecs := map[string]string{
+		// We have a manually generated SAM specification in this repo too
+		// which needs to be manually updated when the SAM spec changes
+		"sam": "file://generate/sam-2016-10-31.json",
+	}
 
 	rg, err := NewResourceGenerator(cloudformationSpec, otherSpecs)
 	if err != nil {

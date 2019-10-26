@@ -2,6 +2,7 @@ package dlm
 
 import (
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v3/cloudformation/tags"
 )
 
 // LifecyclePolicy_Schedule AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.Schedule)

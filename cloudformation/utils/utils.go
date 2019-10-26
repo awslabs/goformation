@@ -1,20 +1,21 @@
-package cloudformation
+package utils
 
 import (
 	"encoding/json"
 )
 
-type byJSONLength []interface{}
+// ByJSONLength implements the sort interface and enables sorting by JSON length
+type ByJSONLength []interface{}
 
-func (s byJSONLength) Len() int {
+func (s ByJSONLength) Len() int {
 	return len(s)
 }
 
-func (s byJSONLength) Swap(i, j int) {
+func (s ByJSONLength) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
 
-func (s byJSONLength) Less(i, j int) bool {
+func (s ByJSONLength) Less(i, j int) bool {
 	// Nil is always at the end
 	if s[i] == nil {
 		return false

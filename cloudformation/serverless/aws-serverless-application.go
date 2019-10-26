@@ -1,4 +1,4 @@
-package inspector
+package serverless
 
 import (
 	"bytes"
@@ -6,17 +6,36 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v3/cloudformation/policies"
-	"github.com/awslabs/goformation/v3/cloudformation/tags"
 )
 
-// ResourceGroup AWS CloudFormation Resource (AWS::Inspector::ResourceGroup)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html
-type ResourceGroup struct {
+// Application AWS CloudFormation Resource (AWS::Serverless::Application)
+// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+type Application struct {
 
-	// ResourceGroupTags AWS CloudFormation Property
+	// Location AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags
-	ResourceGroupTags []tags.Tag `json:"ResourceGroupTags,omitempty"`
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	Location *Application_Location `json:"Location,omitempty"`
+
+	// NotificationArns AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	NotificationArns []string `json:"NotificationArns,omitempty"`
+
+	// Parameters AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	Parameters map[string]string `json:"Parameters,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	Tags map[string]string `json:"Tags,omitempty"`
+
+	// TimeoutInMinutes AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication
+	TimeoutInMinutes int `json:"TimeoutInMinutes,omitempty"`
 
 	// _deletionPolicy represents a CloudFormation DeletionPolicy
 	_deletionPolicy policies.DeletionPolicy
@@ -29,50 +48,50 @@ type ResourceGroup struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *ResourceGroup) AWSCloudFormationType() string {
-	return "AWS::Inspector::ResourceGroup"
+func (r *Application) AWSCloudFormationType() string {
+	return "AWS::Serverless::Application"
 }
 
 // DependsOn returns a slice of logical ID names this resource depends on.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *ResourceGroup) DependsOn() []string {
+func (r *Application) DependsOn() []string {
 	return r._dependsOn
 }
 
 // SetDependsOn specify that the creation of this resource follows another.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *ResourceGroup) SetDependsOn(dependencies []string) {
+func (r *Application) SetDependsOn(dependencies []string) {
 	r._dependsOn = dependencies
 }
 
 // Metadata returns the metadata associated with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *ResourceGroup) Metadata() map[string]interface{} {
+func (r *Application) Metadata() map[string]interface{} {
 	return r._metadata
 }
 
 // SetMetadata enables you to associate structured data with this resource.
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *ResourceGroup) SetMetadata(metadata map[string]interface{}) {
+func (r *Application) SetMetadata(metadata map[string]interface{}) {
 	r._metadata = metadata
 }
 
 // DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *ResourceGroup) DeletionPolicy() policies.DeletionPolicy {
+func (r *Application) DeletionPolicy() policies.DeletionPolicy {
 	return r._deletionPolicy
 }
 
 // SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *ResourceGroup) SetDeletionPolicy(policy policies.DeletionPolicy) {
+func (r *Application) SetDeletionPolicy(policy policies.DeletionPolicy) {
 	r._deletionPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r ResourceGroup) MarshalJSON() ([]byte, error) {
-	type Properties ResourceGroup
+func (r Application) MarshalJSON() ([]byte, error) {
+	type Properties Application
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -90,8 +109,8 @@ func (r ResourceGroup) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *ResourceGroup) UnmarshalJSON(b []byte) error {
-	type Properties ResourceGroup
+func (r *Application) UnmarshalJSON(b []byte) error {
+	type Properties Application
 	res := &struct {
 		Type           string
 		Properties     *Properties
@@ -110,7 +129,7 @@ func (r *ResourceGroup) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = ResourceGroup(*res.Properties)
+		*r = Application(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r._dependsOn = res.DependsOn
