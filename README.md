@@ -44,8 +44,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/awslabs/goformation/cloudformation"
-	"github.com/awslabs/goformation/cloudformation/resources"
+	"github.com/awslabs/goformation/v2/cloudformation"
+	"github.com/awslabs/goformation/v2/cloudformation/resources"
 )
 
 func main() {
@@ -157,7 +157,7 @@ package main
 import (
 	"log"
 
-	"github.com/awslabs/goformation"
+	"github.com/awslabs/goformation/v2"
 )
 
 func main() {
