@@ -226,6 +226,7 @@ func AllResources() map[string]Resource {
 		"AWS::ElasticLoadBalancingV2::LoadBalancer":                   &resources.AWSElasticLoadBalancingV2LoadBalancer{},
 		"AWS::ElasticLoadBalancingV2::TargetGroup":                    &resources.AWSElasticLoadBalancingV2TargetGroup{},
 		"AWS::Elasticsearch::Domain":                                  &resources.AWSElasticsearchDomain{},
+		"AWS::Events::EventBus":                                       &resources.AWSEventsEventBus{},
 		"AWS::Events::EventBusPolicy":                                 &resources.AWSEventsEventBusPolicy{},
 		"AWS::Events::Rule":                                           &resources.AWSEventsRule{},
 		"AWS::FSx::FileSystem":                                        &resources.AWSFSxFileSystem{},
@@ -5705,6 +5706,30 @@ func (t *Template) GetAWSElasticsearchDomainWithName(name string) (*resources.AW
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type AWSElasticsearchDomain not found", name)
+}
+
+// GetAllAWSEventsEventBusResources retrieves all AWSEventsEventBus items from an AWS CloudFormation template
+func (t *Template) GetAllAWSEventsEventBusResources() map[string]*resources.AWSEventsEventBus {
+	results := map[string]*resources.AWSEventsEventBus{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *resources.AWSEventsEventBus:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAWSEventsEventBusWithName retrieves all AWSEventsEventBus items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAWSEventsEventBusWithName(name string) (*resources.AWSEventsEventBus, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *resources.AWSEventsEventBus:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type AWSEventsEventBus not found", name)
 }
 
 // GetAllAWSEventsEventBusPolicyResources retrieves all AWSEventsEventBusPolicy items from an AWS CloudFormation template

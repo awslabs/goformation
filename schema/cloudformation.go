@@ -7599,6 +7599,9 @@ var CloudformationSchema = `{
         "AWS::Batch::ComputeEnvironment.ComputeResources": {
             "additionalProperties": false,
             "properties": {
+                "AllocationStrategy": {
+                    "type": "string"
+                },
                 "BidPercentage": {
                     "type": "number"
                 },
@@ -11994,6 +11997,9 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AmbiguousRoleResolution": {
+                    "type": "string"
+                },
+                "IdentityProvider": {
                     "type": "string"
                 },
                 "RulesConfiguration": {
@@ -19846,7 +19852,7 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "DestinationPortRange": {
-                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest"
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange"
                         },
                         "Protocol": {
                             "type": "number"
@@ -19861,7 +19867,7 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "SourcePortRange": {
-                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest"
+                            "$ref": "#/definitions/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange"
                         },
                         "TrafficDirection": {
                             "type": "string"
@@ -19893,7 +19899,7 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
-        "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest": {
+        "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange": {
             "additionalProperties": false,
             "properties": {
                 "FromPort": {
@@ -26558,6 +26564,63 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::Events::EventBus": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "EventSourceName": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Events::EventBus"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::Events::EventBusPolicy": {
             "additionalProperties": false,
             "properties": {
@@ -26960,6 +27023,10 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::FSx::FileSystem.WindowsConfiguration"
                         }
                     },
+                    "required": [
+                        "FileSystemType",
+                        "SubnetIds"
+                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -26970,7 +27037,8 @@ var CloudformationSchema = `{
                 }
             },
             "required": [
-                "Type"
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -26992,6 +27060,33 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::FSx::FileSystem.SelfManagedActiveDirectoryConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DnsIps": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "DomainName": {
+                    "type": "string"
+                },
+                "FileSystemAdministratorsGroup": {
+                    "type": "string"
+                },
+                "OrganizationalUnitDistinguishedName": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "UserName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::FSx::FileSystem.WindowsConfiguration": {
             "additionalProperties": false,
             "properties": {
@@ -27006,6 +27101,9 @@ var CloudformationSchema = `{
                 },
                 "DailyAutomaticBackupStartTime": {
                     "type": "string"
+                },
+                "SelfManagedActiveDirectoryConfiguration": {
+                    "$ref": "#/definitions/AWS::FSx::FileSystem.SelfManagedActiveDirectoryConfiguration"
                 },
                 "ThroughputCapacity": {
                     "type": "number"
@@ -54020,6 +54118,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Elasticsearch::Domain"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Events::EventBus"
                         },
                         {
                             "$ref": "#/definitions/AWS::Events::EventBusPolicy"
