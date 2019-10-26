@@ -27,7 +27,7 @@
 As with other Go libraries, GoFormation can be installed with `go get`.
 
 ```
-$ go get github.com/awslabs/goformation/v2
+$ go get github.com/awslabs/goformation/v3
 ```
 
 ## Usage
@@ -44,8 +44,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/awslabs/goformation/v2/cloudformation"
-	"github.com/awslabs/goformation/v2/cloudformation/resources"
+	"github.com/awslabs/goformation/v3/cloudformation"
+	"github.com/awslabs/goformation/v3/cloudformation/sns"
+
+
 )
 
 func main() {
@@ -54,12 +56,12 @@ func main() {
 	template := cloudformation.NewTemplate()
 
 	// Create an Amazon SNS topic, with a unique name based off the current timestamp
-	template.Resources["MyTopic"] = &resources.AWSSNSTopic{
+	template.Resources["MyTopic"] = &sns.Topic{
 		TopicName: "my-topic-" + strconv.FormatInt(time.Now().Unix(), 10),
 	}
 
 	// Create a subscription, connected to our topic, that forwards notifications to an email address
-	template.Resources["MyTopicSubscription"] = &resources.AWSSNSSubscription{
+	template.Resources["MyTopicSubscription"] = &sns.Subscription{
 		TopicArn: cloudformation.Ref("MyTopic"),
 		Protocol: "email",
 		Endpoint: "some.email@example.com",
@@ -157,7 +159,7 @@ package main
 import (
 	"log"
 
-	"github.com/awslabs/goformation/v2"
+	"github.com/awslabs/goformation/v3"
 )
 
 func main() {

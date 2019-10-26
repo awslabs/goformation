@@ -1,14 +1,19 @@
-package resources
+package {{.PackageName}}
 
 {{if not .IsCustomProperty}}
 import (
 	"encoding/json"
 	"fmt"
 	"bytes"
-	"github.com/awslabs/goformation/v2/cloudformation/policies"
+	{{if .HasTags}}
+	"github.com/awslabs/goformation/v3/cloudformation"{{end}}
+	"github.com/awslabs/goformation/v3/cloudformation/policies"
 )
 {{else}}
-import "github.com/awslabs/goformation/v2/cloudformation/policies"
+import ({{if .HasTags}}
+	"github.com/awslabs/goformation/v3/cloudformation"{{end}}
+	"github.com/awslabs/goformation/v3/cloudformation/policies"
+)
 {{end}}
 
 // {{.StructName}} AWS CloudFormation Resource ({{.Name}})
@@ -20,7 +25,7 @@ type {{.StructName}} struct {
     // {{$name}} AWS CloudFormation Property
     // Required: {{$property.Required}}
     // See: {{$property.Documentation}}
-    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
+    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Name $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
     {{end}}
 	{{if .HasUpdatePolicy }}// _updatePolicy represents a CloudFormation UpdatePolicy
 	_updatePolicy *policies.UpdatePolicy{{ end }}

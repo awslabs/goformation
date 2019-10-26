@@ -16,15 +16,24 @@ import (
 // ResourceGenerator takes AWS CloudFormation Resource Specification
 // documents, and generates Go structs and a JSON Schema from them.
 type ResourceGenerator struct {
-	primaryUrl   string
+	primaryURL   string
 	fragmentUrls map[string]string
 	Results      *ResourceGeneratorResults
 }
 
+// GeneratedResource represents a CloudFormation resource that has been generated
+// and includes the name (e.g. AWS::S3::Bucket), Package Name (e.g. s3) and struct name (e.g. Bucket)
+type GeneratedResource struct {
+	Name        string
+	BaseName    string
+	PackageName string
+	StructName  string
+}
+
 // ResourceGeneratorResults contains a summary of the items generated
 type ResourceGeneratorResults struct {
-	AllResources     map[string]string
-	UpdatedResources map[string]string
+	AllResources     []GeneratedResource
+	UpdatedResources []GeneratedResource
 	UpdatedSchemas   map[string]string
 	ProcessedCount   int
 }
@@ -50,14 +59,14 @@ var (
 // document and an array of fragment Resource Specification documents (such as transforms),
 // and generates Go structs and a JSON Schema from them.
 // The input can be a mix of URLs (https://) or files (file://).
-func NewResourceGenerator(primaryUrl string, fragmentUrls map[string]string) (*ResourceGenerator, error) {
+func NewResourceGenerator(primaryURL string, fragmentUrls map[string]string) (*ResourceGenerator, error) {
 
 	rg := &ResourceGenerator{
-		primaryUrl:   primaryUrl,
+		primaryURL:   primaryURL,
 		fragmentUrls: fragmentUrls,
 		Results: &ResourceGeneratorResults{
-			UpdatedResources: map[string]string{},
-			AllResources:     map[string]string{},
+			UpdatedResources: []GeneratedResource{},
+			AllResources:     []GeneratedResource{},
 			UpdatedSchemas:   map[string]string{},
 			ProcessedCount:   0,
 		},
@@ -72,8 +81,8 @@ func (rg *ResourceGenerator) Generate() error {
 
 	// Process the primary template first, since the primary template resources
 	// are added to the JSON schema for fragment transform specs
-	fmt.Printf("Downloading cloudformation specification from %s\n", rg.primaryUrl)
-	primaryData, err := rg.downloadSpec(rg.primaryUrl)
+	fmt.Printf("Downloading cloudformation specification from %s\n", rg.primaryURL)
+	primaryData, err := rg.downloadSpec(rg.primaryURL)
 	if err != nil {
 		return err
 	}
@@ -156,7 +165,28 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 
 	// Add the resources processed to the ResourceGenerator output
 	for name := range spec.Resources {
-		rg.Results.AllResources[name] = structName(name)
+
+		sname, err := structName(name)
+		if err != nil {
+			return nil, err
+		}
+
+		pname, err := packageName(name, true)
+		if err != nil {
+			return nil, err
+		}
+
+		basename, err := packageName(name, false)
+		if err != nil {
+			return nil, err
+		}
+
+		rg.Results.AllResources = append(rg.Results.AllResources, GeneratedResource{
+			Name:        name,
+			BaseName:    basename,
+			PackageName: pname,
+			StructName:  sname,
+		})
 	}
 
 	// Write all of the resources in the spec file
@@ -177,7 +207,7 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 
 }
 
-func (rg *ResourceGenerator) generateAllResourcesMap(resources map[string]string) error {
+func (rg *ResourceGenerator) generateAllResourcesMap(resources []GeneratedResource) error {
 
 	// Open the all resources template
 	tmpl, err := template.ParseFiles("generate/templates/all.template")
@@ -186,7 +216,7 @@ func (rg *ResourceGenerator) generateAllResourcesMap(resources map[string]string
 	}
 
 	templateData := struct {
-		Resources map[string]string
+		Resources []GeneratedResource
 	}{
 		Resources: resources,
 	}
@@ -239,13 +269,30 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 		}
 	}
 
+	// Check if this resource has tags
+	hasTags := false
+	if _, ok := resource.Properties["Tags"]; ok {
+		hasTags = true
+	}
+
 	// Pass in the following information into the template
-	sname := structName(name)
-	structNameParts := strings.Split(name, ".")
-	basename := structName(structNameParts[0])
+	sname, err := structName(name)
+	if err != nil {
+		return err
+	}
+
+	pname, err := packageName(name, true)
+	if err != nil {
+		return err
+	}
+
+	nameParts := strings.Split(name, "::")
+	nameParts = strings.Split(nameParts[len(nameParts)-1], ".")
+	basename := nameParts[0]
 
 	templateData := struct {
 		Name              string
+		PackageName       string
 		StructName        string
 		Basename          string
 		Resource          Resource
@@ -253,8 +300,10 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 		Version           string
 		HasUpdatePolicy   bool
 		HasCreationPolicy bool
+		HasTags           bool
 	}{
 		Name:              name,
+		PackageName:       pname,
 		StructName:        sname,
 		Basename:          basename,
 		Resource:          resource,
@@ -262,6 +311,7 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 		Version:           spec.ResourceSpecificationVersion,
 		HasUpdatePolicy:   hasUpdatePolicy,
 		HasCreationPolicy: hasCreationPolicy,
+		HasTags:           hasTags,
 	}
 
 	// Execute the template, writing it to a buffer
@@ -274,22 +324,33 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 	// Format the generated Go code with gofmt
 	formatted, err := format.Source(buf.Bytes())
 	if err != nil {
+		fmt.Println(string(buf.Bytes()))
 		return fmt.Errorf("failed to format Go file for resource %s: %s", name, err)
 	}
 
 	// Check if the file has changed since the last time generate ran
-	fn := "cloudformation/resources/" + filename(name)
+	dir := "cloudformation/" + pname
+	fn := dir + "/" + filename(name)
 	current, err := ioutil.ReadFile(fn)
 
 	if err != nil || bytes.Compare(formatted, current) != 0 {
+
+		// Create the directory if it doesn't exist
+		if _, err := os.Stat(dir); os.IsNotExist(err) {
+			os.Mkdir(dir, 0755)
+		}
 
 		// Write the file contents out
 		if err := ioutil.WriteFile(fn, formatted, 0644); err != nil {
 			return fmt.Errorf("failed to write resource file %s: %s", fn, err)
 		}
-
 		// Log the updated resource name to the results
-		rg.Results.UpdatedResources[fn] = name
+		rg.Results.UpdatedResources = append(rg.Results.UpdatedResources, GeneratedResource{
+			Name:        name,
+			BaseName:    basename,
+			PackageName: pname,
+			StructName:  sname,
+		})
 
 	}
 
@@ -352,7 +413,7 @@ func (rg *ResourceGenerator) generateJSONSchema(specname string, spec *CloudForm
 
 }
 
-func generatePolymorphicProperty(name string, property Property) {
+func generatePolymorphicProperty(typename string, name string, property Property) {
 
 	// Open the polymorphic property template
 	tmpl, err := template.New("polymorphic-property.template").Funcs(template.FuncMap{
@@ -366,14 +427,22 @@ func generatePolymorphicProperty(name string, property Property) {
 	types = append(types, property.ItemTypes...)
 	types = append(types, property.Types...)
 
+	packageName, err := packageName(typename, true)
+	if err != nil {
+		fmt.Printf("Error: Invalid CloudFormation resource %s\n%s\n", typename, err)
+		os.Exit(1)
+	}
+
 	templateData := struct {
 		Name        string
+		PackageName string
 		Basename    string
 		Property    Property
 		Types       []string
 		TypesJoined string
 	}{
 		Name:        name,
+		PackageName: packageName,
 		Basename:    nameParts[0],
 		Property:    property,
 		Types:       types,
@@ -395,8 +464,14 @@ func generatePolymorphicProperty(name string, property Property) {
 		os.Exit(1)
 	}
 
+	// Ensure the package directory exists
+	dir := "cloudformation/" + packageName
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		os.Mkdir(dir, 0755)
+	}
+
 	// Write the file out
-	if err := ioutil.WriteFile("cloudformation/resources/"+filename(name), formatted, 0644); err != nil {
+	if err := ioutil.WriteFile(dir+"/"+filename(name), formatted, 0644); err != nil {
 		fmt.Printf("Error: Failed to write JSON Schema\n%s\n", err)
 		os.Exit(1)
 	}

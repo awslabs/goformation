@@ -3,9 +3,9 @@ package cloudformation_test
 import (
 	"github.com/sanathkr/yaml"
 
-	"github.com/awslabs/goformation/v2/cloudformation"
-	"github.com/awslabs/goformation/v2/cloudformation/policies"
-	"github.com/awslabs/goformation/v2/cloudformation/resources"
+	"github.com/awslabs/goformation/v3/cloudformation"
+	"github.com/awslabs/goformation/v3/cloudformation/autoscaling"
+	"github.com/awslabs/goformation/v3/cloudformation/policies"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -95,7 +95,7 @@ var _ = Describe("Goformation", func() {
 
 			It("should have the correct values for "+test.Name, func() {
 
-				asg := resources.AWSAutoScalingAutoScalingGroup{}
+				asg := autoscaling.AutoScalingGroup{}
 				asg.SetUpdatePolicy(test.Input)
 
 				template := &cloudformation.Template{
@@ -161,7 +161,7 @@ var _ = Describe("Goformation", func() {
 
 			It("should have the correct values for "+test.Name, func() {
 
-				asg := resources.AWSAutoScalingAutoScalingGroup{}
+				asg := autoscaling.AutoScalingGroup{}
 				asg.SetCreationPolicy(test.Input)
 
 				template := &cloudformation.Template{
@@ -221,7 +221,7 @@ var _ = Describe("Goformation", func() {
 
 			It("should have the correct values for "+test.Name, func() {
 
-				asg := resources.AWSAutoScalingAutoScalingGroup{}
+				asg := autoscaling.AutoScalingGroup{}
 				asg.SetDeletionPolicy(test.Input)
 
 				template := &cloudformation.Template{
