@@ -27,7 +27,7 @@
 As with other Go libraries, GoFormation can be installed with `go get`.
 
 ```
-$ go get github.com/awslabs/goformation
+$ go get github.com/awslabs/goformation/v2
 ```
 
 ## Usage

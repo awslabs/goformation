@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"bytes"
-	"github.com/awslabs/goformation/cloudformation/policies"
+	"github.com/awslabs/goformation/v2/cloudformation/policies"
 )
 {{else}}
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/awslabs/goformation/v2/cloudformation/policies"
 {{end}}
 
 // {{.StructName}} AWS CloudFormation Resource ({{.Name}})

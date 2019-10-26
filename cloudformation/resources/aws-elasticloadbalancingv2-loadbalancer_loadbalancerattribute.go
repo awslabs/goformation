@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/awslabs/goformation/cloudformation/policies"
+import "github.com/awslabs/goformation/v2/cloudformation/policies"
 
 // AWSElasticLoadBalancingV2LoadBalancer_LoadBalancerAttribute AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttribute)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html

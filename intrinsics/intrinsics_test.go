@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 
-	. "github.com/awslabs/goformation/intrinsics"
+	. "github.com/awslabs/goformation/v2/intrinsics"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
