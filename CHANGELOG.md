@@ -1,5 +1,52 @@
 # GoFormation Versioning Changelog
 
+# [3.0.0](https://github.com/awslabs/goformation/compare/v2.3.1...v3.0.0) (2019-10-27)
+
+
+* Group CloudFormation resources by AWS service name (#234) ([d0749e6](https://github.com/awslabs/goformation/commit/d0749e6a8fc5e7b0ddc301aef0170e12c7dc459c)), closes [#234](https://github.com/awslabs/goformation/issues/234)
+
+
+### BREAKING CHANGES
+
+* this change moves all Cloudformation resources to
+packages based on the AWS service name. The main motivation for this is
+that building goformation on some platforms (Windows) failed due to too
+many files in the old cloudformation/resources package. This new package
+style has a nice benefit of slightly nicer to use API, but is a breaking
+change and will require refactoring existing codebases to update to v3.
+
+Old usage:
+
+```go
+import "github.com/awslabs/goformation/v2/cloudformation/resources"
+
+... snip ...
+
+topic := &resources.AWSSNSTopic{}
+```
+
+New usage:
+
+```go
+import "github.com/awslabs/goformation/v3/cloudformation/sns"
+
+...snip...
+
+topic := &sns.Topic{}
+```
+
+Most tests are still failing at this point and need refactoring.
+
+* fix(schema): Tag handling
+
+Fixed tag handling for new grouped resources style (via new tags.Tag
+struct).
+
+* fix(schema): SAM specification
+
+SAM Specification now generates nicely with new grouped resources
+format. Also all tests are now passing \o/
+
 # [2.3.0](https://github.com/awslabs/goformation/compare/v2.2.2...v2.3.0) (2019-03-20)
 
 
