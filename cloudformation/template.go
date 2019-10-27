@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/awslabs/goformation/v2/intrinsics"
+	"github.com/awslabs/goformation/v3/intrinsics"
 	"github.com/sanathkr/yaml"
 )
 

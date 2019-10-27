@@ -111,6 +111,7 @@ func (p Property) IsPrimitive() bool {
 	return p.PrimitiveType != ""
 }
 
+// IsNumeric checks whether a property is numeric
 func (p Property) IsNumeric() bool {
 	return p.IsPrimitive() &&
 		(p.PrimitiveType == "Long" ||
@@ -146,11 +147,15 @@ func (p Property) IsCustomType() bool {
 
 // GoType returns the correct type for this property
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
-func (p Property) GoType(basename string, name string) string {
+func (p Property) GoType(typename string, basename string, name string) string {
+
+	if p.ItemType == "Tag" {
+		return "[]tags.Tag"
+	}
 
 	if p.IsPolymorphic() {
 
-		generatePolymorphicProperty(basename+"_"+name, p)
+		generatePolymorphicProperty(typename, basename+"_"+name, p)
 		return basename + "_" + name
 
 	}
@@ -161,10 +166,6 @@ func (p Property) GoType(basename string, name string) string {
 			return "map[string]" + convertTypeToGo(p.PrimitiveItemType)
 		}
 
-		if p.ItemType == "Tag" {
-			return "map[string]Tag"
-		}
-
 		return "map[string]" + basename + "_" + p.ItemType
 
 	}
@@ -173,10 +174,6 @@ func (p Property) GoType(basename string, name string) string {
 
 		if p.IsListOfPrimitives() {
 			return "[]" + convertTypeToGo(p.PrimitiveItemType)
-		}
-
-		if p.ItemType == "Tag" {
-			return "[]Tag"
 		}
 
 		return "[]" + basename + "_" + p.ItemType

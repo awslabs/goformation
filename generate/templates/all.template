@@ -1,41 +1,40 @@
 package cloudformation
 
 import (
-	"fmt"
-	"github.com/awslabs/goformation/v2/cloudformation/resources"
+	"fmt"{{range $resource := .Resources}}
+	"github.com/awslabs/goformation/v3/cloudformation/{{$resource.PackageName}}"{{end}}
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
 func AllResources() map[string]Resource {
-    return map[string]Resource{ {{range $name, $resource := .Resources}}
-        "{{$name}}": &resources.{{$resource}}{},{{end}}
+    return map[string]Resource{ {{range $resource := .Resources}}
+        "{{$resource.Name}}": &{{$resource.PackageName}}.{{$resource.StructName}}{},{{end}}
     }
 }
 
-
-{{range $name, $resource := .Resources}}
-// GetAll{{$resource}}Resources retrieves all {{$resource}} items from an AWS CloudFormation template
-func (t *Template) GetAll{{$resource}}Resources () map[string]*resources.{{$resource}} {
-    results := map[string]*resources.{{$resource}}{}
+{{range $resource := .Resources}}
+// GetAll{{$resource.BaseName}}{{$resource.StructName}}Resources retrieves all {{$resource.PackageName}}.{{$resource.StructName}} items from an AWS CloudFormation template
+func (t *Template) GetAll{{$resource.BaseName}}{{$resource.StructName}}Resources () map[string]*{{$resource.PackageName}}.{{$resource.StructName}} {
+    results := map[string]*{{$resource.PackageName}}.{{$resource.StructName}}{}
 	for name, untyped := range t.Resources {
 		switch resource := untyped.(type) {
-		case *resources.{{$resource}}:
+		case *{{$resource.PackageName}}.{{$resource.StructName}}:
 			results[name] = resource
 		}
 	}
 	return results
 }
 
-// Get{{$resource}}WithName retrieves all {{$resource}} items from an AWS CloudFormation template
+// Get{{$resource.BaseName}}{{$resource.StructName}}WithName retrieves all {{$resource.PackageName}}.{{$resource.StructName}} items from an AWS CloudFormation template
 // whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) Get{{$resource}}WithName (name string) (*resources.{{$resource}}, error) {
+func (t *Template) Get{{$resource.BaseName}}{{$resource.StructName}}WithName (name string) (*{{$resource.PackageName}}.{{$resource.StructName}}, error) {
 	if untyped, ok := t.Resources[name]; ok {
 		switch resource := untyped.(type) {
-		case *resources.{{$resource}}:
+		case *{{$resource.PackageName}}.{{$resource.StructName}}:
 			return resource, nil
 		}
 	}
-    return nil, fmt.Errorf("resource %q of type {{$resource}} not found", name)
+    return nil, fmt.Errorf("resource %q of type {{$resource.PackageName}}.{{$resource.StructName}} not found", name)
 }
 
 {{end}}

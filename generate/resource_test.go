@@ -3,7 +3,9 @@ package main_test
 import (
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v2/cloudformation/resources"
+	"github.com/awslabs/goformation/v3/cloudformation/ec2"
+	"github.com/awslabs/goformation/v3/cloudformation/s3"
+	"github.com/awslabs/goformation/v3/cloudformation/serverless"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
@@ -17,9 +19,9 @@ var _ = Describe("Resource", func() {
 			Context("with a simple primitive used for a polymorphic property", func() {
 
 				codeuri := "s3://bucket/key"
-				resource := &resources.AWSServerlessFunction{
+				resource := &serverless.Function{
 					Runtime: "nodejs6.10",
-					CodeUri: &resources.AWSServerlessFunction_CodeUri{
+					CodeUri: &serverless.Function_CodeUri{
 						String: &codeuri,
 					},
 				}
@@ -36,10 +38,10 @@ var _ = Describe("Resource", func() {
 
 			Context("with a custom type used for a polymorphic property", func() {
 
-				resource := &resources.AWSServerlessFunction{
+				resource := &serverless.Function{
 					Runtime: "nodejs6.10",
-					CodeUri: &resources.AWSServerlessFunction_CodeUri{
-						S3Location: &resources.AWSServerlessFunction_S3Location{
+					CodeUri: &serverless.Function_CodeUri{
+						S3Location: &serverless.Function_S3Location{
 							Bucket:  "test-bucket",
 							Key:     "test-key",
 							Version: 123,
@@ -67,7 +69,7 @@ var _ = Describe("Resource", func() {
 
 			Context("with a dependency on another resource", func() {
 
-				resource := &resources.AWSEC2Instance{
+				resource := &ec2.Instance{
 					ImageId: "ami-0123456789",
 				}
 				resource.SetDependsOn([]string{"MyDependency"})
@@ -84,7 +86,7 @@ var _ = Describe("Resource", func() {
 
 			Context("with a metadata attribute", func() {
 
-				resource := &resources.AWSS3Bucket{
+				resource := &s3.Bucket{
 					BucketName: "MyBucket",
 				}
 				resource.SetMetadata(map[string]interface{}{"Object1": "Location1", "Object2": "Location2"})
@@ -106,12 +108,12 @@ var _ = Describe("Resource", func() {
 			Context("with a dependency on another resource", func() {
 
 				property := []byte(`{"Type":"AWS::EC2::Instance","Properties":{"ImageId":"ami-0123456789"},"DependsOn":["MyDependency"]}`)
-				expected := &resources.AWSEC2Instance{
+				expected := &ec2.Instance{
 					ImageId: "ami-0123456789",
 				}
 				expected.SetDependsOn([]string{"MyDependency"})
 
-				result := &resources.AWSEC2Instance{}
+				result := &ec2.Instance{}
 				err := json.Unmarshal(property, result)
 				It("should unmarshal to a Go struct successfully", func() {
 					Expect(result).To(Equal(expected))
@@ -123,12 +125,12 @@ var _ = Describe("Resource", func() {
 			Context("with a metadata attribute", func() {
 
 				property := []byte(`{"Type":"AWS::S3::Bucket","Properties":{"BucketName":"MyBucket"},"Metadata":{"Object1":"Location1","Object2":"Location2"}}`)
-				expected := &resources.AWSS3Bucket{
+				expected := &s3.Bucket{
 					BucketName: "MyBucket",
 				}
 				expected.SetMetadata(map[string]interface{}{"Object1": "Location1", "Object2": "Location2"})
 
-				result := &resources.AWSS3Bucket{}
+				result := &s3.Bucket{}
 				err := json.Unmarshal(property, result)
 				It("should unmarshal to a Go struct successfully", func() {
 					Expect(result).To(Equal(expected))
@@ -147,9 +149,9 @@ var _ = Describe("Resource", func() {
 
 			Context("with a list type", func() {
 
-				subproperty := &resources.AWSServerlessFunction_S3Event{
+				subproperty := &serverless.Function_S3Event{
 					Bucket: "my-bucket",
-					Events: &resources.AWSServerlessFunction_Events{
+					Events: &serverless.Function_Events{
 						StringArray: &[]string{"s3:ObjectCreated:*", "s3:ObjectRemoved:*"},
 					},
 				}
@@ -167,9 +169,9 @@ var _ = Describe("Resource", func() {
 			Context("with a primitive type", func() {
 
 				event := "s3:ObjectCreated:*"
-				subproperty := &resources.AWSServerlessFunction_S3Event{
+				subproperty := &serverless.Function_S3Event{
 					Bucket: "my-bucket",
-					Events: &resources.AWSServerlessFunction_Events{
+					Events: &serverless.Function_Events{
 						String: &event,
 					},
 				}
