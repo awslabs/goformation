@@ -172,7 +172,7 @@ func main() {
 
 	// You can extract all resources of a certain type
 	// Each AWS CloudFormation resource is a strongly typed struct
-	functions := template.GetAllAWSServerlessFunctionResources()
+	functions := template.GetAllServerlessFunctionResources()
 	for name, function := range functions {
 
 		// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
@@ -182,7 +182,7 @@ func main() {
 
 	// You can also search for specific resources by their logicalId
 	search := "GetHelloWorld"
-	function, err := template.GetAWSServerlessFunctionWithName(search)
+	function, err := template.GetServerlessFunctionWithName(search)
 	if err != nil {
 		log.Fatalf("Function not found")
 	}
