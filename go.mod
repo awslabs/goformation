@@ -7,7 +7,6 @@ require (
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/onsi/ginkgo v1.5.0
 	github.com/onsi/gomega v1.2.0
-	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/sanathkr/go-yaml v0.0.0-20170819195128-ed9d249f429b
 	github.com/sanathkr/yaml v0.0.0-20170819201035-0056894fa522
 	github.com/stretchr/testify v1.4.0 // indirect
