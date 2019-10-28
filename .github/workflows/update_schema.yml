@@ -1,10 +1,7 @@
 name: Update Schema
 
-on: 
-  
-  schedule:
-    - cron: "*0 * * * *"
-  
+on: [deployment]
+
 jobs:
   run:
     runs-on: ubuntu-latest
