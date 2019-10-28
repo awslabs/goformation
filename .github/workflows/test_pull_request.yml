@@ -1,4 +1,4 @@
-name: Go
+name: Test Pull Request
 on: [pull_request]
     
 jobs:
