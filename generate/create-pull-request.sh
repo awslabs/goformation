@@ -16,7 +16,7 @@
 # It relies on the environment GITHUB_TOKEN containing a Personal Access Token for the github.com/goformation user.
 
 # Bomb out on errors
-#set -e
+set -e
 
 # The repo/branch to create the PR against
 SRC_REPO="aws-goformation/goformation"
