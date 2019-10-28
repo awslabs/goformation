@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"sort"
 	"strings"
 	"text/template"
 )
@@ -214,6 +215,12 @@ func (rg *ResourceGenerator) generateAllResourcesMap(resources []GeneratedResour
 	if err != nil {
 		return fmt.Errorf("failed to load resource template: %s", err)
 	}
+
+	// Sort the resources by cloudformation type, so that they don't rearrange
+	// every time the all.go file is generated
+	sort.Slice(resources, func(i, j int) bool {
+		return resources[i].Name < resources[j].Name
+	})
 
 	templateData := struct {
 		Resources []GeneratedResource
