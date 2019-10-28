@@ -58,11 +58,11 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 REQUEST_BRANCH="aws-goformation-updates"
 echo "Creating new branch: ${REQUEST_BRANCH} tracking origin/${SRC_BRANCH}"
 git checkout -b ${REQUEST_BRANCH} origin/${SRC_BRANCH}
-git pull --rebase origin ${REQUEST_BRANCH} || true
+git pull --rebase origin ${REQUEST_BRANCH} 
 
 # Merging in any changes from upstream
 git remote add upstream https://github.com/${DST_REPO}.git
-git pull --rebase upstream ${SRC_BRANCH} || true
+git pull --rebase upstream ${SRC_BRANCH}
  
 echo "Auto-generating AWS CloudFormation resources..."
 go generate
@@ -87,7 +87,7 @@ git commit -m "${COMMIT_MSG}"
 
 echo "Pushing changes..."
 git remote add origin-push https://${GITHUB_TOKEN}@github.com/${SRC_REPO}.git > /dev/null 2>&1
-git push --quiet --set-upstream origin-push ${REQUEST_BRANCH}
+git push --set-upstream origin-push ${REQUEST_BRANCH}
 sleep 10
 
 echo "Installing GitHub Hub"
