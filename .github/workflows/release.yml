@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+      - run: npm install @semantic-release/changelog
+      - run: npm install @semantic-release/git
       - run: npx semantic-release@15 --dry-run
         env:
           GITHUB_TOKEN: ${{ secrets.GOFORMATION_GITHUB_TOKEN }}
