@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Schema
-        run: generate/create-pull-request.sh
+        run: ./generate/create-pull-request.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GOFORMATION_GH_TOKEN }}
