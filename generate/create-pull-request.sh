@@ -88,6 +88,7 @@ git commit -m "${COMMIT_MSG}"
 echo "Pushing changes..."
 git remote add origin-push https://${GITHUB_TOKEN}@github.com/${SRC_REPO}.git > /dev/null 2>&1
 git push --quiet --set-upstream origin-push ${REQUEST_BRANCH}
+sleep 10
 
 echo "Installing GitHub Hub"
 git clone https://github.com/github/hub.git /tmp/hub
