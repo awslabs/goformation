@@ -18,4 +18,4 @@ jobs:
       - run: npm install @semantic-release/git
       - run: npx semantic-release@15 --dry-run
         env:
-          GITHUB_TOKEN: ${{ secrets.GOFORMATION_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GOFORMATION_GH_TOKEN }}
