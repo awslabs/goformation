@@ -1,0 +1,14 @@
+name: Update Schema
+
+on: 
+  schedule:
+    - cron: "*/5 * * * *"
+  
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Schema
+        run: generate/create-pull-request.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GOFORMATION_GH_TOKEN }}
