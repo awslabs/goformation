@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# This script runs on a regular cron within Travis-CI.
+# This script is run on a daily basis via GitHub Actions. It is responsible for
+# automatically updating all of goformation's CloudFormation resources to match
+# what is currently supported in AWS CloudFormation.
 # 
 # It does the following:
 # 
@@ -29,20 +31,6 @@ COMMIT_NAME="AWS GoFormation"
 COMMIT_EMAIL="goformation@amazon.com"
 COMMIT_MSG="feat(schema): AWS CloudFormation Update ($(date +%F))"
 
-echo "Build Type: ${TRAVIS_EVENT_TYPE}"
-
-# # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-# if [ "$TRAVIS_EVENT_TYPE" != "cron" ]; then
-#     echo "Skipping auto generation of AWS CloudFormation resources; just doing a build."
-#     exit 0
-# fi
-
-# # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-# if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SRC_BRANCH" ]; then
-#     echo "Skipping deploy; just doing a build."
-#     exit 0
-# fi
-
 # Configure the Git user for any commits
 git config --global user.name "${COMMIT_NAME}"
 git config --global user.email "${COMMIT_EMAIL}"
@@ -58,11 +46,12 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 REQUEST_BRANCH="aws-goformation-updates"
 echo "Creating new branch: ${REQUEST_BRANCH} tracking origin/${SRC_BRANCH}"
 git checkout -b ${REQUEST_BRANCH} origin/${SRC_BRANCH}
-git pull --rebase origin ${REQUEST_BRANCH} 
+git pull --rebase origin ${REQUEST_BRANCH} || true
 
 # Merging in any changes from upstream
 git remote add upstream https://github.com/${DST_REPO}.git
-git pull --rebase upstream ${SRC_BRANCH}
+git pull --rebase upstream ${SRC_BRANCH} || true
+
  
 echo "Auto-generating AWS CloudFormation resources..."
 go generate
@@ -84,11 +73,9 @@ git add cloudformation/*
 git add schema/*
 git commit -m "${COMMIT_MSG}" 
 
-
-echo "Pushing changes..."
-git remote add origin-push https://${GITHUB_TOKEN}@github.com/${SRC_REPO}.git > /dev/null 2>&1
-git push --set-upstream origin-push ${REQUEST_BRANCH}
-sleep 10
+echo "ing changes..."
+git remote add origin-push https://x-access-token:${GITHUB_TOKEN}@github.com/${SRC_REPO}.git > /dev/null 2>&1
+git push --quiet --set-upstream origin-push ${REQUEST_BRANCH}
 
 echo "Installing GitHub Hub"
 git clone https://github.com/github/hub.git /tmp/hub
