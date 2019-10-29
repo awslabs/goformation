@@ -4,20 +4,24 @@ on:
   push:
     branches:
       - master
-
+        - 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-    - name: Semantic Release
-      uses: cycjimmy/semantic-release-action@v2
-      id: semantic
-      with:
-        branch: master
-        extra_plugins: |
-          @semantic-release/git
-          @semantic-release/changelog
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check out code
+        uses: actions/checkout@v1
+      
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        with:
+          branch: master
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
