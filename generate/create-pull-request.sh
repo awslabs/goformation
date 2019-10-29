@@ -85,4 +85,4 @@ go get ./...
 
 echo "Generating Pull Request for merging ${REPO}/${REQUEST_BRANCH} to ${REPO}/${DST_BRANCH}..."
 cd ${UPSTREAM_DIR}
-echo "${COMMIT_MSG}" | /tmp/hub/bin/hub pull-request -F - /dev/null 2>&1 || true
+echo "${COMMIT_MSG}" | /tmp/hub/bin/hub pull-request -F --head aws-goformation:${REQUEST_BRANCH} - /dev/null 2>&1 || true
