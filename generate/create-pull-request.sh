@@ -73,7 +73,7 @@ git add cloudformation/*
 git add schema/*
 git commit -m "${COMMIT_MSG}" 
 
-echo "ing changes..."
+echo "Pushing changes..."
 git remote add origin-push https://x-access-token:${GITHUB_TOKEN}@github.com/${SRC_REPO}.git > /dev/null 2>&1
 git push --quiet --set-upstream origin-push ${REQUEST_BRANCH}
 
