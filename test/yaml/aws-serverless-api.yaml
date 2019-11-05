@@ -12,21 +12,21 @@ Resources:
       CacheClusterEnabled: true
       CacheClusterSize: test-cache-cluster-size
       Variables:
-        NAME: VALUE 
+        NAME: VALUE
 
   ServerlessApiWithDefinitionUriAsS3Location:
     Type: AWS::Serverless::Api
     Properties:
       Name: test-name
       StageName: test-stage-name
-      DefinitionUri: 
+      DefinitionUri:
         Bucket: test-bucket
         Key: test-key
         Version: 1
       CacheClusterEnabled: true
       CacheClusterSize: test-cache-cluster-size
       Variables:
-        NAME: VALUE 
+        NAME: VALUE
 
   ServerlessApiWithDefinitionBodyAsJSON:
     Type: AWS::Serverless::Api
@@ -40,19 +40,19 @@ Resources:
       CacheClusterEnabled: true
       CacheClusterSize: test-cache-cluster-size
       Variables:
-        NAME: VALUE 
+        NAME: VALUE
 
   ServerlessApiWithDefinitionBodyAsYAML:
     Type: AWS::Serverless::Api
     Properties:
       Name: test-name
       StageName: test-stage-name
-      DefinitionBody: 
+      DefinitionBody:
         DefinitionKey: test-definition-value
       CacheClusterEnabled: true
       CacheClusterSize: test-cache-cluster-size
       Variables:
-        NAME: VALUE 
+        NAME: VALUE
 
   ServerlessApiWithMethodSettingsAsYAML:
     Type: AWS::Serverless::Api
@@ -60,7 +60,7 @@ Resources:
       Name: test-name
       StageName: test-stage-name
       MethodSettings:
-        LoggingLevel: ERROR
+      - LoggingLevel: ERROR
         MetricsEnabled: true
       CacheClusterEnabled: true
       CacheClusterSize: test-cache-cluster-size
