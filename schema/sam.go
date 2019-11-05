@@ -49828,7 +49828,10 @@ var SamSchema = `{
                             "type": "string"
                         },
                         "MethodSettings": {
-                            "type": "object"
+                            "items": {
+                                "type": "object"
+                            },
+                            "type": "array"
                         },
                         "Name": {
                             "type": "string"
