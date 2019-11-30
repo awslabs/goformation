@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
 // Broker AWS CloudFormation Resource (AWS::AmazonMQ::Broker)
@@ -72,6 +72,11 @@ type Broker struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
 	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
+	// StorageType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-storagetype
+	StorageType string `json:"StorageType,omitempty"`
+
 	// SubnetIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
@@ -87,55 +92,19 @@ type Broker struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
 	Users []Broker_User `json:"Users,omitempty"`
 
-	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy policies.DeletionPolicy
+	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
+	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
-	// _dependsOn stores the logical ID of the resources to be created before this resource
-	_dependsOn []string
+	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
+	AWSCloudFormationDependsOn []string `json:"-"`
 
-	// _metadata stores structured data associated with this resource
-	_metadata map[string]interface{}
+	// AWSCloudFormationMetadata stores structured data associated with this resource
+	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *Broker) AWSCloudFormationType() string {
 	return "AWS::AmazonMQ::Broker"
-}
-
-// DependsOn returns a slice of logical ID names this resource depends on.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Broker) DependsOn() []string {
-	return r._dependsOn
-}
-
-// SetDependsOn specify that the creation of this resource follows another.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Broker) SetDependsOn(dependencies []string) {
-	r._dependsOn = dependencies
-}
-
-// Metadata returns the metadata associated with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Broker) Metadata() map[string]interface{} {
-	return r._metadata
-}
-
-// SetMetadata enables you to associate structured data with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Broker) SetMetadata(metadata map[string]interface{}) {
-	r._metadata = metadata
-}
-
-// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Broker) DeletionPolicy() policies.DeletionPolicy {
-	return r._deletionPolicy
-}
-
-// SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Broker) SetDeletionPolicy(policy policies.DeletionPolicy) {
-	r._deletionPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
@@ -151,9 +120,9 @@ func (r Broker) MarshalJSON() ([]byte, error) {
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
-		DependsOn:      r._dependsOn,
-		Metadata:       r._metadata,
-		DeletionPolicy: r._deletionPolicy,
+		DependsOn:      r.AWSCloudFormationDependsOn,
+		Metadata:       r.AWSCloudFormationMetadata,
+		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
 	})
 }
 
@@ -182,13 +151,13 @@ func (r *Broker) UnmarshalJSON(b []byte) error {
 		*r = Broker(*res.Properties)
 	}
 	if res.DependsOn != nil {
-		r._dependsOn = res.DependsOn
+		r.AWSCloudFormationDependsOn = res.DependsOn
 	}
 	if res.Metadata != nil {
-		r._metadata = res.Metadata
+		r.AWSCloudFormationMetadata = res.Metadata
 	}
 	if res.DeletionPolicy != "" {
-		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
 	}
 	return nil
 }

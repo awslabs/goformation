@@ -4,7 +4,7 @@ import (
 	"sort"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v3/cloudformation/utils"
+	"github.com/awslabs/goformation/v4/cloudformation/utils"
 )
 
 // {{.Name}} is a helper struct that can hold either a {{.TypesJoined}} value

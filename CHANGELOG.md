@@ -42,7 +42,7 @@ topic := &resources.AWSSNSTopic{}
 New usage:
 
 ```go
-import "github.com/awslabs/goformation/v3/cloudformation/sns"
+import "github.com/awslabs/goformation/v4/cloudformation/sns"
 
 ...snip...
 

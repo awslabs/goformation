@@ -1,7 +1,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
 // Rule_Target AWS CloudFormation Resource (AWS::Events::Rule.Target)
@@ -12,6 +12,11 @@ type Rule_Target struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
 	Arn string `json:"Arn,omitempty"`
+
+	// BatchParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
+	BatchParameters *Rule_BatchParameters `json:"BatchParameters,omitempty"`
 
 	// EcsParameters AWS CloudFormation Property
 	// Required: false
@@ -58,53 +63,17 @@ type Rule_Target struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters
 	SqsParameters *Rule_SqsParameters `json:"SqsParameters,omitempty"`
 
-	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy policies.DeletionPolicy
+	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
+	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
-	// _dependsOn stores the logical ID of the resources to be created before this resource
-	_dependsOn []string
+	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
+	AWSCloudFormationDependsOn []string `json:"-"`
 
-	// _metadata stores structured data associated with this resource
-	_metadata map[string]interface{}
+	// AWSCloudFormationMetadata stores structured data associated with this resource
+	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *Rule_Target) AWSCloudFormationType() string {
 	return "AWS::Events::Rule.Target"
-}
-
-// DependsOn returns a slice of logical ID names this resource depends on.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Rule_Target) DependsOn() []string {
-	return r._dependsOn
-}
-
-// SetDependsOn specify that the creation of this resource follows another.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *Rule_Target) SetDependsOn(dependencies []string) {
-	r._dependsOn = dependencies
-}
-
-// Metadata returns the metadata associated with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Rule_Target) Metadata() map[string]interface{} {
-	return r._metadata
-}
-
-// SetMetadata enables you to associate structured data with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *Rule_Target) SetMetadata(metadata map[string]interface{}) {
-	r._metadata = metadata
-}
-
-// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Rule_Target) DeletionPolicy() policies.DeletionPolicy {
-	return r._deletionPolicy
-}
-
-// SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *Rule_Target) SetDeletionPolicy(policy policies.DeletionPolicy) {
-	r._deletionPolicy = policy
 }

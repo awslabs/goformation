@@ -3,9 +3,9 @@ package main_test
 import (
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v3/cloudformation/ec2"
-	"github.com/awslabs/goformation/v3/cloudformation/s3"
-	"github.com/awslabs/goformation/v3/cloudformation/serverless"
+	"github.com/awslabs/goformation/v4/cloudformation/ec2"
+	"github.com/awslabs/goformation/v4/cloudformation/s3"
+	"github.com/awslabs/goformation/v4/cloudformation/serverless"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
