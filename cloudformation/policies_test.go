@@ -96,7 +96,7 @@ var _ = Describe("Goformation", func() {
 			It("should have the correct values for "+test.Name, func() {
 
 				asg := autoscaling.AutoScalingGroup{}
-				asg.SetUpdatePolicy(test.Input)
+				asg.CloudFormationUpdatePolicy = test.Input
 
 				template := &cloudformation.Template{
 					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
@@ -162,7 +162,7 @@ var _ = Describe("Goformation", func() {
 			It("should have the correct values for "+test.Name, func() {
 
 				asg := autoscaling.AutoScalingGroup{}
-				asg.SetCreationPolicy(test.Input)
+				asg.CloudFormationCreationPolicy = test.Input
 
 				template := &cloudformation.Template{
 					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},
@@ -222,7 +222,7 @@ var _ = Describe("Goformation", func() {
 			It("should have the correct values for "+test.Name, func() {
 
 				asg := autoscaling.AutoScalingGroup{}
-				asg.SetDeletionPolicy(test.Input)
+				asg.CloudFormationDeletionPolicy = test.Input
 
 				template := &cloudformation.Template{
 					Resources: cloudformation.Resources{"AutoScalingGroup": &asg},

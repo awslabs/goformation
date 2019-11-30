@@ -27,20 +27,20 @@ type {{.StructName}} struct {
     // See: {{$property.Documentation}}
     {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Name $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
     {{end}}
-	{{if .HasUpdatePolicy }}// _updatePolicy represents a CloudFormation UpdatePolicy
-	_updatePolicy *policies.UpdatePolicy{{ end }}
+	{{if .HasUpdatePolicy }}// AWSCloudFormationUpdatePolicy represents a CloudFormation UpdatePolicy
+	AWSCloudFormationUpdatePolicy *policies.UpdatePolicy `json:"-"`{{ end }}
 
-	{{if .HasCreationPolicy }}// _creationPolicy represents a CloudFormation CreationPolicy
-	_creationPolicy *policies.CreationPolicy
+	{{if .HasCreationPolicy }}// AWSCloudFormationCreationPolicy represents a CloudFormation CreationPolicy
+	AWSCloudFormationCreationPolicy *policies.CreationPolicy `json:"-"`
 	{{ end }}
-	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy policies.DeletionPolicy
+	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
+	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
-    // _dependsOn stores the logical ID of the resources to be created before this resource
-    _dependsOn []string
+    // AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
+    AWSCloudFormationDependsOn []string `json:"-"`
 
-    // _metadata stores structured data associated with this resource
-    _metadata map[string]interface{}
+    // AWSCloudFormationMetadata stores structured data associated with this resource
+    AWSCloudFormationMetadata map[string]interface{} `json:"-"`
 
 }
 
@@ -49,50 +49,6 @@ func (r *{{.StructName}}) AWSCloudFormationType() string {
     return "{{.Name}}"
 }
 
-// DependsOn returns a slice of logical ID names this resource depends on.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *{{.StructName}}) DependsOn() []string {
-	return r._dependsOn
-}
-// SetDependsOn specify that the creation of this resource follows another.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *{{.StructName}}) SetDependsOn(dependencies []string) {
-	r._dependsOn = dependencies
-}
-// Metadata returns the metadata associated with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *{{.StructName}}) Metadata() map[string]interface{} {
-	return r._metadata
-}
-// SetMetadata enables you to associate structured data with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *{{.StructName}}) SetMetadata(metadata map[string]interface{}) {
-	r._metadata = metadata
-}
-// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *{{.StructName}}) DeletionPolicy() policies.DeletionPolicy {
-	return r._deletionPolicy
-}
-// SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *{{.StructName}}) SetDeletionPolicy(policy policies.DeletionPolicy) {
-	r._deletionPolicy = policy
-}
-{{if .HasUpdatePolicy}}
-// SetUpdatePolicy applies an AWS CloudFormation UpdatePolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
-func (r *{{.StructName}}) SetUpdatePolicy(policy *policies.UpdatePolicy) {
-	r._updatePolicy = policy
-}
-{{end}}
-{{if .HasCreationPolicy}}
-// SetCreationPolicy applies an AWS CloudFormation CreationPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
-func (r *{{.StructName}}) SetCreationPolicy(policy *policies.CreationPolicy) {
-	r._creationPolicy = policy
-}
-{{end}}
 {{if not .IsCustomProperty}}
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
@@ -109,11 +65,11 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	}{
 		Type: r.AWSCloudFormationType(),
 		Properties: (Properties)(r),
-		DependsOn: r._dependsOn,
-		Metadata: r._metadata,
-		DeletionPolicy: r._deletionPolicy,
-		{{if .HasUpdatePolicy}}UpdatePolicy: r._updatePolicy,{{end}}
-		{{if .HasCreationPolicy}}CreationPolicy: r._creationPolicy,{{end}}
+		DependsOn: r.AWSCloudFormationDependsOn,
+		Metadata: r.AWSCloudFormationMetadata,
+		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
+		{{if .HasUpdatePolicy}}UpdatePolicy: r.AWSCloudFormationUpdatePolicy,{{end}}
+		{{if .HasCreationPolicy}}CreationPolicy: r.AWSCloudFormationCreationPolicy,{{end}}
 	})
 }
 
@@ -142,13 +98,13 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 		*r = {{.StructName}}(*res.Properties)
 	}
 	if res.DependsOn != nil {
-		r._dependsOn = res.DependsOn
+		r.AWSCloudFormationDependsOn = res.DependsOn
 	}
 	if res.Metadata != nil {
-		r._metadata = res.Metadata
+		r.AWSCloudFormationMetadata = res.Metadata
 	}
 	if res.DeletionPolicy != "" {
-		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
 	}
 	return nil
 }

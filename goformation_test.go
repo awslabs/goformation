@@ -466,7 +466,7 @@ var _ = Describe("Goformation", func() {
 		})
 
 		It("should have the correct DeletionPolicy", func() {
-			Expect(table.DeletionPolicy()).To(Equal(policies.DeletionPolicy("Retain")))
+			Expect(table.AWSCloudFormationDeletionPolicy).To(Equal(policies.DeletionPolicy("Retain")))
 		})
 	})
 
