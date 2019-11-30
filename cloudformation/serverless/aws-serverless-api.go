@@ -40,7 +40,7 @@ type Api struct {
 	// Cors AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	Cors string `json:"Cors,omitempty"`
+	Cors *Api_Cors `json:"Cors,omitempty"`
 
 	// DefinitionBody AWS CloudFormation Property
 	// Required: false

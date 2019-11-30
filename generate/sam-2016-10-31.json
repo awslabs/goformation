@@ -227,7 +227,12 @@
                 "Cors": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
                     "Required": false,
-                    "PrimitiveType": "String",
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "Types": [
+                        "CorsConfiguration"
+                    ],
                     "UpdateType": "Immutable"
                 },
                 "Auth": {
@@ -256,8 +261,12 @@
                 "Location": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapplication",
                     "Required": true,
-                    "PrimitiveTypes": [ "String" ],
-                    "Types": [ "ApplicationLocation" ],
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "Types": [
+                        "ApplicationLocation"
+                    ],
                     "UpdateType": "Immutable"
                 },
                 "Parameters": {
@@ -909,7 +918,6 @@
                 }
             }
         },
-
         "AWS::Serverless::Function.DomainSAMPT": {
             "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
             "Properties": {
@@ -1117,6 +1125,41 @@
                     "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format",
                     "Required": false,
                     "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Api.CorsConfiguration": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration",
+            "Properties": {
+                "AllowMethods": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "AllowHeaders": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "AllowOrigin": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "MaxAge": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "AllowCredentials": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
                     "UpdateType": "Immutable"
                 }
             }

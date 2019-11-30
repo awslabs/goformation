@@ -52099,7 +52099,16 @@ var SamSchema = `{
                             "type": "string"
                         },
                         "Cors": {
-                            "type": "string"
+                            "anyOf": [
+                                {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/definitions/AWS::Serverless::Api.CorsConfiguration"
+                                }
+                            ]
                         },
                         "DefinitionBody": {
                             "type": "object"
@@ -52184,6 +52193,30 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::Serverless::Api.CorsConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AllowCredentials": {
+                    "type": "boolean"
+                },
+                "AllowHeaders": {
+                    "type": "string"
+                },
+                "AllowMethods": {
+                    "type": "string"
+                },
+                "AllowOrigin": {
+                    "type": "string"
+                },
+                "MaxAge": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AllowOrigin"
+            ],
             "type": "object"
         },
         "AWS::Serverless::Api.S3Location": {
