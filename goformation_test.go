@@ -198,6 +198,33 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a JSON template that contains a resource with tags", func() {
+
+		template, err := goformation.Open("test/json/resource-with-tags.json")
+		It("should successfully validate the template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		resources := template.GetAllAutoScalingAutoScalingGroupResources()
+		It("should have exactly one resource", func() {
+			Expect(resources).To(HaveLen(1))
+			Expect(resources).To(HaveKey("EcsClusterDefaultAutoScalingGroupASGC1A785DB"))
+		})
+
+		asg := resources["EcsClusterDefaultAutoScalingGroupASGC1A785DB"]
+		It("should have exactly one tag defined", func() {
+			Expect(asg.Tags).To(HaveLen(1))
+		})
+
+		It("should have the correct tag properties set", func() {
+			Expect(asg.Tags[0].PropagateAtLaunch).To(Equal(true))
+			Expect(asg.Tags[0].Key).To(Equal("Name"))
+			Expect(asg.Tags[0].Value).To(Equal("aws-ecs-integ-ecs/EcsCluster/DefaultAutoScalingGroup"))
+		})
+
+	})
+
 	Context("with a Custom Resource template", func() {
 
 		template, err := goformation.Open("test/yaml/custom-resource.yaml")
