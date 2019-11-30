@@ -28,3 +28,13 @@ Resources:
           Properties:
             Path: /testing
             Method: any
+        TestS3:
+          Type: S3
+          Properties:
+            Bucket: my-photo-bucket # bucket must be created in the same template
+            Events: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix|suffix
+                    Value: my-prefix|my-suffix

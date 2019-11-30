@@ -196,6 +196,21 @@ var _ = Describe("Goformation", func() {
 
 		})
 
+		It("should correctly parse all of the function S3 event source", func() {
+			Expect(f.Events).ToNot(BeNil())
+			Expect(f.Events).To(HaveKey("TestS3"))
+			Expect(f.Events["TestS3"].Type).To(Equal("S3"))
+			Expect(f.Events["TestS3"].Properties.S3Event).ToNot(BeNil())
+
+			event := f.Events["TestS3"].Properties.S3Event
+			Expect(event.Bucket).To(Equal("my-photo-bucket"))
+			Expect(event.Events.String).To(PointTo(Equal("s3:ObjectCreated:*")))
+			Expect(event.Filter.S3Key.Rules).To(HaveLen(1))
+			Expect(event.Filter.S3Key.Rules[0].Name).To(Equal("prefix|suffix"))
+			Expect(event.Filter.S3Key.Rules[0].Value).To(Equal("my-prefix|my-suffix"))
+
+		})
+
 	})
 
 	Context("with a JSON template that contains a resource with tags", func() {

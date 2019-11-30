@@ -52878,6 +52878,37 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Serverless::Function.S3KeyFilter": {
+            "additionalProperties": false,
+            "properties": {
+                "Rules": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Serverless::Function.S3KeyFilterRule"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Rules"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.S3KeyFilterRule": {
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name",
+                "Value"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::Function.S3Location": {
             "additionalProperties": false,
             "properties": {
@@ -52901,7 +52932,7 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "S3Key": {
-                    "type": "string"
+                    "$ref": "#/definitions/AWS::Serverless::Function.S3KeyFilter"
                 }
             },
             "required": [
