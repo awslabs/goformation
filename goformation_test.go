@@ -297,6 +297,35 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a Serverless template containing different CORS configuration formats", func() {
+
+		template, err := goformation.Open("test/yaml/aws-serverless-api-string-or-cors-configuration.yaml")
+		It("should successfully parse the template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		apis := template.GetAllServerlessApiResources()
+
+		It("should have exactly two APIs", func() {
+			Expect(apis).To(HaveLen(2))
+			Expect(apis).To(HaveKey("RestApiWithCorsConfiguration"))
+			Expect(apis).To(HaveKey("RestApiWithCorsString"))
+		})
+
+		api1 := apis["RestApiWithCorsConfiguration"]
+		It("should parse a Cors configuration object", func() {
+			Expect(api1.Cors.CorsConfiguration.AllowHeaders).To(Equal("'Authorization,authorization'"))
+			Expect(api1.Cors.CorsConfiguration.AllowOrigin).To(Equal("'*'"))
+		})
+
+		api2 := apis["RestApiWithCorsString"]
+		It("should parse a Cors string", func() {
+			Expect(api2.Cors.String).To(PointTo(Equal("'www.example.com'")))
+		})
+
+	})
+
 	Context("with a Serverless template containing different CodeUri formats", func() {
 
 		template, err := goformation.Open("test/yaml/aws-serverless-function-string-or-s3-location.yaml")
