@@ -207,7 +207,8 @@
                 "MethodSettings": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
                     "Required": false,
-                    "PrimitiveType": "Json",
+                    "PrimitiveItemType": "Json",
+                    "Type": "List",
                     "UpdateType": "Immutable"
                 },
                 "EndpointConfiguration": {
