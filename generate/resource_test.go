@@ -3,9 +3,9 @@ package main_test
 import (
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v3/cloudformation/ec2"
-	"github.com/awslabs/goformation/v3/cloudformation/s3"
-	"github.com/awslabs/goformation/v3/cloudformation/serverless"
+	"github.com/awslabs/goformation/v4/cloudformation/ec2"
+	"github.com/awslabs/goformation/v4/cloudformation/s3"
+	"github.com/awslabs/goformation/v4/cloudformation/serverless"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
@@ -72,7 +72,7 @@ var _ = Describe("Resource", func() {
 				resource := &ec2.Instance{
 					ImageId: "ami-0123456789",
 				}
-				resource.SetDependsOn([]string{"MyDependency"})
+				resource.AWSCloudFormationDependsOn = []string{"MyDependency"}
 
 				expected := []byte(`{"Type":"AWS::EC2::Instance","Properties":{"ImageId":"ami-0123456789"},"DependsOn":["MyDependency"]}`)
 
@@ -89,7 +89,7 @@ var _ = Describe("Resource", func() {
 				resource := &s3.Bucket{
 					BucketName: "MyBucket",
 				}
-				resource.SetMetadata(map[string]interface{}{"Object1": "Location1", "Object2": "Location2"})
+				resource.AWSCloudFormationMetadata = map[string]interface{}{"Object1": "Location1", "Object2": "Location2"}
 
 				expected := []byte(`{"Type":"AWS::S3::Bucket","Properties":{"BucketName":"MyBucket"},"Metadata":{"Object1":"Location1","Object2":"Location2"}}`)
 
@@ -111,7 +111,7 @@ var _ = Describe("Resource", func() {
 				expected := &ec2.Instance{
 					ImageId: "ami-0123456789",
 				}
-				expected.SetDependsOn([]string{"MyDependency"})
+				expected.AWSCloudFormationDependsOn = []string{"MyDependency"}
 
 				result := &ec2.Instance{}
 				err := json.Unmarshal(property, result)
@@ -128,7 +128,7 @@ var _ = Describe("Resource", func() {
 				expected := &s3.Bucket{
 					BucketName: "MyBucket",
 				}
-				expected.SetMetadata(map[string]interface{}{"Object1": "Location1", "Object2": "Location2"})
+				expected.AWSCloudFormationMetadata = map[string]interface{}{"Object1": "Location1", "Object2": "Location2"}
 
 				result := &s3.Bucket{}
 				err := json.Unmarshal(property, result)

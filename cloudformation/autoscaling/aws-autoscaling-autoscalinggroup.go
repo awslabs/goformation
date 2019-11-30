@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
 // AutoScalingGroup AWS CloudFormation Resource (AWS::AutoScaling::AutoScalingGroup)
@@ -122,73 +122,25 @@ type AutoScalingGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
 	VPCZoneIdentifier []string `json:"VPCZoneIdentifier,omitempty"`
 
-	// _updatePolicy represents a CloudFormation UpdatePolicy
-	_updatePolicy *policies.UpdatePolicy
+	// AWSCloudFormationUpdatePolicy represents a CloudFormation UpdatePolicy
+	AWSCloudFormationUpdatePolicy *policies.UpdatePolicy `json:"-"`
 
-	// _creationPolicy represents a CloudFormation CreationPolicy
-	_creationPolicy *policies.CreationPolicy
+	// AWSCloudFormationCreationPolicy represents a CloudFormation CreationPolicy
+	AWSCloudFormationCreationPolicy *policies.CreationPolicy `json:"-"`
 
-	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy policies.DeletionPolicy
+	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
+	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
-	// _dependsOn stores the logical ID of the resources to be created before this resource
-	_dependsOn []string
+	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
+	AWSCloudFormationDependsOn []string `json:"-"`
 
-	// _metadata stores structured data associated with this resource
-	_metadata map[string]interface{}
+	// AWSCloudFormationMetadata stores structured data associated with this resource
+	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *AutoScalingGroup) AWSCloudFormationType() string {
 	return "AWS::AutoScaling::AutoScalingGroup"
-}
-
-// DependsOn returns a slice of logical ID names this resource depends on.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AutoScalingGroup) DependsOn() []string {
-	return r._dependsOn
-}
-
-// SetDependsOn specify that the creation of this resource follows another.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *AutoScalingGroup) SetDependsOn(dependencies []string) {
-	r._dependsOn = dependencies
-}
-
-// Metadata returns the metadata associated with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AutoScalingGroup) Metadata() map[string]interface{} {
-	return r._metadata
-}
-
-// SetMetadata enables you to associate structured data with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *AutoScalingGroup) SetMetadata(metadata map[string]interface{}) {
-	r._metadata = metadata
-}
-
-// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AutoScalingGroup) DeletionPolicy() policies.DeletionPolicy {
-	return r._deletionPolicy
-}
-
-// SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *AutoScalingGroup) SetDeletionPolicy(policy policies.DeletionPolicy) {
-	r._deletionPolicy = policy
-}
-
-// SetUpdatePolicy applies an AWS CloudFormation UpdatePolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
-func (r *AutoScalingGroup) SetUpdatePolicy(policy *policies.UpdatePolicy) {
-	r._updatePolicy = policy
-}
-
-// SetCreationPolicy applies an AWS CloudFormation CreationPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
-func (r *AutoScalingGroup) SetCreationPolicy(policy *policies.CreationPolicy) {
-	r._creationPolicy = policy
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
@@ -206,11 +158,11 @@ func (r AutoScalingGroup) MarshalJSON() ([]byte, error) {
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
-		DependsOn:      r._dependsOn,
-		Metadata:       r._metadata,
-		DeletionPolicy: r._deletionPolicy,
-		UpdatePolicy:   r._updatePolicy,
-		CreationPolicy: r._creationPolicy,
+		DependsOn:      r.AWSCloudFormationDependsOn,
+		Metadata:       r.AWSCloudFormationMetadata,
+		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
+		UpdatePolicy:   r.AWSCloudFormationUpdatePolicy,
+		CreationPolicy: r.AWSCloudFormationCreationPolicy,
 	})
 }
 
@@ -239,13 +191,13 @@ func (r *AutoScalingGroup) UnmarshalJSON(b []byte) error {
 		*r = AutoScalingGroup(*res.Properties)
 	}
 	if res.DependsOn != nil {
-		r._dependsOn = res.DependsOn
+		r.AWSCloudFormationDependsOn = res.DependsOn
 	}
 	if res.Metadata != nil {
-		r._metadata = res.Metadata
+		r.AWSCloudFormationMetadata = res.Metadata
 	}
 	if res.DeletionPolicy != "" {
-		r._deletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
 	}
 	return nil
 }

@@ -2,106 +2,109 @@ package cloudformation
 
 import (
 	"fmt"
-	"github.com/awslabs/goformation/v3/cloudformation/amazonmq"
-	"github.com/awslabs/goformation/v3/cloudformation/amplify"
-	"github.com/awslabs/goformation/v3/cloudformation/apigateway"
-	"github.com/awslabs/goformation/v3/cloudformation/apigatewayv2"
-	"github.com/awslabs/goformation/v3/cloudformation/applicationautoscaling"
-	"github.com/awslabs/goformation/v3/cloudformation/appmesh"
-	"github.com/awslabs/goformation/v3/cloudformation/appstream"
-	"github.com/awslabs/goformation/v3/cloudformation/appsync"
-	"github.com/awslabs/goformation/v3/cloudformation/ask"
-	"github.com/awslabs/goformation/v3/cloudformation/athena"
-	"github.com/awslabs/goformation/v3/cloudformation/autoscaling"
-	"github.com/awslabs/goformation/v3/cloudformation/autoscalingplans"
-	"github.com/awslabs/goformation/v3/cloudformation/backup"
-	"github.com/awslabs/goformation/v3/cloudformation/batch"
-	"github.com/awslabs/goformation/v3/cloudformation/budgets"
-	"github.com/awslabs/goformation/v3/cloudformation/certificatemanager"
-	"github.com/awslabs/goformation/v3/cloudformation/cloud9"
-	"github.com/awslabs/goformation/v3/cloudformation/cloudformation"
-	"github.com/awslabs/goformation/v3/cloudformation/cloudfront"
-	"github.com/awslabs/goformation/v3/cloudformation/cloudtrail"
-	"github.com/awslabs/goformation/v3/cloudformation/cloudwatch"
-	"github.com/awslabs/goformation/v3/cloudformation/codebuild"
-	"github.com/awslabs/goformation/v3/cloudformation/codecommit"
-	"github.com/awslabs/goformation/v3/cloudformation/codedeploy"
-	"github.com/awslabs/goformation/v3/cloudformation/codepipeline"
-	"github.com/awslabs/goformation/v3/cloudformation/codestar"
-	"github.com/awslabs/goformation/v3/cloudformation/cognito"
-	"github.com/awslabs/goformation/v3/cloudformation/config"
-	"github.com/awslabs/goformation/v3/cloudformation/datapipeline"
-	"github.com/awslabs/goformation/v3/cloudformation/dax"
-	"github.com/awslabs/goformation/v3/cloudformation/directoryservice"
-	"github.com/awslabs/goformation/v3/cloudformation/dlm"
-	"github.com/awslabs/goformation/v3/cloudformation/dms"
-	"github.com/awslabs/goformation/v3/cloudformation/docdb"
-	"github.com/awslabs/goformation/v3/cloudformation/dynamodb"
-	"github.com/awslabs/goformation/v3/cloudformation/ec2"
-	"github.com/awslabs/goformation/v3/cloudformation/ecr"
-	"github.com/awslabs/goformation/v3/cloudformation/ecs"
-	"github.com/awslabs/goformation/v3/cloudformation/efs"
-	"github.com/awslabs/goformation/v3/cloudformation/eks"
-	"github.com/awslabs/goformation/v3/cloudformation/elasticache"
-	"github.com/awslabs/goformation/v3/cloudformation/elasticbeanstalk"
-	"github.com/awslabs/goformation/v3/cloudformation/elasticloadbalancing"
-	"github.com/awslabs/goformation/v3/cloudformation/elasticloadbalancingv2"
-	"github.com/awslabs/goformation/v3/cloudformation/elasticsearch"
-	"github.com/awslabs/goformation/v3/cloudformation/emr"
-	"github.com/awslabs/goformation/v3/cloudformation/events"
-	"github.com/awslabs/goformation/v3/cloudformation/fsx"
-	"github.com/awslabs/goformation/v3/cloudformation/gamelift"
-	"github.com/awslabs/goformation/v3/cloudformation/glue"
-	"github.com/awslabs/goformation/v3/cloudformation/greengrass"
-	"github.com/awslabs/goformation/v3/cloudformation/guardduty"
-	"github.com/awslabs/goformation/v3/cloudformation/iam"
-	"github.com/awslabs/goformation/v3/cloudformation/inspector"
-	"github.com/awslabs/goformation/v3/cloudformation/iot"
-	"github.com/awslabs/goformation/v3/cloudformation/iot1click"
-	"github.com/awslabs/goformation/v3/cloudformation/iotanalytics"
-	"github.com/awslabs/goformation/v3/cloudformation/iotevents"
-	"github.com/awslabs/goformation/v3/cloudformation/iotthingsgraph"
-	"github.com/awslabs/goformation/v3/cloudformation/kinesis"
-	"github.com/awslabs/goformation/v3/cloudformation/kinesisanalytics"
-	"github.com/awslabs/goformation/v3/cloudformation/kinesisanalyticsv2"
-	"github.com/awslabs/goformation/v3/cloudformation/kinesisfirehose"
-	"github.com/awslabs/goformation/v3/cloudformation/kms"
-	"github.com/awslabs/goformation/v3/cloudformation/lakeformation"
-	"github.com/awslabs/goformation/v3/cloudformation/lambda"
-	"github.com/awslabs/goformation/v3/cloudformation/logs"
-	"github.com/awslabs/goformation/v3/cloudformation/managedblockchain"
-	"github.com/awslabs/goformation/v3/cloudformation/medialive"
-	"github.com/awslabs/goformation/v3/cloudformation/mediastore"
-	"github.com/awslabs/goformation/v3/cloudformation/msk"
-	"github.com/awslabs/goformation/v3/cloudformation/neptune"
-	"github.com/awslabs/goformation/v3/cloudformation/opsworks"
-	"github.com/awslabs/goformation/v3/cloudformation/opsworkscm"
-	"github.com/awslabs/goformation/v3/cloudformation/pinpoint"
-	"github.com/awslabs/goformation/v3/cloudformation/pinpointemail"
-	"github.com/awslabs/goformation/v3/cloudformation/qldb"
-	"github.com/awslabs/goformation/v3/cloudformation/ram"
-	"github.com/awslabs/goformation/v3/cloudformation/rds"
-	"github.com/awslabs/goformation/v3/cloudformation/redshift"
-	"github.com/awslabs/goformation/v3/cloudformation/robomaker"
-	"github.com/awslabs/goformation/v3/cloudformation/route53"
-	"github.com/awslabs/goformation/v3/cloudformation/route53resolver"
-	"github.com/awslabs/goformation/v3/cloudformation/s3"
-	"github.com/awslabs/goformation/v3/cloudformation/sagemaker"
-	"github.com/awslabs/goformation/v3/cloudformation/sdb"
-	"github.com/awslabs/goformation/v3/cloudformation/secretsmanager"
-	"github.com/awslabs/goformation/v3/cloudformation/securityhub"
-	"github.com/awslabs/goformation/v3/cloudformation/serverless"
-	"github.com/awslabs/goformation/v3/cloudformation/servicecatalog"
-	"github.com/awslabs/goformation/v3/cloudformation/servicediscovery"
-	"github.com/awslabs/goformation/v3/cloudformation/ses"
-	"github.com/awslabs/goformation/v3/cloudformation/sns"
-	"github.com/awslabs/goformation/v3/cloudformation/sqs"
-	"github.com/awslabs/goformation/v3/cloudformation/ssm"
-	"github.com/awslabs/goformation/v3/cloudformation/stepfunctions"
-	"github.com/awslabs/goformation/v3/cloudformation/transfer"
-	"github.com/awslabs/goformation/v3/cloudformation/waf"
-	"github.com/awslabs/goformation/v3/cloudformation/wafregional"
-	"github.com/awslabs/goformation/v3/cloudformation/workspaces"
+	"github.com/awslabs/goformation/v4/cloudformation/amazonmq"
+	"github.com/awslabs/goformation/v4/cloudformation/amplify"
+	"github.com/awslabs/goformation/v4/cloudformation/apigateway"
+	"github.com/awslabs/goformation/v4/cloudformation/apigatewayv2"
+	"github.com/awslabs/goformation/v4/cloudformation/applicationautoscaling"
+	"github.com/awslabs/goformation/v4/cloudformation/appmesh"
+	"github.com/awslabs/goformation/v4/cloudformation/appstream"
+	"github.com/awslabs/goformation/v4/cloudformation/appsync"
+	"github.com/awslabs/goformation/v4/cloudformation/ask"
+	"github.com/awslabs/goformation/v4/cloudformation/athena"
+	"github.com/awslabs/goformation/v4/cloudformation/autoscaling"
+	"github.com/awslabs/goformation/v4/cloudformation/autoscalingplans"
+	"github.com/awslabs/goformation/v4/cloudformation/backup"
+	"github.com/awslabs/goformation/v4/cloudformation/batch"
+	"github.com/awslabs/goformation/v4/cloudformation/budgets"
+	"github.com/awslabs/goformation/v4/cloudformation/certificatemanager"
+	"github.com/awslabs/goformation/v4/cloudformation/cloud9"
+	"github.com/awslabs/goformation/v4/cloudformation/cloudformation"
+	"github.com/awslabs/goformation/v4/cloudformation/cloudfront"
+	"github.com/awslabs/goformation/v4/cloudformation/cloudtrail"
+	"github.com/awslabs/goformation/v4/cloudformation/cloudwatch"
+	"github.com/awslabs/goformation/v4/cloudformation/codebuild"
+	"github.com/awslabs/goformation/v4/cloudformation/codecommit"
+	"github.com/awslabs/goformation/v4/cloudformation/codedeploy"
+	"github.com/awslabs/goformation/v4/cloudformation/codepipeline"
+	"github.com/awslabs/goformation/v4/cloudformation/codestar"
+	"github.com/awslabs/goformation/v4/cloudformation/codestarnotifications"
+	"github.com/awslabs/goformation/v4/cloudformation/cognito"
+	"github.com/awslabs/goformation/v4/cloudformation/config"
+	"github.com/awslabs/goformation/v4/cloudformation/datapipeline"
+	"github.com/awslabs/goformation/v4/cloudformation/dax"
+	"github.com/awslabs/goformation/v4/cloudformation/directoryservice"
+	"github.com/awslabs/goformation/v4/cloudformation/dlm"
+	"github.com/awslabs/goformation/v4/cloudformation/dms"
+	"github.com/awslabs/goformation/v4/cloudformation/docdb"
+	"github.com/awslabs/goformation/v4/cloudformation/dynamodb"
+	"github.com/awslabs/goformation/v4/cloudformation/ec2"
+	"github.com/awslabs/goformation/v4/cloudformation/ecr"
+	"github.com/awslabs/goformation/v4/cloudformation/ecs"
+	"github.com/awslabs/goformation/v4/cloudformation/efs"
+	"github.com/awslabs/goformation/v4/cloudformation/eks"
+	"github.com/awslabs/goformation/v4/cloudformation/elasticache"
+	"github.com/awslabs/goformation/v4/cloudformation/elasticbeanstalk"
+	"github.com/awslabs/goformation/v4/cloudformation/elasticloadbalancing"
+	"github.com/awslabs/goformation/v4/cloudformation/elasticloadbalancingv2"
+	"github.com/awslabs/goformation/v4/cloudformation/elasticsearch"
+	"github.com/awslabs/goformation/v4/cloudformation/emr"
+	"github.com/awslabs/goformation/v4/cloudformation/events"
+	"github.com/awslabs/goformation/v4/cloudformation/fsx"
+	"github.com/awslabs/goformation/v4/cloudformation/gamelift"
+	"github.com/awslabs/goformation/v4/cloudformation/glue"
+	"github.com/awslabs/goformation/v4/cloudformation/greengrass"
+	"github.com/awslabs/goformation/v4/cloudformation/guardduty"
+	"github.com/awslabs/goformation/v4/cloudformation/iam"
+	"github.com/awslabs/goformation/v4/cloudformation/inspector"
+	"github.com/awslabs/goformation/v4/cloudformation/iot"
+	"github.com/awslabs/goformation/v4/cloudformation/iot1click"
+	"github.com/awslabs/goformation/v4/cloudformation/iotanalytics"
+	"github.com/awslabs/goformation/v4/cloudformation/iotevents"
+	"github.com/awslabs/goformation/v4/cloudformation/iotthingsgraph"
+	"github.com/awslabs/goformation/v4/cloudformation/kinesis"
+	"github.com/awslabs/goformation/v4/cloudformation/kinesisanalytics"
+	"github.com/awslabs/goformation/v4/cloudformation/kinesisanalyticsv2"
+	"github.com/awslabs/goformation/v4/cloudformation/kinesisfirehose"
+	"github.com/awslabs/goformation/v4/cloudformation/kms"
+	"github.com/awslabs/goformation/v4/cloudformation/lakeformation"
+	"github.com/awslabs/goformation/v4/cloudformation/lambda"
+	"github.com/awslabs/goformation/v4/cloudformation/logs"
+	"github.com/awslabs/goformation/v4/cloudformation/managedblockchain"
+	"github.com/awslabs/goformation/v4/cloudformation/mediaconvert"
+	"github.com/awslabs/goformation/v4/cloudformation/medialive"
+	"github.com/awslabs/goformation/v4/cloudformation/mediastore"
+	"github.com/awslabs/goformation/v4/cloudformation/msk"
+	"github.com/awslabs/goformation/v4/cloudformation/neptune"
+	"github.com/awslabs/goformation/v4/cloudformation/opsworks"
+	"github.com/awslabs/goformation/v4/cloudformation/opsworkscm"
+	"github.com/awslabs/goformation/v4/cloudformation/pinpoint"
+	"github.com/awslabs/goformation/v4/cloudformation/pinpointemail"
+	"github.com/awslabs/goformation/v4/cloudformation/qldb"
+	"github.com/awslabs/goformation/v4/cloudformation/ram"
+	"github.com/awslabs/goformation/v4/cloudformation/rds"
+	"github.com/awslabs/goformation/v4/cloudformation/redshift"
+	"github.com/awslabs/goformation/v4/cloudformation/robomaker"
+	"github.com/awslabs/goformation/v4/cloudformation/route53"
+	"github.com/awslabs/goformation/v4/cloudformation/route53resolver"
+	"github.com/awslabs/goformation/v4/cloudformation/s3"
+	"github.com/awslabs/goformation/v4/cloudformation/sagemaker"
+	"github.com/awslabs/goformation/v4/cloudformation/sdb"
+	"github.com/awslabs/goformation/v4/cloudformation/secretsmanager"
+	"github.com/awslabs/goformation/v4/cloudformation/securityhub"
+	"github.com/awslabs/goformation/v4/cloudformation/serverless"
+	"github.com/awslabs/goformation/v4/cloudformation/servicecatalog"
+	"github.com/awslabs/goformation/v4/cloudformation/servicediscovery"
+	"github.com/awslabs/goformation/v4/cloudformation/ses"
+	"github.com/awslabs/goformation/v4/cloudformation/sns"
+	"github.com/awslabs/goformation/v4/cloudformation/sqs"
+	"github.com/awslabs/goformation/v4/cloudformation/ssm"
+	"github.com/awslabs/goformation/v4/cloudformation/stepfunctions"
+	"github.com/awslabs/goformation/v4/cloudformation/transfer"
+	"github.com/awslabs/goformation/v4/cloudformation/waf"
+	"github.com/awslabs/goformation/v4/cloudformation/wafregional"
+	"github.com/awslabs/goformation/v4/cloudformation/wafv2"
+	"github.com/awslabs/goformation/v4/cloudformation/workspaces"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
@@ -155,6 +158,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppStream::StackFleetAssociation":                       &appstream.StackFleetAssociation{},
 		"AWS::AppStream::StackUserAssociation":                        &appstream.StackUserAssociation{},
 		"AWS::AppStream::User":                                        &appstream.User{},
+		"AWS::AppSync::ApiCache":                                      &appsync.ApiCache{},
 		"AWS::AppSync::ApiKey":                                        &appsync.ApiKey{},
 		"AWS::AppSync::DataSource":                                    &appsync.DataSource{},
 		"AWS::AppSync::FunctionConfiguration":                         &appsync.FunctionConfiguration{},
@@ -191,6 +195,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudWatch::Alarm":                                      &cloudwatch.Alarm{},
 		"AWS::CloudWatch::AnomalyDetector":                            &cloudwatch.AnomalyDetector{},
 		"AWS::CloudWatch::Dashboard":                                  &cloudwatch.Dashboard{},
+		"AWS::CloudWatch::InsightRule":                                &cloudwatch.InsightRule{},
 		"AWS::CodeBuild::Project":                                     &codebuild.Project{},
 		"AWS::CodeBuild::SourceCredential":                            &codebuild.SourceCredential{},
 		"AWS::CodeCommit::Repository":                                 &codecommit.Repository{},
@@ -201,6 +206,7 @@ func AllResources() map[string]Resource {
 		"AWS::CodePipeline::Pipeline":                                 &codepipeline.Pipeline{},
 		"AWS::CodePipeline::Webhook":                                  &codepipeline.Webhook{},
 		"AWS::CodeStar::GitHubRepository":                             &codestar.GitHubRepository{},
+		"AWS::CodeStarNotifications::NotificationRule":                &codestarnotifications.NotificationRule{},
 		"AWS::Cognito::IdentityPool":                                  &cognito.IdentityPool{},
 		"AWS::Cognito::IdentityPoolRoleAttachment":                    &cognito.IdentityPoolRoleAttachment{},
 		"AWS::Cognito::UserPool":                                      &cognito.UserPool{},
@@ -298,11 +304,14 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::VolumeAttachment":                                  &ec2.VolumeAttachment{},
 		"AWS::ECR::Repository":                                        &ecr.Repository{},
 		"AWS::ECS::Cluster":                                           &ecs.Cluster{},
+		"AWS::ECS::PrimaryTaskSet":                                    &ecs.PrimaryTaskSet{},
 		"AWS::ECS::Service":                                           &ecs.Service{},
 		"AWS::ECS::TaskDefinition":                                    &ecs.TaskDefinition{},
+		"AWS::ECS::TaskSet":                                           &ecs.TaskSet{},
 		"AWS::EFS::FileSystem":                                        &efs.FileSystem{},
 		"AWS::EFS::MountTarget":                                       &efs.MountTarget{},
 		"AWS::EKS::Cluster":                                           &eks.Cluster{},
+		"AWS::EKS::Nodegroup":                                         &eks.Nodegroup{},
 		"AWS::EMR::Cluster":                                           &emr.Cluster{},
 		"AWS::EMR::InstanceFleetConfig":                               &emr.InstanceFleetConfig{},
 		"AWS::EMR::InstanceGroupConfig":                               &emr.InstanceGroupConfig{},
@@ -332,6 +341,10 @@ func AllResources() map[string]Resource {
 		"AWS::GameLift::Alias":                                        &gamelift.Alias{},
 		"AWS::GameLift::Build":                                        &gamelift.Build{},
 		"AWS::GameLift::Fleet":                                        &gamelift.Fleet{},
+		"AWS::GameLift::GameSessionQueue":                             &gamelift.GameSessionQueue{},
+		"AWS::GameLift::MatchmakingConfiguration":                     &gamelift.MatchmakingConfiguration{},
+		"AWS::GameLift::MatchmakingRuleSet":                           &gamelift.MatchmakingRuleSet{},
+		"AWS::GameLift::Script":                                       &gamelift.Script{},
 		"AWS::Glue::Classifier":                                       &glue.Classifier{},
 		"AWS::Glue::Connection":                                       &glue.Connection{},
 		"AWS::Glue::Crawler":                                          &glue.Crawler{},
@@ -411,6 +424,7 @@ func AllResources() map[string]Resource {
 		"AWS::LakeFormation::Permissions":                             &lakeformation.Permissions{},
 		"AWS::LakeFormation::Resource":                                &lakeformation.Resource{},
 		"AWS::Lambda::Alias":                                          &lambda.Alias{},
+		"AWS::Lambda::EventInvokeConfig":                              &lambda.EventInvokeConfig{},
 		"AWS::Lambda::EventSourceMapping":                             &lambda.EventSourceMapping{},
 		"AWS::Lambda::Function":                                       &lambda.Function{},
 		"AWS::Lambda::LayerVersion":                                   &lambda.LayerVersion{},
@@ -425,6 +439,9 @@ func AllResources() map[string]Resource {
 		"AWS::MSK::Cluster":                                           &msk.Cluster{},
 		"AWS::ManagedBlockchain::Member":                              &managedblockchain.Member{},
 		"AWS::ManagedBlockchain::Node":                                &managedblockchain.Node{},
+		"AWS::MediaConvert::JobTemplate":                              &mediaconvert.JobTemplate{},
+		"AWS::MediaConvert::Preset":                                   &mediaconvert.Preset{},
+		"AWS::MediaConvert::Queue":                                    &mediaconvert.Queue{},
 		"AWS::MediaLive::Channel":                                     &medialive.Channel{},
 		"AWS::MediaLive::Input":                                       &medialive.Input{},
 		"AWS::MediaLive::InputSecurityGroup":                          &medialive.InputSecurityGroup{},
@@ -452,10 +469,13 @@ func AllResources() map[string]Resource {
 		"AWS::Pinpoint::BaiduChannel":                                 &pinpoint.BaiduChannel{},
 		"AWS::Pinpoint::Campaign":                                     &pinpoint.Campaign{},
 		"AWS::Pinpoint::EmailChannel":                                 &pinpoint.EmailChannel{},
+		"AWS::Pinpoint::EmailTemplate":                                &pinpoint.EmailTemplate{},
 		"AWS::Pinpoint::EventStream":                                  &pinpoint.EventStream{},
 		"AWS::Pinpoint::GCMChannel":                                   &pinpoint.GCMChannel{},
+		"AWS::Pinpoint::PushTemplate":                                 &pinpoint.PushTemplate{},
 		"AWS::Pinpoint::SMSChannel":                                   &pinpoint.SMSChannel{},
 		"AWS::Pinpoint::Segment":                                      &pinpoint.Segment{},
+		"AWS::Pinpoint::SmsTemplate":                                  &pinpoint.SmsTemplate{},
 		"AWS::Pinpoint::VoiceChannel":                                 &pinpoint.VoiceChannel{},
 		"AWS::PinpointEmail::ConfigurationSet":                        &pinpointemail.ConfigurationSet{},
 		"AWS::PinpointEmail::ConfigurationSetEventDestination":        &pinpointemail.ConfigurationSetEventDestination{},
@@ -570,6 +590,10 @@ func AllResources() map[string]Resource {
 		"AWS::WAFRegional::WebACL":                                    &wafregional.WebACL{},
 		"AWS::WAFRegional::WebACLAssociation":                         &wafregional.WebACLAssociation{},
 		"AWS::WAFRegional::XssMatchSet":                               &wafregional.XssMatchSet{},
+		"AWS::WAFv2::IPSet":                                           &wafv2.IPSet{},
+		"AWS::WAFv2::RegexPatternSet":                                 &wafv2.RegexPatternSet{},
+		"AWS::WAFv2::RuleGroup":                                       &wafv2.RuleGroup{},
+		"AWS::WAFv2::WebACL":                                          &wafv2.WebACL{},
 		"AWS::WorkSpaces::Workspace":                                  &workspaces.Workspace{},
 		"Alexa::ASK::Skill":                                           &ask.Skill{},
 	}
@@ -1727,6 +1751,30 @@ func (t *Template) GetAppStreamUserWithName(name string) (*appstream.User, error
 	return nil, fmt.Errorf("resource %q of type appstream.User not found", name)
 }
 
+// GetAllAppSyncApiCacheResources retrieves all appsync.ApiCache items from an AWS CloudFormation template
+func (t *Template) GetAllAppSyncApiCacheResources() map[string]*appsync.ApiCache {
+	results := map[string]*appsync.ApiCache{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appsync.ApiCache:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppSyncApiCacheWithName retrieves all appsync.ApiCache items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppSyncApiCacheWithName(name string) (*appsync.ApiCache, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appsync.ApiCache:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appsync.ApiCache not found", name)
+}
+
 // GetAllAppSyncApiKeyResources retrieves all appsync.ApiKey items from an AWS CloudFormation template
 func (t *Template) GetAllAppSyncApiKeyResources() map[string]*appsync.ApiKey {
 	results := map[string]*appsync.ApiKey{}
@@ -2591,6 +2639,30 @@ func (t *Template) GetCloudWatchDashboardWithName(name string) (*cloudwatch.Dash
 	return nil, fmt.Errorf("resource %q of type cloudwatch.Dashboard not found", name)
 }
 
+// GetAllCloudWatchInsightRuleResources retrieves all cloudwatch.InsightRule items from an AWS CloudFormation template
+func (t *Template) GetAllCloudWatchInsightRuleResources() map[string]*cloudwatch.InsightRule {
+	results := map[string]*cloudwatch.InsightRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudwatch.InsightRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudWatchInsightRuleWithName retrieves all cloudwatch.InsightRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudWatchInsightRuleWithName(name string) (*cloudwatch.InsightRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudwatch.InsightRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudwatch.InsightRule not found", name)
+}
+
 // GetAllCodeBuildProjectResources retrieves all codebuild.Project items from an AWS CloudFormation template
 func (t *Template) GetAllCodeBuildProjectResources() map[string]*codebuild.Project {
 	results := map[string]*codebuild.Project{}
@@ -2829,6 +2901,30 @@ func (t *Template) GetCodeStarGitHubRepositoryWithName(name string) (*codestar.G
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type codestar.GitHubRepository not found", name)
+}
+
+// GetAllCodeStarNotificationsNotificationRuleResources retrieves all codestarnotifications.NotificationRule items from an AWS CloudFormation template
+func (t *Template) GetAllCodeStarNotificationsNotificationRuleResources() map[string]*codestarnotifications.NotificationRule {
+	results := map[string]*codestarnotifications.NotificationRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *codestarnotifications.NotificationRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCodeStarNotificationsNotificationRuleWithName retrieves all codestarnotifications.NotificationRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCodeStarNotificationsNotificationRuleWithName(name string) (*codestarnotifications.NotificationRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *codestarnotifications.NotificationRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type codestarnotifications.NotificationRule not found", name)
 }
 
 // GetAllCognitoIdentityPoolResources retrieves all cognito.IdentityPool items from an AWS CloudFormation template
@@ -5159,6 +5255,30 @@ func (t *Template) GetECSClusterWithName(name string) (*ecs.Cluster, error) {
 	return nil, fmt.Errorf("resource %q of type ecs.Cluster not found", name)
 }
 
+// GetAllECSPrimaryTaskSetResources retrieves all ecs.PrimaryTaskSet items from an AWS CloudFormation template
+func (t *Template) GetAllECSPrimaryTaskSetResources() map[string]*ecs.PrimaryTaskSet {
+	results := map[string]*ecs.PrimaryTaskSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ecs.PrimaryTaskSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetECSPrimaryTaskSetWithName retrieves all ecs.PrimaryTaskSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetECSPrimaryTaskSetWithName(name string) (*ecs.PrimaryTaskSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ecs.PrimaryTaskSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ecs.PrimaryTaskSet not found", name)
+}
+
 // GetAllECSServiceResources retrieves all ecs.Service items from an AWS CloudFormation template
 func (t *Template) GetAllECSServiceResources() map[string]*ecs.Service {
 	results := map[string]*ecs.Service{}
@@ -5205,6 +5325,30 @@ func (t *Template) GetECSTaskDefinitionWithName(name string) (*ecs.TaskDefinitio
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ecs.TaskDefinition not found", name)
+}
+
+// GetAllECSTaskSetResources retrieves all ecs.TaskSet items from an AWS CloudFormation template
+func (t *Template) GetAllECSTaskSetResources() map[string]*ecs.TaskSet {
+	results := map[string]*ecs.TaskSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ecs.TaskSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetECSTaskSetWithName retrieves all ecs.TaskSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetECSTaskSetWithName(name string) (*ecs.TaskSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ecs.TaskSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ecs.TaskSet not found", name)
 }
 
 // GetAllEFSFileSystemResources retrieves all efs.FileSystem items from an AWS CloudFormation template
@@ -5277,6 +5421,30 @@ func (t *Template) GetEKSClusterWithName(name string) (*eks.Cluster, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type eks.Cluster not found", name)
+}
+
+// GetAllEKSNodegroupResources retrieves all eks.Nodegroup items from an AWS CloudFormation template
+func (t *Template) GetAllEKSNodegroupResources() map[string]*eks.Nodegroup {
+	results := map[string]*eks.Nodegroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *eks.Nodegroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEKSNodegroupWithName retrieves all eks.Nodegroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEKSNodegroupWithName(name string) (*eks.Nodegroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *eks.Nodegroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type eks.Nodegroup not found", name)
 }
 
 // GetAllEMRClusterResources retrieves all emr.Cluster items from an AWS CloudFormation template
@@ -5973,6 +6141,102 @@ func (t *Template) GetGameLiftFleetWithName(name string) (*gamelift.Fleet, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type gamelift.Fleet not found", name)
+}
+
+// GetAllGameLiftGameSessionQueueResources retrieves all gamelift.GameSessionQueue items from an AWS CloudFormation template
+func (t *Template) GetAllGameLiftGameSessionQueueResources() map[string]*gamelift.GameSessionQueue {
+	results := map[string]*gamelift.GameSessionQueue{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *gamelift.GameSessionQueue:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGameLiftGameSessionQueueWithName retrieves all gamelift.GameSessionQueue items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGameLiftGameSessionQueueWithName(name string) (*gamelift.GameSessionQueue, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *gamelift.GameSessionQueue:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type gamelift.GameSessionQueue not found", name)
+}
+
+// GetAllGameLiftMatchmakingConfigurationResources retrieves all gamelift.MatchmakingConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllGameLiftMatchmakingConfigurationResources() map[string]*gamelift.MatchmakingConfiguration {
+	results := map[string]*gamelift.MatchmakingConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *gamelift.MatchmakingConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGameLiftMatchmakingConfigurationWithName retrieves all gamelift.MatchmakingConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGameLiftMatchmakingConfigurationWithName(name string) (*gamelift.MatchmakingConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *gamelift.MatchmakingConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type gamelift.MatchmakingConfiguration not found", name)
+}
+
+// GetAllGameLiftMatchmakingRuleSetResources retrieves all gamelift.MatchmakingRuleSet items from an AWS CloudFormation template
+func (t *Template) GetAllGameLiftMatchmakingRuleSetResources() map[string]*gamelift.MatchmakingRuleSet {
+	results := map[string]*gamelift.MatchmakingRuleSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *gamelift.MatchmakingRuleSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGameLiftMatchmakingRuleSetWithName retrieves all gamelift.MatchmakingRuleSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGameLiftMatchmakingRuleSetWithName(name string) (*gamelift.MatchmakingRuleSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *gamelift.MatchmakingRuleSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type gamelift.MatchmakingRuleSet not found", name)
+}
+
+// GetAllGameLiftScriptResources retrieves all gamelift.Script items from an AWS CloudFormation template
+func (t *Template) GetAllGameLiftScriptResources() map[string]*gamelift.Script {
+	results := map[string]*gamelift.Script{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *gamelift.Script:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGameLiftScriptWithName retrieves all gamelift.Script items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGameLiftScriptWithName(name string) (*gamelift.Script, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *gamelift.Script:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type gamelift.Script not found", name)
 }
 
 // GetAllGlueClassifierResources retrieves all glue.Classifier items from an AWS CloudFormation template
@@ -7871,6 +8135,30 @@ func (t *Template) GetLambdaAliasWithName(name string) (*lambda.Alias, error) {
 	return nil, fmt.Errorf("resource %q of type lambda.Alias not found", name)
 }
 
+// GetAllLambdaEventInvokeConfigResources retrieves all lambda.EventInvokeConfig items from an AWS CloudFormation template
+func (t *Template) GetAllLambdaEventInvokeConfigResources() map[string]*lambda.EventInvokeConfig {
+	results := map[string]*lambda.EventInvokeConfig{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lambda.EventInvokeConfig:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLambdaEventInvokeConfigWithName retrieves all lambda.EventInvokeConfig items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLambdaEventInvokeConfigWithName(name string) (*lambda.EventInvokeConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lambda.EventInvokeConfig:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lambda.EventInvokeConfig not found", name)
+}
+
 // GetAllLambdaEventSourceMappingResources retrieves all lambda.EventSourceMapping items from an AWS CloudFormation template
 func (t *Template) GetAllLambdaEventSourceMappingResources() map[string]*lambda.EventSourceMapping {
 	results := map[string]*lambda.EventSourceMapping{}
@@ -8205,6 +8493,78 @@ func (t *Template) GetManagedBlockchainNodeWithName(name string) (*managedblockc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type managedblockchain.Node not found", name)
+}
+
+// GetAllMediaConvertJobTemplateResources retrieves all mediaconvert.JobTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllMediaConvertJobTemplateResources() map[string]*mediaconvert.JobTemplate {
+	results := map[string]*mediaconvert.JobTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediaconvert.JobTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaConvertJobTemplateWithName retrieves all mediaconvert.JobTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaConvertJobTemplateWithName(name string) (*mediaconvert.JobTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediaconvert.JobTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediaconvert.JobTemplate not found", name)
+}
+
+// GetAllMediaConvertPresetResources retrieves all mediaconvert.Preset items from an AWS CloudFormation template
+func (t *Template) GetAllMediaConvertPresetResources() map[string]*mediaconvert.Preset {
+	results := map[string]*mediaconvert.Preset{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediaconvert.Preset:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaConvertPresetWithName retrieves all mediaconvert.Preset items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaConvertPresetWithName(name string) (*mediaconvert.Preset, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediaconvert.Preset:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediaconvert.Preset not found", name)
+}
+
+// GetAllMediaConvertQueueResources retrieves all mediaconvert.Queue items from an AWS CloudFormation template
+func (t *Template) GetAllMediaConvertQueueResources() map[string]*mediaconvert.Queue {
+	results := map[string]*mediaconvert.Queue{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediaconvert.Queue:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaConvertQueueWithName retrieves all mediaconvert.Queue items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaConvertQueueWithName(name string) (*mediaconvert.Queue, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediaconvert.Queue:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediaconvert.Queue not found", name)
 }
 
 // GetAllMediaLiveChannelResources retrieves all medialive.Channel items from an AWS CloudFormation template
@@ -8855,6 +9215,30 @@ func (t *Template) GetPinpointEmailChannelWithName(name string) (*pinpoint.Email
 	return nil, fmt.Errorf("resource %q of type pinpoint.EmailChannel not found", name)
 }
 
+// GetAllPinpointEmailTemplateResources retrieves all pinpoint.EmailTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllPinpointEmailTemplateResources() map[string]*pinpoint.EmailTemplate {
+	results := map[string]*pinpoint.EmailTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pinpoint.EmailTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPinpointEmailTemplateWithName retrieves all pinpoint.EmailTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPinpointEmailTemplateWithName(name string) (*pinpoint.EmailTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pinpoint.EmailTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pinpoint.EmailTemplate not found", name)
+}
+
 // GetAllPinpointEventStreamResources retrieves all pinpoint.EventStream items from an AWS CloudFormation template
 func (t *Template) GetAllPinpointEventStreamResources() map[string]*pinpoint.EventStream {
 	results := map[string]*pinpoint.EventStream{}
@@ -8903,6 +9287,30 @@ func (t *Template) GetPinpointGCMChannelWithName(name string) (*pinpoint.GCMChan
 	return nil, fmt.Errorf("resource %q of type pinpoint.GCMChannel not found", name)
 }
 
+// GetAllPinpointPushTemplateResources retrieves all pinpoint.PushTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllPinpointPushTemplateResources() map[string]*pinpoint.PushTemplate {
+	results := map[string]*pinpoint.PushTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pinpoint.PushTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPinpointPushTemplateWithName retrieves all pinpoint.PushTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPinpointPushTemplateWithName(name string) (*pinpoint.PushTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pinpoint.PushTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pinpoint.PushTemplate not found", name)
+}
+
 // GetAllPinpointSMSChannelResources retrieves all pinpoint.SMSChannel items from an AWS CloudFormation template
 func (t *Template) GetAllPinpointSMSChannelResources() map[string]*pinpoint.SMSChannel {
 	results := map[string]*pinpoint.SMSChannel{}
@@ -8949,6 +9357,30 @@ func (t *Template) GetPinpointSegmentWithName(name string) (*pinpoint.Segment, e
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type pinpoint.Segment not found", name)
+}
+
+// GetAllPinpointSmsTemplateResources retrieves all pinpoint.SmsTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllPinpointSmsTemplateResources() map[string]*pinpoint.SmsTemplate {
+	results := map[string]*pinpoint.SmsTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pinpoint.SmsTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPinpointSmsTemplateWithName retrieves all pinpoint.SmsTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPinpointSmsTemplateWithName(name string) (*pinpoint.SmsTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pinpoint.SmsTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pinpoint.SmsTemplate not found", name)
 }
 
 // GetAllPinpointVoiceChannelResources retrieves all pinpoint.VoiceChannel items from an AWS CloudFormation template
@@ -11685,6 +12117,102 @@ func (t *Template) GetWAFRegionalXssMatchSetWithName(name string) (*wafregional.
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type wafregional.XssMatchSet not found", name)
+}
+
+// GetAllWAFv2IPSetResources retrieves all wafv2.IPSet items from an AWS CloudFormation template
+func (t *Template) GetAllWAFv2IPSetResources() map[string]*wafv2.IPSet {
+	results := map[string]*wafv2.IPSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *wafv2.IPSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWAFv2IPSetWithName retrieves all wafv2.IPSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWAFv2IPSetWithName(name string) (*wafv2.IPSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *wafv2.IPSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type wafv2.IPSet not found", name)
+}
+
+// GetAllWAFv2RegexPatternSetResources retrieves all wafv2.RegexPatternSet items from an AWS CloudFormation template
+func (t *Template) GetAllWAFv2RegexPatternSetResources() map[string]*wafv2.RegexPatternSet {
+	results := map[string]*wafv2.RegexPatternSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *wafv2.RegexPatternSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWAFv2RegexPatternSetWithName retrieves all wafv2.RegexPatternSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWAFv2RegexPatternSetWithName(name string) (*wafv2.RegexPatternSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *wafv2.RegexPatternSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type wafv2.RegexPatternSet not found", name)
+}
+
+// GetAllWAFv2RuleGroupResources retrieves all wafv2.RuleGroup items from an AWS CloudFormation template
+func (t *Template) GetAllWAFv2RuleGroupResources() map[string]*wafv2.RuleGroup {
+	results := map[string]*wafv2.RuleGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *wafv2.RuleGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWAFv2RuleGroupWithName retrieves all wafv2.RuleGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWAFv2RuleGroupWithName(name string) (*wafv2.RuleGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *wafv2.RuleGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type wafv2.RuleGroup not found", name)
+}
+
+// GetAllWAFv2WebACLResources retrieves all wafv2.WebACL items from an AWS CloudFormation template
+func (t *Template) GetAllWAFv2WebACLResources() map[string]*wafv2.WebACL {
+	results := map[string]*wafv2.WebACL{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *wafv2.WebACL:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWAFv2WebACLWithName retrieves all wafv2.WebACL items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWAFv2WebACLWithName(name string) (*wafv2.WebACL, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *wafv2.WebACL:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type wafv2.WebACL not found", name)
 }
 
 // GetAllWorkSpacesWorkspaceResources retrieves all workspaces.Workspace items from an AWS CloudFormation template

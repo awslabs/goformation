@@ -1,7 +1,7 @@
 package elasticloadbalancing
 
 import (
-	"github.com/awslabs/goformation/v3/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
 // LoadBalancer_LBCookieStickinessPolicy AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.LBCookieStickinessPolicy)
@@ -18,53 +18,17 @@ type LoadBalancer_LBCookieStickinessPolicy struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html#cfn-elb-lbcookiestickinesspolicy-policyname
 	PolicyName string `json:"PolicyName,omitempty"`
 
-	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy policies.DeletionPolicy
+	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
+	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
-	// _dependsOn stores the logical ID of the resources to be created before this resource
-	_dependsOn []string
+	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
+	AWSCloudFormationDependsOn []string `json:"-"`
 
-	// _metadata stores structured data associated with this resource
-	_metadata map[string]interface{}
+	// AWSCloudFormationMetadata stores structured data associated with this resource
+	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *LoadBalancer_LBCookieStickinessPolicy) AWSCloudFormationType() string {
 	return "AWS::ElasticLoadBalancing::LoadBalancer.LBCookieStickinessPolicy"
-}
-
-// DependsOn returns a slice of logical ID names this resource depends on.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *LoadBalancer_LBCookieStickinessPolicy) DependsOn() []string {
-	return r._dependsOn
-}
-
-// SetDependsOn specify that the creation of this resource follows another.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *LoadBalancer_LBCookieStickinessPolicy) SetDependsOn(dependencies []string) {
-	r._dependsOn = dependencies
-}
-
-// Metadata returns the metadata associated with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *LoadBalancer_LBCookieStickinessPolicy) Metadata() map[string]interface{} {
-	return r._metadata
-}
-
-// SetMetadata enables you to associate structured data with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *LoadBalancer_LBCookieStickinessPolicy) SetMetadata(metadata map[string]interface{}) {
-	r._metadata = metadata
-}
-
-// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *LoadBalancer_LBCookieStickinessPolicy) DeletionPolicy() policies.DeletionPolicy {
-	return r._deletionPolicy
-}
-
-// SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *LoadBalancer_LBCookieStickinessPolicy) SetDeletionPolicy(policy policies.DeletionPolicy) {
-	r._deletionPolicy = policy
 }

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"sort"
 
-	"github.com/awslabs/goformation/v3/cloudformation/utils"
+	"github.com/awslabs/goformation/v4/cloudformation/utils"
 )
 
 // Application_Location is a helper struct that can hold either a String or ApplicationLocation value

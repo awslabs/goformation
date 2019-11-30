@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/awslabs/goformation/v3"
+	"github.com/awslabs/goformation/v4"
 )
 
 func main() {

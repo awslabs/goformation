@@ -5,15 +5,15 @@ import (
 
 	"github.com/sanathkr/yaml"
 
-	"github.com/awslabs/goformation/v3"
-	"github.com/awslabs/goformation/v3/cloudformation"
-	"github.com/awslabs/goformation/v3/cloudformation/lambda"
-	"github.com/awslabs/goformation/v3/cloudformation/policies"
-	"github.com/awslabs/goformation/v3/cloudformation/route53"
-	"github.com/awslabs/goformation/v3/cloudformation/s3"
-	"github.com/awslabs/goformation/v3/cloudformation/serverless"
-	"github.com/awslabs/goformation/v3/cloudformation/sns"
-	"github.com/awslabs/goformation/v3/intrinsics"
+	"github.com/awslabs/goformation/v4"
+	"github.com/awslabs/goformation/v4/cloudformation"
+	"github.com/awslabs/goformation/v4/cloudformation/lambda"
+	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/route53"
+	"github.com/awslabs/goformation/v4/cloudformation/s3"
+	"github.com/awslabs/goformation/v4/cloudformation/serverless"
+	"github.com/awslabs/goformation/v4/cloudformation/sns"
+	"github.com/awslabs/goformation/v4/intrinsics"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -466,7 +466,7 @@ var _ = Describe("Goformation", func() {
 		})
 
 		It("should have the correct DeletionPolicy", func() {
-			Expect(table.DeletionPolicy()).To(Equal(policies.DeletionPolicy("Retain")))
+			Expect(table.AWSCloudFormationDeletionPolicy).To(Equal(policies.DeletionPolicy("Retain")))
 		})
 	})
 
