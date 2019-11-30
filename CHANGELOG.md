@@ -1,5 +1,30 @@
 # GoFormation Versioning Changelog
 
+# [4.0.0](https://github.com/awslabs/goformation/compare/v3.1.0...v4.0.0) (2019-11-30)
+
+
+* Fix method conflicts (#245) ([d0b0a8b](https://github.com/awslabs/goformation/commit/d0b0a8bc322e27f72e840c9847f3c822d4efa933)), closes [#245](https://github.com/awslabs/goformation/issues/245) [#241](https://github.com/awslabs/goformation/issues/241) [#294](https://github.com/awslabs/goformation/issues/294)
+
+
+### BREAKING CHANGES
+
+* This change refactors the DependsOn, Metadata, CreationPolicy,
+UpdatePolicy and DeletionPolicy methods on each resource to a new
+name. This is required, as some CloudFormation resources use these
+keywords as properties (AWS::AppMesh::Route.GrpcRouteMatch has a
+Metadata field for example), which causes a conflict.
+
+`resource.DependsOn()` method is refactored to `resource.AWSCloudFormationDependsOn` field.
+`resource.SetDependsOn()` method is refactored to `resource.AWSCloudFormationDependsOn` field.
+`resource.Metadata()` method is refactored to `resource.AWSCloudFormationMetadata` field.
+`resource.SetMetadata()` method is refactored to `resource.AWSCloudFormationMetadata` field.
+`resource.CreationPolicy()` method is refactored to `resource.AWSCloudFormationCreationPolicy` field.
+`resource.SetCreationPolicy()` method is refactored to `resource.AWSCloudFormationCreationPolicy` field.
+`resource.UpdatePolicy()` method is refactored to `resource.AWSCloudFormationUpdatePolicy` field.
+`resource.SetUpdatePolicy()` method is refactored to `resource.AWSCloudFormationUpdatePolicy` field.
+`resource.DeletionPolicy()` method is refactored to `resource.AWSCloudFormationDeletionPolicy` field.
+`resource.SetDeletionPolicy()` method is refactored to `resource.AWSCloudFormationDeletionPolicy` field.
+
 # [3.1.0](https://github.com/awslabs/goformation/compare/v3.0.1...v3.1.0) (2019-10-29)
 
 
