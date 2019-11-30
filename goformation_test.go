@@ -1,6 +1,8 @@
 package goformation_test
 
 import (
+	"fmt"
+
 	"encoding/json"
 
 	"github.com/sanathkr/yaml"
@@ -19,6 +21,133 @@ import (
 	. "github.com/onsi/gomega"
 	. "github.com/onsi/gomega/gstruct"
 )
+
+func Example_to_json() {
+
+	// Create a new CloudFormation template
+	template := cloudformation.NewTemplate()
+
+	// Create an Amazon SNS topic, with a unique name based off the current timestamp
+	template.Resources["MyTopic"] = &sns.Topic{
+		TopicName: "my-topic-1575143839",
+	}
+
+	// Create a subscription, connected to our topic, that forwards notifications to an email address
+	template.Resources["MyTopicSubscription"] = &sns.Subscription{
+		TopicArn: cloudformation.Ref("MyTopic"),
+		Protocol: "email",
+		Endpoint: "some.email@example.com",
+	}
+
+	// Let's see the JSON AWS CloudFormation template
+	j, err := template.JSON()
+	if err != nil {
+		fmt.Printf("Failed to generate JSON: %s\n", err)
+	} else {
+		fmt.Printf("%s\n", string(j))
+	}
+
+	// Output:
+	// {
+	//   "AWSTemplateFormatVersion": "2010-09-09",
+	//   "Resources": {
+	//     "MyTopic": {
+	//       "Properties": {
+	//         "TopicName": "my-topic-1575143839"
+	//       },
+	//       "Type": "AWS::SNS::Topic"
+	//     },
+	//     "MyTopicSubscription": {
+	//       "Properties": {
+	//         "Endpoint": "some.email@example.com",
+	//         "Protocol": "email",
+	//         "TopicArn": {
+	//           "Ref": "MyTopic"
+	//         }
+	//       },
+	//       "Type": "AWS::SNS::Subscription"
+	//     }
+	//   }
+	// }
+}
+
+func Example_to_yaml() {
+
+	// Create a new CloudFormation template
+	template := cloudformation.NewTemplate()
+
+	// Create an Amazon SNS topic, with a unique name based off the current timestamp
+	template.Resources["MyTopic"] = &sns.Topic{
+		TopicName: "my-topic-1575143970",
+	}
+
+	// Create a subscription, connected to our topic, that forwards notifications to an email address
+	template.Resources["MyTopicSubscription"] = &sns.Subscription{
+		TopicArn: cloudformation.Ref("MyTopic"),
+		Protocol: "email",
+		Endpoint: "some.email@example.com",
+	}
+
+	// Let's see the YAML AWS CloudFormation template
+	y, err := template.YAML()
+	if err != nil {
+		fmt.Printf("Failed to generate YAML: %s\n", err)
+	} else {
+		fmt.Printf("%s\n", string(y))
+	}
+
+	// Output:
+	// AWSTemplateFormatVersion: 2010-09-09
+	// Resources:
+	//   MyTopic:
+	//     Properties:
+	//       TopicName: my-topic-1575143970
+	//     Type: AWS::SNS::Topic
+	//   MyTopicSubscription:
+	//     Properties:
+	//       Endpoint: some.email@example.com
+	//       Protocol: email
+	//       TopicArn:
+	//         Ref: MyTopic
+	//     Type: AWS::SNS::Subscription
+
+}
+
+func Example_to_go() {
+
+	// Open a template from file (can be JSON or YAML)
+	template, err := goformation.Open("example/yaml-to-go/template.yaml")
+	if err != nil {
+		fmt.Printf("There was an error processing the template: %s", err)
+		return
+	}
+
+	// You can extract all resources of a certain type
+	// Each AWS CloudFormation resource is a strongly typed struct
+	topics := template.GetAllSNSTopicResources()
+	for name, topic := range topics {
+
+		// E.g. Found a AWS::SNS::Topic with Logical ID ExampleTopic and TopicName 'example'
+		fmt.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), name, topic.TopicName)
+
+	}
+
+	// You can also search for specific resources by their logicalId
+	search := "ExampleTopic"
+	topic, err := template.GetSNSTopicWithName(search)
+	if err != nil {
+		fmt.Printf("SNS topic with logical ID %s not found", search)
+		return
+	}
+
+	// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
+	fmt.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), search, topic.TopicName)
+
+	// Output:
+	// Found a AWS::SNS::Topic with Logical ID ExampleTopic and TopicName example
+	// Found a AWS::SNS::Topic with Logical ID ExampleTopic and TopicName example
+
+}
 
 var _ = Describe("Goformation", func() {
 
