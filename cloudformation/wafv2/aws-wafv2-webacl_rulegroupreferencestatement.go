@@ -8,10 +8,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
 type WebACL_RuleGroupReferenceStatement struct {
 
-	// ARN AWS CloudFormation Property
+	// Arn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-	ARN string `json:"ARN,omitempty"`
+	Arn string `json:"Arn,omitempty"`
 
 	// ExcludedRules AWS CloudFormation Property
 	// Required: false

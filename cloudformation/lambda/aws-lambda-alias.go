@@ -32,6 +32,11 @@ type Alias struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-name
 	Name string `json:"Name,omitempty"`
 
+	// ProvisionedConcurrencyConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-provisionedconcurrencyconfig
+	ProvisionedConcurrencyConfig *Alias_ProvisionedConcurrencyConfiguration `json:"ProvisionedConcurrencyConfig,omitempty"`
+
 	// RoutingConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig

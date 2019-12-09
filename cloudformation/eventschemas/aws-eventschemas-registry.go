@@ -1,4 +1,4 @@
-package guardduty
+package eventschemas
 
 import (
 	"bytes"
@@ -8,39 +8,24 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// Filter AWS CloudFormation Resource (AWS::GuardDuty::Filter)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
-type Filter struct {
-
-	// Action AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-action
-	Action string `json:"Action,omitempty"`
+// Registry AWS CloudFormation Resource (AWS::EventSchemas::Registry)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html
+type Registry struct {
 
 	// Description AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-description
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-description
 	Description string `json:"Description,omitempty"`
 
-	// DetectorId AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
-	DetectorId string `json:"DetectorId,omitempty"`
+	// RegistryName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-registryname
+	RegistryName string `json:"RegistryName,omitempty"`
 
-	// FindingCriteria AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-findingcriteria
-	FindingCriteria *Filter_FindingCriteria `json:"FindingCriteria,omitempty"`
-
-	// Name AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
-	Name string `json:"Name,omitempty"`
-
-	// Rank AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-rank
-	Rank int `json:"Rank"`
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-tags
+	Tags []Registry_TagsEntry `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -53,14 +38,14 @@ type Filter struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Filter) AWSCloudFormationType() string {
-	return "AWS::GuardDuty::Filter"
+func (r *Registry) AWSCloudFormationType() string {
+	return "AWS::EventSchemas::Registry"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Filter) MarshalJSON() ([]byte, error) {
-	type Properties Filter
+func (r Registry) MarshalJSON() ([]byte, error) {
+	type Properties Registry
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -78,8 +63,8 @@ func (r Filter) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Filter) UnmarshalJSON(b []byte) error {
-	type Properties Filter
+func (r *Registry) UnmarshalJSON(b []byte) error {
+	type Properties Registry
 	res := &struct {
 		Type           string
 		Properties     *Properties
@@ -98,7 +83,7 @@ func (r *Filter) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Filter(*res.Properties)
+		*r = Registry(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
