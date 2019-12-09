@@ -22,6 +22,11 @@ type Stage struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-apiid
 	ApiId string `json:"ApiId,omitempty"`
 
+	// AutoDeploy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-autodeploy
+	AutoDeploy bool `json:"AutoDeploy,omitempty"`
+
 	// ClientCertificateId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-clientcertificateid
@@ -33,7 +38,7 @@ type Stage struct {
 	DefaultRouteSettings *Stage_RouteSettings `json:"DefaultRouteSettings,omitempty"`
 
 	// DeploymentId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-deploymentid
 	DeploymentId string `json:"DeploymentId,omitempty"`
 

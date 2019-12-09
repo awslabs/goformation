@@ -2,6 +2,7 @@ package cloudformation
 
 import (
 	"fmt"
+	"github.com/awslabs/goformation/v4/cloudformation/accessanalyzer"
 	"github.com/awslabs/goformation/v4/cloudformation/amazonmq"
 	"github.com/awslabs/goformation/v4/cloudformation/amplify"
 	"github.com/awslabs/goformation/v4/cloudformation/apigateway"
@@ -50,6 +51,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/elasticsearch"
 	"github.com/awslabs/goformation/v4/cloudformation/emr"
 	"github.com/awslabs/goformation/v4/cloudformation/events"
+	"github.com/awslabs/goformation/v4/cloudformation/eventschemas"
 	"github.com/awslabs/goformation/v4/cloudformation/fsx"
 	"github.com/awslabs/goformation/v4/cloudformation/gamelift"
 	"github.com/awslabs/goformation/v4/cloudformation/glue"
@@ -110,6 +112,7 @@ import (
 // AllResources fetches an iterable map all CloudFormation and SAM resources
 func AllResources() map[string]Resource {
 	return map[string]Resource{
+		"AWS::AccessAnalyzer::Analyzer":                               &accessanalyzer.Analyzer{},
 		"AWS::AmazonMQ::Broker":                                       &amazonmq.Broker{},
 		"AWS::AmazonMQ::Configuration":                                &amazonmq.Configuration{},
 		"AWS::AmazonMQ::ConfigurationAssociation":                     &amazonmq.ConfigurationAssociation{},
@@ -334,6 +337,9 @@ func AllResources() map[string]Resource {
 		"AWS::ElasticLoadBalancingV2::LoadBalancer":                   &elasticloadbalancingv2.LoadBalancer{},
 		"AWS::ElasticLoadBalancingV2::TargetGroup":                    &elasticloadbalancingv2.TargetGroup{},
 		"AWS::Elasticsearch::Domain":                                  &elasticsearch.Domain{},
+		"AWS::EventSchemas::Discoverer":                               &eventschemas.Discoverer{},
+		"AWS::EventSchemas::Registry":                                 &eventschemas.Registry{},
+		"AWS::EventSchemas::Schema":                                   &eventschemas.Schema{},
 		"AWS::Events::EventBus":                                       &events.EventBus{},
 		"AWS::Events::EventBusPolicy":                                 &events.EventBusPolicy{},
 		"AWS::Events::Rule":                                           &events.Rule{},
@@ -510,6 +516,7 @@ func AllResources() map[string]Resource {
 		"AWS::Route53Resolver::ResolverEndpoint":                      &route53resolver.ResolverEndpoint{},
 		"AWS::Route53Resolver::ResolverRule":                          &route53resolver.ResolverRule{},
 		"AWS::Route53Resolver::ResolverRuleAssociation":               &route53resolver.ResolverRuleAssociation{},
+		"AWS::S3::AccessPoint":                                        &s3.AccessPoint{},
 		"AWS::S3::Bucket":                                             &s3.Bucket{},
 		"AWS::S3::BucketPolicy":                                       &s3.BucketPolicy{},
 		"AWS::SDB::Domain":                                            &sdb.Domain{},
@@ -597,6 +604,30 @@ func AllResources() map[string]Resource {
 		"AWS::WorkSpaces::Workspace":                                  &workspaces.Workspace{},
 		"Alexa::ASK::Skill":                                           &ask.Skill{},
 	}
+}
+
+// GetAllAccessAnalyzerAnalyzerResources retrieves all accessanalyzer.Analyzer items from an AWS CloudFormation template
+func (t *Template) GetAllAccessAnalyzerAnalyzerResources() map[string]*accessanalyzer.Analyzer {
+	results := map[string]*accessanalyzer.Analyzer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *accessanalyzer.Analyzer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAccessAnalyzerAnalyzerWithName retrieves all accessanalyzer.Analyzer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAccessAnalyzerAnalyzerWithName(name string) (*accessanalyzer.Analyzer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *accessanalyzer.Analyzer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type accessanalyzer.Analyzer not found", name)
 }
 
 // GetAllAmazonMQBrokerResources retrieves all amazonmq.Broker items from an AWS CloudFormation template
@@ -5975,6 +6006,78 @@ func (t *Template) GetElasticsearchDomainWithName(name string) (*elasticsearch.D
 	return nil, fmt.Errorf("resource %q of type elasticsearch.Domain not found", name)
 }
 
+// GetAllEventSchemasDiscovererResources retrieves all eventschemas.Discoverer items from an AWS CloudFormation template
+func (t *Template) GetAllEventSchemasDiscovererResources() map[string]*eventschemas.Discoverer {
+	results := map[string]*eventschemas.Discoverer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *eventschemas.Discoverer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEventSchemasDiscovererWithName retrieves all eventschemas.Discoverer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEventSchemasDiscovererWithName(name string) (*eventschemas.Discoverer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *eventschemas.Discoverer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type eventschemas.Discoverer not found", name)
+}
+
+// GetAllEventSchemasRegistryResources retrieves all eventschemas.Registry items from an AWS CloudFormation template
+func (t *Template) GetAllEventSchemasRegistryResources() map[string]*eventschemas.Registry {
+	results := map[string]*eventschemas.Registry{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *eventschemas.Registry:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEventSchemasRegistryWithName retrieves all eventschemas.Registry items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEventSchemasRegistryWithName(name string) (*eventschemas.Registry, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *eventschemas.Registry:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type eventschemas.Registry not found", name)
+}
+
+// GetAllEventSchemasSchemaResources retrieves all eventschemas.Schema items from an AWS CloudFormation template
+func (t *Template) GetAllEventSchemasSchemaResources() map[string]*eventschemas.Schema {
+	results := map[string]*eventschemas.Schema{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *eventschemas.Schema:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEventSchemasSchemaWithName retrieves all eventschemas.Schema items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEventSchemasSchemaWithName(name string) (*eventschemas.Schema, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *eventschemas.Schema:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type eventschemas.Schema not found", name)
+}
+
 // GetAllEventsEventBusResources retrieves all events.EventBus items from an AWS CloudFormation template
 func (t *Template) GetAllEventsEventBusResources() map[string]*events.EventBus {
 	results := map[string]*events.EventBus{}
@@ -10197,6 +10300,30 @@ func (t *Template) GetRoute53ResolverResolverRuleAssociationWithName(name string
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type route53resolver.ResolverRuleAssociation not found", name)
+}
+
+// GetAllS3AccessPointResources retrieves all s3.AccessPoint items from an AWS CloudFormation template
+func (t *Template) GetAllS3AccessPointResources() map[string]*s3.AccessPoint {
+	results := map[string]*s3.AccessPoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *s3.AccessPoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetS3AccessPointWithName retrieves all s3.AccessPoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetS3AccessPointWithName(name string) (*s3.AccessPoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *s3.AccessPoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type s3.AccessPoint not found", name)
 }
 
 // GetAllS3BucketResources retrieves all s3.Bucket items from an AWS CloudFormation template

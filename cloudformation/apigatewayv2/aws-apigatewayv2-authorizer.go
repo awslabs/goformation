@@ -33,7 +33,7 @@ type Authorizer struct {
 	AuthorizerType string `json:"AuthorizerType,omitempty"`
 
 	// AuthorizerUri AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
 	AuthorizerUri string `json:"AuthorizerUri,omitempty"`
 
@@ -46,6 +46,11 @@ type Authorizer struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identityvalidationexpression
 	IdentityValidationExpression string `json:"IdentityValidationExpression,omitempty"`
+
+	// JwtConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-jwtconfiguration
+	JwtConfiguration *Authorizer_JWTConfiguration `json:"JwtConfiguration,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

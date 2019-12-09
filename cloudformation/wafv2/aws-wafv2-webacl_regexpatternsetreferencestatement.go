@@ -8,10 +8,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
 type WebACL_RegexPatternSetReferenceStatement struct {
 
-	// ARN AWS CloudFormation Property
+	// Arn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
-	ARN string `json:"ARN,omitempty"`
+	Arn string `json:"Arn,omitempty"`
 
 	// FieldToMatch AWS CloudFormation Property
 	// Required: false

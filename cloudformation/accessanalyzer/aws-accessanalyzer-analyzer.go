@@ -1,4 +1,4 @@
-package guardduty
+package accessanalyzer
 
 import (
 	"bytes"
@@ -6,41 +6,32 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// Filter AWS CloudFormation Resource (AWS::GuardDuty::Filter)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
-type Filter struct {
+// Analyzer AWS CloudFormation Resource (AWS::AccessAnalyzer::Analyzer)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+type Analyzer struct {
 
-	// Action AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-action
-	Action string `json:"Action,omitempty"`
+	// AnalyzerName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+	AnalyzerName string `json:"AnalyzerName,omitempty"`
 
-	// Description AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-description
-	Description string `json:"Description,omitempty"`
+	// ArchiveRules AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
+	ArchiveRules []Analyzer_ArchiveRule `json:"ArchiveRules,omitempty"`
 
-	// DetectorId AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
-	DetectorId string `json:"DetectorId,omitempty"`
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
-	// FindingCriteria AWS CloudFormation Property
+	// Type AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-findingcriteria
-	FindingCriteria *Filter_FindingCriteria `json:"FindingCriteria,omitempty"`
-
-	// Name AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
-	Name string `json:"Name,omitempty"`
-
-	// Rank AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-rank
-	Rank int `json:"Rank"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+	Type string `json:"Type,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -53,14 +44,14 @@ type Filter struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Filter) AWSCloudFormationType() string {
-	return "AWS::GuardDuty::Filter"
+func (r *Analyzer) AWSCloudFormationType() string {
+	return "AWS::AccessAnalyzer::Analyzer"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Filter) MarshalJSON() ([]byte, error) {
-	type Properties Filter
+func (r Analyzer) MarshalJSON() ([]byte, error) {
+	type Properties Analyzer
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -78,8 +69,8 @@ func (r Filter) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Filter) UnmarshalJSON(b []byte) error {
-	type Properties Filter
+func (r *Analyzer) UnmarshalJSON(b []byte) error {
+	type Properties Analyzer
 	res := &struct {
 		Type           string
 		Properties     *Properties
@@ -98,7 +89,7 @@ func (r *Filter) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Filter(*res.Properties)
+		*r = Analyzer(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
