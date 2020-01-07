@@ -20,6 +20,9 @@ func strSplit2Wrap(fn func(string, string) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
 		if str, ok := input.(string); ok {
 			arr := strings.SplitN(str, delim, 2)
+			if len(arr) != 2 {
+				return nil
+			}
 			return fn(arr[0], arr[1])
 		}
 		return nil
