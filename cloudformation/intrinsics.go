@@ -14,6 +14,18 @@ func strWrap(fn func(interface{}) string) intrinsics.IntrinsicHandler {
 	}
 }
 
+// Splits the string base on a . delimiter
+func strSplit2Wrap(fn func(string, string) string) intrinsics.IntrinsicHandler {
+	delim := "."
+	return func(name string, input interface{}, template interface{}) interface{} {
+		if str, ok := input.(string); ok {
+			arr := strings.SplitN(str, delim, 2)
+			return fn(arr[0], arr[1])
+		}
+		return nil
+	}
+}
+
 func str2Wrap(fn func(interface{}, interface{}) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
 		// Check that the input is an array
@@ -75,7 +87,7 @@ var EncoderIntrinsics = map[string]intrinsics.IntrinsicHandler{
 	"Fn::Not":         strAWrap(Not),
 	"Fn::Or":          strAWrap(Or),
 	"Fn::FindInMap":   str3Wrap(FindInMap),
-	"Fn::GetAtt":      str2Wrap(GetAtt),
+	"Fn::GetAtt":      strSplit2Wrap(GetAtt),
 	"Fn::GetAZs":      strWrap(GetAZs),
 	"Fn::ImportValue": strWrap(ImportValue),
 	"Fn::Join":        str2AWrap(Join),
@@ -116,7 +128,7 @@ func Sub(value interface{}) string {
 // (str, str) -> str
 
 // GetAtt returns the value of an attribute from a resource in the template.
-func GetAtt(logicalName interface{}, attribute interface{}) string {
+func GetAtt(logicalName string, attribute string) string {
 	return encode(fmt.Sprintf(`{ "Fn::GetAtt" : [ "%v", "%v" ] }`, logicalName, attribute))
 }
 
