@@ -605,9 +605,9 @@ var _ = Describe("AWS CloudFormation intrinsic function processing", func() {
 					}
 				}`
 
-		Context("with no processor options", func() {
+		Context("with evaluate conditions processor option", func() {
 
-			processed, err := ProcessJSON([]byte(template), nil)
+			processed, err := ProcessJSON([]byte(template), &ProcessorOptions{EvaluateConditions: true})
 			It("should successfully process the template", func() {
 				Expect(processed).ShouldNot(BeNil())
 				Expect(err).Should(BeNil())
