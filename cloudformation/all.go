@@ -200,6 +200,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudWatch::Dashboard":                                  &cloudwatch.Dashboard{},
 		"AWS::CloudWatch::InsightRule":                                &cloudwatch.InsightRule{},
 		"AWS::CodeBuild::Project":                                     &codebuild.Project{},
+		"AWS::CodeBuild::ReportGroup":                                 &codebuild.ReportGroup{},
 		"AWS::CodeBuild::SourceCredential":                            &codebuild.SourceCredential{},
 		"AWS::CodeCommit::Repository":                                 &codecommit.Repository{},
 		"AWS::CodeDeploy::Application":                                &codedeploy.Application{},
@@ -259,6 +260,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::EIPAssociation":                                    &ec2.EIPAssociation{},
 		"AWS::EC2::EgressOnlyInternetGateway":                         &ec2.EgressOnlyInternetGateway{},
 		"AWS::EC2::FlowLog":                                           &ec2.FlowLog{},
+		"AWS::EC2::GatewayRouteTableAssociation":                      &ec2.GatewayRouteTableAssociation{},
 		"AWS::EC2::Host":                                              &ec2.Host{},
 		"AWS::EC2::Instance":                                          &ec2.Instance{},
 		"AWS::EC2::InternetGateway":                                   &ec2.InternetGateway{},
@@ -2718,6 +2720,30 @@ func (t *Template) GetCodeBuildProjectWithName(name string) (*codebuild.Project,
 	return nil, fmt.Errorf("resource %q of type codebuild.Project not found", name)
 }
 
+// GetAllCodeBuildReportGroupResources retrieves all codebuild.ReportGroup items from an AWS CloudFormation template
+func (t *Template) GetAllCodeBuildReportGroupResources() map[string]*codebuild.ReportGroup {
+	results := map[string]*codebuild.ReportGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *codebuild.ReportGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCodeBuildReportGroupWithName retrieves all codebuild.ReportGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCodeBuildReportGroupWithName(name string) (*codebuild.ReportGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *codebuild.ReportGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type codebuild.ReportGroup not found", name)
+}
+
 // GetAllCodeBuildSourceCredentialResources retrieves all codebuild.SourceCredential items from an AWS CloudFormation template
 func (t *Template) GetAllCodeBuildSourceCredentialResources() map[string]*codebuild.SourceCredential {
 	results := map[string]*codebuild.SourceCredential{}
@@ -4132,6 +4158,30 @@ func (t *Template) GetEC2FlowLogWithName(name string) (*ec2.FlowLog, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.FlowLog not found", name)
+}
+
+// GetAllEC2GatewayRouteTableAssociationResources retrieves all ec2.GatewayRouteTableAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllEC2GatewayRouteTableAssociationResources() map[string]*ec2.GatewayRouteTableAssociation {
+	results := map[string]*ec2.GatewayRouteTableAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.GatewayRouteTableAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2GatewayRouteTableAssociationWithName retrieves all ec2.GatewayRouteTableAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2GatewayRouteTableAssociationWithName(name string) (*ec2.GatewayRouteTableAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.GatewayRouteTableAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.GatewayRouteTableAssociation not found", name)
 }
 
 // GetAllEC2HostResources retrieves all ec2.Host items from an AWS CloudFormation template

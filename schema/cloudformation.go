@@ -4929,7 +4929,8 @@ var CloudformationSchema = `{
                     },
                     "required": [
                         "ComputeCapacity",
-                        "InstanceType"
+                        "InstanceType",
+                        "Name"
                     ],
                     "type": "object"
                 },
@@ -5064,7 +5065,8 @@ var CloudformationSchema = `{
                         }
                     },
                     "required": [
-                        "InstanceType"
+                        "InstanceType",
+                        "Name"
                     ],
                     "type": "object"
                 },
@@ -6912,6 +6914,9 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "InstanceType": {
+                    "type": "string"
+                },
+                "WeightedCapacity": {
                     "type": "string"
                 }
             },
@@ -9038,6 +9043,12 @@ var CloudformationSchema = `{
                         },
                         "SubnetId": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -11099,6 +11110,106 @@ var CloudformationSchema = `{
             "required": [
                 "Pattern",
                 "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::CodeBuild::ReportGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ExportConfig": {
+                            "$ref": "#/definitions/AWS::CodeBuild::ReportGroup.ReportExportConfig"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ExportConfig",
+                        "Type"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CodeBuild::ReportGroup"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::CodeBuild::ReportGroup.ReportExportConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "ExportConfigType": {
+                    "type": "string"
+                },
+                "S3Destination": {
+                    "$ref": "#/definitions/AWS::CodeBuild::ReportGroup.S3ReportExportConfig"
+                }
+            },
+            "required": [
+                "ExportConfigType"
+            ],
+            "type": "object"
+        },
+        "AWS::CodeBuild::ReportGroup.S3ReportExportConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Bucket": {
+                    "type": "string"
+                },
+                "EncryptionDisabled": {
+                    "type": "boolean"
+                },
+                "EncryptionKey": {
+                    "type": "string"
+                },
+                "Packaging": {
+                    "type": "string"
+                },
+                "Path": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Bucket"
             ],
             "type": "object"
         },
@@ -15048,6 +15159,39 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::DLM::LifecyclePolicy.CrossRegionCopyRetainRule": {
+            "additionalProperties": false,
+            "properties": {
+                "Interval": {
+                    "type": "number"
+                },
+                "IntervalUnit": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::DLM::LifecyclePolicy.CrossRegionCopyRule": {
+            "additionalProperties": false,
+            "properties": {
+                "CmkArn": {
+                    "type": "string"
+                },
+                "CopyTags": {
+                    "type": "boolean"
+                },
+                "Encrypted": {
+                    "type": "boolean"
+                },
+                "RetainRule": {
+                    "$ref": "#/definitions/AWS::DLM::LifecyclePolicy.CrossRegionCopyRetainRule"
+                },
+                "TargetRegion": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::DLM::LifecyclePolicy.FastRestoreRule": {
             "additionalProperties": false,
             "properties": {
@@ -15059,11 +15203,14 @@ var CloudformationSchema = `{
                 },
                 "Count": {
                     "type": "number"
+                },
+                "Interval": {
+                    "type": "number"
+                },
+                "IntervalUnit": {
+                    "type": "string"
                 }
             },
-            "required": [
-                "Count"
-            ],
             "type": "object"
         },
         "AWS::DLM::LifecyclePolicy.Parameters": {
@@ -15103,6 +15250,11 @@ var CloudformationSchema = `{
                     "type": "array"
                 }
             },
+            "required": [
+                "ResourceTypes",
+                "Schedules",
+                "TargetTags"
+            ],
             "type": "object"
         },
         "AWS::DLM::LifecyclePolicy.RetainRule": {
@@ -15110,11 +15262,14 @@ var CloudformationSchema = `{
             "properties": {
                 "Count": {
                     "type": "number"
+                },
+                "Interval": {
+                    "type": "number"
+                },
+                "IntervalUnit": {
+                    "type": "string"
                 }
             },
-            "required": [
-                "Count"
-            ],
             "type": "object"
         },
         "AWS::DLM::LifecyclePolicy.Schedule": {
@@ -15125,6 +15280,12 @@ var CloudformationSchema = `{
                 },
                 "CreateRule": {
                     "$ref": "#/definitions/AWS::DLM::LifecyclePolicy.CreateRule"
+                },
+                "CrossRegionCopyRules": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::DLM::LifecyclePolicy.CrossRegionCopyRule"
+                    },
+                    "type": "array"
                 },
                 "FastRestoreRule": {
                     "$ref": "#/definitions/AWS::DLM::LifecyclePolicy.FastRestoreRule"
@@ -17826,6 +17987,64 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EC2::GatewayRouteTableAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "GatewayId": {
+                            "type": "string"
+                        },
+                        "RouteTableId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "GatewayId",
+                        "RouteTableId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::GatewayRouteTableAssociation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::EC2::Host": {
             "additionalProperties": false,
             "properties": {
@@ -17964,7 +18183,13 @@ var CloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "HibernationOptions": {
+                            "$ref": "#/definitions/AWS::EC2::Instance.HibernationOptions"
+                        },
                         "HostId": {
+                            "type": "string"
+                        },
+                        "HostResourceGroupArn": {
                             "type": "string"
                         },
                         "IamInstanceProfile": {
@@ -18191,6 +18416,15 @@ var CloudformationSchema = `{
             "required": [
                 "Type"
             ],
+            "type": "object"
+        },
+        "AWS::EC2::Instance.HibernationOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "Configured": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::EC2::Instance.InstanceIpv6Address": {
@@ -36257,6 +36491,9 @@ var CloudformationSchema = `{
                         "DetectorModelName": {
                             "type": "string"
                         },
+                        "EvaluationMethod": {
+                            "type": "string"
+                        },
                         "Key": {
                             "type": "string"
                         },
@@ -40464,6 +40701,9 @@ var CloudformationSchema = `{
                         "NumberOfBrokerNodes": {
                             "type": "number"
                         },
+                        "OpenMonitoring": {
+                            "$ref": "#/definitions/AWS::MSK::Cluster.OpenMonitoring"
+                        },
                         "Tags": {
                             "type": "object"
                         }
@@ -40586,6 +40826,54 @@ var CloudformationSchema = `{
                 },
                 "EncryptionInTransit": {
                     "$ref": "#/definitions/AWS::MSK::Cluster.EncryptionInTransit"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::MSK::Cluster.JmxExporter": {
+            "additionalProperties": false,
+            "properties": {
+                "EnabledInBroker": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "EnabledInBroker"
+            ],
+            "type": "object"
+        },
+        "AWS::MSK::Cluster.NodeExporter": {
+            "additionalProperties": false,
+            "properties": {
+                "EnabledInBroker": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "EnabledInBroker"
+            ],
+            "type": "object"
+        },
+        "AWS::MSK::Cluster.OpenMonitoring": {
+            "additionalProperties": false,
+            "properties": {
+                "Prometheus": {
+                    "$ref": "#/definitions/AWS::MSK::Cluster.Prometheus"
+                }
+            },
+            "required": [
+                "Prometheus"
+            ],
+            "type": "object"
+        },
+        "AWS::MSK::Cluster.Prometheus": {
+            "additionalProperties": false,
+            "properties": {
+                "JmxExporter": {
+                    "$ref": "#/definitions/AWS::MSK::Cluster.JmxExporter"
+                },
+                "NodeExporter": {
+                    "$ref": "#/definitions/AWS::MSK::Cluster.NodeExporter"
                 }
             },
             "type": "object"
@@ -44517,6 +44805,9 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "DefaultSubstitutions": {
+                            "type": "string"
+                        },
                         "HtmlPart": {
                             "type": "string"
                         },
@@ -44525,6 +44816,9 @@ var CloudformationSchema = `{
                         },
                         "Tags": {
                             "type": "object"
+                        },
+                        "TemplateDescription": {
+                            "type": "string"
                         },
                         "TemplateName": {
                             "type": "string"
@@ -44719,11 +45013,17 @@ var CloudformationSchema = `{
                         "Default": {
                             "$ref": "#/definitions/AWS::Pinpoint::PushTemplate.DefaultPushNotificationTemplate"
                         },
+                        "DefaultSubstitutions": {
+                            "type": "string"
+                        },
                         "GCM": {
                             "$ref": "#/definitions/AWS::Pinpoint::PushTemplate.AndroidPushNotificationTemplate"
                         },
                         "Tags": {
                             "type": "object"
+                        },
+                        "TemplateDescription": {
+                            "type": "string"
                         },
                         "TemplateName": {
                             "type": "string"
@@ -45188,8 +45488,14 @@ var CloudformationSchema = `{
                         "Body": {
                             "type": "string"
                         },
+                        "DefaultSubstitutions": {
+                            "type": "string"
+                        },
                         "Tags": {
                             "type": "object"
+                        },
+                        "TemplateDescription": {
+                            "type": "string"
                         },
                         "TemplateName": {
                             "type": "string"
@@ -46166,6 +46472,9 @@ var CloudformationSchema = `{
                         "BackupRetentionPeriod": {
                             "type": "number"
                         },
+                        "CACertificateIdentifier": {
+                            "type": "string"
+                        },
                         "CharacterSetName": {
                             "type": "string"
                         },
@@ -46243,6 +46552,9 @@ var CloudformationSchema = `{
                         },
                         "MasterUsername": {
                             "type": "string"
+                        },
+                        "MaxAllocatedStorage": {
+                            "type": "number"
                         },
                         "MonitoringInterval": {
                             "type": "number"
@@ -50860,6 +51172,9 @@ var CloudformationSchema = `{
                         "DocumentType": {
                             "type": "string"
                         },
+                        "Name": {
+                            "type": "string"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -51612,17 +51927,23 @@ var CloudformationSchema = `{
                         "KMSKeyArn": {
                             "type": "string"
                         },
+                        "S3Destination": {
+                            "$ref": "#/definitions/AWS::SSM::ResourceDataSync.S3Destination"
+                        },
                         "SyncFormat": {
                             "type": "string"
                         },
                         "SyncName": {
                             "type": "string"
+                        },
+                        "SyncSource": {
+                            "$ref": "#/definitions/AWS::SSM::ResourceDataSync.SyncSource"
+                        },
+                        "SyncType": {
+                            "type": "string"
                         }
                     },
                     "required": [
-                        "BucketName",
-                        "BucketRegion",
-                        "SyncFormat",
                         "SyncName"
                     ],
                     "type": "object"
@@ -51637,6 +51958,75 @@ var CloudformationSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::SSM::ResourceDataSync.AwsOrganizationsSource": {
+            "additionalProperties": false,
+            "properties": {
+                "OrganizationSourceType": {
+                    "type": "string"
+                },
+                "OrganizationalUnits": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "OrganizationSourceType"
+            ],
+            "type": "object"
+        },
+        "AWS::SSM::ResourceDataSync.S3Destination": {
+            "additionalProperties": false,
+            "properties": {
+                "BucketName": {
+                    "type": "string"
+                },
+                "BucketPrefix": {
+                    "type": "string"
+                },
+                "BucketRegion": {
+                    "type": "string"
+                },
+                "KMSKeyArn": {
+                    "type": "string"
+                },
+                "SyncFormat": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BucketName",
+                "BucketRegion",
+                "SyncFormat"
+            ],
+            "type": "object"
+        },
+        "AWS::SSM::ResourceDataSync.SyncSource": {
+            "additionalProperties": false,
+            "properties": {
+                "AwsOrganizationsSource": {
+                    "$ref": "#/definitions/AWS::SSM::ResourceDataSync.AwsOrganizationsSource"
+                },
+                "IncludeFutureRegions": {
+                    "type": "boolean"
+                },
+                "SourceRegions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SourceType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SourceRegions",
+                "SourceType"
             ],
             "type": "object"
         },
@@ -51981,6 +52371,9 @@ var CloudformationSchema = `{
                     "type": "object"
                 },
                 "Image": {
+                    "type": "string"
+                },
+                "Mode": {
                     "type": "string"
                 },
                 "ModelDataUrl": {
@@ -54392,6 +54785,15 @@ var CloudformationSchema = `{
                         "HomeDirectory": {
                             "type": "string"
                         },
+                        "HomeDirectoryMappings": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Transfer::User.HomeDirectoryMapEntry"
+                            },
+                            "type": "array"
+                        },
+                        "HomeDirectoryType": {
+                            "type": "string"
+                        },
                         "Policy": {
                             "type": "string"
                         },
@@ -54434,6 +54836,22 @@ var CloudformationSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Transfer::User.HomeDirectoryMapEntry": {
+            "additionalProperties": false,
+            "properties": {
+                "Entry": {
+                    "type": "string"
+                },
+                "Target": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Entry",
+                "Target"
             ],
             "type": "object"
         },
@@ -56066,7 +56484,8 @@ var CloudformationSchema = `{
                         }
                     },
                     "required": [
-                        "Name",
+                        "Addresses",
+                        "IPAddressVersion",
                         "Scope"
                     ],
                     "type": "object"
@@ -56157,7 +56576,7 @@ var CloudformationSchema = `{
                         }
                     },
                     "required": [
-                        "Name",
+                        "RegularExpressionList",
                         "Scope"
                     ],
                     "type": "object"
@@ -56263,8 +56682,9 @@ var CloudformationSchema = `{
                         }
                     },
                     "required": [
-                        "Name",
-                        "Scope"
+                        "Capacity",
+                        "Scope",
+                        "VisibilityConfig"
                     ],
                     "type": "object"
                 },
@@ -56841,8 +57261,9 @@ var CloudformationSchema = `{
                         }
                     },
                     "required": [
-                        "Name",
-                        "Scope"
+                        "DefaultAction",
+                        "Scope",
+                        "VisibilityConfig"
                     ],
                     "type": "object"
                 },
@@ -58113,6 +58534,9 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::CodeBuild::Project"
                         },
                         {
+                            "$ref": "#/definitions/AWS::CodeBuild::ReportGroup"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::CodeBuild::SourceCredential"
                         },
                         {
@@ -58288,6 +58712,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::FlowLog"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::GatewayRouteTableAssociation"
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::Host"

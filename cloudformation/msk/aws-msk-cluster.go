@@ -52,6 +52,11 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes
 	NumberOfBrokerNodes int `json:"NumberOfBrokerNodes"`
 
+	// OpenMonitoring AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-openmonitoring
+	OpenMonitoring *Cluster_OpenMonitoring `json:"OpenMonitoring,omitempty"`
+
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-tags
@@ -65,6 +70,9 @@ type Cluster struct {
 
 	// AWSCloudFormationMetadata stores structured data associated with this resource
 	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+
+	// AWSCloudFormationCondition stores the logical ID of the condition that must be satisfied for this resource to be created
+	AWSCloudFormationCondition string `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -82,12 +90,14 @@ func (r Cluster) MarshalJSON() ([]byte, error) {
 		DependsOn      []string                `json:"DependsOn,omitempty"`
 		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		Condition      string                  `json:"Condition,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
 		DependsOn:      r.AWSCloudFormationDependsOn,
 		Metadata:       r.AWSCloudFormationMetadata,
 		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
+		Condition:      r.AWSCloudFormationCondition,
 	})
 }
 
@@ -101,6 +111,7 @@ func (r *Cluster) UnmarshalJSON(b []byte) error {
 		DependsOn      []string
 		Metadata       map[string]interface{}
 		DeletionPolicy string
+		Condition      string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -123,6 +134,9 @@ func (r *Cluster) UnmarshalJSON(b []byte) error {
 	}
 	if res.DeletionPolicy != "" {
 		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.Condition != "" {
+		r.AWSCloudFormationCondition = res.Condition
 	}
 	return nil
 }
