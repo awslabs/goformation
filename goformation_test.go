@@ -1159,4 +1159,61 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a template that contains conditional resources", func() {
+
+		template := &cloudformation.Template{
+			Conditions: map[string]interface{}{
+				"MyCondition": cloudformation.Equals(cloudformation.Ref("MyParam"), "test"),
+			},
+			Resources: cloudformation.Resources{
+				"MySNSTopic": &sns.Topic{
+					TopicName:                  "test-sns-topic-name",
+					AWSCloudFormationCondition: "MyCondition",
+				},
+			},
+		}
+
+		It("should correctly keep conditional intrinsics", func() {
+			data, err := template.JSON()
+			Expect(err).To(BeNil())
+
+			var result map[string]interface{}
+			if err := json.Unmarshal(data, &result); err != nil {
+				Fail(err.Error())
+			}
+
+			conditions, ok := result["Conditions"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			condition, ok := conditions["MyCondition"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			equal, ok := condition["Fn::Equals"].([]interface{})
+			Expect(ok).To(BeTrue())
+			Expect(equal).To(HaveLen(2))
+
+			refMap, ok := equal[0].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			ref, ok := refMap["Ref"].(interface{})
+			Expect(ok).To(BeTrue())
+			Expect(ref).To(Equal("MyParam"))
+
+			Expect(equal[1]).To(Equal("test"))
+
+			resources, ok := result["Resources"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+
+			topic, ok := resources["MySNSTopic"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+			Expect(topic).Should(HaveLen(3))
+
+			resCondition, ok := topic["Condition"].(interface{})
+			Expect(ok).To(BeTrue())
+			Expect(resCondition).To(Equal("MyCondition"))
+
+		})
+
+	})
+
 })
