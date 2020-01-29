@@ -13,7 +13,7 @@ import (
 type ResourceDataSync struct {
 
 	// BucketName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
 	BucketName string `json:"BucketName,omitempty"`
 
@@ -23,7 +23,7 @@ type ResourceDataSync struct {
 	BucketPrefix string `json:"BucketPrefix,omitempty"`
 
 	// BucketRegion AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
 	BucketRegion string `json:"BucketRegion,omitempty"`
 
@@ -32,8 +32,13 @@ type ResourceDataSync struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
 	KMSKeyArn string `json:"KMSKeyArn,omitempty"`
 
+	// S3Destination AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
+	S3Destination *ResourceDataSync_S3Destination `json:"S3Destination,omitempty"`
+
 	// SyncFormat AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
 	SyncFormat string `json:"SyncFormat,omitempty"`
 
@@ -41,6 +46,16 @@ type ResourceDataSync struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
 	SyncName string `json:"SyncName,omitempty"`
+
+	// SyncSource AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
+	SyncSource *ResourceDataSync_SyncSource `json:"SyncSource,omitempty"`
+
+	// SyncType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
+	SyncType string `json:"SyncType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -50,6 +65,9 @@ type ResourceDataSync struct {
 
 	// AWSCloudFormationMetadata stores structured data associated with this resource
 	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+
+	// AWSCloudFormationCondition stores the logical ID of the condition that must be satisfied for this resource to be created
+	AWSCloudFormationCondition string `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -67,12 +85,14 @@ func (r ResourceDataSync) MarshalJSON() ([]byte, error) {
 		DependsOn      []string                `json:"DependsOn,omitempty"`
 		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		Condition      string                  `json:"Condition,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
 		DependsOn:      r.AWSCloudFormationDependsOn,
 		Metadata:       r.AWSCloudFormationMetadata,
 		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
+		Condition:      r.AWSCloudFormationCondition,
 	})
 }
 
@@ -86,6 +106,7 @@ func (r *ResourceDataSync) UnmarshalJSON(b []byte) error {
 		DependsOn      []string
 		Metadata       map[string]interface{}
 		DeletionPolicy string
+		Condition      string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -108,6 +129,9 @@ func (r *ResourceDataSync) UnmarshalJSON(b []byte) error {
 	}
 	if res.DeletionPolicy != "" {
 		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.Condition != "" {
+		r.AWSCloudFormationCondition = res.Condition
 	}
 	return nil
 }

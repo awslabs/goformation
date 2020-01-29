@@ -20,17 +20,17 @@ type LifecyclePolicy_PolicyDetails struct {
 	PolicyType string `json:"PolicyType,omitempty"`
 
 	// ResourceTypes AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes
 	ResourceTypes []string `json:"ResourceTypes,omitempty"`
 
 	// Schedules AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-schedules
 	Schedules []LifecyclePolicy_Schedule `json:"Schedules,omitempty"`
 
 	// TargetTags AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
 	TargetTags []tags.Tag `json:"TargetTags,omitempty"`
 
@@ -42,6 +42,9 @@ type LifecyclePolicy_PolicyDetails struct {
 
 	// AWSCloudFormationMetadata stores structured data associated with this resource
 	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+
+	// AWSCloudFormationCondition stores the logical ID of the condition that must be satisfied for this resource to be created
+	AWSCloudFormationCondition string `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type

@@ -85,6 +85,9 @@ type Method struct {
 
 	// AWSCloudFormationMetadata stores structured data associated with this resource
 	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+
+	// AWSCloudFormationCondition stores the logical ID of the condition that must be satisfied for this resource to be created
+	AWSCloudFormationCondition string `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -102,12 +105,14 @@ func (r Method) MarshalJSON() ([]byte, error) {
 		DependsOn      []string                `json:"DependsOn,omitempty"`
 		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		Condition      string                  `json:"Condition,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
 		DependsOn:      r.AWSCloudFormationDependsOn,
 		Metadata:       r.AWSCloudFormationMetadata,
 		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
+		Condition:      r.AWSCloudFormationCondition,
 	})
 }
 
@@ -121,6 +126,7 @@ func (r *Method) UnmarshalJSON(b []byte) error {
 		DependsOn      []string
 		Metadata       map[string]interface{}
 		DeletionPolicy string
+		Condition      string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -143,6 +149,9 @@ func (r *Method) UnmarshalJSON(b []byte) error {
 	}
 	if res.DeletionPolicy != "" {
 		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.Condition != "" {
+		r.AWSCloudFormationCondition = res.Condition
 	}
 	return nil
 }

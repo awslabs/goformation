@@ -43,6 +43,11 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod
 	BackupRetentionPeriod int `json:"BackupRetentionPeriod,omitempty"`
 
+	// CACertificateIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-cacertificateidentifier
+	CACertificateIdentifier string `json:"CACertificateIdentifier,omitempty"`
+
 	// CharacterSetName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname
@@ -163,6 +168,11 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masterusername
 	MasterUsername string `json:"MasterUsername,omitempty"`
 
+	// MaxAllocatedStorage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-maxallocatedstorage
+	MaxAllocatedStorage int `json:"MaxAllocatedStorage,omitempty"`
+
 	// MonitoringInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval
@@ -271,6 +281,9 @@ type DBInstance struct {
 
 	// AWSCloudFormationMetadata stores structured data associated with this resource
 	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+
+	// AWSCloudFormationCondition stores the logical ID of the condition that must be satisfied for this resource to be created
+	AWSCloudFormationCondition string `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -288,12 +301,14 @@ func (r DBInstance) MarshalJSON() ([]byte, error) {
 		DependsOn      []string                `json:"DependsOn,omitempty"`
 		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		Condition      string                  `json:"Condition,omitempty"`
 	}{
 		Type:           r.AWSCloudFormationType(),
 		Properties:     (Properties)(r),
 		DependsOn:      r.AWSCloudFormationDependsOn,
 		Metadata:       r.AWSCloudFormationMetadata,
 		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
+		Condition:      r.AWSCloudFormationCondition,
 	})
 }
 
@@ -307,6 +322,7 @@ func (r *DBInstance) UnmarshalJSON(b []byte) error {
 		DependsOn      []string
 		Metadata       map[string]interface{}
 		DeletionPolicy string
+		Condition      string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -329,6 +345,9 @@ func (r *DBInstance) UnmarshalJSON(b []byte) error {
 	}
 	if res.DeletionPolicy != "" {
 		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.Condition != "" {
+		r.AWSCloudFormationCondition = res.Condition
 	}
 	return nil
 }

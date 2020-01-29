@@ -2,6 +2,7 @@ package main_test
 
 import (
 	"encoding/json"
+	"github.com/awslabs/goformation/v4/cloudformation/rds"
 
 	"github.com/awslabs/goformation/v4/cloudformation/ec2"
 	"github.com/awslabs/goformation/v4/cloudformation/s3"
@@ -101,6 +102,23 @@ var _ = Describe("Resource", func() {
 
 			})
 
+			Context("with a condition attribute", func() {
+
+				resource := &rds.DBCluster{
+					DatabaseName: "MyDatabase",
+				}
+				resource.AWSCloudFormationCondition = "MyCondition"
+
+				expected := []byte(`{"Type":"AWS::RDS::DBCluster","Properties":{"DatabaseName":"MyDatabase"},"Condition":"MyCondition"}`)
+
+				result, err := json.Marshal(resource)
+				It("should marshal to JSON successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
 		})
 
 		Context("specified as JSON", func() {
@@ -131,6 +149,23 @@ var _ = Describe("Resource", func() {
 				expected.AWSCloudFormationMetadata = map[string]interface{}{"Object1": "Location1", "Object2": "Location2"}
 
 				result := &s3.Bucket{}
+				err := json.Unmarshal(property, result)
+				It("should unmarshal to a Go struct successfully", func() {
+					Expect(result).To(Equal(expected))
+					Expect(err).To(BeNil())
+				})
+
+			})
+
+			Context("with a condition attribute", func() {
+
+				property := []byte(`{"Type":"AWS::RDS::DBCluster","Properties":{"DatabaseName":"MyDatabase"},"Condition":"MyCondition"}`)
+				expected := &rds.DBCluster{
+					DatabaseName: "MyDatabase",
+				}
+				expected.AWSCloudFormationCondition = "MyCondition"
+
+				result := &rds.DBCluster{}
 				err := json.Unmarshal(property, result)
 				It("should unmarshal to a Go struct successfully", func() {
 					Expect(result).To(Equal(expected))
