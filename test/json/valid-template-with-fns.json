@@ -13,7 +13,7 @@
         "Role": {
           "Fn::GetAtt": ["FunctionNameRole", "Arn"]
         },
-        "Runtime": "nodejs4.3"
+        "Runtime": "nodejs10.x"
       }
     },
     "FunctionNameRole": {

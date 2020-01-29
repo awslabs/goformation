@@ -22,7 +22,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.put
-      Runtime: nodejs4.3
+      Runtime: nodejs10.x
       CodeUri: s3://<bucket>/api_backend.zip
       Policies: AmazonDynamoDBFullAccess
       Environment:
@@ -39,7 +39,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.delete
-      Runtime: nodejs4.3
+      Runtime: nodejs10.x
       CodeUri: s3://<bucket>/api_backend.zip
       Policies: AmazonDynamoDBFullAccess
       Environment:

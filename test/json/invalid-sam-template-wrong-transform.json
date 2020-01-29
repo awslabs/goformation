@@ -8,7 +8,7 @@
       "Properties": {
         "Handler": "index.handler",
         "CodeUri": "s3://testBucket/mySourceCode.zip",
-        "Runtime": "nodejs4.3"
+        "Runtime": "nodejs10.x"
       }
     }
   }
