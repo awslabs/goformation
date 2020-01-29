@@ -46,7 +46,7 @@ var _ = Describe("Goformation", func() {
 			},
 			{
 				Name:     "GetAtt",
-				Input:    `Description: !GetAtt [object, property]`,
+				Input:    `Description: !GetAtt object.property`,
 				Expected: `{"Description":{"Fn::GetAtt":["object","property"]}}`,
 			},
 			{
