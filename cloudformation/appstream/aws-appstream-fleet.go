@@ -74,7 +74,7 @@ type Fleet struct {
 	MaxUserDurationInSeconds int `json:"MaxUserDurationInSeconds,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 	Name string `json:"Name,omitempty"`
 

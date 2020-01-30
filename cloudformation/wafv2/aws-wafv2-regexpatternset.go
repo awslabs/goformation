@@ -17,48 +17,13 @@ type RegexPatternSet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-description
 	Description string `json:"Description,omitempty"`
 
-	// Id AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-id
-	Id string `json:"Id,omitempty"`
-
-	// Limit AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-limit
-	Limit int `json:"Limit,omitempty"`
-
-	// LockToken AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-locktoken
-	LockToken string `json:"LockToken,omitempty"`
-
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-name
 	Name string `json:"Name,omitempty"`
 
-	// NextLockToken AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-nextlocktoken
-	NextLockToken string `json:"NextLockToken,omitempty"`
-
-	// NextMarker AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-nextmarker
-	NextMarker string `json:"NextMarker,omitempty"`
-
-	// RegexPatternSet AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regexpatternset
-	RegexPatternSet *RegexPatternSet_RegexPatternSet `json:"RegexPatternSet,omitempty"`
-
-	// RegexPatternSets AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regexpatternsets
-	RegexPatternSets *RegexPatternSet_RegexPatternSets `json:"RegexPatternSets,omitempty"`
-
 	// RegularExpressionList AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regularexpressionlist
 	RegularExpressionList *RegexPatternSet_RegularExpressionList `json:"RegularExpressionList,omitempty"`
 
@@ -66,11 +31,6 @@ type RegexPatternSet struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-scope
 	Scope string `json:"Scope,omitempty"`
-
-	// Summary AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-summary
-	Summary *RegexPatternSet_RegexPatternSetSummary `json:"Summary,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

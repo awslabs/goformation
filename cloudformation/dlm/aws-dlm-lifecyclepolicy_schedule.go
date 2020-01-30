@@ -19,6 +19,11 @@ type LifecyclePolicy_Schedule struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-createrule
 	CreateRule *LifecyclePolicy_CreateRule `json:"CreateRule,omitempty"`
 
+	// CrossRegionCopyRules AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-crossregioncopyrules
+	CrossRegionCopyRules []LifecyclePolicy_CrossRegionCopyRule `json:"CrossRegionCopyRules,omitempty"`
+
 	// FastRestoreRule AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-fastrestorerule

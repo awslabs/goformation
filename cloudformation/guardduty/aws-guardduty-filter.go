@@ -33,7 +33,7 @@ type Filter struct {
 	FindingCriteria *Filter_FindingCriteria `json:"FindingCriteria,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
 	Name string `json:"Name,omitempty"`
 

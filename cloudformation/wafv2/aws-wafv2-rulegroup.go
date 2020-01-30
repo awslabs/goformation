@@ -13,59 +13,19 @@ import (
 type RuleGroup struct {
 
 	// Capacity AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-	Capacity int `json:"Capacity,omitempty"`
+	Capacity int `json:"Capacity"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
 	Description string `json:"Description,omitempty"`
 
-	// Id AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-id
-	Id string `json:"Id,omitempty"`
-
-	// Limit AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-limit
-	Limit int `json:"Limit,omitempty"`
-
-	// LockToken AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-locktoken
-	LockToken string `json:"LockToken,omitempty"`
-
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
 	Name string `json:"Name,omitempty"`
-
-	// NextLockToken AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-nextlocktoken
-	NextLockToken string `json:"NextLockToken,omitempty"`
-
-	// NextMarker AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-nextmarker
-	NextMarker string `json:"NextMarker,omitempty"`
-
-	// RuleGroup AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rulegroup
-	RuleGroup *RuleGroup_RuleGroup `json:"RuleGroup,omitempty"`
-
-	// RuleGroupSummary AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rulegroupsummary
-	RuleGroupSummary *RuleGroup_RuleGroupSummary `json:"RuleGroupSummary,omitempty"`
-
-	// RuleGroups AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rulegroups
-	RuleGroups *RuleGroup_RuleGroups `json:"RuleGroups,omitempty"`
 
 	// Rules AWS CloudFormation Property
 	// Required: false
@@ -77,23 +37,13 @@ type RuleGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
 	Scope string `json:"Scope,omitempty"`
 
-	// Statement AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-statement
-	Statement *RuleGroup_StatementOne `json:"Statement,omitempty"`
-
-	// Summary AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-summary
-	Summary *RuleGroup_RuleGroupSummary `json:"Summary,omitempty"`
-
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
 	Tags *RuleGroup_TagList `json:"Tags,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
 	VisibilityConfig *RuleGroup_VisibilityConfig `json:"VisibilityConfig,omitempty"`
 

@@ -43,6 +43,11 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod
 	BackupRetentionPeriod int `json:"BackupRetentionPeriod,omitempty"`
 
+	// CACertificateIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-cacertificateidentifier
+	CACertificateIdentifier string `json:"CACertificateIdentifier,omitempty"`
+
 	// CharacterSetName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname
@@ -162,6 +167,11 @@ type DBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masterusername
 	MasterUsername string `json:"MasterUsername,omitempty"`
+
+	// MaxAllocatedStorage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-maxallocatedstorage
+	MaxAllocatedStorage int `json:"MaxAllocatedStorage,omitempty"`
 
 	// MonitoringInterval AWS CloudFormation Property
 	// Required: false

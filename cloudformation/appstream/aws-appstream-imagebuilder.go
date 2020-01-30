@@ -59,7 +59,7 @@ type ImageBuilder struct {
 	InstanceType string `json:"InstanceType,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name
 	Name string `json:"Name,omitempty"`
 

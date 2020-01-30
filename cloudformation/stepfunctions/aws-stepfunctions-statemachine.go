@@ -17,6 +17,11 @@ type StateMachine struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
 	DefinitionString string `json:"DefinitionString,omitempty"`
 
+	// LoggingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
+	LoggingConfiguration *StateMachine_LoggingConfiguration `json:"LoggingConfiguration,omitempty"`
+
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
@@ -26,6 +31,11 @@ type StateMachine struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
 	StateMachineName string `json:"StateMachineName,omitempty"`
+
+	// StateMachineType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
+	StateMachineType string `json:"StateMachineType,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

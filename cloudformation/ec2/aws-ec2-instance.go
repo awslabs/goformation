@@ -63,10 +63,20 @@ type Instance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
 	ElasticInferenceAccelerators []Instance_ElasticInferenceAccelerator `json:"ElasticInferenceAccelerators,omitempty"`
 
+	// HibernationOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
+	HibernationOptions *Instance_HibernationOptions `json:"HibernationOptions,omitempty"`
+
 	// HostId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid
 	HostId string `json:"HostId,omitempty"`
+
+	// HostResourceGroupArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostresourcegrouparn
+	HostResourceGroupArn string `json:"HostResourceGroupArn,omitempty"`
 
 	// IamInstanceProfile AWS CloudFormation Property
 	// Required: false

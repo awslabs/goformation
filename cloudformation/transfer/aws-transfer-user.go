@@ -18,6 +18,16 @@ type User struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-homedirectory
 	HomeDirectory string `json:"HomeDirectory,omitempty"`
 
+	// HomeDirectoryMappings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-homedirectorymappings
+	HomeDirectoryMappings []User_HomeDirectoryMapEntry `json:"HomeDirectoryMappings,omitempty"`
+
+	// HomeDirectoryType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-homedirectorytype
+	HomeDirectoryType string `json:"HomeDirectoryType,omitempty"`
+
 	// Policy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-policy
