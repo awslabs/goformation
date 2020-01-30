@@ -5,6 +5,214 @@ var CloudformationSchema = `{
     "$id": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": false,
     "definitions": {
+        "AWS::ACMPCA::Certificate": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CertificateAuthorityArn": {
+                            "type": "string"
+                        },
+                        "CertificateSigningRequest": {
+                            "type": "string"
+                        },
+                        "SigningAlgorithm": {
+                            "type": "string"
+                        },
+                        "TemplateArn": {
+                            "type": "string"
+                        },
+                        "Validity": {
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "CertificateAuthorityArn",
+                        "CertificateSigningRequest",
+                        "SigningAlgorithm",
+                        "Validity"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::ACMPCA::Certificate"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::ACMPCA::CertificateAuthority": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "KeyAlgorithm": {
+                            "type": "string"
+                        },
+                        "RevocationConfiguration": {
+                            "type": "object"
+                        },
+                        "SigningAlgorithm": {
+                            "type": "string"
+                        },
+                        "Subject": {
+                            "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "Type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "KeyAlgorithm",
+                        "SigningAlgorithm",
+                        "Subject",
+                        "Type"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::ACMPCA::CertificateAuthority"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::ACMPCA::CertificateAuthorityActivation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Certificate": {
+                            "type": "string"
+                        },
+                        "CertificateAuthorityArn": {
+                            "type": "string"
+                        },
+                        "CertificateChain": {
+                            "type": "string"
+                        },
+                        "Status": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Certificate",
+                        "CertificateAuthorityArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::ACMPCA::CertificateAuthorityActivation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::AccessAnalyzer::Analyzer": {
             "additionalProperties": false,
             "properties": {
@@ -12942,6 +13150,9 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AccountRecoverySetting": {
+                            "$ref": "#/definitions/AWS::Cognito::UserPool.AccountRecoverySetting"
+                        },
                         "AdminCreateUserConfig": {
                             "$ref": "#/definitions/AWS::Cognito::UserPool.AdminCreateUserConfig"
                         },
@@ -13030,6 +13241,18 @@ var CloudformationSchema = `{
             "required": [
                 "Type"
             ],
+            "type": "object"
+        },
+        "AWS::Cognito::UserPool.AccountRecoverySetting": {
+            "additionalProperties": false,
+            "properties": {
+                "RecoveryMechanisms": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Cognito::UserPool.RecoveryOption"
+                    },
+                    "type": "array"
+                }
+            },
             "type": "object"
         },
         "AWS::Cognito::UserPool.AdminCreateUserConfig": {
@@ -13172,6 +13395,18 @@ var CloudformationSchema = `{
             "properties": {
                 "PasswordPolicy": {
                     "$ref": "#/definitions/AWS::Cognito::UserPool.PasswordPolicy"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Cognito::UserPool.RecoveryOption": {
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Priority": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -54725,13 +54960,25 @@ var CloudformationSchema = `{
         "AWS::Transfer::Server.EndpointDetails": {
             "additionalProperties": false,
             "properties": {
+                "AddressAllocationIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SubnetIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "VpcEndpointId": {
+                    "type": "string"
+                },
+                "VpcId": {
                     "type": "string"
                 }
             },
-            "required": [
-                "VpcEndpointId"
-            ],
             "type": "object"
         },
         "AWS::Transfer::Server.IdentityProviderDetails": {
@@ -58269,6 +58516,15 @@ var CloudformationSchema = `{
             "patternProperties": {
                 "^[a-zA-Z0-9]+$": {
                     "anyOf": [
+                        {
+                            "$ref": "#/definitions/AWS::ACMPCA::Certificate"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ACMPCA::CertificateAuthority"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::ACMPCA::CertificateAuthorityActivation"
+                        },
                         {
                             "$ref": "#/definitions/AWS::AccessAnalyzer::Analyzer"
                         },

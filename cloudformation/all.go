@@ -3,6 +3,7 @@ package cloudformation
 import (
 	"fmt"
 	"github.com/awslabs/goformation/v4/cloudformation/accessanalyzer"
+	"github.com/awslabs/goformation/v4/cloudformation/acmpca"
 	"github.com/awslabs/goformation/v4/cloudformation/amazonmq"
 	"github.com/awslabs/goformation/v4/cloudformation/amplify"
 	"github.com/awslabs/goformation/v4/cloudformation/apigateway"
@@ -112,6 +113,9 @@ import (
 // AllResources fetches an iterable map all CloudFormation and SAM resources
 func AllResources() map[string]Resource {
 	return map[string]Resource{
+		"AWS::ACMPCA::Certificate":                                    &acmpca.Certificate{},
+		"AWS::ACMPCA::CertificateAuthority":                           &acmpca.CertificateAuthority{},
+		"AWS::ACMPCA::CertificateAuthorityActivation":                 &acmpca.CertificateAuthorityActivation{},
 		"AWS::AccessAnalyzer::Analyzer":                               &accessanalyzer.Analyzer{},
 		"AWS::AmazonMQ::Broker":                                       &amazonmq.Broker{},
 		"AWS::AmazonMQ::Configuration":                                &amazonmq.Configuration{},
@@ -606,6 +610,78 @@ func AllResources() map[string]Resource {
 		"AWS::WorkSpaces::Workspace":                                  &workspaces.Workspace{},
 		"Alexa::ASK::Skill":                                           &ask.Skill{},
 	}
+}
+
+// GetAllACMPCACertificateResources retrieves all acmpca.Certificate items from an AWS CloudFormation template
+func (t *Template) GetAllACMPCACertificateResources() map[string]*acmpca.Certificate {
+	results := map[string]*acmpca.Certificate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *acmpca.Certificate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetACMPCACertificateWithName retrieves all acmpca.Certificate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetACMPCACertificateWithName(name string) (*acmpca.Certificate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *acmpca.Certificate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type acmpca.Certificate not found", name)
+}
+
+// GetAllACMPCACertificateAuthorityResources retrieves all acmpca.CertificateAuthority items from an AWS CloudFormation template
+func (t *Template) GetAllACMPCACertificateAuthorityResources() map[string]*acmpca.CertificateAuthority {
+	results := map[string]*acmpca.CertificateAuthority{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *acmpca.CertificateAuthority:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetACMPCACertificateAuthorityWithName retrieves all acmpca.CertificateAuthority items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetACMPCACertificateAuthorityWithName(name string) (*acmpca.CertificateAuthority, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *acmpca.CertificateAuthority:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type acmpca.CertificateAuthority not found", name)
+}
+
+// GetAllACMPCACertificateAuthorityActivationResources retrieves all acmpca.CertificateAuthorityActivation items from an AWS CloudFormation template
+func (t *Template) GetAllACMPCACertificateAuthorityActivationResources() map[string]*acmpca.CertificateAuthorityActivation {
+	results := map[string]*acmpca.CertificateAuthorityActivation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *acmpca.CertificateAuthorityActivation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetACMPCACertificateAuthorityActivationWithName retrieves all acmpca.CertificateAuthorityActivation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetACMPCACertificateAuthorityActivationWithName(name string) (*acmpca.CertificateAuthorityActivation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *acmpca.CertificateAuthorityActivation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type acmpca.CertificateAuthorityActivation not found", name)
 }
 
 // GetAllAccessAnalyzerAnalyzerResources retrieves all accessanalyzer.Analyzer items from an AWS CloudFormation template
