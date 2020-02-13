@@ -1,4 +1,4 @@
-package acmpca
+package appconfig
 
 import (
 	"bytes"
@@ -8,34 +8,34 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// Certificate AWS CloudFormation Resource (AWS::ACMPCA::Certificate)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
-type Certificate struct {
+// Environment AWS CloudFormation Resource (AWS::AppConfig::Environment)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html
+type Environment struct {
 
-	// CertificateAuthorityArn AWS CloudFormation Property
+	// ApplicationId AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
-	CertificateAuthorityArn string `json:"CertificateAuthorityArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-applicationid
+	ApplicationId string `json:"ApplicationId,omitempty"`
 
-	// CertificateSigningRequest AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
-	CertificateSigningRequest string `json:"CertificateSigningRequest,omitempty"`
-
-	// SigningAlgorithm AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
-	SigningAlgorithm string `json:"SigningAlgorithm,omitempty"`
-
-	// TemplateArn AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
-	TemplateArn string `json:"TemplateArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-description
+	Description string `json:"Description,omitempty"`
 
-	// Validity AWS CloudFormation Property
+	// Monitors AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-monitors
+	Monitors []Environment_Monitors `json:"Monitors,omitempty"`
+
+	// Name AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
-	Validity *Certificate_Validity `json:"Validity,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-name
+	Name string `json:"Name,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-tags
+	Tags []Environment_Tags `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -51,14 +51,14 @@ type Certificate struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Certificate) AWSCloudFormationType() string {
-	return "AWS::ACMPCA::Certificate"
+func (r *Environment) AWSCloudFormationType() string {
+	return "AWS::AppConfig::Environment"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Certificate) MarshalJSON() ([]byte, error) {
-	type Properties Certificate
+func (r Environment) MarshalJSON() ([]byte, error) {
+	type Properties Environment
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -78,8 +78,8 @@ func (r Certificate) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Certificate) UnmarshalJSON(b []byte) error {
-	type Properties Certificate
+func (r *Environment) UnmarshalJSON(b []byte) error {
+	type Properties Environment
 	res := &struct {
 		Type           string
 		Properties     *Properties
@@ -99,7 +99,7 @@ func (r *Certificate) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Certificate(*res.Properties)
+		*r = Environment(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

@@ -8,6 +8,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/amplify"
 	"github.com/awslabs/goformation/v4/cloudformation/apigateway"
 	"github.com/awslabs/goformation/v4/cloudformation/apigatewayv2"
+	"github.com/awslabs/goformation/v4/cloudformation/appconfig"
 	"github.com/awslabs/goformation/v4/cloudformation/applicationautoscaling"
 	"github.com/awslabs/goformation/v4/cloudformation/appmesh"
 	"github.com/awslabs/goformation/v4/cloudformation/appstream"
@@ -153,6 +154,11 @@ func AllResources() map[string]Resource {
 		"AWS::ApiGatewayV2::Route":                                    &apigatewayv2.Route{},
 		"AWS::ApiGatewayV2::RouteResponse":                            &apigatewayv2.RouteResponse{},
 		"AWS::ApiGatewayV2::Stage":                                    &apigatewayv2.Stage{},
+		"AWS::AppConfig::Application":                                 &appconfig.Application{},
+		"AWS::AppConfig::ConfigurationProfile":                        &appconfig.ConfigurationProfile{},
+		"AWS::AppConfig::Deployment":                                  &appconfig.Deployment{},
+		"AWS::AppConfig::DeploymentStrategy":                          &appconfig.DeploymentStrategy{},
+		"AWS::AppConfig::Environment":                                 &appconfig.Environment{},
 		"AWS::AppMesh::Mesh":                                          &appmesh.Mesh{},
 		"AWS::AppMesh::Route":                                         &appmesh.Route{},
 		"AWS::AppMesh::VirtualNode":                                   &appmesh.VirtualNode{},
@@ -607,6 +613,7 @@ func AllResources() map[string]Resource {
 		"AWS::WAFv2::RegexPatternSet":                                 &wafv2.RegexPatternSet{},
 		"AWS::WAFv2::RuleGroup":                                       &wafv2.RuleGroup{},
 		"AWS::WAFv2::WebACL":                                          &wafv2.WebACL{},
+		"AWS::WAFv2::WebACLAssociation":                               &wafv2.WebACLAssociation{},
 		"AWS::WorkSpaces::Workspace":                                  &workspaces.Workspace{},
 		"Alexa::ASK::Skill":                                           &ask.Skill{},
 	}
@@ -1570,6 +1577,126 @@ func (t *Template) GetApiGatewayV2StageWithName(name string) (*apigatewayv2.Stag
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type apigatewayv2.Stage not found", name)
+}
+
+// GetAllAppConfigApplicationResources retrieves all appconfig.Application items from an AWS CloudFormation template
+func (t *Template) GetAllAppConfigApplicationResources() map[string]*appconfig.Application {
+	results := map[string]*appconfig.Application{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appconfig.Application:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppConfigApplicationWithName retrieves all appconfig.Application items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppConfigApplicationWithName(name string) (*appconfig.Application, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appconfig.Application:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appconfig.Application not found", name)
+}
+
+// GetAllAppConfigConfigurationProfileResources retrieves all appconfig.ConfigurationProfile items from an AWS CloudFormation template
+func (t *Template) GetAllAppConfigConfigurationProfileResources() map[string]*appconfig.ConfigurationProfile {
+	results := map[string]*appconfig.ConfigurationProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appconfig.ConfigurationProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppConfigConfigurationProfileWithName retrieves all appconfig.ConfigurationProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppConfigConfigurationProfileWithName(name string) (*appconfig.ConfigurationProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appconfig.ConfigurationProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appconfig.ConfigurationProfile not found", name)
+}
+
+// GetAllAppConfigDeploymentResources retrieves all appconfig.Deployment items from an AWS CloudFormation template
+func (t *Template) GetAllAppConfigDeploymentResources() map[string]*appconfig.Deployment {
+	results := map[string]*appconfig.Deployment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appconfig.Deployment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppConfigDeploymentWithName retrieves all appconfig.Deployment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppConfigDeploymentWithName(name string) (*appconfig.Deployment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appconfig.Deployment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appconfig.Deployment not found", name)
+}
+
+// GetAllAppConfigDeploymentStrategyResources retrieves all appconfig.DeploymentStrategy items from an AWS CloudFormation template
+func (t *Template) GetAllAppConfigDeploymentStrategyResources() map[string]*appconfig.DeploymentStrategy {
+	results := map[string]*appconfig.DeploymentStrategy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appconfig.DeploymentStrategy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppConfigDeploymentStrategyWithName retrieves all appconfig.DeploymentStrategy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppConfigDeploymentStrategyWithName(name string) (*appconfig.DeploymentStrategy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appconfig.DeploymentStrategy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appconfig.DeploymentStrategy not found", name)
+}
+
+// GetAllAppConfigEnvironmentResources retrieves all appconfig.Environment items from an AWS CloudFormation template
+func (t *Template) GetAllAppConfigEnvironmentResources() map[string]*appconfig.Environment {
+	results := map[string]*appconfig.Environment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appconfig.Environment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppConfigEnvironmentWithName retrieves all appconfig.Environment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppConfigEnvironmentWithName(name string) (*appconfig.Environment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appconfig.Environment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appconfig.Environment not found", name)
 }
 
 // GetAllAppMeshMeshResources retrieves all appmesh.Mesh items from an AWS CloudFormation template
@@ -12466,6 +12593,30 @@ func (t *Template) GetWAFv2WebACLWithName(name string) (*wafv2.WebACL, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type wafv2.WebACL not found", name)
+}
+
+// GetAllWAFv2WebACLAssociationResources retrieves all wafv2.WebACLAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllWAFv2WebACLAssociationResources() map[string]*wafv2.WebACLAssociation {
+	results := map[string]*wafv2.WebACLAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *wafv2.WebACLAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWAFv2WebACLAssociationWithName retrieves all wafv2.WebACLAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWAFv2WebACLAssociationWithName(name string) (*wafv2.WebACLAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *wafv2.WebACLAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type wafv2.WebACLAssociation not found", name)
 }
 
 // GetAllWorkSpacesWorkspaceResources retrieves all workspaces.Workspace items from an AWS CloudFormation template
