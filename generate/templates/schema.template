@@ -27,7 +27,10 @@
                 "{{.ResourceSpecificationTransform}}"
             ]
         {{else}}
-            "type": ["object","string"]
+            "oneOf": [
+                {"type": ["string"]},
+                {"type": "array", "items": {"type": "string"}}
+            ]
         {{end}}
         },
 
