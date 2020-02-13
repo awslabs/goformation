@@ -21,7 +21,7 @@ type CertificateAuthority struct {
 	// RevocationConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
-	RevocationConfiguration interface{} `json:"RevocationConfiguration,omitempty"`
+	RevocationConfiguration *CertificateAuthority_RevocationConfiguration `json:"RevocationConfiguration,omitempty"`
 
 	// SigningAlgorithm AWS CloudFormation Property
 	// Required: true
@@ -31,7 +31,7 @@ type CertificateAuthority struct {
 	// Subject AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-	Subject interface{} `json:"Subject,omitempty"`
+	Subject *CertificateAuthority_Subject `json:"Subject,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

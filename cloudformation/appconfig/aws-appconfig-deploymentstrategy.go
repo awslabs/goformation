@@ -1,4 +1,4 @@
-package appsync
+package appconfig
 
 import (
 	"bytes"
@@ -8,49 +8,49 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// GraphQLApi AWS CloudFormation Resource (AWS::AppSync::GraphQLApi)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
-type GraphQLApi struct {
+// DeploymentStrategy AWS CloudFormation Resource (AWS::AppConfig::DeploymentStrategy)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html
+type DeploymentStrategy struct {
 
-	// AdditionalAuthenticationProviders AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
-	AdditionalAuthenticationProviders *GraphQLApi_AdditionalAuthenticationProviders `json:"AdditionalAuthenticationProviders,omitempty"`
-
-	// AuthenticationType AWS CloudFormation Property
+	// DeploymentDurationInMinutes AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
-	AuthenticationType string `json:"AuthenticationType,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-deploymentdurationinminutes
+	DeploymentDurationInMinutes float64 `json:"DeploymentDurationInMinutes"`
 
-	// LogConfig AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig
-	LogConfig *GraphQLApi_LogConfig `json:"LogConfig,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-description
+	Description string `json:"Description,omitempty"`
+
+	// FinalBakeTimeInMinutes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-finalbaketimeinminutes
+	FinalBakeTimeInMinutes float64 `json:"FinalBakeTimeInMinutes,omitempty"`
+
+	// GrowthFactor AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-growthfactor
+	GrowthFactor float64 `json:"GrowthFactor"`
+
+	// GrowthType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-growthtype
+	GrowthType string `json:"GrowthType,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-name
 	Name string `json:"Name,omitempty"`
 
-	// OpenIDConnectConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
-	OpenIDConnectConfig *GraphQLApi_OpenIDConnectConfig `json:"OpenIDConnectConfig,omitempty"`
+	// ReplicateTo AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-replicateto
+	ReplicateTo string `json:"ReplicateTo,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
-	Tags *GraphQLApi_Tags `json:"Tags,omitempty"`
-
-	// UserPoolConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
-	UserPoolConfig *GraphQLApi_UserPoolConfig `json:"UserPoolConfig,omitempty"`
-
-	// XrayEnabled AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
-	XrayEnabled bool `json:"XrayEnabled,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-tags
+	Tags []DeploymentStrategy_Tags `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -66,14 +66,14 @@ type GraphQLApi struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *GraphQLApi) AWSCloudFormationType() string {
-	return "AWS::AppSync::GraphQLApi"
+func (r *DeploymentStrategy) AWSCloudFormationType() string {
+	return "AWS::AppConfig::DeploymentStrategy"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r GraphQLApi) MarshalJSON() ([]byte, error) {
-	type Properties GraphQLApi
+func (r DeploymentStrategy) MarshalJSON() ([]byte, error) {
+	type Properties DeploymentStrategy
 	return json.Marshal(&struct {
 		Type           string
 		Properties     Properties
@@ -93,8 +93,8 @@ func (r GraphQLApi) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
-	type Properties GraphQLApi
+func (r *DeploymentStrategy) UnmarshalJSON(b []byte) error {
+	type Properties DeploymentStrategy
 	res := &struct {
 		Type           string
 		Properties     *Properties
@@ -114,7 +114,7 @@ func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = GraphQLApi(*res.Properties)
+		*r = DeploymentStrategy(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

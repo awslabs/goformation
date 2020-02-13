@@ -18,6 +18,11 @@ type Channel_OutputDestination struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-mediapackagesettings
 	MediaPackageSettings []Channel_MediaPackageOutputDestinationSettings `json:"MediaPackageSettings,omitempty"`
 
+	// MultiplexSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-multiplexsettings
+	MultiplexSettings *Channel_MultiplexProgramChannelDestinationSettings `json:"MultiplexSettings,omitempty"`
+
 	// Settings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-settings
