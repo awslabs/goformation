@@ -134,6 +134,16 @@ func (t *Transform) UnmarshalJSON(b []byte) error {
 
 	case []string:
 		t.StringArray = &val
+
+	case []interface{}:
+		var strslice []string
+		for _, i := range val {
+			switch str := i.(type) {
+				case string:
+					strslice = append(strslice, str)
+			}
+		}
+		t.StringArray = &strslice
 	}
 
 	return nil

@@ -60700,9 +60700,18 @@ var CloudformationSchema = `{
             "type": "object"
         },
         "Transform": {
-            "type": [
-                "object",
-                "string"
+            "oneOf": [
+                {
+                    "type": [
+                        "string"
+                    ]
+                },
+                {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
             ]
         }
     },

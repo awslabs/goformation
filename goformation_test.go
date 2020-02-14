@@ -758,6 +758,42 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a YAML template with single transform macro", func() {
+		template, err := goformation.Open("test/yaml/transform-single.yaml")
+
+		It("should parse the template successfully", func() {
+			Expect(template).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should parse transform macro into String field", func() {
+			Expect(*template.Transform.String).To(Equal("MyTranformMacro"))
+		})
+
+		It("should StringArray remain nil", func() {
+			Expect(template.Transform.StringArray).To(BeNil())
+		})
+
+	})
+
+	Context("with a YAML template with multiple transform macros", func() {
+		template, err := goformation.Open("test/yaml/transform-multiple.yaml")
+
+		It("should parse the template successfully", func() {
+			Expect(template).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should parse transform macro into StringArray field", func() {
+			Expect(*template.Transform.StringArray).To(Equal([]string{"FirstMacro", "SecondMacro"}))
+		})
+
+		It("should String remain nil", func() {
+			Expect(template.Transform.String).To(BeNil())
+		})
+
+	})
+
 	Context("with a YAML template with paramter overrides", func() {
 
 		template, err := goformation.OpenWithOptions("test/yaml/aws-serverless-function-env-vars.yaml", &intrinsics.ProcessorOptions{
