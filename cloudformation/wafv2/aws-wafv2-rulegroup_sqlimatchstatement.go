@@ -9,14 +9,14 @@ import (
 type RuleGroup_SqliMatchStatement struct {
 
 	// FieldToMatch AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
 	FieldToMatch *RuleGroup_FieldToMatch `json:"FieldToMatch,omitempty"`
 
 	// TextTransformations AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
-	TextTransformations *RuleGroup_TextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations []RuleGroup_TextTransformation `json:"TextTransformations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

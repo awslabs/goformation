@@ -11,17 +11,17 @@ type WebACL_RuleAction struct {
 	// Allow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-	Allow *WebACL_AllowAction `json:"Allow,omitempty"`
+	Allow interface{} `json:"Allow,omitempty"`
 
 	// Block AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-	Block *WebACL_BlockAction `json:"Block,omitempty"`
+	Block interface{} `json:"Block,omitempty"`
 
 	// Count AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-	Count *WebACL_CountAction `json:"Count,omitempty"`
+	Count interface{} `json:"Count,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

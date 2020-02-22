@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // RuleGroup AWS CloudFormation Resource (AWS::WAFv2::RuleGroup)
@@ -30,7 +31,7 @@ type RuleGroup struct {
 	// Rules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-	Rules *RuleGroup_Rules `json:"Rules,omitempty"`
+	Rules []RuleGroup_Rule `json:"Rules,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: true
@@ -40,7 +41,7 @@ type RuleGroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-	Tags *RuleGroup_TagList `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
 	// Required: true

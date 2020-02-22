@@ -43,6 +43,11 @@ type Project struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
 	Environment *Project_Environment `json:"Environment,omitempty"`
 
+	// FileSystemLocations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-filesystemlocations
+	FileSystemLocations []Project_ProjectFileSystemLocation `json:"FileSystemLocations,omitempty"`
+
 	// LogsConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig

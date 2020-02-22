@@ -11,37 +11,37 @@ type RuleGroup_FieldToMatch struct {
 	// AllQueryArguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
-	AllQueryArguments *RuleGroup_AllQueryArguments `json:"AllQueryArguments,omitempty"`
+	AllQueryArguments interface{} `json:"AllQueryArguments,omitempty"`
 
 	// Body AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
-	Body *RuleGroup_Body `json:"Body,omitempty"`
+	Body interface{} `json:"Body,omitempty"`
 
 	// Method AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
-	Method *RuleGroup_Method `json:"Method,omitempty"`
+	Method interface{} `json:"Method,omitempty"`
 
 	// QueryString AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
-	QueryString *RuleGroup_QueryString `json:"QueryString,omitempty"`
+	QueryString interface{} `json:"QueryString,omitempty"`
 
 	// SingleHeader AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
-	SingleHeader *RuleGroup_SingleHeader `json:"SingleHeader,omitempty"`
+	SingleHeader interface{} `json:"SingleHeader,omitempty"`
 
 	// SingleQueryArgument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
-	SingleQueryArgument *RuleGroup_SingleQueryArgument `json:"SingleQueryArgument,omitempty"`
+	SingleQueryArgument interface{} `json:"SingleQueryArgument,omitempty"`
 
 	// UriPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
-	UriPath *RuleGroup_UriPath `json:"UriPath,omitempty"`
+	UriPath interface{} `json:"UriPath,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -54,6 +54,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/emr"
 	"github.com/awslabs/goformation/v4/cloudformation/events"
 	"github.com/awslabs/goformation/v4/cloudformation/eventschemas"
+	"github.com/awslabs/goformation/v4/cloudformation/fms"
 	"github.com/awslabs/goformation/v4/cloudformation/fsx"
 	"github.com/awslabs/goformation/v4/cloudformation/gamelift"
 	"github.com/awslabs/goformation/v4/cloudformation/glue"
@@ -237,8 +238,10 @@ func AllResources() map[string]Resource {
 		"AWS::Config::ConfigRule":                                     &config.ConfigRule{},
 		"AWS::Config::ConfigurationAggregator":                        &config.ConfigurationAggregator{},
 		"AWS::Config::ConfigurationRecorder":                          &config.ConfigurationRecorder{},
+		"AWS::Config::ConformancePack":                                &config.ConformancePack{},
 		"AWS::Config::DeliveryChannel":                                &config.DeliveryChannel{},
 		"AWS::Config::OrganizationConfigRule":                         &config.OrganizationConfigRule{},
+		"AWS::Config::OrganizationConformancePack":                    &config.OrganizationConformancePack{},
 		"AWS::Config::RemediationConfiguration":                       &config.RemediationConfiguration{},
 		"AWS::DAX::Cluster":                                           &dax.Cluster{},
 		"AWS::DAX::ParameterGroup":                                    &dax.ParameterGroup{},
@@ -275,6 +278,8 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::Instance":                                          &ec2.Instance{},
 		"AWS::EC2::InternetGateway":                                   &ec2.InternetGateway{},
 		"AWS::EC2::LaunchTemplate":                                    &ec2.LaunchTemplate{},
+		"AWS::EC2::LocalGatewayRoute":                                 &ec2.LocalGatewayRoute{},
+		"AWS::EC2::LocalGatewayRouteTableVPCAssociation":              &ec2.LocalGatewayRouteTableVPCAssociation{},
 		"AWS::EC2::NatGateway":                                        &ec2.NatGateway{},
 		"AWS::EC2::NetworkAcl":                                        &ec2.NetworkAcl{},
 		"AWS::EC2::NetworkAclEntry":                                   &ec2.NetworkAclEntry{},
@@ -355,6 +360,8 @@ func AllResources() map[string]Resource {
 		"AWS::Events::EventBus":                                       &events.EventBus{},
 		"AWS::Events::EventBusPolicy":                                 &events.EventBusPolicy{},
 		"AWS::Events::Rule":                                           &events.Rule{},
+		"AWS::FMS::NotificationChannel":                               &fms.NotificationChannel{},
+		"AWS::FMS::Policy":                                            &fms.Policy{},
 		"AWS::FSx::FileSystem":                                        &fsx.FileSystem{},
 		"AWS::GameLift::Alias":                                        &gamelift.Alias{},
 		"AWS::GameLift::Build":                                        &gamelift.Build{},
@@ -3571,6 +3578,30 @@ func (t *Template) GetConfigConfigurationRecorderWithName(name string) (*config.
 	return nil, fmt.Errorf("resource %q of type config.ConfigurationRecorder not found", name)
 }
 
+// GetAllConfigConformancePackResources retrieves all config.ConformancePack items from an AWS CloudFormation template
+func (t *Template) GetAllConfigConformancePackResources() map[string]*config.ConformancePack {
+	results := map[string]*config.ConformancePack{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *config.ConformancePack:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConfigConformancePackWithName retrieves all config.ConformancePack items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConfigConformancePackWithName(name string) (*config.ConformancePack, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *config.ConformancePack:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type config.ConformancePack not found", name)
+}
+
 // GetAllConfigDeliveryChannelResources retrieves all config.DeliveryChannel items from an AWS CloudFormation template
 func (t *Template) GetAllConfigDeliveryChannelResources() map[string]*config.DeliveryChannel {
 	results := map[string]*config.DeliveryChannel{}
@@ -3617,6 +3648,30 @@ func (t *Template) GetConfigOrganizationConfigRuleWithName(name string) (*config
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type config.OrganizationConfigRule not found", name)
+}
+
+// GetAllConfigOrganizationConformancePackResources retrieves all config.OrganizationConformancePack items from an AWS CloudFormation template
+func (t *Template) GetAllConfigOrganizationConformancePackResources() map[string]*config.OrganizationConformancePack {
+	results := map[string]*config.OrganizationConformancePack{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *config.OrganizationConformancePack:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConfigOrganizationConformancePackWithName retrieves all config.OrganizationConformancePack items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConfigOrganizationConformancePackWithName(name string) (*config.OrganizationConformancePack, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *config.OrganizationConformancePack:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type config.OrganizationConformancePack not found", name)
 }
 
 // GetAllConfigRemediationConfigurationResources retrieves all config.RemediationConfiguration items from an AWS CloudFormation template
@@ -4481,6 +4536,54 @@ func (t *Template) GetEC2LaunchTemplateWithName(name string) (*ec2.LaunchTemplat
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.LaunchTemplate not found", name)
+}
+
+// GetAllEC2LocalGatewayRouteResources retrieves all ec2.LocalGatewayRoute items from an AWS CloudFormation template
+func (t *Template) GetAllEC2LocalGatewayRouteResources() map[string]*ec2.LocalGatewayRoute {
+	results := map[string]*ec2.LocalGatewayRoute{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.LocalGatewayRoute:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2LocalGatewayRouteWithName retrieves all ec2.LocalGatewayRoute items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2LocalGatewayRouteWithName(name string) (*ec2.LocalGatewayRoute, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.LocalGatewayRoute:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.LocalGatewayRoute not found", name)
+}
+
+// GetAllEC2LocalGatewayRouteTableVPCAssociationResources retrieves all ec2.LocalGatewayRouteTableVPCAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllEC2LocalGatewayRouteTableVPCAssociationResources() map[string]*ec2.LocalGatewayRouteTableVPCAssociation {
+	results := map[string]*ec2.LocalGatewayRouteTableVPCAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.LocalGatewayRouteTableVPCAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2LocalGatewayRouteTableVPCAssociationWithName retrieves all ec2.LocalGatewayRouteTableVPCAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2LocalGatewayRouteTableVPCAssociationWithName(name string) (*ec2.LocalGatewayRouteTableVPCAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.LocalGatewayRouteTableVPCAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.LocalGatewayRouteTableVPCAssociation not found", name)
 }
 
 // GetAllEC2NatGatewayResources retrieves all ec2.NatGateway items from an AWS CloudFormation template
@@ -6401,6 +6504,54 @@ func (t *Template) GetEventsRuleWithName(name string) (*events.Rule, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type events.Rule not found", name)
+}
+
+// GetAllFMSNotificationChannelResources retrieves all fms.NotificationChannel items from an AWS CloudFormation template
+func (t *Template) GetAllFMSNotificationChannelResources() map[string]*fms.NotificationChannel {
+	results := map[string]*fms.NotificationChannel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *fms.NotificationChannel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFMSNotificationChannelWithName retrieves all fms.NotificationChannel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFMSNotificationChannelWithName(name string) (*fms.NotificationChannel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *fms.NotificationChannel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type fms.NotificationChannel not found", name)
+}
+
+// GetAllFMSPolicyResources retrieves all fms.Policy items from an AWS CloudFormation template
+func (t *Template) GetAllFMSPolicyResources() map[string]*fms.Policy {
+	results := map[string]*fms.Policy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *fms.Policy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFMSPolicyWithName retrieves all fms.Policy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFMSPolicyWithName(name string) (*fms.Policy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *fms.Policy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type fms.Policy not found", name)
 }
 
 // GetAllFSxFileSystemResources retrieves all fsx.FileSystem items from an AWS CloudFormation template

@@ -9,7 +9,7 @@ import (
 type RuleGroup_IPSetReferenceStatement struct {
 
 	// Arn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
 	Arn string `json:"Arn,omitempty"`
 

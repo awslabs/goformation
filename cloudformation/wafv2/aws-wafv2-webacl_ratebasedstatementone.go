@@ -9,14 +9,14 @@ import (
 type WebACL_RateBasedStatementOne struct {
 
 	// AggregateKeyType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
 	AggregateKeyType string `json:"AggregateKeyType,omitempty"`
 
 	// Limit AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
-	Limit int `json:"Limit,omitempty"`
+	Limit int `json:"Limit"`
 
 	// ScopeDownStatement AWS CloudFormation Property
 	// Required: false

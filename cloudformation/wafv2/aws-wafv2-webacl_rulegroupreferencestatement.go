@@ -9,14 +9,14 @@ import (
 type WebACL_RuleGroupReferenceStatement struct {
 
 	// Arn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
 	Arn string `json:"Arn,omitempty"`
 
 	// ExcludedRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
-	ExcludedRules *WebACL_ExcludedRules `json:"ExcludedRules,omitempty"`
+	ExcludedRules []WebACL_ExcludedRule `json:"ExcludedRules,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

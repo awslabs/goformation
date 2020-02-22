@@ -9,12 +9,12 @@ import (
 type RuleGroup_TextTransformation struct {
 
 	// Priority AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority int `json:"Priority"`
 
 	// Type AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
 	Type string `json:"Type,omitempty"`
 

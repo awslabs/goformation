@@ -9,7 +9,7 @@ import (
 type WebACL_NotStatementOne struct {
 
 	// Statement AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
 	Statement *WebACL_StatementTwo `json:"Statement,omitempty"`
 

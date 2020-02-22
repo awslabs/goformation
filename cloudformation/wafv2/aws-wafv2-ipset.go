@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // IPSet AWS CloudFormation Resource (AWS::WAFv2::IPSet)
@@ -15,7 +16,7 @@ type IPSet struct {
 	// Addresses AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-	Addresses *IPSet_IPAddresses `json:"Addresses,omitempty"`
+	Addresses []string `json:"Addresses,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -40,7 +41,7 @@ type IPSet struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-	Tags *IPSet_TagList `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

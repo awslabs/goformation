@@ -112,6 +112,11 @@ type UserPool struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameattributes
 	UsernameAttributes []string `json:"UsernameAttributes,omitempty"`
 
+	// UsernameConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameconfiguration
+	UsernameConfiguration *UserPool_UsernameConfiguration `json:"UsernameConfiguration,omitempty"`
+
 	// VerificationMessageTemplate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-verificationmessagetemplate

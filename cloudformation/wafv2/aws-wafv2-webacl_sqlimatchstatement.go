@@ -9,14 +9,14 @@ import (
 type WebACL_SqliMatchStatement struct {
 
 	// FieldToMatch AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
 	FieldToMatch *WebACL_FieldToMatch `json:"FieldToMatch,omitempty"`
 
 	// TextTransformations AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
-	TextTransformations *WebACL_TextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations []WebACL_TextTransformation `json:"TextTransformations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
