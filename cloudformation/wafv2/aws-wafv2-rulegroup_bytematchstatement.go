@@ -9,17 +9,17 @@ import (
 type RuleGroup_ByteMatchStatement struct {
 
 	// FieldToMatch AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
 	FieldToMatch *RuleGroup_FieldToMatch `json:"FieldToMatch,omitempty"`
 
 	// PositionalConstraint AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
 	PositionalConstraint string `json:"PositionalConstraint,omitempty"`
 
 	// SearchString AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
 	SearchString string `json:"SearchString,omitempty"`
 
@@ -29,9 +29,9 @@ type RuleGroup_ByteMatchStatement struct {
 	SearchStringBase64 string `json:"SearchStringBase64,omitempty"`
 
 	// TextTransformations AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
-	TextTransformations *RuleGroup_TextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations []RuleGroup_TextTransformation `json:"TextTransformations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -9,7 +9,7 @@ import (
 type WebACL_IPSetReferenceStatement struct {
 
 	// Arn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
 	Arn string `json:"Arn,omitempty"`
 

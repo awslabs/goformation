@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // RegexPatternSet AWS CloudFormation Resource (AWS::WAFv2::RegexPatternSet)
@@ -25,7 +26,7 @@ type RegexPatternSet struct {
 	// RegularExpressionList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regularexpressionlist
-	RegularExpressionList *RegexPatternSet_RegularExpressionList `json:"RegularExpressionList,omitempty"`
+	RegularExpressionList []string `json:"RegularExpressionList,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: true
@@ -35,7 +36,7 @@ type RegexPatternSet struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-tags
-	Tags *RegexPatternSet_TagList `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

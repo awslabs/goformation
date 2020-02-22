@@ -11,7 +11,7 @@ type RuleGroup_GeoMatchStatement struct {
 	// CountryCodes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-	CountryCodes *RuleGroup_CountryCodes `json:"CountryCodes,omitempty"`
+	CountryCodes []string `json:"CountryCodes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

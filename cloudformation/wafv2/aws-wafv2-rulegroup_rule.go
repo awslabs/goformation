@@ -14,22 +14,22 @@ type RuleGroup_Rule struct {
 	Action *RuleGroup_RuleAction `json:"Action,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
 	Name string `json:"Name,omitempty"`
 
 	// Priority AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority int `json:"Priority"`
 
 	// Statement AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
 	Statement *RuleGroup_StatementOne `json:"Statement,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
 	VisibilityConfig *RuleGroup_VisibilityConfig `json:"VisibilityConfig,omitempty"`
 

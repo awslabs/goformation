@@ -9,7 +9,7 @@ import (
 type WebACL_ExcludedRule struct {
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
 	Name string `json:"Name,omitempty"`
 

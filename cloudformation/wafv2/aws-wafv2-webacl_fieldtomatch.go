@@ -11,37 +11,37 @@ type WebACL_FieldToMatch struct {
 	// AllQueryArguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
-	AllQueryArguments *WebACL_AllQueryArguments `json:"AllQueryArguments,omitempty"`
+	AllQueryArguments interface{} `json:"AllQueryArguments,omitempty"`
 
 	// Body AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
-	Body *WebACL_Body `json:"Body,omitempty"`
+	Body interface{} `json:"Body,omitempty"`
 
 	// Method AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
-	Method *WebACL_Method `json:"Method,omitempty"`
+	Method interface{} `json:"Method,omitempty"`
 
 	// QueryString AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
-	QueryString *WebACL_QueryString `json:"QueryString,omitempty"`
+	QueryString interface{} `json:"QueryString,omitempty"`
 
 	// SingleHeader AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
-	SingleHeader *WebACL_SingleHeader `json:"SingleHeader,omitempty"`
+	SingleHeader interface{} `json:"SingleHeader,omitempty"`
 
 	// SingleQueryArgument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
-	SingleQueryArgument *WebACL_SingleQueryArgument `json:"SingleQueryArgument,omitempty"`
+	SingleQueryArgument interface{} `json:"SingleQueryArgument,omitempty"`
 
 	// UriPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
-	UriPath *WebACL_UriPath `json:"UriPath,omitempty"`
+	UriPath interface{} `json:"UriPath,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

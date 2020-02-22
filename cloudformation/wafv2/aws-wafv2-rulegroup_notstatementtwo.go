@@ -9,7 +9,7 @@ import (
 type RuleGroup_NotStatementTwo struct {
 
 	// Statement AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
 	Statement *RuleGroup_StatementThree `json:"Statement,omitempty"`
 

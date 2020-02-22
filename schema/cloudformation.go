@@ -11507,6 +11507,12 @@ var CloudformationSchema = `{
                         "Environment": {
                             "$ref": "#/definitions/AWS::CodeBuild::Project.Environment"
                         },
+                        "FileSystemLocations": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::CodeBuild::Project.ProjectFileSystemLocation"
+                            },
+                            "type": "array"
+                        },
                         "LogsConfig": {
                             "$ref": "#/definitions/AWS::CodeBuild::Project.LogsConfig"
                         },
@@ -11737,6 +11743,33 @@ var CloudformationSchema = `{
                 }
             },
             "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::CodeBuild::Project.ProjectFileSystemLocation": {
+            "additionalProperties": false,
+            "properties": {
+                "Identifier": {
+                    "type": "string"
+                },
+                "Location": {
+                    "type": "string"
+                },
+                "MountOptions": {
+                    "type": "string"
+                },
+                "MountPoint": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Identifier",
+                "Location",
+                "MountPoint",
                 "Type"
             ],
             "type": "object"
@@ -13800,6 +13833,9 @@ var CloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "UsernameConfiguration": {
+                            "$ref": "#/definitions/AWS::Cognito::UserPool.UsernameConfiguration"
+                        },
                         "VerificationMessageTemplate": {
                             "$ref": "#/definitions/AWS::Cognito::UserPool.VerificationMessageTemplate"
                         }
@@ -14042,6 +14078,15 @@ var CloudformationSchema = `{
             "properties": {
                 "AdvancedSecurityMode": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Cognito::UserPool.UsernameConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "CaseSensitive": {
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -14967,6 +15012,12 @@ var CloudformationSchema = `{
                         },
                         "AuthorizedAwsRegion": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -15162,6 +15213,12 @@ var CloudformationSchema = `{
                         },
                         "OrganizationAggregationSource": {
                             "$ref": "#/definitions/AWS::Config::ConfigurationAggregator.OrganizationAggregationSource"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -15303,6 +15360,95 @@ var CloudformationSchema = `{
                     "type": "array"
                 }
             },
+            "type": "object"
+        },
+        "AWS::Config::ConformancePack": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ConformancePackInputParameters": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Config::ConformancePack.ConformancePackInputParameter"
+                            },
+                            "type": "array"
+                        },
+                        "ConformancePackName": {
+                            "type": "string"
+                        },
+                        "DeliveryS3Bucket": {
+                            "type": "string"
+                        },
+                        "DeliveryS3KeyPrefix": {
+                            "type": "string"
+                        },
+                        "TemplateBody": {
+                            "type": "string"
+                        },
+                        "TemplateS3Uri": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ConformancePackName",
+                        "DeliveryS3Bucket"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Config::ConformancePack"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Config::ConformancePack.ConformancePackInputParameter": {
+            "additionalProperties": false,
+            "properties": {
+                "ParameterName": {
+                    "type": "string"
+                },
+                "ParameterValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ParameterName",
+                "ParameterValue"
+            ],
             "type": "object"
         },
         "AWS::Config::DeliveryChannel": {
@@ -15522,6 +15668,101 @@ var CloudformationSchema = `{
             },
             "required": [
                 "RuleIdentifier"
+            ],
+            "type": "object"
+        },
+        "AWS::Config::OrganizationConformancePack": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ConformancePackInputParameters": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Config::OrganizationConformancePack.ConformancePackInputParameter"
+                            },
+                            "type": "array"
+                        },
+                        "DeliveryS3Bucket": {
+                            "type": "string"
+                        },
+                        "DeliveryS3KeyPrefix": {
+                            "type": "string"
+                        },
+                        "ExcludedAccounts": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "OrganizationConformancePackName": {
+                            "type": "string"
+                        },
+                        "TemplateBody": {
+                            "type": "string"
+                        },
+                        "TemplateS3Uri": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "DeliveryS3Bucket",
+                        "OrganizationConformancePackName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Config::OrganizationConformancePack"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Config::OrganizationConformancePack.ConformancePackInputParameter": {
+            "additionalProperties": false,
+            "properties": {
+                "ParameterName": {
+                    "type": "string"
+                },
+                "ParameterValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ParameterName",
+                "ParameterValue"
             ],
             "type": "object"
         },
@@ -19916,6 +20157,141 @@ var CloudformationSchema = `{
                 "ResourceType": {
                     "type": "string"
                 },
+                "Tags": {
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::LocalGatewayRoute": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DestinationCidrBlock": {
+                            "type": "string"
+                        },
+                        "LocalGatewayRouteTableId": {
+                            "type": "string"
+                        },
+                        "LocalGatewayVirtualInterfaceGroupId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "DestinationCidrBlock",
+                        "LocalGatewayRouteTableId",
+                        "LocalGatewayVirtualInterfaceGroupId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::LocalGatewayRoute"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::LocalGatewayRouteTableVPCAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "LocalGatewayRouteTableId": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "$ref": "#/definitions/AWS::EC2::LocalGatewayRouteTableVPCAssociation.Tags"
+                        },
+                        "VpcId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "LocalGatewayRouteTableId",
+                        "VpcId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::LocalGatewayRouteTableVPCAssociation"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::LocalGatewayRouteTableVPCAssociation.Tags": {
+            "additionalProperties": false,
+            "properties": {
                 "Tags": {
                     "items": {
                         "$ref": "#/definitions/Tag"
@@ -27850,6 +28226,9 @@ var CloudformationSchema = `{
                 "FixedResponseConfig": {
                     "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.FixedResponseConfig"
                 },
+                "ForwardConfig": {
+                    "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.ForwardConfig"
+                },
                 "Order": {
                     "type": "number"
                 },
@@ -27989,6 +28368,21 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::ElasticLoadBalancingV2::Listener.ForwardConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "TargetGroupStickinessConfig": {
+                    "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig"
+                },
+                "TargetGroups": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::Listener.TargetGroupTuple"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
         "AWS::ElasticLoadBalancingV2::Listener.RedirectConfig": {
             "additionalProperties": false,
             "properties": {
@@ -28014,6 +28408,30 @@ var CloudformationSchema = `{
             "required": [
                 "StatusCode"
             ],
+            "type": "object"
+        },
+        "AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "DurationSeconds": {
+                    "type": "number"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ElasticLoadBalancingV2::Listener.TargetGroupTuple": {
+            "additionalProperties": false,
+            "properties": {
+                "TargetGroupArn": {
+                    "type": "string"
+                },
+                "Weight": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::ElasticLoadBalancingV2::ListenerCertificate": {
@@ -28170,6 +28588,9 @@ var CloudformationSchema = `{
                 "FixedResponseConfig": {
                     "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.FixedResponseConfig"
                 },
+                "ForwardConfig": {
+                    "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig"
+                },
                 "Order": {
                     "type": "number"
                 },
@@ -28298,6 +28719,21 @@ var CloudformationSchema = `{
             "required": [
                 "StatusCode"
             ],
+            "type": "object"
+        },
+        "AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "TargetGroupStickinessConfig": {
+                    "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig"
+                },
+                "TargetGroups": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple"
+                    },
+                    "type": "array"
+                }
+            },
             "type": "object"
         },
         "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig": {
@@ -28443,6 +28879,30 @@ var CloudformationSchema = `{
                         "type": "string"
                     },
                     "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "DurationSeconds": {
+                    "type": "number"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple": {
+            "additionalProperties": false,
+            "properties": {
+                "TargetGroupArn": {
+                    "type": "string"
+                },
+                "Weight": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -29626,6 +30086,204 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::FMS::NotificationChannel": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "SnsRoleName": {
+                            "type": "string"
+                        },
+                        "SnsTopicArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "SnsRoleName",
+                        "SnsTopicArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::FMS::NotificationChannel"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::FMS::Policy": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DeleteAllPolicyResources": {
+                            "type": "boolean"
+                        },
+                        "ExcludeMap": {
+                            "$ref": "#/definitions/AWS::FMS::Policy.IEMap"
+                        },
+                        "ExcludeResourceTags": {
+                            "type": "boolean"
+                        },
+                        "IncludeMap": {
+                            "$ref": "#/definitions/AWS::FMS::Policy.IEMap"
+                        },
+                        "PolicyName": {
+                            "type": "string"
+                        },
+                        "RemediationEnabled": {
+                            "type": "boolean"
+                        },
+                        "ResourceTags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::FMS::Policy.ResourceTag"
+                            },
+                            "type": "array"
+                        },
+                        "ResourceType": {
+                            "type": "string"
+                        },
+                        "ResourceTypeList": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "SecurityServicePolicyData": {
+                            "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::FMS::Policy.PolicyTag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "ExcludeResourceTags",
+                        "PolicyName",
+                        "RemediationEnabled",
+                        "ResourceType",
+                        "SecurityServicePolicyData"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::FMS::Policy"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::FMS::Policy.IEMap": {
+            "additionalProperties": false,
+            "properties": {
+                "ACCOUNT": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::FMS::Policy.PolicyTag": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key",
+                "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::FMS::Policy.ResourceTag": {
+            "additionalProperties": false,
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Key"
+            ],
+            "type": "object"
+        },
         "AWS::FSx::FileSystem": {
             "additionalProperties": false,
             "properties": {
@@ -29717,6 +30375,9 @@ var CloudformationSchema = `{
         "AWS::FSx::FileSystem.LustreConfiguration": {
             "additionalProperties": false,
             "properties": {
+                "DeploymentType": {
+                    "type": "string"
+                },
                 "ExportPath": {
                     "type": "string"
                 },
@@ -29724,6 +30385,9 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "ImportedFileChunkSize": {
+                    "type": "number"
+                },
+                "PerUnitStorageThroughput": {
                     "type": "number"
                 },
                 "WeeklyMaintenanceStartTime": {
@@ -43006,11 +43670,17 @@ var CloudformationSchema = `{
                         "DBSubnetGroupName": {
                             "type": "string"
                         },
+                        "DeletionProtection": {
+                            "type": "boolean"
+                        },
                         "EnableCloudwatchLogsExports": {
                             "items": {
                                 "type": "string"
                             },
                             "type": "array"
+                        },
+                        "EngineVersion": {
+                            "type": "string"
                         },
                         "IamAuthEnabled": {
                             "type": "boolean"
@@ -57341,7 +58011,10 @@ var CloudformationSchema = `{
                     "additionalProperties": false,
                     "properties": {
                         "Addresses": {
-                            "$ref": "#/definitions/AWS::WAFv2::IPSet.IPAddresses"
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
                         },
                         "Description": {
                             "type": "string"
@@ -57356,7 +58029,10 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Tags": {
-                            "$ref": "#/definitions/AWS::WAFv2::IPSet.TagList"
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -57377,30 +58053,6 @@ var CloudformationSchema = `{
                 "Type",
                 "Properties"
             ],
-            "type": "object"
-        },
-        "AWS::WAFv2::IPSet.IPAddresses": {
-            "additionalProperties": false,
-            "properties": {
-                "IPAddresses": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::IPSet.TagList": {
-            "additionalProperties": false,
-            "properties": {
-                "TagList": {
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    },
-                    "type": "array"
-                }
-            },
             "type": "object"
         },
         "AWS::WAFv2::RegexPatternSet": {
@@ -57442,13 +58094,19 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "RegularExpressionList": {
-                            "$ref": "#/definitions/AWS::WAFv2::RegexPatternSet.RegularExpressionList"
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
                         },
                         "Scope": {
                             "type": "string"
                         },
                         "Tags": {
-                            "$ref": "#/definitions/AWS::WAFv2::RegexPatternSet.TagList"
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -57468,39 +58126,6 @@ var CloudformationSchema = `{
                 "Type",
                 "Properties"
             ],
-            "type": "object"
-        },
-        "AWS::WAFv2::RegexPatternSet.Regex": {
-            "additionalProperties": false,
-            "properties": {
-                "RegexString": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RegexPatternSet.RegularExpressionList": {
-            "additionalProperties": false,
-            "properties": {
-                "RegularExpressionList": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::RegexPatternSet.Regex"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RegexPatternSet.TagList": {
-            "additionalProperties": false,
-            "properties": {
-                "TagList": {
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    },
-                    "type": "array"
-                }
-            },
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup": {
@@ -57545,13 +58170,19 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Rules": {
-                            "$ref": "#/definitions/AWS::WAFv2::RuleGroup.Rules"
+                            "items": {
+                                "$ref": "#/definitions/AWS::WAFv2::RuleGroup.Rule"
+                            },
+                            "type": "array"
                         },
                         "Scope": {
                             "type": "string"
                         },
                         "Tags": {
-                            "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TagList"
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         },
                         "VisibilityConfig": {
                             "$ref": "#/definitions/AWS::WAFv2::RuleGroup.VisibilityConfig"
@@ -57577,42 +58208,34 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
-        "AWS::WAFv2::RuleGroup.AllQueryArguments": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.AllowAction": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
         "AWS::WAFv2::RuleGroup.AndStatementOne": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementTwos"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementTwo"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.AndStatementTwo": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementThrees"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementThree"
+                    },
+                    "type": "array"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.BlockAction": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.Body": {
-            "additionalProperties": false,
-            "properties": {},
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.ByteMatchStatement": {
@@ -57631,17 +58254,48 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformation"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "FieldToMatch",
+                "PositionalConstraint",
+                "SearchString",
+                "TextTransformations"
+            ],
+            "type": "object"
+        },
+        "AWS::WAFv2::RuleGroup.FieldToMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "AllQueryArguments": {
+                    "type": "object"
+                },
+                "Body": {
+                    "type": "object"
+                },
+                "Method": {
+                    "type": "object"
+                },
+                "QueryString": {
+                    "type": "object"
+                },
+                "SingleHeader": {
+                    "type": "object"
+                },
+                "SingleQueryArgument": {
+                    "type": "object"
+                },
+                "UriPath": {
+                    "type": "object"
                 }
             },
             "type": "object"
         },
-        "AWS::WAFv2::RuleGroup.CountAction": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.CountryCodes": {
+        "AWS::WAFv2::RuleGroup.GeoMatchStatement": {
             "additionalProperties": false,
             "properties": {
                 "CountryCodes": {
@@ -57653,42 +58307,6 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
-        "AWS::WAFv2::RuleGroup.FieldToMatch": {
-            "additionalProperties": false,
-            "properties": {
-                "AllQueryArguments": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.AllQueryArguments"
-                },
-                "Body": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.Body"
-                },
-                "Method": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.Method"
-                },
-                "QueryString": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.QueryString"
-                },
-                "SingleHeader": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.SingleHeader"
-                },
-                "SingleQueryArgument": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.SingleQueryArgument"
-                },
-                "UriPath": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.UriPath"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.GeoMatchStatement": {
-            "additionalProperties": false,
-            "properties": {
-                "CountryCodes": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.CountryCodes"
-                }
-            },
-            "type": "object"
-        },
         "AWS::WAFv2::RuleGroup.IPSetReferenceStatement": {
             "additionalProperties": false,
             "properties": {
@@ -57696,11 +58314,9 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.Method": {
-            "additionalProperties": false,
-            "properties": {},
+            "required": [
+                "Arn"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.NotStatementOne": {
@@ -57710,6 +58326,9 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementTwo"
                 }
             },
+            "required": [
+                "Statement"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.NotStatementTwo": {
@@ -57719,29 +58338,39 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementThree"
                 }
             },
+            "required": [
+                "Statement"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.OrStatementOne": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementTwos"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementTwo"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.OrStatementTwo": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementThrees"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementThree"
+                    },
+                    "type": "array"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.QueryString": {
-            "additionalProperties": false,
-            "properties": {},
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.RateBasedStatementOne": {
@@ -57757,6 +58386,10 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementTwo"
                 }
             },
+            "required": [
+                "AggregateKeyType",
+                "Limit"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.RateBasedStatementTwo": {
@@ -57772,6 +58405,10 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementThree"
                 }
             },
+            "required": [
+                "AggregateKeyType",
+                "Limit"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.RegexPatternSetReferenceStatement": {
@@ -57784,9 +58421,17 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.FieldToMatch"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "Arn",
+                "FieldToMatch",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.Rule": {
@@ -57808,49 +58453,25 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.VisibilityConfig"
                 }
             },
+            "required": [
+                "Name",
+                "Priority",
+                "Statement",
+                "VisibilityConfig"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.RuleAction": {
             "additionalProperties": false,
             "properties": {
                 "Allow": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.AllowAction"
+                    "type": "object"
                 },
                 "Block": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.BlockAction"
+                    "type": "object"
                 },
                 "Count": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.CountAction"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.Rules": {
-            "additionalProperties": false,
-            "properties": {
-                "Rules": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.Rule"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.SingleHeader": {
-            "additionalProperties": false,
-            "properties": {
-                "Name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.SingleQueryArgument": {
-            "additionalProperties": false,
-            "properties": {
-                "Name": {
-                    "type": "string"
+                    "type": "object"
                 }
             },
             "type": "object"
@@ -57868,9 +58489,18 @@ var CloudformationSchema = `{
                     "type": "number"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "ComparisonOperator",
+                "FieldToMatch",
+                "Size",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.SqliMatchStatement": {
@@ -57880,9 +58510,16 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.FieldToMatch"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "FieldToMatch",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.StatementOne": {
@@ -57951,18 +58588,6 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
-        "AWS::WAFv2::RuleGroup.StatementThrees": {
-            "additionalProperties": false,
-            "properties": {
-                "StatementThrees": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementThree"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
         "AWS::WAFv2::RuleGroup.StatementTwo": {
             "additionalProperties": false,
             "properties": {
@@ -58002,30 +58627,6 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
-        "AWS::WAFv2::RuleGroup.StatementTwos": {
-            "additionalProperties": false,
-            "properties": {
-                "StatementTwos": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.StatementTwo"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.TagList": {
-            "additionalProperties": false,
-            "properties": {
-                "TagList": {
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
         "AWS::WAFv2::RuleGroup.TextTransformation": {
             "additionalProperties": false,
             "properties": {
@@ -58036,23 +58637,10 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.TextTransformations": {
-            "additionalProperties": false,
-            "properties": {
-                "TextTransformations": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformation"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::RuleGroup.UriPath": {
-            "additionalProperties": false,
-            "properties": {},
+            "required": [
+                "Priority",
+                "Type"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.VisibilityConfig": {
@@ -58068,6 +58656,11 @@ var CloudformationSchema = `{
                     "type": "boolean"
                 }
             },
+            "required": [
+                "CloudWatchMetricsEnabled",
+                "MetricName",
+                "SampledRequestsEnabled"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::RuleGroup.XssMatchStatement": {
@@ -58077,9 +58670,16 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::RuleGroup.FieldToMatch"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::RuleGroup.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "FieldToMatch",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL": {
@@ -58124,13 +58724,19 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Rules": {
-                            "$ref": "#/definitions/AWS::WAFv2::WebACL.Rules"
+                            "items": {
+                                "$ref": "#/definitions/AWS::WAFv2::WebACL.Rule"
+                            },
+                            "type": "array"
                         },
                         "Scope": {
                             "type": "string"
                         },
                         "Tags": {
-                            "$ref": "#/definitions/AWS::WAFv2::WebACL.TagList"
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         },
                         "VisibilityConfig": {
                             "$ref": "#/definitions/AWS::WAFv2::WebACL.VisibilityConfig"
@@ -58156,42 +58762,34 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
-        "AWS::WAFv2::WebACL.AllQueryArguments": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.AllowAction": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
         "AWS::WAFv2::WebACL.AndStatementOne": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementTwos"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementTwo"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.AndStatementTwo": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementThrees"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementThree"
+                    },
+                    "type": "array"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.BlockAction": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.Body": {
-            "additionalProperties": false,
-            "properties": {},
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.ByteMatchStatement": {
@@ -58210,36 +58808,28 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformations"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.CountAction": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.CountryCodes": {
-            "additionalProperties": false,
-            "properties": {
-                "CountryCodes": {
                     "items": {
-                        "type": "string"
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformation"
                     },
                     "type": "array"
                 }
             },
+            "required": [
+                "FieldToMatch",
+                "PositionalConstraint",
+                "SearchString",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.DefaultAction": {
             "additionalProperties": false,
             "properties": {
                 "Allow": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.AllowAction"
+                    "type": "object"
                 },
                 "Block": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.BlockAction"
+                    "type": "object"
                 }
             },
             "type": "object"
@@ -58251,43 +58841,34 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.ExcludedRules": {
-            "additionalProperties": false,
-            "properties": {
-                "ExcludedRules": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::WebACL.ExcludedRule"
-                    },
-                    "type": "array"
-                }
-            },
+            "required": [
+                "Name"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.FieldToMatch": {
             "additionalProperties": false,
             "properties": {
                 "AllQueryArguments": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.AllQueryArguments"
+                    "type": "object"
                 },
                 "Body": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.Body"
+                    "type": "object"
                 },
                 "Method": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.Method"
+                    "type": "object"
                 },
                 "QueryString": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.QueryString"
+                    "type": "object"
                 },
                 "SingleHeader": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.SingleHeader"
+                    "type": "object"
                 },
                 "SingleQueryArgument": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.SingleQueryArgument"
+                    "type": "object"
                 },
                 "UriPath": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.UriPath"
+                    "type": "object"
                 }
             },
             "type": "object"
@@ -58296,7 +58877,10 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "CountryCodes": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.CountryCodes"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "type": "object"
@@ -58308,13 +58892,19 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Arn"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.ManagedRuleGroupStatement": {
             "additionalProperties": false,
             "properties": {
                 "ExcludedRules": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.ExcludedRules"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.ExcludedRule"
+                    },
+                    "type": "array"
                 },
                 "Name": {
                     "type": "string"
@@ -58323,16 +58913,10 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.Method": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.NoneAction": {
-            "additionalProperties": false,
-            "properties": {},
+            "required": [
+                "Name",
+                "VendorName"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.NotStatementOne": {
@@ -58342,6 +58926,9 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementTwo"
                 }
             },
+            "required": [
+                "Statement"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.NotStatementTwo": {
@@ -58351,41 +58938,51 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementThree"
                 }
             },
+            "required": [
+                "Statement"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.OrStatementOne": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementTwos"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementTwo"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.OrStatementTwo": {
             "additionalProperties": false,
             "properties": {
                 "Statements": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementThrees"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementThree"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "Statements"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.OverrideAction": {
             "additionalProperties": false,
             "properties": {
                 "Count": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.CountAction"
+                    "type": "object"
                 },
                 "None": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.NoneAction"
+                    "type": "object"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.QueryString": {
-            "additionalProperties": false,
-            "properties": {},
             "type": "object"
         },
         "AWS::WAFv2::WebACL.RateBasedStatementOne": {
@@ -58401,6 +58998,10 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementTwo"
                 }
             },
+            "required": [
+                "AggregateKeyType",
+                "Limit"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.RateBasedStatementTwo": {
@@ -58416,6 +59017,10 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementThree"
                 }
             },
+            "required": [
+                "AggregateKeyType",
+                "Limit"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.RegexPatternSetReferenceStatement": {
@@ -58428,9 +59033,17 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.FieldToMatch"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "Arn",
+                "FieldToMatch",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.Rule": {
@@ -58455,19 +59068,25 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.VisibilityConfig"
                 }
             },
+            "required": [
+                "Name",
+                "Priority",
+                "Statement",
+                "VisibilityConfig"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.RuleAction": {
             "additionalProperties": false,
             "properties": {
                 "Allow": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.AllowAction"
+                    "type": "object"
                 },
                 "Block": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.BlockAction"
+                    "type": "object"
                 },
                 "Count": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.CountAction"
+                    "type": "object"
                 }
             },
             "type": "object"
@@ -58479,39 +59098,15 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "ExcludedRules": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.ExcludedRules"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.Rules": {
-            "additionalProperties": false,
-            "properties": {
-                "Rules": {
                     "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::WebACL.Rule"
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.ExcludedRule"
                     },
                     "type": "array"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.SingleHeader": {
-            "additionalProperties": false,
-            "properties": {
-                "Name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.SingleQueryArgument": {
-            "additionalProperties": false,
-            "properties": {
-                "Name": {
-                    "type": "string"
-                }
-            },
+            "required": [
+                "Arn"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.SizeConstraintStatement": {
@@ -58527,9 +59122,18 @@ var CloudformationSchema = `{
                     "type": "number"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "ComparisonOperator",
+                "FieldToMatch",
+                "Size",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.SqliMatchStatement": {
@@ -58539,9 +59143,16 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.FieldToMatch"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "FieldToMatch",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.StatementOne": {
@@ -58622,18 +59233,6 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
-        "AWS::WAFv2::WebACL.StatementThrees": {
-            "additionalProperties": false,
-            "properties": {
-                "StatementThrees": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementThree"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
         "AWS::WAFv2::WebACL.StatementTwo": {
             "additionalProperties": false,
             "properties": {
@@ -58679,30 +59278,6 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
-        "AWS::WAFv2::WebACL.StatementTwos": {
-            "additionalProperties": false,
-            "properties": {
-                "StatementTwos": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::WebACL.StatementTwo"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.TagList": {
-            "additionalProperties": false,
-            "properties": {
-                "TagList": {
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
         "AWS::WAFv2::WebACL.TextTransformation": {
             "additionalProperties": false,
             "properties": {
@@ -58713,23 +59288,10 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.TextTransformations": {
-            "additionalProperties": false,
-            "properties": {
-                "TextTransformations": {
-                    "items": {
-                        "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformation"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::WAFv2::WebACL.UriPath": {
-            "additionalProperties": false,
-            "properties": {},
+            "required": [
+                "Priority",
+                "Type"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.VisibilityConfig": {
@@ -58745,6 +59307,11 @@ var CloudformationSchema = `{
                     "type": "boolean"
                 }
             },
+            "required": [
+                "CloudWatchMetricsEnabled",
+                "MetricName",
+                "SampledRequestsEnabled"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACL.XssMatchStatement": {
@@ -58754,9 +59321,16 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.FieldToMatch"
                 },
                 "TextTransformations": {
-                    "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformations"
+                    "items": {
+                        "$ref": "#/definitions/AWS::WAFv2::WebACL.TextTransformation"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "FieldToMatch",
+                "TextTransformations"
+            ],
             "type": "object"
         },
         "AWS::WAFv2::WebACLAssociation": {
@@ -59573,10 +60147,16 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::Config::ConfigurationRecorder"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Config::ConformancePack"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Config::DeliveryChannel"
                         },
                         {
                             "$ref": "#/definitions/AWS::Config::OrganizationConfigRule"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Config::OrganizationConformancePack"
                         },
                         {
                             "$ref": "#/definitions/AWS::Config::RemediationConfiguration"
@@ -59685,6 +60265,12 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::LaunchTemplate"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::LocalGatewayRoute"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::LocalGatewayRouteTableVPCAssociation"
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::NatGateway"
@@ -59925,6 +60511,12 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Events::Rule"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::FMS::NotificationChannel"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::FMS::Policy"
                         },
                         {
                             "$ref": "#/definitions/AWS::FSx::FileSystem"

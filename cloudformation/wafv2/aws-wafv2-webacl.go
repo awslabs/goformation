@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // WebACL AWS CloudFormation Resource (AWS::WAFv2::WebACL)
@@ -30,7 +31,7 @@ type WebACL struct {
 	// Rules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-	Rules *WebACL_Rules `json:"Rules,omitempty"`
+	Rules []WebACL_Rule `json:"Rules,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: true
@@ -40,7 +41,7 @@ type WebACL struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-	Tags *WebACL_TagList `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
 	// Required: true

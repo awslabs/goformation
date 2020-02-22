@@ -38,10 +38,20 @@ type DBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbsubnetgroupname
 	DBSubnetGroupName string `json:"DBSubnetGroupName,omitempty"`
 
+	// DeletionProtection AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-deletionprotection
+	DeletionProtection bool `json:"DeletionProtection,omitempty"`
+
 	// EnableCloudwatchLogsExports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-enablecloudwatchlogsexports
 	EnableCloudwatchLogsExports []string `json:"EnableCloudwatchLogsExports,omitempty"`
+
+	// EngineVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-engineversion
+	EngineVersion string `json:"EngineVersion,omitempty"`
 
 	// IamAuthEnabled AWS CloudFormation Property
 	// Required: false

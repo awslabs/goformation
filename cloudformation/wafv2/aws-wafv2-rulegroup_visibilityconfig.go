@@ -9,19 +9,19 @@ import (
 type RuleGroup_VisibilityConfig struct {
 
 	// CloudWatchMetricsEnabled AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled bool `json:"CloudWatchMetricsEnabled,omitempty"`
+	CloudWatchMetricsEnabled bool `json:"CloudWatchMetricsEnabled"`
 
 	// MetricName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
 	MetricName string `json:"MetricName,omitempty"`
 
 	// SampledRequestsEnabled AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
-	SampledRequestsEnabled bool `json:"SampledRequestsEnabled,omitempty"`
+	SampledRequestsEnabled bool `json:"SampledRequestsEnabled"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -9,9 +9,9 @@ import (
 type RuleGroup_OrStatementOne struct {
 
 	// Statements AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
-	Statements *RuleGroup_StatementTwos `json:"Statements,omitempty"`
+	Statements []RuleGroup_StatementTwo `json:"Statements,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

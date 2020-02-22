@@ -14,7 +14,7 @@ type WebACL_Rule struct {
 	Action *WebACL_RuleAction `json:"Action,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
 	Name string `json:"Name,omitempty"`
 
@@ -24,17 +24,17 @@ type WebACL_Rule struct {
 	OverrideAction *WebACL_OverrideAction `json:"OverrideAction,omitempty"`
 
 	// Priority AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority int `json:"Priority"`
 
 	// Statement AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
 	Statement *WebACL_StatementOne `json:"Statement,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
 	VisibilityConfig *WebACL_VisibilityConfig `json:"VisibilityConfig,omitempty"`
 
