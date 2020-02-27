@@ -55101,6 +55101,22 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Serverless::Function.CloudWatchLogsEvent": {
+            "additionalProperties": false,
+            "properties": {
+                "FilterPattern": {
+                    "type": "string"
+                },
+                "LogGroupName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FilterPattern",
+                "LogGroupName"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::Function.CollectionSAMPT": {
             "additionalProperties": false,
             "properties": {
@@ -55226,6 +55242,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Serverless::Function.CloudWatchEventEvent"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::Function.CloudWatchLogsEvent"
                         },
                         {
                             "$ref": "#/definitions/AWS::Serverless::Function.IoTRuleEvent"
