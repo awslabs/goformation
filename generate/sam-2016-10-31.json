@@ -439,6 +439,7 @@
                         "ApiEvent",
                         "ScheduleEvent",
                         "CloudWatchEventEvent",
+                        "CloudWatchLogsEvent",
                         "IoTRuleEvent",
                         "AlexaSkillEvent"
                     ],
@@ -634,6 +635,23 @@
                 "InputPath": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchevent",
                     "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.CloudWatchLogsEvent": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchevent",
+            "Properties": {
+                "LogGroupName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchlogs",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+               "FilterPattern": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchlogs",
+                    "Required": true,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 }
