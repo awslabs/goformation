@@ -44,6 +44,14 @@
                 "Snapshot"
             ]
         },
+        "UpdateReplacePolicy": {
+            "type": "string",
+            "enum": [
+                "Delete",
+                "Retain",
+                "Snapshot"
+            ]
+        },
         "DependsOn": {
             "anyOf": [
                 {
