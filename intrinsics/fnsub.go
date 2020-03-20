@@ -36,7 +36,7 @@ func FnSub(name string, input interface{}, template interface{}) interface{} {
 
 	case string:
 		// Look up references for each of the variables
-		regex := regexp.MustCompile(`\$\{([\.0-9A-Za-z]+)\}`)
+		regex := regexp.MustCompile(`\$\{([\.:0-9A-Za-z]+)\}`)
 		variables := regex.FindAllStringSubmatch(val, -1)
 		for _, variable := range variables {
 
