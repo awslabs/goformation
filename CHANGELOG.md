@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.8.0](https://github.com/awslabs/goformation/compare/v4.7.1...v4.8.0) (2020-04-04)
+
+
+### Features
+
+* **schema:** Add UpdateReplacePolicy to the templates and the policies so that it is generated for every resource ([#272](https://github.com/awslabs/goformation/issues/272)) ([696c515](https://github.com/awslabs/goformation/commit/696c515bcbb07105683a328ef0e161d62146114b))
+
 ## [4.7.1](https://github.com/awslabs/goformation/compare/v4.7.0...v4.7.1) (2020-04-04)
 
 
