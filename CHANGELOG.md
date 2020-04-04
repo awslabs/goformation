@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [4.7.1](https://github.com/awslabs/goformation/compare/v4.7.0...v4.7.1) (2020-04-04)
+
+
+### Bug Fixes
+
+* **intrinsics:** change Fn::Sub to allow AWS pseudo parameters ([#275](https://github.com/awslabs/goformation/issues/275)) ([5a48c27](https://github.com/awslabs/goformation/commit/5a48c27630b945dcdc33133defd0241f898ccc52)), closes [#274](https://github.com/awslabs/goformation/issues/274) [#202](https://github.com/awslabs/goformation/issues/202)
+
 # [4.7.0](https://github.com/awslabs/goformation/compare/v4.6.0...v4.7.0) (2020-02-28)
 
 
