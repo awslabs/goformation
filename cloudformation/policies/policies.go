@@ -33,6 +33,12 @@ type ResourceSignal struct {
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 type DeletionPolicy string
 
+// UpdateReplacePolicy can retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+// You specify a UpdateReplacePolicy attribute for each resource that you want to control. If a resource has no UpdateReplacePolicy attribute, AWS CloudFormation deletes the resource by default.
+// Either "Delete", "Retain" or "Snapshot".
+// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html
+type UpdateReplacePolicy string
+
 // UpdatePolicy specifies how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup or AWS::Lambda::Alias resource.
 // For AWS::AutoScaling::AutoScalingGroup resources, AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
 // The AutoScalingReplacingUpdate and AutoScalingRollingUpdate policies apply only when you do one or more of the following:

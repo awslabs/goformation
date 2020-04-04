@@ -36,6 +36,9 @@ type {{.StructName}} struct {
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
+
     // AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
     AWSCloudFormationDependsOn []string `json:"-"`
 
@@ -63,6 +66,7 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 		DependsOn []string `json:"DependsOn,omitempty"`
 		Metadata  map[string]interface{} `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
+		UpdateReplacePolicy policies.UpdateReplacePolicy `json:"UpdateReplacePolicy,omitempty"`
 		Condition string `json:"Condition,omitempty"`
 		{{if .HasUpdatePolicy}}UpdatePolicy *policies.UpdatePolicy `json:"UpdatePolicy,omitempty"`{{end}}
 		{{if .HasCreationPolicy}}CreationPolicy *policies.CreationPolicy `json:"CreationPolicy,omitempty"`{{end}}
@@ -72,6 +76,7 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 		DependsOn: r.AWSCloudFormationDependsOn,
 		Metadata: r.AWSCloudFormationMetadata,
 		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
+		UpdateReplacePolicy: r.AWSCloudFormationUpdateReplacePolicy,
 		Condition: r.AWSCloudFormationCondition,
 		{{if .HasUpdatePolicy}}UpdatePolicy: r.AWSCloudFormationUpdatePolicy,{{end}}
 		{{if .HasCreationPolicy}}CreationPolicy: r.AWSCloudFormationCreationPolicy,{{end}}
@@ -88,6 +93,7 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 		DependsOn []string
 		Metadata map[string]interface{}
 		DeletionPolicy string
+		UpdateReplacePolicy string
 		Condition string
 	}{}
 
@@ -111,6 +117,9 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 	}
 	if res.DeletionPolicy != "" {
 		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.UpdateReplacePolicy != "" {
+		r.AWSCloudFormationUpdateReplacePolicy = policies.UpdateReplacePolicy(res.UpdateReplacePolicy)
 	}
 	if res.Condition != "" {
 		r.AWSCloudFormationCondition = res.Condition
