@@ -13,6 +13,11 @@ type ResourceDefinition_SageMakerMachineLearningModelResourceData struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-destinationpath
 	DestinationPath string `json:"DestinationPath,omitempty"`
 
+	// OwnerSetting AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-ownersetting
+	OwnerSetting *ResourceDefinition_ResourceDownloadOwnerSetting `json:"OwnerSetting,omitempty"`
+
 	// SageMakerJobArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-sagemakerjobarn
@@ -20,6 +25,9 @@ type ResourceDefinition_SageMakerMachineLearningModelResourceData struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`

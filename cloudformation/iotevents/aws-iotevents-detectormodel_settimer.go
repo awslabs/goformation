@@ -8,6 +8,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html
 type DetectorModel_SetTimer struct {
 
+	// DurationExpression AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
+	DurationExpression string `json:"DurationExpression,omitempty"`
+
 	// Seconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
@@ -20,6 +25,9 @@ type DetectorModel_SetTimer struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`

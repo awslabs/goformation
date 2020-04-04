@@ -39,9 +39,9 @@ type JobDefinition_ContainerProperties struct {
 	LinuxParameters *JobDefinition_LinuxParameters `json:"LinuxParameters,omitempty"`
 
 	// Memory AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
-	Memory int `json:"Memory"`
+	Memory int `json:"Memory,omitempty"`
 
 	// MountPoints AWS CloudFormation Property
 	// Required: false
@@ -74,9 +74,9 @@ type JobDefinition_ContainerProperties struct {
 	User string `json:"User,omitempty"`
 
 	// Vcpus AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-vcpus
-	Vcpus int `json:"Vcpus"`
+	Vcpus int `json:"Vcpus,omitempty"`
 
 	// Volumes AWS CloudFormation Property
 	// Required: false
@@ -85,6 +85,9 @@ type JobDefinition_ContainerProperties struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`
