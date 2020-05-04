@@ -7,7 +7,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/utils"
 )
 
-// Function_Properties is a helper struct that can hold either a S3Event, SNSEvent, SQSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, CloudWatchLogsEvent, IoTRuleEvent, EventBridgeRuleEvent or AlexaSkillEvent value
+// Function_Properties is a helper struct that can hold either a S3Event, SNSEvent, SQSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, CloudWatchLogsEvent, IoTRuleEvent, AlexaSkillEvent or EventBridgeRuleEvent value
 type Function_Properties struct {
 	S3Event              *Function_S3Event
 	SNSEvent             *Function_SNSEvent
