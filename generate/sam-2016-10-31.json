@@ -441,7 +441,8 @@
                         "CloudWatchEventEvent",
                         "CloudWatchLogsEvent",
                         "IoTRuleEvent",
-                        "AlexaSkillEvent"
+                        "AlexaSkillEvent",
+                        "EventBridgeRuleEvent"
                     ],
                     "UpdateType": "Immutable"
                 }
@@ -682,6 +683,35 @@
                     "Required": false,
                     "Type": "Map",
                     "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.EventBridgeRuleEvent": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchevent",
+            "Properties": {
+                "Pattern": {
+                    "Documentation": "https://docs.aws.amazon.com/eventbridge/latest/userguide/filtering-examples-structure.html",
+                    "Required": true,
+                    "PrimitiveType": "Json",
+                    "UpdateType": "Immutable"
+                },
+                "EventBusName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#eventbridgerule",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Input": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#eventbridgerule",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "InputPath": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#eventbridgerule",
+                    "Required": false,
+                    "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 }
             }
