@@ -688,7 +688,7 @@
             }
         },
         "AWS::Serverless::Function.EventBridgeRuleEvent": {
-            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchevent",
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#eventbridgerule",
             "Properties": {
                 "Pattern": {
                     "Documentation": "https://docs.aws.amazon.com/eventbridge/latest/userguide/filtering-examples-structure.html",
