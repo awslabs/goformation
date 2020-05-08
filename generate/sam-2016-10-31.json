@@ -252,6 +252,12 @@
                     "Required": false,
                     "Type": "AccessLogSetting",
                     "UpdateType": "Immutable"
+                },
+                "OpenApiVersion": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
                 }
             }
         },
