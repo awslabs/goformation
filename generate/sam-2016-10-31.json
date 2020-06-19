@@ -381,6 +381,91 @@
                     "UpdateType": "Immutable"
                 }
             }
+        },
+        "AWS::Serverless::StateMachine": {
+            "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+            "Properties": {
+                "Definition": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "PrimitiveType": "Json",
+                    "UpdateType": "Immutable"
+                },
+                "DefinitionSubstitutions": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "Type": "Map",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "DefinitionUri": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "Types": [
+                        "S3Location"
+                    ],
+                    "UpdateType": "Immutable"
+                },
+                "Events": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "Type": "Map",
+                    "ItemType": "EventSource",
+                    "UpdateType": "Immutable"
+                },
+                "Logging": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "Type": "LoggingConfiguration",
+                    "UpdateType": "Immutable"
+                },
+                "Name": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Policies": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "PrimitiveTypes": [
+                        "String"
+                    ],
+                    "PrimitiveItemTypes": [
+                        "String"
+                    ],
+                    "Types": [
+                        "IAMPolicyDocument"
+                    ],
+                    "ItemTypes": [
+                        "IAMPolicyDocument",
+                        "SAMPolicyTemplate"
+                    ],
+                    "UpdateType": "Immutable"
+                },
+                "Role": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Tags": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "Type": "Map",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Type": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
         }
     },
     "PropertyTypes": {
@@ -1149,6 +1234,52 @@
                 },
                 "Value": {
                     "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::StateMachine.LoggingConfiguration": {
+            "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html",
+            "Properties": {
+                "Destinations": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html",
+                    "Required": true,
+                    "Type": "List",
+                    "ItemType": "LogDestination",
+                    "UpdateType": "Immutable"
+                },
+                "IncludeExecutionData": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html",
+                    "Required": true,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                },
+                "Level": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::StateMachine.LogDestination": {
+            "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup",
+            "Properties": {
+                "CloudWatchLogsLogGroup": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup",
+                    "Required": true,
+                    "Type": "CloudWatchLogsLogGroup",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::StateMachine.CloudWatchLogsLogGroup": {
+            "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup.html",
+            "Properties": {
+                "LogGroupArn": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup.html",
                     "Required": true,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
