@@ -13,6 +13,16 @@ type DetectorModel_Action struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer
 	ClearTimer *DetectorModel_ClearTimer `json:"ClearTimer,omitempty"`
 
+	// DynamoDB AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb
+	DynamoDB *DetectorModel_DynamoDB `json:"DynamoDB,omitempty"`
+
+	// DynamoDBv2 AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2
+	DynamoDBv2 *DetectorModel_DynamoDBv2 `json:"DynamoDBv2,omitempty"`
+
 	// Firehose AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose
@@ -22,6 +32,11 @@ type DetectorModel_Action struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents
 	IotEvents *DetectorModel_IotEvents `json:"IotEvents,omitempty"`
+
+	// IotSiteWise AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise
+	IotSiteWise *DetectorModel_IotSiteWise `json:"IotSiteWise,omitempty"`
 
 	// IotTopicPublish AWS CloudFormation Property
 	// Required: false
@@ -60,6 +75,9 @@ type DetectorModel_Action struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`
