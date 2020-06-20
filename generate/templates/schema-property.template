@@ -52,7 +52,7 @@
 
     {{if .Property.IsMap}}
         "type": "object",
-        {{if .Property.IsMapOfPrimitives}}
+        {{if .Property.HasJSONPrimitiveType}}
         "patternProperties": {
             "^[a-zA-Z0-9]+$": {
                 "type": "{{.Property.GetJSONPrimitiveType}}"
@@ -75,7 +75,7 @@
 
     {{if .Property.IsList}}
         "type": "array",
-        {{if .Property.IsListOfPrimitives}}
+        {{if .Property.HasJSONPrimitiveType}}
         "items": {
             "type": "{{.Property.GetJSONPrimitiveType}}"
         }
