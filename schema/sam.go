@@ -63405,6 +63405,12 @@ var SamSchema = `{
                             },
                             "type": "object"
                         },
+                        "FileSystemConfigs": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Serverless::Function.FileSystemConfig"
+                            },
+                            "type": "array"
+                        },
                         "FunctionName": {
                             "type": "string"
                         },
@@ -63737,6 +63743,18 @@ var SamSchema = `{
                 "Properties",
                 "Type"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.FileSystemConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Arn": {
+                    "type": "string"
+                },
+                "LocalMountPath": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Serverless::Function.FunctionEnvironment": {
