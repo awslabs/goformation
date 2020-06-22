@@ -25,6 +25,9 @@ type BackupSelection struct {
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
+
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`
 
@@ -45,19 +48,21 @@ func (r *BackupSelection) AWSCloudFormationType() string {
 func (r BackupSelection) MarshalJSON() ([]byte, error) {
 	type Properties BackupSelection
 	return json.Marshal(&struct {
-		Type           string
-		Properties     Properties
-		DependsOn      []string                `json:"DependsOn,omitempty"`
-		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
-		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
-		Condition      string                  `json:"Condition,omitempty"`
+		Type                string
+		Properties          Properties
+		DependsOn           []string                     `json:"DependsOn,omitempty"`
+		Metadata            map[string]interface{}       `json:"Metadata,omitempty"`
+		DeletionPolicy      policies.DeletionPolicy      `json:"DeletionPolicy,omitempty"`
+		UpdateReplacePolicy policies.UpdateReplacePolicy `json:"UpdateReplacePolicy,omitempty"`
+		Condition           string                       `json:"Condition,omitempty"`
 	}{
-		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
-		DependsOn:      r.AWSCloudFormationDependsOn,
-		Metadata:       r.AWSCloudFormationMetadata,
-		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
-		Condition:      r.AWSCloudFormationCondition,
+		Type:                r.AWSCloudFormationType(),
+		Properties:          (Properties)(r),
+		DependsOn:           r.AWSCloudFormationDependsOn,
+		Metadata:            r.AWSCloudFormationMetadata,
+		DeletionPolicy:      r.AWSCloudFormationDeletionPolicy,
+		UpdateReplacePolicy: r.AWSCloudFormationUpdateReplacePolicy,
+		Condition:           r.AWSCloudFormationCondition,
 	})
 }
 
@@ -66,12 +71,13 @@ func (r BackupSelection) MarshalJSON() ([]byte, error) {
 func (r *BackupSelection) UnmarshalJSON(b []byte) error {
 	type Properties BackupSelection
 	res := &struct {
-		Type           string
-		Properties     *Properties
-		DependsOn      []string
-		Metadata       map[string]interface{}
-		DeletionPolicy string
-		Condition      string
+		Type                string
+		Properties          *Properties
+		DependsOn           []string
+		Metadata            map[string]interface{}
+		DeletionPolicy      string
+		UpdateReplacePolicy string
+		Condition           string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -94,6 +100,9 @@ func (r *BackupSelection) UnmarshalJSON(b []byte) error {
 	}
 	if res.DeletionPolicy != "" {
 		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.UpdateReplacePolicy != "" {
+		r.AWSCloudFormationUpdateReplacePolicy = policies.UpdateReplacePolicy(res.UpdateReplacePolicy)
 	}
 	if res.Condition != "" {
 		r.AWSCloudFormationCondition = res.Condition

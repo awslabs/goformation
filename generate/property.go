@@ -8,6 +8,34 @@ import (
 	"text/template"
 )
 
+var typeToGo = map[string]string{
+	"String":    "string",
+	"Long":      "int64",
+	"Integer":   "int",
+	"Double":    "float64",
+	"Boolean":   "bool",
+	"Timestamp": "string",
+	"Json":      "interface{}",
+	"Map":       "interface{}",
+
+	// Overrides to fix CF errors
+	"ParameterValues": "interface{}", // fix for AWS::SSM::Association
+}
+
+var typeToJSON = map[string]string{
+	"String":    "string",
+	"Long":      "number",
+	"Integer":   "number",
+	"Double":    "number",
+	"Boolean":   "boolean",
+	"Timestamp": "string",
+	"Json":      "object",
+	"Map":       "object",
+
+	// Overrides to fix CF errors
+	"ParameterValues": "object", // fix for AWS::SSM::Association
+}
+
 // Property represents an AWS CloudFormation resource property
 type Property struct {
 
@@ -125,19 +153,9 @@ func (p Property) IsMap() bool {
 	return p.Type == "Map"
 }
 
-// IsMapOfPrimitives checks whether a map contains primitive values
-func (p Property) IsMapOfPrimitives() bool {
-	return p.IsMap() && p.PrimitiveItemType != ""
-}
-
 // IsList checks whether a property should be a list ([]...)
 func (p Property) IsList() bool {
 	return p.Type == "List"
-}
-
-// IsListOfPrimitives checks whether a list containers primitive values
-func (p Property) IsListOfPrimitives() bool {
-	return p.IsList() && p.PrimitiveItemType != ""
 }
 
 // IsCustomType checks wither a property is a custom type
@@ -162,8 +180,8 @@ func (p Property) GoType(typename string, basename string, name string) string {
 
 	if p.IsMap() {
 
-		if p.IsMapOfPrimitives() {
-			return "map[string]" + convertTypeToGo(p.PrimitiveItemType)
+		if p.convertTypeToGo() != "" {
+			return "map[string]" + p.convertTypeToGo()
 		}
 
 		return "map[string]" + basename + "_" + p.ItemType
@@ -172,8 +190,8 @@ func (p Property) GoType(typename string, basename string, name string) string {
 
 	if p.IsList() {
 
-		if p.IsListOfPrimitives() {
-			return "[]" + convertTypeToGo(p.PrimitiveItemType)
+		if p.convertTypeToGo() != "" {
+			return "[]" + p.convertTypeToGo()
 		}
 
 		return "[]" + basename + "_" + p.ItemType
@@ -192,65 +210,46 @@ func (p Property) GoType(typename string, basename string, name string) string {
 // GetJSONPrimitiveType returns the correct primitive property type for a JSON Schema.
 // If the property is a list/map, then it will return the type of the items.
 func (p Property) GetJSONPrimitiveType() string {
-
-	if p.IsPrimitive() {
-		return convertTypeToJSON(p.PrimitiveType)
-	}
-
-	if p.IsMap() && p.IsMapOfPrimitives() {
-		return convertTypeToJSON(p.PrimitiveItemType)
-	}
-
-	if p.IsList() && p.IsListOfPrimitives() {
-		return convertTypeToJSON(p.PrimitiveItemType)
-	}
-
-	return "unknown"
-
+	return p.convertTypeToJSON()
 }
 
-func convertTypeToGo(pt string) string {
-	switch pt {
-	case "String":
-		return "string"
-	case "Long":
-		return "int64"
-	case "Integer":
-		return "int"
-	case "Double":
-		return "float64"
-	case "Boolean":
-		return "bool"
-	case "Timestamp":
-		return "string"
-	case "Json":
-		return "interface{}"
-	case "Map":
-		return "interface{}"
-	default:
-		return pt
+// HasJSONPrimitiveType if GetJSONPrimitiveType is not ""
+func (p Property) HasJSONPrimitiveType() bool {
+	return p.convertTypeToJSON() != ""
+}
+
+func (p Property) convertTypeToGo() string {
+	if p.PrimitiveType != "" {
+		return convertTypeToGo(p.PrimitiveType)
+	} else if p.PrimitiveItemType != "" {
+		return convertTypeToGo(p.PrimitiveItemType)
+	} else {
+		return convertTypeToGo(p.ItemType)
 	}
+}
+
+func (p Property) convertTypeToJSON() string {
+	if p.PrimitiveType != "" {
+		return convertTypeToJSON(p.PrimitiveType)
+	} else if p.PrimitiveItemType != "" {
+		return convertTypeToJSON(p.PrimitiveItemType)
+	} else {
+		return convertTypeToJSON(p.ItemType)
+	}
+}
+
+func convertTypeToGo(name string) string {
+	t, ok := typeToGo[name]
+	if !ok {
+		return ""
+	}
+	return t
 }
 
 func convertTypeToJSON(name string) string {
-	switch name {
-	case "String":
-		return "string"
-	case "Long":
-		return "number"
-	case "Integer":
-		return "number"
-	case "Double":
-		return "number"
-	case "Boolean":
-		return "boolean"
-	case "Timestamp":
-		return "string"
-	case "Json":
-		return "object"
-	case "Map":
-		return "object"
-	default:
-		return name
+	t, ok := typeToJSON[name]
+	if !ok {
+		return ""
 	}
+	return t
 }

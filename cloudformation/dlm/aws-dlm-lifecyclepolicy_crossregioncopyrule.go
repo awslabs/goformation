@@ -19,9 +19,9 @@ type LifecyclePolicy_CrossRegionCopyRule struct {
 	CopyTags bool `json:"CopyTags,omitempty"`
 
 	// Encrypted AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-encrypted
-	Encrypted bool `json:"Encrypted,omitempty"`
+	Encrypted bool `json:"Encrypted"`
 
 	// RetainRule AWS CloudFormation Property
 	// Required: false
@@ -29,12 +29,15 @@ type LifecyclePolicy_CrossRegionCopyRule struct {
 	RetainRule *LifecyclePolicy_CrossRegionCopyRetainRule `json:"RetainRule,omitempty"`
 
 	// TargetRegion AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-targetregion
 	TargetRegion string `json:"TargetRegion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`

@@ -17,6 +17,16 @@ type Association struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 	AssociationName string `json:"AssociationName,omitempty"`
 
+	// AutomationTargetParameterName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
+	AutomationTargetParameterName string `json:"AutomationTargetParameterName,omitempty"`
+
+	// ComplianceSeverity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
+	ComplianceSeverity string `json:"ComplianceSeverity,omitempty"`
+
 	// DocumentVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
@@ -26,6 +36,16 @@ type Association struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
 	InstanceId string `json:"InstanceId,omitempty"`
+
+	// MaxConcurrency AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+	MaxConcurrency string `json:"MaxConcurrency,omitempty"`
+
+	// MaxErrors AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
+	MaxErrors string `json:"MaxErrors,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -40,20 +60,33 @@ type Association struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters map[string]Association_ParameterValues `json:"Parameters,omitempty"`
+	Parameters map[string]interface{} `json:"Parameters,omitempty"`
 
 	// ScheduleExpression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
 	ScheduleExpression string `json:"ScheduleExpression,omitempty"`
 
+	// SyncCompliance AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
+	SyncCompliance string `json:"SyncCompliance,omitempty"`
+
 	// Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
 	Targets []Association_Target `json:"Targets,omitempty"`
 
+	// WaitForSuccessTimeoutSeconds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+	WaitForSuccessTimeoutSeconds int `json:"WaitForSuccessTimeoutSeconds,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`
@@ -75,19 +108,21 @@ func (r *Association) AWSCloudFormationType() string {
 func (r Association) MarshalJSON() ([]byte, error) {
 	type Properties Association
 	return json.Marshal(&struct {
-		Type           string
-		Properties     Properties
-		DependsOn      []string                `json:"DependsOn,omitempty"`
-		Metadata       map[string]interface{}  `json:"Metadata,omitempty"`
-		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
-		Condition      string                  `json:"Condition,omitempty"`
+		Type                string
+		Properties          Properties
+		DependsOn           []string                     `json:"DependsOn,omitempty"`
+		Metadata            map[string]interface{}       `json:"Metadata,omitempty"`
+		DeletionPolicy      policies.DeletionPolicy      `json:"DeletionPolicy,omitempty"`
+		UpdateReplacePolicy policies.UpdateReplacePolicy `json:"UpdateReplacePolicy,omitempty"`
+		Condition           string                       `json:"Condition,omitempty"`
 	}{
-		Type:           r.AWSCloudFormationType(),
-		Properties:     (Properties)(r),
-		DependsOn:      r.AWSCloudFormationDependsOn,
-		Metadata:       r.AWSCloudFormationMetadata,
-		DeletionPolicy: r.AWSCloudFormationDeletionPolicy,
-		Condition:      r.AWSCloudFormationCondition,
+		Type:                r.AWSCloudFormationType(),
+		Properties:          (Properties)(r),
+		DependsOn:           r.AWSCloudFormationDependsOn,
+		Metadata:            r.AWSCloudFormationMetadata,
+		DeletionPolicy:      r.AWSCloudFormationDeletionPolicy,
+		UpdateReplacePolicy: r.AWSCloudFormationUpdateReplacePolicy,
+		Condition:           r.AWSCloudFormationCondition,
 	})
 }
 
@@ -96,12 +131,13 @@ func (r Association) MarshalJSON() ([]byte, error) {
 func (r *Association) UnmarshalJSON(b []byte) error {
 	type Properties Association
 	res := &struct {
-		Type           string
-		Properties     *Properties
-		DependsOn      []string
-		Metadata       map[string]interface{}
-		DeletionPolicy string
-		Condition      string
+		Type                string
+		Properties          *Properties
+		DependsOn           []string
+		Metadata            map[string]interface{}
+		DeletionPolicy      string
+		UpdateReplacePolicy string
+		Condition           string
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -124,6 +160,9 @@ func (r *Association) UnmarshalJSON(b []byte) error {
 	}
 	if res.DeletionPolicy != "" {
 		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.UpdateReplacePolicy != "" {
+		r.AWSCloudFormationUpdateReplacePolicy = policies.UpdateReplacePolicy(res.UpdateReplacePolicy)
 	}
 	if res.Condition != "" {
 		r.AWSCloudFormationCondition = res.Condition
