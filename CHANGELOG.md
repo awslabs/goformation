@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [4.10.1](https://github.com/awslabs/goformation/compare/v4.10.0...v4.10.1) (2020-06-22)
+
+
+### Bug Fixes
+
+* **generator:** update the generation making it easier to fix CF schema errors to generate ([#285](https://github.com/awslabs/goformation/issues/285)) ([6751e5b](https://github.com/awslabs/goformation/commit/6751e5b6ecbe1daee45171528cb1300efc6fb300))
+
 # [4.10.0](https://github.com/awslabs/goformation/compare/v4.9.0...v4.10.0) (2020-06-22)
 
 
