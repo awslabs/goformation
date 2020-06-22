@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.9.0](https://github.com/awslabs/goformation/compare/v4.8.0...v4.9.0) (2020-06-22)
+
+
+### Features
+
+* **schema:** Add OpenApiVersion field to serverless Api ([#281](https://github.com/awslabs/goformation/issues/281)) ([bccc71b](https://github.com/awslabs/goformation/commit/bccc71b90531fb6bba8465b578fc2accc4dc6e34))
+
 # [4.8.0](https://github.com/awslabs/goformation/compare/v4.7.1...v4.8.0) (2020-04-04)
 
 
