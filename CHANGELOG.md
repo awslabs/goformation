@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.10.0](https://github.com/awslabs/goformation/compare/v4.9.0...v4.10.0) (2020-06-22)
+
+
+### Features
+
+* **schema:** Serverless eventbridgeruleevent ([#279](https://github.com/awslabs/goformation/issues/279)) ([2a9e572](https://github.com/awslabs/goformation/commit/2a9e572313485023dc4e57cb8facda72a3571307))
+
 # [4.9.0](https://github.com/awslabs/goformation/compare/v4.8.0...v4.9.0) (2020-06-22)
 
 
