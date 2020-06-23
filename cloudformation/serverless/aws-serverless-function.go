@@ -47,6 +47,11 @@ type Function struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Events map[string]Function_EventSource `json:"Events,omitempty"`
 
+	// FileSystemConfigs AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
+	FileSystemConfigs []Function_FileSystemConfig `json:"FileSystemConfigs,omitempty"`
+
 	// FunctionName AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
