@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.11.0](https://github.com/awslabs/goformation/compare/v4.10.1...v4.11.0) (2020-06-28)
+
+
+### Features
+
+* **schema:** CFN Updates ([#287](https://github.com/awslabs/goformation/issues/287)) ([9778479](https://github.com/awslabs/goformation/commit/97784795e35035b71b946d0ca69ef4d380d3b4a8))
+
 ## [4.10.1](https://github.com/awslabs/goformation/compare/v4.10.0...v4.10.1) (2020-06-22)
 
 
