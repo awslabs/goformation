@@ -5219,6 +5219,9 @@ var CloudformationSchema = `{
                 },
                 "RetryPolicy": {
                     "$ref": "#/definitions/AWS::AppMesh::Route.GrpcRetryPolicy"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.GrpcTimeout"
                 }
             },
             "required": [
@@ -5299,6 +5302,18 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::AppMesh::Route.GrpcTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::Route.HeaderMatchMethod": {
             "additionalProperties": false,
             "properties": {
@@ -5359,6 +5374,9 @@ var CloudformationSchema = `{
                 },
                 "RetryPolicy": {
                     "$ref": "#/definitions/AWS::AppMesh::Route.HttpRetryPolicy"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpTimeout"
                 }
             },
             "required": [
@@ -5424,6 +5442,18 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppMesh::Route.HttpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::Route.MatchRange": {
             "additionalProperties": false,
             "properties": {
@@ -5466,6 +5496,9 @@ var CloudformationSchema = `{
             "properties": {
                 "Action": {
                     "$ref": "#/definitions/AWS::AppMesh::Route.TcpRouteAction"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.TcpTimeout"
                 }
             },
             "required": [
@@ -5486,6 +5519,15 @@ var CloudformationSchema = `{
             "required": [
                 "WeightedTargets"
             ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.TcpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                }
+            },
             "type": "object"
         },
         "AWS::AppMesh::Route.WeightedTarget": {
@@ -5690,6 +5732,22 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppMesh::VirtualNode.Duration": {
+            "additionalProperties": false,
+            "properties": {
+                "Unit": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Unit",
+                "Value"
+            ],
+            "type": "object"
+        },
         "AWS::AppMesh::VirtualNode.FileAccessLog": {
             "additionalProperties": false,
             "properties": {
@@ -5700,6 +5758,18 @@ var CloudformationSchema = `{
             "required": [
                 "Path"
             ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.GrpcTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                }
+            },
             "type": "object"
         },
         "AWS::AppMesh::VirtualNode.HealthCheck": {
@@ -5736,6 +5806,18 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppMesh::VirtualNode.HttpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::VirtualNode.Listener": {
             "additionalProperties": false,
             "properties": {
@@ -5747,11 +5829,32 @@ var CloudformationSchema = `{
                 },
                 "TLS": {
                     "$ref": "#/definitions/AWS::AppMesh::VirtualNode.ListenerTls"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.ListenerTimeout"
                 }
             },
             "required": [
                 "PortMapping"
             ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.ListenerTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "GRPC": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.GrpcTimeout"
+                },
+                "HTTP": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.HttpTimeout"
+                },
+                "HTTP2": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.HttpTimeout"
+                },
+                "TCP": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.TcpTimeout"
+                }
+            },
             "type": "object"
         },
         "AWS::AppMesh::VirtualNode.ListenerTls": {
@@ -5843,6 +5946,15 @@ var CloudformationSchema = `{
                 },
                 "DNS": {
                     "$ref": "#/definitions/AWS::AppMesh::VirtualNode.DnsServiceDiscovery"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.TcpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
                 }
             },
             "type": "object"
@@ -61082,6 +61194,9 @@ var CloudformationSchema = `{
                         },
                         "Schedule": {
                             "type": "string"
+                        },
+                        "ScheduleOffset": {
+                            "type": "number"
                         },
                         "ScheduleTimezone": {
                             "type": "string"

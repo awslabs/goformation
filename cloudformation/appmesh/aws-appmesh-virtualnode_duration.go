@@ -4,19 +4,19 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// Route_TcpRoute AWS CloudFormation Resource (AWS::AppMesh::Route.TcpRoute)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html
-type Route_TcpRoute struct {
+// VirtualNode_Duration AWS CloudFormation Resource (AWS::AppMesh::VirtualNode.Duration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-duration.html
+type VirtualNode_Duration struct {
 
-	// Action AWS CloudFormation Property
+	// Unit AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action
-	Action *Route_TcpRouteAction `json:"Action,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-duration.html#cfn-appmesh-virtualnode-duration-unit
+	Unit string `json:"Unit,omitempty"`
 
-	// Timeout AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-timeout
-	Timeout *Route_TcpTimeout `json:"Timeout,omitempty"`
+	// Value AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-duration.html#cfn-appmesh-virtualnode-duration-value
+	Value int `json:"Value"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type Route_TcpRoute struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Route_TcpRoute) AWSCloudFormationType() string {
-	return "AWS::AppMesh::Route.TcpRoute"
+func (r *VirtualNode_Duration) AWSCloudFormationType() string {
+	return "AWS::AppMesh::VirtualNode.Duration"
 }
