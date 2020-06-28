@@ -4,19 +4,19 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// Route_TcpRoute AWS CloudFormation Resource (AWS::AppMesh::Route.TcpRoute)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html
-type Route_TcpRoute struct {
+// VirtualNode_GrpcTimeout AWS CloudFormation Resource (AWS::AppMesh::VirtualNode.GrpcTimeout)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-grpctimeout.html
+type VirtualNode_GrpcTimeout struct {
 
-	// Action AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action
-	Action *Route_TcpRouteAction `json:"Action,omitempty"`
-
-	// Timeout AWS CloudFormation Property
+	// Idle AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-timeout
-	Timeout *Route_TcpTimeout `json:"Timeout,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-grpctimeout.html#cfn-appmesh-virtualnode-grpctimeout-idle
+	Idle *VirtualNode_Duration `json:"Idle,omitempty"`
+
+	// PerRequest AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-grpctimeout.html#cfn-appmesh-virtualnode-grpctimeout-perrequest
+	PerRequest *VirtualNode_Duration `json:"PerRequest,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type Route_TcpRoute struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Route_TcpRoute) AWSCloudFormationType() string {
-	return "AWS::AppMesh::Route.TcpRoute"
+func (r *VirtualNode_GrpcTimeout) AWSCloudFormationType() string {
+	return "AWS::AppMesh::VirtualNode.GrpcTimeout"
 }

@@ -5216,6 +5216,9 @@
                 },
                 "RetryPolicy": {
                     "$ref": "#/definitions/AWS::AppMesh::Route.GrpcRetryPolicy"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.GrpcTimeout"
                 }
             },
             "required": [
@@ -5296,6 +5299,18 @@
             },
             "type": "object"
         },
+        "AWS::AppMesh::Route.GrpcTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::Route.HeaderMatchMethod": {
             "additionalProperties": false,
             "properties": {
@@ -5356,6 +5371,9 @@
                 },
                 "RetryPolicy": {
                     "$ref": "#/definitions/AWS::AppMesh::Route.HttpRetryPolicy"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpTimeout"
                 }
             },
             "required": [
@@ -5421,6 +5439,18 @@
             ],
             "type": "object"
         },
+        "AWS::AppMesh::Route.HttpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::Route.MatchRange": {
             "additionalProperties": false,
             "properties": {
@@ -5463,6 +5493,9 @@
             "properties": {
                 "Action": {
                     "$ref": "#/definitions/AWS::AppMesh::Route.TcpRouteAction"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.TcpTimeout"
                 }
             },
             "required": [
@@ -5483,6 +5516,15 @@
             "required": [
                 "WeightedTargets"
             ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.TcpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.Duration"
+                }
+            },
             "type": "object"
         },
         "AWS::AppMesh::Route.WeightedTarget": {
@@ -5687,6 +5729,22 @@
             ],
             "type": "object"
         },
+        "AWS::AppMesh::VirtualNode.Duration": {
+            "additionalProperties": false,
+            "properties": {
+                "Unit": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Unit",
+                "Value"
+            ],
+            "type": "object"
+        },
         "AWS::AppMesh::VirtualNode.FileAccessLog": {
             "additionalProperties": false,
             "properties": {
@@ -5697,6 +5755,18 @@
             "required": [
                 "Path"
             ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.GrpcTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                }
+            },
             "type": "object"
         },
         "AWS::AppMesh::VirtualNode.HealthCheck": {
@@ -5733,6 +5803,18 @@
             ],
             "type": "object"
         },
+        "AWS::AppMesh::VirtualNode.HttpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                },
+                "PerRequest": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::VirtualNode.Listener": {
             "additionalProperties": false,
             "properties": {
@@ -5744,11 +5826,32 @@
                 },
                 "TLS": {
                     "$ref": "#/definitions/AWS::AppMesh::VirtualNode.ListenerTls"
+                },
+                "Timeout": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.ListenerTimeout"
                 }
             },
             "required": [
                 "PortMapping"
             ],
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.ListenerTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "GRPC": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.GrpcTimeout"
+                },
+                "HTTP": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.HttpTimeout"
+                },
+                "HTTP2": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.HttpTimeout"
+                },
+                "TCP": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.TcpTimeout"
+                }
+            },
             "type": "object"
         },
         "AWS::AppMesh::VirtualNode.ListenerTls": {
@@ -5840,6 +5943,15 @@
                 },
                 "DNS": {
                     "$ref": "#/definitions/AWS::AppMesh::VirtualNode.DnsServiceDiscovery"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::VirtualNode.TcpTimeout": {
+            "additionalProperties": false,
+            "properties": {
+                "Idle": {
+                    "$ref": "#/definitions/AWS::AppMesh::VirtualNode.Duration"
                 }
             },
             "type": "object"
@@ -61080,6 +61192,9 @@
                         "Schedule": {
                             "type": "string"
                         },
+                        "ScheduleOffset": {
+                            "type": "number"
+                        },
                         "ScheduleTimezone": {
                             "type": "string"
                         },
@@ -63110,6 +63225,9 @@
                         "Name": {
                             "type": "string"
                         },
+                        "OpenApiVersion": {
+                            "type": "string"
+                        },
                         "StageName": {
                             "type": "string"
                         },
@@ -63686,6 +63804,27 @@
             "properties": {},
             "type": "object"
         },
+        "AWS::Serverless::Function.EventBridgeRuleEvent": {
+            "additionalProperties": false,
+            "properties": {
+                "EventBusName": {
+                    "type": "string"
+                },
+                "Input": {
+                    "type": "string"
+                },
+                "InputPath": {
+                    "type": "string"
+                },
+                "Pattern": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Pattern"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::Function.EventSource": {
             "additionalProperties": false,
             "properties": {
@@ -63723,6 +63862,9 @@
                         },
                         {
                             "$ref": "#/definitions/AWS::Serverless::Function.AlexaSkillEvent"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::Function.EventBridgeRuleEvent"
                         }
                     ]
                 },
