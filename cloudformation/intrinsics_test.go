@@ -99,6 +99,13 @@ var _ = Describe("Goformation", func() {
 				Input:    `Description: !Or [a, b, c]`,
 				Expected: `{"Description":{"Fn::Or":["a","b","c"]}}`,
 			},
+			{
+				Name: "JSON escaped",
+				Input: `Description: !Sub |
+  "quote"
+  newline`,
+				Expected: `{"Description":{"Fn::Sub":"\"quote\"\nnewline"}}`,
+			},
 		}
 
 		for _, test := range tests {

@@ -2,7 +2,6 @@ package cloudformation
 
 import (
 	"encoding/base64"
-	"encoding/json"
 	"fmt"
 	"strings"
 
@@ -126,7 +125,7 @@ func GetAZs(region interface{}) string {
 
 // Sub substitutes variables in an input string with values that you specify. In your templates, you can use this function to construct commands or outputs that include values that aren't available until you create or update a stack.
 func Sub(value interface{}) string {
-	return encode(fmt.Sprintf(`{ "Fn::Sub" : %q }`, value.(string)))
+	return encode(fmt.Sprintf(`{ "Fn::Sub" : %q }`, value))
 }
 
 // (str, str) -> str
@@ -167,7 +166,7 @@ func If(value, ifEqual, ifNotEqual interface{}) string {
 
 // Join appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter.
 func Join(delimiter interface{}, values []string) string {
-	return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %q ] ] }`, delimiter, strings.Trim(strings.Join(values, `", "`), `, "`)))
+	return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(values)))
 }
 
 // Select returns a single object from a list of objects by index.
@@ -175,40 +174,38 @@ func Select(index interface{}, list []string) string {
 	if len(list) == 1 {
 		return encode(fmt.Sprintf(`{ "Fn::Select": [ %q,  %q ] }`, index, list[0]))
 	}
-	return encode(fmt.Sprintf(`{ "Fn::Select": [ %q, [ %q ] ] }`, index, strings.Trim(strings.Join(list, `", "`), `, "`)))
+	return encode(fmt.Sprintf(`{ "Fn::Select": [ %q, [ %v ] ] }`, index, printList(list)))
 }
 
 // ([]str) -> str
 
 // And returns true if all the specified conditions evaluate to true, or returns false if any one of the conditions evaluates to false. Fn::And acts as an AND operator. The minimum number of conditions that you can include is 2, and the maximum is 10.
 func And(conditions []string) string {
-	return encode(fmt.Sprintf(`{ "Fn::And": [ %q ] }`, strings.Trim(strings.Join(conditions, `", "`), `, "`)))
+	return encode(fmt.Sprintf(`{ "Fn::And": [ %v ] }`, printList(conditions)))
 }
 
 // Not returns true for a condition that evaluates to false or returns false for a condition that evaluates to true. Fn::Not acts as a NOT operator.
 func Not(conditions []string) string {
-	return encode(fmt.Sprintf(`{ "Fn::Not": [ %q ] }`, strings.Trim(strings.Join(conditions, `", "`), `, "`)))
+	return encode(fmt.Sprintf(`{ "Fn::Not": [ %v ] }`, printList(conditions)))
 }
 
 // Or returns true if any one of the specified conditions evaluate to true, or returns false if all of the conditions evaluates to false. Fn::Or acts as an OR operator. The minimum number of conditions that you can include is 2, and the maximum is 10.
 func Or(conditions []string) string {
-	return encode(fmt.Sprintf(`{ "Fn::Or": [ %q ] }`, strings.Trim(strings.Join(conditions, `", "`), `, "`)))
+	return encode(fmt.Sprintf(`{ "Fn::Or": [ %v ] }`, printList(conditions)))
 }
 
 // encode takes a string representation of an intrinsic function, and base64 encodes it.
 // This prevents the escaping issues when nesting multiple layers of intrinsic functions.
 func encode(value string) string {
-
 	return base64.StdEncoding.EncodeToString([]byte(value))
 }
 
-func jsonEscape(i string) string {
-	b, err := json.Marshal(i)
-	if err != nil {
-		panic(err)
+func printList(values []string) string {
+	escaped := make([]string, len(values))
+	for i := range values {
+		escaped[i] = fmt.Sprintf("%q", values[i])
 	}
-	s := string(b)
-	return s[1 : len(s)-1]
+	return strings.Join(escaped, `,`)
 }
 
 func interfaceAtostrA(values []interface{}) []string {
