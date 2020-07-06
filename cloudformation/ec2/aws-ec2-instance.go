@@ -261,6 +261,8 @@ func (r *Instance) UnmarshalJSON(b []byte) error {
 		DeletionPolicy      string
 		UpdateReplacePolicy string
 		Condition           string
+
+		CreationPolicy map[string]interface{}
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))

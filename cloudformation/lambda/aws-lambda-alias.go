@@ -103,6 +103,7 @@ func (r *Alias) UnmarshalJSON(b []byte) error {
 		DeletionPolicy      string
 		UpdateReplacePolicy string
 		Condition           string
+		UpdatePolicy        map[string]interface{}
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
