@@ -93,6 +93,8 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 		DependsOn []string
 		Metadata map[string]interface{}
 		DeletionPolicy string
+		{{if .HasUpdatePolicy}}UpdatePolicy map[string]interface{} {{end}}
+		{{if .HasCreationPolicy}}CreationPolicy map[string]interface{} {{end}}
 		UpdateReplacePolicy string
 		Condition string
 	}{}
