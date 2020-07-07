@@ -103,7 +103,7 @@ func (r *Alias) UnmarshalJSON(b []byte) error {
 		DeletionPolicy      string
 		UpdateReplacePolicy string
 		Condition           string
-		UpdatePolicy        map[string]interface{}
+		UpdatePolicy        *policies.UpdatePolicy
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -133,5 +133,9 @@ func (r *Alias) UnmarshalJSON(b []byte) error {
 	if res.Condition != "" {
 		r.AWSCloudFormationCondition = res.Condition
 	}
+	if res.UpdatePolicy != nil {
+		r.AWSCloudFormationUpdatePolicy = res.UpdatePolicy
+	}
+
 	return nil
 }
