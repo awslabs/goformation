@@ -18,12 +18,29 @@ func strWrap(fn func(interface{}) string) intrinsics.IntrinsicHandler {
 func strSplit2Wrap(fn func(string, string) string) intrinsics.IntrinsicHandler {
 	delim := "."
 	return func(name string, input interface{}, template interface{}) interface{} {
-		if str, ok := input.(string); ok {
-			arr := strings.SplitN(str, delim, 2)
+		switch v := input.(type) {
+		case string:
+			arr := strings.SplitN(v, delim, 2)
 			if len(arr) != 2 {
 				return nil
 			}
 			return fn(arr[0], arr[1])
+		case []interface{}:
+			if len(v) != 2 {
+				return nil
+			}
+
+			str1, ok := v[0].(string)
+			if !ok {
+				return nil
+			}
+
+			str2, ok := v[1].(string)
+			if !ok {
+				return nil
+			}
+
+			return fn(str1, str2)
 		}
 		return nil
 	}
