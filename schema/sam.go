@@ -63768,6 +63768,18 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::Serverless::Function.DestinationConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "OnFailure": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.OnFailure"
+                }
+            },
+            "required": [
+                "OnFailure"
+            ],
+            "type": "object"
+        },
         "AWS::Serverless::Function.DomainSAMPT": {
             "additionalProperties": false,
             "properties": {
@@ -63786,8 +63798,26 @@ var SamSchema = `{
                 "BatchSize": {
                     "type": "number"
                 },
+                "BisectBatchOnFunctionError": {
+                    "type": "boolean"
+                },
+                "DestinationConfig": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.DestinationConfig"
+                },
                 "Enabled": {
                     "type": "boolean"
+                },
+                "MaximumBatchingWindowInSeconds": {
+                    "type": "number"
+                },
+                "MaximumRecordAgeInSeconds": {
+                    "type": "number"
+                },
+                "MaximumRetryAttempts": {
+                    "type": "number"
+                },
+                "ParallelizationFactor": {
+                    "type": "number"
                 },
                 "StartingPosition": {
                     "type": "string"
@@ -63993,6 +64023,21 @@ var SamSchema = `{
             },
             "required": [
                 "LogGroupName"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.OnFailure": {
+            "additionalProperties": false,
+            "properties": {
+                "Destination": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Destination"
             ],
             "type": "object"
         },
