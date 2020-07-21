@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.12.0](https://github.com/awslabs/goformation/compare/v4.11.0...v4.12.0) (2020-07-21)
+
+
+### Features
+
+* **schema:** Add new DynamoDBEvent options ([#289](https://github.com/awslabs/goformation/issues/289)) ([741228d](https://github.com/awslabs/goformation/commit/741228d6923ea10f1d22a901bbddf106d5c71cd7))
+
 # [4.11.0](https://github.com/awslabs/goformation/compare/v4.10.1...v4.11.0) (2020-06-28)
 
 
