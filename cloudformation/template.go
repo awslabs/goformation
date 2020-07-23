@@ -16,11 +16,11 @@ type Template struct {
 	Transform                *Transform             `json:"Transform,omitempty"`
 	Description              string                 `json:"Description,omitempty"`
 	Metadata                 map[string]interface{} `json:"Metadata,omitempty"`
-	Parameters               map[string]Parameter   `json:"Parameters,omitempty"`
+	Parameters               Parameters             `json:"Parameters,omitempty"`
 	Mappings                 map[string]interface{} `json:"Mappings,omitempty"`
 	Conditions               map[string]interface{} `json:"Conditions,omitempty"`
-	Resources                map[string]Resource    `json:"Resources,omitempty"`
-	Outputs                  map[string]Output      `json:"Outputs,omitempty"`
+	Resources                Resources              `json:"Resources,omitempty"`
+	Outputs                  Outputs                `json:"Outputs,omitempty"`
 }
 
 type Parameter struct {
@@ -47,7 +47,9 @@ type Resource interface {
 	AWSCloudFormationType() string
 }
 
+type Parameters map[string]Parameter
 type Resources map[string]Resource
+type Outputs map[string]Output
 
 func (resources *Resources) UnmarshalJSON(b []byte) error {
 	// Resources
@@ -161,11 +163,11 @@ func NewTemplate() *Template {
 		AWSTemplateFormatVersion: "2010-09-09",
 		Description:              "",
 		Metadata:                 map[string]interface{}{},
-		Parameters:               map[string]interface{}{},
+		Parameters:               Parameters{},
 		Mappings:                 map[string]interface{}{},
 		Conditions:               map[string]interface{}{},
 		Resources:                Resources{},
-		Outputs:                  map[string]interface{}{},
+		Outputs:                  Outputs{},
 	}
 }
 
