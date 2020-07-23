@@ -38,9 +38,13 @@ type Parameter struct {
 }
 
 type Output struct {
-	Value       interface{}       `json:"Value"`
-	Description string            `json:"Description,omitempty"`
-	Export      map[string]string `json:"Export,omitempty"`
+	Value       interface{} `json:"Value"`
+	Description string      `json:"Description,omitempty"`
+	Export      Export      `json:"Export,omitempty"`
+}
+
+type Export struct {
+	Name string `json:"Name,omitempty"`
 }
 
 type Resource interface {
