@@ -16,11 +16,11 @@ type Template struct {
 	Transform                *Transform             `json:"Transform,omitempty"`
 	Description              string                 `json:"Description,omitempty"`
 	Metadata                 map[string]interface{} `json:"Metadata,omitempty"`
-	Parameters               map[string]interface{} `json:"Parameters,omitempty"`
+	Parameters               map[string]Parameter   `json:"Parameters,omitempty"`
 	Mappings                 map[string]interface{} `json:"Mappings,omitempty"`
 	Conditions               map[string]interface{} `json:"Conditions,omitempty"`
-	Resources                Resources              `json:"Resources,omitempty"`
-	Outputs                  map[string]interface{} `json:"Outputs,omitempty"`
+	Resources                map[string]Resource    `json:"Resources,omitempty"`
+	Outputs                  map[string]Output      `json:"Outputs,omitempty"`
 }
 
 type Parameter struct {
@@ -35,6 +35,12 @@ type Parameter struct {
 	MaxValue              float64  `json:"MaxValue,omitempty"`
 	MinValue              float64  `json:"MinValue,omitempty"`
 	NoEcho                bool     `json:"NoEcho,omitempty"`
+}
+
+type Output struct {
+	Value       interface{}       `json:"Value"`
+	Description string            `json:"Description,omitempty"`
+	Export      map[string]string `json:"Export,omitempty"`
 }
 
 type Resource interface {
@@ -139,8 +145,8 @@ func (t *Transform) UnmarshalJSON(b []byte) error {
 		var strslice []string
 		for _, i := range val {
 			switch str := i.(type) {
-				case string:
-					strslice = append(strslice, str)
+			case string:
+				strslice = append(strslice, str)
 			}
 		}
 		t.StringArray = &strslice
