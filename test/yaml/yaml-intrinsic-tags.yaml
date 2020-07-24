@@ -4,7 +4,6 @@ Description: SAM template for testing intrinsic functions with YAML tags
 Parameters:
   TimeoutParam:
     Type: Number
-    Default: 10
 Resources:
   IntrinsicFunctionTest:
     Type: AWS::Serverless::Function
