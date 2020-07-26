@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.13.0](https://github.com/awslabs/goformation/compare/v4.12.0...v4.13.0) (2020-07-26)
+
+
+### Features
+
+* **schema:** adding AWS::Serverless::StateMachine and FileSystemConfigs to Function ([#284](https://github.com/awslabs/goformation/issues/284)) ([d2d23ca](https://github.com/awslabs/goformation/commit/d2d23cafba606a8ea40649cc666073fa0e2d5ad3))
+
 # [4.12.0](https://github.com/awslabs/goformation/compare/v4.11.0...v4.12.0) (2020-07-21)
 
 
