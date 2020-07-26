@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [4.13.1](https://github.com/awslabs/goformation/compare/v4.13.0...v4.13.1) (2020-07-26)
+
+
+### Bug Fixes
+
+* **schema:** Add Change and Update policies to the Unmarshal method ([#288](https://github.com/awslabs/goformation/issues/288)) ([989b05f](https://github.com/awslabs/goformation/commit/989b05fa78cb9e72f6d59298fb8bb287612f322e))
+
 # [4.13.0](https://github.com/awslabs/goformation/compare/v4.12.0...v4.13.0) (2020-07-26)
 
 
