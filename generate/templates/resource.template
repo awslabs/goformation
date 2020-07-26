@@ -83,6 +83,8 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	})
 }
 
+
+
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
 func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
@@ -95,6 +97,8 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 		DeletionPolicy string
 		UpdateReplacePolicy string
 		Condition string
+		{{if .HasUpdatePolicy}}UpdatePolicy *policies.UpdatePolicy {{end}}
+		{{if .HasCreationPolicy}}CreationPolicy *policies.CreationPolicy{{end}}
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -123,7 +127,11 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 	}
 	if res.Condition != "" {
 		r.AWSCloudFormationCondition = res.Condition
-	}
+	} {{if .HasUpdatePolicy }}
+		if res.UpdatePolicy != nil { r.AWSCloudFormationUpdatePolicy = res.UpdatePolicy }
+	{{end}} {{if .HasCreationPolicy}}
+		if res.CreationPolicy != nil { r.AWSCloudFormationCreationPolicy = res.CreationPolicy }
+	{{end}}
 	return nil
 }
 

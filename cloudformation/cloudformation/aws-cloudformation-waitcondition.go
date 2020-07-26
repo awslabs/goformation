@@ -90,6 +90,8 @@ func (r *WaitCondition) UnmarshalJSON(b []byte) error {
 		DeletionPolicy      string
 		UpdateReplacePolicy string
 		Condition           string
+
+		CreationPolicy *policies.CreationPolicy
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -119,5 +121,9 @@ func (r *WaitCondition) UnmarshalJSON(b []byte) error {
 	if res.Condition != "" {
 		r.AWSCloudFormationCondition = res.Condition
 	}
+	if res.CreationPolicy != nil {
+		r.AWSCloudFormationCreationPolicy = res.CreationPolicy
+	}
+
 	return nil
 }
