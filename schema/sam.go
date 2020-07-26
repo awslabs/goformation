@@ -63523,6 +63523,12 @@ var SamSchema = `{
                             },
                             "type": "object"
                         },
+                        "FileSystemConfigs": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Serverless::Function.FileSystemConfig"
+                            },
+                            "type": "array"
+                        },
                         "FunctionName": {
                             "type": "string"
                         },
@@ -63909,6 +63915,18 @@ var SamSchema = `{
                 "Properties",
                 "Type"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.FileSystemConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Arn": {
+                    "type": "string"
+                },
+                "LocalMountPath": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Serverless::Function.FunctionEnvironment": {
@@ -64562,6 +64580,364 @@ var SamSchema = `{
                     "type": "boolean"
                 }
             },
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Definition": {
+                            "type": "object"
+                        },
+                        "DefinitionSubstitutions": {
+                            "additionalProperties": true,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "DefinitionUri": {
+                            "anyOf": [
+                                {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/definitions/AWS::Serverless::StateMachine.S3Location"
+                                }
+                            ]
+                        },
+                        "Events": {
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "$ref": "#/definitions/AWS::Serverless::StateMachine.EventSource"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Logging": {
+                            "$ref": "#/definitions/AWS::Serverless::StateMachine.LoggingConfiguration"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Policies": {
+                            "anyOf": [
+                                {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                {
+                                    "$ref": "#/definitions/AWS::Serverless::StateMachine.IAMPolicyDocument"
+                                },
+                                {
+                                    "items": {
+                                        "$ref": "#/definitions/AWS::Serverless::StateMachine.IAMPolicyDocument"
+                                    },
+                                    "type": "array"
+                                },
+                                {
+                                    "items": {
+                                        "$ref": "#/definitions/AWS::Serverless::StateMachine.SAMPolicyTemplate"
+                                    },
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "Role": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "additionalProperties": true,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Type": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Serverless::StateMachine"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.ApiEvent": {
+            "additionalProperties": false,
+            "properties": {
+                "Method": {
+                    "type": "string"
+                },
+                "Path": {
+                    "type": "string"
+                },
+                "RestApiId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Method",
+                "Path"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.CloudWatchEventEvent": {
+            "additionalProperties": false,
+            "properties": {
+                "EventBusName": {
+                    "type": "string"
+                },
+                "Input": {
+                    "type": "string"
+                },
+                "InputPath": {
+                    "type": "string"
+                },
+                "Pattern": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Pattern"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.CloudWatchLogsLogGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "LogGroupArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LogGroupArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.EventBridgeRuleEvent": {
+            "additionalProperties": false,
+            "properties": {
+                "EventBusName": {
+                    "type": "string"
+                },
+                "Input": {
+                    "type": "string"
+                },
+                "InputPath": {
+                    "type": "string"
+                },
+                "Pattern": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Pattern"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.EventSource": {
+            "additionalProperties": false,
+            "properties": {
+                "Properties": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::StateMachine.CloudWatchEventEvent"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::StateMachine.EventBridgeRuleEvent"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::StateMachine.ScheduleEvent"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::StateMachine.ApiEvent"
+                        }
+                    ]
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Properties",
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.FunctionSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "FunctionName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FunctionName"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.IAMPolicyDocument": {
+            "additionalProperties": false,
+            "properties": {
+                "Statement": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Statement"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.LogDestination": {
+            "additionalProperties": false,
+            "properties": {
+                "CloudWatchLogsLogGroup": {
+                    "$ref": "#/definitions/AWS::Serverless::StateMachine.CloudWatchLogsLogGroup"
+                }
+            },
+            "required": [
+                "CloudWatchLogsLogGroup"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.LoggingConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "Destinations": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Serverless::StateMachine.LogDestination"
+                    },
+                    "type": "array"
+                },
+                "IncludeExecutionData": {
+                    "type": "boolean"
+                },
+                "Level": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Destinations",
+                "IncludeExecutionData",
+                "Level"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.S3Location": {
+            "additionalProperties": false,
+            "properties": {
+                "Bucket": {
+                    "type": "string"
+                },
+                "Key": {
+                    "type": "string"
+                },
+                "Version": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Bucket",
+                "Key"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.SAMPolicyTemplate": {
+            "additionalProperties": false,
+            "properties": {
+                "LambdaInvokePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::StateMachine.FunctionSAMPT"
+                },
+                "StepFunctionsExecutionPolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::StateMachine.StateMachineSAMPT"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.ScheduleEvent": {
+            "additionalProperties": false,
+            "properties": {
+                "Input": {
+                    "type": "string"
+                },
+                "Schedule": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Schedule"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::StateMachine.StateMachineSAMPT": {
+            "additionalProperties": false,
+            "properties": {
+                "StateMachineName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StateMachineName"
+            ],
             "type": "object"
         },
         "AWS::ServiceCatalog::AcceptedPortfolioShare": {
@@ -71891,6 +72267,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Serverless::SimpleTable"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Serverless::StateMachine"
                         },
                         {
                             "$ref": "#/definitions/AWS::ServiceCatalog::AcceptedPortfolioShare"

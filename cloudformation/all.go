@@ -624,6 +624,7 @@ func AllResources() map[string]Resource {
 		"AWS::Serverless::Function":                                   &serverless.Function{},
 		"AWS::Serverless::LayerVersion":                               &serverless.LayerVersion{},
 		"AWS::Serverless::SimpleTable":                                &serverless.SimpleTable{},
+		"AWS::Serverless::StateMachine":                               &serverless.StateMachine{},
 		"AWS::ServiceCatalog::AcceptedPortfolioShare":                 &servicecatalog.AcceptedPortfolioShare{},
 		"AWS::ServiceCatalog::CloudFormationProduct":                  &servicecatalog.CloudFormationProduct{},
 		"AWS::ServiceCatalog::CloudFormationProvisionedProduct":       &servicecatalog.CloudFormationProvisionedProduct{},
@@ -12602,6 +12603,30 @@ func (t *Template) GetServerlessSimpleTableWithName(name string) (*serverless.Si
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type serverless.SimpleTable not found", name)
+}
+
+// GetAllServerlessStateMachineResources retrieves all serverless.StateMachine items from an AWS CloudFormation template
+func (t *Template) GetAllServerlessStateMachineResources() map[string]*serverless.StateMachine {
+	results := map[string]*serverless.StateMachine{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *serverless.StateMachine:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetServerlessStateMachineWithName retrieves all serverless.StateMachine items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetServerlessStateMachineWithName(name string) (*serverless.StateMachine, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *serverless.StateMachine:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type serverless.StateMachine not found", name)
 }
 
 // GetAllServiceCatalogAcceptedPortfolioShareResources retrieves all servicecatalog.AcceptedPortfolioShare items from an AWS CloudFormation template
