@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.14.0](https://github.com/awslabs/goformation/compare/v4.13.1...v4.14.0) (2020-07-26)
+
+
+### Features
+
+* **schema:** Add support for Template Outputs ([#291](https://github.com/awslabs/goformation/issues/291)) ([6875c50](https://github.com/awslabs/goformation/commit/6875c50d00d8e1af71d9bad5788446b29ab03513))
+
 ## [4.13.1](https://github.com/awslabs/goformation/compare/v4.13.0...v4.13.1) (2020-07-26)
 
 
