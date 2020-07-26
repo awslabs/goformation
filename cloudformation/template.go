@@ -16,32 +16,44 @@ type Template struct {
 	Transform                *Transform             `json:"Transform,omitempty"`
 	Description              string                 `json:"Description,omitempty"`
 	Metadata                 map[string]interface{} `json:"Metadata,omitempty"`
-	Parameters               map[string]interface{} `json:"Parameters,omitempty"`
+	Parameters               Parameters             `json:"Parameters,omitempty"`
 	Mappings                 map[string]interface{} `json:"Mappings,omitempty"`
 	Conditions               map[string]interface{} `json:"Conditions,omitempty"`
 	Resources                Resources              `json:"Resources,omitempty"`
-	Outputs                  map[string]interface{} `json:"Outputs,omitempty"`
+	Outputs                  Outputs                `json:"Outputs,omitempty"`
 }
 
 type Parameter struct {
-	Type                  string   `json:"Type"`
-	Description           string   `json:"Description,omitempty"`
-	Default               string   `json:"Default,omitempty"`
-	AllowedPattern        string   `json:"AllowedPattern,omitempty"`
-	AllowedValues         []string `json:"AllowedValues,omitempty"`
-	ConstraintDescription string   `json:"ConstraintDescription,omitempty"`
-	MaxLength             int      `json:"MaxLength,omitempty"`
-	MinLength             int      `json:"MinLength,omitempty"`
-	MaxValue              float64  `json:"MaxValue,omitempty"`
-	MinValue              float64  `json:"MinValue,omitempty"`
-	NoEcho                bool     `json:"NoEcho,omitempty"`
+	Type                  string      `json:"Type"`
+	Description           string      `json:"Description,omitempty"`
+	Default               interface{} `json:"Default,omitempty"`
+	AllowedPattern        string      `json:"AllowedPattern,omitempty"`
+	AllowedValues         []string    `json:"AllowedValues,omitempty"`
+	ConstraintDescription string      `json:"ConstraintDescription,omitempty"`
+	MaxLength             int         `json:"MaxLength,omitempty"`
+	MinLength             int         `json:"MinLength,omitempty"`
+	MaxValue              float64     `json:"MaxValue,omitempty"`
+	MinValue              float64     `json:"MinValue,omitempty"`
+	NoEcho                bool        `json:"NoEcho,omitempty"`
+}
+
+type Output struct {
+	Value       interface{} `json:"Value"`
+	Description string      `json:"Description,omitempty"`
+	Export      Export      `json:"Export,omitempty"`
+}
+
+type Export struct {
+	Name string `json:"Name,omitempty"`
 }
 
 type Resource interface {
 	AWSCloudFormationType() string
 }
 
+type Parameters map[string]Parameter
 type Resources map[string]Resource
+type Outputs map[string]Output
 
 func (resources *Resources) UnmarshalJSON(b []byte) error {
 	// Resources
@@ -139,8 +151,8 @@ func (t *Transform) UnmarshalJSON(b []byte) error {
 		var strslice []string
 		for _, i := range val {
 			switch str := i.(type) {
-				case string:
-					strslice = append(strslice, str)
+			case string:
+				strslice = append(strslice, str)
 			}
 		}
 		t.StringArray = &strslice
@@ -155,11 +167,11 @@ func NewTemplate() *Template {
 		AWSTemplateFormatVersion: "2010-09-09",
 		Description:              "",
 		Metadata:                 map[string]interface{}{},
-		Parameters:               map[string]interface{}{},
+		Parameters:               Parameters{},
 		Mappings:                 map[string]interface{}{},
 		Conditions:               map[string]interface{}{},
 		Resources:                Resources{},
-		Outputs:                  map[string]interface{}{},
+		Outputs:                  Outputs{},
 	}
 }
 
