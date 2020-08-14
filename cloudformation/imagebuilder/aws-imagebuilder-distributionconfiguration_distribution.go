@@ -19,7 +19,7 @@ type DistributionConfiguration_Distribution struct {
 	LicenseConfigurationArns []string `json:"LicenseConfigurationArns,omitempty"`
 
 	// Region AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
 	Region string `json:"Region,omitempty"`
 

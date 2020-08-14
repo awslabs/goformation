@@ -17,6 +17,11 @@ type Image struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
 	DistributionConfigurationArn string `json:"DistributionConfigurationArn,omitempty"`
 
+	// EnhancedImageMetadataEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+	EnhancedImageMetadataEnabled bool `json:"EnhancedImageMetadataEnabled,omitempty"`
+
 	// ImageRecipeArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn

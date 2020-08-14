@@ -39,7 +39,7 @@ type Canary struct {
 	Name string `json:"Name,omitempty"`
 
 	// RunConfig AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
 	RunConfig *Canary_RunConfig `json:"RunConfig,omitempty"`
 

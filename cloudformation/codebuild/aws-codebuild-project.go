@@ -23,6 +23,11 @@ type Project struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
 	BadgeEnabled bool `json:"BadgeEnabled,omitempty"`
 
+	// BuildBatchConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+	BuildBatchConfig *Project_ProjectBuildBatchConfig `json:"BuildBatchConfig,omitempty"`
+
 	// Cache AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache

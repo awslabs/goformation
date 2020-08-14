@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // FlowLog AWS CloudFormation Resource (AWS::EC2::FlowLog)
@@ -27,10 +28,20 @@ type FlowLog struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
 	LogDestinationType string `json:"LogDestinationType,omitempty"`
 
+	// LogFormat AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+	LogFormat string `json:"LogFormat,omitempty"`
+
 	// LogGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
 	LogGroupName string `json:"LogGroupName,omitempty"`
+
+	// MaxAggregationInterval AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+	MaxAggregationInterval int `json:"MaxAggregationInterval,omitempty"`
 
 	// ResourceId AWS CloudFormation Property
 	// Required: true
@@ -41,6 +52,11 @@ type FlowLog struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
 	ResourceType string `json:"ResourceType,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TrafficType AWS CloudFormation Property
 	// Required: true

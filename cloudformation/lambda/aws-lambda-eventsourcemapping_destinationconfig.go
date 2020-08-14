@@ -9,7 +9,7 @@ import (
 type EventSourceMapping_DestinationConfig struct {
 
 	// OnFailure AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
 	OnFailure *EventSourceMapping_OnFailure `json:"OnFailure,omitempty"`
 

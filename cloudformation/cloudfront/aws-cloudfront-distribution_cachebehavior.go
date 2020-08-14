@@ -13,6 +13,11 @@ type Distribution_CacheBehavior struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
 	AllowedMethods []string `json:"AllowedMethods,omitempty"`
 
+	// CachePolicyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+	CachePolicyId string `json:"CachePolicyId,omitempty"`
+
 	// CachedMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
@@ -34,7 +39,7 @@ type Distribution_CacheBehavior struct {
 	FieldLevelEncryptionId string `json:"FieldLevelEncryptionId,omitempty"`
 
 	// ForwardedValues AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
 	ForwardedValues *Distribution_ForwardedValues `json:"ForwardedValues,omitempty"`
 
@@ -52,6 +57,11 @@ type Distribution_CacheBehavior struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
 	MinTTL float64 `json:"MinTTL,omitempty"`
+
+	// OriginRequestPolicyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+	OriginRequestPolicyId string `json:"OriginRequestPolicyId,omitempty"`
 
 	// PathPattern AWS CloudFormation Property
 	// Required: true

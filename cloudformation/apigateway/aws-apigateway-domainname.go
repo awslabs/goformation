@@ -19,7 +19,7 @@ type DomainName struct {
 	CertificateArn string `json:"CertificateArn,omitempty"`
 
 	// DomainName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
 	DomainName string `json:"DomainName,omitempty"`
 

@@ -10,6 +10,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/apigatewayv2"
 	"github.com/awslabs/goformation/v4/cloudformation/appconfig"
 	"github.com/awslabs/goformation/v4/cloudformation/applicationautoscaling"
+	"github.com/awslabs/goformation/v4/cloudformation/applicationinsights"
 	"github.com/awslabs/goformation/v4/cloudformation/appmesh"
 	"github.com/awslabs/goformation/v4/cloudformation/appstream"
 	"github.com/awslabs/goformation/v4/cloudformation/appsync"
@@ -157,6 +158,7 @@ func AllResources() map[string]Resource {
 		"AWS::ApiGateway::UsagePlanKey":                               &apigateway.UsagePlanKey{},
 		"AWS::ApiGateway::VpcLink":                                    &apigateway.VpcLink{},
 		"AWS::ApiGatewayV2::Api":                                      &apigatewayv2.Api{},
+		"AWS::ApiGatewayV2::ApiGatewayManagedOverrides":               &apigatewayv2.ApiGatewayManagedOverrides{},
 		"AWS::ApiGatewayV2::ApiMapping":                               &apigatewayv2.ApiMapping{},
 		"AWS::ApiGatewayV2::Authorizer":                               &apigatewayv2.Authorizer{},
 		"AWS::ApiGatewayV2::Deployment":                               &apigatewayv2.Deployment{},
@@ -167,14 +169,17 @@ func AllResources() map[string]Resource {
 		"AWS::ApiGatewayV2::Route":                                    &apigatewayv2.Route{},
 		"AWS::ApiGatewayV2::RouteResponse":                            &apigatewayv2.RouteResponse{},
 		"AWS::ApiGatewayV2::Stage":                                    &apigatewayv2.Stage{},
+		"AWS::ApiGatewayV2::VpcLink":                                  &apigatewayv2.VpcLink{},
 		"AWS::AppConfig::Application":                                 &appconfig.Application{},
 		"AWS::AppConfig::ConfigurationProfile":                        &appconfig.ConfigurationProfile{},
 		"AWS::AppConfig::Deployment":                                  &appconfig.Deployment{},
 		"AWS::AppConfig::DeploymentStrategy":                          &appconfig.DeploymentStrategy{},
 		"AWS::AppConfig::Environment":                                 &appconfig.Environment{},
 		"AWS::AppConfig::HostedConfigurationVersion":                  &appconfig.HostedConfigurationVersion{},
+		"AWS::AppMesh::GatewayRoute":                                  &appmesh.GatewayRoute{},
 		"AWS::AppMesh::Mesh":                                          &appmesh.Mesh{},
 		"AWS::AppMesh::Route":                                         &appmesh.Route{},
+		"AWS::AppMesh::VirtualGateway":                                &appmesh.VirtualGateway{},
 		"AWS::AppMesh::VirtualNode":                                   &appmesh.VirtualNode{},
 		"AWS::AppMesh::VirtualRouter":                                 &appmesh.VirtualRouter{},
 		"AWS::AppMesh::VirtualService":                                &appmesh.VirtualService{},
@@ -194,6 +199,8 @@ func AllResources() map[string]Resource {
 		"AWS::AppSync::Resolver":                                      &appsync.Resolver{},
 		"AWS::ApplicationAutoScaling::ScalableTarget":                 &applicationautoscaling.ScalableTarget{},
 		"AWS::ApplicationAutoScaling::ScalingPolicy":                  &applicationautoscaling.ScalingPolicy{},
+		"AWS::ApplicationInsights::Application":                       &applicationinsights.Application{},
+		"AWS::Athena::DataCatalog":                                    &athena.DataCatalog{},
 		"AWS::Athena::NamedQuery":                                     &athena.NamedQuery{},
 		"AWS::Athena::WorkGroup":                                      &athena.WorkGroup{},
 		"AWS::AutoScaling::AutoScalingGroup":                          &autoscaling.AutoScalingGroup{},
@@ -285,6 +292,7 @@ func AllResources() map[string]Resource {
 		"AWS::DocDB::DBSubnetGroup":                                   &docdb.DBSubnetGroup{},
 		"AWS::DynamoDB::Table":                                        &dynamodb.Table{},
 		"AWS::EC2::CapacityReservation":                               &ec2.CapacityReservation{},
+		"AWS::EC2::CarrierGateway":                                    &ec2.CarrierGateway{},
 		"AWS::EC2::ClientVpnAuthorizationRule":                        &ec2.ClientVpnAuthorizationRule{},
 		"AWS::EC2::ClientVpnEndpoint":                                 &ec2.ClientVpnEndpoint{},
 		"AWS::EC2::ClientVpnRoute":                                    &ec2.ClientVpnRoute{},
@@ -310,6 +318,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::NetworkInterfaceAttachment":                        &ec2.NetworkInterfaceAttachment{},
 		"AWS::EC2::NetworkInterfacePermission":                        &ec2.NetworkInterfacePermission{},
 		"AWS::EC2::PlacementGroup":                                    &ec2.PlacementGroup{},
+		"AWS::EC2::PrefixList":                                        &ec2.PrefixList{},
 		"AWS::EC2::Route":                                             &ec2.Route{},
 		"AWS::EC2::RouteTable":                                        &ec2.RouteTable{},
 		"AWS::EC2::SecurityGroup":                                     &ec2.SecurityGroup{},
@@ -553,6 +562,7 @@ func AllResources() map[string]Resource {
 		"AWS::PinpointEmail::DedicatedIpPool":                         &pinpointemail.DedicatedIpPool{},
 		"AWS::PinpointEmail::Identity":                                &pinpointemail.Identity{},
 		"AWS::QLDB::Ledger":                                           &qldb.Ledger{},
+		"AWS::QLDB::Stream":                                           &qldb.Stream{},
 		"AWS::RAM::ResourceShare":                                     &ram.ResourceShare{},
 		"AWS::RDS::DBCluster":                                         &rds.DBCluster{},
 		"AWS::RDS::DBClusterParameterGroup":                           &rds.DBClusterParameterGroup{},
@@ -611,6 +621,7 @@ func AllResources() map[string]Resource {
 		"AWS::SageMaker::Endpoint":                                    &sagemaker.Endpoint{},
 		"AWS::SageMaker::EndpointConfig":                              &sagemaker.EndpointConfig{},
 		"AWS::SageMaker::Model":                                       &sagemaker.Model{},
+		"AWS::SageMaker::MonitoringSchedule":                          &sagemaker.MonitoringSchedule{},
 		"AWS::SageMaker::NotebookInstance":                            &sagemaker.NotebookInstance{},
 		"AWS::SageMaker::NotebookInstanceLifecycleConfig":             &sagemaker.NotebookInstanceLifecycleConfig{},
 		"AWS::SageMaker::Workteam":                                    &sagemaker.Workteam{},
@@ -1397,6 +1408,30 @@ func (t *Template) GetApiGatewayV2ApiWithName(name string) (*apigatewayv2.Api, e
 	return nil, fmt.Errorf("resource %q of type apigatewayv2.Api not found", name)
 }
 
+// GetAllApiGatewayV2ApiGatewayManagedOverridesResources retrieves all apigatewayv2.ApiGatewayManagedOverrides items from an AWS CloudFormation template
+func (t *Template) GetAllApiGatewayV2ApiGatewayManagedOverridesResources() map[string]*apigatewayv2.ApiGatewayManagedOverrides {
+	results := map[string]*apigatewayv2.ApiGatewayManagedOverrides{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *apigatewayv2.ApiGatewayManagedOverrides:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetApiGatewayV2ApiGatewayManagedOverridesWithName retrieves all apigatewayv2.ApiGatewayManagedOverrides items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetApiGatewayV2ApiGatewayManagedOverridesWithName(name string) (*apigatewayv2.ApiGatewayManagedOverrides, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *apigatewayv2.ApiGatewayManagedOverrides:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type apigatewayv2.ApiGatewayManagedOverrides not found", name)
+}
+
 // GetAllApiGatewayV2ApiMappingResources retrieves all apigatewayv2.ApiMapping items from an AWS CloudFormation template
 func (t *Template) GetAllApiGatewayV2ApiMappingResources() map[string]*apigatewayv2.ApiMapping {
 	results := map[string]*apigatewayv2.ApiMapping{}
@@ -1637,6 +1672,30 @@ func (t *Template) GetApiGatewayV2StageWithName(name string) (*apigatewayv2.Stag
 	return nil, fmt.Errorf("resource %q of type apigatewayv2.Stage not found", name)
 }
 
+// GetAllApiGatewayV2VpcLinkResources retrieves all apigatewayv2.VpcLink items from an AWS CloudFormation template
+func (t *Template) GetAllApiGatewayV2VpcLinkResources() map[string]*apigatewayv2.VpcLink {
+	results := map[string]*apigatewayv2.VpcLink{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *apigatewayv2.VpcLink:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetApiGatewayV2VpcLinkWithName retrieves all apigatewayv2.VpcLink items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetApiGatewayV2VpcLinkWithName(name string) (*apigatewayv2.VpcLink, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *apigatewayv2.VpcLink:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type apigatewayv2.VpcLink not found", name)
+}
+
 // GetAllAppConfigApplicationResources retrieves all appconfig.Application items from an AWS CloudFormation template
 func (t *Template) GetAllAppConfigApplicationResources() map[string]*appconfig.Application {
 	results := map[string]*appconfig.Application{}
@@ -1781,6 +1840,30 @@ func (t *Template) GetAppConfigHostedConfigurationVersionWithName(name string) (
 	return nil, fmt.Errorf("resource %q of type appconfig.HostedConfigurationVersion not found", name)
 }
 
+// GetAllAppMeshGatewayRouteResources retrieves all appmesh.GatewayRoute items from an AWS CloudFormation template
+func (t *Template) GetAllAppMeshGatewayRouteResources() map[string]*appmesh.GatewayRoute {
+	results := map[string]*appmesh.GatewayRoute{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appmesh.GatewayRoute:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppMeshGatewayRouteWithName retrieves all appmesh.GatewayRoute items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppMeshGatewayRouteWithName(name string) (*appmesh.GatewayRoute, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appmesh.GatewayRoute:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appmesh.GatewayRoute not found", name)
+}
+
 // GetAllAppMeshMeshResources retrieves all appmesh.Mesh items from an AWS CloudFormation template
 func (t *Template) GetAllAppMeshMeshResources() map[string]*appmesh.Mesh {
 	results := map[string]*appmesh.Mesh{}
@@ -1827,6 +1910,30 @@ func (t *Template) GetAppMeshRouteWithName(name string) (*appmesh.Route, error) 
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type appmesh.Route not found", name)
+}
+
+// GetAllAppMeshVirtualGatewayResources retrieves all appmesh.VirtualGateway items from an AWS CloudFormation template
+func (t *Template) GetAllAppMeshVirtualGatewayResources() map[string]*appmesh.VirtualGateway {
+	results := map[string]*appmesh.VirtualGateway{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appmesh.VirtualGateway:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppMeshVirtualGatewayWithName retrieves all appmesh.VirtualGateway items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppMeshVirtualGatewayWithName(name string) (*appmesh.VirtualGateway, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appmesh.VirtualGateway:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appmesh.VirtualGateway not found", name)
 }
 
 // GetAllAppMeshVirtualNodeResources retrieves all appmesh.VirtualNode items from an AWS CloudFormation template
@@ -2283,6 +2390,54 @@ func (t *Template) GetApplicationAutoScalingScalingPolicyWithName(name string) (
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type applicationautoscaling.ScalingPolicy not found", name)
+}
+
+// GetAllApplicationInsightsApplicationResources retrieves all applicationinsights.Application items from an AWS CloudFormation template
+func (t *Template) GetAllApplicationInsightsApplicationResources() map[string]*applicationinsights.Application {
+	results := map[string]*applicationinsights.Application{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *applicationinsights.Application:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetApplicationInsightsApplicationWithName retrieves all applicationinsights.Application items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetApplicationInsightsApplicationWithName(name string) (*applicationinsights.Application, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *applicationinsights.Application:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type applicationinsights.Application not found", name)
+}
+
+// GetAllAthenaDataCatalogResources retrieves all athena.DataCatalog items from an AWS CloudFormation template
+func (t *Template) GetAllAthenaDataCatalogResources() map[string]*athena.DataCatalog {
+	results := map[string]*athena.DataCatalog{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *athena.DataCatalog:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAthenaDataCatalogWithName retrieves all athena.DataCatalog items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAthenaDataCatalogWithName(name string) (*athena.DataCatalog, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *athena.DataCatalog:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type athena.DataCatalog not found", name)
 }
 
 // GetAllAthenaNamedQueryResources retrieves all athena.NamedQuery items from an AWS CloudFormation template
@@ -4469,6 +4624,30 @@ func (t *Template) GetEC2CapacityReservationWithName(name string) (*ec2.Capacity
 	return nil, fmt.Errorf("resource %q of type ec2.CapacityReservation not found", name)
 }
 
+// GetAllEC2CarrierGatewayResources retrieves all ec2.CarrierGateway items from an AWS CloudFormation template
+func (t *Template) GetAllEC2CarrierGatewayResources() map[string]*ec2.CarrierGateway {
+	results := map[string]*ec2.CarrierGateway{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.CarrierGateway:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2CarrierGatewayWithName retrieves all ec2.CarrierGateway items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2CarrierGatewayWithName(name string) (*ec2.CarrierGateway, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.CarrierGateway:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.CarrierGateway not found", name)
+}
+
 // GetAllEC2ClientVpnAuthorizationRuleResources retrieves all ec2.ClientVpnAuthorizationRule items from an AWS CloudFormation template
 func (t *Template) GetAllEC2ClientVpnAuthorizationRuleResources() map[string]*ec2.ClientVpnAuthorizationRule {
 	results := map[string]*ec2.ClientVpnAuthorizationRule{}
@@ -5067,6 +5246,30 @@ func (t *Template) GetEC2PlacementGroupWithName(name string) (*ec2.PlacementGrou
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.PlacementGroup not found", name)
+}
+
+// GetAllEC2PrefixListResources retrieves all ec2.PrefixList items from an AWS CloudFormation template
+func (t *Template) GetAllEC2PrefixListResources() map[string]*ec2.PrefixList {
+	results := map[string]*ec2.PrefixList{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.PrefixList:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2PrefixListWithName retrieves all ec2.PrefixList items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2PrefixListWithName(name string) (*ec2.PrefixList, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.PrefixList:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.PrefixList not found", name)
 }
 
 // GetAllEC2RouteResources retrieves all ec2.Route items from an AWS CloudFormation template
@@ -10901,6 +11104,30 @@ func (t *Template) GetQLDBLedgerWithName(name string) (*qldb.Ledger, error) {
 	return nil, fmt.Errorf("resource %q of type qldb.Ledger not found", name)
 }
 
+// GetAllQLDBStreamResources retrieves all qldb.Stream items from an AWS CloudFormation template
+func (t *Template) GetAllQLDBStreamResources() map[string]*qldb.Stream {
+	results := map[string]*qldb.Stream{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *qldb.Stream:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQLDBStreamWithName retrieves all qldb.Stream items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQLDBStreamWithName(name string) (*qldb.Stream, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *qldb.Stream:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type qldb.Stream not found", name)
+}
+
 // GetAllRAMResourceShareResources retrieves all ram.ResourceShare items from an AWS CloudFormation template
 func (t *Template) GetAllRAMResourceShareResources() map[string]*ram.ResourceShare {
 	results := map[string]*ram.ResourceShare{}
@@ -12291,6 +12518,30 @@ func (t *Template) GetSageMakerModelWithName(name string) (*sagemaker.Model, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type sagemaker.Model not found", name)
+}
+
+// GetAllSageMakerMonitoringScheduleResources retrieves all sagemaker.MonitoringSchedule items from an AWS CloudFormation template
+func (t *Template) GetAllSageMakerMonitoringScheduleResources() map[string]*sagemaker.MonitoringSchedule {
+	results := map[string]*sagemaker.MonitoringSchedule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sagemaker.MonitoringSchedule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSageMakerMonitoringScheduleWithName retrieves all sagemaker.MonitoringSchedule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSageMakerMonitoringScheduleWithName(name string) (*sagemaker.MonitoringSchedule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sagemaker.MonitoringSchedule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sagemaker.MonitoringSchedule not found", name)
 }
 
 // GetAllSageMakerNotebookInstanceResources retrieves all sagemaker.NotebookInstance items from an AWS CloudFormation template
