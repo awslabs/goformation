@@ -17,10 +17,25 @@ type Domain struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
 	AppId string `json:"AppId,omitempty"`
 
+	// AutoSubDomainCreationPatterns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
+	AutoSubDomainCreationPatterns []string `json:"AutoSubDomainCreationPatterns,omitempty"`
+
+	// AutoSubDomainIAMRole AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
+	AutoSubDomainIAMRole string `json:"AutoSubDomainIAMRole,omitempty"`
+
 	// DomainName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
 	DomainName string `json:"DomainName,omitempty"`
+
+	// EnableAutoSubDomain AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
+	EnableAutoSubDomain bool `json:"EnableAutoSubDomain,omitempty"`
 
 	// SubDomainSettings AWS CloudFormation Property
 	// Required: true

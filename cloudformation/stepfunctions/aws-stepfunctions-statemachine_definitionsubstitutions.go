@@ -5,7 +5,7 @@ import (
 )
 
 // StateMachine_DefinitionSubstitutions AWS CloudFormation Resource (AWS::StepFunctions::StateMachine.DefinitionSubstitutions)
-// See:
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definitionsubstitutions.html
 type StateMachine_DefinitionSubstitutions struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

@@ -9,7 +9,7 @@ import (
 type Canary_Schedule struct {
 
 	// DurationInSeconds AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
 	DurationInSeconds string `json:"DurationInSeconds,omitempty"`
 

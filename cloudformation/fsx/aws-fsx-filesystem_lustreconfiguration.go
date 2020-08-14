@@ -8,10 +8,35 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
 type FileSystem_LustreConfiguration struct {
 
+	// AutoImportPolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+	AutoImportPolicy string `json:"AutoImportPolicy,omitempty"`
+
+	// AutomaticBackupRetentionDays AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+	AutomaticBackupRetentionDays int `json:"AutomaticBackupRetentionDays,omitempty"`
+
+	// CopyTagsToBackups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+	CopyTagsToBackups bool `json:"CopyTagsToBackups,omitempty"`
+
+	// DailyAutomaticBackupStartTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+	DailyAutomaticBackupStartTime string `json:"DailyAutomaticBackupStartTime,omitempty"`
+
 	// DeploymentType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
 	DeploymentType string `json:"DeploymentType,omitempty"`
+
+	// DriveCacheType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+	DriveCacheType string `json:"DriveCacheType,omitempty"`
 
 	// ExportPath AWS CloudFormation Property
 	// Required: false

@@ -9,12 +9,12 @@ import (
 type TaskDefinition_ContainerDependency struct {
 
 	// Condition AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
 	Condition string `json:"Condition,omitempty"`
 
 	// ContainerName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
 	ContainerName string `json:"ContainerName,omitempty"`
 

@@ -11,10 +11,10 @@ type TaskDefinition_FirelensConfiguration struct {
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
-	Options map[string]string `json:"Options,omitempty"`
+	Options *TaskDefinition_Options `json:"Options,omitempty"`
 
 	// Type AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
 	Type string `json:"Type,omitempty"`
 

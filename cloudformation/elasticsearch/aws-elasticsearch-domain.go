@@ -23,10 +23,20 @@ type Domain struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions
 	AdvancedOptions map[string]string `json:"AdvancedOptions,omitempty"`
 
+	// AdvancedSecurityOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+	AdvancedSecurityOptions *Domain_AdvancedSecurityOptionsInput `json:"AdvancedSecurityOptions,omitempty"`
+
 	// CognitoOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
 	CognitoOptions *Domain_CognitoOptions `json:"CognitoOptions,omitempty"`
+
+	// DomainEndpointOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
+	DomainEndpointOptions *Domain_DomainEndpointOptions `json:"DomainEndpointOptions,omitempty"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: false
