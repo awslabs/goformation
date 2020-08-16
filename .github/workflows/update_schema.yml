@@ -1,6 +1,8 @@
 name: Update Schema
 
-on: [deployment]
+on: 
+  schedule:
+    - cron:  '0 0 * * *'
 
 jobs:
   run:
@@ -17,4 +19,4 @@ jobs:
       - name: Update Schema
         run: ./generate/create-pull-request.sh
         env:
-          GITHUB_TOKEN: ${{ secrets.GOFORMATION_GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
