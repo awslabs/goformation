@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.15.0](https://github.com/awslabs/goformation/compare/v4.14.0...v4.15.0) (2020-08-16)
+
+
+### Features
+
+* **schema:** dummy commit - trigger CI for schema update ([66bc344](https://github.com/awslabs/goformation/commit/66bc344ed6a17a613abbb4d217afcc0b8ea02b48))
+
 # [4.14.0](https://github.com/awslabs/goformation/compare/v4.13.1...v4.14.0) (2020-07-26)
 
 
