@@ -3,6 +3,7 @@ package cloudformation
 import (
 	"encoding/json"
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/awslabs/goformation/v4/intrinsics"
@@ -30,10 +31,10 @@ type Parameter struct {
 	AllowedPattern        string      `json:"AllowedPattern,omitempty"`
 	AllowedValues         []string    `json:"AllowedValues,omitempty"`
 	ConstraintDescription string      `json:"ConstraintDescription,omitempty"`
-	MaxLength             int         `json:"MaxLength,omitempty"`
-	MinLength             int         `json:"MinLength,omitempty"`
-	MaxValue              float64     `json:"MaxValue,omitempty"`
-	MinValue              float64     `json:"MinValue,omitempty"`
+	MaxLength             MaybeInt    `json:"MaxLength,omitempty"`
+	MinLength             MaybeInt    `json:"MinLength,omitempty"`
+	MaxValue              MaybeNumber `json:"MaxValue,omitempty"`
+	MinValue              MaybeNumber `json:"MinValue,omitempty"`
 	NoEcho                bool        `json:"NoEcho,omitempty"`
 }
 
@@ -51,9 +52,41 @@ type Resource interface {
 	AWSCloudFormationType() string
 }
 
+type MaybeInt int
+type MaybeNumber float64
 type Parameters map[string]Parameter
 type Resources map[string]Resource
 type Outputs map[string]Output
+
+func (i *MaybeInt) UnmarshalJSON(b []byte) error {
+	var raw interface{}
+	err := json.Unmarshal(b, &raw)
+	if err != nil {
+		return err
+	}
+
+	ret, err := strconv.Atoi(fmt.Sprintf("%v", raw))
+	if err != nil {
+		return err
+	}
+	*i = MaybeInt(ret)
+	return err
+}
+
+func (n *MaybeNumber) UnmarshalJSON(b []byte) error {
+	var raw interface{}
+	err := json.Unmarshal(b, &raw)
+	if err != nil {
+		return err
+	}
+
+	ret, err := strconv.ParseFloat(fmt.Sprintf("%v", raw), 64)
+	if err != nil {
+		return err
+	}
+	*n = MaybeNumber(ret)
+	return err
+}
 
 func (resources *Resources) UnmarshalJSON(b []byte) error {
 	// Resources
