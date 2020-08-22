@@ -40,7 +40,7 @@ type Parameter struct {
 type Output struct {
 	Value       interface{} `json:"Value"`
 	Description string      `json:"Description,omitempty"`
-	Export      Export      `json:"Export,omitempty"`
+	Export      *Export     `json:"Export,omitempty"`
 }
 
 type Export struct {
