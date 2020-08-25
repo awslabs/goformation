@@ -166,12 +166,16 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 
 	// Check that all of resource properties have a valid type
 	// see: https://github.com/awslabs/goformation/issues/300
+	invalid := []string{}
 	for rname, resource := range spec.Resources {
 		for pname, property := range resource.Properties {
 			if !property.HasValidType() {
-				return nil, fmt.Errorf("%s.%s has no type information in the CloudFormation Resource Specification", rname, pname)
+				invalid = append(invalid, fmt.Sprintf("\t%s.%s", rname, pname))
 			}
 		}
+	}
+	if len(invalid) > 0 {
+		return nil, fmt.Errorf("the following resource properties have no type information in the CloudFormation Resource Specification:\n%s\n", strings.Join(invalid, "\n"))
 	}
 
 	// Add the resources processed to the ResourceGenerator output
