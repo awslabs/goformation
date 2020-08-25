@@ -129,6 +129,22 @@ func (p Property) Schema(name, parent string) string {
 
 }
 
+// HasValidType checks whether a property has a valid type defined
+// It is possible that an invalid CloudFormation Resource Specification is published
+// that does not have any type information for a property. If this happens, then
+// generation should fail with an error message.
+func (p Property) HasValidType() bool {
+	invalid := p.ItemType == "" &&
+		p.PrimitiveType == "" &&
+		p.PrimitiveItemType == "" &&
+		p.Type == "" &&
+		len(p.ItemTypes) == 0 &&
+		len(p.PrimitiveTypes) == 0 &&
+		len(p.PrimitiveItemTypes) == 0 &&
+		len(p.Types) == 0
+	return !invalid
+}
+
 // IsPolymorphic checks whether a property can be multiple different types
 func (p Property) IsPolymorphic() bool {
 	return len(p.PrimitiveTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.ItemTypes) > 0 || len(p.Types) > 0
