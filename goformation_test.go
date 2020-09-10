@@ -1251,5 +1251,18 @@ var _ = Describe("Goformation", func() {
 		})
 
 	})
-
+	Context("with a template which is accepted by CloudFormation but doesn't quite match the spec", func() {
+		It("should load the template anyway", func() {
+			template, err := goformation.Open("test/yaml/accepted-but-against-spec.yaml")
+			Expect(err).ToNot(HaveOccurred())
+			Expect(template.Parameters).To(HaveKey("AnnoyingParam1"))
+			Expect(template.Parameters["AnnoyingParam1"].MinLength).To(Equal(8))
+			Expect(template.Parameters["AnnoyingParam1"].MaxLength).To(Equal(255))
+			Expect(template.Parameters["AnnoyingParam1"].NoEcho).To(BeTrue())
+			Expect(template.Parameters).To(HaveKey("AnnoyingParam2"))
+			Expect(template.Parameters["AnnoyingParam2"].MinValue).To(Equal(float64(1150)))
+			Expect(template.Parameters["AnnoyingParam2"].MaxValue).To(Equal(float64(65535)))
+			Expect(template.Parameters["AnnoyingParam2"].NoEcho).To(BeTrue())
+		})
+	})
 })

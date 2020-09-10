@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/awslabs/goformation/v4/cloudformation/types"
 	"github.com/awslabs/goformation/v4/intrinsics"
 	"github.com/sanathkr/yaml"
 )
@@ -54,6 +55,30 @@ type Resource interface {
 type Parameters map[string]Parameter
 type Resources map[string]Resource
 type Outputs map[string]Output
+
+func (p *Parameter) UnmarshalJSON(b []byte) error {
+	type Alias Parameter
+	params := &Parameter{}
+	newParams := &struct {
+		MaxLength types.MaybeInt   `json:"MaxLength"`
+		MinLength types.MaybeInt   `json:"MinLength"`
+		MaxValue  types.MaybeFloat `json:"MaxValue"`
+		MinValue  types.MaybeFloat `json:"MinValue"`
+		NoEcho    types.MaybeBool  `json:"NoEcho"`
+		*Alias
+	}{Alias: (*Alias)(params)}
+	err := json.Unmarshal(b, newParams)
+	if err != nil {
+		return err
+	}
+	params.MaxLength = int(newParams.MaxLength)
+	params.MinLength = int(newParams.MinLength)
+	params.MaxValue = float64(newParams.MaxValue)
+	params.MinValue = float64(newParams.MinValue)
+	params.NoEcho = bool(newParams.NoEcho)
+	*p = *params
+	return nil
+}
 
 func (resources *Resources) UnmarshalJSON(b []byte) error {
 	// Resources

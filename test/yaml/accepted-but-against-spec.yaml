@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CFN template which doesn't match spec but accepted by CFN
+Parameters:
+  AnnoyingParam1:
+    Type: String
+    MinLength: 8     # The spec says these should both be ints
+    MaxLength: '255' #
+    NoEcho: true
+
+  AnnoyingParam2:
+    Type: Number
+    MinValue: 1150
+    MaxValue: '65535'
+    NoEcho: "true"
+
+Resources:
+  Topic:
+    Type: AWS::SNS::Topic
