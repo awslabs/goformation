@@ -184,7 +184,7 @@ func If(value, ifEqual, ifNotEqual interface{}) string {
 // Join appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter.
 func Join(delimiter interface{}, value interface{}) string {
 	switch v := value.(type) {
-	case []string:
+	case []string, []interface{}:
 		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(value.([]string))))
 	case string:
 		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] }`, delimiter, value))
