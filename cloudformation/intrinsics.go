@@ -110,7 +110,7 @@ var EncoderIntrinsics = map[string]intrinsics.IntrinsicHandler{
 	"Fn::GetAtt":      strSplit2Wrap(GetAtt),
 	"Fn::GetAZs":      strWrap(GetAZs),
 	"Fn::ImportValue": strWrap(ImportValue),
-	"Fn::Join":        str2AWrap(Join),
+	"Fn::Join":        str2Wrap(Join),
 	"Fn::Select":      str2AWrap(Select),
 	"Fn::Split":       str2Wrap(Split),
 	"Fn::Sub":         strWrap(Sub),
@@ -182,13 +182,16 @@ func If(value, ifEqual, ifNotEqual interface{}) string {
 // (str, []str) -> str
 
 // Join appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter.
-func Join(delimiter interface{}, values []string) string {
-	return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(values)))
-}
-
-// https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
-func JoinListParameter(delimiter interface{}, parameter string) string {
-	return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] ] }`, delimiter, parameter))
+func Join(delimiter interface{}, values interface{}) string {
+	switch x := values.(type) {
+	case []string:
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(values.([]string))))
+	case string:
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] }`, delimiter, values))
+	default:
+		fmt.Printf("Unsupported type for Join: %T\n", x)
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] }`, delimiter, values))
+	}
 }
 
 // Select returns a single object from a list of objects by index.
