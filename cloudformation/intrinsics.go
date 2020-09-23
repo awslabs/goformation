@@ -183,13 +183,12 @@ func If(value, ifEqual, ifNotEqual interface{}) string {
 
 // Join appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter.
 func Join(delimiter interface{}, values []string) string {
-	if len(values) == 1 {
-		sDec, _ := base64.StdEncoding.DecodeString(values[0])
-		if strings.Contains(string(sDec), "\"Ref\":") {
-			return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] }`, delimiter, values[0]))
-		}
-	}
 	return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(values)))
+}
+
+// https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
+func JoinListParameter(delimiter interface{}, parameter string) string {
+	return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] ] }`, delimiter, parameter))
 }
 
 // Select returns a single object from a list of objects by index.
