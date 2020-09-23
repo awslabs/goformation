@@ -187,7 +187,7 @@ func Join(delimiter interface{}, value interface{}) string {
 	case []string:
 		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(value.([]string))))
 	case []interface{}:
-		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ "%v" ] ] }`, delimiter, strings.Join(interfaceAtostrA(value.([]interface{})), `","`)))
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(interfaceAtostrA(value.([]interface{})))))
 	case string:
 		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] }`, delimiter, value))
 	default:
