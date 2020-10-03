@@ -88,6 +88,14 @@
                 }
             },
             "additionalProperties": false
+        },
+        "Hooks": {
+          "description": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html",
+          "type": "object"
+        },
+        "Rules": {
+          "description": "https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html",
+          "type": "object"
         }
     },
     "required": [
