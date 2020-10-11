@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [4.15.1](https://github.com/awslabs/goformation/compare/v4.15.0...v4.15.1) (2020-10-11)
+
+
+### Bug Fixes
+
+* **intrinsics:** Join function to allow to use parameters of type `List<>` ([#309](https://github.com/awslabs/goformation/issues/309)) ([6cc1cd3](https://github.com/awslabs/goformation/commit/6cc1cd329047227674caaf1b546066e3043c6616))
+
 # [4.15.0](https://github.com/awslabs/goformation/compare/v4.14.0...v4.15.0) (2020-08-16)
 
 
