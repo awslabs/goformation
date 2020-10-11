@@ -20,7 +20,10 @@ jobs:
         uses: actions/checkout@v1
       
       - name: Update Schema
-        run: go generate
+        run: |
+          echo 'GENERATE_OUTPUT<<EOF' >> $GITHUB_ENV
+          go generate >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
 
       - name: Run Tests
         run: go test ./...
@@ -29,8 +32,8 @@ jobs:
         uses: peter-evans/create-pull-request@c7f493a8000b8aeb17a1332e326ba76b57cb83eb
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "fix(schema): CloudFormation Updates"
-          body: "Updates auto-generated from the [AWS CloudFormation Resource Specification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html)."
+          title: "CloudFormation Updates"
+          body: ${{ env.GENERATE_OUTPUT }}
           commit-message: "fix(schema): CloudFormation Updates"
           base: master
           branch: auto-schema-update
