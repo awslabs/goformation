@@ -236,7 +236,9 @@ func (p Property) GoType(typename string, basename string, name string) string {
 
 	if p.IsList() {
 
-		if p.convertTypeToGo() != "" {
+		if p.convertTypeToGo() == "string" {
+			return "interface{}"
+		} else if p.convertTypeToGo() != "" {
 			return "[]" + p.convertTypeToGo()
 		}
 
