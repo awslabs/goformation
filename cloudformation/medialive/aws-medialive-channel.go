@@ -25,7 +25,7 @@ type Channel struct {
 	// EncoderSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
-	EncoderSettings interface{} `json:"EncoderSettings,omitempty"`
+	EncoderSettings *Channel_EncoderSettings `json:"EncoderSettings,omitempty"`
 
 	// InputAttachments AWS CloudFormation Property
 	// Required: false

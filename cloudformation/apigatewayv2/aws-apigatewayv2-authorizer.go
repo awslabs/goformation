@@ -22,6 +22,11 @@ type Authorizer struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizercredentialsarn
 	AuthorizerCredentialsArn string `json:"AuthorizerCredentialsArn,omitempty"`
 
+	// AuthorizerPayloadFormatVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+	AuthorizerPayloadFormatVersion string `json:"AuthorizerPayloadFormatVersion,omitempty"`
+
 	// AuthorizerResultTtlInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
@@ -36,6 +41,11 @@ type Authorizer struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
 	AuthorizerUri string `json:"AuthorizerUri,omitempty"`
+
+	// EnableSimpleResponses AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+	EnableSimpleResponses bool `json:"EnableSimpleResponses,omitempty"`
 
 	// IdentitySource AWS CloudFormation Property
 	// Required: true
