@@ -36,8 +36,9 @@ jobs:
 
       - name: Generate Pull Request
         uses: peter-evans/create-pull-request@c7f493a8000b8aeb17a1332e326ba76b57cb83eb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           title: "CloudFormation Updates"
           body: ${{ env.GENERATE_OUTPUT }}
           commit-message: "fix(schema): CloudFormation Updates"
