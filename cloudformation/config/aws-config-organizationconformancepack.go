@@ -18,7 +18,7 @@ type OrganizationConformancePack struct {
 	ConformancePackInputParameters []OrganizationConformancePack_ConformancePackInputParameter `json:"ConformancePackInputParameters,omitempty"`
 
 	// DeliveryS3Bucket AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
 	DeliveryS3Bucket string `json:"DeliveryS3Bucket,omitempty"`
 
