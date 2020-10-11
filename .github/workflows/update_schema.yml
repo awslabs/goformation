@@ -24,9 +24,11 @@ jobs:
           echo 'GENERATE_OUTPUT<<EOF' >> $GITHUB_ENV
           echo 'This pull request was automatically generated, and includes updates to goformation based on new or updated resources in the [AWS CloudFormation Resource Specification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html).' >> $GITHUB_ENV
           echo '' >> $GITHUB_ENV
-          echo 'Below is the output from \`go generate\`, which lists the generated resources:' >> $GITHUB_ENV
-          echo ' '
+          echo 'Below is the output from `go generate`:' >> $GITHUB_ENV
+          echo '' >> $GITHUB_ENV
+          echo '```' >> $GITHUB_ENV
           go generate | tee -a $GITHUB_ENV
+          echo '```' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
 
       - name: Run Tests
