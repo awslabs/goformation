@@ -110,7 +110,7 @@ var EncoderIntrinsics = map[string]intrinsics.IntrinsicHandler{
 	"Fn::GetAtt":      strSplit2Wrap(GetAtt),
 	"Fn::GetAZs":      strWrap(GetAZs),
 	"Fn::ImportValue": strWrap(ImportValue),
-	"Fn::Join":        str2AWrap(Join),
+	"Fn::Join":        str2Wrap(Join),
 	"Fn::Select":      str2AWrap(Select),
 	"Fn::Split":       str2Wrap(Split),
 	"Fn::Sub":         strWrap(Sub),
@@ -182,8 +182,18 @@ func If(value, ifEqual, ifNotEqual interface{}) string {
 // (str, []str) -> str
 
 // Join appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter.
-func Join(delimiter interface{}, values []string) string {
-	return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(values)))
+func Join(delimiter interface{}, value interface{}) string {
+	switch v := value.(type) {
+	case []string:
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(value.([]string))))
+	case []interface{}:
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q, [ %v ] ] }`, delimiter, printList(interfaceAtostrA(value.([]interface{})))))
+	case string:
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] }`, delimiter, value))
+	default:
+		fmt.Printf("Unsupported type for Join: %T\n", v)
+		return encode(fmt.Sprintf(`{ "Fn::Join": [ %q,  %q ] }`, delimiter, value))
+	}
 }
 
 // Select returns a single object from a list of objects by index.
