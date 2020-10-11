@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"os"
 	"strings"
@@ -126,6 +127,35 @@ func (p Property) Schema(name, parent string) string {
 	}
 
 	return buf.String()
+
+}
+
+// UnmarshalJSON is a custom unmarshaller for CloudFormation Properties.
+// It's only purpose, is to validate that every property has a valid type
+// set in the CloudFormation Resource Specification. This is required as
+// on occasions in the past, errors in the published spec have meant that some
+// properties are missing types. See github.com/awslabs/goformation/issues/300.
+// This method sets any properties that have missing types to 'Json' - which in
+// turn defines them as interface{} in the generated Go structs.
+func (p *Property) UnmarshalJSON(data []byte) error {
+
+	// see: https://stackoverflow.com/questions/52433467/how-to-call-json-unmarshal-inside-unmarshaljson-without-causing-stack-overflow
+	type TmpProperty Property
+
+	var unmarshalled TmpProperty
+	err := json.Unmarshal(data, &unmarshalled)
+	if err != nil {
+		return err
+	}
+
+	*p = Property(unmarshalled)
+
+	if !p.HasValidType() {
+		fmt.Printf("Warning: auto-fixing missing property type to 'Json' for %s\n", p.Documentation)
+		p.PrimitiveType = "Json"
+	}
+
+	return nil
 
 }
 
