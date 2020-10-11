@@ -26,7 +26,7 @@ type Repository struct {
 	// LifecyclePolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-	LifecyclePolicy interface{} `json:"LifecyclePolicy,omitempty"`
+	LifecyclePolicy *Repository_LifecyclePolicy `json:"LifecyclePolicy,omitempty"`
 
 	// RepositoryName AWS CloudFormation Property
 	// Required: false
