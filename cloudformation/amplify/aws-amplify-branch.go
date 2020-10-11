@@ -43,6 +43,11 @@ type Branch struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
 	EnableAutoBuild bool `json:"EnableAutoBuild,omitempty"`
 
+	// EnablePerformanceMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
+	EnablePerformanceMode bool `json:"EnablePerformanceMode,omitempty"`
+
 	// EnablePullRequestPreview AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview

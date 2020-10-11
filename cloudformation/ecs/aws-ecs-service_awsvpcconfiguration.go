@@ -19,7 +19,7 @@ type Service_AwsVpcConfiguration struct {
 	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
 	// Subnets AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
 	Subnets []string `json:"Subnets,omitempty"`
 

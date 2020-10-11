@@ -12,6 +12,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html
 type UserPoolClient struct {
 
+	// AccessTokenValidity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+	AccessTokenValidity int `json:"AccessTokenValidity,omitempty"`
+
 	// AllowedOAuthFlows AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflows
@@ -57,6 +62,11 @@ type UserPoolClient struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-generatesecret
 	GenerateSecret bool `json:"GenerateSecret,omitempty"`
 
+	// IdTokenValidity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+	IdTokenValidity int `json:"IdTokenValidity,omitempty"`
+
 	// LogoutURLs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
@@ -81,6 +91,11 @@ type UserPoolClient struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-supportedidentityproviders
 	SupportedIdentityProviders []string `json:"SupportedIdentityProviders,omitempty"`
+
+	// TokenValidityUnits AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+	TokenValidityUnits *UserPoolClient_TokenValidityUnits `json:"TokenValidityUnits,omitempty"`
 
 	// UserPoolId AWS CloudFormation Property
 	// Required: true

@@ -9,12 +9,15 @@ import (
 type Association_ParameterValues struct {
 
 	// ParameterValues AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
 	ParameterValues []string `json:"ParameterValues,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
 	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
 	AWSCloudFormationDependsOn []string `json:"-"`

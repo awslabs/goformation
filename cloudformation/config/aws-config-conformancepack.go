@@ -23,7 +23,7 @@ type ConformancePack struct {
 	ConformancePackName string `json:"ConformancePackName,omitempty"`
 
 	// DeliveryS3Bucket AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
 	DeliveryS3Bucket string `json:"DeliveryS3Bucket,omitempty"`
 
