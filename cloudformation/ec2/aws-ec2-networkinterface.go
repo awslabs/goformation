@@ -36,7 +36,7 @@ type NetworkInterface struct {
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
-	Ipv6Addresses *NetworkInterface_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
+	Ipv6Addresses []NetworkInterface_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
 
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: false

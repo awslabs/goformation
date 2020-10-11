@@ -48,6 +48,11 @@ type Fleet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
 	FleetType string `json:"FleetType,omitempty"`
 
+	// IamRoleArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+	IamRoleArn string `json:"IamRoleArn,omitempty"`
+
 	// IdleDisconnectTimeoutInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
@@ -77,6 +82,11 @@ type Fleet struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 	Name string `json:"Name,omitempty"`
+
+	// StreamView AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+	StreamView string `json:"StreamView,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

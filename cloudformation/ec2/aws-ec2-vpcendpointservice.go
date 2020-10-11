@@ -17,8 +17,13 @@ type VPCEndpointService struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
 	AcceptanceRequired bool `json:"AcceptanceRequired,omitempty"`
 
+	// ApplianceLoadBalancerArns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-applianceloadbalancerarns
+	ApplianceLoadBalancerArns []string `json:"ApplianceLoadBalancerArns,omitempty"`
+
 	// NetworkLoadBalancerArns AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
 	NetworkLoadBalancerArns []string `json:"NetworkLoadBalancerArns,omitempty"`
 

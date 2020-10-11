@@ -17,6 +17,11 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	EncryptionConfig []Cluster_EncryptionConfig `json:"EncryptionConfig,omitempty"`
 
+	// KubernetesNetworkConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+	KubernetesNetworkConfig *Cluster_KubernetesNetworkConfig `json:"KubernetesNetworkConfig,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
