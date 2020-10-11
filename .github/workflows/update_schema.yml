@@ -32,6 +32,7 @@ jobs:
           title: "fix(schema): CloudFormation Updates"
           body: "Updates auto-generated from the [AWS CloudFormation Resource Specification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html)."
           commit-message: "fix(schema): CloudFormation Updates"
+          base: master
           branch: auto-schema-update
           delete-branch: true
           committer: "Paul Maddox <paul.maddox@gmail.com>"
