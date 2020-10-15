@@ -1,3 +1,5 @@
+![AWS GoFormation logo](./static/logo.png)
+
 # AWS GoFormation
 
 ![Version](https://img.shields.io/github/v/release/awslabs/goformation?label=stable%20version) ![Commits since release](https://img.shields.io/github/commits-since/awslabs/goformation/latest) [![Actions Status](https://github.com/awslabs/goformation/workflows/Release/badge.svg)](https://github.com/awslabs/goformation/actions) ![Update Schema](https://github.com/awslabs/goformation/workflows/Update%20Schema/badge.svg) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg) ![Downloads](https://img.shields.io/github/downloads/awslabs/goformation/total)
