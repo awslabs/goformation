@@ -6,11 +6,17 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // DeliveryStream AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 type DeliveryStream struct {
+
+	// DeliveryStreamEncryptionConfigurationInput AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+	DeliveryStreamEncryptionConfigurationInput *DeliveryStream_DeliveryStreamEncryptionConfigurationInput `json:"DeliveryStreamEncryptionConfigurationInput,omitempty"`
 
 	// DeliveryStreamName AWS CloudFormation Property
 	// Required: false
@@ -56,6 +62,11 @@ type DeliveryStream struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
 	SplunkDestinationConfiguration *DeliveryStream_SplunkDestinationConfiguration `json:"SplunkDestinationConfiguration,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

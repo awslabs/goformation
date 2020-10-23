@@ -92,6 +92,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/managedblockchain"
 	"github.com/awslabs/goformation/v4/cloudformation/mediaconvert"
 	"github.com/awslabs/goformation/v4/cloudformation/medialive"
+	"github.com/awslabs/goformation/v4/cloudformation/mediapackage"
 	"github.com/awslabs/goformation/v4/cloudformation/mediastore"
 	"github.com/awslabs/goformation/v4/cloudformation/msk"
 	"github.com/awslabs/goformation/v4/cloudformation/neptune"
@@ -539,6 +540,11 @@ func AllResources() map[string]Resource {
 		"AWS::MediaLive::Channel":                                     &medialive.Channel{},
 		"AWS::MediaLive::Input":                                       &medialive.Input{},
 		"AWS::MediaLive::InputSecurityGroup":                          &medialive.InputSecurityGroup{},
+		"AWS::MediaPackage::Asset":                                    &mediapackage.Asset{},
+		"AWS::MediaPackage::Channel":                                  &mediapackage.Channel{},
+		"AWS::MediaPackage::OriginEndpoint":                           &mediapackage.OriginEndpoint{},
+		"AWS::MediaPackage::PackagingConfiguration":                   &mediapackage.PackagingConfiguration{},
+		"AWS::MediaPackage::PackagingGroup":                           &mediapackage.PackagingGroup{},
 		"AWS::MediaStore::Container":                                  &mediastore.Container{},
 		"AWS::Neptune::DBCluster":                                     &neptune.DBCluster{},
 		"AWS::Neptune::DBClusterParameterGroup":                       &neptune.DBClusterParameterGroup{},
@@ -10434,6 +10440,126 @@ func (t *Template) GetMediaLiveInputSecurityGroupWithName(name string) (*mediali
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type medialive.InputSecurityGroup not found", name)
+}
+
+// GetAllMediaPackageAssetResources retrieves all mediapackage.Asset items from an AWS CloudFormation template
+func (t *Template) GetAllMediaPackageAssetResources() map[string]*mediapackage.Asset {
+	results := map[string]*mediapackage.Asset{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediapackage.Asset:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaPackageAssetWithName retrieves all mediapackage.Asset items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaPackageAssetWithName(name string) (*mediapackage.Asset, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediapackage.Asset:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediapackage.Asset not found", name)
+}
+
+// GetAllMediaPackageChannelResources retrieves all mediapackage.Channel items from an AWS CloudFormation template
+func (t *Template) GetAllMediaPackageChannelResources() map[string]*mediapackage.Channel {
+	results := map[string]*mediapackage.Channel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediapackage.Channel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaPackageChannelWithName retrieves all mediapackage.Channel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaPackageChannelWithName(name string) (*mediapackage.Channel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediapackage.Channel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediapackage.Channel not found", name)
+}
+
+// GetAllMediaPackageOriginEndpointResources retrieves all mediapackage.OriginEndpoint items from an AWS CloudFormation template
+func (t *Template) GetAllMediaPackageOriginEndpointResources() map[string]*mediapackage.OriginEndpoint {
+	results := map[string]*mediapackage.OriginEndpoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediapackage.OriginEndpoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaPackageOriginEndpointWithName retrieves all mediapackage.OriginEndpoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaPackageOriginEndpointWithName(name string) (*mediapackage.OriginEndpoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediapackage.OriginEndpoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediapackage.OriginEndpoint not found", name)
+}
+
+// GetAllMediaPackagePackagingConfigurationResources retrieves all mediapackage.PackagingConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllMediaPackagePackagingConfigurationResources() map[string]*mediapackage.PackagingConfiguration {
+	results := map[string]*mediapackage.PackagingConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediapackage.PackagingConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaPackagePackagingConfigurationWithName retrieves all mediapackage.PackagingConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaPackagePackagingConfigurationWithName(name string) (*mediapackage.PackagingConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediapackage.PackagingConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediapackage.PackagingConfiguration not found", name)
+}
+
+// GetAllMediaPackagePackagingGroupResources retrieves all mediapackage.PackagingGroup items from an AWS CloudFormation template
+func (t *Template) GetAllMediaPackagePackagingGroupResources() map[string]*mediapackage.PackagingGroup {
+	results := map[string]*mediapackage.PackagingGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediapackage.PackagingGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaPackagePackagingGroupWithName retrieves all mediapackage.PackagingGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaPackagePackagingGroupWithName(name string) (*mediapackage.PackagingGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediapackage.PackagingGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediapackage.PackagingGroup not found", name)
 }
 
 // GetAllMediaStoreContainerResources retrieves all mediastore.Container items from an AWS CloudFormation template

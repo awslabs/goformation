@@ -9,7 +9,7 @@ import (
 type Bucket_Metrics struct {
 
 	// EventThreshold AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
 	EventThreshold *Bucket_ReplicationTimeValue `json:"EventThreshold,omitempty"`
 
