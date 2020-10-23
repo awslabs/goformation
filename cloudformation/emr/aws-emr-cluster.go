@@ -63,10 +63,20 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-kerberosattributes
 	KerberosAttributes *Cluster_KerberosAttributes `json:"KerberosAttributes,omitempty"`
 
+	// LogEncryptionKmsKeyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+	LogEncryptionKmsKeyId string `json:"LogEncryptionKmsKeyId,omitempty"`
+
 	// LogUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
 	LogUri string `json:"LogUri,omitempty"`
+
+	// ManagedScalingPolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+	ManagedScalingPolicy *Cluster_ManagedScalingPolicy `json:"ManagedScalingPolicy,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -92,6 +102,11 @@ type Cluster struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
 	ServiceRole string `json:"ServiceRole,omitempty"`
+
+	// StepConcurrencyLevel AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+	StepConcurrencyLevel int `json:"StepConcurrencyLevel,omitempty"`
 
 	// Steps AWS CloudFormation Property
 	// Required: false

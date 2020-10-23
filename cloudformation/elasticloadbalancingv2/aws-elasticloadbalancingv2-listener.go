@@ -33,12 +33,12 @@ type Listener struct {
 	LoadBalancerArn string `json:"LoadBalancerArn,omitempty"`
 
 	// Port AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port int `json:"Port"`
+	Port int `json:"Port,omitempty"`
 
 	// Protocol AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
 	Protocol string `json:"Protocol,omitempty"`
 

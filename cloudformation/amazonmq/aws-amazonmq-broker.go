@@ -57,11 +57,6 @@ type Broker struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 	HostInstanceType string `json:"HostInstanceType,omitempty"`
 
-	// LdapMetadata AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapmetadata
-	LdapMetadata *Broker_LdapMetadata `json:"LdapMetadata,omitempty"`
-
 	// LdapServerMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata

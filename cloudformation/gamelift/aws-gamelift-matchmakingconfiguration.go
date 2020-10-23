@@ -42,6 +42,11 @@ type MatchmakingConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-description
 	Description string `json:"Description,omitempty"`
 
+	// FlexMatchMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+	FlexMatchMode string `json:"FlexMatchMode,omitempty"`
+
 	// GameProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gameproperties
@@ -53,7 +58,7 @@ type MatchmakingConfiguration struct {
 	GameSessionData string `json:"GameSessionData,omitempty"`
 
 	// GameSessionQueueArns AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gamesessionqueuearns
 	GameSessionQueueArns []string `json:"GameSessionQueueArns,omitempty"`
 

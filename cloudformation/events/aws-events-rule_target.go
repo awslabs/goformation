@@ -18,6 +18,11 @@ type Rule_Target struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
 	BatchParameters *Rule_BatchParameters `json:"BatchParameters,omitempty"`
 
+	// DeadLetterConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
+	DeadLetterConfig *Rule_DeadLetterConfig `json:"DeadLetterConfig,omitempty"`
+
 	// EcsParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
@@ -52,6 +57,16 @@ type Rule_Target struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
 	KinesisParameters *Rule_KinesisParameters `json:"KinesisParameters,omitempty"`
+
+	// RedshiftDataParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+	RedshiftDataParameters *Rule_RedshiftDataParameters `json:"RedshiftDataParameters,omitempty"`
+
+	// RetryPolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+	RetryPolicy *Rule_RetryPolicy `json:"RetryPolicy,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: false

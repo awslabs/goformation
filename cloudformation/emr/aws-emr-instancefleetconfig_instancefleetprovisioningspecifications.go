@@ -8,8 +8,13 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html
 type InstanceFleetConfig_InstanceFleetProvisioningSpecifications struct {
 
+	// OnDemandSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-ondemandspecification
+	OnDemandSpecification *InstanceFleetConfig_OnDemandProvisioningSpecification `json:"OnDemandSpecification,omitempty"`
+
 	// SpotSpecification AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
 	SpotSpecification *InstanceFleetConfig_SpotProvisioningSpecification `json:"SpotSpecification,omitempty"`
 
