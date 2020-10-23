@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [4.15.3](https://github.com/awslabs/goformation/compare/v4.15.2...v4.15.3) (2020-10-23)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([#329](https://github.com/awslabs/goformation/issues/329)) ([4c1362b](https://github.com/awslabs/goformation/commit/4c1362bac14a3d6fc2cebd56eddcaf440228a4e9))
+
 ## [4.15.2](https://github.com/awslabs/goformation/compare/v4.15.1...v4.15.2) (2020-10-11)
 
 
