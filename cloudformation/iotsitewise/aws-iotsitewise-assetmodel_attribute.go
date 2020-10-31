@@ -1,22 +1,17 @@
-package dlm
+package iotsitewise
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// LifecyclePolicy_Parameters AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.Parameters)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html
-type LifecyclePolicy_Parameters struct {
+// AssetModel_Attribute AWS CloudFormation Resource (AWS::IoTSiteWise::AssetModel.Attribute)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html
+type AssetModel_Attribute struct {
 
-	// ExcludeBootVolume AWS CloudFormation Property
+	// DefaultValue AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
-	ExcludeBootVolume bool `json:"ExcludeBootVolume,omitempty"`
-
-	// NoReboot AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
-	NoReboot bool `json:"NoReboot,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
+	DefaultValue string `json:"DefaultValue,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type LifecyclePolicy_Parameters struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *LifecyclePolicy_Parameters) AWSCloudFormationType() string {
-	return "AWS::DLM::LifecyclePolicy.Parameters"
+func (r *AssetModel_Attribute) AWSCloudFormationType() string {
+	return "AWS::IoTSiteWise::AssetModel.Attribute"
 }

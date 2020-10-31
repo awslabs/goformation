@@ -1,4 +1,4 @@
-package ec2
+package ivs
 
 import (
 	"bytes"
@@ -6,21 +6,37 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// VPCEndpointService AWS CloudFormation Resource (AWS::EC2::VPCEndpointService)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
-type VPCEndpointService struct {
+// Channel AWS CloudFormation Resource (AWS::IVS::Channel)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html
+type Channel struct {
 
-	// AcceptanceRequired AWS CloudFormation Property
+	// Authorized AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
-	AcceptanceRequired bool `json:"AcceptanceRequired,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
+	Authorized bool `json:"Authorized,omitempty"`
 
-	// NetworkLoadBalancerArns AWS CloudFormation Property
+	// LatencyMode AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
-	NetworkLoadBalancerArns []string `json:"NetworkLoadBalancerArns,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
+	LatencyMode string `json:"LatencyMode,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
+	Name string `json:"Name,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// Type AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
+	Type string `json:"Type,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -39,14 +55,14 @@ type VPCEndpointService struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *VPCEndpointService) AWSCloudFormationType() string {
-	return "AWS::EC2::VPCEndpointService"
+func (r *Channel) AWSCloudFormationType() string {
+	return "AWS::IVS::Channel"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
-	type Properties VPCEndpointService
+func (r Channel) MarshalJSON() ([]byte, error) {
+	type Properties Channel
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -68,8 +84,8 @@ func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
-	type Properties VPCEndpointService
+func (r *Channel) UnmarshalJSON(b []byte) error {
+	type Properties Channel
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -90,7 +106,7 @@ func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = VPCEndpointService(*res.Properties)
+		*r = Channel(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

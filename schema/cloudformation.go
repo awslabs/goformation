@@ -22424,6 +22424,9 @@ var CloudformationSchema = `{
             "properties": {
                 "ExcludeBootVolume": {
                     "type": "boolean"
+                },
+                "NoReboot": {
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -24729,6 +24732,9 @@ var CloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "SelfServicePortal": {
+                            "type": "string"
+                        },
                         "ServerCertificateArn": {
                             "type": "string"
                         },
@@ -24847,6 +24853,9 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "SAMLProviderArn": {
+                    "type": "string"
+                },
+                "SelfServiceSAMLProviderArn": {
                     "type": "string"
                 }
             },
@@ -30217,12 +30226,6 @@ var CloudformationSchema = `{
                     "properties": {
                         "AcceptanceRequired": {
                             "type": "boolean"
-                        },
-                        "ApplianceLoadBalancerArns": {
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array"
                         },
                         "NetworkLoadBalancerArns": {
                             "items": {
@@ -39961,6 +39964,12 @@ var CloudformationSchema = `{
                         "ListenerArn": {
                             "type": "string"
                         },
+                        "PortOverrides": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::GlobalAccelerator::EndpointGroup.PortOverride"
+                            },
+                            "type": "array"
+                        },
                         "ThresholdCount": {
                             "type": "number"
                         },
@@ -40010,6 +40019,22 @@ var CloudformationSchema = `{
             },
             "required": [
                 "EndpointId"
+            ],
+            "type": "object"
+        },
+        "AWS::GlobalAccelerator::EndpointGroup.PortOverride": {
+            "additionalProperties": false,
+            "properties": {
+                "EndpointPort": {
+                    "type": "number"
+                },
+                "ListenerPort": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "EndpointPort",
+                "ListenerPort"
             ],
             "type": "object"
         },
@@ -45320,6 +45345,218 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IVS::Channel": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Authorized": {
+                            "type": "boolean"
+                        },
+                        "LatencyMode": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "Type": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IVS::Channel"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::IVS::PlaybackKeyPair": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Name": {
+                            "type": "string"
+                        },
+                        "PublicKeyMaterial": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "PublicKeyMaterial"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IVS::PlaybackKeyPair"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IVS::StreamKey": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ChannelArn": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "ChannelArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IVS::StreamKey"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::ImageBuilder::Component": {
             "additionalProperties": false,
             "properties": {
@@ -49135,6 +49372,495 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::IoTSiteWise::Asset": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AssetHierarchies": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTSiteWise::Asset.AssetHierarchy"
+                            },
+                            "type": "array"
+                        },
+                        "AssetModelId": {
+                            "type": "string"
+                        },
+                        "AssetName": {
+                            "type": "string"
+                        },
+                        "AssetProperties": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTSiteWise::Asset.AssetProperty"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "AssetModelId",
+                        "AssetName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTSiteWise::Asset"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::Asset.AssetHierarchy": {
+            "additionalProperties": false,
+            "properties": {
+                "ChildAssetId": {
+                    "type": "string"
+                },
+                "LogicalId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ChildAssetId",
+                "LogicalId"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::Asset.AssetProperty": {
+            "additionalProperties": false,
+            "properties": {
+                "Alias": {
+                    "type": "string"
+                },
+                "LogicalId": {
+                    "type": "string"
+                },
+                "NotificationState": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LogicalId"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AssetModelDescription": {
+                            "type": "string"
+                        },
+                        "AssetModelHierarchies": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.AssetModelHierarchy"
+                            },
+                            "type": "array"
+                        },
+                        "AssetModelName": {
+                            "type": "string"
+                        },
+                        "AssetModelProperties": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.AssetModelProperty"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "AssetModelName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTSiteWise::AssetModel"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.AssetModelHierarchy": {
+            "additionalProperties": false,
+            "properties": {
+                "ChildAssetModelId": {
+                    "type": "string"
+                },
+                "LogicalId": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ChildAssetModelId",
+                "LogicalId",
+                "Name"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.AssetModelProperty": {
+            "additionalProperties": false,
+            "properties": {
+                "DataType": {
+                    "type": "string"
+                },
+                "LogicalId": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.PropertyType"
+                },
+                "Unit": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DataType",
+                "LogicalId",
+                "Name",
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.Attribute": {
+            "additionalProperties": false,
+            "properties": {
+                "DefaultValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.ExpressionVariable": {
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Value": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.VariableValue"
+                }
+            },
+            "required": [
+                "Name",
+                "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.Metric": {
+            "additionalProperties": false,
+            "properties": {
+                "Expression": {
+                    "type": "string"
+                },
+                "Variables": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.ExpressionVariable"
+                    },
+                    "type": "array"
+                },
+                "Window": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.MetricWindow"
+                }
+            },
+            "required": [
+                "Expression",
+                "Variables",
+                "Window"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.MetricWindow": {
+            "additionalProperties": false,
+            "properties": {
+                "Tumbling": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.TumblingWindow"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.PropertyType": {
+            "additionalProperties": false,
+            "properties": {
+                "Attribute": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.Attribute"
+                },
+                "Metric": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.Metric"
+                },
+                "Transform": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.Transform"
+                },
+                "TypeName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TypeName"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.Transform": {
+            "additionalProperties": false,
+            "properties": {
+                "Expression": {
+                    "type": "string"
+                },
+                "Variables": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel.ExpressionVariable"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Expression",
+                "Variables"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.TumblingWindow": {
+            "additionalProperties": false,
+            "properties": {
+                "Interval": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Interval"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::AssetModel.VariableValue": {
+            "additionalProperties": false,
+            "properties": {
+                "HierarchyLogicalId": {
+                    "type": "string"
+                },
+                "PropertyLogicalId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PropertyLogicalId"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::Gateway": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "GatewayCapabilitySummaries": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTSiteWise::Gateway.GatewayCapabilitySummary"
+                            },
+                            "type": "array"
+                        },
+                        "GatewayName": {
+                            "type": "string"
+                        },
+                        "GatewayPlatform": {
+                            "$ref": "#/definitions/AWS::IoTSiteWise::Gateway.GatewayPlatform"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "GatewayName",
+                        "GatewayPlatform"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTSiteWise::Gateway"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::Gateway.GatewayCapabilitySummary": {
+            "additionalProperties": false,
+            "properties": {
+                "CapabilityConfiguration": {
+                    "type": "string"
+                },
+                "CapabilityNamespace": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CapabilityNamespace"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::Gateway.GatewayPlatform": {
+            "additionalProperties": false,
+            "properties": {
+                "Greengrass": {
+                    "$ref": "#/definitions/AWS::IoTSiteWise::Gateway.Greengrass"
+                }
+            },
+            "required": [
+                "Greengrass"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTSiteWise::Gateway.Greengrass": {
+            "additionalProperties": false,
+            "properties": {
+                "GroupArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "GroupArn"
+            ],
+            "type": "object"
+        },
         "AWS::IoTThingsGraph::FlowTemplate": {
             "additionalProperties": false,
             "properties": {
@@ -52890,6 +53616,12 @@ var CloudformationSchema = `{
                     "properties": {
                         "Admins": {
                             "$ref": "#/definitions/AWS::LakeFormation::DataLakeSettings.Admins"
+                        },
+                        "TrustedResourceOwners": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
                         }
                     },
                     "type": "object"
@@ -58736,18 +59468,6 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
-        "AWS::MediaPackage::OriginEndpoint.AdTriggers": {
-            "additionalProperties": false,
-            "properties": {
-                "AdTriggers": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
         "AWS::MediaPackage::OriginEndpoint.Authorization": {
             "additionalProperties": false,
             "properties": {
@@ -58822,7 +59542,10 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AdTriggers": {
-                    "$ref": "#/definitions/AWS::MediaPackage::OriginEndpoint.AdTriggers"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "AdsOnDeliveryRestrictions": {
                     "type": "string"
@@ -58897,7 +59620,10 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "AdTriggers": {
-                    "$ref": "#/definitions/AWS::MediaPackage::OriginEndpoint.AdTriggers"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "AdsOnDeliveryRestrictions": {
                     "type": "string"
@@ -58936,7 +59662,10 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "AdTriggers": {
-                    "$ref": "#/definitions/AWS::MediaPackage::OriginEndpoint.AdTriggers"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "AdsOnDeliveryRestrictions": {
                     "type": "string"
@@ -68768,18 +69497,6 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
-        "AWS::S3::Bucket.ReplicaModifications": {
-            "additionalProperties": false,
-            "properties": {
-                "Status": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Status"
-            ],
-            "type": "object"
-        },
         "AWS::S3::Bucket.ReplicationConfiguration": {
             "additionalProperties": false,
             "properties": {
@@ -69044,9 +69761,6 @@ var CloudformationSchema = `{
         "AWS::S3::Bucket.SourceSelectionCriteria": {
             "additionalProperties": false,
             "properties": {
-                "ReplicaModifications": {
-                    "$ref": "#/definitions/AWS::S3::Bucket.ReplicaModifications"
-                },
                 "SseKmsEncryptedObjects": {
                     "$ref": "#/definitions/AWS::S3::Bucket.SseKmsEncryptedObjects"
                 }
@@ -80544,6 +81258,15 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::IAM::UserToGroupAddition"
                         },
                         {
+                            "$ref": "#/definitions/AWS::IVS::Channel"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IVS::PlaybackKeyPair"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IVS::StreamKey"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::ImageBuilder::Component"
                         },
                         {
@@ -80620,6 +81343,15 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::IoTEvents::Input"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTSiteWise::Asset"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTSiteWise::AssetModel"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTSiteWise::Gateway"
                         },
                         {
                             "$ref": "#/definitions/AWS::IoTThingsGraph::FlowTemplate"

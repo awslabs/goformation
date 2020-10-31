@@ -1,17 +1,17 @@
-package s3
+package iotsitewise
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// Bucket_SourceSelectionCriteria AWS CloudFormation Resource (AWS::S3::Bucket.SourceSelectionCriteria)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
-type Bucket_SourceSelectionCriteria struct {
+// Gateway_GatewayPlatform AWS CloudFormation Resource (AWS::IoTSiteWise::Gateway.GatewayPlatform)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
+type Gateway_GatewayPlatform struct {
 
-	// SseKmsEncryptedObjects AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
-	SseKmsEncryptedObjects *Bucket_SseKmsEncryptedObjects `json:"SseKmsEncryptedObjects,omitempty"`
+	// Greengrass AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+	Greengrass *Gateway_Greengrass `json:"Greengrass,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type Bucket_SourceSelectionCriteria struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Bucket_SourceSelectionCriteria) AWSCloudFormationType() string {
-	return "AWS::S3::Bucket.SourceSelectionCriteria"
+func (r *Gateway_GatewayPlatform) AWSCloudFormationType() string {
+	return "AWS::IoTSiteWise::Gateway.GatewayPlatform"
 }

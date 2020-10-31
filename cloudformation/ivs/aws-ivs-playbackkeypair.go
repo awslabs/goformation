@@ -1,4 +1,4 @@
-package ec2
+package ivs
 
 import (
 	"bytes"
@@ -6,21 +6,27 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// VPCEndpointService AWS CloudFormation Resource (AWS::EC2::VPCEndpointService)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
-type VPCEndpointService struct {
+// PlaybackKeyPair AWS CloudFormation Resource (AWS::IVS::PlaybackKeyPair)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
+type PlaybackKeyPair struct {
 
-	// AcceptanceRequired AWS CloudFormation Property
+	// Name AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
-	AcceptanceRequired bool `json:"AcceptanceRequired,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
+	Name string `json:"Name,omitempty"`
 
-	// NetworkLoadBalancerArns AWS CloudFormation Property
+	// PublicKeyMaterial AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
+	PublicKeyMaterial string `json:"PublicKeyMaterial,omitempty"`
+
+	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
-	NetworkLoadBalancerArns []string `json:"NetworkLoadBalancerArns,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -39,14 +45,14 @@ type VPCEndpointService struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *VPCEndpointService) AWSCloudFormationType() string {
-	return "AWS::EC2::VPCEndpointService"
+func (r *PlaybackKeyPair) AWSCloudFormationType() string {
+	return "AWS::IVS::PlaybackKeyPair"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
-	type Properties VPCEndpointService
+func (r PlaybackKeyPair) MarshalJSON() ([]byte, error) {
+	type Properties PlaybackKeyPair
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -68,8 +74,8 @@ func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
-	type Properties VPCEndpointService
+func (r *PlaybackKeyPair) UnmarshalJSON(b []byte) error {
+	type Properties PlaybackKeyPair
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -90,7 +96,7 @@ func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = VPCEndpointService(*res.Properties)
+		*r = PlaybackKeyPair(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

@@ -1,4 +1,4 @@
-package ec2
+package ivs
 
 import (
 	"bytes"
@@ -6,21 +6,22 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// VPCEndpointService AWS CloudFormation Resource (AWS::EC2::VPCEndpointService)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
-type VPCEndpointService struct {
+// StreamKey AWS CloudFormation Resource (AWS::IVS::StreamKey)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
+type StreamKey struct {
 
-	// AcceptanceRequired AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
-	AcceptanceRequired bool `json:"AcceptanceRequired,omitempty"`
+	// ChannelArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+	ChannelArn string `json:"ChannelArn,omitempty"`
 
-	// NetworkLoadBalancerArns AWS CloudFormation Property
+	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
-	NetworkLoadBalancerArns []string `json:"NetworkLoadBalancerArns,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -39,14 +40,14 @@ type VPCEndpointService struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *VPCEndpointService) AWSCloudFormationType() string {
-	return "AWS::EC2::VPCEndpointService"
+func (r *StreamKey) AWSCloudFormationType() string {
+	return "AWS::IVS::StreamKey"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
-	type Properties VPCEndpointService
+func (r StreamKey) MarshalJSON() ([]byte, error) {
+	type Properties StreamKey
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -68,8 +69,8 @@ func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
-	type Properties VPCEndpointService
+func (r *StreamKey) UnmarshalJSON(b []byte) error {
+	type Properties StreamKey
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -90,7 +91,7 @@ func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = VPCEndpointService(*res.Properties)
+		*r = StreamKey(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
