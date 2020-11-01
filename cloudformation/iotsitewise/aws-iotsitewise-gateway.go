@@ -1,4 +1,4 @@
-package ec2
+package iotsitewise
 
 import (
 	"bytes"
@@ -6,21 +6,32 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// VPCEndpointService AWS CloudFormation Resource (AWS::EC2::VPCEndpointService)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
-type VPCEndpointService struct {
+// Gateway AWS CloudFormation Resource (AWS::IoTSiteWise::Gateway)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
+type Gateway struct {
 
-	// AcceptanceRequired AWS CloudFormation Property
+	// GatewayCapabilitySummaries AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
-	AcceptanceRequired bool `json:"AcceptanceRequired,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+	GatewayCapabilitySummaries []Gateway_GatewayCapabilitySummary `json:"GatewayCapabilitySummaries,omitempty"`
 
-	// NetworkLoadBalancerArns AWS CloudFormation Property
+	// GatewayName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+	GatewayName string `json:"GatewayName,omitempty"`
+
+	// GatewayPlatform AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+	GatewayPlatform *Gateway_GatewayPlatform `json:"GatewayPlatform,omitempty"`
+
+	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
-	NetworkLoadBalancerArns []string `json:"NetworkLoadBalancerArns,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -39,14 +50,14 @@ type VPCEndpointService struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *VPCEndpointService) AWSCloudFormationType() string {
-	return "AWS::EC2::VPCEndpointService"
+func (r *Gateway) AWSCloudFormationType() string {
+	return "AWS::IoTSiteWise::Gateway"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
-	type Properties VPCEndpointService
+func (r Gateway) MarshalJSON() ([]byte, error) {
+	type Properties Gateway
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -68,8 +79,8 @@ func (r VPCEndpointService) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
-	type Properties VPCEndpointService
+func (r *Gateway) UnmarshalJSON(b []byte) error {
+	type Properties Gateway
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -90,7 +101,7 @@ func (r *VPCEndpointService) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = VPCEndpointService(*res.Properties)
+		*r = Gateway(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

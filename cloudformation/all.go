@@ -78,7 +78,9 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/iot1click"
 	"github.com/awslabs/goformation/v4/cloudformation/iotanalytics"
 	"github.com/awslabs/goformation/v4/cloudformation/iotevents"
+	"github.com/awslabs/goformation/v4/cloudformation/iotsitewise"
 	"github.com/awslabs/goformation/v4/cloudformation/iotthingsgraph"
+	"github.com/awslabs/goformation/v4/cloudformation/ivs"
 	"github.com/awslabs/goformation/v4/cloudformation/kendra"
 	"github.com/awslabs/goformation/v4/cloudformation/kinesis"
 	"github.com/awslabs/goformation/v4/cloudformation/kinesisanalytics"
@@ -470,6 +472,9 @@ func AllResources() map[string]Resource {
 		"AWS::IAM::ServiceLinkedRole":                                 &iam.ServiceLinkedRole{},
 		"AWS::IAM::User":                                              &iam.User{},
 		"AWS::IAM::UserToGroupAddition":                               &iam.UserToGroupAddition{},
+		"AWS::IVS::Channel":                                           &ivs.Channel{},
+		"AWS::IVS::PlaybackKeyPair":                                   &ivs.PlaybackKeyPair{},
+		"AWS::IVS::StreamKey":                                         &ivs.StreamKey{},
 		"AWS::ImageBuilder::Component":                                &imagebuilder.Component{},
 		"AWS::ImageBuilder::DistributionConfiguration":                &imagebuilder.DistributionConfiguration{},
 		"AWS::ImageBuilder::Image":                                    &imagebuilder.Image{},
@@ -496,6 +501,9 @@ func AllResources() map[string]Resource {
 		"AWS::IoTAnalytics::Pipeline":                                 &iotanalytics.Pipeline{},
 		"AWS::IoTEvents::DetectorModel":                               &iotevents.DetectorModel{},
 		"AWS::IoTEvents::Input":                                       &iotevents.Input{},
+		"AWS::IoTSiteWise::Asset":                                     &iotsitewise.Asset{},
+		"AWS::IoTSiteWise::AssetModel":                                &iotsitewise.AssetModel{},
+		"AWS::IoTSiteWise::Gateway":                                   &iotsitewise.Gateway{},
 		"AWS::IoTThingsGraph::FlowTemplate":                           &iotthingsgraph.FlowTemplate{},
 		"AWS::KMS::Alias":                                             &kms.Alias{},
 		"AWS::KMS::Key":                                               &kms.Key{},
@@ -8762,6 +8770,78 @@ func (t *Template) GetIAMUserToGroupAdditionWithName(name string) (*iam.UserToGr
 	return nil, fmt.Errorf("resource %q of type iam.UserToGroupAddition not found", name)
 }
 
+// GetAllIVSChannelResources retrieves all ivs.Channel items from an AWS CloudFormation template
+func (t *Template) GetAllIVSChannelResources() map[string]*ivs.Channel {
+	results := map[string]*ivs.Channel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ivs.Channel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIVSChannelWithName retrieves all ivs.Channel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIVSChannelWithName(name string) (*ivs.Channel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ivs.Channel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ivs.Channel not found", name)
+}
+
+// GetAllIVSPlaybackKeyPairResources retrieves all ivs.PlaybackKeyPair items from an AWS CloudFormation template
+func (t *Template) GetAllIVSPlaybackKeyPairResources() map[string]*ivs.PlaybackKeyPair {
+	results := map[string]*ivs.PlaybackKeyPair{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ivs.PlaybackKeyPair:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIVSPlaybackKeyPairWithName retrieves all ivs.PlaybackKeyPair items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIVSPlaybackKeyPairWithName(name string) (*ivs.PlaybackKeyPair, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ivs.PlaybackKeyPair:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ivs.PlaybackKeyPair not found", name)
+}
+
+// GetAllIVSStreamKeyResources retrieves all ivs.StreamKey items from an AWS CloudFormation template
+func (t *Template) GetAllIVSStreamKeyResources() map[string]*ivs.StreamKey {
+	results := map[string]*ivs.StreamKey{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ivs.StreamKey:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIVSStreamKeyWithName retrieves all ivs.StreamKey items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIVSStreamKeyWithName(name string) (*ivs.StreamKey, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ivs.StreamKey:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ivs.StreamKey not found", name)
+}
+
 // GetAllImageBuilderComponentResources retrieves all imagebuilder.Component items from an AWS CloudFormation template
 func (t *Template) GetAllImageBuilderComponentResources() map[string]*imagebuilder.Component {
 	results := map[string]*imagebuilder.Component{}
@@ -9384,6 +9464,78 @@ func (t *Template) GetIoTEventsInputWithName(name string) (*iotevents.Input, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iotevents.Input not found", name)
+}
+
+// GetAllIoTSiteWiseAssetResources retrieves all iotsitewise.Asset items from an AWS CloudFormation template
+func (t *Template) GetAllIoTSiteWiseAssetResources() map[string]*iotsitewise.Asset {
+	results := map[string]*iotsitewise.Asset{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotsitewise.Asset:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTSiteWiseAssetWithName retrieves all iotsitewise.Asset items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTSiteWiseAssetWithName(name string) (*iotsitewise.Asset, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotsitewise.Asset:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotsitewise.Asset not found", name)
+}
+
+// GetAllIoTSiteWiseAssetModelResources retrieves all iotsitewise.AssetModel items from an AWS CloudFormation template
+func (t *Template) GetAllIoTSiteWiseAssetModelResources() map[string]*iotsitewise.AssetModel {
+	results := map[string]*iotsitewise.AssetModel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotsitewise.AssetModel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTSiteWiseAssetModelWithName retrieves all iotsitewise.AssetModel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTSiteWiseAssetModelWithName(name string) (*iotsitewise.AssetModel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotsitewise.AssetModel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotsitewise.AssetModel not found", name)
+}
+
+// GetAllIoTSiteWiseGatewayResources retrieves all iotsitewise.Gateway items from an AWS CloudFormation template
+func (t *Template) GetAllIoTSiteWiseGatewayResources() map[string]*iotsitewise.Gateway {
+	results := map[string]*iotsitewise.Gateway{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotsitewise.Gateway:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTSiteWiseGatewayWithName retrieves all iotsitewise.Gateway items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTSiteWiseGatewayWithName(name string) (*iotsitewise.Gateway, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotsitewise.Gateway:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotsitewise.Gateway not found", name)
 }
 
 // GetAllIoTThingsGraphFlowTemplateResources retrieves all iotthingsgraph.FlowTemplate items from an AWS CloudFormation template

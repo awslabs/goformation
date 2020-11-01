@@ -1,22 +1,17 @@
-package dlm
+package iotsitewise
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// LifecyclePolicy_Parameters AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.Parameters)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html
-type LifecyclePolicy_Parameters struct {
+// AssetModel_MetricWindow AWS CloudFormation Resource (AWS::IoTSiteWise::AssetModel.MetricWindow)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
+type AssetModel_MetricWindow struct {
 
-	// ExcludeBootVolume AWS CloudFormation Property
+	// Tumbling AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
-	ExcludeBootVolume bool `json:"ExcludeBootVolume,omitempty"`
-
-	// NoReboot AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
-	NoReboot bool `json:"NoReboot,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
+	Tumbling *AssetModel_TumblingWindow `json:"Tumbling,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type LifecyclePolicy_Parameters struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *LifecyclePolicy_Parameters) AWSCloudFormationType() string {
-	return "AWS::DLM::LifecyclePolicy.Parameters"
+func (r *AssetModel_MetricWindow) AWSCloudFormationType() string {
+	return "AWS::IoTSiteWise::AssetModel.MetricWindow"
 }

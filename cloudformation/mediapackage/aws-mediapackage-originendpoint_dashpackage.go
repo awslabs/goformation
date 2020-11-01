@@ -11,7 +11,7 @@ type OriginEndpoint_DashPackage struct {
 	// AdTriggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
-	AdTriggers *OriginEndpoint_AdTriggers `json:"AdTriggers,omitempty"`
+	AdTriggers []string `json:"AdTriggers,omitempty"`
 
 	// AdsOnDeliveryRestrictions AWS CloudFormation Property
 	// Required: false
