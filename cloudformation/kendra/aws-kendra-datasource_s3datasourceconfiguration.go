@@ -28,6 +28,11 @@ type DataSource_S3DataSourceConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
 	ExclusionPatterns *DataSource_DataSourceInclusionsExclusionsStrings `json:"ExclusionPatterns,omitempty"`
 
+	// InclusionPatterns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
+	InclusionPatterns *DataSource_DataSourceInclusionsExclusionsStrings `json:"InclusionPatterns,omitempty"`
+
 	// InclusionPrefixes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes

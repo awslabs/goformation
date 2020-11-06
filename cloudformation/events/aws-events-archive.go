@@ -1,4 +1,4 @@
-package codeartifact
+package events
 
 import (
 	"bytes"
@@ -6,42 +6,31 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// Repository AWS CloudFormation Resource (AWS::CodeArtifact::Repository)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
-type Repository struct {
+// Archive AWS CloudFormation Resource (AWS::Events::Archive)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
+type Archive struct {
 
 	// Description AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
 	Description string `json:"Description,omitempty"`
 
-	// ExternalConnections AWS CloudFormation Property
+	// EventPattern AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
-	ExternalConnections []string `json:"ExternalConnections,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
+	EventPattern interface{} `json:"EventPattern,omitempty"`
 
-	// PermissionsPolicyDocument AWS CloudFormation Property
+	// RetentionDays AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
-	PermissionsPolicyDocument interface{} `json:"PermissionsPolicyDocument,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
+	RetentionDays int `json:"RetentionDays,omitempty"`
 
-	// RepositoryName AWS CloudFormation Property
+	// SourceArn AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
-	RepositoryName string `json:"RepositoryName,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
-
-	// Upstreams AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
-	Upstreams []string `json:"Upstreams,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
+	SourceArn string `json:"SourceArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -60,14 +49,14 @@ type Repository struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Repository) AWSCloudFormationType() string {
-	return "AWS::CodeArtifact::Repository"
+func (r *Archive) AWSCloudFormationType() string {
+	return "AWS::Events::Archive"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Repository) MarshalJSON() ([]byte, error) {
-	type Properties Repository
+func (r Archive) MarshalJSON() ([]byte, error) {
+	type Properties Archive
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -89,8 +78,8 @@ func (r Repository) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Repository) UnmarshalJSON(b []byte) error {
-	type Properties Repository
+func (r *Archive) UnmarshalJSON(b []byte) error {
+	type Properties Archive
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -111,7 +100,7 @@ func (r *Repository) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Repository(*res.Properties)
+		*r = Archive(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

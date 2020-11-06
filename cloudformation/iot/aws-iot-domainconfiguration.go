@@ -1,4 +1,4 @@
-package codeartifact
+package iot
 
 import (
 	"bytes"
@@ -6,42 +6,51 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// Repository AWS CloudFormation Resource (AWS::CodeArtifact::Repository)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
-type Repository struct {
+// DomainConfiguration AWS CloudFormation Resource (AWS::IoT::DomainConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
+type DomainConfiguration struct {
 
-	// Description AWS CloudFormation Property
+	// AuthorizerConfig AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
-	Description string `json:"Description,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
+	AuthorizerConfig *DomainConfiguration_AuthorizerConfig `json:"AuthorizerConfig,omitempty"`
 
-	// ExternalConnections AWS CloudFormation Property
+	// DomainConfigurationName AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
-	ExternalConnections []string `json:"ExternalConnections,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
+	DomainConfigurationName string `json:"DomainConfigurationName,omitempty"`
 
-	// PermissionsPolicyDocument AWS CloudFormation Property
+	// DomainConfigurationStatus AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
-	PermissionsPolicyDocument interface{} `json:"PermissionsPolicyDocument,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
+	DomainConfigurationStatus string `json:"DomainConfigurationStatus,omitempty"`
 
-	// RepositoryName AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
-	RepositoryName string `json:"RepositoryName,omitempty"`
+	// DomainName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
+	DomainName string `json:"DomainName,omitempty"`
+
+	// ServerCertificateArns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
+	ServerCertificateArns []string `json:"ServerCertificateArns,omitempty"`
+
+	// ServiceType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
+	ServiceType string `json:"ServiceType,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
+	Tags *DomainConfiguration_Tags `json:"Tags,omitempty"`
 
-	// Upstreams AWS CloudFormation Property
+	// ValidationCertificateArn AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
-	Upstreams []string `json:"Upstreams,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
+	ValidationCertificateArn string `json:"ValidationCertificateArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -60,14 +69,14 @@ type Repository struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Repository) AWSCloudFormationType() string {
-	return "AWS::CodeArtifact::Repository"
+func (r *DomainConfiguration) AWSCloudFormationType() string {
+	return "AWS::IoT::DomainConfiguration"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Repository) MarshalJSON() ([]byte, error) {
-	type Properties Repository
+func (r DomainConfiguration) MarshalJSON() ([]byte, error) {
+	type Properties DomainConfiguration
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -89,8 +98,8 @@ func (r Repository) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Repository) UnmarshalJSON(b []byte) error {
-	type Properties Repository
+func (r *DomainConfiguration) UnmarshalJSON(b []byte) error {
+	type Properties DomainConfiguration
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -111,7 +120,7 @@ func (r *Repository) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Repository(*res.Properties)
+		*r = DomainConfiguration(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

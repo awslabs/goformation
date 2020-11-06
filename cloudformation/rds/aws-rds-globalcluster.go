@@ -1,4 +1,4 @@
-package codeartifact
+package rds
 
 import (
 	"bytes"
@@ -6,42 +6,41 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// Repository AWS CloudFormation Resource (AWS::CodeArtifact::Repository)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
-type Repository struct {
+// GlobalCluster AWS CloudFormation Resource (AWS::RDS::GlobalCluster)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+type GlobalCluster struct {
 
-	// Description AWS CloudFormation Property
+	// DeletionProtection AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
-	Description string `json:"Description,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+	DeletionProtection bool `json:"DeletionProtection,omitempty"`
 
-	// ExternalConnections AWS CloudFormation Property
+	// Engine AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
-	ExternalConnections []string `json:"ExternalConnections,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+	Engine string `json:"Engine,omitempty"`
 
-	// PermissionsPolicyDocument AWS CloudFormation Property
+	// EngineVersion AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
-	PermissionsPolicyDocument interface{} `json:"PermissionsPolicyDocument,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+	EngineVersion string `json:"EngineVersion,omitempty"`
 
-	// RepositoryName AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
-	RepositoryName string `json:"RepositoryName,omitempty"`
-
-	// Tags AWS CloudFormation Property
+	// GlobalClusterIdentifier AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+	GlobalClusterIdentifier string `json:"GlobalClusterIdentifier,omitempty"`
 
-	// Upstreams AWS CloudFormation Property
+	// SourceDBClusterIdentifier AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
-	Upstreams []string `json:"Upstreams,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+	SourceDBClusterIdentifier string `json:"SourceDBClusterIdentifier,omitempty"`
+
+	// StorageEncrypted AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+	StorageEncrypted bool `json:"StorageEncrypted,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -60,14 +59,14 @@ type Repository struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Repository) AWSCloudFormationType() string {
-	return "AWS::CodeArtifact::Repository"
+func (r *GlobalCluster) AWSCloudFormationType() string {
+	return "AWS::RDS::GlobalCluster"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Repository) MarshalJSON() ([]byte, error) {
-	type Properties Repository
+func (r GlobalCluster) MarshalJSON() ([]byte, error) {
+	type Properties GlobalCluster
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -89,8 +88,8 @@ func (r Repository) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Repository) UnmarshalJSON(b []byte) error {
-	type Properties Repository
+func (r *GlobalCluster) UnmarshalJSON(b []byte) error {
+	type Properties GlobalCluster
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -111,7 +110,7 @@ func (r *Repository) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Repository(*res.Properties)
+		*r = GlobalCluster(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
