@@ -251,6 +251,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudWatch::CompositeAlarm":                             &cloudwatch.CompositeAlarm{},
 		"AWS::CloudWatch::Dashboard":                                  &cloudwatch.Dashboard{},
 		"AWS::CloudWatch::InsightRule":                                &cloudwatch.InsightRule{},
+		"AWS::CloudWatch::MetricStream":                               &cloudwatch.MetricStream{},
 		"AWS::CodeArtifact::Domain":                                   &codeartifact.Domain{},
 		"AWS::CodeArtifact::Repository":                               &codeartifact.Repository{},
 		"AWS::CodeBuild::Project":                                     &codebuild.Project{},
@@ -411,6 +412,7 @@ func AllResources() map[string]Resource {
 		"AWS::EventSchemas::Registry":                                 &eventschemas.Registry{},
 		"AWS::EventSchemas::RegistryPolicy":                           &eventschemas.RegistryPolicy{},
 		"AWS::EventSchemas::Schema":                                   &eventschemas.Schema{},
+		"AWS::Events::Archive":                                        &events.Archive{},
 		"AWS::Events::EventBus":                                       &events.EventBus{},
 		"AWS::Events::EventBusPolicy":                                 &events.EventBusPolicy{},
 		"AWS::Events::Rule":                                           &events.Rule{},
@@ -489,6 +491,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoT1Click::Project":                                     &iot1click.Project{},
 		"AWS::IoT::Authorizer":                                        &iot.Authorizer{},
 		"AWS::IoT::Certificate":                                       &iot.Certificate{},
+		"AWS::IoT::DomainConfiguration":                               &iot.DomainConfiguration{},
 		"AWS::IoT::Policy":                                            &iot.Policy{},
 		"AWS::IoT::PolicyPrincipalAttachment":                         &iot.PolicyPrincipalAttachment{},
 		"AWS::IoT::ProvisioningTemplate":                              &iot.ProvisioningTemplate{},
@@ -609,6 +612,7 @@ func AllResources() map[string]Resource {
 		"AWS::RDS::DBSecurityGroupIngress":                            &rds.DBSecurityGroupIngress{},
 		"AWS::RDS::DBSubnetGroup":                                     &rds.DBSubnetGroup{},
 		"AWS::RDS::EventSubscription":                                 &rds.EventSubscription{},
+		"AWS::RDS::GlobalCluster":                                     &rds.GlobalCluster{},
 		"AWS::RDS::OptionGroup":                                       &rds.OptionGroup{},
 		"AWS::Redshift::Cluster":                                      &redshift.Cluster{},
 		"AWS::Redshift::ClusterParameterGroup":                        &redshift.ClusterParameterGroup{},
@@ -3464,6 +3468,30 @@ func (t *Template) GetCloudWatchInsightRuleWithName(name string) (*cloudwatch.In
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cloudwatch.InsightRule not found", name)
+}
+
+// GetAllCloudWatchMetricStreamResources retrieves all cloudwatch.MetricStream items from an AWS CloudFormation template
+func (t *Template) GetAllCloudWatchMetricStreamResources() map[string]*cloudwatch.MetricStream {
+	results := map[string]*cloudwatch.MetricStream{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudwatch.MetricStream:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudWatchMetricStreamWithName retrieves all cloudwatch.MetricStream items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudWatchMetricStreamWithName(name string) (*cloudwatch.MetricStream, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudwatch.MetricStream:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudwatch.MetricStream not found", name)
 }
 
 // GetAllCodeArtifactDomainResources retrieves all codeartifact.Domain items from an AWS CloudFormation template
@@ -7306,6 +7334,30 @@ func (t *Template) GetEventSchemasSchemaWithName(name string) (*eventschemas.Sch
 	return nil, fmt.Errorf("resource %q of type eventschemas.Schema not found", name)
 }
 
+// GetAllEventsArchiveResources retrieves all events.Archive items from an AWS CloudFormation template
+func (t *Template) GetAllEventsArchiveResources() map[string]*events.Archive {
+	results := map[string]*events.Archive{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *events.Archive:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEventsArchiveWithName retrieves all events.Archive items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEventsArchiveWithName(name string) (*events.Archive, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *events.Archive:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type events.Archive not found", name)
+}
+
 // GetAllEventsEventBusResources retrieves all events.EventBus items from an AWS CloudFormation template
 func (t *Template) GetAllEventsEventBusResources() map[string]*events.EventBus {
 	results := map[string]*events.EventBus{}
@@ -9176,6 +9228,30 @@ func (t *Template) GetIoTCertificateWithName(name string) (*iot.Certificate, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iot.Certificate not found", name)
+}
+
+// GetAllIoTDomainConfigurationResources retrieves all iot.DomainConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllIoTDomainConfigurationResources() map[string]*iot.DomainConfiguration {
+	results := map[string]*iot.DomainConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.DomainConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTDomainConfigurationWithName retrieves all iot.DomainConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTDomainConfigurationWithName(name string) (*iot.DomainConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.DomainConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.DomainConfiguration not found", name)
 }
 
 // GetAllIoTPolicyResources retrieves all iot.Policy items from an AWS CloudFormation template
@@ -12056,6 +12132,30 @@ func (t *Template) GetRDSEventSubscriptionWithName(name string) (*rds.EventSubsc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type rds.EventSubscription not found", name)
+}
+
+// GetAllRDSGlobalClusterResources retrieves all rds.GlobalCluster items from an AWS CloudFormation template
+func (t *Template) GetAllRDSGlobalClusterResources() map[string]*rds.GlobalCluster {
+	results := map[string]*rds.GlobalCluster{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *rds.GlobalCluster:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRDSGlobalClusterWithName retrieves all rds.GlobalCluster items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRDSGlobalClusterWithName(name string) (*rds.GlobalCluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *rds.GlobalCluster:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type rds.GlobalCluster not found", name)
 }
 
 // GetAllRDSOptionGroupResources retrieves all rds.OptionGroup items from an AWS CloudFormation template

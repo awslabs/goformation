@@ -13156,6 +13156,27 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::Batch::JobDefinition.EvaluateOnExit": {
+            "additionalProperties": false,
+            "properties": {
+                "Action": {
+                    "type": "string"
+                },
+                "OnExitCode": {
+                    "type": "string"
+                },
+                "OnReason": {
+                    "type": "string"
+                },
+                "OnStatusReason": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Action"
+            ],
+            "type": "object"
+        },
         "AWS::Batch::JobDefinition.LinuxParameters": {
             "additionalProperties": false,
             "properties": {
@@ -13277,6 +13298,12 @@ var CloudformationSchema = `{
             "properties": {
                 "Attempts": {
                     "type": "number"
+                },
+                "EvaluateOnExit": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Batch::JobDefinition.EvaluateOnExit"
+                    },
+                    "type": "array"
                 }
             },
             "type": "object"
@@ -16835,6 +16862,105 @@ var CloudformationSchema = `{
             "properties": {},
             "type": "object"
         },
+        "AWS::CloudWatch::MetricStream": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ExcludeFilters": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::CloudWatch::MetricStream.MetricStreamFilter"
+                            },
+                            "type": "array"
+                        },
+                        "FirehoseArn": {
+                            "type": "string"
+                        },
+                        "IncludeFilters": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::CloudWatch::MetricStream.MetricStreamFilter"
+                            },
+                            "type": "array"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "RoleArn": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "FirehoseArn",
+                        "RoleArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CloudWatch::MetricStream"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudWatch::MetricStream.MetricStreamFilter": {
+            "additionalProperties": false,
+            "properties": {
+                "Namespace": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Namespace"
+            ],
+            "type": "object"
+        },
         "AWS::CodeArtifact::Domain": {
             "additionalProperties": false,
             "properties": {
@@ -16872,6 +16998,12 @@ var CloudformationSchema = `{
                         },
                         "PermissionsPolicyDocument": {
                             "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -16946,6 +17078,12 @@ var CloudformationSchema = `{
                         },
                         "RepositoryName": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         },
                         "Upstreams": {
                             "items": {
@@ -37896,6 +38034,77 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Events::Archive": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "EventPattern": {
+                            "type": "object"
+                        },
+                        "RetentionDays": {
+                            "type": "number"
+                        },
+                        "SourceArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "SourceArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Events::Archive"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::Events::EventBus": {
             "additionalProperties": false,
             "properties": {
@@ -46871,6 +47080,127 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IoT::DomainConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AuthorizerConfig": {
+                            "$ref": "#/definitions/AWS::IoT::DomainConfiguration.AuthorizerConfig"
+                        },
+                        "DomainConfigurationName": {
+                            "type": "string"
+                        },
+                        "DomainConfigurationStatus": {
+                            "type": "string"
+                        },
+                        "DomainName": {
+                            "type": "string"
+                        },
+                        "ServerCertificateArns": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "ServiceType": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "$ref": "#/definitions/AWS::IoT::DomainConfiguration.Tags"
+                        },
+                        "ValidationCertificateArn": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoT::DomainConfiguration"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::IoT::DomainConfiguration.AuthorizerConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "AllowAuthorizerOverride": {
+                    "type": "boolean"
+                },
+                "DefaultAuthorizerName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoT::DomainConfiguration.ServerCertificateSummary": {
+            "additionalProperties": false,
+            "properties": {
+                "ServerCertificateArn": {
+                    "type": "string"
+                },
+                "ServerCertificateStatus": {
+                    "type": "string"
+                },
+                "ServerCertificateStatusDetail": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoT::DomainConfiguration.Tags": {
+            "additionalProperties": false,
+            "properties": {
+                "Tags": {
+                    "items": {
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
         "AWS::IoT::Policy": {
             "additionalProperties": false,
             "properties": {
@@ -50149,10 +50479,8 @@ var CloudformationSchema = `{
                         }
                     },
                     "required": [
-                        "DataSourceConfiguration",
                         "IndexId",
                         "Name",
-                        "RoleArn",
                         "Type"
                     ],
                     "type": "object"
@@ -50458,6 +50786,9 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::Kendra::DataSource.DocumentsMetadataConfiguration"
                 },
                 "ExclusionPatterns": {
+                    "$ref": "#/definitions/AWS::Kendra::DataSource.DataSourceInclusionsExclusionsStrings"
+                },
+                "InclusionPatterns": {
                     "$ref": "#/definitions/AWS::Kendra::DataSource.DataSourceInclusionsExclusionsStrings"
                 },
                 "InclusionPrefixes": {
@@ -66597,6 +66928,79 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::RDS::GlobalCluster": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DeletionProtection": {
+                            "type": "boolean"
+                        },
+                        "Engine": {
+                            "type": "string"
+                        },
+                        "EngineVersion": {
+                            "type": "string"
+                        },
+                        "GlobalClusterIdentifier": {
+                            "type": "string"
+                        },
+                        "SourceDBClusterIdentifier": {
+                            "type": "string"
+                        },
+                        "StorageEncrypted": {
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::RDS::GlobalCluster"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
         "AWS::RDS::OptionGroup": {
             "additionalProperties": false,
             "properties": {
@@ -73674,6 +74078,9 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "BlockPublicPolicy": {
+                            "type": "boolean"
+                        },
                         "ResourcePolicy": {
                             "type": "object"
                         },
@@ -80595,6 +81002,9 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::CloudWatch::InsightRule"
                         },
                         {
+                            "$ref": "#/definitions/AWS::CloudWatch::MetricStream"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::CodeArtifact::Domain"
                         },
                         {
@@ -81075,6 +81485,9 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::EventSchemas::Schema"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Events::Archive"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Events::EventBus"
                         },
                         {
@@ -81307,6 +81720,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::IoT::Certificate"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoT::DomainConfiguration"
                         },
                         {
                             "$ref": "#/definitions/AWS::IoT::Policy"
@@ -81667,6 +82083,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::RDS::EventSubscription"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::RDS::GlobalCluster"
                         },
                         {
                             "$ref": "#/definitions/AWS::RDS::OptionGroup"

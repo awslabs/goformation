@@ -1,4 +1,4 @@
-package codeartifact
+package cloudwatch
 
 import (
 	"bytes"
@@ -9,39 +9,39 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// Repository AWS CloudFormation Resource (AWS::CodeArtifact::Repository)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
-type Repository struct {
+// MetricStream AWS CloudFormation Resource (AWS::CloudWatch::MetricStream)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+type MetricStream struct {
 
-	// Description AWS CloudFormation Property
+	// ExcludeFilters AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
-	Description string `json:"Description,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+	ExcludeFilters []MetricStream_MetricStreamFilter `json:"ExcludeFilters,omitempty"`
 
-	// ExternalConnections AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
-	ExternalConnections []string `json:"ExternalConnections,omitempty"`
-
-	// PermissionsPolicyDocument AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
-	PermissionsPolicyDocument interface{} `json:"PermissionsPolicyDocument,omitempty"`
-
-	// RepositoryName AWS CloudFormation Property
+	// FirehoseArn AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
-	RepositoryName string `json:"RepositoryName,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+	FirehoseArn string `json:"FirehoseArn,omitempty"`
+
+	// IncludeFilters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+	IncludeFilters []MetricStream_MetricStreamFilter `json:"IncludeFilters,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+	Name string `json:"Name,omitempty"`
+
+	// RoleArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+	RoleArn string `json:"RoleArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
-
-	// Upstreams AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
-	Upstreams []string `json:"Upstreams,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -60,14 +60,14 @@ type Repository struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Repository) AWSCloudFormationType() string {
-	return "AWS::CodeArtifact::Repository"
+func (r *MetricStream) AWSCloudFormationType() string {
+	return "AWS::CloudWatch::MetricStream"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Repository) MarshalJSON() ([]byte, error) {
-	type Properties Repository
+func (r MetricStream) MarshalJSON() ([]byte, error) {
+	type Properties MetricStream
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -89,8 +89,8 @@ func (r Repository) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Repository) UnmarshalJSON(b []byte) error {
-	type Properties Repository
+func (r *MetricStream) UnmarshalJSON(b []byte) error {
+	type Properties MetricStream
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -111,7 +111,7 @@ func (r *Repository) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Repository(*res.Properties)
+		*r = MetricStream(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
