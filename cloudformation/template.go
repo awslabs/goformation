@@ -13,7 +13,7 @@ import (
 // see: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 type Template struct {
 	AWSTemplateFormatVersion string                 `json:"AWSTemplateFormatVersion,omitempty"`
-	Transform                *Transform             `json:"Transform,omitempty"`
+	Transform                *Template_Transform    `json:"Transform,omitempty"`
 	Description              string                 `json:"Description,omitempty"`
 	Metadata                 map[string]interface{} `json:"Metadata,omitempty"`
 	Parameters               Parameters             `json:"Parameters,omitempty"`
@@ -22,6 +22,13 @@ type Template struct {
 	Resources                Resources              `json:"Resources,omitempty"`
 	Outputs                  Outputs                `json:"Outputs,omitempty"`
 }
+
+type Template_Transform struct {
+	String      *string
+	StringArray *[]string
+}
+
+type Parameters map[string]Parameter
 
 type Parameter struct {
 	Type                  string      `json:"Type"`
@@ -37,23 +44,23 @@ type Parameter struct {
 	NoEcho                bool        `json:"NoEcho,omitempty"`
 }
 
-type Output struct {
-	Value       interface{} `json:"Value"`
-	Description string      `json:"Description,omitempty"`
-	Export      Export      `json:"Export,omitempty"`
-}
-
-type Export struct {
-	Name string `json:"Name,omitempty"`
-}
+type Resources map[string]Resource
 
 type Resource interface {
 	AWSCloudFormationType() string
 }
 
-type Parameters map[string]Parameter
-type Resources map[string]Resource
 type Outputs map[string]Output
+
+type Output struct {
+	Value       interface{} `json:"Value"`
+	Description string      `json:"Description,omitempty"`
+	Export      *Export     `json:"Export,omitempty"`
+}
+
+type Export struct {
+	Name string `json:"Name,omitempty"`
+}
 
 func (resources *Resources) UnmarshalJSON(b []byte) error {
 	// Resources
@@ -111,13 +118,7 @@ func unmarshallResource(name string, raw_json *json.RawMessage) (Resource, error
 	return resourceStruct, nil
 }
 
-type Transform struct {
-	String *string
-
-	StringArray *[]string
-}
-
-func (t Transform) value() interface{} {
+func (t Template_Transform) value() interface{} {
 	if t.String != nil {
 		return t.String
 	}
@@ -129,11 +130,11 @@ func (t Transform) value() interface{} {
 	return nil
 }
 
-func (t *Transform) MarshalJSON() ([]byte, error) {
+func (t *Template_Transform) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.value())
 }
 
-func (t *Transform) UnmarshalJSON(b []byte) error {
+func (t *Template_Transform) UnmarshalJSON(b []byte) error {
 	var typecheck interface{}
 	if err := json.Unmarshal(b, &typecheck); err != nil {
 		return err
