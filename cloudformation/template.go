@@ -13,7 +13,7 @@ import (
 // see: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 type Template struct {
 	AWSTemplateFormatVersion string                 `json:"AWSTemplateFormatVersion,omitempty"`
-	Transform                *Template_Transform    `json:"Transform,omitempty"`
+	Transform                *TemplateTransform     `json:"Transform,omitempty"`
 	Description              string                 `json:"Description,omitempty"`
 	Metadata                 map[string]interface{} `json:"Metadata,omitempty"`
 	Parameters               Parameters             `json:"Parameters,omitempty"`
@@ -23,7 +23,7 @@ type Template struct {
 	Outputs                  Outputs                `json:"Outputs,omitempty"`
 }
 
-type Template_Transform struct {
+type TemplateTransform struct {
 	String      *string
 	StringArray *[]string
 }
@@ -118,7 +118,7 @@ func unmarshallResource(name string, raw_json *json.RawMessage) (Resource, error
 	return resourceStruct, nil
 }
 
-func (t Template_Transform) value() interface{} {
+func (t TemplateTransform) value() interface{} {
 	if t.String != nil {
 		return t.String
 	}
@@ -130,11 +130,11 @@ func (t Template_Transform) value() interface{} {
 	return nil
 }
 
-func (t *Template_Transform) MarshalJSON() ([]byte, error) {
+func (t *TemplateTransform) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.value())
 }
 
-func (t *Template_Transform) UnmarshalJSON(b []byte) error {
+func (t *TemplateTransform) UnmarshalJSON(b []byte) error {
 	var typecheck interface{}
 	if err := json.Unmarshal(b, &typecheck); err != nil {
 		return err
