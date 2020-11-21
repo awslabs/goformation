@@ -17,6 +17,11 @@ type GitHubRepository struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-code
 	Code *GitHubRepository_Code `json:"Code,omitempty"`
 
+	// ConnectionArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+	ConnectionArn string `json:"ConnectionArn,omitempty"`
+
 	// EnableIssues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
@@ -28,7 +33,7 @@ type GitHubRepository struct {
 	IsPrivate bool `json:"IsPrivate,omitempty"`
 
 	// RepositoryAccessToken AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
 	RepositoryAccessToken string `json:"RepositoryAccessToken,omitempty"`
 

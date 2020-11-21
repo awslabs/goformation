@@ -13,11 +13,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
 type MonitoringSchedule struct {
 
-	// CreationTime AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-creationtime
-	CreationTime string `json:"CreationTime,omitempty"`
-
 	// EndpointName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
@@ -27,11 +22,6 @@ type MonitoringSchedule struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
 	FailureReason string `json:"FailureReason,omitempty"`
-
-	// LastModifiedTime AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmodifiedtime
-	LastModifiedTime string `json:"LastModifiedTime,omitempty"`
 
 	// LastMonitoringExecutionSummary AWS CloudFormation Property
 	// Required: false

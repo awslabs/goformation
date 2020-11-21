@@ -9,7 +9,7 @@ import (
 type Connection_ConnectionInput struct {
 
 	// ConnectionProperties AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
 	ConnectionProperties interface{} `json:"ConnectionProperties,omitempty"`
 
