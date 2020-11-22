@@ -8,6 +8,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html
 type LaunchTemplate_NetworkInterface struct {
 
+	// AssociateCarrierIpAddress AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+	AssociateCarrierIpAddress bool `json:"AssociateCarrierIpAddress,omitempty"`
+
 	// AssociatePublicIpAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
@@ -47,6 +52,11 @@ type LaunchTemplate_NetworkInterface struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
 	Ipv6Addresses []LaunchTemplate_Ipv6Add `json:"Ipv6Addresses,omitempty"`
+
+	// NetworkCardIndex AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+	NetworkCardIndex int `json:"NetworkCardIndex,omitempty"`
 
 	// NetworkInterfaceId AWS CloudFormation Property
 	// Required: false

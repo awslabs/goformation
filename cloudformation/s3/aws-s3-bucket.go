@@ -43,6 +43,11 @@ type Bucket struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
 	CorsConfiguration *Bucket_CorsConfiguration `json:"CorsConfiguration,omitempty"`
 
+	// IntelligentTieringConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+	IntelligentTieringConfigurations []Bucket_IntelligentTieringConfiguration `json:"IntelligentTieringConfigurations,omitempty"`
+
 	// InventoryConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
@@ -77,6 +82,11 @@ type Bucket struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled
 	ObjectLockEnabled bool `json:"ObjectLockEnabled,omitempty"`
+
+	// OwnershipControls AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+	OwnershipControls *Bucket_OwnershipControls `json:"OwnershipControls,omitempty"`
 
 	// PublicAccessBlockConfiguration AWS CloudFormation Property
 	// Required: false

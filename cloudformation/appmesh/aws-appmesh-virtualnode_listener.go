@@ -8,10 +8,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html
 type VirtualNode_Listener struct {
 
+	// ConnectionPool AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+	ConnectionPool *VirtualNode_VirtualNodeConnectionPool `json:"ConnectionPool,omitempty"`
+
 	// HealthCheck AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
 	HealthCheck *VirtualNode_HealthCheck `json:"HealthCheck,omitempty"`
+
+	// OutlierDetection AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+	OutlierDetection *VirtualNode_OutlierDetection `json:"OutlierDetection,omitempty"`
 
 	// PortMapping AWS CloudFormation Property
 	// Required: true
