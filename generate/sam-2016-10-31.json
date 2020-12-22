@@ -157,6 +157,12 @@
                     "Required": false,
                     "PrimitiveType": "Integer",
                     "UpdateType": "Immutable"
+                },
+                "ProvisionedConcurrencyConfig": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
+                    "Required": false,
+                    "Type": "ProvisionedConcurrencyConfig",
+                    "UpdateType": "Immutable"
                 }
             }
         },
@@ -1322,6 +1328,17 @@
                 },
                 "Value": {
                     "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.ProvisionedConcurrencyConfig": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#provisioned-concurrency-config-object",
+            "Properties": {
+                "ProvisionedConcurrentExecutions": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#provisioned-concurrency-config-object",
                     "Required": true,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
