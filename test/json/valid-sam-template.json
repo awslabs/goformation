@@ -8,7 +8,10 @@
       "Properties": {
         "Handler": "index.handler",
         "CodeUri": "s3://testBucket/mySourceCode.zip",
-        "Runtime": "nodejs10.x"
+        "Runtime": "nodejs10.x",
+        "ProvisionedConcurrencyConfig":{
+          "ProvisionedConcurrentExecutions": "1"
+        }
       }
     },
     "MySNSTopic" : {
