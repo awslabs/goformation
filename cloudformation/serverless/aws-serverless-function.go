@@ -87,6 +87,11 @@ type Function struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Policies *Function_Policies `json:"Policies,omitempty"`
 
+	// ProvisionedConcurrencyConfig AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	ProvisionedConcurrencyConfig *Function_ProvisionedConcurrencyConfig `json:"ProvisionedConcurrencyConfig,omitempty"`
+
 	// ReservedConcurrentExecutions AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction

@@ -39,12 +39,12 @@ type ComputeEnvironment_ComputeResources struct {
 	ImageId string `json:"ImageId,omitempty"`
 
 	// InstanceRole AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole
 	InstanceRole string `json:"InstanceRole,omitempty"`
 
 	// InstanceTypes AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes
 	InstanceTypes []string `json:"InstanceTypes,omitempty"`
 
@@ -59,9 +59,9 @@ type ComputeEnvironment_ComputeResources struct {
 	MaxvCpus int `json:"MaxvCpus"`
 
 	// MinvCpus AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
-	MinvCpus int `json:"MinvCpus"`
+	MinvCpus int `json:"MinvCpus,omitempty"`
 
 	// PlacementGroup AWS CloudFormation Property
 	// Required: false

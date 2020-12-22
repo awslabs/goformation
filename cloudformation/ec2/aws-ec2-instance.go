@@ -63,6 +63,11 @@ type Instance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
 	ElasticInferenceAccelerators []Instance_ElasticInferenceAccelerator `json:"ElasticInferenceAccelerators,omitempty"`
 
+	// EnclaveOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+	EnclaveOptions *Instance_EnclaveOptions `json:"EnclaveOptions,omitempty"`
+
 	// HibernationOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
