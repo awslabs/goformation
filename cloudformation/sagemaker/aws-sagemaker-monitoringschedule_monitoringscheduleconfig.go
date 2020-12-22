@@ -9,9 +9,19 @@ import (
 type MonitoringSchedule_MonitoringScheduleConfig struct {
 
 	// MonitoringJobDefinition AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
 	MonitoringJobDefinition *MonitoringSchedule_MonitoringJobDefinition `json:"MonitoringJobDefinition,omitempty"`
+
+	// MonitoringJobDefinitionName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
+	MonitoringJobDefinitionName string `json:"MonitoringJobDefinitionName,omitempty"`
+
+	// MonitoringType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
+	MonitoringType string `json:"MonitoringType,omitempty"`
 
 	// ScheduleConfig AWS CloudFormation Property
 	// Required: false

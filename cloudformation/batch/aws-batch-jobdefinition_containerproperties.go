@@ -23,6 +23,11 @@ type JobDefinition_ContainerProperties struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn
 	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
 
+	// FargatePlatformConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
+	FargatePlatformConfiguration *JobDefinition_FargatePlatformConfiguration `json:"FargatePlatformConfiguration,omitempty"`
+
 	// Image AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
@@ -57,6 +62,11 @@ type JobDefinition_ContainerProperties struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
 	MountPoints []JobDefinition_MountPoints `json:"MountPoints,omitempty"`
+
+	// NetworkConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration
+	NetworkConfiguration *JobDefinition_NetworkConfiguration `json:"NetworkConfiguration,omitempty"`
 
 	// Privileged AWS CloudFormation Property
 	// Required: false

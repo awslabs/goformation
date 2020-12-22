@@ -33,7 +33,7 @@ type EventSourceMapping struct {
 	Enabled bool `json:"Enabled,omitempty"`
 
 	// EventSourceArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
 	EventSourceArn string `json:"EventSourceArn,omitempty"`
 
@@ -41,6 +41,11 @@ type EventSourceMapping struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
 	FunctionName string `json:"FunctionName,omitempty"`
+
+	// FunctionResponseTypes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+	FunctionResponseTypes []string `json:"FunctionResponseTypes,omitempty"`
 
 	// MaximumBatchingWindowInSeconds AWS CloudFormation Property
 	// Required: false
@@ -71,6 +76,11 @@ type EventSourceMapping struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
 	Queues []string `json:"Queues,omitempty"`
+
+	// SelfManagedEventSource AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+	SelfManagedEventSource *EventSourceMapping_SelfManagedEventSource `json:"SelfManagedEventSource,omitempty"`
 
 	// SourceAccessConfigurations AWS CloudFormation Property
 	// Required: false

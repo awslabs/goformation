@@ -28,6 +28,11 @@ type SpotFleet_SpotFleetRequestConfigData struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instanceinterruptionbehavior
 	InstanceInterruptionBehavior string `json:"InstanceInterruptionBehavior,omitempty"`
 
+	// InstancePoolsToUseCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+	InstancePoolsToUseCount int `json:"InstancePoolsToUseCount,omitempty"`
+
 	// LaunchSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
@@ -43,10 +48,35 @@ type SpotFleet_SpotFleetRequestConfigData struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-loadbalancersconfig
 	LoadBalancersConfig *SpotFleet_LoadBalancersConfig `json:"LoadBalancersConfig,omitempty"`
 
+	// OnDemandAllocationStrategy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+	OnDemandAllocationStrategy string `json:"OnDemandAllocationStrategy,omitempty"`
+
+	// OnDemandMaxTotalPrice AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+	OnDemandMaxTotalPrice string `json:"OnDemandMaxTotalPrice,omitempty"`
+
+	// OnDemandTargetCapacity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+	OnDemandTargetCapacity int `json:"OnDemandTargetCapacity,omitempty"`
+
 	// ReplaceUnhealthyInstances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
 	ReplaceUnhealthyInstances bool `json:"ReplaceUnhealthyInstances,omitempty"`
+
+	// SpotMaintenanceStrategies AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+	SpotMaintenanceStrategies *SpotFleet_SpotMaintenanceStrategies `json:"SpotMaintenanceStrategies,omitempty"`
+
+	// SpotMaxTotalPrice AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+	SpotMaxTotalPrice string `json:"SpotMaxTotalPrice,omitempty"`
 
 	// SpotPrice AWS CloudFormation Property
 	// Required: false

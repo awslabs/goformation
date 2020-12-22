@@ -49,7 +49,7 @@ type StackSet struct {
 	Parameters []StackSet_Parameter `json:"Parameters,omitempty"`
 
 	// PermissionModel AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
 	PermissionModel string `json:"PermissionModel,omitempty"`
 
@@ -59,7 +59,7 @@ type StackSet struct {
 	StackInstancesGroup []StackSet_StackInstances `json:"StackInstancesGroup,omitempty"`
 
 	// StackSetName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
 	StackSetName string `json:"StackSetName,omitempty"`
 
