@@ -20,7 +20,7 @@ type LayerVersion struct {
 	// ContentUri AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
-	ContentUri string `json:"ContentUri,omitempty"`
+	ContentUri *LayerVersion_ContentUri `json:"ContentUri,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
