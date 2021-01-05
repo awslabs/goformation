@@ -85179,7 +85179,16 @@ var SamSchema = `{
                             "type": "array"
                         },
                         "ContentUri": {
-                            "type": "string"
+                            "anyOf": [
+                                {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/definitions/AWS::Serverless::LayerVersion.S3Location"
+                                }
+                            ]
                         },
                         "Description": {
                             "type": "string"
@@ -85213,6 +85222,25 @@ var SamSchema = `{
             },
             "required": [
                 "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Serverless::LayerVersion.S3Location": {
+            "additionalProperties": false,
+            "properties": {
+                "Bucket": {
+                    "type": "string"
+                },
+                "Key": {
+                    "type": "string"
+                },
+                "Version": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Bucket",
+                "Key"
             ],
             "type": "object"
         },
