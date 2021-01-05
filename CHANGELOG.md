@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [4.15.7](https://github.com/awslabs/goformation/compare/v4.15.6...v4.15.7) (2021-01-05)
+
+
+### Bug Fixes
+
+* **schema:** S3Location or String support for AWS::Serverless::LayerVersion.ContentUri ([#339](https://github.com/awslabs/goformation/issues/339)) ([6e39ebe](https://github.com/awslabs/goformation/commit/6e39ebe6e598e68f366b61b721e1ada2bdf268af)), closes [#337](https://github.com/awslabs/goformation/issues/337)
+
 ## [4.15.6](https://github.com/awslabs/goformation/compare/v4.15.5...v4.15.6) (2020-11-22)
 
 
