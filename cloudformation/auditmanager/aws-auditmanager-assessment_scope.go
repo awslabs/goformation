@@ -8,15 +8,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
 type Assessment_Scope struct {
 
-	// awsAccounts AWS CloudFormation Property
+	// AwsAccounts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-	awsAccounts *Assessment_AWSAccounts `json:"awsAccounts,omitempty"`
+	AwsAccounts []Assessment_AWSAccount `json:"AwsAccounts,omitempty"`
 
-	// awsServices AWS CloudFormation Property
+	// AwsServices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
-	awsServices *Assessment_AWSServices `json:"awsServices,omitempty"`
+	AwsServices []Assessment_AWSService `json:"AwsServices,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

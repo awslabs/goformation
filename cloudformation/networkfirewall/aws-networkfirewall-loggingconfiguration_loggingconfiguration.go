@@ -11,7 +11,7 @@ type LoggingConfiguration_LoggingConfiguration struct {
 	// LogDestinationConfigs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
-	LogDestinationConfigs *LoggingConfiguration_LogDestinationConfigs `json:"LogDestinationConfigs,omitempty"`
+	LogDestinationConfigs []LoggingConfiguration_LogDestinationConfig `json:"LogDestinationConfigs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

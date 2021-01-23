@@ -9,12 +9,12 @@ import (
 type WirelessDevice_SessionKeysAbpV10X struct {
 
 	// AppSKey AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey
 	AppSKey string `json:"AppSKey,omitempty"`
 
 	// NwkSKey AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey
 	NwkSKey string `json:"NwkSKey,omitempty"`
 

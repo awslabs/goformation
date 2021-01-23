@@ -21,7 +21,7 @@ type PermissionSet struct {
 	// InlinePolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
-	InlinePolicy string `json:"InlinePolicy,omitempty"`
+	InlinePolicy interface{} `json:"InlinePolicy,omitempty"`
 
 	// InstanceArn AWS CloudFormation Property
 	// Required: true

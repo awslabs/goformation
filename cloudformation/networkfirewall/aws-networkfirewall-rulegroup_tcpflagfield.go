@@ -11,12 +11,12 @@ type RuleGroup_TCPFlagField struct {
 	// Flags AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
-	Flags *RuleGroup_Flags `json:"Flags,omitempty"`
+	Flags []string `json:"Flags,omitempty"`
 
 	// Masks AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
-	Masks *RuleGroup_Flags `json:"Masks,omitempty"`
+	Masks []string `json:"Masks,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

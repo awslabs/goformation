@@ -9,12 +9,12 @@ import (
 type WirelessGateway_LoRaWANGateway struct {
 
 	// GatewayEui AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
 	GatewayEui string `json:"GatewayEui,omitempty"`
 
 	// RfRegion AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
 	RfRegion string `json:"RfRegion,omitempty"`
 

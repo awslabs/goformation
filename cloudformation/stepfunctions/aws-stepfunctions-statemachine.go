@@ -25,7 +25,7 @@ type StateMachine struct {
 	// DefinitionSubstitutions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions *StateMachine_DefinitionSubstitutions `json:"DefinitionSubstitutions,omitempty"`
+	DefinitionSubstitutions map[string]string `json:"DefinitionSubstitutions,omitempty"`
 
 	// LoggingConfiguration AWS CloudFormation Property
 	// Required: false

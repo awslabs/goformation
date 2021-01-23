@@ -9,12 +9,12 @@ import (
 type WirelessDevice_OtaaV10X struct {
 
 	// AppEui AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
 	AppEui string `json:"AppEui,omitempty"`
 
 	// AppKey AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
 	AppKey string `json:"AppKey,omitempty"`
 

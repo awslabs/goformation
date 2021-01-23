@@ -6,56 +6,57 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // Assessment AWS CloudFormation Resource (AWS::AuditManager::Assessment)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
 type Assessment struct {
 
-	// assessmentReportsDestination AWS CloudFormation Property
+	// AssessmentReportsDestination AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
-	assessmentReportsDestination *Assessment_AssessmentReportsDestination `json:"assessmentReportsDestination,omitempty"`
+	AssessmentReportsDestination *Assessment_AssessmentReportsDestination `json:"AssessmentReportsDestination,omitempty"`
 
-	// awsAccount AWS CloudFormation Property
+	// AwsAccount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-	awsAccount *Assessment_AWSAccount `json:"awsAccount,omitempty"`
+	AwsAccount *Assessment_AWSAccount `json:"AwsAccount,omitempty"`
 
-	// description AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-	description string `json:"description,omitempty"`
+	Description string `json:"Description,omitempty"`
 
-	// frameworkId AWS CloudFormation Property
+	// FrameworkId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-	frameworkId string `json:"frameworkId,omitempty"`
+	FrameworkId string `json:"FrameworkId,omitempty"`
 
-	// name AWS CloudFormation Property
+	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-	name string `json:"name,omitempty"`
+	Name string `json:"Name,omitempty"`
 
-	// roles AWS CloudFormation Property
+	// Roles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-	roles *Assessment_Roles `json:"roles,omitempty"`
+	Roles []Assessment_Role `json:"Roles,omitempty"`
 
-	// scope AWS CloudFormation Property
+	// Scope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-	scope *Assessment_Scope `json:"scope,omitempty"`
+	Scope *Assessment_Scope `json:"Scope,omitempty"`
 
-	// status AWS CloudFormation Property
+	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-	status string `json:"status,omitempty"`
+	Status string `json:"Status,omitempty"`
 
-	// tags AWS CloudFormation Property
+	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-	tags *Assessment_Tags `json:"tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

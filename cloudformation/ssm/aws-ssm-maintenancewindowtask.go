@@ -23,12 +23,12 @@ type MaintenanceWindowTask struct {
 	LoggingInfo *MaintenanceWindowTask_LoggingInfo `json:"LoggingInfo,omitempty"`
 
 	// MaxConcurrency AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxconcurrency
 	MaxConcurrency string `json:"MaxConcurrency,omitempty"`
 
 	// MaxErrors AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxerrors
 	MaxErrors string `json:"MaxErrors,omitempty"`
 
@@ -48,7 +48,7 @@ type MaintenanceWindowTask struct {
 	ServiceRoleArn string `json:"ServiceRoleArn,omitempty"`
 
 	// Targets AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-targets
 	Targets []MaintenanceWindowTask_Target `json:"Targets,omitempty"`
 
