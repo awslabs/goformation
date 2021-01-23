@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // Authorizer AWS CloudFormation Resource (AWS::IoT::Authorizer)
@@ -35,7 +36,7 @@ type Authorizer struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags *Authorizer_Tags `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TokenKeyName AWS CloudFormation Property
 	// Required: false
@@ -45,7 +46,7 @@ type Authorizer struct {
 	// TokenSigningPublicKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys *Authorizer_TokenSigningPublicKeys `json:"TokenSigningPublicKeys,omitempty"`
+	TokenSigningPublicKeys map[string]string `json:"TokenSigningPublicKeys,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type FirewallPolicy_PublishMetricAction struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
-	Dimensions *FirewallPolicy_Dimensions `json:"Dimensions,omitempty"`
+	Dimensions []FirewallPolicy_Dimension `json:"Dimensions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

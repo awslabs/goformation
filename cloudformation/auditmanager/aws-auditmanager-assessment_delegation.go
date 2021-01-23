@@ -8,60 +8,60 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
 type Assessment_Delegation struct {
 
-	// assessmentId AWS CloudFormation Property
+	// AssessmentId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentid
-	assessmentId string `json:"assessmentId,omitempty"`
+	AssessmentId string `json:"AssessmentId,omitempty"`
 
-	// assessmentName AWS CloudFormation Property
+	// AssessmentName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentname
-	assessmentName string `json:"assessmentName,omitempty"`
+	AssessmentName string `json:"AssessmentName,omitempty"`
 
-	// comment AWS CloudFormation Property
+	// Comment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-comment
-	comment string `json:"comment,omitempty"`
+	Comment string `json:"Comment,omitempty"`
 
-	// controlSetId AWS CloudFormation Property
+	// ControlSetId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-controlsetid
-	controlSetId string `json:"controlSetId,omitempty"`
+	ControlSetId string `json:"ControlSetId,omitempty"`
 
-	// createdBy AWS CloudFormation Property
+	// CreatedBy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-createdby
-	createdBy string `json:"createdBy,omitempty"`
+	CreatedBy string `json:"CreatedBy,omitempty"`
 
-	// creationTime AWS CloudFormation Property
+	// CreationTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-creationtime
-	creationTime float64 `json:"creationTime,omitempty"`
+	CreationTime float64 `json:"CreationTime,omitempty"`
 
-	// id AWS CloudFormation Property
+	// Id AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-id
-	id string `json:"id,omitempty"`
+	Id string `json:"Id,omitempty"`
 
-	// lastUpdated AWS CloudFormation Property
+	// LastUpdated AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-lastupdated
-	lastUpdated float64 `json:"lastUpdated,omitempty"`
+	LastUpdated float64 `json:"LastUpdated,omitempty"`
 
-	// roleArn AWS CloudFormation Property
+	// RoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-rolearn
-	roleArn string `json:"roleArn,omitempty"`
+	RoleArn string `json:"RoleArn,omitempty"`
 
-	// roleType AWS CloudFormation Property
+	// RoleType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-roletype
-	roleType string `json:"roleType,omitempty"`
+	RoleType string `json:"RoleType,omitempty"`
 
-	// status AWS CloudFormation Property
+	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-status
-	status string `json:"status,omitempty"`
+	Status string `json:"Status,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

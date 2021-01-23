@@ -68,6 +68,11 @@ type Channel_HlsGroupSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html#cfn-medialive-channel-hlsgroupsettings-directorystructure
 	DirectoryStructure string `json:"DirectoryStructure,omitempty"`
 
+	// DiscontinuityTags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html#cfn-medialive-channel-hlsgroupsettings-discontinuitytags
+	DiscontinuityTags string `json:"DiscontinuityTags,omitempty"`
+
 	// EncryptionType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html#cfn-medialive-channel-hlsgroupsettings-encryptiontype
@@ -87,6 +92,11 @@ type Channel_HlsGroupSettings struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html#cfn-medialive-channel-hlsgroupsettings-iframeonlyplaylists
 	IFrameOnlyPlaylists string `json:"IFrameOnlyPlaylists,omitempty"`
+
+	// IncompleteSegmentBehavior AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html#cfn-medialive-channel-hlsgroupsettings-incompletesegmentbehavior
+	IncompleteSegmentBehavior string `json:"IncompleteSegmentBehavior,omitempty"`
 
 	// IndexNSegments AWS CloudFormation Property
 	// Required: false

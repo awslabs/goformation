@@ -21,7 +21,7 @@ type RuleGroup_StatefulRule struct {
 	// RuleOptions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
-	RuleOptions *RuleGroup_RuleOptions `json:"RuleOptions,omitempty"`
+	RuleOptions []RuleGroup_RuleOption `json:"RuleOptions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

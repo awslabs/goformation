@@ -18,6 +18,11 @@ type DataSource_DataSourceConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
 	DatabaseConfiguration *DataSource_DatabaseConfiguration `json:"DatabaseConfiguration,omitempty"`
 
+	// GoogleDriveConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+	GoogleDriveConfiguration *DataSource_GoogleDriveConfiguration `json:"GoogleDriveConfiguration,omitempty"`
+
 	// OneDriveConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration

@@ -12,8 +12,13 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
 type InstanceAccessControlAttributeConfiguration struct {
 
+	// AccessControlAttributes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
+	AccessControlAttributes []InstanceAccessControlAttributeConfiguration_AccessControlAttribute `json:"AccessControlAttributes,omitempty"`
+
 	// InstanceAccessControlAttributeConfiguration AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
 	InstanceAccessControlAttributeConfiguration interface{} `json:"InstanceAccessControlAttributeConfiguration,omitempty"`
 

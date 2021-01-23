@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // LocalGatewayRouteTableVPCAssociation AWS CloudFormation Resource (AWS::EC2::LocalGatewayRouteTableVPCAssociation)
@@ -20,7 +21,7 @@ type LocalGatewayRouteTableVPCAssociation struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
-	Tags *LocalGatewayRouteTableVPCAssociation_Tags `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: true

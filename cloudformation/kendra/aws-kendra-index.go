@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // Index AWS CloudFormation Resource (AWS::Kendra::Index)
@@ -25,7 +26,7 @@ type Index struct {
 	// DocumentMetadataConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-	DocumentMetadataConfigurations *Index_DocumentMetadataConfigurationList `json:"DocumentMetadataConfigurations,omitempty"`
+	DocumentMetadataConfigurations []Index_DocumentMetadataConfiguration `json:"DocumentMetadataConfigurations,omitempty"`
 
 	// Edition AWS CloudFormation Property
 	// Required: true
@@ -50,7 +51,7 @@ type Index struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-	Tags *Index_TagList `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UserContextPolicy AWS CloudFormation Property
 	// Required: false
@@ -60,7 +61,7 @@ type Index struct {
 	// UserTokenConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-	UserTokenConfigurations *Index_UserTokenConfigurationList `json:"UserTokenConfigurations,omitempty"`
+	UserTokenConfigurations []Index_UserTokenConfiguration `json:"UserTokenConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

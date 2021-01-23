@@ -31,7 +31,7 @@ type ListenerRule_AuthenticateCognitoConfig struct {
 	// SessionTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-sessiontimeout
-	SessionTimeout int64 `json:"SessionTimeout,omitempty"`
+	SessionTimeout int `json:"SessionTimeout,omitempty"`
 
 	// UserPoolArn AWS CloudFormation Property
 	// Required: true

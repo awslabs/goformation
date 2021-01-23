@@ -9,12 +9,12 @@ import (
 type WirelessDevice_AbpV11 struct {
 
 	// DevAddr AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
 	DevAddr string `json:"DevAddr,omitempty"`
 
 	// SessionKeys AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
 	SessionKeys *WirelessDevice_SessionKeysAbpV11 `json:"SessionKeys,omitempty"`
 

@@ -16,7 +16,7 @@ type RuleGroup_RulesSourceList struct {
 	// TargetTypes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
-	TargetTypes *RuleGroup_TargetTypes `json:"TargetTypes,omitempty"`
+	TargetTypes []string `json:"TargetTypes,omitempty"`
 
 	// Targets AWS CloudFormation Property
 	// Required: true

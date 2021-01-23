@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
 // DomainConfiguration AWS CloudFormation Resource (AWS::IoT::DomainConfiguration)
@@ -45,7 +46,7 @@ type DomainConfiguration struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
-	Tags *DomainConfiguration_Tags `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// ValidationCertificateArn AWS CloudFormation Property
 	// Required: false

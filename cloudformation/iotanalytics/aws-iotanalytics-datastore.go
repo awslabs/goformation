@@ -23,6 +23,11 @@ type Datastore struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorestorage
 	DatastoreStorage *Datastore_DatastoreStorage `json:"DatastoreStorage,omitempty"`
 
+	// FileFormatConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-fileformatconfiguration
+	FileFormatConfiguration *Datastore_FileFormatConfiguration `json:"FileFormatConfiguration,omitempty"`
+
 	// RetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-retentionperiod
