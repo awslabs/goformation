@@ -1,4 +1,4 @@
-package sso
+package lookoutvision
 
 import (
 	"bytes"
@@ -8,19 +8,14 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// InstanceAccessControlAttributeConfiguration AWS CloudFormation Resource (AWS::SSO::InstanceAccessControlAttributeConfiguration)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
-type InstanceAccessControlAttributeConfiguration struct {
+// Project AWS CloudFormation Resource (AWS::LookoutVision::Project)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html
+type Project struct {
 
-	// AccessControlAttributes AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-	AccessControlAttributes []InstanceAccessControlAttributeConfiguration_AccessControlAttribute `json:"AccessControlAttributes,omitempty"`
-
-	// InstanceArn AWS CloudFormation Property
+	// ProjectName AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
-	InstanceArn string `json:"InstanceArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html#cfn-lookoutvision-project-projectname
+	ProjectName string `json:"ProjectName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -39,14 +34,14 @@ type InstanceAccessControlAttributeConfiguration struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *InstanceAccessControlAttributeConfiguration) AWSCloudFormationType() string {
-	return "AWS::SSO::InstanceAccessControlAttributeConfiguration"
+func (r *Project) AWSCloudFormationType() string {
+	return "AWS::LookoutVision::Project"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r InstanceAccessControlAttributeConfiguration) MarshalJSON() ([]byte, error) {
-	type Properties InstanceAccessControlAttributeConfiguration
+func (r Project) MarshalJSON() ([]byte, error) {
+	type Properties Project
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -68,8 +63,8 @@ func (r InstanceAccessControlAttributeConfiguration) MarshalJSON() ([]byte, erro
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *InstanceAccessControlAttributeConfiguration) UnmarshalJSON(b []byte) error {
-	type Properties InstanceAccessControlAttributeConfiguration
+func (r *Project) UnmarshalJSON(b []byte) error {
+	type Properties Project
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -90,7 +85,7 @@ func (r *InstanceAccessControlAttributeConfiguration) UnmarshalJSON(b []byte) er
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = InstanceAccessControlAttributeConfiguration(*res.Properties)
+		*r = Project(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
