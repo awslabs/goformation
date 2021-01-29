@@ -98,6 +98,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/lambda"
 	"github.com/awslabs/goformation/v4/cloudformation/licensemanager"
 	"github.com/awslabs/goformation/v4/cloudformation/logs"
+	"github.com/awslabs/goformation/v4/cloudformation/lookoutvision"
 	"github.com/awslabs/goformation/v4/cloudformation/macie"
 	"github.com/awslabs/goformation/v4/cloudformation/managedblockchain"
 	"github.com/awslabs/goformation/v4/cloudformation/mediaconnect"
@@ -598,6 +599,7 @@ func AllResources() map[string]Resource {
 		"AWS::Logs::LogStream":                                        &logs.LogStream{},
 		"AWS::Logs::MetricFilter":                                     &logs.MetricFilter{},
 		"AWS::Logs::SubscriptionFilter":                               &logs.SubscriptionFilter{},
+		"AWS::LookoutVision::Project":                                 &lookoutvision.Project{},
 		"AWS::MSK::Cluster":                                           &msk.Cluster{},
 		"AWS::MWAA::Environment":                                      &mwaa.Environment{},
 		"AWS::Macie::CustomDataIdentifier":                            &macie.CustomDataIdentifier{},
@@ -11554,6 +11556,30 @@ func (t *Template) GetLogsSubscriptionFilterWithName(name string) (*logs.Subscri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type logs.SubscriptionFilter not found", name)
+}
+
+// GetAllLookoutVisionProjectResources retrieves all lookoutvision.Project items from an AWS CloudFormation template
+func (t *Template) GetAllLookoutVisionProjectResources() map[string]*lookoutvision.Project {
+	results := map[string]*lookoutvision.Project{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lookoutvision.Project:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLookoutVisionProjectWithName retrieves all lookoutvision.Project items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLookoutVisionProjectWithName(name string) (*lookoutvision.Project, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lookoutvision.Project:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lookoutvision.Project not found", name)
 }
 
 // GetAllMSKClusterResources retrieves all msk.Cluster items from an AWS CloudFormation template

@@ -28,6 +28,11 @@ type Model struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
 	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
 
+	// InferenceExecutionConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-inferenceexecutionconfig
+	InferenceExecutionConfig *Model_InferenceExecutionConfig `json:"InferenceExecutionConfig,omitempty"`
+
 	// ModelName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname

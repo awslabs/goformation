@@ -1208,6 +1208,9 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AuthenticationStrategy": {
+                            "type": "string"
+                        },
                         "Data": {
                             "type": "string"
                         },
@@ -5067,6 +5070,9 @@ var CloudformationSchema = `{
                         "AccessLogSettings": {
                             "$ref": "#/definitions/AWS::ApiGatewayV2::Stage.AccessLogSettings"
                         },
+                        "AccessPolicyId": {
+                            "type": "string"
+                        },
                         "ApiId": {
                             "type": "string"
                         },
@@ -6711,6 +6717,18 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppFlow::Flow.IdFieldNamesList": {
+            "additionalProperties": false,
+            "properties": {
+                "IdFieldNamesList": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppFlow::Flow.IncrementalPullConfig": {
             "additionalProperties": false,
             "properties": {
@@ -6833,7 +6851,13 @@ var CloudformationSchema = `{
                 "ErrorHandlingConfig": {
                     "$ref": "#/definitions/AWS::AppFlow::Flow.ErrorHandlingConfig"
                 },
+                "IdFieldNames": {
+                    "$ref": "#/definitions/AWS::AppFlow::Flow.IdFieldNamesList"
+                },
                 "Object": {
+                    "type": "string"
+                },
+                "WriteOperationType": {
                     "type": "string"
                 }
             },
@@ -35374,6 +35398,9 @@ var CloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "Configuration": {
+                            "$ref": "#/definitions/AWS::ECS::Cluster.ClusterConfiguration"
+                        },
                         "DefaultCapacityProviderStrategy": {
                             "items": {
                                 "$ref": "#/definitions/AWS::ECS::Cluster.CapacityProviderStrategyItem"
@@ -35424,6 +35451,15 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::ECS::Cluster.ClusterConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ExecuteCommandConfiguration": {
+                    "$ref": "#/definitions/AWS::ECS::Cluster.ExecuteCommandConfiguration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::ECS::Cluster.ClusterSettings": {
             "additionalProperties": false,
             "properties": {
@@ -35431,6 +35467,42 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "Value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ECS::Cluster.ExecuteCommandConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "KmsKeyId": {
+                    "type": "string"
+                },
+                "LogConfiguration": {
+                    "$ref": "#/definitions/AWS::ECS::Cluster.ExecuteCommandLogConfiguration"
+                },
+                "Logging": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ECS::Cluster.ExecuteCommandLogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "CloudWatchEncryptionEnabled": {
+                    "type": "boolean"
+                },
+                "CloudWatchLogGroupName": {
+                    "type": "string"
+                },
+                "S3BucketName": {
+                    "type": "string"
+                },
+                "S3EncryptionEnabled": {
+                    "type": "boolean"
+                },
+                "S3KeyPrefix": {
                     "type": "string"
                 }
             },
@@ -62580,6 +62652,68 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::LookoutVision::Project": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ProjectName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ProjectName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::LookoutVision::Project"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::MSK::Cluster": {
             "additionalProperties": false,
             "properties": {
@@ -79678,13 +79812,7 @@ var CloudformationSchema = `{
                         "Name": {
                             "type": "string"
                         },
-                        "NetworkOrigin": {
-                            "type": "string"
-                        },
                         "Policy": {
-                            "type": "object"
-                        },
-                        "PolicyStatus": {
                             "type": "object"
                         },
                         "PublicAccessBlockConfiguration": {
@@ -83552,9 +83680,6 @@ var CloudformationSchema = `{
                             },
                             "type": "array"
                         },
-                        "InstanceAccessControlAttributeConfiguration": {
-                            "type": "object"
-                        },
                         "InstanceArn": {
                             "type": "string"
                         }
@@ -84829,6 +84954,9 @@ var CloudformationSchema = `{
                         "ExecutionRoleArn": {
                             "type": "string"
                         },
+                        "InferenceExecutionConfig": {
+                            "$ref": "#/definitions/AWS::SageMaker::Model.InferenceExecutionConfig"
+                        },
                         "ModelName": {
                             "type": "string"
                         },
@@ -84910,6 +85038,18 @@ var CloudformationSchema = `{
             },
             "required": [
                 "RepositoryAccessMode"
+            ],
+            "type": "object"
+        },
+        "AWS::SageMaker::Model.InferenceExecutionConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Mode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Mode"
             ],
             "type": "object"
         },
@@ -95381,6 +95521,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Logs::SubscriptionFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::LookoutVision::Project"
                         },
                         {
                             "$ref": "#/definitions/AWS::MSK::Cluster"
