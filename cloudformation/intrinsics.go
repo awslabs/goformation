@@ -159,7 +159,12 @@ func Split(delimiter, source interface{}) string {
 
 // Equals compares if two values are equal. Returns true if the two values are equal or false if they aren't.
 func Equals(value1, value2 interface{}) string {
-	return encode(fmt.Sprintf(`{ "Fn::Equals" : [ %q, %q ] }`, value1, value2))
+	switch value2.(type) {
+	case int:
+		return encode(fmt.Sprintf(`{ "Fn::Equals" : [ %q, %v ] }`, value1, value2))
+	default:
+		return encode(fmt.Sprintf(`{ "Fn::Equals" : [ %q, %q ] }`, value1, value2))
+	}
 }
 
 // (str, str, str) -> str
