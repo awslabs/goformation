@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.16.0](https://github.com/awslabs/goformation/compare/v4.15.9...v4.16.0) (2021-02-03)
+
+
+### Features
+
+* **intrinsics:** Allow for int in Fn::Equals ([#346](https://github.com/awslabs/goformation/issues/346)) ([dd6cd2d](https://github.com/awslabs/goformation/commit/dd6cd2d943eca6b4b0118066665a850ad0f2cc50))
+
 ## [4.15.9](https://github.com/awslabs/goformation/compare/v4.15.8...v4.15.9) (2021-01-29)
 
 
