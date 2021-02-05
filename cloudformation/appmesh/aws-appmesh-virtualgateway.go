@@ -34,7 +34,7 @@ type VirtualGateway struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VirtualGatewayName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-virtualgatewayname
 	VirtualGatewayName string `json:"VirtualGatewayName,omitempty"`
 

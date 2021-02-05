@@ -34,7 +34,7 @@ type VirtualRouter struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VirtualRouterName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-virtualroutername
 	VirtualRouterName string `json:"VirtualRouterName,omitempty"`
 

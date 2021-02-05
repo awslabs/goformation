@@ -1,4 +1,4 @@
-package iotwireless
+package ecr
 
 import (
 	"bytes"
@@ -6,27 +6,16 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// DeviceProfile AWS CloudFormation Resource (AWS::IoTWireless::DeviceProfile)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html
-type DeviceProfile struct {
+// RegistryPolicy AWS CloudFormation Resource (AWS::ECR::RegistryPolicy)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html
+type RegistryPolicy struct {
 
-	// LoRaWAN AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
-	LoRaWAN *DeviceProfile_LoRaWANDeviceProfile `json:"LoRaWAN,omitempty"`
-
-	// Name AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
-	Name string `json:"Name,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// PolicyText AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
+	PolicyText interface{} `json:"PolicyText,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -45,14 +34,14 @@ type DeviceProfile struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *DeviceProfile) AWSCloudFormationType() string {
-	return "AWS::IoTWireless::DeviceProfile"
+func (r *RegistryPolicy) AWSCloudFormationType() string {
+	return "AWS::ECR::RegistryPolicy"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r DeviceProfile) MarshalJSON() ([]byte, error) {
-	type Properties DeviceProfile
+func (r RegistryPolicy) MarshalJSON() ([]byte, error) {
+	type Properties RegistryPolicy
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -74,8 +63,8 @@ func (r DeviceProfile) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *DeviceProfile) UnmarshalJSON(b []byte) error {
-	type Properties DeviceProfile
+func (r *RegistryPolicy) UnmarshalJSON(b []byte) error {
+	type Properties RegistryPolicy
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -96,7 +85,7 @@ func (r *DeviceProfile) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = DeviceProfile(*res.Properties)
+		*r = RegistryPolicy(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
