@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [4.16.1](https://github.com/awslabs/goformation/compare/v4.16.0...v4.16.1) (2021-02-09)
+
+
+### Bug Fixes
+
+* **template:** field Export on type Output should be pointer ([#299](https://github.com/awslabs/goformation/issues/299)) ([7d5870e](https://github.com/awslabs/goformation/commit/7d5870eff12e2ca9c011fb41b6748d0c3ec5f1d9)), closes [#294](https://github.com/awslabs/goformation/issues/294)
+
 # [4.16.0](https://github.com/awslabs/goformation/compare/v4.15.9...v4.16.0) (2021-02-03)
 
 
