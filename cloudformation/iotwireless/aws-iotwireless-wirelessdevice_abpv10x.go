@@ -4,9 +4,9 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// WirelessDevice_AbpV10X AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.AbpV10X)
+// WirelessDevice_AbpV10x AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.AbpV10x)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html
-type WirelessDevice_AbpV10X struct {
+type WirelessDevice_AbpV10x struct {
 
 	// DevAddr AWS CloudFormation Property
 	// Required: true
@@ -16,7 +16,7 @@ type WirelessDevice_AbpV10X struct {
 	// SessionKeys AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
-	SessionKeys *WirelessDevice_SessionKeysAbpV10X `json:"SessionKeys,omitempty"`
+	SessionKeys *WirelessDevice_SessionKeysAbpV10x `json:"SessionKeys,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type WirelessDevice_AbpV10X struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *WirelessDevice_AbpV10X) AWSCloudFormationType() string {
-	return "AWS::IoTWireless::WirelessDevice.AbpV10X"
+func (r *WirelessDevice_AbpV10x) AWSCloudFormationType() string {
+	return "AWS::IoTWireless::WirelessDevice.AbpV10x"
 }

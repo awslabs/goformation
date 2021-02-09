@@ -1,4 +1,4 @@
-package cloudwatch
+package elasticache
 
 import (
 	"bytes"
@@ -6,47 +6,51 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// MetricStream AWS CloudFormation Resource (AWS::CloudWatch::MetricStream)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
-type MetricStream struct {
+// GlobalReplicationGroup AWS CloudFormation Resource (AWS::ElastiCache::GlobalReplicationGroup)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html
+type GlobalReplicationGroup struct {
 
-	// ExcludeFilters AWS CloudFormation Property
+	// AutomaticFailoverEnabled AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
-	ExcludeFilters []MetricStream_MetricStreamFilter `json:"ExcludeFilters,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
+	AutomaticFailoverEnabled bool `json:"AutomaticFailoverEnabled,omitempty"`
 
-	// FirehoseArn AWS CloudFormation Property
+	// CacheNodeType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype
+	CacheNodeType string `json:"CacheNodeType,omitempty"`
+
+	// EngineVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
+	EngineVersion string `json:"EngineVersion,omitempty"`
+
+	// GlobalNodeGroupCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
+	GlobalNodeGroupCount int `json:"GlobalNodeGroupCount,omitempty"`
+
+	// GlobalReplicationGroupDescription AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription
+	GlobalReplicationGroupDescription string `json:"GlobalReplicationGroupDescription,omitempty"`
+
+	// GlobalReplicationGroupIdSuffix AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix
+	GlobalReplicationGroupIdSuffix string `json:"GlobalReplicationGroupIdSuffix,omitempty"`
+
+	// Members AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
-	FirehoseArn string `json:"FirehoseArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
+	Members []GlobalReplicationGroup_GlobalReplicationGroupMember `json:"Members,omitempty"`
 
-	// IncludeFilters AWS CloudFormation Property
+	// RegionalConfigurations AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
-	IncludeFilters []MetricStream_MetricStreamFilter `json:"IncludeFilters,omitempty"`
-
-	// Name AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
-	Name string `json:"Name,omitempty"`
-
-	// OutputFormat AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
-	OutputFormat string `json:"OutputFormat,omitempty"`
-
-	// RoleArn AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
+	RegionalConfigurations []GlobalReplicationGroup_RegionalConfiguration `json:"RegionalConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -65,14 +69,14 @@ type MetricStream struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *MetricStream) AWSCloudFormationType() string {
-	return "AWS::CloudWatch::MetricStream"
+func (r *GlobalReplicationGroup) AWSCloudFormationType() string {
+	return "AWS::ElastiCache::GlobalReplicationGroup"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r MetricStream) MarshalJSON() ([]byte, error) {
-	type Properties MetricStream
+func (r GlobalReplicationGroup) MarshalJSON() ([]byte, error) {
+	type Properties GlobalReplicationGroup
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -94,8 +98,8 @@ func (r MetricStream) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *MetricStream) UnmarshalJSON(b []byte) error {
-	type Properties MetricStream
+func (r *GlobalReplicationGroup) UnmarshalJSON(b []byte) error {
+	type Properties GlobalReplicationGroup
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -116,7 +120,7 @@ func (r *MetricStream) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = MetricStream(*res.Properties)
+		*r = GlobalReplicationGroup(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

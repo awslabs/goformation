@@ -4,9 +4,9 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// WirelessDevice_SessionKeysAbpV10X AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.SessionKeysAbpV10X)
+// WirelessDevice_SessionKeysAbpV10x AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.SessionKeysAbpV10x)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html
-type WirelessDevice_SessionKeysAbpV10X struct {
+type WirelessDevice_SessionKeysAbpV10x struct {
 
 	// AppSKey AWS CloudFormation Property
 	// Required: true
@@ -35,6 +35,6 @@ type WirelessDevice_SessionKeysAbpV10X struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *WirelessDevice_SessionKeysAbpV10X) AWSCloudFormationType() string {
-	return "AWS::IoTWireless::WirelessDevice.SessionKeysAbpV10X"
+func (r *WirelessDevice_SessionKeysAbpV10x) AWSCloudFormationType() string {
+	return "AWS::IoTWireless::WirelessDevice.SessionKeysAbpV10x"
 }

@@ -412,6 +412,8 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::Volume":                                            &ec2.Volume{},
 		"AWS::EC2::VolumeAttachment":                                  &ec2.VolumeAttachment{},
 		"AWS::ECR::PublicRepository":                                  &ecr.PublicRepository{},
+		"AWS::ECR::RegistryPolicy":                                    &ecr.RegistryPolicy{},
+		"AWS::ECR::ReplicationConfiguration":                          &ecr.ReplicationConfiguration{},
 		"AWS::ECR::Repository":                                        &ecr.Repository{},
 		"AWS::ECS::CapacityProvider":                                  &ecs.CapacityProvider{},
 		"AWS::ECS::Cluster":                                           &ecs.Cluster{},
@@ -432,6 +434,7 @@ func AllResources() map[string]Resource {
 		"AWS::EMR::Step":                                              &emr.Step{},
 		"AWS::EMRContainers::VirtualCluster":                          &emrcontainers.VirtualCluster{},
 		"AWS::ElastiCache::CacheCluster":                              &elasticache.CacheCluster{},
+		"AWS::ElastiCache::GlobalReplicationGroup":                    &elasticache.GlobalReplicationGroup{},
 		"AWS::ElastiCache::ParameterGroup":                            &elasticache.ParameterGroup{},
 		"AWS::ElastiCache::ReplicationGroup":                          &elasticache.ReplicationGroup{},
 		"AWS::ElastiCache::SecurityGroup":                             &elasticache.SecurityGroup{},
@@ -525,6 +528,7 @@ func AllResources() map[string]Resource {
 		"AWS::IVS::PlaybackKeyPair":                                   &ivs.PlaybackKeyPair{},
 		"AWS::IVS::StreamKey":                                         &ivs.StreamKey{},
 		"AWS::ImageBuilder::Component":                                &imagebuilder.Component{},
+		"AWS::ImageBuilder::ContainerRecipe":                          &imagebuilder.ContainerRecipe{},
 		"AWS::ImageBuilder::DistributionConfiguration":                &imagebuilder.DistributionConfiguration{},
 		"AWS::ImageBuilder::Image":                                    &imagebuilder.Image{},
 		"AWS::ImageBuilder::ImagePipeline":                            &imagebuilder.ImagePipeline{},
@@ -7070,6 +7074,54 @@ func (t *Template) GetECRPublicRepositoryWithName(name string) (*ecr.PublicRepos
 	return nil, fmt.Errorf("resource %q of type ecr.PublicRepository not found", name)
 }
 
+// GetAllECRRegistryPolicyResources retrieves all ecr.RegistryPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllECRRegistryPolicyResources() map[string]*ecr.RegistryPolicy {
+	results := map[string]*ecr.RegistryPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ecr.RegistryPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetECRRegistryPolicyWithName retrieves all ecr.RegistryPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetECRRegistryPolicyWithName(name string) (*ecr.RegistryPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ecr.RegistryPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ecr.RegistryPolicy not found", name)
+}
+
+// GetAllECRReplicationConfigurationResources retrieves all ecr.ReplicationConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllECRReplicationConfigurationResources() map[string]*ecr.ReplicationConfiguration {
+	results := map[string]*ecr.ReplicationConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ecr.ReplicationConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetECRReplicationConfigurationWithName retrieves all ecr.ReplicationConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetECRReplicationConfigurationWithName(name string) (*ecr.ReplicationConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ecr.ReplicationConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ecr.ReplicationConfiguration not found", name)
+}
+
 // GetAllECRRepositoryResources retrieves all ecr.Repository items from an AWS CloudFormation template
 func (t *Template) GetAllECRRepositoryResources() map[string]*ecr.Repository {
 	results := map[string]*ecr.Repository{}
@@ -7548,6 +7600,30 @@ func (t *Template) GetElastiCacheCacheClusterWithName(name string) (*elasticache
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type elasticache.CacheCluster not found", name)
+}
+
+// GetAllElastiCacheGlobalReplicationGroupResources retrieves all elasticache.GlobalReplicationGroup items from an AWS CloudFormation template
+func (t *Template) GetAllElastiCacheGlobalReplicationGroupResources() map[string]*elasticache.GlobalReplicationGroup {
+	results := map[string]*elasticache.GlobalReplicationGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *elasticache.GlobalReplicationGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetElastiCacheGlobalReplicationGroupWithName retrieves all elasticache.GlobalReplicationGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetElastiCacheGlobalReplicationGroupWithName(name string) (*elasticache.GlobalReplicationGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *elasticache.GlobalReplicationGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type elasticache.GlobalReplicationGroup not found", name)
 }
 
 // GetAllElastiCacheParameterGroupResources retrieves all elasticache.ParameterGroup items from an AWS CloudFormation template
@@ -9780,6 +9856,30 @@ func (t *Template) GetImageBuilderComponentWithName(name string) (*imagebuilder.
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type imagebuilder.Component not found", name)
+}
+
+// GetAllImageBuilderContainerRecipeResources retrieves all imagebuilder.ContainerRecipe items from an AWS CloudFormation template
+func (t *Template) GetAllImageBuilderContainerRecipeResources() map[string]*imagebuilder.ContainerRecipe {
+	results := map[string]*imagebuilder.ContainerRecipe{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *imagebuilder.ContainerRecipe:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetImageBuilderContainerRecipeWithName retrieves all imagebuilder.ContainerRecipe items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetImageBuilderContainerRecipeWithName(name string) (*imagebuilder.ContainerRecipe, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *imagebuilder.ContainerRecipe:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type imagebuilder.ContainerRecipe not found", name)
 }
 
 // GetAllImageBuilderDistributionConfigurationResources retrieves all imagebuilder.DistributionConfiguration items from an AWS CloudFormation template

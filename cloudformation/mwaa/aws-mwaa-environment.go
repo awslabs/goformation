@@ -52,6 +52,11 @@ type Environment struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
 	MaxWorkers int `json:"MaxWorkers,omitempty"`
 
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+	Name string `json:"Name,omitempty"`
+
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
@@ -91,11 +96,6 @@ type Environment struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
 	WebserverAccessMode string `json:"WebserverAccessMode,omitempty"`
-
-	// WebserverUrl AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-	WebserverUrl string `json:"WebserverUrl,omitempty"`
 
 	// WeeklyMaintenanceWindowStart AWS CloudFormation Property
 	// Required: false

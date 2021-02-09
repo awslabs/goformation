@@ -14,7 +14,7 @@ import (
 type GatewayRoute struct {
 
 	// GatewayRouteName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-gatewayroutename
 	GatewayRouteName string `json:"GatewayRouteName,omitempty"`
 

@@ -34,7 +34,7 @@ type VirtualNode struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VirtualNodeName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-virtualnodename
 	VirtualNodeName string `json:"VirtualNodeName,omitempty"`
 

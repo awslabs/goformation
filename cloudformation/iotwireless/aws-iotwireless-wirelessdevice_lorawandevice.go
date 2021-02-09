@@ -8,10 +8,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html
 type WirelessDevice_LoRaWANDevice struct {
 
-	// AbpV10X AWS CloudFormation Property
+	// AbpV10x AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
-	AbpV10X *WirelessDevice_AbpV10X `json:"AbpV10X,omitempty"`
+	AbpV10x *WirelessDevice_AbpV10x `json:"AbpV10x,omitempty"`
 
 	// AbpV11 AWS CloudFormation Property
 	// Required: false
@@ -28,10 +28,10 @@ type WirelessDevice_LoRaWANDevice struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
 	DeviceProfileId string `json:"DeviceProfileId,omitempty"`
 
-	// OtaaV10X AWS CloudFormation Property
+	// OtaaV10x AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
-	OtaaV10X *WirelessDevice_OtaaV10X `json:"OtaaV10X,omitempty"`
+	OtaaV10x *WirelessDevice_OtaaV10x `json:"OtaaV10x,omitempty"`
 
 	// OtaaV11 AWS CloudFormation Property
 	// Required: false

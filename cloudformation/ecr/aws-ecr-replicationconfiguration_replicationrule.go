@@ -1,22 +1,17 @@
-package iotwireless
+package ecr
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// WirelessDevice_OtaaV10x AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.OtaaV10x)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html
-type WirelessDevice_OtaaV10x struct {
+// ReplicationConfiguration_ReplicationRule AWS CloudFormation Resource (AWS::ECR::ReplicationConfiguration.ReplicationRule)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+type ReplicationConfiguration_ReplicationRule struct {
 
-	// AppEui AWS CloudFormation Property
+	// Destinations AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
-	AppEui string `json:"AppEui,omitempty"`
-
-	// AppKey AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
-	AppKey string `json:"AppKey,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+	Destinations []ReplicationConfiguration_ReplicationDestination `json:"Destinations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type WirelessDevice_OtaaV10x struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *WirelessDevice_OtaaV10x) AWSCloudFormationType() string {
-	return "AWS::IoTWireless::WirelessDevice.OtaaV10x"
+func (r *ReplicationConfiguration_ReplicationRule) AWSCloudFormationType() string {
+	return "AWS::ECR::ReplicationConfiguration.ReplicationRule"
 }
