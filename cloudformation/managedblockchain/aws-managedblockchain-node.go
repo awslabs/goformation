@@ -13,7 +13,7 @@ import (
 type Node struct {
 
 	// MemberId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid
 	MemberId string `json:"MemberId,omitempty"`
 
