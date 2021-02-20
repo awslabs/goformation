@@ -249,13 +249,6 @@ var _ = Describe("Goformation", func() {
 			Expect(template).ShouldNot(BeNil())
 		})
 
-		resources := template.GetAllCustomResources()
-
-		It("should have exactly one resource", func() {
-			Expect(resources).To(HaveLen(1))
-			Expect(resources).To(HaveKey("MyCustomResource"))
-		})
-
 		It("should correctly Marshal the custom resource", func() {
 			data, err := template.JSON()
 			Expect(err).To(BeNil())
