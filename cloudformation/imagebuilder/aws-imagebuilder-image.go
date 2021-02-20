@@ -12,6 +12,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
 type Image struct {
 
+	// ContainerRecipeArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+	ContainerRecipeArn string `json:"ContainerRecipeArn,omitempty"`
+
 	// DistributionConfigurationArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
@@ -23,7 +28,7 @@ type Image struct {
 	EnhancedImageMetadataEnabled bool `json:"EnhancedImageMetadataEnabled,omitempty"`
 
 	// ImageRecipeArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	ImageRecipeArn string `json:"ImageRecipeArn,omitempty"`
 
