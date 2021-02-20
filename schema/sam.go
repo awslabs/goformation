@@ -18793,6 +18793,9 @@ var SamSchema = `{
                         "Cache": {
                             "$ref": "#/definitions/AWS::CodeBuild::Project.ProjectCache"
                         },
+                        "ConcurrentBuildLimit": {
+                            "type": "number"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -25500,6 +25503,9 @@ var SamSchema = `{
                         },
                         "EncryptionMode": {
                             "type": "string"
+                        },
+                        "JobSample": {
+                            "type": "object"
                         },
                         "LogSubscription": {
                             "type": "string"
@@ -42778,6 +42784,9 @@ var SamSchema = `{
                         "Protocol": {
                             "type": "string"
                         },
+                        "ProtocolVersion": {
+                            "type": "string"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -42831,6 +42840,9 @@ var SamSchema = `{
         "AWS::ElasticLoadBalancingV2::TargetGroup.Matcher": {
             "additionalProperties": false,
             "properties": {
+                "GrpcCode": {
+                    "type": "string"
+                },
                 "HttpCode": {
                     "type": "string"
                 }
@@ -44528,6 +44540,12 @@ var SamSchema = `{
                 "ActiveDirectoryId": {
                     "type": "string"
                 },
+                "Aliases": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "AutomaticBackupRetentionDays": {
                     "type": "number"
                 },
@@ -44553,6 +44571,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "ThroughputCapacity"
+            ],
             "type": "object"
         },
         "AWS::GameLift::Alias": {
@@ -52324,6 +52345,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "ContainerRecipeArn": {
+                            "type": "string"
+                        },
                         "DistributionConfigurationArn": {
                             "type": "string"
                         },
@@ -52350,7 +52374,6 @@ var SamSchema = `{
                         }
                     },
                     "required": [
-                        "ImageRecipeArn",
                         "InfrastructureConfigurationArn"
                     ],
                     "type": "object"
@@ -52420,6 +52443,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "ContainerRecipeArn": {
+                            "type": "string"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -52458,7 +52484,6 @@ var SamSchema = `{
                         }
                     },
                     "required": [
-                        "ImageRecipeArn",
                         "InfrastructureConfigurationArn",
                         "Name"
                     ],
@@ -54784,6 +54809,12 @@ var SamSchema = `{
                         "DatasetName": {
                             "type": "string"
                         },
+                        "LateDataRules": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.LateDataRule"
+                            },
+                            "type": "array"
+                        },
                         "RetentionPeriod": {
                             "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.RetentionPeriod"
                         },
@@ -54925,6 +54956,18 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IoTAnalytics::Dataset.DeltaTimeSessionWindowConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "TimeoutInMinutes": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "TimeoutInMinutes"
+            ],
+            "type": "object"
+        },
         "AWS::IoTAnalytics::Dataset.Filter": {
             "additionalProperties": false,
             "properties": {
@@ -54964,6 +55007,30 @@ var SamSchema = `{
                 "InputName",
                 "RoleArn"
             ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.LateDataRule": {
+            "additionalProperties": false,
+            "properties": {
+                "RuleConfiguration": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration"
+                },
+                "RuleName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "RuleConfiguration"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DeltaTimeSessionWindowConfiguration": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.DeltaTimeSessionWindowConfiguration"
+                }
+            },
             "type": "object"
         },
         "AWS::IoTAnalytics::Dataset.OutputFileUriValue": {
@@ -57367,7 +57434,7 @@ var SamSchema = `{
             ],
             "type": "object"
         },
-        "AWS::IoTWireless::ServiceProfile.LoRaWANGetServiceProfileInfo": {
+        "AWS::IoTWireless::ServiceProfile.LoRaWANServiceProfile": {
             "additionalProperties": false,
             "properties": {
                 "AddGwMetadata": {
@@ -57430,15 +57497,6 @@ var SamSchema = `{
             },
             "type": "object"
         },
-        "AWS::IoTWireless::ServiceProfile.LoRaWANServiceProfile": {
-            "additionalProperties": false,
-            "properties": {
-                "AddGwMetadata": {
-                    "type": "boolean"
-                }
-            },
-            "type": "object"
-        },
         "AWS::IoTWireless::WirelessDevice": {
             "additionalProperties": false,
             "properties": {
@@ -57491,6 +57549,9 @@ var SamSchema = `{
                                 "$ref": "#/definitions/Tag"
                             },
                             "type": "array"
+                        },
+                        "ThingArn": {
+                            "type": "string"
                         },
                         "Type": {
                             "type": "string"
@@ -57708,7 +57769,7 @@ var SamSchema = `{
                             },
                             "type": "array"
                         },
-                        "ThingName": {
+                        "ThingArn": {
                             "type": "string"
                         }
                     },

@@ -18790,6 +18790,9 @@
                         "Cache": {
                             "$ref": "#/definitions/AWS::CodeBuild::Project.ProjectCache"
                         },
+                        "ConcurrentBuildLimit": {
+                            "type": "number"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -25497,6 +25500,9 @@
                         },
                         "EncryptionMode": {
                             "type": "string"
+                        },
+                        "JobSample": {
+                            "type": "object"
                         },
                         "LogSubscription": {
                             "type": "string"
@@ -42775,6 +42781,9 @@
                         "Protocol": {
                             "type": "string"
                         },
+                        "ProtocolVersion": {
+                            "type": "string"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -42828,6 +42837,9 @@
         "AWS::ElasticLoadBalancingV2::TargetGroup.Matcher": {
             "additionalProperties": false,
             "properties": {
+                "GrpcCode": {
+                    "type": "string"
+                },
                 "HttpCode": {
                     "type": "string"
                 }
@@ -44525,6 +44537,12 @@
                 "ActiveDirectoryId": {
                     "type": "string"
                 },
+                "Aliases": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "AutomaticBackupRetentionDays": {
                     "type": "number"
                 },
@@ -44550,6 +44568,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "ThroughputCapacity"
+            ],
             "type": "object"
         },
         "AWS::GameLift::Alias": {
@@ -52321,6 +52342,9 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "ContainerRecipeArn": {
+                            "type": "string"
+                        },
                         "DistributionConfigurationArn": {
                             "type": "string"
                         },
@@ -52347,7 +52371,6 @@
                         }
                     },
                     "required": [
-                        "ImageRecipeArn",
                         "InfrastructureConfigurationArn"
                     ],
                     "type": "object"
@@ -52417,6 +52440,9 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "ContainerRecipeArn": {
+                            "type": "string"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -52455,7 +52481,6 @@
                         }
                     },
                     "required": [
-                        "ImageRecipeArn",
                         "InfrastructureConfigurationArn",
                         "Name"
                     ],
@@ -54781,6 +54806,12 @@
                         "DatasetName": {
                             "type": "string"
                         },
+                        "LateDataRules": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.LateDataRule"
+                            },
+                            "type": "array"
+                        },
                         "RetentionPeriod": {
                             "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.RetentionPeriod"
                         },
@@ -54922,6 +54953,18 @@
             ],
             "type": "object"
         },
+        "AWS::IoTAnalytics::Dataset.DeltaTimeSessionWindowConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "TimeoutInMinutes": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "TimeoutInMinutes"
+            ],
+            "type": "object"
+        },
         "AWS::IoTAnalytics::Dataset.Filter": {
             "additionalProperties": false,
             "properties": {
@@ -54961,6 +55004,30 @@
                 "InputName",
                 "RoleArn"
             ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.LateDataRule": {
+            "additionalProperties": false,
+            "properties": {
+                "RuleConfiguration": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration"
+                },
+                "RuleName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "RuleConfiguration"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DeltaTimeSessionWindowConfiguration": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Dataset.DeltaTimeSessionWindowConfiguration"
+                }
+            },
             "type": "object"
         },
         "AWS::IoTAnalytics::Dataset.OutputFileUriValue": {
@@ -57364,7 +57431,7 @@
             ],
             "type": "object"
         },
-        "AWS::IoTWireless::ServiceProfile.LoRaWANGetServiceProfileInfo": {
+        "AWS::IoTWireless::ServiceProfile.LoRaWANServiceProfile": {
             "additionalProperties": false,
             "properties": {
                 "AddGwMetadata": {
@@ -57427,15 +57494,6 @@
             },
             "type": "object"
         },
-        "AWS::IoTWireless::ServiceProfile.LoRaWANServiceProfile": {
-            "additionalProperties": false,
-            "properties": {
-                "AddGwMetadata": {
-                    "type": "boolean"
-                }
-            },
-            "type": "object"
-        },
         "AWS::IoTWireless::WirelessDevice": {
             "additionalProperties": false,
             "properties": {
@@ -57488,6 +57546,9 @@
                                 "$ref": "#/definitions/Tag"
                             },
                             "type": "array"
+                        },
+                        "ThingArn": {
+                            "type": "string"
                         },
                         "Type": {
                             "type": "string"
@@ -57705,7 +57766,7 @@
                             },
                             "type": "array"
                         },
-                        "ThingName": {
+                        "ThingArn": {
                             "type": "string"
                         }
                     },
