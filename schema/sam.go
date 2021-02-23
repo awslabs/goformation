@@ -28229,6 +28229,9 @@ var SamSchema = `{
                             },
                             "type": "array"
                         },
+                        "KinesisStreamSpecification": {
+                            "$ref": "#/definitions/AWS::DynamoDB::Table.KinesisStreamSpecification"
+                        },
                         "LocalSecondaryIndexes": {
                             "items": {
                                 "$ref": "#/definitions/AWS::DynamoDB::Table.LocalSecondaryIndex"
@@ -28341,6 +28344,18 @@ var SamSchema = `{
             "required": [
                 "AttributeName",
                 "KeyType"
+            ],
+            "type": "object"
+        },
+        "AWS::DynamoDB::Table.KinesisStreamSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "StreamArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StreamArn"
             ],
             "type": "object"
         },
@@ -34250,6 +34265,9 @@ var SamSchema = `{
                             "type": "string"
                         }
                     },
+                    "required": [
+                        "TransitGatewayId"
+                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -34268,7 +34286,8 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type"
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -34304,9 +34323,6 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
-                        "State": {
-                            "type": "string"
-                        },
                         "SubnetId": {
                             "type": "string"
                         },
@@ -34317,6 +34333,11 @@ var SamSchema = `{
                             "type": "string"
                         }
                     },
+                    "required": [
+                        "SubnetId",
+                        "TransitGatewayAttachmentId",
+                        "TransitGatewayMulticastDomainId"
+                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -34335,7 +34356,8 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type"
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -34377,13 +34399,15 @@ var SamSchema = `{
                         "NetworkInterfaceId": {
                             "type": "string"
                         },
-                        "TransitGatewayAttachmentId": {
-                            "type": "string"
-                        },
                         "TransitGatewayMulticastDomainId": {
                             "type": "string"
                         }
                     },
+                    "required": [
+                        "GroupIpAddress",
+                        "NetworkInterfaceId",
+                        "TransitGatewayMulticastDomainId"
+                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -34402,7 +34426,8 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type"
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -34444,13 +34469,15 @@ var SamSchema = `{
                         "NetworkInterfaceId": {
                             "type": "string"
                         },
-                        "TransitGatewayAttachmentId": {
-                            "type": "string"
-                        },
                         "TransitGatewayMulticastDomainId": {
                             "type": "string"
                         }
                     },
+                    "required": [
+                        "GroupIpAddress",
+                        "NetworkInterfaceId",
+                        "TransitGatewayMulticastDomainId"
+                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -34469,7 +34496,8 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type"
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -40286,6 +40314,9 @@ var SamSchema = `{
                             "type": "boolean"
                         },
                         "CacheNodeType": {
+                            "type": "string"
+                        },
+                        "CacheParameterGroupName": {
                             "type": "string"
                         },
                         "EngineVersion": {
@@ -74178,6 +74209,9 @@ var SamSchema = `{
                 "MessageType": {
                     "type": "string"
                 },
+                "OriginationNumber": {
+                    "type": "string"
+                },
                 "SenderId": {
                     "type": "string"
                 }
@@ -93462,6 +93496,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "Definition": {
+                            "$ref": "#/definitions/AWS::StepFunctions::StateMachine.Definition"
+                        },
                         "DefinitionS3Location": {
                             "$ref": "#/definitions/AWS::StepFunctions::StateMachine.S3Location"
                         },
@@ -93532,6 +93569,11 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::StepFunctions::StateMachine.Definition": {
+            "additionalProperties": false,
+            "properties": {},
             "type": "object"
         },
         "AWS::StepFunctions::StateMachine.LogDestination": {
