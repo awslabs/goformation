@@ -24,7 +24,7 @@ type TransitGatewayMulticastDomain struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TransitGatewayId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
 	TransitGatewayId string `json:"TransitGatewayId,omitempty"`
 

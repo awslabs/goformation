@@ -13,22 +13,17 @@ import (
 type TransitGatewayMulticastGroupSource struct {
 
 	// GroupIpAddress AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress
 	GroupIpAddress string `json:"GroupIpAddress,omitempty"`
 
 	// NetworkInterfaceId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-networkinterfaceid
 	NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
 
-	// TransitGatewayAttachmentId AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewayattachmentid
-	TransitGatewayAttachmentId string `json:"TransitGatewayAttachmentId,omitempty"`
-
 	// TransitGatewayMulticastDomainId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewaymulticastdomainid
 	TransitGatewayMulticastDomainId string `json:"TransitGatewayMulticastDomainId,omitempty"`
 
