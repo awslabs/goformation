@@ -1,5 +1,17 @@
 # GoFormation Versioning Changelog
 
+# [4.17.0](https://github.com/awslabs/goformation/compare/v4.16.4...v4.17.0) (2021-02-25)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([#351](https://github.com/awslabs/goformation/issues/351)) ([53556a3](https://github.com/awslabs/goformation/commit/53556a3ff4a74666966e181d006448655533b2ba))
+
+
+### Features
+
+* **resources:** Add DependOn, DeletionPolicy and others to CustomResource ([#350](https://github.com/awslabs/goformation/issues/350)) ([6712019](https://github.com/awslabs/goformation/commit/671201953b1b8ba7f476e4f90a2cc5d46f542876))
+
 ## [4.16.4](https://github.com/awslabs/goformation/compare/v4.16.3...v4.16.4) (2021-02-20)
 
 
