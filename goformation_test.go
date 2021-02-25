@@ -9,6 +9,7 @@ import (
 
 	"github.com/awslabs/goformation/v4"
 	"github.com/awslabs/goformation/v4/cloudformation"
+	"github.com/awslabs/goformation/v4/cloudformation/ec2"
 	"github.com/awslabs/goformation/v4/cloudformation/lambda"
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 	"github.com/awslabs/goformation/v4/cloudformation/route53"
@@ -246,13 +247,6 @@ var _ = Describe("Goformation", func() {
 		It("should successfully validate the template", func() {
 			Expect(err).To(BeNil())
 			Expect(template).ShouldNot(BeNil())
-		})
-
-		resources := template.GetAllCustomResources()
-
-		It("should have exactly one resource", func() {
-			Expect(resources).To(HaveLen(1))
-			Expect(resources).To(HaveKey("MyCustomResource"))
 		})
 
 		It("should correctly Marshal the custom resource", func() {
@@ -1252,4 +1246,47 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a template that contains outputs with no exports", func() {
+
+		Context("described as Go structs", func() {
+
+			template := cloudformation.NewTemplate()
+
+			template.Resources["Vpc"] = &ec2.VPC{
+				CidrBlock: "192.168.0.0/20",
+			}
+
+			template.Outputs["VpcId"] = cloudformation.Output{
+				Value: cloudformation.Ref("Vpc"),
+			}
+
+			expected := `{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Outputs": {
+    "VpcId": {
+      "Value": {
+        "Ref": "Vpc"
+      }
+    }
+  },
+  "Resources": {
+    "Vpc": {
+      "Properties": {
+        "CidrBlock": "192.168.0.0/20"
+      },
+      "Type": "AWS::EC2::VPC"
+    }
+  }
+}`
+
+			got, err := template.JSON()
+			It("should marshal template successfully", func() {
+				Expect(err).To(BeNil())
+			})
+
+			It("should be equal to expected output", func() {
+				Expect(string(got)).To(Equal(expected))
+			})
+		})
+	})
 })

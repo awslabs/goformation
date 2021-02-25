@@ -23,25 +23,30 @@ type WirelessDevice struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
 	DestinationName string `json:"DestinationName,omitempty"`
 
-	// LoRaWANDevice AWS CloudFormation Property
+	// LastUplinkReceivedAt AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawandevice
-	LoRaWANDevice *WirelessDevice_LoRaWANDevice `json:"LoRaWANDevice,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
+	LastUplinkReceivedAt string `json:"LastUplinkReceivedAt,omitempty"`
+
+	// LoRaWAN AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
+	LoRaWAN *WirelessDevice_LoRaWANDevice `json:"LoRaWAN,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
 	Name string `json:"Name,omitempty"`
 
-	// NextToken AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-nexttoken
-	NextToken string `json:"NextToken,omitempty"`
-
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// ThingArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
+	ThingArn string `json:"ThingArn,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

@@ -13,20 +13,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html
 type DeviceProfile struct {
 
-	// LoRaWANDeviceProfile AWS CloudFormation Property
+	// LoRaWAN AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile
-	LoRaWANDeviceProfile *DeviceProfile_LoRaWANDeviceProfile `json:"LoRaWANDeviceProfile,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+	LoRaWAN *DeviceProfile_LoRaWANDeviceProfile `json:"LoRaWAN,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
 	Name string `json:"Name,omitempty"`
-
-	// NextToken AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-nexttoken
-	NextToken string `json:"NextToken,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

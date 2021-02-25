@@ -1,5 +1,52 @@
 # GoFormation Versioning Changelog
 
+# [4.17.0](https://github.com/awslabs/goformation/compare/v4.16.4...v4.17.0) (2021-02-25)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([#351](https://github.com/awslabs/goformation/issues/351)) ([53556a3](https://github.com/awslabs/goformation/commit/53556a3ff4a74666966e181d006448655533b2ba))
+
+
+### Features
+
+* **resources:** Add DependOn, DeletionPolicy and others to CustomResource ([#350](https://github.com/awslabs/goformation/issues/350)) ([6712019](https://github.com/awslabs/goformation/commit/671201953b1b8ba7f476e4f90a2cc5d46f542876))
+
+## [4.16.4](https://github.com/awslabs/goformation/compare/v4.16.3...v4.16.4) (2021-02-20)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([#349](https://github.com/awslabs/goformation/issues/349)) ([a012fde](https://github.com/awslabs/goformation/commit/a012fde9485a0fa185d9ed05bfc9fcf948fe15eb))
+
+## [4.16.3](https://github.com/awslabs/goformation/compare/v4.16.2...v4.16.3) (2021-02-17)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([#348](https://github.com/awslabs/goformation/issues/348)) ([5dd2417](https://github.com/awslabs/goformation/commit/5dd2417ddc3a063cbb2bba612938671e60bbb5ca))
+
+## [4.16.2](https://github.com/awslabs/goformation/compare/v4.16.1...v4.16.2) (2021-02-09)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([#347](https://github.com/awslabs/goformation/issues/347)) ([d49d514](https://github.com/awslabs/goformation/commit/d49d514d3cff735b2e9fffc261e6b6c05f1f8a5a))
+
+## [4.16.1](https://github.com/awslabs/goformation/compare/v4.16.0...v4.16.1) (2021-02-09)
+
+
+### Bug Fixes
+
+* **template:** field Export on type Output should be pointer ([#299](https://github.com/awslabs/goformation/issues/299)) ([7d5870e](https://github.com/awslabs/goformation/commit/7d5870eff12e2ca9c011fb41b6748d0c3ec5f1d9)), closes [#294](https://github.com/awslabs/goformation/issues/294)
+
+# [4.16.0](https://github.com/awslabs/goformation/compare/v4.15.9...v4.16.0) (2021-02-03)
+
+
+### Features
+
+* **intrinsics:** Allow for int in Fn::Equals ([#346](https://github.com/awslabs/goformation/issues/346)) ([dd6cd2d](https://github.com/awslabs/goformation/commit/dd6cd2d943eca6b4b0118066665a850ad0f2cc50))
+
 ## [4.15.9](https://github.com/awslabs/goformation/compare/v4.15.8...v4.15.9) (2021-01-29)
 
 

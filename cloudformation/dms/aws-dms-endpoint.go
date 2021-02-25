@@ -23,6 +23,11 @@ type Endpoint struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-databasename
 	DatabaseName string `json:"DatabaseName,omitempty"`
 
+	// DocDbSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-docdbsettings
+	DocDbSettings *Endpoint_DocDbSettings `json:"DocDbSettings,omitempty"`
+
 	// DynamoDbSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-dynamodbsettings
@@ -53,6 +58,11 @@ type Endpoint struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-extraconnectionattributes
 	ExtraConnectionAttributes string `json:"ExtraConnectionAttributes,omitempty"`
 
+	// IbmDb2Settings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-ibmdb2settings
+	IbmDb2Settings *Endpoint_IbmDb2Settings `json:"IbmDb2Settings,omitempty"`
+
 	// KafkaSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kafkasettings
@@ -68,15 +78,30 @@ type Endpoint struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kmskeyid
 	KmsKeyId string `json:"KmsKeyId,omitempty"`
 
+	// MicrosoftSqlServerSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-microsoftsqlserversettings
+	MicrosoftSqlServerSettings *Endpoint_MicrosoftSqlServerSettings `json:"MicrosoftSqlServerSettings,omitempty"`
+
 	// MongoDbSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-mongodbsettings
 	MongoDbSettings *Endpoint_MongoDbSettings `json:"MongoDbSettings,omitempty"`
 
+	// MySqlSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-mysqlsettings
+	MySqlSettings *Endpoint_MySqlSettings `json:"MySqlSettings,omitempty"`
+
 	// NeptuneSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-neptunesettings
 	NeptuneSettings *Endpoint_NeptuneSettings `json:"NeptuneSettings,omitempty"`
+
+	// OracleSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-oraclesettings
+	OracleSettings *Endpoint_OracleSettings `json:"OracleSettings,omitempty"`
 
 	// Password AWS CloudFormation Property
 	// Required: false
@@ -87,6 +112,16 @@ type Endpoint struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-port
 	Port int `json:"Port,omitempty"`
+
+	// PostgreSqlSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-postgresqlsettings
+	PostgreSqlSettings *Endpoint_PostgreSqlSettings `json:"PostgreSqlSettings,omitempty"`
+
+	// RedshiftSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-redshiftsettings
+	RedshiftSettings *Endpoint_RedshiftSettings `json:"RedshiftSettings,omitempty"`
 
 	// S3Settings AWS CloudFormation Property
 	// Required: false
@@ -102,6 +137,11 @@ type Endpoint struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-sslmode
 	SslMode string `json:"SslMode,omitempty"`
+
+	// SybaseSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-sybasesettings
+	SybaseSettings *Endpoint_SybaseSettings `json:"SybaseSettings,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

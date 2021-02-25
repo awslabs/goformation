@@ -14,7 +14,7 @@ import (
 type Mesh struct {
 
 	// MeshName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-meshname
 	MeshName string `json:"MeshName,omitempty"`
 

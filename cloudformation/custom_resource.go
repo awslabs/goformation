@@ -1,24 +1,33 @@
 package cloudformation
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
+// CustomResource AWS CloudFormation Resource (AWS::CloudFormation::CustomResource)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
 type CustomResource struct {
 	Type       string                 `json:"Type,omitempty"`
 	Properties map[string]interface{} `json:"Properties,omitempty"`
 
-	// _deletionPolicy represents a CloudFormation DeletionPolicy
-	_deletionPolicy policies.DeletionPolicy
+	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
+	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
-	// _dependsOn stores the logical ID of the resources to be created before this resource
-	_dependsOn []string
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
 
-	// _metadata stores structured data associated with this resource
-	_metadata map[string]interface{}
+	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
+	AWSCloudFormationDependsOn []string `json:"-"`
+
+	// AWSCloudFormationMetadata stores structured data associated with this resource
+	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+
+	// AWSCloudFormationCondition stores the logical ID of the condition that must be satisfied for this resource to be created
+	AWSCloudFormationCondition string `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -26,62 +35,69 @@ func (r *CustomResource) AWSCloudFormationType() string {
 	return r.Type
 }
 
-// DependsOn returns a slice of logical ID names this resource depends on.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *CustomResource) DependsOn() []string {
-	return r._dependsOn
+// MarshalJSON is a custom JSON marshalling hook that embeds this object into
+// an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
+func (r CustomResource) MarshalJSON() ([]byte, error) {
+	return json.Marshal(&struct {
+		Type                string
+		Properties          interface{}
+		DependsOn           []string                     `json:"DependsOn,omitempty"`
+		Metadata            map[string]interface{}       `json:"Metadata,omitempty"`
+		DeletionPolicy      policies.DeletionPolicy      `json:"DeletionPolicy,omitempty"`
+		UpdateReplacePolicy policies.UpdateReplacePolicy `json:"UpdateReplacePolicy,omitempty"`
+		Condition           string                       `json:"Condition,omitempty"`
+	}{
+		Type:                r.AWSCloudFormationType(),
+		Properties:          (map[string]interface{})(r.Properties),
+		DependsOn:           r.AWSCloudFormationDependsOn,
+		Metadata:            r.AWSCloudFormationMetadata,
+		DeletionPolicy:      r.AWSCloudFormationDeletionPolicy,
+		UpdateReplacePolicy: r.AWSCloudFormationUpdateReplacePolicy,
+		Condition:           r.AWSCloudFormationCondition,
+	})
 }
 
-// SetDependsOn specify that the creation of this resource follows another.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
-func (r *CustomResource) SetDependsOn(dependencies []string) {
-	r._dependsOn = dependencies
-}
+// UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
+// AWS CloudFormation resource object, and just keeps the 'Properties' field.
+func (r *CustomResource) UnmarshalJSON(b []byte) error {
+	res := &struct {
+		Type                string
+		Properties          map[string]interface{}
+		DependsOn           []string
+		Metadata            map[string]interface{}
+		DeletionPolicy      string
+		UpdateReplacePolicy string
+		Condition           string
+	}{}
 
-// Metadata returns the metadata associated with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *CustomResource) Metadata() map[string]interface{} {
-	return r._metadata
-}
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.DisallowUnknownFields() // Force error if unknown field is found
 
-// SetMetadata enables you to associate structured data with this resource.
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
-func (r *CustomResource) SetMetadata(metadata map[string]interface{}) {
-	r._metadata = metadata
-}
-
-// DeletionPolicy returns the AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *CustomResource) DeletionPolicy() policies.DeletionPolicy {
-	return r._deletionPolicy
-}
-
-// SetDeletionPolicy applies an AWS CloudFormation DeletionPolicy to this resource
-// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
-func (r *CustomResource) SetDeletionPolicy(policy policies.DeletionPolicy) {
-	r._deletionPolicy = policy
-}
-
-// GetAllCustomResourceResources retrieves all CustomResource items from an AWS CloudFormation template
-func (t *Template) GetAllCustomResources() map[string]*CustomResource {
-	results := map[string]*CustomResource{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case *CustomResource:
-			results[name] = resource
-		}
+	if err := dec.Decode(&res); err != nil {
+		fmt.Printf("ERROR: %s\n", err)
+		return err
 	}
-	return results
-}
 
-// GetCustomResourceWithName retrieves all CustomResource items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetCustomResourceWithName(name string) (*CustomResource, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case *CustomResource:
-			return resource, nil
-		}
+	r.Type = res.Type
+
+	// If the resource has no Properties set, it could be nil
+	if res.Properties != nil {
+		r.Properties = res.Properties
 	}
-	return nil, fmt.Errorf("resource %q of type CustomResource not found", name)
+	if res.DependsOn != nil {
+		r.AWSCloudFormationDependsOn = res.DependsOn
+	}
+	if res.Metadata != nil {
+		r.AWSCloudFormationMetadata = res.Metadata
+	}
+	if res.DeletionPolicy != "" {
+		r.AWSCloudFormationDeletionPolicy = policies.DeletionPolicy(res.DeletionPolicy)
+	}
+	if res.UpdateReplacePolicy != "" {
+		r.AWSCloudFormationUpdateReplacePolicy = policies.UpdateReplacePolicy(res.UpdateReplacePolicy)
+	}
+	if res.Condition != "" {
+		r.AWSCloudFormationCondition = res.Condition
+	}
+	return nil
 }

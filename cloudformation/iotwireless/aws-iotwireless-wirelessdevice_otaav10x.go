@@ -4,9 +4,9 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// WirelessDevice_OtaaV10X AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.OtaaV10X)
+// WirelessDevice_OtaaV10x AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.OtaaV10x)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html
-type WirelessDevice_OtaaV10X struct {
+type WirelessDevice_OtaaV10x struct {
 
 	// AppEui AWS CloudFormation Property
 	// Required: true
@@ -35,6 +35,6 @@ type WirelessDevice_OtaaV10X struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *WirelessDevice_OtaaV10X) AWSCloudFormationType() string {
-	return "AWS::IoTWireless::WirelessDevice.OtaaV10X"
+func (r *WirelessDevice_OtaaV10x) AWSCloudFormationType() string {
+	return "AWS::IoTWireless::WirelessDevice.OtaaV10x"
 }
