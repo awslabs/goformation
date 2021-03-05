@@ -9,7 +9,7 @@ import (
 type Canary_Code struct {
 
 	// Handler AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
 	Handler string `json:"Handler,omitempty"`
 

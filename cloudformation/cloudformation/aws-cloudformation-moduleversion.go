@@ -18,7 +18,7 @@ type ModuleVersion struct {
 	ModuleName string `json:"ModuleName,omitempty"`
 
 	// ModulePackage AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
 	ModulePackage string `json:"ModulePackage,omitempty"`
 

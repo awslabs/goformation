@@ -24,9 +24,9 @@ type Canary_RunConfig struct {
 	MemoryInMB int `json:"MemoryInMB,omitempty"`
 
 	// TimeoutInSeconds AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
-	TimeoutInSeconds int `json:"TimeoutInSeconds"`
+	TimeoutInSeconds int `json:"TimeoutInSeconds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
