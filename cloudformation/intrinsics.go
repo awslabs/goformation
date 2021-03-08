@@ -226,6 +226,17 @@ func Or(conditions []string) string {
 	return encode(fmt.Sprintf(`{ "Fn::Or": [ %v ] }`, printList(conditions)))
 }
 
+// (str, map[str]str) -> str
+
+func TransformFn(name string, parameters map[string]string) string {
+	var params []string
+	for key, value := range parameters {
+		params = append(params, fmt.Sprintf(`"%v" : "%v"`, key, value))
+	}
+
+	return encode(fmt.Sprintf(`{ "Fn::Transform" : { "Name" : "%v", "Parameters" : { "%v" } } }`, name, strings.Trim(strings.Join(params, `, `), `, "`)))
+}
+
 // encode takes a string representation of an intrinsic function, and base64 encodes it.
 // This prevents the escaping issues when nesting multiple layers of intrinsic functions.
 func encode(value string) string {
