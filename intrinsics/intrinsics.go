@@ -34,6 +34,7 @@ var defaultIntrinsicHandlers = map[string]IntrinsicHandler{
 	"Fn::Sub":         FnSub,
 	"Ref":             Ref,
 	"Fn::Cidr":        nonResolvingHandler,
+	"Fn::Transform":   FnTransform,
 }
 
 // ProcessorOptions allows customisation of the intrinsic function processor behaviour.
