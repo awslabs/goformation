@@ -1,22 +1,17 @@
-package ssm
+package certificatemanager
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// MaintenanceWindowTask_Target AWS CloudFormation Resource (AWS::SSM::MaintenanceWindowTask.Target)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
-type MaintenanceWindowTask_Target struct {
+// Account_ExpiryEventsConfiguration AWS CloudFormation Resource (AWS::CertificateManager::Account.ExpiryEventsConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html
+type Account_ExpiryEventsConfiguration struct {
 
-	// Key AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
-	Key string `json:"Key,omitempty"`
-
-	// Values AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
-	Values []string `json:"Values,omitempty"`
+	// DaysBeforeExpiry AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
+	DaysBeforeExpiry int `json:"DaysBeforeExpiry,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type MaintenanceWindowTask_Target struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *MaintenanceWindowTask_Target) AWSCloudFormationType() string {
-	return "AWS::SSM::MaintenanceWindowTask.Target"
+func (r *Account_ExpiryEventsConfiguration) AWSCloudFormationType() string {
+	return "AWS::CertificateManager::Account.ExpiryEventsConfiguration"
 }

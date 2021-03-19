@@ -26,7 +26,7 @@ type BackupPlan_BackupRuleResourceType struct {
 	// RecoveryPointTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-	RecoveryPointTags interface{} `json:"RecoveryPointTags,omitempty"`
+	RecoveryPointTags map[string]string `json:"RecoveryPointTags,omitempty"`
 
 	// RuleName AWS CloudFormation Property
 	// Required: true

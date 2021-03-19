@@ -1,22 +1,17 @@
-package ssm
+package dynamodb
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// MaintenanceWindowTask_Target AWS CloudFormation Resource (AWS::SSM::MaintenanceWindowTask.Target)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
-type MaintenanceWindowTask_Target struct {
+// Table_ContributorInsightsSpecification AWS CloudFormation Resource (AWS::DynamoDB::Table.ContributorInsightsSpecification)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html
+type Table_ContributorInsightsSpecification struct {
 
-	// Key AWS CloudFormation Property
+	// Enabled AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
-	Key string `json:"Key,omitempty"`
-
-	// Values AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
-	Values []string `json:"Values,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html#cfn-dynamodb-contributorinsightsspecification-enabled
+	Enabled bool `json:"Enabled"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type MaintenanceWindowTask_Target struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *MaintenanceWindowTask_Target) AWSCloudFormationType() string {
-	return "AWS::SSM::MaintenanceWindowTask.Target"
+func (r *Table_ContributorInsightsSpecification) AWSCloudFormationType() string {
+	return "AWS::DynamoDB::Table.ContributorInsightsSpecification"
 }

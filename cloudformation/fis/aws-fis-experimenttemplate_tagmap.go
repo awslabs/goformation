@@ -1,22 +1,12 @@
-package ssm
+package fis
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// MaintenanceWindowTask_Target AWS CloudFormation Resource (AWS::SSM::MaintenanceWindowTask.Target)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
-type MaintenanceWindowTask_Target struct {
-
-	// Key AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
-	Key string `json:"Key,omitempty"`
-
-	// Values AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
-	Values []string `json:"Values,omitempty"`
+// ExperimentTemplate_TagMap AWS CloudFormation Resource (AWS::FIS::ExperimentTemplate.TagMap)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-tagmap.html
+type ExperimentTemplate_TagMap struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +25,6 @@ type MaintenanceWindowTask_Target struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *MaintenanceWindowTask_Target) AWSCloudFormationType() string {
-	return "AWS::SSM::MaintenanceWindowTask.Target"
+func (r *ExperimentTemplate_TagMap) AWSCloudFormationType() string {
+	return "AWS::FIS::ExperimentTemplate.TagMap"
 }

@@ -1,22 +1,17 @@
-package ssm
+package fis
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// MaintenanceWindowTask_Target AWS CloudFormation Resource (AWS::SSM::MaintenanceWindowTask.Target)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
-type MaintenanceWindowTask_Target struct {
+// ExperimentTemplate_ResourceArnList AWS CloudFormation Resource (AWS::FIS::ExperimentTemplate.ResourceArnList)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-resourcearnlist.html
+type ExperimentTemplate_ResourceArnList struct {
 
-	// Key AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
-	Key string `json:"Key,omitempty"`
-
-	// Values AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
-	Values []string `json:"Values,omitempty"`
+	// ResourceArnList AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-resourcearnlist.html#cfn-fis-experimenttemplate-resourcearnlist-resourcearnlist
+	ResourceArnList []string `json:"ResourceArnList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type MaintenanceWindowTask_Target struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *MaintenanceWindowTask_Target) AWSCloudFormationType() string {
-	return "AWS::SSM::MaintenanceWindowTask.Target"
+func (r *ExperimentTemplate_ResourceArnList) AWSCloudFormationType() string {
+	return "AWS::FIS::ExperimentTemplate.ResourceArnList"
 }

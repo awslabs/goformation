@@ -15,7 +15,7 @@ type AttributeGroup struct {
 	// Attributes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-attributes
-	Attributes *AttributeGroup_Attributes `json:"Attributes,omitempty"`
+	Attributes interface{} `json:"Attributes,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
