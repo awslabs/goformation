@@ -43,6 +43,11 @@ type Service struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
 	EnableECSManagedTags bool `json:"EnableECSManagedTags,omitempty"`
 
+	// EnableExecuteCommand AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
+	EnableExecuteCommand bool `json:"EnableExecuteCommand,omitempty"`
+
 	// HealthCheckGracePeriodSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds

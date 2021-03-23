@@ -1,4 +1,4 @@
-package appsync
+package ce
 
 import (
 	"bytes"
@@ -8,54 +8,34 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// GraphQLApi AWS CloudFormation Resource (AWS::AppSync::GraphQLApi)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
-type GraphQLApi struct {
+// AnomalySubscription AWS CloudFormation Resource (AWS::CE::AnomalySubscription)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html
+type AnomalySubscription struct {
 
-	// AdditionalAuthenticationProviders AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
-	AdditionalAuthenticationProviders *GraphQLApi_AdditionalAuthenticationProviders `json:"AdditionalAuthenticationProviders,omitempty"`
-
-	// AuthenticationType AWS CloudFormation Property
+	// Frequency AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
-	AuthenticationType string `json:"AuthenticationType,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-frequency
+	Frequency string `json:"Frequency,omitempty"`
 
-	// LambdaAuthorizerConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig
-	LambdaAuthorizerConfig *GraphQLApi_LambdaAuthorizerConfig `json:"LambdaAuthorizerConfig,omitempty"`
-
-	// LogConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig
-	LogConfig *GraphQLApi_LogConfig `json:"LogConfig,omitempty"`
-
-	// Name AWS CloudFormation Property
+	// MonitorArnList AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
-	Name string `json:"Name,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-monitorarnlist
+	MonitorArnList []string `json:"MonitorArnList,omitempty"`
 
-	// OpenIDConnectConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
-	OpenIDConnectConfig *GraphQLApi_OpenIDConnectConfig `json:"OpenIDConnectConfig,omitempty"`
+	// Subscribers AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-subscribers
+	Subscribers []AnomalySubscription_Subscriber `json:"Subscribers,omitempty"`
 
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
-	Tags *GraphQLApi_Tags `json:"Tags,omitempty"`
+	// SubscriptionName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-subscriptionname
+	SubscriptionName string `json:"SubscriptionName,omitempty"`
 
-	// UserPoolConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
-	UserPoolConfig *GraphQLApi_UserPoolConfig `json:"UserPoolConfig,omitempty"`
-
-	// XrayEnabled AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
-	XrayEnabled bool `json:"XrayEnabled,omitempty"`
+	// Threshold AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-threshold
+	Threshold float64 `json:"Threshold"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -74,14 +54,14 @@ type GraphQLApi struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *GraphQLApi) AWSCloudFormationType() string {
-	return "AWS::AppSync::GraphQLApi"
+func (r *AnomalySubscription) AWSCloudFormationType() string {
+	return "AWS::CE::AnomalySubscription"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r GraphQLApi) MarshalJSON() ([]byte, error) {
-	type Properties GraphQLApi
+func (r AnomalySubscription) MarshalJSON() ([]byte, error) {
+	type Properties AnomalySubscription
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -103,8 +83,8 @@ func (r GraphQLApi) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
-	type Properties GraphQLApi
+func (r *AnomalySubscription) UnmarshalJSON(b []byte) error {
+	type Properties AnomalySubscription
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -125,7 +105,7 @@ func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = GraphQLApi(*res.Properties)
+		*r = AnomalySubscription(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

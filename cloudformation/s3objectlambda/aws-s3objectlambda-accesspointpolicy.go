@@ -1,4 +1,4 @@
-package appsync
+package s3objectlambda
 
 import (
 	"bytes"
@@ -8,54 +8,19 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// GraphQLApi AWS CloudFormation Resource (AWS::AppSync::GraphQLApi)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
-type GraphQLApi struct {
+// AccessPointPolicy AWS CloudFormation Resource (AWS::S3ObjectLambda::AccessPointPolicy)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html
+type AccessPointPolicy struct {
 
-	// AdditionalAuthenticationProviders AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
-	AdditionalAuthenticationProviders *GraphQLApi_AdditionalAuthenticationProviders `json:"AdditionalAuthenticationProviders,omitempty"`
-
-	// AuthenticationType AWS CloudFormation Property
+	// ObjectLambdaAccessPoint AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
-	AuthenticationType string `json:"AuthenticationType,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
+	ObjectLambdaAccessPoint string `json:"ObjectLambdaAccessPoint,omitempty"`
 
-	// LambdaAuthorizerConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig
-	LambdaAuthorizerConfig *GraphQLApi_LambdaAuthorizerConfig `json:"LambdaAuthorizerConfig,omitempty"`
-
-	// LogConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig
-	LogConfig *GraphQLApi_LogConfig `json:"LogConfig,omitempty"`
-
-	// Name AWS CloudFormation Property
+	// PolicyDocument AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
-	Name string `json:"Name,omitempty"`
-
-	// OpenIDConnectConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
-	OpenIDConnectConfig *GraphQLApi_OpenIDConnectConfig `json:"OpenIDConnectConfig,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
-	Tags *GraphQLApi_Tags `json:"Tags,omitempty"`
-
-	// UserPoolConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
-	UserPoolConfig *GraphQLApi_UserPoolConfig `json:"UserPoolConfig,omitempty"`
-
-	// XrayEnabled AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
-	XrayEnabled bool `json:"XrayEnabled,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -74,14 +39,14 @@ type GraphQLApi struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *GraphQLApi) AWSCloudFormationType() string {
-	return "AWS::AppSync::GraphQLApi"
+func (r *AccessPointPolicy) AWSCloudFormationType() string {
+	return "AWS::S3ObjectLambda::AccessPointPolicy"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r GraphQLApi) MarshalJSON() ([]byte, error) {
-	type Properties GraphQLApi
+func (r AccessPointPolicy) MarshalJSON() ([]byte, error) {
+	type Properties AccessPointPolicy
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -103,8 +68,8 @@ func (r GraphQLApi) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
-	type Properties GraphQLApi
+func (r *AccessPointPolicy) UnmarshalJSON(b []byte) error {
+	type Properties AccessPointPolicy
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -125,7 +90,7 @@ func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = GraphQLApi(*res.Properties)
+		*r = AccessPointPolicy(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
