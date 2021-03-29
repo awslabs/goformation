@@ -41,6 +41,7 @@ type Output struct {
 	Value       interface{} `json:"Value"`
 	Description string      `json:"Description,omitempty"`
 	Export      *Export     `json:"Export,omitempty"`
+	Condition   string      `json:"Condition,omitempty"`
 }
 
 type Export struct {
