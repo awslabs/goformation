@@ -28,6 +28,11 @@ type RuleGroup_StatementTwo struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
 	IPSetReferenceStatement *RuleGroup_IPSetReferenceStatement `json:"IPSetReferenceStatement,omitempty"`
 
+	// LabelMatchStatement AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-labelmatchstatement
+	LabelMatchStatement *RuleGroup_LabelMatchStatement `json:"LabelMatchStatement,omitempty"`
+
 	// NotStatement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement

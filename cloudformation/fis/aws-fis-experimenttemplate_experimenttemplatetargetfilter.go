@@ -8,15 +8,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html
 type ExperimentTemplate_ExperimentTemplateTargetFilter struct {
 
-	// path AWS CloudFormation Property
+	// Path AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path
-	path string `json:"path,omitempty"`
+	Path string `json:"Path,omitempty"`
 
-	// values AWS CloudFormation Property
+	// Values AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values
-	values *ExperimentTemplate_ExperimentTemplateTargetFilterValues `json:"values,omitempty"`
+	Values *ExperimentTemplate_ExperimentTemplateTargetFilterValues `json:"Values,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

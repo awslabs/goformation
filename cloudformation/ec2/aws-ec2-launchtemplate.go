@@ -25,7 +25,7 @@ type LaunchTemplate struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications
-	TagSpecifications []LaunchTemplate_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []LaunchTemplate_LaunchTemplateTagSpecification `json:"TagSpecifications,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

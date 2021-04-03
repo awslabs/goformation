@@ -18,6 +18,11 @@ type Channel_HlsSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-fmp4hlssettings
 	Fmp4HlsSettings *Channel_Fmp4HlsSettings `json:"Fmp4HlsSettings,omitempty"`
 
+	// FrameCaptureHlsSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-framecapturehlssettings
+	FrameCaptureHlsSettings *Channel_FrameCaptureHlsSettings `json:"FrameCaptureHlsSettings,omitempty"`
+
 	// StandardHlsSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-standardhlssettings

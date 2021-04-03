@@ -23,6 +23,11 @@ type Channel_HlsCdnSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlsmediastoresettings
 	HlsMediaStoreSettings *Channel_HlsMediaStoreSettings `json:"HlsMediaStoreSettings,omitempty"`
 
+	// HlsS3Settings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlss3settings
+	HlsS3Settings *Channel_HlsS3Settings `json:"HlsS3Settings,omitempty"`
+
 	// HlsWebdavSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlswebdavsettings

@@ -8,30 +8,30 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html
 type ExperimentTemplate_ExperimentTemplateTarget struct {
 
-	// filters AWS CloudFormation Property
+	// Filters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-	filters *ExperimentTemplate_ExperimentTemplateTargetFilterList `json:"filters,omitempty"`
+	Filters *ExperimentTemplate_ExperimentTemplateTargetFilterList `json:"Filters,omitempty"`
 
-	// resourceArns AWS CloudFormation Property
+	// ResourceArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-	resourceArns *ExperimentTemplate_ResourceArnList `json:"resourceArns,omitempty"`
+	ResourceArns *ExperimentTemplate_ResourceArnList `json:"ResourceArns,omitempty"`
 
-	// resourceTags AWS CloudFormation Property
+	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-	resourceTags *ExperimentTemplate_TagMap `json:"resourceTags,omitempty"`
+	ResourceTags *ExperimentTemplate_TagMap `json:"ResourceTags,omitempty"`
 
-	// resourceType AWS CloudFormation Property
+	// ResourceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype
-	resourceType string `json:"resourceType,omitempty"`
+	ResourceType string `json:"ResourceType,omitempty"`
 
-	// selectionMode AWS CloudFormation Property
+	// SelectionMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode
-	selectionMode string `json:"selectionMode,omitempty"`
+	SelectionMode string `json:"SelectionMode,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

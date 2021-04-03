@@ -12,35 +12,35 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
 type ExperimentTemplate struct {
 
-	// actions AWS CloudFormation Property
+	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-	actions map[string]ExperimentTemplate_ExperimentTemplateAction `json:"actions,omitempty"`
+	Actions map[string]ExperimentTemplate_ExperimentTemplateAction `json:"Actions,omitempty"`
 
-	// description AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-	description string `json:"description,omitempty"`
+	Description string `json:"Description,omitempty"`
 
-	// roleArn AWS CloudFormation Property
+	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-	roleArn string `json:"roleArn,omitempty"`
+	RoleArn string `json:"RoleArn,omitempty"`
 
-	// stopConditions AWS CloudFormation Property
+	// StopConditions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-	stopConditions []ExperimentTemplate_ExperimentTemplateStopCondition `json:"stopConditions,omitempty"`
+	StopConditions []ExperimentTemplate_ExperimentTemplateStopCondition `json:"StopConditions,omitempty"`
 
-	// tags AWS CloudFormation Property
+	// Tags AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-	tags map[string]string `json:"tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
-	// targets AWS CloudFormation Property
+	// Targets AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-	targets map[string]ExperimentTemplate_ExperimentTemplateTarget `json:"targets,omitempty"`
+	Targets map[string]ExperimentTemplate_ExperimentTemplateTarget `json:"Targets,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

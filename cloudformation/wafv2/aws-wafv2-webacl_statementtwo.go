@@ -28,10 +28,10 @@ type WebACL_StatementTwo struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
 	IPSetReferenceStatement *WebACL_IPSetReferenceStatement `json:"IPSetReferenceStatement,omitempty"`
 
-	// ManagedRuleGroupStatement AWS CloudFormation Property
+	// LabelMatchStatement AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
-	ManagedRuleGroupStatement *WebACL_ManagedRuleGroupStatement `json:"ManagedRuleGroupStatement,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-labelmatchstatement
+	LabelMatchStatement *WebACL_LabelMatchStatement `json:"LabelMatchStatement,omitempty"`
 
 	// NotStatement AWS CloudFormation Property
 	// Required: false

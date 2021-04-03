@@ -23,10 +23,10 @@ type WebACL_StatementThree struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
 	IPSetReferenceStatement *WebACL_IPSetReferenceStatement `json:"IPSetReferenceStatement,omitempty"`
 
-	// ManagedRuleGroupStatement AWS CloudFormation Property
+	// LabelMatchStatement AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
-	ManagedRuleGroupStatement *WebACL_ManagedRuleGroupStatement `json:"ManagedRuleGroupStatement,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-labelmatchstatement
+	LabelMatchStatement *WebACL_LabelMatchStatement `json:"LabelMatchStatement,omitempty"`
 
 	// RegexPatternSetReferenceStatement AWS CloudFormation Property
 	// Required: false
