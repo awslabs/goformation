@@ -21,17 +21,22 @@ type Dataset struct {
 	// FormatOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
-	FormatOptions interface{} `json:"FormatOptions,omitempty"`
+	FormatOptions *Dataset_FormatOptions `json:"FormatOptions,omitempty"`
 
 	// Input AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
-	Input interface{} `json:"Input,omitempty"`
+	Input *Dataset_Input `json:"Input,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
 	Name string `json:"Name,omitempty"`
+
+	// PathOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+	PathOptions *Dataset_PathOptions `json:"PathOptions,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

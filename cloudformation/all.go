@@ -10,6 +10,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/apigatewayv2"
 	"github.com/awslabs/goformation/v4/cloudformation/appconfig"
 	"github.com/awslabs/goformation/v4/cloudformation/appflow"
+	"github.com/awslabs/goformation/v4/cloudformation/appintegrations"
 	"github.com/awslabs/goformation/v4/cloudformation/applicationautoscaling"
 	"github.com/awslabs/goformation/v4/cloudformation/applicationinsights"
 	"github.com/awslabs/goformation/v4/cloudformation/appmesh"
@@ -44,6 +45,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/codestarnotifications"
 	"github.com/awslabs/goformation/v4/cloudformation/cognito"
 	"github.com/awslabs/goformation/v4/cloudformation/config"
+	"github.com/awslabs/goformation/v4/cloudformation/customerprofiles"
 	"github.com/awslabs/goformation/v4/cloudformation/databrew"
 	"github.com/awslabs/goformation/v4/cloudformation/datapipeline"
 	"github.com/awslabs/goformation/v4/cloudformation/datasync"
@@ -77,6 +79,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/glue"
 	"github.com/awslabs/goformation/v4/cloudformation/greengrass"
 	"github.com/awslabs/goformation/v4/cloudformation/greengrassv2"
+	"github.com/awslabs/goformation/v4/cloudformation/groundstation"
 	"github.com/awslabs/goformation/v4/cloudformation/guardduty"
 	"github.com/awslabs/goformation/v4/cloudformation/iam"
 	"github.com/awslabs/goformation/v4/cloudformation/imagebuilder"
@@ -99,6 +102,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/lambda"
 	"github.com/awslabs/goformation/v4/cloudformation/licensemanager"
 	"github.com/awslabs/goformation/v4/cloudformation/logs"
+	"github.com/awslabs/goformation/v4/cloudformation/lookoutmetrics"
 	"github.com/awslabs/goformation/v4/cloudformation/lookoutvision"
 	"github.com/awslabs/goformation/v4/cloudformation/macie"
 	"github.com/awslabs/goformation/v4/cloudformation/managedblockchain"
@@ -205,6 +209,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppConfig::HostedConfigurationVersion":                  &appconfig.HostedConfigurationVersion{},
 		"AWS::AppFlow::ConnectorProfile":                              &appflow.ConnectorProfile{},
 		"AWS::AppFlow::Flow":                                          &appflow.Flow{},
+		"AWS::AppIntegrations::EventIntegration":                      &appintegrations.EventIntegration{},
 		"AWS::AppMesh::GatewayRoute":                                  &appmesh.GatewayRoute{},
 		"AWS::AppMesh::Mesh":                                          &appmesh.Mesh{},
 		"AWS::AppMesh::Route":                                         &appmesh.Route{},
@@ -246,6 +251,7 @@ func AllResources() map[string]Resource {
 		"AWS::Batch::JobDefinition":                                   &batch.JobDefinition{},
 		"AWS::Batch::JobQueue":                                        &batch.JobQueue{},
 		"AWS::Budgets::Budget":                                        &budgets.Budget{},
+		"AWS::Budgets::BudgetsAction":                                 &budgets.BudgetsAction{},
 		"AWS::CE::AnomalyMonitor":                                     &ce.AnomalyMonitor{},
 		"AWS::CE::AnomalySubscription":                                &ce.AnomalySubscription{},
 		"AWS::CE::CostCategory":                                       &ce.CostCategory{},
@@ -319,6 +325,9 @@ func AllResources() map[string]Resource {
 		"AWS::Config::OrganizationConformancePack":                    &config.OrganizationConformancePack{},
 		"AWS::Config::RemediationConfiguration":                       &config.RemediationConfiguration{},
 		"AWS::Config::StoredQuery":                                    &config.StoredQuery{},
+		"AWS::CustomerProfiles::Domain":                               &customerprofiles.Domain{},
+		"AWS::CustomerProfiles::Integration":                          &customerprofiles.Integration{},
+		"AWS::CustomerProfiles::ObjectType":                           &customerprofiles.ObjectType{},
 		"AWS::DAX::Cluster":                                           &dax.Cluster{},
 		"AWS::DAX::ParameterGroup":                                    &dax.ParameterGroup{},
 		"AWS::DAX::SubnetGroup":                                       &dax.SubnetGroup{},
@@ -529,6 +538,9 @@ func AllResources() map[string]Resource {
 		"AWS::Greengrass::SubscriptionDefinition":                     &greengrass.SubscriptionDefinition{},
 		"AWS::Greengrass::SubscriptionDefinitionVersion":              &greengrass.SubscriptionDefinitionVersion{},
 		"AWS::GreengrassV2::ComponentVersion":                         &greengrassv2.ComponentVersion{},
+		"AWS::GroundStation::Config":                                  &groundstation.Config{},
+		"AWS::GroundStation::DataflowEndpointGroup":                   &groundstation.DataflowEndpointGroup{},
+		"AWS::GroundStation::MissionProfile":                          &groundstation.MissionProfile{},
 		"AWS::GuardDuty::Detector":                                    &guardduty.Detector{},
 		"AWS::GuardDuty::Filter":                                      &guardduty.Filter{},
 		"AWS::GuardDuty::IPSet":                                       &guardduty.IPSet{},
@@ -632,7 +644,10 @@ func AllResources() map[string]Resource {
 		"AWS::Logs::LogGroup":                                         &logs.LogGroup{},
 		"AWS::Logs::LogStream":                                        &logs.LogStream{},
 		"AWS::Logs::MetricFilter":                                     &logs.MetricFilter{},
+		"AWS::Logs::QueryDefinition":                                  &logs.QueryDefinition{},
 		"AWS::Logs::SubscriptionFilter":                               &logs.SubscriptionFilter{},
+		"AWS::LookoutMetrics::Alert":                                  &lookoutmetrics.Alert{},
+		"AWS::LookoutMetrics::AnomalyDetector":                        &lookoutmetrics.AnomalyDetector{},
 		"AWS::LookoutVision::Project":                                 &lookoutvision.Project{},
 		"AWS::MSK::Cluster":                                           &msk.Cluster{},
 		"AWS::MWAA::Environment":                                      &mwaa.Environment{},
@@ -708,6 +723,8 @@ func AllResources() map[string]Resource {
 		"AWS::QLDB::Stream":                                           &qldb.Stream{},
 		"AWS::QuickSight::Analysis":                                   &quicksight.Analysis{},
 		"AWS::QuickSight::Dashboard":                                  &quicksight.Dashboard{},
+		"AWS::QuickSight::DataSet":                                    &quicksight.DataSet{},
+		"AWS::QuickSight::DataSource":                                 &quicksight.DataSource{},
 		"AWS::QuickSight::Template":                                   &quicksight.Template{},
 		"AWS::QuickSight::Theme":                                      &quicksight.Theme{},
 		"AWS::RAM::ResourceShare":                                     &ram.ResourceShare{},
@@ -742,6 +759,9 @@ func AllResources() map[string]Resource {
 		"AWS::Route53::KeySigningKey":                                 &route53.KeySigningKey{},
 		"AWS::Route53::RecordSet":                                     &route53.RecordSet{},
 		"AWS::Route53::RecordSetGroup":                                &route53.RecordSetGroup{},
+		"AWS::Route53Resolver::FirewallDomainList":                    &route53resolver.FirewallDomainList{},
+		"AWS::Route53Resolver::FirewallRuleGroup":                     &route53resolver.FirewallRuleGroup{},
+		"AWS::Route53Resolver::FirewallRuleGroupAssociation":          &route53resolver.FirewallRuleGroupAssociation{},
 		"AWS::Route53Resolver::ResolverDNSSECConfig":                  &route53resolver.ResolverDNSSECConfig{},
 		"AWS::Route53Resolver::ResolverEndpoint":                      &route53resolver.ResolverEndpoint{},
 		"AWS::Route53Resolver::ResolverQueryLoggingConfig":            &route53resolver.ResolverQueryLoggingConfig{},
@@ -2079,6 +2099,30 @@ func (t *Template) GetAppFlowFlowWithName(name string) (*appflow.Flow, error) {
 	return nil, fmt.Errorf("resource %q of type appflow.Flow not found", name)
 }
 
+// GetAllAppIntegrationsEventIntegrationResources retrieves all appintegrations.EventIntegration items from an AWS CloudFormation template
+func (t *Template) GetAllAppIntegrationsEventIntegrationResources() map[string]*appintegrations.EventIntegration {
+	results := map[string]*appintegrations.EventIntegration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appintegrations.EventIntegration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppIntegrationsEventIntegrationWithName retrieves all appintegrations.EventIntegration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppIntegrationsEventIntegrationWithName(name string) (*appintegrations.EventIntegration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appintegrations.EventIntegration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appintegrations.EventIntegration not found", name)
+}
+
 // GetAllAppMeshGatewayRouteResources retrieves all appmesh.GatewayRoute items from an AWS CloudFormation template
 func (t *Template) GetAllAppMeshGatewayRouteResources() map[string]*appmesh.GatewayRoute {
 	results := map[string]*appmesh.GatewayRoute{}
@@ -3061,6 +3105,30 @@ func (t *Template) GetBudgetsBudgetWithName(name string) (*budgets.Budget, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type budgets.Budget not found", name)
+}
+
+// GetAllBudgetsBudgetsActionResources retrieves all budgets.BudgetsAction items from an AWS CloudFormation template
+func (t *Template) GetAllBudgetsBudgetsActionResources() map[string]*budgets.BudgetsAction {
+	results := map[string]*budgets.BudgetsAction{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *budgets.BudgetsAction:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBudgetsBudgetsActionWithName retrieves all budgets.BudgetsAction items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBudgetsBudgetsActionWithName(name string) (*budgets.BudgetsAction, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *budgets.BudgetsAction:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type budgets.BudgetsAction not found", name)
 }
 
 // GetAllCEAnomalyMonitorResources retrieves all ce.AnomalyMonitor items from an AWS CloudFormation template
@@ -4813,6 +4881,78 @@ func (t *Template) GetConfigStoredQueryWithName(name string) (*config.StoredQuer
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type config.StoredQuery not found", name)
+}
+
+// GetAllCustomerProfilesDomainResources retrieves all customerprofiles.Domain items from an AWS CloudFormation template
+func (t *Template) GetAllCustomerProfilesDomainResources() map[string]*customerprofiles.Domain {
+	results := map[string]*customerprofiles.Domain{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *customerprofiles.Domain:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCustomerProfilesDomainWithName retrieves all customerprofiles.Domain items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCustomerProfilesDomainWithName(name string) (*customerprofiles.Domain, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *customerprofiles.Domain:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type customerprofiles.Domain not found", name)
+}
+
+// GetAllCustomerProfilesIntegrationResources retrieves all customerprofiles.Integration items from an AWS CloudFormation template
+func (t *Template) GetAllCustomerProfilesIntegrationResources() map[string]*customerprofiles.Integration {
+	results := map[string]*customerprofiles.Integration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *customerprofiles.Integration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCustomerProfilesIntegrationWithName retrieves all customerprofiles.Integration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCustomerProfilesIntegrationWithName(name string) (*customerprofiles.Integration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *customerprofiles.Integration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type customerprofiles.Integration not found", name)
+}
+
+// GetAllCustomerProfilesObjectTypeResources retrieves all customerprofiles.ObjectType items from an AWS CloudFormation template
+func (t *Template) GetAllCustomerProfilesObjectTypeResources() map[string]*customerprofiles.ObjectType {
+	results := map[string]*customerprofiles.ObjectType{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *customerprofiles.ObjectType:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCustomerProfilesObjectTypeWithName retrieves all customerprofiles.ObjectType items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCustomerProfilesObjectTypeWithName(name string) (*customerprofiles.ObjectType, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *customerprofiles.ObjectType:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type customerprofiles.ObjectType not found", name)
 }
 
 // GetAllDAXClusterResources retrieves all dax.Cluster items from an AWS CloudFormation template
@@ -9855,6 +9995,78 @@ func (t *Template) GetGreengrassV2ComponentVersionWithName(name string) (*greeng
 	return nil, fmt.Errorf("resource %q of type greengrassv2.ComponentVersion not found", name)
 }
 
+// GetAllGroundStationConfigResources retrieves all groundstation.Config items from an AWS CloudFormation template
+func (t *Template) GetAllGroundStationConfigResources() map[string]*groundstation.Config {
+	results := map[string]*groundstation.Config{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *groundstation.Config:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGroundStationConfigWithName retrieves all groundstation.Config items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGroundStationConfigWithName(name string) (*groundstation.Config, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *groundstation.Config:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type groundstation.Config not found", name)
+}
+
+// GetAllGroundStationDataflowEndpointGroupResources retrieves all groundstation.DataflowEndpointGroup items from an AWS CloudFormation template
+func (t *Template) GetAllGroundStationDataflowEndpointGroupResources() map[string]*groundstation.DataflowEndpointGroup {
+	results := map[string]*groundstation.DataflowEndpointGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *groundstation.DataflowEndpointGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGroundStationDataflowEndpointGroupWithName retrieves all groundstation.DataflowEndpointGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGroundStationDataflowEndpointGroupWithName(name string) (*groundstation.DataflowEndpointGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *groundstation.DataflowEndpointGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type groundstation.DataflowEndpointGroup not found", name)
+}
+
+// GetAllGroundStationMissionProfileResources retrieves all groundstation.MissionProfile items from an AWS CloudFormation template
+func (t *Template) GetAllGroundStationMissionProfileResources() map[string]*groundstation.MissionProfile {
+	results := map[string]*groundstation.MissionProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *groundstation.MissionProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGroundStationMissionProfileWithName retrieves all groundstation.MissionProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGroundStationMissionProfileWithName(name string) (*groundstation.MissionProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *groundstation.MissionProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type groundstation.MissionProfile not found", name)
+}
+
 // GetAllGuardDutyDetectorResources retrieves all guardduty.Detector items from an AWS CloudFormation template
 func (t *Template) GetAllGuardDutyDetectorResources() map[string]*guardduty.Detector {
 	results := map[string]*guardduty.Detector{}
@@ -12327,6 +12539,30 @@ func (t *Template) GetLogsMetricFilterWithName(name string) (*logs.MetricFilter,
 	return nil, fmt.Errorf("resource %q of type logs.MetricFilter not found", name)
 }
 
+// GetAllLogsQueryDefinitionResources retrieves all logs.QueryDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllLogsQueryDefinitionResources() map[string]*logs.QueryDefinition {
+	results := map[string]*logs.QueryDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *logs.QueryDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLogsQueryDefinitionWithName retrieves all logs.QueryDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLogsQueryDefinitionWithName(name string) (*logs.QueryDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *logs.QueryDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type logs.QueryDefinition not found", name)
+}
+
 // GetAllLogsSubscriptionFilterResources retrieves all logs.SubscriptionFilter items from an AWS CloudFormation template
 func (t *Template) GetAllLogsSubscriptionFilterResources() map[string]*logs.SubscriptionFilter {
 	results := map[string]*logs.SubscriptionFilter{}
@@ -12349,6 +12585,54 @@ func (t *Template) GetLogsSubscriptionFilterWithName(name string) (*logs.Subscri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type logs.SubscriptionFilter not found", name)
+}
+
+// GetAllLookoutMetricsAlertResources retrieves all lookoutmetrics.Alert items from an AWS CloudFormation template
+func (t *Template) GetAllLookoutMetricsAlertResources() map[string]*lookoutmetrics.Alert {
+	results := map[string]*lookoutmetrics.Alert{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lookoutmetrics.Alert:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLookoutMetricsAlertWithName retrieves all lookoutmetrics.Alert items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLookoutMetricsAlertWithName(name string) (*lookoutmetrics.Alert, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lookoutmetrics.Alert:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lookoutmetrics.Alert not found", name)
+}
+
+// GetAllLookoutMetricsAnomalyDetectorResources retrieves all lookoutmetrics.AnomalyDetector items from an AWS CloudFormation template
+func (t *Template) GetAllLookoutMetricsAnomalyDetectorResources() map[string]*lookoutmetrics.AnomalyDetector {
+	results := map[string]*lookoutmetrics.AnomalyDetector{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lookoutmetrics.AnomalyDetector:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLookoutMetricsAnomalyDetectorWithName retrieves all lookoutmetrics.AnomalyDetector items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLookoutMetricsAnomalyDetectorWithName(name string) (*lookoutmetrics.AnomalyDetector, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lookoutmetrics.AnomalyDetector:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lookoutmetrics.AnomalyDetector not found", name)
 }
 
 // GetAllLookoutVisionProjectResources retrieves all lookoutvision.Project items from an AWS CloudFormation template
@@ -14151,6 +14435,54 @@ func (t *Template) GetQuickSightDashboardWithName(name string) (*quicksight.Dash
 	return nil, fmt.Errorf("resource %q of type quicksight.Dashboard not found", name)
 }
 
+// GetAllQuickSightDataSetResources retrieves all quicksight.DataSet items from an AWS CloudFormation template
+func (t *Template) GetAllQuickSightDataSetResources() map[string]*quicksight.DataSet {
+	results := map[string]*quicksight.DataSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *quicksight.DataSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQuickSightDataSetWithName retrieves all quicksight.DataSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQuickSightDataSetWithName(name string) (*quicksight.DataSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *quicksight.DataSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type quicksight.DataSet not found", name)
+}
+
+// GetAllQuickSightDataSourceResources retrieves all quicksight.DataSource items from an AWS CloudFormation template
+func (t *Template) GetAllQuickSightDataSourceResources() map[string]*quicksight.DataSource {
+	results := map[string]*quicksight.DataSource{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *quicksight.DataSource:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQuickSightDataSourceWithName retrieves all quicksight.DataSource items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQuickSightDataSourceWithName(name string) (*quicksight.DataSource, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *quicksight.DataSource:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type quicksight.DataSource not found", name)
+}
+
 // GetAllQuickSightTemplateResources retrieves all quicksight.Template items from an AWS CloudFormation template
 func (t *Template) GetAllQuickSightTemplateResources() map[string]*quicksight.Template {
 	results := map[string]*quicksight.Template{}
@@ -14965,6 +15297,78 @@ func (t *Template) GetRoute53RecordSetGroupWithName(name string) (*route53.Recor
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type route53.RecordSetGroup not found", name)
+}
+
+// GetAllRoute53ResolverFirewallDomainListResources retrieves all route53resolver.FirewallDomainList items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53ResolverFirewallDomainListResources() map[string]*route53resolver.FirewallDomainList {
+	results := map[string]*route53resolver.FirewallDomainList{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53resolver.FirewallDomainList:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53ResolverFirewallDomainListWithName retrieves all route53resolver.FirewallDomainList items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53ResolverFirewallDomainListWithName(name string) (*route53resolver.FirewallDomainList, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53resolver.FirewallDomainList:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53resolver.FirewallDomainList not found", name)
+}
+
+// GetAllRoute53ResolverFirewallRuleGroupResources retrieves all route53resolver.FirewallRuleGroup items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53ResolverFirewallRuleGroupResources() map[string]*route53resolver.FirewallRuleGroup {
+	results := map[string]*route53resolver.FirewallRuleGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53resolver.FirewallRuleGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53ResolverFirewallRuleGroupWithName retrieves all route53resolver.FirewallRuleGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53ResolverFirewallRuleGroupWithName(name string) (*route53resolver.FirewallRuleGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53resolver.FirewallRuleGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53resolver.FirewallRuleGroup not found", name)
+}
+
+// GetAllRoute53ResolverFirewallRuleGroupAssociationResources retrieves all route53resolver.FirewallRuleGroupAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53ResolverFirewallRuleGroupAssociationResources() map[string]*route53resolver.FirewallRuleGroupAssociation {
+	results := map[string]*route53resolver.FirewallRuleGroupAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53resolver.FirewallRuleGroupAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53ResolverFirewallRuleGroupAssociationWithName retrieves all route53resolver.FirewallRuleGroupAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53ResolverFirewallRuleGroupAssociationWithName(name string) (*route53resolver.FirewallRuleGroupAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53resolver.FirewallRuleGroupAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53resolver.FirewallRuleGroupAssociation not found", name)
 }
 
 // GetAllRoute53ResolverResolverDNSSECConfigResources retrieves all route53resolver.ResolverDNSSECConfig items from an AWS CloudFormation template

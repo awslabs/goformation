@@ -8,30 +8,30 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html
 type ExperimentTemplate_ExperimentTemplateAction struct {
 
-	// actionId AWS CloudFormation Property
-	// Required: false
+	// ActionId AWS CloudFormation Property
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid
-	actionId string `json:"actionId,omitempty"`
+	ActionId string `json:"ActionId,omitempty"`
 
-	// description AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
-	description string `json:"description,omitempty"`
+	Description string `json:"Description,omitempty"`
 
-	// parameters AWS CloudFormation Property
+	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
-	parameters *ExperimentTemplate_ExperimentTemplateActionItemParameterMap `json:"parameters,omitempty"`
+	Parameters *ExperimentTemplate_ExperimentTemplateActionItemParameterMap `json:"Parameters,omitempty"`
 
-	// startAfter AWS CloudFormation Property
+	// StartAfter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
-	startAfter *ExperimentTemplate_ExperimentTemplateActionItemStartAfterList `json:"startAfter,omitempty"`
+	StartAfter *ExperimentTemplate_ExperimentTemplateActionItemStartAfterList `json:"StartAfter,omitempty"`
 
-	// targets AWS CloudFormation Property
+	// Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
-	targets *ExperimentTemplate_ExperimentTemplateActionItemTargetMap `json:"targets,omitempty"`
+	Targets *ExperimentTemplate_ExperimentTemplateActionItemTargetMap `json:"Targets,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
