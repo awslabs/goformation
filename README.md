@@ -235,7 +235,7 @@ Any unsupported intrinsic functions will return `nil`.
 
 #### Resolving References (Ref)
 
-When converting a YAML/JSON template to go, the intrinsic 'Ref' function as implemented will resolve all of the [pseudo parameters](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) such as `AWS::AccountId` with their default value as listed on [the bottom of this page](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html).
+When converting a YAML/JSON template to go, the intrinsic 'Ref' function as implemented will resolve all of the [pseudo parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html) such as `AWS::AccountId` with their default value as listed on the page.
 
 If a reference is not a pseudo parameter, GoFormation will try to resolve it within the AWS CloudFormation template. **Currently, this implementation only searches for `Parameters` with a name that matches the ref, and returns the `Default` if it has one.**
 
