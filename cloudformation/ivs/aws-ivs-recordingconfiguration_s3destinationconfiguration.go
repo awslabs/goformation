@@ -1,22 +1,17 @@
-package iotevents
+package ivs
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// DetectorModel_Sns AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.Sns)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
-type DetectorModel_Sns struct {
+// RecordingConfiguration_S3DestinationConfiguration AWS CloudFormation Resource (AWS::IVS::RecordingConfiguration.S3DestinationConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
+type RecordingConfiguration_S3DestinationConfiguration struct {
 
-	// Payload AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
-	Payload *DetectorModel_Payload `json:"Payload,omitempty"`
-
-	// TargetArn AWS CloudFormation Property
+	// BucketName AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
-	TargetArn string `json:"TargetArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
+	BucketName string `json:"BucketName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type DetectorModel_Sns struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *DetectorModel_Sns) AWSCloudFormationType() string {
-	return "AWS::IoTEvents::DetectorModel.Sns"
+func (r *RecordingConfiguration_S3DestinationConfiguration) AWSCloudFormationType() string {
+	return "AWS::IVS::RecordingConfiguration.S3DestinationConfiguration"
 }

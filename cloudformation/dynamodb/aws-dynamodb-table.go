@@ -38,6 +38,11 @@ type Table struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema
 	KeySchema []Table_KeySchema `json:"KeySchema,omitempty"`
 
+	// KinesisStreamSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-kinesisstreamspecification
+	KinesisStreamSpecification *Table_KinesisStreamSpecification `json:"KinesisStreamSpecification,omitempty"`
+
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi

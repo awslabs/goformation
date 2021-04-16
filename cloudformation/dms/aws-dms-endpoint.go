@@ -123,6 +123,11 @@ type Endpoint struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-redshiftsettings
 	RedshiftSettings *Endpoint_RedshiftSettings `json:"RedshiftSettings,omitempty"`
 
+	// ResourceIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-resourceidentifier
+	ResourceIdentifier string `json:"ResourceIdentifier,omitempty"`
+
 	// S3Settings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-s3settings

@@ -29,9 +29,9 @@ type TopicRule_TopicRulePayload struct {
 	ErrorAction *TopicRule_Action `json:"ErrorAction,omitempty"`
 
 	// RuleDisabled AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
-	RuleDisabled bool `json:"RuleDisabled,omitempty"`
+	RuleDisabled bool `json:"RuleDisabled"`
 
 	// Sql AWS CloudFormation Property
 	// Required: true

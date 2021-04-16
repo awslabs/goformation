@@ -1,22 +1,22 @@
-package iotevents
+package iot
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// DetectorModel_Payload AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.Payload)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html
-type DetectorModel_Payload struct {
+// TopicRule_CloudwatchLogsAction AWS CloudFormation Resource (AWS::IoT::TopicRule.CloudwatchLogsAction)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html
+type TopicRule_CloudwatchLogsAction struct {
 
-	// ContentExpression AWS CloudFormation Property
+	// LogGroupName AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
-	ContentExpression string `json:"ContentExpression,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
+	LogGroupName string `json:"LogGroupName,omitempty"`
 
-	// Type AWS CloudFormation Property
+	// RoleArn AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
-	Type string `json:"Type,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
+	RoleArn string `json:"RoleArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type DetectorModel_Payload struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *DetectorModel_Payload) AWSCloudFormationType() string {
-	return "AWS::IoTEvents::DetectorModel.Payload"
+func (r *TopicRule_CloudwatchLogsAction) AWSCloudFormationType() string {
+	return "AWS::IoT::TopicRule.CloudwatchLogsAction"
 }

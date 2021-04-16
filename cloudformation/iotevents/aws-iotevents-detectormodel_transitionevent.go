@@ -14,17 +14,17 @@ type DetectorModel_TransitionEvent struct {
 	Actions []DetectorModel_Action `json:"Actions,omitempty"`
 
 	// Condition AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
 	Condition string `json:"Condition,omitempty"`
 
 	// EventName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
 	EventName string `json:"EventName,omitempty"`
 
 	// NextState AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
 	NextState string `json:"NextState,omitempty"`
 

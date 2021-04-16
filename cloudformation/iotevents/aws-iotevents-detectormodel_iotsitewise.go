@@ -29,7 +29,7 @@ type DetectorModel_IotSiteWise struct {
 	PropertyId string `json:"PropertyId,omitempty"`
 
 	// PropertyValue AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
 	PropertyValue *DetectorModel_AssetPropertyValue `json:"PropertyValue,omitempty"`
 

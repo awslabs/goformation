@@ -43,6 +43,11 @@ type Channel_EncoderSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-globalconfiguration
 	GlobalConfiguration *Channel_GlobalConfiguration `json:"GlobalConfiguration,omitempty"`
 
+	// MotionGraphicsConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-motiongraphicsconfiguration
+	MotionGraphicsConfiguration *Channel_MotionGraphicsConfiguration `json:"MotionGraphicsConfiguration,omitempty"`
+
 	// NielsenConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-nielsenconfiguration

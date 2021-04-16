@@ -15497,6 +15497,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "DefaultValue": {
+                            "type": "string"
+                        },
                         "Name": {
                             "type": "string"
                         },
@@ -16785,6 +16788,9 @@ var SamSchema = `{
                 },
                 "MaxConcurrentPercentage": {
                     "type": "number"
+                },
+                "RegionConcurrencyType": {
+                    "type": "string"
                 },
                 "RegionOrder": {
                     "items": {
@@ -25706,6 +25712,9 @@ var SamSchema = `{
                         "RedshiftSettings": {
                             "$ref": "#/definitions/AWS::DMS::Endpoint.RedshiftSettings"
                         },
+                        "ResourceIdentifier": {
+                            "type": "string"
+                        },
                         "S3Settings": {
                             "$ref": "#/definitions/AWS::DMS::Endpoint.S3Settings"
                         },
@@ -26167,6 +26176,9 @@ var SamSchema = `{
                         "ReplicationSubnetGroupIdentifier": {
                             "type": "string"
                         },
+                        "ResourceIdentifier": {
+                            "type": "string"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -26335,6 +26347,9 @@ var SamSchema = `{
                             "type": "string"
                         },
                         "ReplicationTaskSettings": {
+                            "type": "string"
+                        },
+                        "ResourceIdentifier": {
                             "type": "string"
                         },
                         "SourceEndpointArn": {
@@ -29489,6 +29504,9 @@ var SamSchema = `{
                             },
                             "type": "array"
                         },
+                        "KinesisStreamSpecification": {
+                            "$ref": "#/definitions/AWS::DynamoDB::Table.KinesisStreamSpecification"
+                        },
                         "LocalSecondaryIndexes": {
                             "items": {
                                 "$ref": "#/definitions/AWS::DynamoDB::Table.LocalSecondaryIndex"
@@ -29616,6 +29634,18 @@ var SamSchema = `{
             "required": [
                 "AttributeName",
                 "KeyType"
+            ],
+            "type": "object"
+        },
+        "AWS::DynamoDB::Table.KinesisStreamSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "StreamArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StreamArn"
             ],
             "type": "object"
         },
@@ -30978,6 +31008,72 @@ var SamSchema = `{
                 "Type": {
                     "enum": [
                         "AWS::EC2::EgressOnlyInternetGateway"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::EnclaveCertificateIamRoleAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CertificateArn": {
+                            "type": "string"
+                        },
+                        "RoleArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "CertificateArn",
+                        "RoleArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::EnclaveCertificateIamRoleAssociation"
                     ],
                     "type": "string"
                 },
@@ -39442,6 +39538,9 @@ var SamSchema = `{
                         "BackupPolicy": {
                             "$ref": "#/definitions/AWS::EFS::FileSystem.BackupPolicy"
                         },
+                        "BypassPolicyLockoutSafetyCheck": {
+                            "type": "boolean"
+                        },
                         "Encrypted": {
                             "type": "boolean"
                         },
@@ -42241,6 +42340,12 @@ var SamSchema = `{
                                 }
                             },
                             "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -42507,6 +42612,12 @@ var SamSchema = `{
                     "properties": {
                         "Description": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -42645,6 +42756,12 @@ var SamSchema = `{
                         "SubnetIds": {
                             "items": {
                                 "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
                             },
                             "type": "array"
                         }
@@ -47019,12 +47136,6 @@ var SamSchema = `{
                         "InstanceRoleARN": {
                             "type": "string"
                         },
-                        "LogPaths": {
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array"
-                        },
                         "MaxSize": {
                             "type": "number"
                         },
@@ -47057,18 +47168,8 @@ var SamSchema = `{
                         },
                         "ScriptId": {
                             "type": "string"
-                        },
-                        "ServerLaunchParameters": {
-                            "type": "string"
-                        },
-                        "ServerLaunchPath": {
-                            "type": "string"
                         }
                     },
-                    "required": [
-                        "EC2InstanceType",
-                        "Name"
-                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -47087,8 +47188,7 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type",
-                "Properties"
+                "Type"
             ],
             "type": "object"
         },
@@ -54820,6 +54920,9 @@ var SamSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "RecordingConfigurationArn": {
+                            "type": "string"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -54920,6 +55023,101 @@ var SamSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IVS::RecordingConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DestinationConfiguration": {
+                            "$ref": "#/definitions/AWS::IVS::RecordingConfiguration.DestinationConfiguration"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "DestinationConfiguration"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IVS::RecordingConfiguration"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IVS::RecordingConfiguration.DestinationConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "S3": {
+                    "$ref": "#/definitions/AWS::IVS::RecordingConfiguration.S3DestinationConfiguration"
+                }
+            },
+            "required": [
+                "S3"
+            ],
+            "type": "object"
+        },
+        "AWS::IVS::RecordingConfiguration.S3DestinationConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "BucketName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BucketName"
             ],
             "type": "object"
         },
@@ -55144,6 +55342,9 @@ var SamSchema = `{
                         "ImageOsVersionOverride": {
                             "type": "string"
                         },
+                        "InstanceConfiguration": {
+                            "type": "object"
+                        },
                         "KmsKeyId": {
                             "type": "string"
                         },
@@ -55210,6 +55411,66 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "ComponentArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ImageBuilder::ContainerRecipe.EbsInstanceBlockDeviceSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "DeleteOnTermination": {
+                    "type": "boolean"
+                },
+                "Encrypted": {
+                    "type": "boolean"
+                },
+                "Iops": {
+                    "type": "number"
+                },
+                "KmsKeyId": {
+                    "type": "string"
+                },
+                "SnapshotId": {
+                    "type": "string"
+                },
+                "VolumeSize": {
+                    "type": "number"
+                },
+                "VolumeType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ImageBuilder::ContainerRecipe.InstanceBlockDeviceMapping": {
+            "additionalProperties": false,
+            "properties": {
+                "DeviceName": {
+                    "type": "string"
+                },
+                "Ebs": {
+                    "$ref": "#/definitions/AWS::ImageBuilder::ContainerRecipe.EbsInstanceBlockDeviceSpecification"
+                },
+                "NoDevice": {
+                    "type": "string"
+                },
+                "VirtualName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ImageBuilder::ContainerRecipe.InstanceConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "BlockDeviceMappings": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::ImageBuilder::ContainerRecipe.InstanceBlockDeviceMapping"
+                    },
+                    "type": "array"
+                },
+                "Image": {
                     "type": "string"
                 }
             },
@@ -55317,6 +55578,12 @@ var SamSchema = `{
                 "ContainerDistributionConfiguration": {
                     "type": "object"
                 },
+                "LaunchTemplateConfigurations": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration"
+                    },
+                    "type": "array"
+                },
                 "LicenseConfigurationArns": {
                     "items": {
                         "type": "string"
@@ -55330,6 +55597,21 @@ var SamSchema = `{
             "required": [
                 "Region"
             ],
+            "type": "object"
+        },
+        "AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AccountId": {
+                    "type": "string"
+                },
+                "LaunchTemplateId": {
+                    "type": "string"
+                },
+                "SetDefaultVersion": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::ImageBuilder::Image": {
@@ -57772,6 +58054,12 @@ var SamSchema = `{
                         "RuleName": {
                             "type": "string"
                         },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
                         "TopicRulePayload": {
                             "$ref": "#/definitions/AWS::IoT::TopicRule.TopicRulePayload"
                         }
@@ -57808,6 +58096,9 @@ var SamSchema = `{
                 "CloudwatchAlarm": {
                     "$ref": "#/definitions/AWS::IoT::TopicRule.CloudwatchAlarmAction"
                 },
+                "CloudwatchLogs": {
+                    "$ref": "#/definitions/AWS::IoT::TopicRule.CloudwatchLogsAction"
+                },
                 "CloudwatchMetric": {
                     "$ref": "#/definitions/AWS::IoT::TopicRule.CloudwatchMetricAction"
                 },
@@ -57835,6 +58126,9 @@ var SamSchema = `{
                 "IotSiteWise": {
                     "$ref": "#/definitions/AWS::IoT::TopicRule.IotSiteWiseAction"
                 },
+                "Kafka": {
+                    "$ref": "#/definitions/AWS::IoT::TopicRule.KafkaAction"
+                },
                 "Kinesis": {
                     "$ref": "#/definitions/AWS::IoT::TopicRule.KinesisAction"
                 },
@@ -57855,6 +58149,9 @@ var SamSchema = `{
                 },
                 "StepFunctions": {
                     "$ref": "#/definitions/AWS::IoT::TopicRule.StepFunctionsAction"
+                },
+                "Timestream": {
+                    "$ref": "#/definitions/AWS::IoT::TopicRule.TimestreamAction"
                 }
             },
             "type": "object"
@@ -57932,6 +58229,22 @@ var SamSchema = `{
                 "RoleArn",
                 "StateReason",
                 "StateValue"
+            ],
+            "type": "object"
+        },
+        "AWS::IoT::TopicRule.CloudwatchLogsAction": {
+            "additionalProperties": false,
+            "properties": {
+                "LogGroupName": {
+                    "type": "string"
+                },
+                "RoleArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LogGroupName",
+                "RoleArn"
             ],
             "type": "object"
         },
@@ -58048,6 +58361,9 @@ var SamSchema = `{
         "AWS::IoT::TopicRule.FirehoseAction": {
             "additionalProperties": false,
             "properties": {
+                "BatchMode": {
+                    "type": "boolean"
+                },
                 "DeliveryStreamName": {
                     "type": "string"
                 },
@@ -58116,6 +58432,9 @@ var SamSchema = `{
         "AWS::IoT::TopicRule.IotAnalyticsAction": {
             "additionalProperties": false,
             "properties": {
+                "BatchMode": {
+                    "type": "boolean"
+                },
                 "ChannelName": {
                     "type": "string"
                 },
@@ -58132,6 +58451,9 @@ var SamSchema = `{
         "AWS::IoT::TopicRule.IotEventsAction": {
             "additionalProperties": false,
             "properties": {
+                "BatchMode": {
+                    "type": "boolean"
+                },
                 "InputName": {
                     "type": "string"
                 },
@@ -58164,6 +58486,38 @@ var SamSchema = `{
             "required": [
                 "PutAssetPropertyValueEntries",
                 "RoleArn"
+            ],
+            "type": "object"
+        },
+        "AWS::IoT::TopicRule.KafkaAction": {
+            "additionalProperties": false,
+            "properties": {
+                "ClientProperties": {
+                    "additionalProperties": true,
+                    "patternProperties": {
+                        "^[a-zA-Z0-9]+$": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DestinationArn": {
+                    "type": "string"
+                },
+                "Key": {
+                    "type": "string"
+                },
+                "Partition": {
+                    "type": "string"
+                },
+                "Topic": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClientProperties",
+                "DestinationArn",
+                "Topic"
             ],
             "type": "object"
         },
@@ -58353,6 +58707,77 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IoT::TopicRule.TimestreamAction": {
+            "additionalProperties": false,
+            "properties": {
+                "DatabaseName": {
+                    "type": "string"
+                },
+                "Dimensions": {
+                    "$ref": "#/definitions/AWS::IoT::TopicRule.TimestreamDimensionsList"
+                },
+                "RoleArn": {
+                    "type": "string"
+                },
+                "TableName": {
+                    "type": "string"
+                },
+                "Timestamp": {
+                    "$ref": "#/definitions/AWS::IoT::TopicRule.TimestreamTimestamp"
+                }
+            },
+            "required": [
+                "DatabaseName",
+                "Dimensions",
+                "RoleArn",
+                "TableName"
+            ],
+            "type": "object"
+        },
+        "AWS::IoT::TopicRule.TimestreamDimension": {
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name",
+                "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::IoT::TopicRule.TimestreamDimensionsList": {
+            "additionalProperties": false,
+            "properties": {
+                "TimestreamDimensionsList": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::IoT::TopicRule.TimestreamDimension"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoT::TopicRule.TimestreamTimestamp": {
+            "additionalProperties": false,
+            "properties": {
+                "Unit": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Unit",
+                "Value"
+            ],
+            "type": "object"
+        },
         "AWS::IoT::TopicRule.TopicRulePayload": {
             "additionalProperties": false,
             "properties": {
@@ -58380,6 +58805,7 @@ var SamSchema = `{
             },
             "required": [
                 "Actions",
+                "RuleDisabled",
                 "Sql"
             ],
             "type": "object"
@@ -59537,6 +59963,10 @@ var SamSchema = `{
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "DetectorModelDefinition",
+                        "RoleArn"
+                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -59555,7 +59985,8 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type"
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -59614,6 +60045,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "TimeInSeconds"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.AssetPropertyValue": {
@@ -59629,6 +60063,9 @@ var SamSchema = `{
                     "$ref": "#/definitions/AWS::IoTEvents::DetectorModel.AssetPropertyVariant"
                 }
             },
+            "required": [
+                "Value"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.AssetPropertyVariant": {
@@ -59656,6 +60093,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "TimerName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.DetectorModelDefinition": {
@@ -59671,6 +60111,10 @@ var SamSchema = `{
                     "type": "array"
                 }
             },
+            "required": [
+                "InitialStateName",
+                "States"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.DynamoDB": {
@@ -59707,6 +60151,11 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "HashKeyField",
+                "HashKeyValue",
+                "TableName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.DynamoDBv2": {
@@ -59719,6 +60168,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "TableName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.Event": {
@@ -59737,6 +60189,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "EventName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.Firehose": {
@@ -59752,6 +60207,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "DeliveryStreamName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.IotEvents": {
@@ -59764,6 +60222,9 @@ var SamSchema = `{
                     "$ref": "#/definitions/AWS::IoTEvents::DetectorModel.Payload"
                 }
             },
+            "required": [
+                "InputName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.IotSiteWise": {
@@ -59785,6 +60246,9 @@ var SamSchema = `{
                     "$ref": "#/definitions/AWS::IoTEvents::DetectorModel.AssetPropertyValue"
                 }
             },
+            "required": [
+                "PropertyValue"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.IotTopicPublish": {
@@ -59797,6 +60261,9 @@ var SamSchema = `{
                     "$ref": "#/definitions/AWS::IoTEvents::DetectorModel.Payload"
                 }
             },
+            "required": [
+                "MqttTopic"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.Lambda": {
@@ -59809,6 +60276,9 @@ var SamSchema = `{
                     "$ref": "#/definitions/AWS::IoTEvents::DetectorModel.Payload"
                 }
             },
+            "required": [
+                "FunctionArn"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.OnEnter": {
@@ -59863,6 +60333,10 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "ContentExpression",
+                "Type"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.ResetTimer": {
@@ -59872,6 +60346,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "TimerName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.SetTimer": {
@@ -59887,6 +60364,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "TimerName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.SetVariable": {
@@ -59899,6 +60379,10 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Value",
+                "VariableName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.Sns": {
@@ -59911,6 +60395,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "TargetArn"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.Sqs": {
@@ -59926,6 +60413,9 @@ var SamSchema = `{
                     "type": "boolean"
                 }
             },
+            "required": [
+                "QueueUrl"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.State": {
@@ -59944,6 +60434,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "StateName"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::DetectorModel.TransitionEvent": {
@@ -59965,6 +60458,11 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "Condition",
+                "EventName",
+                "NextState"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::Input": {
@@ -60015,6 +60513,9 @@ var SamSchema = `{
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "InputDefinition"
+                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -60033,7 +60534,8 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type"
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -60044,6 +60546,9 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "JsonPath"
+            ],
             "type": "object"
         },
         "AWS::IoTEvents::Input.InputDefinition": {
@@ -60056,6 +60561,9 @@ var SamSchema = `{
                     "type": "array"
                 }
             },
+            "required": [
+                "Attributes"
+            ],
             "type": "object"
         },
         "AWS::IoTSiteWise::AccessPolicy": {
@@ -68763,7 +69271,7 @@ var SamSchema = `{
                     "additionalProperties": false,
                     "properties": {
                         "AirflowConfigurationOptions": {
-                            "$ref": "#/definitions/AWS::MWAA::Environment.AirflowConfigurationOptions"
+                            "type": "object"
                         },
                         "AirflowVersion": {
                             "type": "string"
@@ -68784,6 +69292,9 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::MWAA::Environment.LoggingConfiguration"
                         },
                         "MaxWorkers": {
+                            "type": "number"
+                        },
+                        "MinWorkers": {
                             "type": "number"
                         },
                         "Name": {
@@ -68841,11 +69352,6 @@ var SamSchema = `{
                 "Type",
                 "Properties"
             ],
-            "type": "object"
-        },
-        "AWS::MWAA::Environment.AirflowConfigurationOptions": {
-            "additionalProperties": false,
-            "properties": {},
             "type": "object"
         },
         "AWS::MWAA::Environment.LoggingConfiguration": {
@@ -71286,6 +71792,9 @@ var SamSchema = `{
                 "GlobalConfiguration": {
                     "$ref": "#/definitions/AWS::MediaLive::Channel.GlobalConfiguration"
                 },
+                "MotionGraphicsConfiguration": {
+                    "$ref": "#/definitions/AWS::MediaLive::Channel.MotionGraphicsConfiguration"
+                },
                 "NielsenConfiguration": {
                     "$ref": "#/definitions/AWS::MediaLive::Channel.NielsenConfiguration"
                 },
@@ -72044,6 +72553,11 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::MediaLive::Channel.HtmlMotionGraphicsSettings": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
         "AWS::MediaLive::Channel.InputAttachment": {
             "additionalProperties": false,
             "properties": {
@@ -72410,6 +72924,27 @@ var SamSchema = `{
         "AWS::MediaLive::Channel.MediaPackageOutputSettings": {
             "additionalProperties": false,
             "properties": {},
+            "type": "object"
+        },
+        "AWS::MediaLive::Channel.MotionGraphicsConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "MotionGraphicsInsertion": {
+                    "type": "string"
+                },
+                "MotionGraphicsSettings": {
+                    "$ref": "#/definitions/AWS::MediaLive::Channel.MotionGraphicsSettings"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::MediaLive::Channel.MotionGraphicsSettings": {
+            "additionalProperties": false,
+            "properties": {
+                "HtmlMotionGraphicsSettings": {
+                    "$ref": "#/definitions/AWS::MediaLive::Channel.HtmlMotionGraphicsSettings"
+                }
+            },
             "type": "object"
         },
         "AWS::MediaLive::Channel.Mp2Settings": {
@@ -73107,11 +73642,23 @@ var SamSchema = `{
                 "ColorSpace": {
                     "type": "string"
                 },
+                "ColorSpaceSettings": {
+                    "$ref": "#/definitions/AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings"
+                },
                 "ColorSpaceUsage": {
                     "type": "string"
                 },
                 "SelectorSettings": {
                     "$ref": "#/definitions/AWS::MediaLive::Channel.VideoSelectorSettings"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings": {
+            "additionalProperties": false,
+            "properties": {
+                "Hdr10Settings": {
+                    "$ref": "#/definitions/AWS::MediaLive::Channel.Hdr10Settings"
                 }
             },
             "type": "object"
@@ -105388,6 +105935,9 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::EC2::EgressOnlyInternetGateway"
                         },
                         {
+                            "$ref": "#/definitions/AWS::EC2::EnclaveCertificateIamRoleAssociation"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::EC2::FlowLog"
                         },
                         {
@@ -105947,6 +106497,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::IVS::PlaybackKeyPair"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IVS::RecordingConfiguration"
                         },
                         {
                             "$ref": "#/definitions/AWS::IVS::StreamKey"

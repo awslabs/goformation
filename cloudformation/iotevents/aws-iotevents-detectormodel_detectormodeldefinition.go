@@ -9,12 +9,12 @@ import (
 type DetectorModel_DetectorModelDefinition struct {
 
 	// InitialStateName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
 	InitialStateName string `json:"InitialStateName,omitempty"`
 
 	// States AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
 	States []DetectorModel_State `json:"States,omitempty"`
 

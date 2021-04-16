@@ -14,7 +14,7 @@ type DetectorModel_DynamoDBv2 struct {
 	Payload *DetectorModel_Payload `json:"Payload,omitempty"`
 
 	// TableName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
 	TableName string `json:"TableName,omitempty"`
 

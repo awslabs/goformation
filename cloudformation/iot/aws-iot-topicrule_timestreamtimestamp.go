@@ -1,22 +1,22 @@
-package iotevents
+package iot
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// DetectorModel_Sns AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.Sns)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
-type DetectorModel_Sns struct {
+// TopicRule_TimestreamTimestamp AWS CloudFormation Resource (AWS::IoT::TopicRule.TimestreamTimestamp)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html
+type TopicRule_TimestreamTimestamp struct {
 
-	// Payload AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
-	Payload *DetectorModel_Payload `json:"Payload,omitempty"`
-
-	// TargetArn AWS CloudFormation Property
+	// Unit AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
-	TargetArn string `json:"TargetArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-unit
+	Unit string `json:"Unit,omitempty"`
+
+	// Value AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-value
+	Value string `json:"Value,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type DetectorModel_Sns struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *DetectorModel_Sns) AWSCloudFormationType() string {
-	return "AWS::IoTEvents::DetectorModel.Sns"
+func (r *TopicRule_TimestreamTimestamp) AWSCloudFormationType() string {
+	return "AWS::IoT::TopicRule.TimestreamTimestamp"
 }

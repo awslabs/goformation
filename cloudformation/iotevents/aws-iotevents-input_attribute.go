@@ -9,7 +9,7 @@ import (
 type Input_Attribute struct {
 
 	// JsonPath AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
 	JsonPath string `json:"JsonPath,omitempty"`
 

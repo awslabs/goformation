@@ -1,4 +1,4 @@
-package iot
+package ec2
 
 import (
 	"bytes"
@@ -6,27 +6,21 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// TopicRule AWS CloudFormation Resource (AWS::IoT::TopicRule)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
-type TopicRule struct {
+// EnclaveCertificateIamRoleAssociation AWS CloudFormation Resource (AWS::EC2::EnclaveCertificateIamRoleAssociation)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html
+type EnclaveCertificateIamRoleAssociation struct {
 
-	// RuleName AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-	RuleName string `json:"RuleName,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
-
-	// TopicRulePayload AWS CloudFormation Property
+	// CertificateArn AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-	TopicRulePayload *TopicRule_TopicRulePayload `json:"TopicRulePayload,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
+	CertificateArn string `json:"CertificateArn,omitempty"`
+
+	// RoleArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+	RoleArn string `json:"RoleArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -45,14 +39,14 @@ type TopicRule struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *TopicRule) AWSCloudFormationType() string {
-	return "AWS::IoT::TopicRule"
+func (r *EnclaveCertificateIamRoleAssociation) AWSCloudFormationType() string {
+	return "AWS::EC2::EnclaveCertificateIamRoleAssociation"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r TopicRule) MarshalJSON() ([]byte, error) {
-	type Properties TopicRule
+func (r EnclaveCertificateIamRoleAssociation) MarshalJSON() ([]byte, error) {
+	type Properties EnclaveCertificateIamRoleAssociation
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -74,8 +68,8 @@ func (r TopicRule) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *TopicRule) UnmarshalJSON(b []byte) error {
-	type Properties TopicRule
+func (r *EnclaveCertificateIamRoleAssociation) UnmarshalJSON(b []byte) error {
+	type Properties EnclaveCertificateIamRoleAssociation
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -96,7 +90,7 @@ func (r *TopicRule) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = TopicRule(*res.Properties)
+		*r = EnclaveCertificateIamRoleAssociation(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
