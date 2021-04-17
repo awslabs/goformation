@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [4.19.0](https://github.com/awslabs/goformation/compare/v4.18.3...v4.19.0) (2021-04-17)
+
+
+### Features
+
+* **schema:** Improve cloudformation If to accept structs ([#368](https://github.com/awslabs/goformation/issues/368)) ([3c1bcd8](https://github.com/awslabs/goformation/commit/3c1bcd83e0e582aedeaf42f22e270b8a9f977863))
+
 ## [4.18.3](https://github.com/awslabs/goformation/compare/v4.18.2...v4.18.3) (2021-04-07)
 
 
