@@ -1,22 +1,17 @@
-package iotevents
+package iot
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// DetectorModel_Sns AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.Sns)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
-type DetectorModel_Sns struct {
+// TopicRule_TimestreamDimensionsList AWS CloudFormation Resource (AWS::IoT::TopicRule.TimestreamDimensionsList)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimensionslist.html
+type TopicRule_TimestreamDimensionsList struct {
 
-	// Payload AWS CloudFormation Property
+	// TimestreamDimensionsList AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
-	Payload *DetectorModel_Payload `json:"Payload,omitempty"`
-
-	// TargetArn AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
-	TargetArn string `json:"TargetArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimensionslist.html#cfn-iot-topicrule-timestreamdimensionslist-timestreamdimensionslist
+	TimestreamDimensionsList []TopicRule_TimestreamDimension `json:"TimestreamDimensionsList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type DetectorModel_Sns struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *DetectorModel_Sns) AWSCloudFormationType() string {
-	return "AWS::IoTEvents::DetectorModel.Sns"
+func (r *TopicRule_TimestreamDimensionsList) AWSCloudFormationType() string {
+	return "AWS::IoT::TopicRule.TimestreamDimensionsList"
 }

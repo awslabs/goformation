@@ -19,7 +19,7 @@ type DetectorModel_AssetPropertyValue struct {
 	Timestamp *DetectorModel_AssetPropertyTimestamp `json:"Timestamp,omitempty"`
 
 	// Value AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
 	Value *DetectorModel_AssetPropertyVariant `json:"Value,omitempty"`
 

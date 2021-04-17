@@ -14,7 +14,7 @@ type DetectorModel_AssetPropertyTimestamp struct {
 	OffsetInNanos string `json:"OffsetInNanos,omitempty"`
 
 	// TimeInSeconds AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
 	TimeInSeconds string `json:"TimeInSeconds,omitempty"`
 

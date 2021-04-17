@@ -1,22 +1,17 @@
-package iotevents
+package medialive
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// DetectorModel_Sns AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.Sns)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
-type DetectorModel_Sns struct {
+// Channel_MotionGraphicsSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.MotionGraphicsSettings)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html
+type Channel_MotionGraphicsSettings struct {
 
-	// Payload AWS CloudFormation Property
+	// HtmlMotionGraphicsSettings AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
-	Payload *DetectorModel_Payload `json:"Payload,omitempty"`
-
-	// TargetArn AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
-	TargetArn string `json:"TargetArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html#cfn-medialive-channel-motiongraphicssettings-htmlmotiongraphicssettings
+	HtmlMotionGraphicsSettings *Channel_HtmlMotionGraphicsSettings `json:"HtmlMotionGraphicsSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type DetectorModel_Sns struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *DetectorModel_Sns) AWSCloudFormationType() string {
-	return "AWS::IoTEvents::DetectorModel.Sns"
+func (r *Channel_MotionGraphicsSettings) AWSCloudFormationType() string {
+	return "AWS::MediaLive::Channel.MotionGraphicsSettings"
 }

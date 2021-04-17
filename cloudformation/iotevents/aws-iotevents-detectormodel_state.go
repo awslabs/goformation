@@ -24,7 +24,7 @@ type DetectorModel_State struct {
 	OnInput *DetectorModel_OnInput `json:"OnInput,omitempty"`
 
 	// StateName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
 	StateName string `json:"StateName,omitempty"`
 

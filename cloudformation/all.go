@@ -375,6 +375,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::EIP":                                               &ec2.EIP{},
 		"AWS::EC2::EIPAssociation":                                    &ec2.EIPAssociation{},
 		"AWS::EC2::EgressOnlyInternetGateway":                         &ec2.EgressOnlyInternetGateway{},
+		"AWS::EC2::EnclaveCertificateIamRoleAssociation":              &ec2.EnclaveCertificateIamRoleAssociation{},
 		"AWS::EC2::FlowLog":                                           &ec2.FlowLog{},
 		"AWS::EC2::GatewayRouteTableAssociation":                      &ec2.GatewayRouteTableAssociation{},
 		"AWS::EC2::Host":                                              &ec2.Host{},
@@ -562,6 +563,7 @@ func AllResources() map[string]Resource {
 		"AWS::IAM::VirtualMFADevice":                                  &iam.VirtualMFADevice{},
 		"AWS::IVS::Channel":                                           &ivs.Channel{},
 		"AWS::IVS::PlaybackKeyPair":                                   &ivs.PlaybackKeyPair{},
+		"AWS::IVS::RecordingConfiguration":                            &ivs.RecordingConfiguration{},
 		"AWS::IVS::StreamKey":                                         &ivs.StreamKey{},
 		"AWS::ImageBuilder::Component":                                &imagebuilder.Component{},
 		"AWS::ImageBuilder::ContainerRecipe":                          &imagebuilder.ContainerRecipe{},
@@ -6083,6 +6085,30 @@ func (t *Template) GetEC2EgressOnlyInternetGatewayWithName(name string) (*ec2.Eg
 	return nil, fmt.Errorf("resource %q of type ec2.EgressOnlyInternetGateway not found", name)
 }
 
+// GetAllEC2EnclaveCertificateIamRoleAssociationResources retrieves all ec2.EnclaveCertificateIamRoleAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllEC2EnclaveCertificateIamRoleAssociationResources() map[string]*ec2.EnclaveCertificateIamRoleAssociation {
+	results := map[string]*ec2.EnclaveCertificateIamRoleAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.EnclaveCertificateIamRoleAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2EnclaveCertificateIamRoleAssociationWithName retrieves all ec2.EnclaveCertificateIamRoleAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2EnclaveCertificateIamRoleAssociationWithName(name string) (*ec2.EnclaveCertificateIamRoleAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.EnclaveCertificateIamRoleAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.EnclaveCertificateIamRoleAssociation not found", name)
+}
+
 // GetAllEC2FlowLogResources retrieves all ec2.FlowLog items from an AWS CloudFormation template
 func (t *Template) GetAllEC2FlowLogResources() map[string]*ec2.FlowLog {
 	results := map[string]*ec2.FlowLog{}
@@ -10569,6 +10595,30 @@ func (t *Template) GetIVSPlaybackKeyPairWithName(name string) (*ivs.PlaybackKeyP
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ivs.PlaybackKeyPair not found", name)
+}
+
+// GetAllIVSRecordingConfigurationResources retrieves all ivs.RecordingConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllIVSRecordingConfigurationResources() map[string]*ivs.RecordingConfiguration {
+	results := map[string]*ivs.RecordingConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ivs.RecordingConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIVSRecordingConfigurationWithName retrieves all ivs.RecordingConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIVSRecordingConfigurationWithName(name string) (*ivs.RecordingConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ivs.RecordingConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ivs.RecordingConfiguration not found", name)
 }
 
 // GetAllIVSStreamKeyResources retrieves all ivs.StreamKey items from an AWS CloudFormation template

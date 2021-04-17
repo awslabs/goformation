@@ -9,7 +9,7 @@ import (
 type DetectorModel_Firehose struct {
 
 	// DeliveryStreamName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
 	DeliveryStreamName string `json:"DeliveryStreamName,omitempty"`
 

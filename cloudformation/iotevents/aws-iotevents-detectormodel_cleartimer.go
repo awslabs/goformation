@@ -9,7 +9,7 @@ import (
 type DetectorModel_ClearTimer struct {
 
 	// TimerName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
 	TimerName string `json:"TimerName,omitempty"`
 

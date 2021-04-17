@@ -9,7 +9,7 @@ import (
 type DetectorModel_IotEvents struct {
 
 	// InputName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
 	InputName string `json:"InputName,omitempty"`
 

@@ -15,7 +15,7 @@ type Environment struct {
 	// AirflowConfigurationOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
-	AirflowConfigurationOptions *Environment_AirflowConfigurationOptions `json:"AirflowConfigurationOptions,omitempty"`
+	AirflowConfigurationOptions interface{} `json:"AirflowConfigurationOptions,omitempty"`
 
 	// AirflowVersion AWS CloudFormation Property
 	// Required: false
@@ -51,6 +51,11 @@ type Environment struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
 	MaxWorkers int `json:"MaxWorkers,omitempty"`
+
+	// MinWorkers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+	MinWorkers int `json:"MinWorkers,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

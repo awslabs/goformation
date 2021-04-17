@@ -14,7 +14,7 @@ type DetectorModel_Sqs struct {
 	Payload *DetectorModel_Payload `json:"Payload,omitempty"`
 
 	// QueueUrl AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
 	QueueUrl string `json:"QueueUrl,omitempty"`
 

@@ -22,6 +22,11 @@ type FileSystem struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
 	BackupPolicy *FileSystem_BackupPolicy `json:"BackupPolicy,omitempty"`
 
+	// BypassPolicyLockoutSafetyCheck AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+	BypassPolicyLockoutSafetyCheck bool `json:"BypassPolicyLockoutSafetyCheck,omitempty"`
+
 	// Encrypted AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
