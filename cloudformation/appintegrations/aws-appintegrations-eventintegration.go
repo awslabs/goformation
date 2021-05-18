@@ -26,7 +26,7 @@ type EventIntegration struct {
 	// EventFilter AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
-	EventFilter interface{} `json:"EventFilter,omitempty"`
+	EventFilter *EventIntegration_EventFilter `json:"EventFilter,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

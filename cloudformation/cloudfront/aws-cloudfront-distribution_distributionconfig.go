@@ -13,6 +13,11 @@ type Distribution_DistributionConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
 	Aliases []string `json:"Aliases,omitempty"`
 
+	// CNAMEs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
+	CNAMEs []string `json:"CNAMEs,omitempty"`
+
 	// CacheBehaviors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
@@ -27,6 +32,11 @@ type Distribution_DistributionConfig struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
 	CustomErrorResponses []Distribution_CustomErrorResponse `json:"CustomErrorResponses,omitempty"`
+
+	// CustomOrigin AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
+	CustomOrigin *Distribution_LegacyCustomOrigin `json:"CustomOrigin,omitempty"`
 
 	// DefaultCacheBehavior AWS CloudFormation Property
 	// Required: false
@@ -77,6 +87,11 @@ type Distribution_DistributionConfig struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
 	Restrictions *Distribution_Restrictions `json:"Restrictions,omitempty"`
+
+	// S3Origin AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
+	S3Origin *Distribution_LegacyS3Origin `json:"S3Origin,omitempty"`
 
 	// ViewerCertificate AWS CloudFormation Property
 	// Required: false

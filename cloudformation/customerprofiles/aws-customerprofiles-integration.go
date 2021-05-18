@@ -18,8 +18,13 @@ type Integration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
 	DomainName string `json:"DomainName,omitempty"`
 
-	// ObjectTypeName AWS CloudFormation Property
+	// FlowDefinition AWS CloudFormation Property
 	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
+	FlowDefinition *Integration_FlowDefinition `json:"FlowDefinition,omitempty"`
+
+	// ObjectTypeName AWS CloudFormation Property
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
 	ObjectTypeName string `json:"ObjectTypeName,omitempty"`
 

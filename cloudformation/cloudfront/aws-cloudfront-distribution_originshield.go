@@ -9,9 +9,9 @@ import (
 type Distribution_OriginShield struct {
 
 	// Enabled AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
-	Enabled bool `json:"Enabled"`
+	Enabled bool `json:"Enabled,omitempty"`
 
 	// OriginShieldRegion AWS CloudFormation Property
 	// Required: false

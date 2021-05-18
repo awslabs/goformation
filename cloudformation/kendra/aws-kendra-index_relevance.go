@@ -31,7 +31,7 @@ type Index_Relevance struct {
 	// ValueImportanceItems AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
-	ValueImportanceItems *Index_ValueImportanceItems `json:"ValueImportanceItems,omitempty"`
+	ValueImportanceItems []Index_ValueImportanceItem `json:"ValueImportanceItems,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

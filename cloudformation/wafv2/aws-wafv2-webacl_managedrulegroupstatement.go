@@ -21,7 +21,7 @@ type WebACL_ManagedRuleGroupStatement struct {
 	// ScopeDownStatement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
-	ScopeDownStatement *WebACL_StatementTwo `json:"ScopeDownStatement,omitempty"`
+	ScopeDownStatement *WebACL_Statement `json:"ScopeDownStatement,omitempty"`
 
 	// VendorName AWS CloudFormation Property
 	// Required: true
