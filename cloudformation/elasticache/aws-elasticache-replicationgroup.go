@@ -73,6 +73,11 @@ type ReplicationGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-kmskeyid
 	KmsKeyId string `json:"KmsKeyId,omitempty"`
 
+	// LogDeliveryConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-logdeliveryconfigurations
+	LogDeliveryConfigurations []ReplicationGroup_LogDeliveryConfigurationRequest `json:"LogDeliveryConfigurations,omitempty"`
+
 	// MultiAZEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-multiazenabled

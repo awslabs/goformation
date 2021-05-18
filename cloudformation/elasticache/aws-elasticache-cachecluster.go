@@ -58,6 +58,11 @@ type CacheCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-engineversion
 	EngineVersion string `json:"EngineVersion,omitempty"`
 
+	// LogDeliveryConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-logdeliveryconfigurations
+	LogDeliveryConfigurations []CacheCluster_LogDeliveryConfigurationRequest `json:"LogDeliveryConfigurations,omitempty"`
+
 	// NotificationTopicArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-notificationtopicarn

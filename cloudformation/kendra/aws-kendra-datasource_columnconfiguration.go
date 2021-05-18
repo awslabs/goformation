@@ -11,7 +11,7 @@ type DataSource_ColumnConfiguration struct {
 	// ChangeDetectingColumns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
-	ChangeDetectingColumns *DataSource_ChangeDetectingColumns `json:"ChangeDetectingColumns,omitempty"`
+	ChangeDetectingColumns []string `json:"ChangeDetectingColumns,omitempty"`
 
 	// DocumentDataColumnName AWS CloudFormation Property
 	// Required: true
@@ -31,7 +31,7 @@ type DataSource_ColumnConfiguration struct {
 	// FieldMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
-	FieldMappings *DataSource_DataSourceToIndexFieldMappingList `json:"FieldMappings,omitempty"`
+	FieldMappings []DataSource_DataSourceToIndexFieldMapping `json:"FieldMappings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

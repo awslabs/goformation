@@ -31,7 +31,7 @@ type Job struct {
 	// JobSample AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
-	JobSample interface{} `json:"JobSample,omitempty"`
+	JobSample *Job_JobSample `json:"JobSample,omitempty"`
 
 	// LogSubscription AWS CloudFormation Property
 	// Required: false
@@ -56,7 +56,7 @@ type Job struct {
 	// OutputLocation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
-	OutputLocation interface{} `json:"OutputLocation,omitempty"`
+	OutputLocation *Job_OutputLocation `json:"OutputLocation,omitempty"`
 
 	// Outputs AWS CloudFormation Property
 	// Required: false

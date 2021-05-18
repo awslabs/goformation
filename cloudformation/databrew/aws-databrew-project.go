@@ -36,7 +36,7 @@ type Project struct {
 	// Sample AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
-	Sample interface{} `json:"Sample,omitempty"`
+	Sample *Project_Sample `json:"Sample,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

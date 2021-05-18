@@ -16,7 +16,7 @@ type TopicRule_TimestreamAction struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions
-	Dimensions *TopicRule_TimestreamDimensionsList `json:"Dimensions,omitempty"`
+	Dimensions []TopicRule_TimestreamDimension `json:"Dimensions,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true

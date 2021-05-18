@@ -11,7 +11,7 @@ type DataSource_ConfluenceAttachmentConfiguration struct {
 	// AttachmentFieldMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
-	AttachmentFieldMappings *DataSource_ConfluenceAttachmentFieldMappingsList `json:"AttachmentFieldMappings,omitempty"`
+	AttachmentFieldMappings []DataSource_ConfluenceAttachmentToIndexFieldMapping `json:"AttachmentFieldMappings,omitempty"`
 
 	// CrawlAttachments AWS CloudFormation Property
 	// Required: false

@@ -11,12 +11,12 @@ type DataSource_SalesforceKnowledgeArticleConfiguration struct {
 	// CustomKnowledgeArticleTypeConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-	CustomKnowledgeArticleTypeConfigurations *DataSource_SalesforceCustomKnowledgeArticleTypeConfigurationList `json:"CustomKnowledgeArticleTypeConfigurations,omitempty"`
+	CustomKnowledgeArticleTypeConfigurations []DataSource_SalesforceCustomKnowledgeArticleTypeConfiguration `json:"CustomKnowledgeArticleTypeConfigurations,omitempty"`
 
 	// IncludedStates AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-	IncludedStates *DataSource_SalesforceKnowledgeArticleStateList `json:"IncludedStates,omitempty"`
+	IncludedStates []string `json:"IncludedStates,omitempty"`
 
 	// StandardKnowledgeArticleTypeConfiguration AWS CloudFormation Property
 	// Required: false
