@@ -1,6 +1,26 @@
 {
     "ResourceSpecificationVersion": "2016-10-31",
     "ResourceSpecificationTransform": "AWS::Serverless-2016-10-31",
+    "Globals": {
+        "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#globals-section",
+        "Function": {
+            "Handler": {
+                "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
+                "Required": true,
+                "PrimitiveType": "String",
+                "UpdateType": "Immutable"
+            }
+        },
+        "Api": {
+
+        },
+        "HttpApi": {
+
+        },
+        "SimpleTable": {
+
+        }
+    },
     "ResourceTypes": {
         "AWS::Serverless::Function": {
             "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
