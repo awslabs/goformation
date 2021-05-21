@@ -1,4 +1,4 @@
-package mediapackage
+package ec2
 
 import (
 	"bytes"
@@ -9,29 +9,34 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// PackagingGroup AWS CloudFormation Resource (AWS::MediaPackage::PackagingGroup)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
-type PackagingGroup struct {
+// TransitGatewayPeeringAttachment AWS CloudFormation Resource (AWS::EC2::TransitGatewayPeeringAttachment)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
+type TransitGatewayPeeringAttachment struct {
 
-	// Authorization AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-	Authorization *PackagingGroup_Authorization `json:"Authorization,omitempty"`
-
-	// EgressAccessLogs AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
-	EgressAccessLogs *PackagingGroup_LogConfiguration `json:"EgressAccessLogs,omitempty"`
-
-	// Id AWS CloudFormation Property
+	// PeerAccountId AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-	Id string `json:"Id,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+	PeerAccountId string `json:"PeerAccountId,omitempty"`
+
+	// PeerRegion AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+	PeerRegion string `json:"PeerRegion,omitempty"`
+
+	// PeerTransitGatewayId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+	PeerTransitGatewayId string `json:"PeerTransitGatewayId,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// TransitGatewayId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+	TransitGatewayId string `json:"TransitGatewayId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -50,14 +55,14 @@ type PackagingGroup struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *PackagingGroup) AWSCloudFormationType() string {
-	return "AWS::MediaPackage::PackagingGroup"
+func (r *TransitGatewayPeeringAttachment) AWSCloudFormationType() string {
+	return "AWS::EC2::TransitGatewayPeeringAttachment"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r PackagingGroup) MarshalJSON() ([]byte, error) {
-	type Properties PackagingGroup
+func (r TransitGatewayPeeringAttachment) MarshalJSON() ([]byte, error) {
+	type Properties TransitGatewayPeeringAttachment
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -79,8 +84,8 @@ func (r PackagingGroup) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *PackagingGroup) UnmarshalJSON(b []byte) error {
-	type Properties PackagingGroup
+func (r *TransitGatewayPeeringAttachment) UnmarshalJSON(b []byte) error {
+	type Properties TransitGatewayPeeringAttachment
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -101,7 +106,7 @@ func (r *PackagingGroup) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = PackagingGroup(*res.Properties)
+		*r = TransitGatewayPeeringAttachment(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

@@ -14,6 +14,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/applicationautoscaling"
 	"github.com/awslabs/goformation/v4/cloudformation/applicationinsights"
 	"github.com/awslabs/goformation/v4/cloudformation/appmesh"
+	"github.com/awslabs/goformation/v4/cloudformation/apprunner"
 	"github.com/awslabs/goformation/v4/cloudformation/appstream"
 	"github.com/awslabs/goformation/v4/cloudformation/appsync"
 	"github.com/awslabs/goformation/v4/cloudformation/ask"
@@ -89,6 +90,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/iot"
 	"github.com/awslabs/goformation/v4/cloudformation/iot1click"
 	"github.com/awslabs/goformation/v4/cloudformation/iotanalytics"
+	"github.com/awslabs/goformation/v4/cloudformation/iotcoredeviceadvisor"
 	"github.com/awslabs/goformation/v4/cloudformation/iotevents"
 	"github.com/awslabs/goformation/v4/cloudformation/iotfleethub"
 	"github.com/awslabs/goformation/v4/cloudformation/iotsitewise"
@@ -224,6 +226,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppMesh::VirtualNode":                                   &appmesh.VirtualNode{},
 		"AWS::AppMesh::VirtualRouter":                                 &appmesh.VirtualRouter{},
 		"AWS::AppMesh::VirtualService":                                &appmesh.VirtualService{},
+		"AWS::AppRunner::Service":                                     &apprunner.Service{},
 		"AWS::AppStream::DirectoryConfig":                             &appstream.DirectoryConfig{},
 		"AWS::AppStream::Fleet":                                       &appstream.Fleet{},
 		"AWS::AppStream::ImageBuilder":                                &appstream.ImageBuilder{},
@@ -425,6 +428,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::TransitGatewayMulticastDomainAssociation":          &ec2.TransitGatewayMulticastDomainAssociation{},
 		"AWS::EC2::TransitGatewayMulticastGroupMember":                &ec2.TransitGatewayMulticastGroupMember{},
 		"AWS::EC2::TransitGatewayMulticastGroupSource":                &ec2.TransitGatewayMulticastGroupSource{},
+		"AWS::EC2::TransitGatewayPeeringAttachment":                   &ec2.TransitGatewayPeeringAttachment{},
 		"AWS::EC2::TransitGatewayRoute":                               &ec2.TransitGatewayRoute{},
 		"AWS::EC2::TransitGatewayRouteTable":                          &ec2.TransitGatewayRouteTable{},
 		"AWS::EC2::TransitGatewayRouteTableAssociation":               &ec2.TransitGatewayRouteTableAssociation{},
@@ -615,6 +619,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoTAnalytics::Dataset":                                  &iotanalytics.Dataset{},
 		"AWS::IoTAnalytics::Datastore":                                &iotanalytics.Datastore{},
 		"AWS::IoTAnalytics::Pipeline":                                 &iotanalytics.Pipeline{},
+		"AWS::IoTCoreDeviceAdvisor::SuiteDefinition":                  &iotcoredeviceadvisor.SuiteDefinition{},
 		"AWS::IoTEvents::DetectorModel":                               &iotevents.DetectorModel{},
 		"AWS::IoTEvents::Input":                                       &iotevents.Input{},
 		"AWS::IoTFleetHub::Application":                               &iotfleethub.Application{},
@@ -2322,6 +2327,30 @@ func (t *Template) GetAppMeshVirtualServiceWithName(name string) (*appmesh.Virtu
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type appmesh.VirtualService not found", name)
+}
+
+// GetAllAppRunnerServiceResources retrieves all apprunner.Service items from an AWS CloudFormation template
+func (t *Template) GetAllAppRunnerServiceResources() map[string]*apprunner.Service {
+	results := map[string]*apprunner.Service{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *apprunner.Service:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppRunnerServiceWithName retrieves all apprunner.Service items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppRunnerServiceWithName(name string) (*apprunner.Service, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *apprunner.Service:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type apprunner.Service not found", name)
 }
 
 // GetAllAppStreamDirectoryConfigResources retrieves all appstream.DirectoryConfig items from an AWS CloudFormation template
@@ -7148,6 +7177,30 @@ func (t *Template) GetEC2TransitGatewayMulticastGroupSourceWithName(name string)
 	return nil, fmt.Errorf("resource %q of type ec2.TransitGatewayMulticastGroupSource not found", name)
 }
 
+// GetAllEC2TransitGatewayPeeringAttachmentResources retrieves all ec2.TransitGatewayPeeringAttachment items from an AWS CloudFormation template
+func (t *Template) GetAllEC2TransitGatewayPeeringAttachmentResources() map[string]*ec2.TransitGatewayPeeringAttachment {
+	results := map[string]*ec2.TransitGatewayPeeringAttachment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.TransitGatewayPeeringAttachment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2TransitGatewayPeeringAttachmentWithName retrieves all ec2.TransitGatewayPeeringAttachment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2TransitGatewayPeeringAttachmentWithName(name string) (*ec2.TransitGatewayPeeringAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.TransitGatewayPeeringAttachment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.TransitGatewayPeeringAttachment not found", name)
+}
+
 // GetAllEC2TransitGatewayRouteResources retrieves all ec2.TransitGatewayRoute items from an AWS CloudFormation template
 func (t *Template) GetAllEC2TransitGatewayRouteResources() map[string]*ec2.TransitGatewayRoute {
 	results := map[string]*ec2.TransitGatewayRoute{}
@@ -11706,6 +11759,30 @@ func (t *Template) GetIoTAnalyticsPipelineWithName(name string) (*iotanalytics.P
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iotanalytics.Pipeline not found", name)
+}
+
+// GetAllIoTCoreDeviceAdvisorSuiteDefinitionResources retrieves all iotcoredeviceadvisor.SuiteDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllIoTCoreDeviceAdvisorSuiteDefinitionResources() map[string]*iotcoredeviceadvisor.SuiteDefinition {
+	results := map[string]*iotcoredeviceadvisor.SuiteDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotcoredeviceadvisor.SuiteDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTCoreDeviceAdvisorSuiteDefinitionWithName retrieves all iotcoredeviceadvisor.SuiteDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTCoreDeviceAdvisorSuiteDefinitionWithName(name string) (*iotcoredeviceadvisor.SuiteDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotcoredeviceadvisor.SuiteDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotcoredeviceadvisor.SuiteDefinition not found", name)
 }
 
 // GetAllIoTEventsDetectorModelResources retrieves all iotevents.DetectorModel items from an AWS CloudFormation template
