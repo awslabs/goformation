@@ -1,4 +1,4 @@
-package mediapackage
+package apprunner
 
 import (
 	"bytes"
@@ -9,28 +9,43 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// PackagingGroup AWS CloudFormation Resource (AWS::MediaPackage::PackagingGroup)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
-type PackagingGroup struct {
+// Service AWS CloudFormation Resource (AWS::AppRunner::Service)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html
+type Service struct {
 
-	// Authorization AWS CloudFormation Property
+	// AutoScalingConfigurationArn AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-	Authorization *PackagingGroup_Authorization `json:"Authorization,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn
+	AutoScalingConfigurationArn string `json:"AutoScalingConfigurationArn,omitempty"`
 
-	// EgressAccessLogs AWS CloudFormation Property
+	// EncryptionConfiguration AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
-	EgressAccessLogs *PackagingGroup_LogConfiguration `json:"EgressAccessLogs,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
+	EncryptionConfiguration *Service_EncryptionConfiguration `json:"EncryptionConfiguration,omitempty"`
 
-	// Id AWS CloudFormation Property
+	// HealthCheckConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
+	HealthCheckConfiguration *Service_HealthCheckConfiguration `json:"HealthCheckConfiguration,omitempty"`
+
+	// InstanceConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
+	InstanceConfiguration *Service_InstanceConfiguration `json:"InstanceConfiguration,omitempty"`
+
+	// ServiceName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
+	ServiceName string `json:"ServiceName,omitempty"`
+
+	// SourceConfiguration AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-	Id string `json:"Id,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
+	SourceConfiguration *Service_SourceConfiguration `json:"SourceConfiguration,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
@@ -50,14 +65,14 @@ type PackagingGroup struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *PackagingGroup) AWSCloudFormationType() string {
-	return "AWS::MediaPackage::PackagingGroup"
+func (r *Service) AWSCloudFormationType() string {
+	return "AWS::AppRunner::Service"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r PackagingGroup) MarshalJSON() ([]byte, error) {
-	type Properties PackagingGroup
+func (r Service) MarshalJSON() ([]byte, error) {
+	type Properties Service
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -79,8 +94,8 @@ func (r PackagingGroup) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *PackagingGroup) UnmarshalJSON(b []byte) error {
-	type Properties PackagingGroup
+func (r *Service) UnmarshalJSON(b []byte) error {
+	type Properties Service
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -101,7 +116,7 @@ func (r *PackagingGroup) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = PackagingGroup(*res.Properties)
+		*r = Service(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

@@ -18,6 +18,11 @@ type PackagingConfiguration_DashPackage struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
 	Encryption *PackagingConfiguration_DashEncryption `json:"Encryption,omitempty"`
 
+	// IncludeEncoderConfigurationInSegments AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+	IncludeEncoderConfigurationInSegments bool `json:"IncludeEncoderConfigurationInSegments,omitempty"`
+
 	// PeriodTriggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers

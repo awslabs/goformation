@@ -1,4 +1,4 @@
-package mediapackage
+package iotcoredeviceadvisor
 
 import (
 	"bytes"
@@ -9,28 +9,18 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// PackagingGroup AWS CloudFormation Resource (AWS::MediaPackage::PackagingGroup)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
-type PackagingGroup struct {
+// SuiteDefinition AWS CloudFormation Resource (AWS::IoTCoreDeviceAdvisor::SuiteDefinition)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+type SuiteDefinition struct {
 
-	// Authorization AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-	Authorization *PackagingGroup_Authorization `json:"Authorization,omitempty"`
-
-	// EgressAccessLogs AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
-	EgressAccessLogs *PackagingGroup_LogConfiguration `json:"EgressAccessLogs,omitempty"`
-
-	// Id AWS CloudFormation Property
+	// SuiteDefinitionConfiguration AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-	Id string `json:"Id,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
+	SuiteDefinitionConfiguration interface{} `json:"SuiteDefinitionConfiguration,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
@@ -50,14 +40,14 @@ type PackagingGroup struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *PackagingGroup) AWSCloudFormationType() string {
-	return "AWS::MediaPackage::PackagingGroup"
+func (r *SuiteDefinition) AWSCloudFormationType() string {
+	return "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r PackagingGroup) MarshalJSON() ([]byte, error) {
-	type Properties PackagingGroup
+func (r SuiteDefinition) MarshalJSON() ([]byte, error) {
+	type Properties SuiteDefinition
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -79,8 +69,8 @@ func (r PackagingGroup) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *PackagingGroup) UnmarshalJSON(b []byte) error {
-	type Properties PackagingGroup
+func (r *SuiteDefinition) UnmarshalJSON(b []byte) error {
+	type Properties SuiteDefinition
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -101,7 +91,7 @@ func (r *PackagingGroup) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = PackagingGroup(*res.Properties)
+		*r = SuiteDefinition(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
