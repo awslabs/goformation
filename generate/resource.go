@@ -20,16 +20,6 @@ type Resource struct {
 	Properties map[string]Property
 }
 
-type Globals struct {
-
-	// Documentation is a link to the AWS CloudFormation User Guide for information about the resource.
-	Documentation string `json:"Documentation"`
-
-	// Properties are a list of property specifications for the resource. For details, see:
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html#cfn-resource-specification-format-propertytypes
-	Resources map[string]Property
-}
-
 // Schema returns a JSON Schema for the resource (as a string)
 func (r Resource) Schema(name string, isCustomProperty bool) string {
 

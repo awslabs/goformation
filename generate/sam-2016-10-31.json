@@ -2,23 +2,42 @@
     "ResourceSpecificationVersion": "2016-10-31",
     "ResourceSpecificationTransform": "AWS::Serverless-2016-10-31",
     "Globals": {
-        "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#globals-section",
-        "Function": {
-            "Handler": {
-                "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
-                "Required": true,
-                "PrimitiveType": "String",
-                "UpdateType": "Immutable"
+        "Resources": {
+            "Function": {
+                "Reference": "AWS::Serverless::Function",
+                "Exclude": [
+                    "Role",
+                    "Policies",
+                    "FunctionName",
+                    "Events",
+                    "FileSystemConfigs",
+                    "ProvisionedConcurrencyConfig"
+                ]
+            },
+            "Api": {
+                "Reference": "AWS::Serverless::Api",
+                "Exclude": [
+                    "StageName",
+                    "DefinitionBody"
+                ]
+            },
+            "HttpApi": {
+                "Reference": "AWS::Serverless::HttpApi",
+                "Exclude": [
+                    "StageName",
+                    "DefinitionBody",
+                    "DefinitionUri"
+                ]
+            },
+            "SimpleTable": {
+                "Reference": "AWS::Serverless::SimpleTable",
+                "Exclude": [
+                    "PrimaryKey",
+                    "ProvisionedThroughput",
+                    "Tags",
+                    "TableName"
+                ]
             }
-        },
-        "Api": {
-
-        },
-        "HttpApi": {
-
-        },
-        "SimpleTable": {
-
         }
     },
     "ResourceTypes": {

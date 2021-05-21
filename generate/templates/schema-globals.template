@@ -1,0 +1,11 @@
+"{{.Name}}": {
+    "type": "object"
+    "properties": {
+        {{$length := len .Properties}}{{$pc := counter $length}}{{range $name, $property := .Properties}}
+            "{{$name}}": {
+                {{$v.Schema $name $.Name}}{{if call $pc}},{{end}}
+            }
+        {{end}}
+    },
+    "additionalProperties": false
+}
