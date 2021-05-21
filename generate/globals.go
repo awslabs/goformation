@@ -46,14 +46,17 @@ func (g Global) Schema(name string, r map[string]Resource) string {
 
 	templateData := struct {
 		Name       string
+		RefName    string
 		Properties map[string]Property
 	}{
 		Name:       name,
+		RefName:    g.Reference,
 		Properties: properties,
 	}
 
 	// Execute the template, writing it to the buffer
 	err = tmpl.Execute(&buf, templateData)
+
 	if err != nil {
 		fmt.Printf("Error: Failed to generate global %s\n%s\n", name, err)
 		os.Exit(1)

@@ -89,6 +89,19 @@
             },
             "additionalProperties": false
         }
+        {{$resources := .Resources}}
+        {{with .Globals}}
+        ,
+        "Globals": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                {{$length := len .Children}}{{$rc := counter $length}}{{range $name, $global := .Children}}
+                {{$global.Schema $name $resources}}{{if call $rc}},{{end}}
+                {{end}}
+            }
+        }
+        {{end}}
     },
     "required": [
         {{if .ResourceSpecificationTransform}}
@@ -192,13 +205,6 @@
                 "Type"
             ]
         },
-
-        {{$resources := .Resources}}
-        {{with .Globals}}
-            {{range $name, $global := .Children}}
-                {{$global.Schema $name $resources}},
-            {{end}}
-        {{end}}
 
         {{range $name, $resource := .Resources}}
             {{$resource.Schema $name false}},
