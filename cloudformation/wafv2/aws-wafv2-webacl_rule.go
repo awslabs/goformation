@@ -36,7 +36,7 @@ type WebACL_Rule struct {
 	// Statement AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-	Statement *WebACL_StatementOne `json:"Statement,omitempty"`
+	Statement *WebACL_Statement `json:"Statement,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
 	// Required: true

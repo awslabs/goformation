@@ -22,6 +22,11 @@ type GameSessionQueue struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-destinations
 	Destinations []GameSessionQueue_Destination `json:"Destinations,omitempty"`
 
+	// FilterConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-filterconfiguration
+	FilterConfiguration *GameSessionQueue_FilterConfiguration `json:"FilterConfiguration,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-name
@@ -36,6 +41,11 @@ type GameSessionQueue struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-playerlatencypolicies
 	PlayerLatencyPolicies []GameSessionQueue_PlayerLatencyPolicy `json:"PlayerLatencyPolicies,omitempty"`
+
+	// PriorityConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-priorityconfiguration
+	PriorityConfiguration *GameSessionQueue_PriorityConfiguration `json:"PriorityConfiguration,omitempty"`
 
 	// TimeoutInSeconds AWS CloudFormation Property
 	// Required: false

@@ -43,6 +43,11 @@ type Distribution_DefaultCacheBehavior struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
 	ForwardedValues *Distribution_ForwardedValues `json:"ForwardedValues,omitempty"`
 
+	// FunctionAssociations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
+	FunctionAssociations []Distribution_FunctionAssociation `json:"FunctionAssociations,omitempty"`
+
 	// LambdaFunctionAssociations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations

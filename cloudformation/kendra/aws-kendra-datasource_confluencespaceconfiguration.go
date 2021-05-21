@@ -21,17 +21,17 @@ type DataSource_ConfluenceSpaceConfiguration struct {
 	// ExcludeSpaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-	ExcludeSpaces *DataSource_ConfluenceSpaceList `json:"ExcludeSpaces,omitempty"`
+	ExcludeSpaces []string `json:"ExcludeSpaces,omitempty"`
 
 	// IncludeSpaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-	IncludeSpaces *DataSource_ConfluenceSpaceList `json:"IncludeSpaces,omitempty"`
+	IncludeSpaces []string `json:"IncludeSpaces,omitempty"`
 
 	// SpaceFieldMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
-	SpaceFieldMappings *DataSource_ConfluenceSpaceFieldMappingsList `json:"SpaceFieldMappings,omitempty"`
+	SpaceFieldMappings []DataSource_ConfluenceSpaceToIndexFieldMapping `json:"SpaceFieldMappings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

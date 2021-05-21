@@ -8,10 +8,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html
 type Config_DemodulationConfig struct {
 
-	// UnvalidatedJson AWS CloudFormation Property
+	// UnvalidatedJSON AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
-	UnvalidatedJson string `json:"UnvalidatedJson,omitempty"`
+	UnvalidatedJSON string `json:"UnvalidatedJSON,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

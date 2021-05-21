@@ -11,32 +11,32 @@ type DataSource_GoogleDriveConfiguration struct {
 	// ExcludeMimeTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludemimetypes
-	ExcludeMimeTypes *DataSource_ExcludeMimeTypesList `json:"ExcludeMimeTypes,omitempty"`
+	ExcludeMimeTypes []string `json:"ExcludeMimeTypes,omitempty"`
 
 	// ExcludeSharedDrives AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeshareddrives
-	ExcludeSharedDrives *DataSource_ExcludeSharedDrivesList `json:"ExcludeSharedDrives,omitempty"`
+	ExcludeSharedDrives []string `json:"ExcludeSharedDrives,omitempty"`
 
 	// ExcludeUserAccounts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeuseraccounts
-	ExcludeUserAccounts *DataSource_ExcludeUserAccountsList `json:"ExcludeUserAccounts,omitempty"`
+	ExcludeUserAccounts []string `json:"ExcludeUserAccounts,omitempty"`
 
 	// ExclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-exclusionpatterns
-	ExclusionPatterns *DataSource_DataSourceInclusionsExclusionsStrings `json:"ExclusionPatterns,omitempty"`
+	ExclusionPatterns []string `json:"ExclusionPatterns,omitempty"`
 
 	// FieldMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-fieldmappings
-	FieldMappings *DataSource_DataSourceToIndexFieldMappingList `json:"FieldMappings,omitempty"`
+	FieldMappings []DataSource_DataSourceToIndexFieldMapping `json:"FieldMappings,omitempty"`
 
 	// InclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-inclusionpatterns
-	InclusionPatterns *DataSource_DataSourceInclusionsExclusionsStrings `json:"InclusionPatterns,omitempty"`
+	InclusionPatterns []string `json:"InclusionPatterns,omitempty"`
 
 	// SecretArn AWS CloudFormation Property
 	// Required: true
