@@ -5,18 +5,20 @@ import (
 	"fmt"
 	"bytes"
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/{{.ImportName}}"
 )
 
 // {{.StructName}} AWS CloudFormation Resource ({{.Name}})
 // See: {{.Documentation}}
 type {{.StructName}} struct {
+	{{$iname := .ImportName}}
     {{range $name, $property := .Properties}}
     {{$prop_name := $name}}
     {{if (eq ($prop_name) ("DependsOn"))}}{{$prop_name = "DependsOnProp"}}{{end}}
     // {{$name}} AWS CloudFormation Property
     // Required: false
     // See: {{$property.Documentation}}
-    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Name $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
+    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{$iname}}.{{end}}{{$property.GoType $.ResourceName $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
     {{end}}
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -47,6 +49,7 @@ func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
 	type Properties {{.StructName}}
 	return json.Marshal(&struct{
 		Type string
+		Properties Properties
 		DependsOn []string `json:"DependsOn,omitempty"`
 		Metadata  map[string]interface{} `json:"Metadata,omitempty"`
 		DeletionPolicy policies.DeletionPolicy `json:"DeletionPolicy,omitempty"`
@@ -71,6 +74,7 @@ func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
 	type Properties {{.StructName}}
 	res := &struct {
 		Type string
+		Properties *Properties
 		DependsOn []string
 		Metadata map[string]interface{}
 		DeletionPolicy string

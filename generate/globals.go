@@ -15,7 +15,7 @@ type Globals struct {
 
 	// Children of Globals are essentially Resources but without a Properties field to encapuslate properties.
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html#cfn-resource-specification-format-propertytypes
-	Resources map[string]Global
+	Children map[string]Global
 }
 
 // Globals use existing properties with exclusions
@@ -39,7 +39,6 @@ func (g Global) Schema(name string, r map[string]Resource) string {
 
 	properties := make(map[string]Property)
 	for k, v := range r[g.Reference].Properties {
-		v.Required = false
 		if !g.isExcluded(k) {
 			properties[k] = v
 		}

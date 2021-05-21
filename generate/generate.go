@@ -204,8 +204,8 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 		}
 	}
 
-	// Write all of the custom types in the spec file
-	for name, globals := range spec.Globals.Resources {
+	// Write all of the globals in the spec file
+	for name, globals := range spec.Globals.Children {
 		if err := rg.generateGlobals(name, globals, spec); err != nil {
 			return nil, err
 		}
@@ -389,6 +389,10 @@ func (rg *ResourceGenerator) generateGlobals(name string, global Global, spec *C
 
 	sname, basename := name, name
 	pname := "global"
+	iname, err := packageName(global.Reference, true)
+	if err != nil {
+		return err
+	}
 
 	properties := make(map[string]Property)
 	resource := spec.Resources[global.Reference]
@@ -400,6 +404,8 @@ func (rg *ResourceGenerator) generateGlobals(name string, global Global, spec *C
 
 	templateData := struct {
 		Name          string
+		ImportName    string
+		ResourceName  string
 		PackageName   string
 		StructName    string
 		Basename      string
@@ -408,6 +414,8 @@ func (rg *ResourceGenerator) generateGlobals(name string, global Global, spec *C
 		Version       string
 	}{
 		Name:          name,
+		ImportName:    iname,
+		ResourceName:  global.Reference,
 		PackageName:   pname,
 		StructName:    sname,
 		Basename:      basename,

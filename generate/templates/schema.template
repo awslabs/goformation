@@ -193,8 +193,11 @@
             ]
         },
 
-        {{range $name, $resource := .Globals}}
-            {{$resource.Schema $name .Resources}},
+        {{$resources := .Resources}}
+        {{with .Globals}}
+            {{range $name, $global := .Children}}
+                {{$global.Schema $name $resources}},
+            {{end}}
         {{end}}
 
         {{range $name, $resource := .Resources}}

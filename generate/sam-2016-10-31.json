@@ -2,7 +2,8 @@
     "ResourceSpecificationVersion": "2016-10-31",
     "ResourceSpecificationTransform": "AWS::Serverless-2016-10-31",
     "Globals": {
-        "Resources": {
+        "Documentation": "https://github.com/aws/serverless-application-model/blob/master/docs/globals.rst",
+        "Children": {
             "Function": {
                 "Reference": "AWS::Serverless::Function",
                 "Exclude": [
