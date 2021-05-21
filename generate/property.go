@@ -155,12 +155,12 @@ func (p *Property) UnmarshalJSON(data []byte) error {
 		p.PrimitiveType = "Json"
 	}
 
-	if(p.Type == "Map" && p.ItemType == "List" && p.PrimitiveItemType == "") {
+	if p.Type == "Map" && p.ItemType == "List" && p.PrimitiveItemType == "" {
 		p.PrimitiveItemType = "String"
-		// WORKAROUND: On 2021-04-24, AWS::SSM::Association published a property 
+		// WORKAROUND: On 2021-04-24, AWS::SSM::Association published a property
 		// called 'Parameters' which has Type: Map, and ItemType: List, with no PrimitiveItemType.
 		// This workaround assumes that it should be a map, containing a list of strings.
-		fmt.Printf("Warning: auto-fixing property that has a map of lists, with no list item type. Assuming the lists contain strings ([]string) for %s", p.Documentation)
+		fmt.Printf("Warning: auto-fixing property that has a map of lists, with no list item type. Assuming the lists contain strings ([]string) for %s\n", p.Documentation)
 	}
 
 	return nil
@@ -226,7 +226,7 @@ func (p Property) GoType(typename string, basename string, name string) string {
 	}
 
 	if p.Type == "Map" && p.ItemType == "List" && p.PrimitiveItemType == "String" {
-		// WORKAROUND: On 2021-04-24, AWS::SSM::Association published a property 
+		// WORKAROUND: On 2021-04-24, AWS::SSM::Association published a property
 		// called 'Parameters' which has Type: Map, and ItemType: List, with no PrimitiveItemType.
 		// This workaround assumes that it should be a map, containing a list of strings.
 		// See also line 158.
