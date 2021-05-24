@@ -10,22 +10,22 @@ import (
 // Globals represent SAM template globals: these are essentially resources but properties as direct children rather than within a "Properties" field.
 type Globals struct {
 
-	// Documentation is a link to the AWS CloudFormation User Guide for information about the resource.
+	// Documentation is a link to the AWS SAM User Guide for information about the resource.
 	Documentation string `json:"Documentation"`
 
-	// Children of Globals are essentially Resources but without a Properties field to encapuslate properties.
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html#cfn-resource-specification-format-propertytypes
+	// Children of Globals are essentially duplicates of SAM resources with some fields exclude.
+	// https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html
 	Children map[string]Global
 }
 
-// Globals use existing properties with exclusions
+// A Global is a duplicate of a Serverless resource but with some fields excluded
 type Global struct {
 	Reference string
 
 	Exclude []string
 }
 
-// Schema returns a JSON Schema for the resource (as a string)
+// Schema returns a JSON Schema for the global (as a string)
 func (g Global) Schema(name string, r map[string]Resource) string {
 
 	// Open the schema template and setup a counter function that will
@@ -66,6 +66,7 @@ func (g Global) Schema(name string, r map[string]Resource) string {
 
 }
 
+// Determines whether or not a field is excluded from the Global's implementation
 func (g Global) isExcluded(f string) bool {
 	for _, v := range g.Exclude {
 		if v == f {
