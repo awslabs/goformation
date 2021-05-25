@@ -100762,6 +100762,9 @@ var SamSchema = `{
         "AWS::Serverless::Function.ApiEvent": {
             "additionalProperties": false,
             "properties": {
+                "Auth": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.Auth"
+                },
                 "Method": {
                     "type": "string"
                 },
@@ -100776,6 +100779,24 @@ var SamSchema = `{
                 "Method",
                 "Path"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.Auth": {
+            "additionalProperties": false,
+            "properties": {
+                "ApiKeyRequired": {
+                    "type": "boolean"
+                },
+                "AuthorizationScopes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Authorizer": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Serverless::Function.BucketSAMPT": {
