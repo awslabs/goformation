@@ -18,6 +18,11 @@ type PackagingGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
 	Authorization *PackagingGroup_Authorization `json:"Authorization,omitempty"`
 
+	// EgressAccessLogs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+	EgressAccessLogs *PackagingGroup_LogConfiguration `json:"EgressAccessLogs,omitempty"`
+
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id

@@ -9502,6 +9502,296 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::AppRunner::Service": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AutoScalingConfigurationArn": {
+                            "type": "string"
+                        },
+                        "EncryptionConfiguration": {
+                            "$ref": "#/definitions/AWS::AppRunner::Service.EncryptionConfiguration"
+                        },
+                        "HealthCheckConfiguration": {
+                            "$ref": "#/definitions/AWS::AppRunner::Service.HealthCheckConfiguration"
+                        },
+                        "InstanceConfiguration": {
+                            "$ref": "#/definitions/AWS::AppRunner::Service.InstanceConfiguration"
+                        },
+                        "ServiceName": {
+                            "type": "string"
+                        },
+                        "SourceConfiguration": {
+                            "$ref": "#/definitions/AWS::AppRunner::Service.SourceConfiguration"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "SourceConfiguration"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::AppRunner::Service"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.AuthenticationConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AccessRoleArn": {
+                    "type": "string"
+                },
+                "ConnectionArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.CodeConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "CodeConfigurationValues": {
+                    "$ref": "#/definitions/AWS::AppRunner::Service.CodeConfigurationValues"
+                },
+                "ConfigurationSource": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ConfigurationSource"
+            ],
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.CodeConfigurationValues": {
+            "additionalProperties": false,
+            "properties": {
+                "BuildCommand": {
+                    "type": "string"
+                },
+                "Port": {
+                    "type": "string"
+                },
+                "Runtime": {
+                    "type": "string"
+                },
+                "RuntimeEnvironmentVariables": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppRunner::Service.KeyValuePair"
+                    },
+                    "type": "array"
+                },
+                "StartCommand": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Runtime"
+            ],
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.CodeRepository": {
+            "additionalProperties": false,
+            "properties": {
+                "CodeConfiguration": {
+                    "$ref": "#/definitions/AWS::AppRunner::Service.CodeConfiguration"
+                },
+                "RepositoryUrl": {
+                    "type": "string"
+                },
+                "SourceCodeVersion": {
+                    "$ref": "#/definitions/AWS::AppRunner::Service.SourceCodeVersion"
+                }
+            },
+            "required": [
+                "RepositoryUrl",
+                "SourceCodeVersion"
+            ],
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.EncryptionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "KmsKey": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "KmsKey"
+            ],
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.HealthCheckConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "HealthyThreshold": {
+                    "type": "number"
+                },
+                "Interval": {
+                    "type": "number"
+                },
+                "Path": {
+                    "type": "string"
+                },
+                "Protocol": {
+                    "type": "string"
+                },
+                "Timeout": {
+                    "type": "number"
+                },
+                "UnhealthyThreshold": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.ImageConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "Port": {
+                    "type": "string"
+                },
+                "RuntimeEnvironmentVariables": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppRunner::Service.KeyValuePair"
+                    },
+                    "type": "array"
+                },
+                "StartCommand": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.ImageRepository": {
+            "additionalProperties": false,
+            "properties": {
+                "ImageConfiguration": {
+                    "$ref": "#/definitions/AWS::AppRunner::Service.ImageConfiguration"
+                },
+                "ImageIdentifier": {
+                    "type": "string"
+                },
+                "ImageRepositoryType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ImageIdentifier",
+                "ImageRepositoryType"
+            ],
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.InstanceConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "Cpu": {
+                    "type": "string"
+                },
+                "InstanceRoleArn": {
+                    "type": "string"
+                },
+                "Memory": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.KeyValuePair": {
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.SourceCodeVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "Type": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::AppRunner::Service.SourceConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AuthenticationConfiguration": {
+                    "$ref": "#/definitions/AWS::AppRunner::Service.AuthenticationConfiguration"
+                },
+                "AutoDeploymentsEnabled": {
+                    "type": "boolean"
+                },
+                "CodeRepository": {
+                    "$ref": "#/definitions/AWS::AppRunner::Service.CodeRepository"
+                },
+                "ImageRepository": {
+                    "$ref": "#/definitions/AWS::AppRunner::Service.ImageRepository"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppStream::DirectoryConfig": {
             "additionalProperties": false,
             "properties": {
@@ -36929,6 +37219,86 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EC2::TransitGatewayPeeringAttachment": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "PeerAccountId": {
+                            "type": "string"
+                        },
+                        "PeerRegion": {
+                            "type": "string"
+                        },
+                        "PeerTransitGatewayId": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "TransitGatewayId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "PeerAccountId",
+                        "PeerRegion",
+                        "PeerTransitGatewayId",
+                        "TransitGatewayId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::TransitGatewayPeeringAttachment"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::EC2::TransitGatewayRoute": {
             "additionalProperties": false,
             "properties": {
@@ -61958,6 +62328,74 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::IoTCoreDeviceAdvisor::SuiteDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "SuiteDefinitionConfiguration": {
+                            "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "SuiteDefinitionConfiguration"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::IoTEvents::DetectorModel": {
             "additionalProperties": false,
             "properties": {
@@ -76410,8 +76848,14 @@ var CloudformationSchema = `{
                         "Description": {
                             "type": "string"
                         },
+                        "EgressAccessLogs": {
+                            "$ref": "#/definitions/AWS::MediaPackage::Channel.LogConfiguration"
+                        },
                         "Id": {
                             "type": "string"
+                        },
+                        "IngressAccessLogs": {
+                            "$ref": "#/definitions/AWS::MediaPackage::Channel.LogConfiguration"
                         },
                         "Tags": {
                             "items": {
@@ -76444,6 +76888,15 @@ var CloudformationSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::MediaPackage::Channel.LogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "LogGroupName": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::MediaPackage::OriginEndpoint": {
@@ -76573,6 +77026,9 @@ var CloudformationSchema = `{
         "AWS::MediaPackage::OriginEndpoint.CmafEncryption": {
             "additionalProperties": false,
             "properties": {
+                "ConstantInitializationVector": {
+                    "type": "string"
+                },
                 "KeyRotationIntervalSeconds": {
                     "type": "number"
                 },
@@ -76671,6 +77127,12 @@ var CloudformationSchema = `{
                 },
                 "SuggestedPresentationDelaySeconds": {
                     "type": "number"
+                },
+                "UtcTiming": {
+                    "type": "string"
+                },
+                "UtcTimingUri": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -76966,6 +77428,9 @@ var CloudformationSchema = `{
                     },
                     "type": "array"
                 },
+                "IncludeEncoderConfigurationInSegments": {
+                    "type": "boolean"
+                },
                 "SegmentDurationSeconds": {
                     "type": "number"
                 }
@@ -77019,6 +77484,9 @@ var CloudformationSchema = `{
                 },
                 "Encryption": {
                     "$ref": "#/definitions/AWS::MediaPackage::PackagingConfiguration.DashEncryption"
+                },
+                "IncludeEncoderConfigurationInSegments": {
+                    "type": "boolean"
                 },
                 "PeriodTriggers": {
                     "items": {
@@ -77222,6 +77690,9 @@ var CloudformationSchema = `{
                         "Authorization": {
                             "$ref": "#/definitions/AWS::MediaPackage::PackagingGroup.Authorization"
                         },
+                        "EgressAccessLogs": {
+                            "$ref": "#/definitions/AWS::MediaPackage::PackagingGroup.LogConfiguration"
+                        },
                         "Id": {
                             "type": "string"
                         },
@@ -77272,6 +77743,15 @@ var CloudformationSchema = `{
                 "CdnIdentifierSecret",
                 "SecretsRoleArn"
             ],
+            "type": "object"
+        },
+        "AWS::MediaPackage::PackagingGroup.LogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "LogGroupName": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::MediaStore::Container": {
@@ -107079,6 +107559,9 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::AppMesh::VirtualService"
                         },
                         {
+                            "$ref": "#/definitions/AWS::AppRunner::Service"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::AppStream::DirectoryConfig"
                         },
                         {
@@ -107682,6 +108165,9 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::EC2::TransitGatewayMulticastGroupSource"
                         },
                         {
+                            "$ref": "#/definitions/AWS::EC2::TransitGatewayPeeringAttachment"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::EC2::TransitGatewayRoute"
                         },
                         {
@@ -108250,6 +108736,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::IoTAnalytics::Pipeline"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
                         },
                         {
                             "$ref": "#/definitions/AWS::IoTEvents::DetectorModel"
