@@ -1,9 +1,8 @@
 package goformation_test
 
 import (
-	"fmt"
-
 	"encoding/json"
+	"fmt"
 
 	"github.com/sanathkr/yaml"
 
@@ -788,7 +787,7 @@ var _ = Describe("Goformation", func() {
 
 	})
 
-	Context("with a YAML template with paramter overrides", func() {
+	Context("with a YAML template with parameter overrides", func() {
 
 		template, err := goformation.OpenWithOptions("test/yaml/aws-serverless-function-env-vars.yaml", &intrinsics.ProcessorOptions{
 			ParameterOverrides: map[string]interface{}{"ExampleParameter": "SomeNewValue"},
@@ -834,6 +833,47 @@ var _ = Describe("Goformation", func() {
 			bytes, err := event.MarshalJSON()
 			Expect(err).To(BeNil())
 			Expect(string(bytes)).To(Equal(eventString))
+		})
+	})
+
+	Context("with an API event source", func() {
+		event := serverless.Function_Properties{
+			ApiEvent: &serverless.Function_ApiEvent{
+				Auth: &serverless.Function_Auth{
+					ApiKeyRequired:      true,
+					AuthorizationScopes: []string{"scope1", "scope2"},
+					Authorizer:          "aws_iam",
+					ResourcePolicy: &serverless.Function_AuthResourcePolicy{
+						CustomStatements: []interface{}{
+							map[string]interface{}{
+								"Effect":   "Allow",
+								"Action":   "execute-api:*",
+								"Resource": "*",
+							},
+						},
+						AwsAccountBlacklist:    []string{"AwsAccountBlacklistValue"},
+						AwsAccountWhitelist:    []string{"AwsAccountWhitelistValue"},
+						IntrinsicVpcBlacklist:  []string{"IntrinsicVpcBlacklistValue"},
+						IntrinsicVpcWhitelist:  []string{"IntrinsicVpcWhitelistValue"},
+						IntrinsicVpceBlacklist: []string{"IntrinsicVpceBlacklistValue"},
+						IntrinsicVpceWhitelist: []string{"IntrinsicVpceWhitelistValue"},
+						IpRangeBlacklist:       []string{"IpRangeBlacklistValue"},
+						IpRangeWhitelist:       []string{"IpRangeWhitelistValue"},
+						SourceVpcBlacklist:     []string{"SourceVpcBlacklistValue"},
+						SourceVpcWhitelist:     []string{"SourceVpcWhitelistValue"},
+					},
+				},
+				Method:    "MethodValue",
+				Path:      "PathValue",
+				RestApiId: "RestApiIdValue",
+			},
+		}
+
+		It("should marshal properties correctly", func() {
+			expectedString := `{"Auth":{"ApiKeyRequired":true,"AuthorizationScopes":["scope1","scope2"],"Authorizer":"aws_iam","ResourcePolicy":{"AwsAccountBlacklist":["AwsAccountBlacklistValue"],"AwsAccountWhitelist":["AwsAccountWhitelistValue"],"CustomStatements":[{"Action":"execute-api:*","Effect":"Allow","Resource":"*"}],"IntrinsicVpcBlacklist":["IntrinsicVpcBlacklistValue"],"IntrinsicVpcWhitelist":["IntrinsicVpcWhitelistValue"],"IntrinsicVpceBlacklist":["IntrinsicVpceBlacklistValue"],"IntrinsicVpceWhitelist":["IntrinsicVpceWhitelistValue"],"IpRangeBlacklist":["IpRangeBlacklistValue"],"IpRangeWhitelist":["IpRangeWhitelistValue"],"SourceVpcBlacklist":["SourceVpcBlacklistValue"],"SourceVpcWhitelist":["SourceVpcWhitelistValue"]}},"Method":"MethodValue","Path":"PathValue","RestApiId":"RestApiIdValue"}`
+			bytes, err := event.MarshalJSON()
+			Expect(err).To(BeNil())
+			Expect(string(bytes)).To(Equal(expectedString))
 		})
 	})
 
