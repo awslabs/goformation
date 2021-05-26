@@ -2,6 +2,7 @@ package main_test
 
 import (
 	"encoding/json"
+
 	"github.com/awslabs/goformation/v4/cloudformation/rds"
 
 	"github.com/awslabs/goformation/v4/cloudformation/ec2"
