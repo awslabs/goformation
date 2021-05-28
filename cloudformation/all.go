@@ -46,6 +46,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/codestarnotifications"
 	"github.com/awslabs/goformation/v4/cloudformation/cognito"
 	"github.com/awslabs/goformation/v4/cloudformation/config"
+	"github.com/awslabs/goformation/v4/cloudformation/cur"
 	"github.com/awslabs/goformation/v4/cloudformation/customerprofiles"
 	"github.com/awslabs/goformation/v4/cloudformation/databrew"
 	"github.com/awslabs/goformation/v4/cloudformation/datapipeline"
@@ -266,6 +267,7 @@ func AllResources() map[string]Resource {
 		"AWS::CE::AnomalyMonitor":                                     &ce.AnomalyMonitor{},
 		"AWS::CE::AnomalySubscription":                                &ce.AnomalySubscription{},
 		"AWS::CE::CostCategory":                                       &ce.CostCategory{},
+		"AWS::CUR::ReportDefinition":                                  &cur.ReportDefinition{},
 		"AWS::Cassandra::Keyspace":                                    &cassandra.Keyspace{},
 		"AWS::Cassandra::Table":                                       &cassandra.Table{},
 		"AWS::CertificateManager::Account":                            &certificatemanager.Account{},
@@ -3287,6 +3289,30 @@ func (t *Template) GetCECostCategoryWithName(name string) (*ce.CostCategory, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ce.CostCategory not found", name)
+}
+
+// GetAllCURReportDefinitionResources retrieves all cur.ReportDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllCURReportDefinitionResources() map[string]*cur.ReportDefinition {
+	results := map[string]*cur.ReportDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cur.ReportDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCURReportDefinitionWithName retrieves all cur.ReportDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCURReportDefinitionWithName(name string) (*cur.ReportDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cur.ReportDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cur.ReportDefinition not found", name)
 }
 
 // GetAllCassandraKeyspaceResources retrieves all cassandra.Keyspace items from an AWS CloudFormation template

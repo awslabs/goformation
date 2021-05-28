@@ -14,7 +14,7 @@ type Application_ComponentMonitoringSetting struct {
 	ComponentARN string `json:"ComponentARN,omitempty"`
 
 	// ComponentConfigurationMode AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
 	ComponentConfigurationMode string `json:"ComponentConfigurationMode,omitempty"`
 
@@ -34,7 +34,7 @@ type Application_ComponentMonitoringSetting struct {
 	DefaultOverwriteComponentConfiguration *Application_ComponentConfiguration `json:"DefaultOverwriteComponentConfiguration,omitempty"`
 
 	// Tier AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
 	Tier string `json:"Tier,omitempty"`
 
