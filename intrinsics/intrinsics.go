@@ -88,7 +88,8 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 	if options != nil && options.NoProcess {
 		processed = unmarshalled
 	} else {
-		applyGlobals(unmarshalled, options)
+		// TODO: remove? Looks like this manually applies globals to fields.
+		// applyGlobals(unmarshalled, options)
 
 		if options != nil && options.ProcessOnlyGlobals {
 			processed = unmarshalled

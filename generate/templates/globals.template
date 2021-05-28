@@ -1,9 +1,6 @@
 package {{.PackageName}}
 
 import (
-	"encoding/json"
-	"fmt"
-	"bytes"
 	"github.com/awslabs/goformation/v4/cloudformation/{{.ImportName}}"
 )
 
@@ -24,44 +21,4 @@ type {{.StructName}} struct {
 // AWSCloudFormationType returns the AWS CloudFormation resource type
 func (r *{{.StructName}}) AWSCloudFormationType() string {
     return "{{.Name}}"
-}
-
-
-// MarshalJSON is a custom JSON marshalling hook that embeds this object into
-// an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r {{.StructName}}) MarshalJSON() ([]byte, error) {
-	type Properties {{.StructName}}
-	return json.Marshal(&struct{
-		Type string
-		Properties Properties
-	}{
-		Type: r.AWSCloudFormationType(),
-		Properties: (Properties)(r),
-	})
-}
-
-
-
-// UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
-// AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *{{.StructName}}) UnmarshalJSON(b []byte) error {
-	type Properties {{.StructName}}
-	res := &struct {
-		Type string
-		Properties *Properties
-	}{}
-
-	dec := json.NewDecoder(bytes.NewReader(b))
-	dec.DisallowUnknownFields() // Force error if unknown field is found
-
-	if err := dec.Decode(&res); err != nil {
-		fmt.Printf("ERROR: %s\n", err)
-		return err
-	}
-
-	// If the resource has no Properties set, it could be nil
-	if res.Properties != nil {
-		*r = {{.StructName}}(*res.Properties)
-	}
-	return nil
 }

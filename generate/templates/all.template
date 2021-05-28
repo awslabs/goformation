@@ -2,7 +2,8 @@ package cloudformation
 
 import (
 	"fmt"{{range $resource := .Resources}}
-	"github.com/awslabs/goformation/v4/cloudformation/{{$resource.PackageName}}"{{end}}
+    {{if not $resource.Global}}"github.com/awslabs/goformation/v4/cloudformation/{{$resource.PackageName}}"{{end}}{{end}}
+	"github.com/awslabs/goformation/v4/cloudformation/global"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
@@ -13,6 +14,22 @@ func AllResources() map[string]Resource {
 }
 
 {{range $resource := .Resources}}
+{{if $resource.Global}}
+// GetServerlessGlobal{{$resource.StructName}}retrieves the template's Globals.{{$resource.StructName}} items from an AWS SAM template.
+// Returns an error if not found.
+func (t *Template) GetServerlessGlobal{{$resource.StructName}} () (*global.{{$resource.StructName}}, error) {
+	globals := *t.Globals
+	if globals == nil {
+		return nil, fmt.Errorf("globals not found")
+	}
+	if untyped, ok := globals["{{$resource.StructName}}"]; ok {
+		switch resource := untyped.(type) {
+		case *global.{{$resource.StructName}}:
+			return resource, nil
+		}
+	}
+    return nil, fmt.Errorf("resource of type global.{{$resource.StructName}} not found")
+}{{else}}
 // GetAll{{$resource.BaseName}}{{$resource.StructName}}Resources retrieves all {{$resource.PackageName}}.{{$resource.StructName}} items from an AWS CloudFormation template
 func (t *Template) GetAll{{$resource.BaseName}}{{$resource.StructName}}Resources () map[string]*{{$resource.PackageName}}.{{$resource.StructName}} {
     results := map[string]*{{$resource.PackageName}}.{{$resource.StructName}}{}
@@ -35,6 +52,6 @@ func (t *Template) Get{{$resource.BaseName}}{{$resource.StructName}}WithName (na
 		}
 	}
     return nil, fmt.Errorf("resource %q of type {{$resource.PackageName}}.{{$resource.StructName}} not found", name)
-}
+}{{end}}
 
 {{end}}

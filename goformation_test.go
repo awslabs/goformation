@@ -10,6 +10,7 @@ import (
 	"github.com/awslabs/goformation/v4"
 	"github.com/awslabs/goformation/v4/cloudformation"
 	"github.com/awslabs/goformation/v4/cloudformation/ec2"
+	"github.com/awslabs/goformation/v4/cloudformation/global"
 	"github.com/awslabs/goformation/v4/cloudformation/lambda"
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 	"github.com/awslabs/goformation/v4/cloudformation/route53"
@@ -752,6 +753,31 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a default SAM CLI-created YAML template", func() {
+		template, err := goformation.Open("test/yaml/aws-serverless-sam-cli-default.yaml")
+
+		It("should parse the template successfully", func() {
+			Expect(template).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		global, err := template.GetServerlessGlobalFunction()
+		It("should have a Global Function definition containing a timeout", func() {
+			Expect(global.Timeout).To(Equal(5))
+			Expect(err).To(BeNil())
+		})
+
+		function, err := template.GetServerlessFunctionWithName("HelloWorldFunction")
+		It("should have an AWS::Serverless::Function called HelloWorldFunction", func() {
+			Expect(function).ToNot(BeNil())
+			Expect(err).To(BeNil())
+		})
+
+		It("should have the correct CodeUri", func() {
+			Expect(function.CodeUri.String).To(PointTo(Equal("hello-world/")))
+		})
+	})
+
 	Context("with a YAML template with single transform macro", func() {
 		template, err := goformation.Open("test/yaml/transform-single.yaml")
 
@@ -1277,6 +1303,62 @@ var _ = Describe("Goformation", func() {
       "Type": "AWS::EC2::VPC"
     }
   }
+}`
+
+			got, err := template.JSON()
+			It("should marshal template successfully", func() {
+				Expect(err).To(BeNil())
+			})
+
+			It("should be equal to expected output", func() {
+				Expect(string(got)).To(Equal(expected))
+			})
+		})
+	})
+
+	Context("with a SAM template", func() {
+
+		Context("described as Go structs", func() {
+			template := cloudformation.NewTemplate()
+			transform := "AWS::Serverless-2016-10-31"
+			transformStruct := &cloudformation.Transform{
+				String: &transform,
+			}
+			template.Transform = transformStruct
+
+			codeUri := "hello-world/"
+			template.Resources["HelloWorldFunction"] = &serverless.Function{
+				CodeUri: &serverless.Function_CodeUri{
+					String: &codeUri,
+				},
+				Handler: "hello-world",
+				Runtime: "go1.x",
+			}
+
+			globals := cloudformation.Globals{}
+			globals["Function"] = &global.Function{
+				Timeout: 123,
+			}
+			template.Globals = &globals
+
+			expected := `{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Globals": {
+    "Function": {
+      "Timeout": 123
+    }
+  },
+  "Resources": {
+    "HelloWorldFunction": {
+      "Properties": {
+        "CodeUri": "hello-world/",
+        "Handler": "hello-world",
+        "Runtime": "go1.x"
+      },
+      "Type": "AWS::Serverless::Function"
+    }
+  },
+  "Transform": "AWS::Serverless-2016-10-31"
 }`
 
 			got, err := template.JSON()

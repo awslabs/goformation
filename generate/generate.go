@@ -29,6 +29,7 @@ type GeneratedResource struct {
 	BaseName    string
 	PackageName string
 	StructName  string
+	Global      bool
 }
 
 // ResourceGeneratorResults contains a summary of the items generated
@@ -187,6 +188,21 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 			BaseName:    basename,
 			PackageName: pname,
 			StructName:  sname,
+			Global:      false,
+		})
+	}
+
+	// Add the globals processed to the ResourceGenerator output
+	for name := range spec.Globals.Children {
+
+		pname, basename, sname := "global", name, name
+
+		rg.Results.AllResources = append(rg.Results.AllResources, GeneratedResource{
+			Name:        name,
+			BaseName:    basename,
+			PackageName: pname,
+			StructName:  sname,
+			Global:      true,
 		})
 	}
 

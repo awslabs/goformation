@@ -90,13 +90,14 @@
             "additionalProperties": false
         }
         {{$resources := .Resources}}
-        {{with .Globals}}
+        {{if not .Globals.Children}}
+        {{else}}
         ,
         "Globals": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                {{$length := len .Children}}{{$rc := counter $length}}{{range $name, $global := .Children}}
+                {{$length := len .Globals.Children}}{{$rc := counter $length}}{{range $name, $global := .Globals.Children}}
                 {{$global.Schema $name $resources}}{{if call $rc}},{{end}}
                 {{end}}
             }
