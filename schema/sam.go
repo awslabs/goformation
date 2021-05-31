@@ -475,6 +475,9 @@ var SamSchema = `{
                 },
                 "S3BucketName": {
                     "type": "string"
+                },
+                "S3ObjectAcl": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -12015,6 +12018,10 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "ComponentConfigurationMode",
+                "Tier"
+            ],
             "type": "object"
         },
         "AWS::ApplicationInsights::Application.ConfigurationDetails": {
@@ -15875,6 +15882,115 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::CUR::ReportDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AdditionalArtifacts": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "AdditionalSchemaElements": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "BillingViewArn": {
+                            "type": "string"
+                        },
+                        "Compression": {
+                            "type": "string"
+                        },
+                        "Format": {
+                            "type": "string"
+                        },
+                        "RefreshClosedReports": {
+                            "type": "boolean"
+                        },
+                        "ReportName": {
+                            "type": "string"
+                        },
+                        "ReportVersioning": {
+                            "type": "string"
+                        },
+                        "S3Bucket": {
+                            "type": "string"
+                        },
+                        "S3Prefix": {
+                            "type": "string"
+                        },
+                        "S3Region": {
+                            "type": "string"
+                        },
+                        "TimeUnit": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Compression",
+                        "Format",
+                        "RefreshClosedReports",
+                        "ReportName",
+                        "ReportVersioning",
+                        "S3Bucket",
+                        "S3Prefix",
+                        "S3Region",
+                        "TimeUnit"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CUR::ReportDefinition"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::Cassandra::Keyspace": {
             "additionalProperties": false,
             "properties": {
@@ -18378,9 +18494,6 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "FunctionARN"
-            ],
             "type": "object"
         },
         "AWS::CloudFront::KeyGroup": {
@@ -38982,10 +39095,10 @@ var SamSchema = `{
                     "additionalProperties": false,
                     "properties": {
                         "EncryptionConfiguration": {
-                            "type": "object"
+                            "$ref": "#/definitions/AWS::ECR::Repository.EncryptionConfiguration"
                         },
                         "ImageScanningConfiguration": {
-                            "type": "object"
+                            "$ref": "#/definitions/AWS::ECR::Repository.ImageScanningConfiguration"
                         },
                         "ImageTagMutability": {
                             "type": "string"
@@ -39026,6 +39139,30 @@ var SamSchema = `{
             "required": [
                 "Type"
             ],
+            "type": "object"
+        },
+        "AWS::ECR::Repository.EncryptionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "EncryptionType": {
+                    "type": "string"
+                },
+                "KmsKey": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "EncryptionType"
+            ],
+            "type": "object"
+        },
+        "AWS::ECR::Repository.ImageScanningConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ScanOnPush": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::ECR::Repository.LifecyclePolicy": {
@@ -48258,6 +48395,9 @@ var SamSchema = `{
                 "DailyAutomaticBackupStartTime": {
                     "type": "string"
                 },
+                "DataCompressionType": {
+                    "type": "string"
+                },
                 "DeploymentType": {
                     "type": "string"
                 },
@@ -48481,6 +48621,12 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AssociatedModels": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::FraudDetector::Detector.Model"
+                            },
+                            "type": "array"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -48683,6 +48829,15 @@ var SamSchema = `{
                         "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::FraudDetector::Detector.Model": {
+            "additionalProperties": false,
+            "properties": {
+                "Arn": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -109521,6 +109676,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::CE::CostCategory"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::CUR::ReportDefinition"
                         },
                         {
                             "$ref": "#/definitions/AWS::Cassandra::Keyspace"

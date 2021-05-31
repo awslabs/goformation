@@ -1,17 +1,17 @@
-package cloudfront
+package frauddetector
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// Function_FunctionMetadata AWS CloudFormation Resource (AWS::CloudFront::Function.FunctionMetadata)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html
-type Function_FunctionMetadata struct {
+// Detector_Model AWS CloudFormation Resource (AWS::FraudDetector::Detector.Model)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
+type Detector_Model struct {
 
-	// FunctionARN AWS CloudFormation Property
+	// Arn AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn
-	FunctionARN string `json:"FunctionARN,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
+	Arn string `json:"Arn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type Function_FunctionMetadata struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Function_FunctionMetadata) AWSCloudFormationType() string {
-	return "AWS::CloudFront::Function.FunctionMetadata"
+func (r *Detector_Model) AWSCloudFormationType() string {
+	return "AWS::FraudDetector::Detector.Model"
 }
