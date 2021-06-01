@@ -21,6 +21,8 @@ type Template struct {
 	Conditions               map[string]interface{} `json:"Conditions,omitempty"`
 	Resources                Resources              `json:"Resources,omitempty"`
 	Outputs                  Outputs                `json:"Outputs,omitempty"`
+	// SAM-specific entry
+	Globals *Globals `json:"Globals,omitempty"`
 }
 
 type Parameter struct {
@@ -54,6 +56,7 @@ type Resource interface {
 
 type Parameters map[string]Parameter
 type Resources map[string]Resource
+type Globals map[string]Resource
 type Outputs map[string]Output
 
 func (resources *Resources) UnmarshalJSON(b []byte) error {
@@ -75,6 +78,28 @@ func (resources *Resources) UnmarshalJSON(b []byte) error {
 	}
 
 	*resources = newResources
+	return nil
+}
+
+func (globals *Globals) UnmarshalJSON(b []byte) error {
+	// Globals
+	var rawGlobals map[string]*json.RawMessage
+	err := json.Unmarshal(b, &rawGlobals)
+
+	if err != nil {
+		return err
+	}
+
+	newGlobals := Globals{}
+	for name, raw := range rawGlobals {
+		res, err := unmarshallGlobal(name, raw)
+		if err != nil {
+			return err
+		}
+		newGlobals[name] = res
+	}
+
+	*globals = newGlobals
 	return nil
 }
 
@@ -106,6 +131,21 @@ func unmarshallResource(name string, raw_json *json.RawMessage) (Resource, error
 	err = json.Unmarshal(*raw_json, resourceStruct)
 
 	if err != nil {
+		return nil, err
+	}
+	return resourceStruct, nil
+}
+
+func unmarshallGlobal(name string, raw_json *json.RawMessage) (Resource, error) {
+	var err error
+
+	// Global handler
+	resourceStruct := AllResources()[name]
+
+	err = json.Unmarshal(*raw_json, resourceStruct)
+
+	if err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 
