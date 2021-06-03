@@ -35,6 +35,11 @@ func (g Global) Schema(name string, r map[string]Resource) string {
 		"counter": counter,
 	}).ParseFiles("generate/templates/schema-globals.template")
 
+	if err != nil {
+		fmt.Printf("Error: Failed to generate global %s\n%s\n", name, err)
+		os.Exit(1)
+	}
+
 	var buf bytes.Buffer
 
 	properties := make(map[string]Property)
