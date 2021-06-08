@@ -70,7 +70,7 @@ type Association struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters map[string][]string `json:"Parameters,omitempty"`
+	Parameters map[string]interface{} `json:"Parameters,omitempty"`
 
 	// ScheduleExpression AWS CloudFormation Property
 	// Required: false

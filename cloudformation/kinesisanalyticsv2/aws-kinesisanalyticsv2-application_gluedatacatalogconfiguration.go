@@ -1,17 +1,17 @@
-package ec2
+package kinesisanalyticsv2
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// SpotFleet_IamInstanceProfileSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.IamInstanceProfileSpecification)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
-type SpotFleet_IamInstanceProfileSpecification struct {
+// Application_GlueDataCatalogConfiguration AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html
+type Application_GlueDataCatalogConfiguration struct {
 
-	// Arn AWS CloudFormation Property
+	// DatabaseARN AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
-	Arn string `json:"Arn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html#cfn-kinesisanalyticsv2-application-gluedatacatalogconfiguration-databasearn
+	DatabaseARN string `json:"DatabaseARN,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type SpotFleet_IamInstanceProfileSpecification struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *SpotFleet_IamInstanceProfileSpecification) AWSCloudFormationType() string {
-	return "AWS::EC2::SpotFleet.IamInstanceProfileSpecification"
+func (r *Application_GlueDataCatalogConfiguration) AWSCloudFormationType() string {
+	return "AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration"
 }

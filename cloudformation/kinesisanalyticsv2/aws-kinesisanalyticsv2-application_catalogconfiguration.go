@@ -1,17 +1,17 @@
-package ec2
+package kinesisanalyticsv2
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// SpotFleet_IamInstanceProfileSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.IamInstanceProfileSpecification)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
-type SpotFleet_IamInstanceProfileSpecification struct {
+// Application_CatalogConfiguration AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.CatalogConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html
+type Application_CatalogConfiguration struct {
 
-	// Arn AWS CloudFormation Property
+	// GlueDataCatalogConfiguration AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
-	Arn string `json:"Arn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html#cfn-kinesisanalyticsv2-application-catalogconfiguration-gluedatacatalogconfiguration
+	GlueDataCatalogConfiguration *Application_GlueDataCatalogConfiguration `json:"GlueDataCatalogConfiguration,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type SpotFleet_IamInstanceProfileSpecification struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *SpotFleet_IamInstanceProfileSpecification) AWSCloudFormationType() string {
-	return "AWS::EC2::SpotFleet.IamInstanceProfileSpecification"
+func (r *Application_CatalogConfiguration) AWSCloudFormationType() string {
+	return "AWS::KinesisAnalyticsV2::Application.CatalogConfiguration"
 }

@@ -48,7 +48,7 @@ type Authorizer struct {
 	EnableSimpleResponses bool `json:"EnableSimpleResponses,omitempty"`
 
 	// IdentitySource AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	IdentitySource []string `json:"IdentitySource,omitempty"`
 

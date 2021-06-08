@@ -1,4 +1,4 @@
-package kinesisanalyticsv2
+package location
 
 import (
 	"bytes"
@@ -6,47 +6,36 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// Application AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html
-type Application struct {
+// PlaceIndex AWS CloudFormation Resource (AWS::Location::PlaceIndex)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
+type PlaceIndex struct {
 
-	// ApplicationConfiguration AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
-	ApplicationConfiguration *Application_ApplicationConfiguration `json:"ApplicationConfiguration,omitempty"`
-
-	// ApplicationDescription AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
-	ApplicationDescription string `json:"ApplicationDescription,omitempty"`
-
-	// ApplicationMode AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmode
-	ApplicationMode string `json:"ApplicationMode,omitempty"`
-
-	// ApplicationName AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationname
-	ApplicationName string `json:"ApplicationName,omitempty"`
-
-	// RuntimeEnvironment AWS CloudFormation Property
+	// DataSource AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runtimeenvironment
-	RuntimeEnvironment string `json:"RuntimeEnvironment,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
+	DataSource string `json:"DataSource,omitempty"`
 
-	// ServiceExecutionRole AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
-	ServiceExecutionRole string `json:"ServiceExecutionRole,omitempty"`
-
-	// Tags AWS CloudFormation Property
+	// DataSourceConfiguration AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
+	DataSourceConfiguration *PlaceIndex_DataSourceConfiguration `json:"DataSourceConfiguration,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
+	Description string `json:"Description,omitempty"`
+
+	// IndexName AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
+	IndexName string `json:"IndexName,omitempty"`
+
+	// PricingPlan AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
+	PricingPlan string `json:"PricingPlan,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -65,14 +54,14 @@ type Application struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Application) AWSCloudFormationType() string {
-	return "AWS::KinesisAnalyticsV2::Application"
+func (r *PlaceIndex) AWSCloudFormationType() string {
+	return "AWS::Location::PlaceIndex"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Application) MarshalJSON() ([]byte, error) {
-	type Properties Application
+func (r PlaceIndex) MarshalJSON() ([]byte, error) {
+	type Properties PlaceIndex
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -94,8 +83,8 @@ func (r Application) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Application) UnmarshalJSON(b []byte) error {
-	type Properties Application
+func (r *PlaceIndex) UnmarshalJSON(b []byte) error {
+	type Properties PlaceIndex
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -116,7 +105,7 @@ func (r *Application) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Application(*res.Properties)
+		*r = PlaceIndex(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

@@ -1,17 +1,17 @@
-package ec2
+package kinesisanalyticsv2
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// SpotFleet_IamInstanceProfileSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.IamInstanceProfileSpecification)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
-type SpotFleet_IamInstanceProfileSpecification struct {
+// Application_ZeppelinMonitoringConfiguration AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html
+type Application_ZeppelinMonitoringConfiguration struct {
 
-	// Arn AWS CloudFormation Property
+	// LogLevel AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
-	Arn string `json:"Arn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration-loglevel
+	LogLevel string `json:"LogLevel,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type SpotFleet_IamInstanceProfileSpecification struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *SpotFleet_IamInstanceProfileSpecification) AWSCloudFormationType() string {
-	return "AWS::EC2::SpotFleet.IamInstanceProfileSpecification"
+func (r *Application_ZeppelinMonitoringConfiguration) AWSCloudFormationType() string {
+	return "AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration"
 }

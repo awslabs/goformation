@@ -1,17 +1,12 @@
-package ec2
+package kinesisanalyticsv2
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// SpotFleet_IamInstanceProfileSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.IamInstanceProfileSpecification)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
-type SpotFleet_IamInstanceProfileSpecification struct {
-
-	// Arn AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
-	Arn string `json:"Arn,omitempty"`
+// Application_CustomArtifactsConfiguration AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.CustomArtifactsConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-customartifactsconfiguration.html
+type Application_CustomArtifactsConfiguration struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +25,6 @@ type SpotFleet_IamInstanceProfileSpecification struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *SpotFleet_IamInstanceProfileSpecification) AWSCloudFormationType() string {
-	return "AWS::EC2::SpotFleet.IamInstanceProfileSpecification"
+func (r *Application_CustomArtifactsConfiguration) AWSCloudFormationType() string {
+	return "AWS::KinesisAnalyticsV2::Application.CustomArtifactsConfiguration"
 }

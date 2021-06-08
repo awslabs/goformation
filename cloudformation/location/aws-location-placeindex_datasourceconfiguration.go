@@ -1,17 +1,17 @@
-package ec2
+package location
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// SpotFleet_IamInstanceProfileSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.IamInstanceProfileSpecification)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
-type SpotFleet_IamInstanceProfileSpecification struct {
+// PlaceIndex_DataSourceConfiguration AWS CloudFormation Resource (AWS::Location::PlaceIndex.DataSourceConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
+type PlaceIndex_DataSourceConfiguration struct {
 
-	// Arn AWS CloudFormation Property
+	// IntendedUse AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
-	Arn string `json:"Arn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
+	IntendedUse string `json:"IntendedUse,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type SpotFleet_IamInstanceProfileSpecification struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *SpotFleet_IamInstanceProfileSpecification) AWSCloudFormationType() string {
-	return "AWS::EC2::SpotFleet.IamInstanceProfileSpecification"
+func (r *PlaceIndex_DataSourceConfiguration) AWSCloudFormationType() string {
+	return "AWS::Location::PlaceIndex.DataSourceConfiguration"
 }
