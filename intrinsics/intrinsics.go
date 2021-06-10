@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/imdario/mergo"
 	yamlwrapper "github.com/sanathkr/yaml"
 )
 
@@ -45,7 +44,6 @@ type ProcessorOptions struct {
 	IntrinsicHandlerOverrides map[string]IntrinsicHandler
 	ParameterOverrides        map[string]interface{}
 	NoProcess                 bool
-	ProcessOnlyGlobals        bool
 	EvaluateConditions        bool
 }
 
@@ -88,22 +86,16 @@ func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
 	if options != nil && options.NoProcess {
 		processed = unmarshalled
 	} else {
-		// TODO: remove? Looks like this manually applies globals to fields.
-		// applyGlobals(unmarshalled, options)
 
-		if options != nil && options.ProcessOnlyGlobals {
-			processed = unmarshalled
-		} else {
+		overrideParameters(unmarshalled, options)
 
-			overrideParameters(unmarshalled, options)
-
-			if options != nil && options.EvaluateConditions {
-				evaluateConditions(unmarshalled, options)
-			}
-
-			// Process all of the intrinsic functions
-			processed = search(unmarshalled, unmarshalled, options)
+		if options != nil && options.EvaluateConditions {
+			evaluateConditions(unmarshalled, options)
 		}
+
+		// Process all of the intrinsic functions
+		processed = search(unmarshalled, unmarshalled, options)
+
 	}
 
 	// And return the result back as a []byte of JSON
@@ -134,51 +126,6 @@ func overrideParameters(input interface{}, options *ProcessorOptions) {
 						if parameter, ok := uparameter.(map[string]interface{}); ok {
 							// Set the default value
 							parameter["Default"] = value
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-var supportedGlobalResources = map[string]string{
-	"Function": "AWS::Serverless::Function",
-	"Api":      "AWS::Serverless::Api",
-}
-
-// applyGlobals adds AWS SAM Globals into resources
-func applyGlobals(input interface{}, options *ProcessorOptions) {
-	if template, ok := input.(map[string]interface{}); ok {
-		if uglobals, ok := template["Globals"]; ok {
-			if globals, ok := uglobals.(map[string]interface{}); ok {
-				for name, globalValues := range globals {
-					for supportedGlobalName, supportedGlobalType := range supportedGlobalResources {
-						if name == supportedGlobalName {
-							if uresources, ok := template["Resources"]; ok {
-								if resources, ok := uresources.(map[string]interface{}); ok {
-									for _, uresource := range resources {
-										if resource, ok := uresource.(map[string]interface{}); ok {
-											if resource["Type"] == supportedGlobalType {
-												properties := resource["Properties"].(map[string]interface{})
-												for globalProp, globalPropValue := range globalValues.(map[string]interface{}) {
-													if _, ok := properties[globalProp]; !ok {
-														properties[globalProp] = globalPropValue
-													} else if gArray, ok := globalPropValue.([]interface{}); ok {
-														if pArray, ok := properties[globalProp].([]interface{}); ok {
-															properties[globalProp] = append(pArray, gArray...)
-														}
-													} else if gMap, ok := globalPropValue.(map[string]interface{}); ok {
-														if pMap, ok := properties[globalProp].(map[string]interface{}); ok {
-															mergo.Merge(&pMap, gMap)
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
 						}
 					}
 				}
