@@ -63,25 +63,6 @@ var _ = Describe("SAM Globals", func() {
 
 	})
 
-	Context("with a Global resource", func() {
-
-		Context("specified as JSON", func() {
-
-			Context("with an excluded field", func() {
-
-				property := []byte(`{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10","FunctionName":"Excluded"}`)
-
-				result := &global.Function{}
-				err := json.Unmarshal(property, result)
-				It("should throw an error on unmarshal", func() {
-					Expect(err).Should(HaveOccurred())
-				})
-			})
-
-		})
-
-	})
-
 	Context("with template described as Go structs with globals", func() {
 
 		template := cloudformation.NewTemplate()
