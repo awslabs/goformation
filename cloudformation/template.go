@@ -212,6 +212,7 @@ func NewTemplate() *Template {
 		Conditions:               map[string]interface{}{},
 		Resources:                Resources{},
 		Outputs:                  Outputs{},
+		Globals:                  Globals{},
 	}
 }
 
