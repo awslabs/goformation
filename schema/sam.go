@@ -4275,7 +4275,6 @@ var SamSchema = `{
                     "required": [
                         "ApiId",
                         "AuthorizerType",
-                        "IdentitySource",
                         "Name"
                     ],
                     "type": "object"
@@ -25862,6 +25861,9 @@ var SamSchema = `{
                             },
                             "type": "array"
                         },
+                        "ClusterEndpointEncryptionType": {
+                            "type": "string"
+                        },
                         "ClusterName": {
                             "type": "string"
                         },
@@ -35906,9 +35908,6 @@ var SamSchema = `{
                 },
                 "InstanceType": {
                     "type": "string"
-                },
-                "Priority": {
-                    "type": "number"
                 },
                 "SpotPrice": {
                     "type": "string"
@@ -67447,6 +67446,9 @@ var SamSchema = `{
                         "ApplicationDescription": {
                             "type": "string"
                         },
+                        "ApplicationMode": {
+                            "type": "string"
+                        },
                         "ApplicationName": {
                             "type": "string"
                         },
@@ -67523,6 +67525,9 @@ var SamSchema = `{
                 },
                 "SqlApplicationConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.SqlApplicationConfiguration"
+                },
+                "ZeppelinApplicationConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration"
                 }
             },
             "type": "object"
@@ -67553,6 +67558,15 @@ var SamSchema = `{
                 "RecordColumnDelimiter",
                 "RecordRowDelimiter"
             ],
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.CatalogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "GlueDataCatalogConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration"
+                }
+            },
             "type": "object"
         },
         "AWS::KinesisAnalyticsV2::Application.CheckpointConfiguration": {
@@ -67591,6 +67605,41 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::KinesisAnalyticsV2::Application.CustomArtifactConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ArtifactType": {
+                    "type": "string"
+                },
+                "MavenReference": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.MavenReference"
+                },
+                "S3ContentLocation": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.S3ContentLocation"
+                }
+            },
+            "required": [
+                "ArtifactType"
+            ],
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.CustomArtifactsConfiguration": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.DeployAsApplicationConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "S3ContentLocation": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation"
+                }
+            },
+            "required": [
+                "S3ContentLocation"
+            ],
+            "type": "object"
+        },
         "AWS::KinesisAnalyticsV2::Application.EnvironmentProperties": {
             "additionalProperties": false,
             "properties": {
@@ -67614,6 +67663,15 @@ var SamSchema = `{
                 },
                 "ParallelismConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.ParallelismConfiguration"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DatabaseARN": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -67746,6 +67804,26 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::KinesisAnalyticsV2::Application.MavenReference": {
+            "additionalProperties": false,
+            "properties": {
+                "ArtifactId": {
+                    "type": "string"
+                },
+                "GroupId": {
+                    "type": "string"
+                },
+                "Version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ArtifactId",
+                "GroupId",
+                "Version"
+            ],
+            "type": "object"
+        },
         "AWS::KinesisAnalyticsV2::Application.MonitoringConfiguration": {
             "additionalProperties": false,
             "properties": {
@@ -67831,6 +67909,22 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation": {
+            "additionalProperties": false,
+            "properties": {
+                "BasePath": {
+                    "type": "string"
+                },
+                "BucketARN": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BasePath",
+                "BucketARN"
+            ],
+            "type": "object"
+        },
         "AWS::KinesisAnalyticsV2::Application.S3ContentLocation": {
             "additionalProperties": false,
             "properties": {
@@ -67854,6 +67948,33 @@ var SamSchema = `{
                         "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.Input"
                     },
                     "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "CatalogConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.CatalogConfiguration"
+                },
+                "CustomArtifactsConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.CustomArtifactsConfiguration"
+                },
+                "DeployAsApplicationConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.DeployAsApplicationConfiguration"
+                },
+                "MonitoringConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "LogLevel": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -70775,6 +70896,465 @@ var SamSchema = `{
             "required": [
                 "Begin",
                 "End"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::GeofenceCollection": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CollectionName": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "KmsKeyId": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        },
+                        "PricingPlanDataSource": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "CollectionName",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::GeofenceCollection"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::Map": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Configuration": {
+                            "$ref": "#/definitions/AWS::Location::Map.MapConfiguration"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "MapName": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Configuration",
+                        "MapName",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::Map"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::Map.MapConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "Style": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Style"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::PlaceIndex": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DataSource": {
+                            "type": "string"
+                        },
+                        "DataSourceConfiguration": {
+                            "$ref": "#/definitions/AWS::Location::PlaceIndex.DataSourceConfiguration"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "IndexName": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "DataSource",
+                        "IndexName",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::PlaceIndex"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::PlaceIndex.DataSourceConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "IntendedUse": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Location::RouteCalculator": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CalculatorName": {
+                            "type": "string"
+                        },
+                        "DataSource": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "CalculatorName",
+                        "DataSource",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::RouteCalculator"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::Tracker": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "KmsKeyId": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        },
+                        "PricingPlanDataSource": {
+                            "type": "string"
+                        },
+                        "TrackerName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "PricingPlan",
+                        "TrackerName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::Tracker"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::TrackerConsumer": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ConsumerArn": {
+                            "type": "string"
+                        },
+                        "TrackerName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ConsumerArn",
+                        "TrackerName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::TrackerConsumer"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -94152,7 +94732,7 @@ var SamSchema = `{
                             "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
-                                    "type": "string"
+                                    "type": "object"
                                 }
                             },
                             "type": "object"
@@ -105185,6 +105765,9 @@ var SamSchema = `{
         "AWS::Transfer::Server.IdentityProviderDetails": {
             "additionalProperties": false,
             "properties": {
+                "DirectoryId": {
+                    "type": "string"
+                },
                 "InvocationRole": {
                     "type": "string"
                 },
@@ -105192,10 +105775,6 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "InvocationRole",
-                "Url"
-            ],
             "type": "object"
         },
         "AWS::Transfer::Server.Protocol": {
@@ -110882,6 +111461,24 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::LicenseManager::License"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::GeofenceCollection"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::Map"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::PlaceIndex"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::RouteCalculator"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::Tracker"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::TrackerConsumer"
                         },
                         {
                             "$ref": "#/definitions/AWS::Logs::Destination"

@@ -107,6 +107,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/lakeformation"
 	"github.com/awslabs/goformation/v4/cloudformation/lambda"
 	"github.com/awslabs/goformation/v4/cloudformation/licensemanager"
+	"github.com/awslabs/goformation/v4/cloudformation/location"
 	"github.com/awslabs/goformation/v4/cloudformation/logs"
 	"github.com/awslabs/goformation/v4/cloudformation/lookoutmetrics"
 	"github.com/awslabs/goformation/v4/cloudformation/lookoutvision"
@@ -669,6 +670,12 @@ func AllResources() map[string]Resource {
 		"AWS::Lambda::Version":                                        &lambda.Version{},
 		"AWS::LicenseManager::Grant":                                  &licensemanager.Grant{},
 		"AWS::LicenseManager::License":                                &licensemanager.License{},
+		"AWS::Location::GeofenceCollection":                           &location.GeofenceCollection{},
+		"AWS::Location::Map":                                          &location.Map{},
+		"AWS::Location::PlaceIndex":                                   &location.PlaceIndex{},
+		"AWS::Location::RouteCalculator":                              &location.RouteCalculator{},
+		"AWS::Location::Tracker":                                      &location.Tracker{},
+		"AWS::Location::TrackerConsumer":                              &location.TrackerConsumer{},
 		"AWS::Logs::Destination":                                      &logs.Destination{},
 		"AWS::Logs::LogGroup":                                         &logs.LogGroup{},
 		"AWS::Logs::LogStream":                                        &logs.LogStream{},
@@ -12937,6 +12944,150 @@ func (t *Template) GetLicenseManagerLicenseWithName(name string) (*licensemanage
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type licensemanager.License not found", name)
+}
+
+// GetAllLocationGeofenceCollectionResources retrieves all location.GeofenceCollection items from an AWS CloudFormation template
+func (t *Template) GetAllLocationGeofenceCollectionResources() map[string]*location.GeofenceCollection {
+	results := map[string]*location.GeofenceCollection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.GeofenceCollection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationGeofenceCollectionWithName retrieves all location.GeofenceCollection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationGeofenceCollectionWithName(name string) (*location.GeofenceCollection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.GeofenceCollection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.GeofenceCollection not found", name)
+}
+
+// GetAllLocationMapResources retrieves all location.Map items from an AWS CloudFormation template
+func (t *Template) GetAllLocationMapResources() map[string]*location.Map {
+	results := map[string]*location.Map{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.Map:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationMapWithName retrieves all location.Map items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationMapWithName(name string) (*location.Map, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.Map:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.Map not found", name)
+}
+
+// GetAllLocationPlaceIndexResources retrieves all location.PlaceIndex items from an AWS CloudFormation template
+func (t *Template) GetAllLocationPlaceIndexResources() map[string]*location.PlaceIndex {
+	results := map[string]*location.PlaceIndex{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.PlaceIndex:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationPlaceIndexWithName retrieves all location.PlaceIndex items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationPlaceIndexWithName(name string) (*location.PlaceIndex, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.PlaceIndex:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.PlaceIndex not found", name)
+}
+
+// GetAllLocationRouteCalculatorResources retrieves all location.RouteCalculator items from an AWS CloudFormation template
+func (t *Template) GetAllLocationRouteCalculatorResources() map[string]*location.RouteCalculator {
+	results := map[string]*location.RouteCalculator{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.RouteCalculator:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationRouteCalculatorWithName retrieves all location.RouteCalculator items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationRouteCalculatorWithName(name string) (*location.RouteCalculator, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.RouteCalculator:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.RouteCalculator not found", name)
+}
+
+// GetAllLocationTrackerResources retrieves all location.Tracker items from an AWS CloudFormation template
+func (t *Template) GetAllLocationTrackerResources() map[string]*location.Tracker {
+	results := map[string]*location.Tracker{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.Tracker:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationTrackerWithName retrieves all location.Tracker items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationTrackerWithName(name string) (*location.Tracker, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.Tracker:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.Tracker not found", name)
+}
+
+// GetAllLocationTrackerConsumerResources retrieves all location.TrackerConsumer items from an AWS CloudFormation template
+func (t *Template) GetAllLocationTrackerConsumerResources() map[string]*location.TrackerConsumer {
+	results := map[string]*location.TrackerConsumer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.TrackerConsumer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationTrackerConsumerWithName retrieves all location.TrackerConsumer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationTrackerConsumerWithName(name string) (*location.TrackerConsumer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.TrackerConsumer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.TrackerConsumer not found", name)
 }
 
 // GetAllLogsDestinationResources retrieves all logs.Destination items from an AWS CloudFormation template

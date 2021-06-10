@@ -1,4 +1,4 @@
-package kinesisanalyticsv2
+package location
 
 import (
 	"bytes"
@@ -6,47 +6,21 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// Application AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html
-type Application struct {
+// TrackerConsumer AWS CloudFormation Resource (AWS::Location::TrackerConsumer)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html
+type TrackerConsumer struct {
 
-	// ApplicationConfiguration AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
-	ApplicationConfiguration *Application_ApplicationConfiguration `json:"ApplicationConfiguration,omitempty"`
-
-	// ApplicationDescription AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
-	ApplicationDescription string `json:"ApplicationDescription,omitempty"`
-
-	// ApplicationMode AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmode
-	ApplicationMode string `json:"ApplicationMode,omitempty"`
-
-	// ApplicationName AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationname
-	ApplicationName string `json:"ApplicationName,omitempty"`
-
-	// RuntimeEnvironment AWS CloudFormation Property
+	// ConsumerArn AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runtimeenvironment
-	RuntimeEnvironment string `json:"RuntimeEnvironment,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
+	ConsumerArn string `json:"ConsumerArn,omitempty"`
 
-	// ServiceExecutionRole AWS CloudFormation Property
+	// TrackerName AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
-	ServiceExecutionRole string `json:"ServiceExecutionRole,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
+	TrackerName string `json:"TrackerName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -65,14 +39,14 @@ type Application struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Application) AWSCloudFormationType() string {
-	return "AWS::KinesisAnalyticsV2::Application"
+func (r *TrackerConsumer) AWSCloudFormationType() string {
+	return "AWS::Location::TrackerConsumer"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Application) MarshalJSON() ([]byte, error) {
-	type Properties Application
+func (r TrackerConsumer) MarshalJSON() ([]byte, error) {
+	type Properties TrackerConsumer
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -94,8 +68,8 @@ func (r Application) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Application) UnmarshalJSON(b []byte) error {
-	type Properties Application
+func (r *TrackerConsumer) UnmarshalJSON(b []byte) error {
+	type Properties TrackerConsumer
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -116,7 +90,7 @@ func (r *Application) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Application(*res.Properties)
+		*r = TrackerConsumer(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

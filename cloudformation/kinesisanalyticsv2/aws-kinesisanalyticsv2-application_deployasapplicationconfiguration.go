@@ -1,17 +1,17 @@
-package ec2
+package kinesisanalyticsv2
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// SpotFleet_GroupIdentifier AWS CloudFormation Resource (AWS::EC2::SpotFleet.GroupIdentifier)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html
-type SpotFleet_GroupIdentifier struct {
+// Application_DeployAsApplicationConfiguration AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.DeployAsApplicationConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html
+type Application_DeployAsApplicationConfiguration struct {
 
-	// GroupId AWS CloudFormation Property
+	// S3ContentLocation AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html#cfn-ec2-spotfleet-groupidentifier-groupid
-	GroupId string `json:"GroupId,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-deployasapplicationconfiguration-s3contentlocation
+	S3ContentLocation *Application_S3ContentBaseLocation `json:"S3ContentLocation,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type SpotFleet_GroupIdentifier struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *SpotFleet_GroupIdentifier) AWSCloudFormationType() string {
-	return "AWS::EC2::SpotFleet.GroupIdentifier"
+func (r *Application_DeployAsApplicationConfiguration) AWSCloudFormationType() string {
+	return "AWS::KinesisAnalyticsV2::Application.DeployAsApplicationConfiguration"
 }
