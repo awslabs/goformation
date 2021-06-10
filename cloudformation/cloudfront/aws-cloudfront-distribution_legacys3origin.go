@@ -1,7 +1,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Distribution_LegacyS3Origin AWS CloudFormation Resource (AWS::CloudFront::Distribution.LegacyS3Origin)

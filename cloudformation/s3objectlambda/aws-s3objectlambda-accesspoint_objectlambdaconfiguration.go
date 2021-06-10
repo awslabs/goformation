@@ -1,7 +1,7 @@
 package s3objectlambda
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // AccessPoint_ObjectLambdaConfiguration AWS CloudFormation Resource (AWS::S3ObjectLambda::AccessPoint.ObjectLambdaConfiguration)

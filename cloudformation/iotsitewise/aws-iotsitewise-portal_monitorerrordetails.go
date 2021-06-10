@@ -1,7 +1,7 @@
 package iotsitewise
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Portal_MonitorErrorDetails AWS CloudFormation Resource (AWS::IoTSiteWise::Portal.MonitorErrorDetails)

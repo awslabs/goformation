@@ -1,7 +1,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // SecurityProfile_MetricToRetain AWS CloudFormation Resource (AWS::IoT::SecurityProfile.MetricToRetain)

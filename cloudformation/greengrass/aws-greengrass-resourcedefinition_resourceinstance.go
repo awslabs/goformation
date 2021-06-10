@@ -1,7 +1,7 @@
 package greengrass
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // ResourceDefinition_ResourceInstance AWS CloudFormation Resource (AWS::Greengrass::ResourceDefinition.ResourceInstance)

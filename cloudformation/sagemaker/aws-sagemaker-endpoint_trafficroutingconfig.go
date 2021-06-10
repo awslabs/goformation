@@ -1,7 +1,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Endpoint_TrafficRoutingConfig AWS CloudFormation Resource (AWS::SageMaker::Endpoint.TrafficRoutingConfig)

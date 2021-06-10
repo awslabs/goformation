@@ -1,7 +1,7 @@
 package networkfirewall
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // LoggingConfiguration_LogDestinationConfigs AWS CloudFormation Resource (AWS::NetworkFirewall::LoggingConfiguration.LogDestinationConfigs)

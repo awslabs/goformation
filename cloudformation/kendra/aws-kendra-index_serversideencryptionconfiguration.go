@@ -1,7 +1,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Index_ServerSideEncryptionConfiguration AWS CloudFormation Resource (AWS::Kendra::Index.ServerSideEncryptionConfiguration)

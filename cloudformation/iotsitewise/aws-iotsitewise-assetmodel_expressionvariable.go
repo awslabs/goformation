@@ -1,7 +1,7 @@
 package iotsitewise
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // AssetModel_ExpressionVariable AWS CloudFormation Resource (AWS::IoTSiteWise::AssetModel.ExpressionVariable)

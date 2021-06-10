@@ -1,7 +1,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // DataSource_AccessControlListConfiguration AWS CloudFormation Resource (AWS::Kendra::DataSource.AccessControlListConfiguration)

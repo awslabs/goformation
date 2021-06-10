@@ -1,7 +1,7 @@
 package kinesisanalytics
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Application_InputSchema AWS CloudFormation Resource (AWS::KinesisAnalytics::Application.InputSchema)

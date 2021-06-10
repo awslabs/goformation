@@ -1,7 +1,7 @@
 package global
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/serverless"
+	"github.com/awslabs/goformation/v5/cloudformation/serverless"
 )
 
 // SimpleTable AWS CloudFormation Resource (SimpleTable)

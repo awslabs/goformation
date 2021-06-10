@@ -1,7 +1,7 @@
 package lambda
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Alias_VersionWeight AWS CloudFormation Resource (AWS::Lambda::Alias.VersionWeight)

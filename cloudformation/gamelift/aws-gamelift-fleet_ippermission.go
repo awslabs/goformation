@@ -1,7 +1,7 @@
 package gamelift
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Fleet_IpPermission AWS CloudFormation Resource (AWS::GameLift::Fleet.IpPermission)

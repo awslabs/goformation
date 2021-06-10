@@ -1,7 +1,7 @@
 package lookoutmetrics
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // AnomalyDetector_RDSSourceConfig AWS CloudFormation Resource (AWS::LookoutMetrics::AnomalyDetector.RDSSourceConfig)

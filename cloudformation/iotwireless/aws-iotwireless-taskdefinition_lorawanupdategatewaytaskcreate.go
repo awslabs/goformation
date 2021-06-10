@@ -1,7 +1,7 @@
 package iotwireless
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // TaskDefinition_LoRaWANUpdateGatewayTaskCreate AWS CloudFormation Resource (AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskCreate)

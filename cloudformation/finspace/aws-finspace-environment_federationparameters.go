@@ -1,7 +1,7 @@
 package finspace
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Environment_FederationParameters AWS CloudFormation Resource (AWS::FinSpace::Environment.FederationParameters)

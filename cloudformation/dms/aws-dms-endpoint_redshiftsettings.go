@@ -1,7 +1,7 @@
 package dms
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Endpoint_RedshiftSettings AWS CloudFormation Resource (AWS::DMS::Endpoint.RedshiftSettings)

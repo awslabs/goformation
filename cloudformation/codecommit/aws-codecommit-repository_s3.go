@@ -1,7 +1,7 @@
 package codecommit
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Repository_S3 AWS CloudFormation Resource (AWS::CodeCommit::Repository.S3)

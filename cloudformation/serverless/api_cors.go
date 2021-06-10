@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"sort"
 
-	"github.com/awslabs/goformation/v4/cloudformation/utils"
+	"github.com/awslabs/goformation/v5/cloudformation/utils"
 )
 
 // Api_Cors is a helper struct that can hold either a String or CorsConfiguration value

@@ -1,7 +1,7 @@
 package licensemanager
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Grant_ArnList AWS CloudFormation Resource (AWS::LicenseManager::Grant.ArnList)

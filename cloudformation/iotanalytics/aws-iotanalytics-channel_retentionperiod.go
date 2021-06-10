@@ -1,7 +1,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Channel_RetentionPeriod AWS CloudFormation Resource (AWS::IoTAnalytics::Channel.RetentionPeriod)

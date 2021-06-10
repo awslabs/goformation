@@ -1,7 +1,7 @@
 package sso
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // InstanceAccessControlAttributeConfiguration_AccessControlAttribute AWS CloudFormation Resource (AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttribute)

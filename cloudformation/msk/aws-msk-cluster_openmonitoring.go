@@ -1,7 +1,7 @@
 package msk
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Cluster_OpenMonitoring AWS CloudFormation Resource (AWS::MSK::Cluster.OpenMonitoring)

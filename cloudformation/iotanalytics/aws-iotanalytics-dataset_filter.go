@@ -1,7 +1,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Dataset_Filter AWS CloudFormation Resource (AWS::IoTAnalytics::Dataset.Filter)

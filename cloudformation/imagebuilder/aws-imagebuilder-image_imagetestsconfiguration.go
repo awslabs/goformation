@@ -1,7 +1,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Image_ImageTestsConfiguration AWS CloudFormation Resource (AWS::ImageBuilder::Image.ImageTestsConfiguration)

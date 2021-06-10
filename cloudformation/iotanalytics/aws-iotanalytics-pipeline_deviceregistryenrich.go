@@ -1,7 +1,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Pipeline_DeviceRegistryEnrich AWS CloudFormation Resource (AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich)

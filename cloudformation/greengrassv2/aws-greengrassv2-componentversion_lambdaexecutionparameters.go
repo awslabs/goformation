@@ -1,7 +1,7 @@
 package greengrassv2
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // ComponentVersion_LambdaExecutionParameters AWS CloudFormation Resource (AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters)

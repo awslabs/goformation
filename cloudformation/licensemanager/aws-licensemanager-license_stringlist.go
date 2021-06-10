@@ -1,7 +1,7 @@
 package licensemanager
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // License_StringList AWS CloudFormation Resource (AWS::LicenseManager::License.StringList)

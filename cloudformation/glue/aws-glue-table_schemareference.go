@@ -1,7 +1,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Table_SchemaReference AWS CloudFormation Resource (AWS::Glue::Table.SchemaReference)
