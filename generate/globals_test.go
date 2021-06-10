@@ -3,6 +3,8 @@ package main_test
 import (
 	"encoding/json"
 
+	"github.com/awslabs/goformation/v4"
+	"github.com/awslabs/goformation/v4/cloudformation"
 	"github.com/awslabs/goformation/v4/cloudformation/global"
 	"github.com/awslabs/goformation/v4/cloudformation/serverless"
 	. "github.com/onsi/ginkgo"
@@ -25,7 +27,7 @@ var _ = Describe("SAM Globals", func() {
 					},
 				}
 
-				expected := []byte(`{"Type":"Function","Properties":{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10"}}`)
+				expected := []byte(`{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10"}`)
 
 				result, err := json.Marshal(resource)
 				It("should marshal to JSON successfully", func() {
@@ -48,7 +50,7 @@ var _ = Describe("SAM Globals", func() {
 					},
 				}
 
-				expected := []byte(`{"Type":"Function","Properties":{"CodeUri":{"Bucket":"test-bucket","Key":"test-key","Version":123},"Runtime":"nodejs6.10"}}`)
+				expected := []byte(`{"CodeUri":{"Bucket":"test-bucket","Key":"test-key","Version":123},"Runtime":"nodejs6.10"}`)
 
 				result, err := json.Marshal(resource)
 				It("should marshal to JSON successfully", func() {
@@ -67,7 +69,7 @@ var _ = Describe("SAM Globals", func() {
 
 			Context("with valid fields", func() {
 
-				property := []byte(`{"Type":"Function","Properties":{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10"}}`)
+				property := []byte(`{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10"}`)
 				codeuri := "s3://bucket/key"
 				expected := &global.Function{
 					Runtime: "nodejs6.10",
@@ -86,7 +88,7 @@ var _ = Describe("SAM Globals", func() {
 
 			Context("with an excluded field", func() {
 
-				property := []byte(`{"Type":"Function","Properties":{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10","FunctionName":"Excluded"}}`)
+				property := []byte(`{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10","FunctionName":"Excluded"}`)
 
 				result := &global.Function{}
 				err := json.Unmarshal(property, result)
@@ -94,6 +96,74 @@ var _ = Describe("SAM Globals", func() {
 					Expect(err).Should(HaveOccurred())
 				})
 			})
+
+		})
+
+	})
+
+	Context("with template described as Go structs with globals", func() {
+
+		template := cloudformation.NewTemplate()
+		template.Globals["Function"] = &global.Function{
+			Runtime: "nodejs12.x",
+			Timeout: 180,
+			Handler: "index.handler",
+			Environment: &serverless.Function_FunctionEnvironment{
+				Variables: map[string]string{
+					"TABLE_NAME": "data-table",
+				},
+			},
+		}
+
+		expected := `{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Globals": {
+    "Function": {
+      "Environment": {
+        "Variables": {
+          "TABLE_NAME": "data-table"
+        }
+      },
+      "Handler": "index.handler",
+      "Runtime": "nodejs12.x",
+      "Timeout": 180
+    }
+  }
+}`
+
+		output, err := template.JSON()
+
+		It("it should convert to expected JSON output", func() {
+			Expect(err).To(BeNil())
+			Expect(output).ShouldNot(BeNil())
+			Expect(string(output)).To(Equal(expected))
+		})
+
+	})
+
+	Context("with a YAML template that contains global resources", func() {
+
+		template, err := goformation.Open("../test/yaml/globals.yml")
+
+		It("should successfully parse the template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		It("should have a global Function, with properties set", func() {
+
+			expected := &global.Function{
+				Runtime: "nodejs12.x",
+				Timeout: 180,
+				Handler: "index.handler",
+				Environment: &serverless.Function_FunctionEnvironment{
+					Variables: map[string]string{
+						"TABLE_NAME": "data-table",
+					},
+				},
+			}
+
+			Expect(template.Globals["Function"]).To(Equal(expected))
 
 		})
 
