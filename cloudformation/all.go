@@ -46,6 +46,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/codestarnotifications"
 	"github.com/awslabs/goformation/v4/cloudformation/cognito"
 	"github.com/awslabs/goformation/v4/cloudformation/config"
+	"github.com/awslabs/goformation/v4/cloudformation/cur"
 	"github.com/awslabs/goformation/v4/cloudformation/customerprofiles"
 	"github.com/awslabs/goformation/v4/cloudformation/databrew"
 	"github.com/awslabs/goformation/v4/cloudformation/datapipeline"
@@ -106,6 +107,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/lakeformation"
 	"github.com/awslabs/goformation/v4/cloudformation/lambda"
 	"github.com/awslabs/goformation/v4/cloudformation/licensemanager"
+	"github.com/awslabs/goformation/v4/cloudformation/location"
 	"github.com/awslabs/goformation/v4/cloudformation/logs"
 	"github.com/awslabs/goformation/v4/cloudformation/lookoutmetrics"
 	"github.com/awslabs/goformation/v4/cloudformation/lookoutvision"
@@ -163,6 +165,8 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/wafv2"
 	"github.com/awslabs/goformation/v4/cloudformation/workspaces"
 	"github.com/awslabs/goformation/v4/cloudformation/xray"
+
+	"github.com/awslabs/goformation/v4/cloudformation/global"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
@@ -266,6 +270,7 @@ func AllResources() map[string]Resource {
 		"AWS::CE::AnomalyMonitor":                                     &ce.AnomalyMonitor{},
 		"AWS::CE::AnomalySubscription":                                &ce.AnomalySubscription{},
 		"AWS::CE::CostCategory":                                       &ce.CostCategory{},
+		"AWS::CUR::ReportDefinition":                                  &cur.ReportDefinition{},
 		"AWS::Cassandra::Keyspace":                                    &cassandra.Keyspace{},
 		"AWS::Cassandra::Table":                                       &cassandra.Table{},
 		"AWS::CertificateManager::Account":                            &certificatemanager.Account{},
@@ -667,6 +672,12 @@ func AllResources() map[string]Resource {
 		"AWS::Lambda::Version":                                        &lambda.Version{},
 		"AWS::LicenseManager::Grant":                                  &licensemanager.Grant{},
 		"AWS::LicenseManager::License":                                &licensemanager.License{},
+		"AWS::Location::GeofenceCollection":                           &location.GeofenceCollection{},
+		"AWS::Location::Map":                                          &location.Map{},
+		"AWS::Location::PlaceIndex":                                   &location.PlaceIndex{},
+		"AWS::Location::RouteCalculator":                              &location.RouteCalculator{},
+		"AWS::Location::Tracker":                                      &location.Tracker{},
+		"AWS::Location::TrackerConsumer":                              &location.TrackerConsumer{},
 		"AWS::Logs::Destination":                                      &logs.Destination{},
 		"AWS::Logs::LogGroup":                                         &logs.LogGroup{},
 		"AWS::Logs::LogStream":                                        &logs.LogStream{},
@@ -869,6 +880,7 @@ func AllResources() map[string]Resource {
 		"AWS::Serverless::Api":                                        &serverless.Api{},
 		"AWS::Serverless::Application":                                &serverless.Application{},
 		"AWS::Serverless::Function":                                   &serverless.Function{},
+		"AWS::Serverless::HttpApi":                                    &serverless.HttpApi{},
 		"AWS::Serverless::LayerVersion":                               &serverless.LayerVersion{},
 		"AWS::Serverless::SimpleTable":                                &serverless.SimpleTable{},
 		"AWS::Serverless::StateMachine":                               &serverless.StateMachine{},
@@ -934,6 +946,10 @@ func AllResources() map[string]Resource {
 		"AWS::XRay::Group":                                            &xray.Group{},
 		"AWS::XRay::SamplingRule":                                     &xray.SamplingRule{},
 		"Alexa::ASK::Skill":                                           &ask.Skill{},
+		"Api":                                                         &global.Api{},
+		"Function":                                                    &global.Function{},
+		"HttpApi":                                                     &global.HttpApi{},
+		"SimpleTable":                                                 &global.SimpleTable{},
 	}
 }
 
@@ -3287,6 +3303,30 @@ func (t *Template) GetCECostCategoryWithName(name string) (*ce.CostCategory, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ce.CostCategory not found", name)
+}
+
+// GetAllCURReportDefinitionResources retrieves all cur.ReportDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllCURReportDefinitionResources() map[string]*cur.ReportDefinition {
+	results := map[string]*cur.ReportDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cur.ReportDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCURReportDefinitionWithName retrieves all cur.ReportDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCURReportDefinitionWithName(name string) (*cur.ReportDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cur.ReportDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cur.ReportDefinition not found", name)
 }
 
 // GetAllCassandraKeyspaceResources retrieves all cassandra.Keyspace items from an AWS CloudFormation template
@@ -12913,6 +12953,150 @@ func (t *Template) GetLicenseManagerLicenseWithName(name string) (*licensemanage
 	return nil, fmt.Errorf("resource %q of type licensemanager.License not found", name)
 }
 
+// GetAllLocationGeofenceCollectionResources retrieves all location.GeofenceCollection items from an AWS CloudFormation template
+func (t *Template) GetAllLocationGeofenceCollectionResources() map[string]*location.GeofenceCollection {
+	results := map[string]*location.GeofenceCollection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.GeofenceCollection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationGeofenceCollectionWithName retrieves all location.GeofenceCollection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationGeofenceCollectionWithName(name string) (*location.GeofenceCollection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.GeofenceCollection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.GeofenceCollection not found", name)
+}
+
+// GetAllLocationMapResources retrieves all location.Map items from an AWS CloudFormation template
+func (t *Template) GetAllLocationMapResources() map[string]*location.Map {
+	results := map[string]*location.Map{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.Map:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationMapWithName retrieves all location.Map items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationMapWithName(name string) (*location.Map, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.Map:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.Map not found", name)
+}
+
+// GetAllLocationPlaceIndexResources retrieves all location.PlaceIndex items from an AWS CloudFormation template
+func (t *Template) GetAllLocationPlaceIndexResources() map[string]*location.PlaceIndex {
+	results := map[string]*location.PlaceIndex{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.PlaceIndex:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationPlaceIndexWithName retrieves all location.PlaceIndex items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationPlaceIndexWithName(name string) (*location.PlaceIndex, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.PlaceIndex:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.PlaceIndex not found", name)
+}
+
+// GetAllLocationRouteCalculatorResources retrieves all location.RouteCalculator items from an AWS CloudFormation template
+func (t *Template) GetAllLocationRouteCalculatorResources() map[string]*location.RouteCalculator {
+	results := map[string]*location.RouteCalculator{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.RouteCalculator:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationRouteCalculatorWithName retrieves all location.RouteCalculator items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationRouteCalculatorWithName(name string) (*location.RouteCalculator, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.RouteCalculator:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.RouteCalculator not found", name)
+}
+
+// GetAllLocationTrackerResources retrieves all location.Tracker items from an AWS CloudFormation template
+func (t *Template) GetAllLocationTrackerResources() map[string]*location.Tracker {
+	results := map[string]*location.Tracker{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.Tracker:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationTrackerWithName retrieves all location.Tracker items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationTrackerWithName(name string) (*location.Tracker, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.Tracker:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.Tracker not found", name)
+}
+
+// GetAllLocationTrackerConsumerResources retrieves all location.TrackerConsumer items from an AWS CloudFormation template
+func (t *Template) GetAllLocationTrackerConsumerResources() map[string]*location.TrackerConsumer {
+	results := map[string]*location.TrackerConsumer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.TrackerConsumer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationTrackerConsumerWithName retrieves all location.TrackerConsumer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationTrackerConsumerWithName(name string) (*location.TrackerConsumer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.TrackerConsumer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.TrackerConsumer not found", name)
+}
+
 // GetAllLogsDestinationResources retrieves all logs.Destination items from an AWS CloudFormation template
 func (t *Template) GetAllLogsDestinationResources() map[string]*logs.Destination {
 	results := map[string]*logs.Destination{}
@@ -17761,6 +17945,30 @@ func (t *Template) GetServerlessFunctionWithName(name string) (*serverless.Funct
 	return nil, fmt.Errorf("resource %q of type serverless.Function not found", name)
 }
 
+// GetAllServerlessHttpApiResources retrieves all serverless.HttpApi items from an AWS CloudFormation template
+func (t *Template) GetAllServerlessHttpApiResources() map[string]*serverless.HttpApi {
+	results := map[string]*serverless.HttpApi{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *serverless.HttpApi:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetServerlessHttpApiWithName retrieves all serverless.HttpApi items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetServerlessHttpApiWithName(name string) (*serverless.HttpApi, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *serverless.HttpApi:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type serverless.HttpApi not found", name)
+}
+
 // GetAllServerlessLayerVersionResources retrieves all serverless.LayerVersion items from an AWS CloudFormation template
 func (t *Template) GetAllServerlessLayerVersionResources() map[string]*serverless.LayerVersion {
 	results := map[string]*serverless.LayerVersion{}
@@ -19319,4 +19527,68 @@ func (t *Template) GetASKSkillWithName(name string) (*ask.Skill, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ask.Skill not found", name)
+}
+
+// GetServerlessGlobalApiretrieves the template's Globals.Api items from an AWS SAM template.
+// Returns an error if not found.
+func (t *Template) GetServerlessGlobalApi() (*global.Api, error) {
+	globals := t.Globals
+	if globals == nil {
+		return nil, fmt.Errorf("globals not found")
+	}
+	if untyped, ok := globals["Api"]; ok {
+		switch resource := untyped.(type) {
+		case *global.Api:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource of type global.Api not found")
+}
+
+// GetServerlessGlobalFunctionretrieves the template's Globals.Function items from an AWS SAM template.
+// Returns an error if not found.
+func (t *Template) GetServerlessGlobalFunction() (*global.Function, error) {
+	globals := t.Globals
+	if globals == nil {
+		return nil, fmt.Errorf("globals not found")
+	}
+	if untyped, ok := globals["Function"]; ok {
+		switch resource := untyped.(type) {
+		case *global.Function:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource of type global.Function not found")
+}
+
+// GetServerlessGlobalHttpApiretrieves the template's Globals.HttpApi items from an AWS SAM template.
+// Returns an error if not found.
+func (t *Template) GetServerlessGlobalHttpApi() (*global.HttpApi, error) {
+	globals := t.Globals
+	if globals == nil {
+		return nil, fmt.Errorf("globals not found")
+	}
+	if untyped, ok := globals["HttpApi"]; ok {
+		switch resource := untyped.(type) {
+		case *global.HttpApi:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource of type global.HttpApi not found")
+}
+
+// GetServerlessGlobalSimpleTableretrieves the template's Globals.SimpleTable items from an AWS SAM template.
+// Returns an error if not found.
+func (t *Template) GetServerlessGlobalSimpleTable() (*global.SimpleTable, error) {
+	globals := t.Globals
+	if globals == nil {
+		return nil, fmt.Errorf("globals not found")
+	}
+	if untyped, ok := globals["SimpleTable"]; ok {
+		switch resource := untyped.(type) {
+		case *global.SimpleTable:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource of type global.SimpleTable not found")
 }

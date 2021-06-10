@@ -1339,7 +1339,7 @@ var _ = Describe("Goformation", func() {
 			globals["Function"] = &global.Function{
 				Timeout: 123,
 			}
-			template.Globals = &globals
+			template.Globals = globals
 
 			expected := `{
   "AWSTemplateFormatVersion": "2010-09-09",

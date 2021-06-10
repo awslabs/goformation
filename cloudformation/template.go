@@ -21,8 +21,7 @@ type Template struct {
 	Conditions               map[string]interface{} `json:"Conditions,omitempty"`
 	Resources                Resources              `json:"Resources,omitempty"`
 	Outputs                  Outputs                `json:"Outputs,omitempty"`
-	// SAM-specific entry
-	Globals *Globals `json:"Globals,omitempty"`
+	Globals                  Globals                `json:"Globals,omitempty"`
 }
 
 type Parameter struct {

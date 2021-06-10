@@ -18,7 +18,7 @@ func AllResources() map[string]Resource {
 // GetServerlessGlobal{{$resource.StructName}}retrieves the template's Globals.{{$resource.StructName}} items from an AWS SAM template.
 // Returns an error if not found.
 func (t *Template) GetServerlessGlobal{{$resource.StructName}} () (*global.{{$resource.StructName}}, error) {
-	globals := *t.Globals
+	globals := t.Globals
 	if globals == nil {
 		return nil, fmt.Errorf("globals not found")
 	}
