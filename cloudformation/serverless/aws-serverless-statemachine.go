@@ -42,6 +42,11 @@ type StateMachine struct {
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
 	Name string `json:"Name,omitempty"`
 
+	// PermissionsBoundaries AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-permissionsboundary
+	PermissionsBoundaries string `json:"PermissionsBoundaries,omitempty"`
+
 	// Policies AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
@@ -56,6 +61,11 @@ type StateMachine struct {
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
 	Tags map[string]string `json:"Tags,omitempty"`
+
+	// Tracing AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-tracing
+	Tracing *StateMachine_TracingConfiguration `json:"Tracing,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false

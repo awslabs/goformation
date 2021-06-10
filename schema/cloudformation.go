@@ -475,6 +475,9 @@ var CloudformationSchema = `{
                 },
                 "S3BucketName": {
                     "type": "string"
+                },
+                "S3ObjectAcl": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -4272,7 +4275,6 @@ var CloudformationSchema = `{
                     "required": [
                         "ApiId",
                         "AuthorizerType",
-                        "IdentitySource",
                         "Name"
                     ],
                     "type": "object"
@@ -12015,6 +12017,10 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
+            "required": [
+                "ComponentConfigurationMode",
+                "Tier"
+            ],
             "type": "object"
         },
         "AWS::ApplicationInsights::Application.ConfigurationDetails": {
@@ -15875,6 +15881,115 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::CUR::ReportDefinition": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AdditionalArtifacts": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "AdditionalSchemaElements": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "BillingViewArn": {
+                            "type": "string"
+                        },
+                        "Compression": {
+                            "type": "string"
+                        },
+                        "Format": {
+                            "type": "string"
+                        },
+                        "RefreshClosedReports": {
+                            "type": "boolean"
+                        },
+                        "ReportName": {
+                            "type": "string"
+                        },
+                        "ReportVersioning": {
+                            "type": "string"
+                        },
+                        "S3Bucket": {
+                            "type": "string"
+                        },
+                        "S3Prefix": {
+                            "type": "string"
+                        },
+                        "S3Region": {
+                            "type": "string"
+                        },
+                        "TimeUnit": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Compression",
+                        "Format",
+                        "RefreshClosedReports",
+                        "ReportName",
+                        "ReportVersioning",
+                        "S3Bucket",
+                        "S3Prefix",
+                        "S3Region",
+                        "TimeUnit"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CUR::ReportDefinition"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::Cassandra::Keyspace": {
             "additionalProperties": false,
             "properties": {
@@ -18378,9 +18493,6 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "FunctionARN"
-            ],
             "type": "object"
         },
         "AWS::CloudFront::KeyGroup": {
@@ -25748,6 +25860,9 @@ var CloudformationSchema = `{
                                 "type": "string"
                             },
                             "type": "array"
+                        },
+                        "ClusterEndpointEncryptionType": {
+                            "type": "string"
                         },
                         "ClusterName": {
                             "type": "string"
@@ -35794,9 +35909,6 @@ var CloudformationSchema = `{
                 "InstanceType": {
                     "type": "string"
                 },
-                "Priority": {
-                    "type": "number"
-                },
                 "SpotPrice": {
                     "type": "string"
                 },
@@ -38982,10 +39094,10 @@ var CloudformationSchema = `{
                     "additionalProperties": false,
                     "properties": {
                         "EncryptionConfiguration": {
-                            "type": "object"
+                            "$ref": "#/definitions/AWS::ECR::Repository.EncryptionConfiguration"
                         },
                         "ImageScanningConfiguration": {
-                            "type": "object"
+                            "$ref": "#/definitions/AWS::ECR::Repository.ImageScanningConfiguration"
                         },
                         "ImageTagMutability": {
                             "type": "string"
@@ -39026,6 +39138,30 @@ var CloudformationSchema = `{
             "required": [
                 "Type"
             ],
+            "type": "object"
+        },
+        "AWS::ECR::Repository.EncryptionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "EncryptionType": {
+                    "type": "string"
+                },
+                "KmsKey": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "EncryptionType"
+            ],
+            "type": "object"
+        },
+        "AWS::ECR::Repository.ImageScanningConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ScanOnPush": {
+                    "type": "boolean"
+                }
+            },
             "type": "object"
         },
         "AWS::ECR::Repository.LifecyclePolicy": {
@@ -48258,6 +48394,9 @@ var CloudformationSchema = `{
                 "DailyAutomaticBackupStartTime": {
                     "type": "string"
                 },
+                "DataCompressionType": {
+                    "type": "string"
+                },
                 "DeploymentType": {
                     "type": "string"
                 },
@@ -48481,6 +48620,12 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AssociatedModels": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::FraudDetector::Detector.Model"
+                            },
+                            "type": "array"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -48683,6 +48828,15 @@ var CloudformationSchema = `{
                         "$ref": "#/definitions/Tag"
                     },
                     "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::FraudDetector::Detector.Model": {
+            "additionalProperties": false,
+            "properties": {
+                "Arn": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -67292,6 +67446,9 @@ var CloudformationSchema = `{
                         "ApplicationDescription": {
                             "type": "string"
                         },
+                        "ApplicationMode": {
+                            "type": "string"
+                        },
                         "ApplicationName": {
                             "type": "string"
                         },
@@ -67368,6 +67525,9 @@ var CloudformationSchema = `{
                 },
                 "SqlApplicationConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.SqlApplicationConfiguration"
+                },
+                "ZeppelinApplicationConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration"
                 }
             },
             "type": "object"
@@ -67398,6 +67558,15 @@ var CloudformationSchema = `{
                 "RecordColumnDelimiter",
                 "RecordRowDelimiter"
             ],
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.CatalogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "GlueDataCatalogConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration"
+                }
+            },
             "type": "object"
         },
         "AWS::KinesisAnalyticsV2::Application.CheckpointConfiguration": {
@@ -67436,6 +67605,41 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::KinesisAnalyticsV2::Application.CustomArtifactConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ArtifactType": {
+                    "type": "string"
+                },
+                "MavenReference": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.MavenReference"
+                },
+                "S3ContentLocation": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.S3ContentLocation"
+                }
+            },
+            "required": [
+                "ArtifactType"
+            ],
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.CustomArtifactsConfiguration": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.DeployAsApplicationConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "S3ContentLocation": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation"
+                }
+            },
+            "required": [
+                "S3ContentLocation"
+            ],
+            "type": "object"
+        },
         "AWS::KinesisAnalyticsV2::Application.EnvironmentProperties": {
             "additionalProperties": false,
             "properties": {
@@ -67459,6 +67663,15 @@ var CloudformationSchema = `{
                 },
                 "ParallelismConfiguration": {
                     "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.ParallelismConfiguration"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DatabaseARN": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -67591,6 +67804,26 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::KinesisAnalyticsV2::Application.MavenReference": {
+            "additionalProperties": false,
+            "properties": {
+                "ArtifactId": {
+                    "type": "string"
+                },
+                "GroupId": {
+                    "type": "string"
+                },
+                "Version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ArtifactId",
+                "GroupId",
+                "Version"
+            ],
+            "type": "object"
+        },
         "AWS::KinesisAnalyticsV2::Application.MonitoringConfiguration": {
             "additionalProperties": false,
             "properties": {
@@ -67676,6 +67909,22 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::KinesisAnalyticsV2::Application.S3ContentBaseLocation": {
+            "additionalProperties": false,
+            "properties": {
+                "BasePath": {
+                    "type": "string"
+                },
+                "BucketARN": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BasePath",
+                "BucketARN"
+            ],
+            "type": "object"
+        },
         "AWS::KinesisAnalyticsV2::Application.S3ContentLocation": {
             "additionalProperties": false,
             "properties": {
@@ -67699,6 +67948,33 @@ var CloudformationSchema = `{
                         "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.Input"
                     },
                     "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "CatalogConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.CatalogConfiguration"
+                },
+                "CustomArtifactsConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.CustomArtifactsConfiguration"
+                },
+                "DeployAsApplicationConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.DeployAsApplicationConfiguration"
+                },
+                "MonitoringConfiguration": {
+                    "$ref": "#/definitions/AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "LogLevel": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -70620,6 +70896,465 @@ var CloudformationSchema = `{
             "required": [
                 "Begin",
                 "End"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::GeofenceCollection": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CollectionName": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "KmsKeyId": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        },
+                        "PricingPlanDataSource": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "CollectionName",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::GeofenceCollection"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::Map": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Configuration": {
+                            "$ref": "#/definitions/AWS::Location::Map.MapConfiguration"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "MapName": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Configuration",
+                        "MapName",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::Map"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::Map.MapConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "Style": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Style"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::PlaceIndex": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DataSource": {
+                            "type": "string"
+                        },
+                        "DataSourceConfiguration": {
+                            "$ref": "#/definitions/AWS::Location::PlaceIndex.DataSourceConfiguration"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "IndexName": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "DataSource",
+                        "IndexName",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::PlaceIndex"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::PlaceIndex.DataSourceConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "IntendedUse": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Location::RouteCalculator": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "CalculatorName": {
+                            "type": "string"
+                        },
+                        "DataSource": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "CalculatorName",
+                        "DataSource",
+                        "PricingPlan"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::RouteCalculator"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::Tracker": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "KmsKeyId": {
+                            "type": "string"
+                        },
+                        "PricingPlan": {
+                            "type": "string"
+                        },
+                        "PricingPlanDataSource": {
+                            "type": "string"
+                        },
+                        "TrackerName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "PricingPlan",
+                        "TrackerName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::Tracker"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Location::TrackerConsumer": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ConsumerArn": {
+                            "type": "string"
+                        },
+                        "TrackerName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ConsumerArn",
+                        "TrackerName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Location::TrackerConsumer"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -93997,7 +94732,7 @@ var CloudformationSchema = `{
                             "additionalProperties": true,
                             "patternProperties": {
                                 "^[a-zA-Z0-9]+$": {
-                                    "type": "string"
+                                    "type": "object"
                                 }
                             },
                             "type": "object"
@@ -103186,6 +103921,9 @@ var CloudformationSchema = `{
         "AWS::Transfer::Server.IdentityProviderDetails": {
             "additionalProperties": false,
             "properties": {
+                "DirectoryId": {
+                    "type": "string"
+                },
                 "InvocationRole": {
                     "type": "string"
                 },
@@ -103193,10 +103931,6 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
-            "required": [
-                "InvocationRole",
-                "Url"
-            ],
             "type": "object"
         },
         "AWS::Transfer::Server.Protocol": {
@@ -107679,6 +108413,9 @@ var CloudformationSchema = `{
                             "$ref": "#/definitions/AWS::CE::CostCategory"
                         },
                         {
+                            "$ref": "#/definitions/AWS::CUR::ReportDefinition"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Cassandra::Keyspace"
                         },
                         {
@@ -108880,6 +109617,24 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::LicenseManager::License"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::GeofenceCollection"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::Map"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::PlaceIndex"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::RouteCalculator"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::Tracker"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Location::TrackerConsumer"
                         },
                         {
                             "$ref": "#/definitions/AWS::Logs::Destination"

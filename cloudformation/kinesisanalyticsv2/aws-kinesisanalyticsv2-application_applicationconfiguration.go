@@ -33,6 +33,11 @@ type Application_ApplicationConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-sqlapplicationconfiguration
 	SqlApplicationConfiguration *Application_SqlApplicationConfiguration `json:"SqlApplicationConfiguration,omitempty"`
 
+	// ZeppelinApplicationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-zeppelinapplicationconfiguration
+	ZeppelinApplicationConfiguration *Application_ZeppelinApplicationConfiguration `json:"ZeppelinApplicationConfiguration,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

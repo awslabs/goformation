@@ -12,10 +12,25 @@ import (
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 type Function struct {
 
+	// AssumeRolePolicyDocument AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-assumerolepolicydocument
+	AssumeRolePolicyDocument interface{} `json:"AssumeRolePolicyDocument,omitempty"`
+
 	// AutoPublishAlias AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	AutoPublishAlias string `json:"AutoPublishAlias,omitempty"`
+
+	// AutoPublishCodeSha256 AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-autopublishcodesha256
+	AutoPublishCodeSha256 string `json:"AutoPublishCodeSha256,omitempty"`
+
+	// CodeSigningConfigArn AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-codesigningconfigarn
+	CodeSigningConfigArn string `json:"CodeSigningConfigArn,omitempty"`
 
 	// CodeUri AWS CloudFormation Property
 	// Required: true
@@ -42,6 +57,11 @@ type Function struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Environment *Function_FunctionEnvironment `json:"Environment,omitempty"`
 
+	// EventInvokeConfig AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	EventInvokeConfig *Function_EventInvokeConfig `json:"EventInvokeConfig,omitempty"`
+
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -62,6 +82,21 @@ type Function struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Handler string `json:"Handler,omitempty"`
 
+	// ImageConfig AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-imageconfig
+	ImageConfig *Function_ImageConfig `json:"ImageConfig,omitempty"`
+
+	// ImageUri AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-imageuri
+	ImageUri string `json:"ImageUri,omitempty"`
+
+	// InlineCode AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	InlineCode string `json:"InlineCode,omitempty"`
+
 	// KmsKeyArn AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -76,6 +111,11 @@ type Function struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	MemorySize int `json:"MemorySize,omitempty"`
+
+	// PackageType AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-packagetype
+	PackageType string `json:"PackageType,omitempty"`
 
 	// PermissionsBoundary AWS CloudFormation Property
 	// Required: false
@@ -121,6 +161,11 @@ type Function struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Tracing string `json:"Tracing,omitempty"`
+
+	// VersionDescription AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+	VersionDescription string `json:"VersionDescription,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false
