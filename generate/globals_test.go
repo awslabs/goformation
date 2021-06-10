@@ -67,25 +67,6 @@ var _ = Describe("SAM Globals", func() {
 
 		Context("specified as JSON", func() {
 
-			Context("with valid fields", func() {
-
-				property := []byte(`{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10"}`)
-				codeuri := "s3://bucket/key"
-				expected := &global.Function{
-					Runtime: "nodejs6.10",
-					CodeUri: &serverless.Function_CodeUri{
-						String: &codeuri,
-					},
-				}
-
-				result := &global.Function{}
-				err := json.Unmarshal(property, result)
-				It("should unmarshal to a Go struct successfully", func() {
-					Expect(result).To(Equal(expected))
-					Expect(err).To(BeNil())
-				})
-			})
-
 			Context("with an excluded field", func() {
 
 				property := []byte(`{"CodeUri":"s3://bucket/key","Runtime":"nodejs6.10","FunctionName":"Excluded"}`)
