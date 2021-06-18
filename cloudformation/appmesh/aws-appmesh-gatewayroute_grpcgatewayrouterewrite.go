@@ -4,19 +4,14 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// VirtualNode_DnsServiceDiscovery AWS CloudFormation Resource (AWS::AppMesh::VirtualNode.DnsServiceDiscovery)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html
-type VirtualNode_DnsServiceDiscovery struct {
+// GatewayRoute_GrpcGatewayRouteRewrite AWS CloudFormation Resource (AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html
+type GatewayRoute_GrpcGatewayRouteRewrite struct {
 
 	// Hostname AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-hostname
-	Hostname string `json:"Hostname,omitempty"`
-
-	// ResponseType AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-responsetype
-	ResponseType string `json:"ResponseType,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html#cfn-appmesh-gatewayroute-grpcgatewayrouterewrite-hostname
+	Hostname *GatewayRoute_GatewayRouteHostnameRewrite `json:"Hostname,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +30,6 @@ type VirtualNode_DnsServiceDiscovery struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *VirtualNode_DnsServiceDiscovery) AWSCloudFormationType() string {
-	return "AWS::AppMesh::VirtualNode.DnsServiceDiscovery"
+func (r *GatewayRoute_GrpcGatewayRouteRewrite) AWSCloudFormationType() string {
+	return "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite"
 }

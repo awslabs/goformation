@@ -643,6 +643,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoTWireless::WirelessGateway":                           &iotwireless.WirelessGateway{},
 		"AWS::KMS::Alias":                                             &kms.Alias{},
 		"AWS::KMS::Key":                                               &kms.Key{},
+		"AWS::KMS::ReplicaKey":                                        &kms.ReplicaKey{},
 		"AWS::Kendra::DataSource":                                     &kendra.DataSource{},
 		"AWS::Kendra::Faq":                                            &kendra.Faq{},
 		"AWS::Kendra::Index":                                          &kendra.Index{},
@@ -12296,6 +12297,30 @@ func (t *Template) GetKMSKeyWithName(name string) (*kms.Key, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type kms.Key not found", name)
+}
+
+// GetAllKMSReplicaKeyResources retrieves all kms.ReplicaKey items from an AWS CloudFormation template
+func (t *Template) GetAllKMSReplicaKeyResources() map[string]*kms.ReplicaKey {
+	results := map[string]*kms.ReplicaKey{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *kms.ReplicaKey:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetKMSReplicaKeyWithName retrieves all kms.ReplicaKey items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetKMSReplicaKeyWithName(name string) (*kms.ReplicaKey, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *kms.ReplicaKey:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type kms.ReplicaKey not found", name)
 }
 
 // GetAllKendraDataSourceResources retrieves all kendra.DataSource items from an AWS CloudFormation template

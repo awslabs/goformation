@@ -1,4 +1,4 @@
-package autoscaling
+package kms
 
 import (
 	"bytes"
@@ -6,51 +6,42 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v4/cloudformation/tags"
 )
 
-// ScheduledAction AWS CloudFormation Resource (AWS::AutoScaling::ScheduledAction)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
-type ScheduledAction struct {
+// ReplicaKey AWS CloudFormation Resource (AWS::KMS::ReplicaKey)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html
+type ReplicaKey struct {
 
-	// AutoScalingGroupName AWS CloudFormation Property
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description
+	Description string `json:"Description,omitempty"`
+
+	// Enabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled
+	Enabled bool `json:"Enabled,omitempty"`
+
+	// KeyPolicy AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-asgname
-	AutoScalingGroupName string `json:"AutoScalingGroupName,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy
+	KeyPolicy interface{} `json:"KeyPolicy,omitempty"`
 
-	// DesiredCapacity AWS CloudFormation Property
+	// PendingWindowInDays AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-desiredcapacity
-	DesiredCapacity int `json:"DesiredCapacity,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays
+	PendingWindowInDays int `json:"PendingWindowInDays,omitempty"`
 
-	// EndTime AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-endtime
-	EndTime string `json:"EndTime,omitempty"`
+	// PrimaryKeyArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn
+	PrimaryKeyArn string `json:"PrimaryKeyArn,omitempty"`
 
-	// MaxSize AWS CloudFormation Property
+	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-maxsize
-	MaxSize int `json:"MaxSize,omitempty"`
-
-	// MinSize AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-minsize
-	MinSize int `json:"MinSize,omitempty"`
-
-	// Recurrence AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-recurrence
-	Recurrence string `json:"Recurrence,omitempty"`
-
-	// StartTime AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-starttime
-	StartTime string `json:"StartTime,omitempty"`
-
-	// TimeZone AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-timezone
-	TimeZone string `json:"TimeZone,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -69,14 +60,14 @@ type ScheduledAction struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *ScheduledAction) AWSCloudFormationType() string {
-	return "AWS::AutoScaling::ScheduledAction"
+func (r *ReplicaKey) AWSCloudFormationType() string {
+	return "AWS::KMS::ReplicaKey"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r ScheduledAction) MarshalJSON() ([]byte, error) {
-	type Properties ScheduledAction
+func (r ReplicaKey) MarshalJSON() ([]byte, error) {
+	type Properties ReplicaKey
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -98,8 +89,8 @@ func (r ScheduledAction) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *ScheduledAction) UnmarshalJSON(b []byte) error {
-	type Properties ScheduledAction
+func (r *ReplicaKey) UnmarshalJSON(b []byte) error {
+	type Properties ReplicaKey
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -120,7 +111,7 @@ func (r *ScheduledAction) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = ScheduledAction(*res.Properties)
+		*r = ReplicaKey(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

@@ -1,22 +1,22 @@
-package databrew
+package appmesh
 
 import (
 	"github.com/awslabs/goformation/v4/cloudformation/policies"
 )
 
-// Recipe_Action AWS CloudFormation Resource (AWS::DataBrew::Recipe.Action)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
-type Recipe_Action struct {
+// GatewayRoute_HttpPathMatch AWS CloudFormation Resource (AWS::AppMesh::GatewayRoute.HttpPathMatch)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html
+type GatewayRoute_HttpPathMatch struct {
 
-	// Operation AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
-	Operation string `json:"Operation,omitempty"`
-
-	// Parameters AWS CloudFormation Property
+	// Exact AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-	Parameters *Recipe_ParameterMap `json:"Parameters,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html#cfn-appmesh-gatewayroute-httppathmatch-exact
+	Exact string `json:"Exact,omitempty"`
+
+	// Regex AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html#cfn-appmesh-gatewayroute-httppathmatch-regex
+	Regex string `json:"Regex,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type Recipe_Action struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Recipe_Action) AWSCloudFormationType() string {
-	return "AWS::DataBrew::Recipe.Action"
+func (r *GatewayRoute_HttpPathMatch) AWSCloudFormationType() string {
+	return "AWS::AppMesh::GatewayRoute.HttpPathMatch"
 }

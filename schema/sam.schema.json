@@ -7374,6 +7374,64 @@
             ],
             "type": "object"
         },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Suffix": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "DefaultTargetHostname": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "Range": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteRangeMatch"
+                },
+                "Regex": {
+                    "type": "string"
+                },
+                "Suffix": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteRangeMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "End": {
+                    "type": "number"
+                },
+                "Start": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "End",
+                "Start"
+            ],
+            "type": "object"
+        },
         "AWS::AppMesh::GatewayRoute.GatewayRouteSpec": {
             "additionalProperties": false,
             "properties": {
@@ -7432,6 +7490,9 @@
         "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteAction": {
             "additionalProperties": false,
             "properties": {
+                "Rewrite": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite"
+                },
                 "Target": {
                     "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteTarget"
                 }
@@ -7444,8 +7505,44 @@
         "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMatch": {
             "additionalProperties": false,
             "properties": {
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch"
+                },
+                "Metadata": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata"
+                    },
+                    "type": "array"
+                },
                 "ServiceName": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata": {
+            "additionalProperties": false,
+            "properties": {
+                "Invert": {
+                    "type": "boolean"
+                },
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite"
                 }
             },
             "type": "object"
@@ -7469,6 +7566,9 @@
         "AWS::AppMesh::GatewayRoute.HttpGatewayRouteAction": {
             "additionalProperties": false,
             "properties": {
+                "Rewrite": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRouteRewrite"
+                },
                 "Target": {
                     "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteTarget"
                 }
@@ -7478,15 +7578,144 @@
             ],
             "type": "object"
         },
-        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteMatch": {
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader": {
             "additionalProperties": false,
             "properties": {
-                "Prefix": {
+                "Invert": {
+                    "type": "boolean"
+                },
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeaderMatch"
+                },
+                "Name": {
                     "type": "string"
                 }
             },
             "required": [
-                "Prefix"
+                "Name"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeaderMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "Range": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteRangeMatch"
+                },
+                "Regex": {
+                    "type": "string"
+                },
+                "Suffix": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Headers": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader"
+                    },
+                    "type": "array"
+                },
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch"
+                },
+                "Method": {
+                    "type": "string"
+                },
+                "Path": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpPathMatch"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "QueryParameters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.QueryParameter"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "DefaultPrefix": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite"
+                },
+                "Path": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite"
+                },
+                "Prefix": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpPathMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Regex": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.QueryParameter": {
+            "additionalProperties": false,
+            "properties": {
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
             ],
             "type": "object"
         },
@@ -7837,6 +8066,27 @@
             },
             "type": "object"
         },
+        "AWS::AppMesh::Route.HttpPathMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Regex": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.HttpQueryParameterMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::Route.HttpRetryPolicy": {
             "additionalProperties": false,
             "properties": {
@@ -7932,16 +8182,22 @@
                 "Method": {
                     "type": "string"
                 },
+                "Path": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpPathMatch"
+                },
                 "Prefix": {
                     "type": "string"
+                },
+                "QueryParameters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::Route.QueryParameter"
+                    },
+                    "type": "array"
                 },
                 "Scheme": {
                     "type": "string"
                 }
             },
-            "required": [
-                "Prefix"
-            ],
             "type": "object"
         },
         "AWS::AppMesh::Route.HttpTimeout": {
@@ -7969,6 +8225,21 @@
             "required": [
                 "End",
                 "Start"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.QueryParameter": {
+            "additionalProperties": false,
+            "properties": {
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpQueryParameterMatch"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
             ],
             "type": "object"
         },
@@ -8742,6 +9013,9 @@
             "additionalProperties": false,
             "properties": {
                 "Hostname": {
+                    "type": "string"
+                },
+                "ResponseType": {
                     "type": "string"
                 }
             },
@@ -12806,6 +13080,9 @@
                         "CapacityRebalance": {
                             "type": "boolean"
                         },
+                        "Context": {
+                            "type": "string"
+                        },
                         "Cooldown": {
                             "type": "string"
                         },
@@ -13245,6 +13522,9 @@
                 "SnapshotId": {
                     "type": "string"
                 },
+                "Throughput": {
+                    "type": "number"
+                },
                 "VolumeSize": {
                     "type": "number"
                 },
@@ -13616,6 +13896,9 @@
                             "type": "string"
                         },
                         "StartTime": {
+                            "type": "string"
+                        },
+                        "TimeZone": {
                             "type": "string"
                         }
                     },
@@ -21585,6 +21868,9 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "BucketName": {
+                            "type": "string"
+                        },
                         "ConnectionArn": {
                             "type": "string"
                         },
@@ -23263,6 +23549,9 @@
                         },
                         "DefaultRedirectURI": {
                             "type": "string"
+                        },
+                        "EnableTokenRevocation": {
+                            "type": "boolean"
                         },
                         "ExplicitAuthFlows": {
                             "items": {
@@ -28044,7 +28333,7 @@
                     "type": "string"
                 },
                 "Parameters": {
-                    "type": "object"
+                    "$ref": "#/definitions/AWS::DataBrew::Recipe.ParameterMap"
                 }
             },
             "required": [
@@ -28087,6 +28376,11 @@
                     "$ref": "#/definitions/AWS::DataBrew::Recipe.S3Location"
                 }
             },
+            "type": "object"
+        },
+        "AWS::DataBrew::Recipe.ParameterMap": {
+            "additionalProperties": false,
+            "properties": {},
             "type": "object"
         },
         "AWS::DataBrew::Recipe.RecipeParameters": {
@@ -33952,6 +34246,9 @@
                         "AllocationId": {
                             "type": "string"
                         },
+                        "ConnectivityType": {
+                            "type": "string"
+                        },
                         "SubnetId": {
                             "type": "string"
                         },
@@ -33963,7 +34260,6 @@
                         }
                     },
                     "required": [
-                        "AllocationId",
                         "SubnetId"
                     ],
                     "type": "object"
@@ -41625,6 +41921,9 @@
                             },
                             "type": "array"
                         },
+                        "UpdateConfig": {
+                            "$ref": "#/definitions/AWS::EKS::Nodegroup.UpdateConfig"
+                        },
                         "Version": {
                             "type": "string"
                         }
@@ -41716,6 +42015,18 @@
                 },
                 "Value": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EKS::Nodegroup.UpdateConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "MaxUnavailable": {
+                    "type": "number"
+                },
+                "MaxUnavailablePercentage": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -65266,6 +65577,9 @@
                         "KeyUsage": {
                             "type": "string"
                         },
+                        "MultiRegion": {
+                            "type": "boolean"
+                        },
                         "PendingWindowInDays": {
                             "type": "number"
                         },
@@ -65284,6 +65598,87 @@
                 "Type": {
                     "enum": [
                         "AWS::KMS::Key"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::KMS::ReplicaKey": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Enabled": {
+                            "type": "boolean"
+                        },
+                        "KeyPolicy": {
+                            "type": "object"
+                        },
+                        "PendingWindowInDays": {
+                            "type": "number"
+                        },
+                        "PrimaryKeyArn": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "KeyPolicy",
+                        "PrimaryKeyArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::KMS::ReplicaKey"
                     ],
                     "type": "string"
                 },
@@ -70076,9 +70471,6 @@
                         "Handler": {
                             "type": "string"
                         },
-                        "Id": {
-                            "type": "string"
-                        },
                         "ImageConfig": {
                             "$ref": "#/definitions/AWS::Lambda::Function.ImageConfig"
                         },
@@ -70290,12 +70682,6 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
-                        "CompatibleArchitectures": {
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array"
-                        },
                         "CompatibleRuntimes": {
                             "items": {
                                 "type": "string"
@@ -72775,6 +73161,9 @@
                         },
                         "RequirementsS3Path": {
                             "type": "string"
+                        },
+                        "Schedulers": {
+                            "type": "number"
                         },
                         "SourceBucketArn": {
                             "type": "string"
@@ -87287,6 +87676,12 @@
                         "Name": {
                             "type": "string"
                         },
+                        "PermissionArns": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "Principals": {
                             "items": {
                                 "type": "string"
@@ -88898,6 +89293,9 @@
                         },
                         "Encrypted": {
                             "type": "boolean"
+                        },
+                        "Endpoint": {
+                            "type": "object"
                         },
                         "HsmClientCertificateIdentifier": {
                             "type": "string"
@@ -94529,11 +94927,17 @@
                         "ContentBasedDeduplication": {
                             "type": "boolean"
                         },
+                        "DeduplicationScope": {
+                            "type": "string"
+                        },
                         "DelaySeconds": {
                             "type": "number"
                         },
                         "FifoQueue": {
                             "type": "boolean"
+                        },
+                        "FifoThroughputLimit": {
+                            "type": "string"
                         },
                         "KmsDataKeyReusePeriodSeconds": {
                             "type": "number"
@@ -95912,6 +96316,38 @@
             ],
             "type": "object"
         },
+        "AWS::SSMContacts::Contact.ChannelTargetInfo": {
+            "additionalProperties": false,
+            "properties": {
+                "ChannelId": {
+                    "type": "string"
+                },
+                "RetryIntervalInMinutes": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "ChannelId",
+                "RetryIntervalInMinutes"
+            ],
+            "type": "object"
+        },
+        "AWS::SSMContacts::Contact.ContactTargetInfo": {
+            "additionalProperties": false,
+            "properties": {
+                "ContactId": {
+                    "type": "string"
+                },
+                "IsEssential": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "ContactId",
+                "IsEssential"
+            ],
+            "type": "object"
+        },
         "AWS::SSMContacts::Contact.Stage": {
             "additionalProperties": false,
             "properties": {
@@ -95934,10 +96370,10 @@
             "additionalProperties": false,
             "properties": {
                 "ChannelTargetInfo": {
-                    "type": "object"
+                    "$ref": "#/definitions/AWS::SSMContacts::Contact.ChannelTargetInfo"
                 },
                 "ContactTargetInfo": {
-                    "type": "object"
+                    "$ref": "#/definitions/AWS::SSMContacts::Contact.ContactTargetInfo"
                 }
             },
             "type": "object"
@@ -96831,6 +97267,12 @@
                         },
                         "GitConfig": {
                             "$ref": "#/definitions/AWS::SageMaker::CodeRepository.GitConfig"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -105691,6 +106133,9 @@
                         "LoggingRole": {
                             "type": "string"
                         },
+                        "ProtocolDetails": {
+                            "$ref": "#/definitions/AWS::Transfer::Server.ProtocolDetails"
+                        },
                         "Protocols": {
                             "items": {
                                 "$ref": "#/definitions/AWS::Transfer::Server.Protocol"
@@ -105777,6 +106222,15 @@
         "AWS::Transfer::Server.Protocol": {
             "additionalProperties": false,
             "properties": {},
+            "type": "object"
+        },
+        "AWS::Transfer::Server.ProtocolDetails": {
+            "additionalProperties": false,
+            "properties": {
+                "PassiveIp": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Transfer::User": {
@@ -111377,6 +111831,9 @@
                         },
                         {
                             "$ref": "#/definitions/AWS::KMS::Key"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::KMS::ReplicaKey"
                         },
                         {
                             "$ref": "#/definitions/AWS::Kendra::DataSource"
