@@ -1,4 +1,4 @@
-package codegurureviewer
+package kms
 
 import (
 	"bytes"
@@ -9,39 +9,39 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
-// RepositoryAssociation AWS CloudFormation Resource (AWS::CodeGuruReviewer::RepositoryAssociation)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html
-type RepositoryAssociation struct {
+// ReplicaKey AWS CloudFormation Resource (AWS::KMS::ReplicaKey)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html
+type ReplicaKey struct {
 
-	// BucketName AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
-	BucketName string `json:"BucketName,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description
+	Description string `json:"Description,omitempty"`
 
-	// ConnectionArn AWS CloudFormation Property
+	// Enabled AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
-	ConnectionArn string `json:"ConnectionArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled
+	Enabled bool `json:"Enabled,omitempty"`
 
-	// Name AWS CloudFormation Property
+	// KeyPolicy AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
-	Name string `json:"Name,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy
+	KeyPolicy interface{} `json:"KeyPolicy,omitempty"`
 
-	// Owner AWS CloudFormation Property
+	// PendingWindowInDays AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
-	Owner string `json:"Owner,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays
+	PendingWindowInDays int `json:"PendingWindowInDays,omitempty"`
+
+	// PrimaryKeyArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn
+	PrimaryKeyArn string `json:"PrimaryKeyArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
-
-	// Type AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
-	Type string `json:"Type,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -60,14 +60,14 @@ type RepositoryAssociation struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *RepositoryAssociation) AWSCloudFormationType() string {
-	return "AWS::CodeGuruReviewer::RepositoryAssociation"
+func (r *ReplicaKey) AWSCloudFormationType() string {
+	return "AWS::KMS::ReplicaKey"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r RepositoryAssociation) MarshalJSON() ([]byte, error) {
-	type Properties RepositoryAssociation
+func (r ReplicaKey) MarshalJSON() ([]byte, error) {
+	type Properties ReplicaKey
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -89,8 +89,8 @@ func (r RepositoryAssociation) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *RepositoryAssociation) UnmarshalJSON(b []byte) error {
-	type Properties RepositoryAssociation
+func (r *ReplicaKey) UnmarshalJSON(b []byte) error {
+	type Properties ReplicaKey
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -111,7 +111,7 @@ func (r *RepositoryAssociation) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = RepositoryAssociation(*res.Properties)
+		*r = ReplicaKey(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

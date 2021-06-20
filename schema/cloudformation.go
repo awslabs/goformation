@@ -7377,6 +7377,64 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Suffix": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "DefaultTargetHostname": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "Range": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteRangeMatch"
+                },
+                "Regex": {
+                    "type": "string"
+                },
+                "Suffix": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GatewayRouteRangeMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "End": {
+                    "type": "number"
+                },
+                "Start": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "End",
+                "Start"
+            ],
+            "type": "object"
+        },
         "AWS::AppMesh::GatewayRoute.GatewayRouteSpec": {
             "additionalProperties": false,
             "properties": {
@@ -7435,6 +7493,9 @@ var CloudformationSchema = `{
         "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteAction": {
             "additionalProperties": false,
             "properties": {
+                "Rewrite": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite"
+                },
                 "Target": {
                     "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteTarget"
                 }
@@ -7447,8 +7508,44 @@ var CloudformationSchema = `{
         "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMatch": {
             "additionalProperties": false,
             "properties": {
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch"
+                },
+                "Metadata": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata"
+                    },
+                    "type": "array"
+                },
                 "ServiceName": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata": {
+            "additionalProperties": false,
+            "properties": {
+                "Invert": {
+                    "type": "boolean"
+                },
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite"
                 }
             },
             "type": "object"
@@ -7472,6 +7569,9 @@ var CloudformationSchema = `{
         "AWS::AppMesh::GatewayRoute.HttpGatewayRouteAction": {
             "additionalProperties": false,
             "properties": {
+                "Rewrite": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRouteRewrite"
+                },
                 "Target": {
                     "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteTarget"
                 }
@@ -7481,15 +7581,144 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
-        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteMatch": {
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader": {
             "additionalProperties": false,
             "properties": {
-                "Prefix": {
+                "Invert": {
+                    "type": "boolean"
+                },
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeaderMatch"
+                },
+                "Name": {
                     "type": "string"
                 }
             },
             "required": [
-                "Prefix"
+                "Name"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeaderMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "Range": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteRangeMatch"
+                },
+                "Regex": {
+                    "type": "string"
+                },
+                "Suffix": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Headers": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRouteHeader"
+                    },
+                    "type": "array"
+                },
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameMatch"
+                },
+                "Method": {
+                    "type": "string"
+                },
+                "Path": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpPathMatch"
+                },
+                "Prefix": {
+                    "type": "string"
+                },
+                "QueryParameters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.QueryParameter"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "DefaultPrefix": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpGatewayRouteRewrite": {
+            "additionalProperties": false,
+            "properties": {
+                "Hostname": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite"
+                },
+                "Path": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite"
+                },
+                "Prefix": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpPathMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Regex": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::GatewayRoute.QueryParameter": {
+            "additionalProperties": false,
+            "properties": {
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
             ],
             "type": "object"
         },
@@ -7840,6 +8069,27 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::AppMesh::Route.HttpPathMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                },
+                "Regex": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.HttpQueryParameterMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "Exact": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppMesh::Route.HttpRetryPolicy": {
             "additionalProperties": false,
             "properties": {
@@ -7935,16 +8185,22 @@ var CloudformationSchema = `{
                 "Method": {
                     "type": "string"
                 },
+                "Path": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpPathMatch"
+                },
                 "Prefix": {
                     "type": "string"
+                },
+                "QueryParameters": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AppMesh::Route.QueryParameter"
+                    },
+                    "type": "array"
                 },
                 "Scheme": {
                     "type": "string"
                 }
             },
-            "required": [
-                "Prefix"
-            ],
             "type": "object"
         },
         "AWS::AppMesh::Route.HttpTimeout": {
@@ -7972,6 +8228,21 @@ var CloudformationSchema = `{
             "required": [
                 "End",
                 "Start"
+            ],
+            "type": "object"
+        },
+        "AWS::AppMesh::Route.QueryParameter": {
+            "additionalProperties": false,
+            "properties": {
+                "Match": {
+                    "$ref": "#/definitions/AWS::AppMesh::Route.HttpQueryParameterMatch"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
             ],
             "type": "object"
         },
@@ -8745,6 +9016,9 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "Hostname": {
+                    "type": "string"
+                },
+                "ResponseType": {
                     "type": "string"
                 }
             },
@@ -12809,6 +13083,9 @@ var CloudformationSchema = `{
                         "CapacityRebalance": {
                             "type": "boolean"
                         },
+                        "Context": {
+                            "type": "string"
+                        },
                         "Cooldown": {
                             "type": "string"
                         },
@@ -13248,6 +13525,9 @@ var CloudformationSchema = `{
                 "SnapshotId": {
                     "type": "string"
                 },
+                "Throughput": {
+                    "type": "number"
+                },
                 "VolumeSize": {
                     "type": "number"
                 },
@@ -13619,6 +13899,9 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "StartTime": {
+                            "type": "string"
+                        },
+                        "TimeZone": {
                             "type": "string"
                         }
                     },
@@ -21588,6 +21871,9 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "BucketName": {
+                            "type": "string"
+                        },
                         "ConnectionArn": {
                             "type": "string"
                         },
@@ -23266,6 +23552,9 @@ var CloudformationSchema = `{
                         },
                         "DefaultRedirectURI": {
                             "type": "string"
+                        },
+                        "EnableTokenRevocation": {
+                            "type": "boolean"
                         },
                         "ExplicitAuthFlows": {
                             "items": {
@@ -28047,7 +28336,7 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "Parameters": {
-                    "type": "object"
+                    "$ref": "#/definitions/AWS::DataBrew::Recipe.ParameterMap"
                 }
             },
             "required": [
@@ -28090,6 +28379,11 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::DataBrew::Recipe.S3Location"
                 }
             },
+            "type": "object"
+        },
+        "AWS::DataBrew::Recipe.ParameterMap": {
+            "additionalProperties": false,
+            "properties": {},
             "type": "object"
         },
         "AWS::DataBrew::Recipe.RecipeParameters": {
@@ -33955,6 +34249,9 @@ var CloudformationSchema = `{
                         "AllocationId": {
                             "type": "string"
                         },
+                        "ConnectivityType": {
+                            "type": "string"
+                        },
                         "SubnetId": {
                             "type": "string"
                         },
@@ -33966,7 +34263,6 @@ var CloudformationSchema = `{
                         }
                     },
                     "required": [
-                        "AllocationId",
                         "SubnetId"
                     ],
                     "type": "object"
@@ -41628,6 +41924,9 @@ var CloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "UpdateConfig": {
+                            "$ref": "#/definitions/AWS::EKS::Nodegroup.UpdateConfig"
+                        },
                         "Version": {
                             "type": "string"
                         }
@@ -41719,6 +42018,18 @@ var CloudformationSchema = `{
                 },
                 "Value": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EKS::Nodegroup.UpdateConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "MaxUnavailable": {
+                    "type": "number"
+                },
+                "MaxUnavailablePercentage": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -65269,6 +65580,9 @@ var CloudformationSchema = `{
                         "KeyUsage": {
                             "type": "string"
                         },
+                        "MultiRegion": {
+                            "type": "boolean"
+                        },
                         "PendingWindowInDays": {
                             "type": "number"
                         },
@@ -65287,6 +65601,87 @@ var CloudformationSchema = `{
                 "Type": {
                     "enum": [
                         "AWS::KMS::Key"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::KMS::ReplicaKey": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Enabled": {
+                            "type": "boolean"
+                        },
+                        "KeyPolicy": {
+                            "type": "object"
+                        },
+                        "PendingWindowInDays": {
+                            "type": "number"
+                        },
+                        "PrimaryKeyArn": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "KeyPolicy",
+                        "PrimaryKeyArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::KMS::ReplicaKey"
                     ],
                     "type": "string"
                 },
@@ -70079,9 +70474,6 @@ var CloudformationSchema = `{
                         "Handler": {
                             "type": "string"
                         },
-                        "Id": {
-                            "type": "string"
-                        },
                         "ImageConfig": {
                             "$ref": "#/definitions/AWS::Lambda::Function.ImageConfig"
                         },
@@ -70293,12 +70685,6 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
-                        "CompatibleArchitectures": {
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array"
-                        },
                         "CompatibleRuntimes": {
                             "items": {
                                 "type": "string"
@@ -72778,6 +73164,9 @@ var CloudformationSchema = `{
                         },
                         "RequirementsS3Path": {
                             "type": "string"
+                        },
+                        "Schedulers": {
+                            "type": "number"
                         },
                         "SourceBucketArn": {
                             "type": "string"
@@ -87290,6 +87679,12 @@ var CloudformationSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "PermissionArns": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "Principals": {
                             "items": {
                                 "type": "string"
@@ -88901,6 +89296,9 @@ var CloudformationSchema = `{
                         },
                         "Encrypted": {
                             "type": "boolean"
+                        },
+                        "Endpoint": {
+                            "type": "object"
                         },
                         "HsmClientCertificateIdentifier": {
                             "type": "string"
@@ -94532,11 +94930,17 @@ var CloudformationSchema = `{
                         "ContentBasedDeduplication": {
                             "type": "boolean"
                         },
+                        "DeduplicationScope": {
+                            "type": "string"
+                        },
                         "DelaySeconds": {
                             "type": "number"
                         },
                         "FifoQueue": {
                             "type": "boolean"
+                        },
+                        "FifoThroughputLimit": {
+                            "type": "string"
                         },
                         "KmsDataKeyReusePeriodSeconds": {
                             "type": "number"
@@ -95915,6 +96319,38 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::SSMContacts::Contact.ChannelTargetInfo": {
+            "additionalProperties": false,
+            "properties": {
+                "ChannelId": {
+                    "type": "string"
+                },
+                "RetryIntervalInMinutes": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "ChannelId",
+                "RetryIntervalInMinutes"
+            ],
+            "type": "object"
+        },
+        "AWS::SSMContacts::Contact.ContactTargetInfo": {
+            "additionalProperties": false,
+            "properties": {
+                "ContactId": {
+                    "type": "string"
+                },
+                "IsEssential": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "ContactId",
+                "IsEssential"
+            ],
+            "type": "object"
+        },
         "AWS::SSMContacts::Contact.Stage": {
             "additionalProperties": false,
             "properties": {
@@ -95937,10 +96373,10 @@ var CloudformationSchema = `{
             "additionalProperties": false,
             "properties": {
                 "ChannelTargetInfo": {
-                    "type": "object"
+                    "$ref": "#/definitions/AWS::SSMContacts::Contact.ChannelTargetInfo"
                 },
                 "ContactTargetInfo": {
-                    "type": "object"
+                    "$ref": "#/definitions/AWS::SSMContacts::Contact.ContactTargetInfo"
                 }
             },
             "type": "object"
@@ -96834,6 +97270,12 @@ var CloudformationSchema = `{
                         },
                         "GitConfig": {
                             "$ref": "#/definitions/AWS::SageMaker::CodeRepository.GitConfig"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -103850,6 +104292,9 @@ var CloudformationSchema = `{
                         "LoggingRole": {
                             "type": "string"
                         },
+                        "ProtocolDetails": {
+                            "$ref": "#/definitions/AWS::Transfer::Server.ProtocolDetails"
+                        },
                         "Protocols": {
                             "items": {
                                 "$ref": "#/definitions/AWS::Transfer::Server.Protocol"
@@ -103936,6 +104381,15 @@ var CloudformationSchema = `{
         "AWS::Transfer::Server.Protocol": {
             "additionalProperties": false,
             "properties": {},
+            "type": "object"
+        },
+        "AWS::Transfer::Server.ProtocolDetails": {
+            "additionalProperties": false,
+            "properties": {
+                "PassiveIp": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Transfer::User": {
@@ -109536,6 +109990,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::KMS::Key"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::KMS::ReplicaKey"
                         },
                         {
                             "$ref": "#/definitions/AWS::Kendra::DataSource"

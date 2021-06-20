@@ -1,22 +1,22 @@
-package ssmcontacts
+package appmesh
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// Contact_Targets AWS CloudFormation Resource (AWS::SSMContacts::Contact.Targets)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
-type Contact_Targets struct {
+// GatewayRoute_HttpPathMatch AWS CloudFormation Resource (AWS::AppMesh::GatewayRoute.HttpPathMatch)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html
+type GatewayRoute_HttpPathMatch struct {
 
-	// ChannelTargetInfo AWS CloudFormation Property
+	// Exact AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
-	ChannelTargetInfo *Contact_ChannelTargetInfo `json:"ChannelTargetInfo,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html#cfn-appmesh-gatewayroute-httppathmatch-exact
+	Exact string `json:"Exact,omitempty"`
 
-	// ContactTargetInfo AWS CloudFormation Property
+	// Regex AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
-	ContactTargetInfo *Contact_ContactTargetInfo `json:"ContactTargetInfo,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httppathmatch.html#cfn-appmesh-gatewayroute-httppathmatch-regex
+	Regex string `json:"Regex,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type Contact_Targets struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Contact_Targets) AWSCloudFormationType() string {
-	return "AWS::SSMContacts::Contact.Targets"
+func (r *GatewayRoute_HttpPathMatch) AWSCloudFormationType() string {
+	return "AWS::AppMesh::GatewayRoute.HttpPathMatch"
 }

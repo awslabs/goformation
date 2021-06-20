@@ -1,22 +1,22 @@
-package ssmcontacts
+package eks
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// Contact_Targets AWS CloudFormation Resource (AWS::SSMContacts::Contact.Targets)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
-type Contact_Targets struct {
+// Nodegroup_UpdateConfig AWS CloudFormation Resource (AWS::EKS::Nodegroup.UpdateConfig)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html
+type Nodegroup_UpdateConfig struct {
 
-	// ChannelTargetInfo AWS CloudFormation Property
+	// MaxUnavailable AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
-	ChannelTargetInfo *Contact_ChannelTargetInfo `json:"ChannelTargetInfo,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailable
+	MaxUnavailable float64 `json:"MaxUnavailable,omitempty"`
 
-	// ContactTargetInfo AWS CloudFormation Property
+	// MaxUnavailablePercentage AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
-	ContactTargetInfo *Contact_ContactTargetInfo `json:"ContactTargetInfo,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailablepercentage
+	MaxUnavailablePercentage float64 `json:"MaxUnavailablePercentage,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type Contact_Targets struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Contact_Targets) AWSCloudFormationType() string {
-	return "AWS::SSMContacts::Contact.Targets"
+func (r *Nodegroup_UpdateConfig) AWSCloudFormationType() string {
+	return "AWS::EKS::Nodegroup.UpdateConfig"
 }

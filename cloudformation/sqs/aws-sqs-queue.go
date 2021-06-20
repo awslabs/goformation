@@ -18,6 +18,11 @@ type Queue struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-contentbaseddeduplication
 	ContentBasedDeduplication bool `json:"ContentBasedDeduplication,omitempty"`
 
+	// DeduplicationScope AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-deduplicationscope
+	DeduplicationScope string `json:"DeduplicationScope,omitempty"`
+
 	// DelaySeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds
@@ -27,6 +32,11 @@ type Queue struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifoqueue
 	FifoQueue bool `json:"FifoQueue,omitempty"`
+
+	// FifoThroughputLimit AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifothroughputlimit
+	FifoThroughputLimit string `json:"FifoThroughputLimit,omitempty"`
 
 	// KmsDataKeyReusePeriodSeconds AWS CloudFormation Property
 	// Required: false
