@@ -102041,6 +102041,9 @@ var SamSchema = `{
         "AWS::Serverless::Function.ApiEvent": {
             "additionalProperties": false,
             "properties": {
+                "Auth": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.Auth"
+                },
                 "Method": {
                     "type": "string"
                 },
@@ -102055,6 +102058,99 @@ var SamSchema = `{
                 "Method",
                 "Path"
             ],
+            "type": "object"
+        },
+        "AWS::Serverless::Function.Auth": {
+            "additionalProperties": false,
+            "properties": {
+                "ApiKeyRequired": {
+                    "type": "boolean"
+                },
+                "AuthorizationScopes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Authorizer": {
+                    "type": "string"
+                },
+                "ResourcePolicy": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.AuthResourcePolicy"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Serverless::Function.AuthResourcePolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "AwsAccountBlacklist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AwsAccountWhitelist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "CustomStatements": {
+                    "items": {
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "IntrinsicVpcBlacklist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "IntrinsicVpcWhitelist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "IntrinsicVpceBlacklist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "IntrinsicVpceWhitelist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "IpRangeBlacklist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "IpRangeWhitelist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SourceVpcBlacklist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SourceVpcWhitelist": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
             "type": "object"
         },
         "AWS::Serverless::Function.BucketSAMPT": {
