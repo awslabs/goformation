@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [5.2.0](https://github.com/awslabs/goformation/compare/v5.1.0...v5.2.0) (2021-06-20)
+
+
+### Features
+
+* **schema:** Add AWS::Serverless::Function.Auth ([#373](https://github.com/awslabs/goformation/issues/373)) ([fc2877f](https://github.com/awslabs/goformation/commit/fc2877f69d241cb8462f57e865f0bc7b756610f4))
+
 # [5.1.0](https://github.com/awslabs/goformation/compare/v5.0.0...v5.1.0) (2021-06-20)
 
 
