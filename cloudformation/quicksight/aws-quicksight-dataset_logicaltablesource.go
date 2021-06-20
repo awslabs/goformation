@@ -1,7 +1,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // DataSet_LogicalTableSource AWS CloudFormation Resource (AWS::QuickSight::DataSet.LogicalTableSource)

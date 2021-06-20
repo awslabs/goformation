@@ -1,7 +1,7 @@
 package batch
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // JobDefinition_EfsVolumeConfiguration AWS CloudFormation Resource (AWS::Batch::JobDefinition.EfsVolumeConfiguration)

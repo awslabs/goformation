@@ -1,7 +1,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // ContainerRecipe_InstanceConfiguration AWS CloudFormation Resource (AWS::ImageBuilder::ContainerRecipe.InstanceConfiguration)

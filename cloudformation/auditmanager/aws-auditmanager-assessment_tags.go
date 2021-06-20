@@ -1,8 +1,8 @@
 package auditmanager
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
 // Assessment_Tags AWS CloudFormation Resource (AWS::AuditManager::Assessment.Tags)

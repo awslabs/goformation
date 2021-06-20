@@ -1,7 +1,7 @@
 package networkfirewall
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // FirewallPolicy_PublishMetricAction AWS CloudFormation Resource (AWS::NetworkFirewall::FirewallPolicy.PublishMetricAction)

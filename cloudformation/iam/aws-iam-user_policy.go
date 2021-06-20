@@ -1,7 +1,7 @@
 package iam
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // User_Policy AWS CloudFormation Resource (AWS::IAM::User.Policy)

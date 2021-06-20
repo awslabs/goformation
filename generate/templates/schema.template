@@ -89,6 +89,20 @@
             },
             "additionalProperties": false
         }
+        {{$resources := .Resources}}
+        {{if not .Globals.Children}}
+        {{else}}
+        ,
+        "Globals": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                {{$length := len .Globals.Children}}{{$rc := counter $length}}{{range $name, $global := .Globals.Children}}
+                {{$global.Schema $name $resources}}{{if call $rc}},{{end}}
+                {{end}}
+            }
+        }
+        {{end}}
     },
     "required": [
         {{if .ResourceSpecificationTransform}}

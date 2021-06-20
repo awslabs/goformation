@@ -1,7 +1,7 @@
 package groundstation
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Config_AntennaUplinkConfig AWS CloudFormation Resource (AWS::GroundStation::Config.AntennaUplinkConfig)

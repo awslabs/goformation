@@ -1,7 +1,7 @@
 package cloudtrail
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Trail_EventSelector AWS CloudFormation Resource (AWS::CloudTrail::Trail.EventSelector)

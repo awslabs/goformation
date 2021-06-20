@@ -1,7 +1,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // PackagingGroup_Authorization AWS CloudFormation Resource (AWS::MediaPackage::PackagingGroup.Authorization)

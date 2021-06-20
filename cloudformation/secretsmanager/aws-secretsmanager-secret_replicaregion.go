@@ -1,7 +1,7 @@
 package secretsmanager
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Secret_ReplicaRegion AWS CloudFormation Resource (AWS::SecretsManager::Secret.ReplicaRegion)

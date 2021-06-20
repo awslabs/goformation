@@ -1,7 +1,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // WebACL_Rules AWS CloudFormation Resource (AWS::WAFv2::WebACL.Rules)

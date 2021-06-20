@@ -1,7 +1,7 @@
 package iotwireless
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // WirelessGateway_LoRaWANGateway AWS CloudFormation Resource (AWS::IoTWireless::WirelessGateway.LoRaWANGateway)

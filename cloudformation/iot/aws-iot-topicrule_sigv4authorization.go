@@ -1,7 +1,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // TopicRule_SigV4Authorization AWS CloudFormation Resource (AWS::IoT::TopicRule.SigV4Authorization)

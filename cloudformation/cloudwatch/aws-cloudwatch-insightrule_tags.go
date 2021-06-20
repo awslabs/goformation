@@ -1,7 +1,7 @@
 package cloudwatch
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // InsightRule_Tags AWS CloudFormation Resource (AWS::CloudWatch::InsightRule.Tags)

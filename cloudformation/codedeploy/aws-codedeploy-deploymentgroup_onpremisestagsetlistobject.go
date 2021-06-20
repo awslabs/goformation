@@ -1,7 +1,7 @@
 package codedeploy
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // DeploymentGroup_OnPremisesTagSetListObject AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.OnPremisesTagSetListObject)

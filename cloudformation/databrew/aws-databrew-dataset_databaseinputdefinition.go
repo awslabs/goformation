@@ -1,7 +1,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Dataset_DatabaseInputDefinition AWS CloudFormation Resource (AWS::DataBrew::Dataset.DatabaseInputDefinition)

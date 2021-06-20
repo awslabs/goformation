@@ -1,7 +1,7 @@
 package pinpoint
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Segment_Coordinates AWS CloudFormation Resource (AWS::Pinpoint::Segment.Coordinates)

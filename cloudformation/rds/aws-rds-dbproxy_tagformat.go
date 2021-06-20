@@ -1,7 +1,7 @@
 package rds
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // DBProxy_TagFormat AWS CloudFormation Resource (AWS::RDS::DBProxy.TagFormat)

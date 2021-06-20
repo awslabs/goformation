@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Testing Globals
+
+Globals:
+  Function:
+    Runtime: nodejs12.x
+    Timeout: 180
+    Handler: index.handler
+    Environment:
+      Variables:
+        TABLE_NAME: data-table
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Environment:
+        Variables:
+          MESSAGE: "Hello From SAM"
+
+  ThumbnailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Events:
+        Thumbnail:
+          Type: Api
+          Properties:
+            Path: /thumbnail
+            Method: POST

@@ -1,7 +1,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Template_ColumnSchema AWS CloudFormation Resource (AWS::QuickSight::Template.ColumnSchema)

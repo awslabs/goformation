@@ -1,7 +1,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // EC2Fleet_FleetLaunchTemplateOverridesRequest AWS CloudFormation Resource (AWS::EC2::EC2Fleet.FleetLaunchTemplateOverridesRequest)

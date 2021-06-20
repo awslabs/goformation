@@ -1,7 +1,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // VirtualNode_AwsCloudMapInstanceAttribute AWS CloudFormation Resource (AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute)

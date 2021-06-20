@@ -9,7 +9,8 @@ Resources:
       Name: !Sub "${AWS::StackName}-rest-api"
       StageName: Prod
       TracingEnabled: false
-      EndpointConfiguration: EDGE
+      EndpointConfiguration:
+        Type: EDGE
       MethodSettings:
         - DataTraceEnabled: false
           HttpMethod: "*"
@@ -26,7 +27,8 @@ Resources:
       Name: !Sub "${AWS::StackName}-rest-api"
       StageName: Prod
       TracingEnabled: false
-      EndpointConfiguration: EDGE
+      EndpointConfiguration:
+        Type: EDGE
       MethodSettings:
         - DataTraceEnabled: false
           HttpMethod: "*"

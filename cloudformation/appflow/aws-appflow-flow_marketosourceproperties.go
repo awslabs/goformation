@@ -1,7 +1,7 @@
 package appflow
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Flow_MarketoSourceProperties AWS CloudFormation Resource (AWS::AppFlow::Flow.MarketoSourceProperties)

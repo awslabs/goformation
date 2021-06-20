@@ -1,7 +1,7 @@
 package greengrassv2
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // ComponentVersion_LambdaEventSource AWS CloudFormation Resource (AWS::GreengrassV2::ComponentVersion.LambdaEventSource)

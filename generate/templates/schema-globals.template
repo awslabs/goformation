@@ -1,0 +1,7 @@
+"{{.Name}}": {
+    "properties": {
+        {{$length := len .Properties}}{{$pc := counter $length}}{{range $name, $property := .Properties}}
+        {{$property.Schema $name $.RefName}}{{if call $pc}},{{end}}
+        {{end}}
+    }
+}

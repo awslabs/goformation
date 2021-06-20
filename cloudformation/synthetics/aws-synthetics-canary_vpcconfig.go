@@ -1,7 +1,7 @@
 package synthetics
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Canary_VPCConfig AWS CloudFormation Resource (AWS::Synthetics::Canary.VPCConfig)

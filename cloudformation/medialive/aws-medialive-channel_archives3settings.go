@@ -1,7 +1,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // Channel_ArchiveS3Settings AWS CloudFormation Resource (AWS::MediaLive::Channel.ArchiveS3Settings)

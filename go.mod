@@ -1,8 +1,8 @@
-module github.com/awslabs/goformation/v4
+module github.com/awslabs/goformation/v5
 
 require (
 	github.com/imdario/mergo v0.3.12
-	github.com/onsi/ginkgo v1.16.2
+	github.com/onsi/ginkgo v1.16.4
 	github.com/onsi/gomega v1.12.0
 	github.com/sanathkr/go-yaml v0.0.0-20170819195128-ed9d249f429b
 	github.com/sanathkr/yaml v0.0.0-20170819201035-0056894fa522

@@ -1,0 +1,24 @@
+package {{.PackageName}}
+
+import (
+	"github.com/awslabs/goformation/v5/cloudformation/{{.ImportName}}"
+)
+
+// {{.StructName}} AWS CloudFormation Resource ({{.Name}})
+// See: {{.Documentation}}
+type {{.StructName}} struct {
+	{{$iname := .ImportName}}
+    {{range $name, $property := .Properties}}
+    {{$prop_name := $name}}
+    {{if (eq ($prop_name) ("DependsOn"))}}{{$prop_name = "DependsOnProp"}}{{end}}
+    // {{$name}} AWS CloudFormation Property
+    // Required: false
+    // See: {{$property.Documentation}}
+    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{$iname}}.{{end}}{{$property.GoType $.ResourceName $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
+    {{end}}
+}
+
+// AWSCloudFormationType returns the AWS CloudFormation resource type
+func (r *{{.StructName}}) AWSCloudFormationType() string {
+    return "{{.Name}}"
+}

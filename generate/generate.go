@@ -29,6 +29,7 @@ type GeneratedResource struct {
 	BaseName    string
 	PackageName string
 	StructName  string
+	Global      bool
 }
 
 // ResourceGeneratorResults contains a summary of the items generated
@@ -187,6 +188,21 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 			BaseName:    basename,
 			PackageName: pname,
 			StructName:  sname,
+			Global:      false,
+		})
+	}
+
+	// Add the globals processed to the ResourceGenerator output
+	for name := range spec.Globals.Children {
+
+		pname, basename, sname := "global", name, name
+
+		rg.Results.AllResources = append(rg.Results.AllResources, GeneratedResource{
+			Name:        name,
+			BaseName:    basename,
+			PackageName: pname,
+			StructName:  sname,
+			Global:      true,
 		})
 	}
 
@@ -200,6 +216,13 @@ func (rg *ResourceGenerator) processSpec(specname string, data []byte) (*CloudFo
 	// Write all of the custom types in the spec file
 	for name, resource := range spec.Properties {
 		if err := rg.generateResources(name, resource, true, spec); err != nil {
+			return nil, err
+		}
+	}
+
+	// Write all of the globals in the spec file
+	for name, globals := range spec.Globals.Children {
+		if err := rg.generateGlobals(name, globals, spec); err != nil {
 			return nil, err
 		}
 	}
@@ -324,6 +347,97 @@ func (rg *ResourceGenerator) generateResources(name string, resource Resource, i
 		HasUpdatePolicy:   hasUpdatePolicy,
 		HasCreationPolicy: hasCreationPolicy,
 		HasTags:           hasTags,
+	}
+
+	// Execute the template, writing it to a buffer
+	var buf bytes.Buffer
+	err = tmpl.Execute(&buf, templateData)
+	if err != nil {
+		return fmt.Errorf("failed to generate resource %s: %s", name, err)
+	}
+
+	// Format the generated Go code with gofmt
+	formatted, err := format.Source(buf.Bytes())
+	if err != nil {
+		fmt.Println(string(buf.Bytes()))
+		return fmt.Errorf("failed to format Go file for resource %s: %s", name, err)
+	}
+
+	// Check if the file has changed since the last time generate ran
+	dir := "cloudformation/" + pname
+	fn := dir + "/" + filename(name)
+	current, err := ioutil.ReadFile(fn)
+
+	if err != nil || bytes.Compare(formatted, current) != 0 {
+
+		// Create the directory if it doesn't exist
+		if _, err := os.Stat(dir); os.IsNotExist(err) {
+			os.Mkdir(dir, 0755)
+		}
+
+		// Write the file contents out
+		if err := ioutil.WriteFile(fn, formatted, 0644); err != nil {
+			return fmt.Errorf("failed to write resource file %s: %s", fn, err)
+		}
+		// Log the updated resource name to the results
+		rg.Results.UpdatedResources = append(rg.Results.UpdatedResources, GeneratedResource{
+			Name:        name,
+			BaseName:    basename,
+			PackageName: pname,
+			StructName:  sname,
+		})
+
+	}
+
+	rg.Results.ProcessedCount++
+
+	return nil
+
+}
+
+func (rg *ResourceGenerator) generateGlobals(name string, global Global, spec *CloudFormationResourceSpecification) error {
+
+	// Open the resource template
+	tmpl, err := template.ParseFiles("generate/templates/globals.template")
+	if err != nil {
+		return fmt.Errorf("failed to load resource template: %s", err)
+	}
+
+	sname, basename := name, name
+	pname := "global"
+	iname, err := packageName(global.Reference, true)
+	if err != nil {
+		return err
+	}
+
+	properties := make(map[string]Property)
+	resource := spec.Resources[global.Reference]
+	for k, v := range resource.Properties {
+		if !global.isExcluded(k) {
+			properties[k] = v
+		}
+	}
+
+	templateData := struct {
+		Name          string
+		ImportName    string
+		ResourceName  string
+		PackageName   string
+		StructName    string
+		Basename      string
+		Properties    map[string]Property
+		Documentation string
+		Version       string
+	}{
+		Name:          name,
+		ImportName:    iname,
+		ResourceName:  global.Reference,
+		PackageName:   pname,
+		StructName:    sname,
+		Basename:      basename,
+		Properties:    properties,
+		Documentation: resource.Documentation,
+		Version:       spec.ResourceSpecificationVersion,
 	}
 
 	// Execute the template, writing it to a buffer

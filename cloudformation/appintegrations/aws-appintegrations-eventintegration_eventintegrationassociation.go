@@ -1,7 +1,7 @@
 package appintegrations
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
 // EventIntegration_EventIntegrationAssociation AWS CloudFormation Resource (AWS::AppIntegrations::EventIntegration.EventIntegrationAssociation)
