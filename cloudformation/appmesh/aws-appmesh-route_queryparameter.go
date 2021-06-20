@@ -1,22 +1,22 @@
-package databrew
+package appmesh
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// Recipe_Action AWS CloudFormation Resource (AWS::DataBrew::Recipe.Action)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
-type Recipe_Action struct {
+// Route_QueryParameter AWS CloudFormation Resource (AWS::AppMesh::Route.QueryParameter)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-queryparameter.html
+type Route_QueryParameter struct {
 
-	// Operation AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
-	Operation string `json:"Operation,omitempty"`
-
-	// Parameters AWS CloudFormation Property
+	// Match AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-	Parameters *Recipe_ParameterMap `json:"Parameters,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-queryparameter.html#cfn-appmesh-route-queryparameter-match
+	Match *Route_HttpQueryParameterMatch `json:"Match,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-queryparameter.html#cfn-appmesh-route-queryparameter-name
+	Name string `json:"Name,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -35,6 +35,6 @@ type Recipe_Action struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Recipe_Action) AWSCloudFormationType() string {
-	return "AWS::DataBrew::Recipe.Action"
+func (r *Route_QueryParameter) AWSCloudFormationType() string {
+	return "AWS::AppMesh::Route.QueryParameter"
 }

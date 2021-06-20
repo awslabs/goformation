@@ -18,10 +18,20 @@ type Route_HttpRouteMatch struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-method
 	Method string `json:"Method,omitempty"`
 
+	// Path AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-path
+	Path *Route_HttpPathMatch `json:"Path,omitempty"`
+
 	// Prefix AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-prefix
 	Prefix string `json:"Prefix,omitempty"`
+
+	// QueryParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-queryparameters
+	QueryParameters []Route_QueryParameter `json:"QueryParameters,omitempty"`
 
 	// Scheme AWS CloudFormation Property
 	// Required: false
