@@ -46,6 +46,7 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/codestarnotifications"
 	"github.com/awslabs/goformation/v5/cloudformation/cognito"
 	"github.com/awslabs/goformation/v5/cloudformation/config"
+	"github.com/awslabs/goformation/v5/cloudformation/connect"
 	"github.com/awslabs/goformation/v5/cloudformation/cur"
 	"github.com/awslabs/goformation/v5/cloudformation/customerprofiles"
 	"github.com/awslabs/goformation/v5/cloudformation/databrew"
@@ -281,10 +282,13 @@ func AllResources() map[string]Resource {
 		"AWS::CloudFormation::Macro":                                  &cloudformation.Macro{},
 		"AWS::CloudFormation::ModuleDefaultVersion":                   &cloudformation.ModuleDefaultVersion{},
 		"AWS::CloudFormation::ModuleVersion":                          &cloudformation.ModuleVersion{},
+		"AWS::CloudFormation::PublicTypeVersion":                      &cloudformation.PublicTypeVersion{},
+		"AWS::CloudFormation::Publisher":                              &cloudformation.Publisher{},
 		"AWS::CloudFormation::ResourceDefaultVersion":                 &cloudformation.ResourceDefaultVersion{},
 		"AWS::CloudFormation::ResourceVersion":                        &cloudformation.ResourceVersion{},
 		"AWS::CloudFormation::Stack":                                  &cloudformation.Stack{},
 		"AWS::CloudFormation::StackSet":                               &cloudformation.StackSet{},
+		"AWS::CloudFormation::TypeActivation":                         &cloudformation.TypeActivation{},
 		"AWS::CloudFormation::WaitCondition":                          &cloudformation.WaitCondition{},
 		"AWS::CloudFormation::WaitConditionHandle":                    &cloudformation.WaitConditionHandle{},
 		"AWS::CloudFront::CachePolicy":                                &cloudfront.CachePolicy{},
@@ -342,6 +346,7 @@ func AllResources() map[string]Resource {
 		"AWS::Config::OrganizationConformancePack":                    &config.OrganizationConformancePack{},
 		"AWS::Config::RemediationConfiguration":                       &config.RemediationConfiguration{},
 		"AWS::Config::StoredQuery":                                    &config.StoredQuery{},
+		"AWS::Connect::QuickConnect":                                  &connect.QuickConnect{},
 		"AWS::CustomerProfiles::Domain":                               &customerprofiles.Domain{},
 		"AWS::CustomerProfiles::Integration":                          &customerprofiles.Integration{},
 		"AWS::CustomerProfiles::ObjectType":                           &customerprofiles.ObjectType{},
@@ -3570,6 +3575,54 @@ func (t *Template) GetCloudFormationModuleVersionWithName(name string) (*cloudfo
 	return nil, fmt.Errorf("resource %q of type cloudformation.ModuleVersion not found", name)
 }
 
+// GetAllCloudFormationPublicTypeVersionResources retrieves all cloudformation.PublicTypeVersion items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFormationPublicTypeVersionResources() map[string]*cloudformation.PublicTypeVersion {
+	results := map[string]*cloudformation.PublicTypeVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudformation.PublicTypeVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFormationPublicTypeVersionWithName retrieves all cloudformation.PublicTypeVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFormationPublicTypeVersionWithName(name string) (*cloudformation.PublicTypeVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudformation.PublicTypeVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudformation.PublicTypeVersion not found", name)
+}
+
+// GetAllCloudFormationPublisherResources retrieves all cloudformation.Publisher items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFormationPublisherResources() map[string]*cloudformation.Publisher {
+	results := map[string]*cloudformation.Publisher{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudformation.Publisher:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFormationPublisherWithName retrieves all cloudformation.Publisher items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFormationPublisherWithName(name string) (*cloudformation.Publisher, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudformation.Publisher:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudformation.Publisher not found", name)
+}
+
 // GetAllCloudFormationResourceDefaultVersionResources retrieves all cloudformation.ResourceDefaultVersion items from an AWS CloudFormation template
 func (t *Template) GetAllCloudFormationResourceDefaultVersionResources() map[string]*cloudformation.ResourceDefaultVersion {
 	results := map[string]*cloudformation.ResourceDefaultVersion{}
@@ -3664,6 +3717,30 @@ func (t *Template) GetCloudFormationStackSetWithName(name string) (*cloudformati
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cloudformation.StackSet not found", name)
+}
+
+// GetAllCloudFormationTypeActivationResources retrieves all cloudformation.TypeActivation items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFormationTypeActivationResources() map[string]*cloudformation.TypeActivation {
+	results := map[string]*cloudformation.TypeActivation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudformation.TypeActivation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFormationTypeActivationWithName retrieves all cloudformation.TypeActivation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFormationTypeActivationWithName(name string) (*cloudformation.TypeActivation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudformation.TypeActivation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudformation.TypeActivation not found", name)
 }
 
 // GetAllCloudFormationWaitConditionResources retrieves all cloudformation.WaitCondition items from an AWS CloudFormation template
@@ -5032,6 +5109,30 @@ func (t *Template) GetConfigStoredQueryWithName(name string) (*config.StoredQuer
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type config.StoredQuery not found", name)
+}
+
+// GetAllConnectQuickConnectResources retrieves all connect.QuickConnect items from an AWS CloudFormation template
+func (t *Template) GetAllConnectQuickConnectResources() map[string]*connect.QuickConnect {
+	results := map[string]*connect.QuickConnect{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.QuickConnect:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectQuickConnectWithName retrieves all connect.QuickConnect items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectQuickConnectWithName(name string) (*connect.QuickConnect, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.QuickConnect:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.QuickConnect not found", name)
 }
 
 // GetAllCustomerProfilesDomainResources retrieves all customerprofiles.Domain items from an AWS CloudFormation template

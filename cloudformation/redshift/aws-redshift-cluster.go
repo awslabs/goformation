@@ -76,7 +76,7 @@ type Cluster struct {
 	// Endpoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
-	Endpoint interface{} `json:"Endpoint,omitempty"`
+	Endpoint *Cluster_Endpoint `json:"Endpoint,omitempty"`
 
 	// HsmClientCertificateIdentifier AWS CloudFormation Property
 	// Required: false

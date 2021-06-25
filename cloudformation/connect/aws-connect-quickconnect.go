@@ -1,4 +1,4 @@
-package qldb
+package connect
 
 import (
 	"bytes"
@@ -9,33 +9,33 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
-// Ledger AWS CloudFormation Resource (AWS::QLDB::Ledger)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html
-type Ledger struct {
+// QuickConnect AWS CloudFormation Resource (AWS::Connect::QuickConnect)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html
+type QuickConnect struct {
 
-	// DeletionProtection AWS CloudFormation Property
+	// Description AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-deletionprotection
-	DeletionProtection bool `json:"DeletionProtection,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+	Description string `json:"Description,omitempty"`
 
-	// KmsKey AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-kmskey
-	KmsKey string `json:"KmsKey,omitempty"`
+	// InstanceArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+	InstanceArn string `json:"InstanceArn,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-name
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
 	Name string `json:"Name,omitempty"`
 
-	// PermissionsMode AWS CloudFormation Property
+	// QuickConnectConfig AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-permissionsmode
-	PermissionsMode string `json:"PermissionsMode,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+	QuickConnectConfig *QuickConnect_QuickConnectConfig `json:"QuickConnectConfig,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
@@ -55,14 +55,14 @@ type Ledger struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Ledger) AWSCloudFormationType() string {
-	return "AWS::QLDB::Ledger"
+func (r *QuickConnect) AWSCloudFormationType() string {
+	return "AWS::Connect::QuickConnect"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Ledger) MarshalJSON() ([]byte, error) {
-	type Properties Ledger
+func (r QuickConnect) MarshalJSON() ([]byte, error) {
+	type Properties QuickConnect
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -84,8 +84,8 @@ func (r Ledger) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Ledger) UnmarshalJSON(b []byte) error {
-	type Properties Ledger
+func (r *QuickConnect) UnmarshalJSON(b []byte) error {
+	type Properties QuickConnect
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -106,7 +106,7 @@ func (r *Ledger) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Ledger(*res.Properties)
+		*r = QuickConnect(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

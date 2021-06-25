@@ -4469,6 +4469,9 @@ var SamSchema = `{
                 "EndpointType": {
                     "type": "string"
                 },
+                "OwnershipVerificationCertificateArn": {
+                    "type": "string"
+                },
                 "SecurityPolicy": {
                     "type": "string"
                 }
@@ -11414,6 +11417,9 @@ var SamSchema = `{
                         "AuthenticationType": {
                             "type": "string"
                         },
+                        "LambdaAuthorizerConfig": {
+                            "$ref": "#/definitions/AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig"
+                        },
                         "LogConfig": {
                             "$ref": "#/definitions/AWS::AppSync::GraphQLApi.LogConfig"
                         },
@@ -11466,6 +11472,9 @@ var SamSchema = `{
                 "AuthenticationType": {
                     "type": "string"
                 },
+                "LambdaAuthorizerConfig": {
+                    "$ref": "#/definitions/AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig"
+                },
                 "OpenIDConnectConfig": {
                     "$ref": "#/definitions/AWS::AppSync::GraphQLApi.OpenIDConnectConfig"
                 },
@@ -11493,6 +11502,21 @@ var SamSchema = `{
                     "type": "string"
                 },
                 "UserPoolId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "AuthorizerResultTtlInSeconds": {
+                    "type": "number"
+                },
+                "AuthorizerUri": {
+                    "type": "string"
+                },
+                "IdentityValidationExpression": {
                     "type": "string"
                 }
             },
@@ -17134,6 +17158,141 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::CloudFormation::PublicTypeVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Arn": {
+                            "type": "string"
+                        },
+                        "LogDeliveryBucket": {
+                            "type": "string"
+                        },
+                        "PublicVersionNumber": {
+                            "type": "string"
+                        },
+                        "Type": {
+                            "type": "string"
+                        },
+                        "TypeName": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CloudFormation::PublicTypeVersion"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFormation::Publisher": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AcceptTermsAndConditions": {
+                            "type": "boolean"
+                        },
+                        "ConnectionArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "AcceptTermsAndConditions"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CloudFormation::Publisher"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::CloudFormation::ResourceDefaultVersion": {
             "additionalProperties": false,
             "properties": {
@@ -17578,6 +17737,103 @@ var SamSchema = `{
                 "DeploymentTargets",
                 "Regions"
             ],
+            "type": "object"
+        },
+        "AWS::CloudFormation::TypeActivation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AutoUpdate": {
+                            "type": "boolean"
+                        },
+                        "ExecutionRoleArn": {
+                            "type": "string"
+                        },
+                        "LoggingConfig": {
+                            "$ref": "#/definitions/AWS::CloudFormation::TypeActivation.LoggingConfig"
+                        },
+                        "MajorVersion": {
+                            "type": "string"
+                        },
+                        "PublicTypeArn": {
+                            "type": "string"
+                        },
+                        "PublisherId": {
+                            "type": "string"
+                        },
+                        "Type": {
+                            "type": "string"
+                        },
+                        "TypeName": {
+                            "type": "string"
+                        },
+                        "TypeNameAlias": {
+                            "type": "string"
+                        },
+                        "VersionBump": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CloudFormation::TypeActivation"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFormation::TypeActivation.LoggingConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "LogGroupName": {
+                    "type": "string"
+                },
+                "LogRoleArn": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::CloudFormation::WaitCondition": {
@@ -25519,6 +25775,150 @@ var SamSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::QuickConnect": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "InstanceArn": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "QuickConnectConfig": {
+                            "$ref": "#/definitions/AWS::Connect::QuickConnect.QuickConnectConfig"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "InstanceArn",
+                        "Name",
+                        "QuickConnectConfig"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Connect::QuickConnect"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "PhoneNumber": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PhoneNumber"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::QuickConnect.QueueQuickConnectConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "ContactFlowArn": {
+                    "type": "string"
+                },
+                "QueueArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ContactFlowArn",
+                "QueueArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::QuickConnect.QuickConnectConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "PhoneConfig": {
+                    "$ref": "#/definitions/AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig"
+                },
+                "QueueConfig": {
+                    "$ref": "#/definitions/AWS::Connect::QuickConnect.QueueQuickConnectConfig"
+                },
+                "QuickConnectType": {
+                    "type": "string"
+                },
+                "UserConfig": {
+                    "$ref": "#/definitions/AWS::Connect::QuickConnect.UserQuickConnectConfig"
+                }
+            },
+            "required": [
+                "QuickConnectType"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::QuickConnect.UserQuickConnectConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "ContactFlowArn": {
+                    "type": "string"
+                },
+                "UserArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ContactFlowArn",
+                "UserArn"
             ],
             "type": "object"
         },
@@ -48690,6 +49090,25 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::FSx::FileSystem.AuditLogConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AuditLogDestination": {
+                    "type": "string"
+                },
+                "FileAccessAuditLogLevel": {
+                    "type": "string"
+                },
+                "FileShareAccessAuditLogLevel": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FileAccessAuditLogLevel",
+                "FileShareAccessAuditLogLevel"
+            ],
+            "type": "object"
+        },
         "AWS::FSx::FileSystem.LustreConfiguration": {
             "additionalProperties": false,
             "properties": {
@@ -48770,6 +49189,9 @@ var SamSchema = `{
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "AuditLogConfiguration": {
+                    "$ref": "#/definitions/AWS::FSx::FileSystem.AuditLogConfiguration"
                 },
                 "AutomaticBackupRetentionDays": {
                     "type": "number"
@@ -61607,6 +62029,9 @@ var SamSchema = `{
         "AWS::IoT::TopicRule.TimestreamAction": {
             "additionalProperties": false,
             "properties": {
+                "BatchMode": {
+                    "type": "boolean"
+                },
                 "DatabaseName": {
                     "type": "string"
                 },
@@ -85300,6 +85725,9 @@ var SamSchema = `{
                         "DeletionProtection": {
                             "type": "boolean"
                         },
+                        "KmsKey": {
+                            "type": "string"
+                        },
                         "Name": {
                             "type": "string"
                         },
@@ -89298,7 +89726,7 @@ var SamSchema = `{
                             "type": "boolean"
                         },
                         "Endpoint": {
-                            "type": "object"
+                            "$ref": "#/definitions/AWS::Redshift::Cluster.Endpoint"
                         },
                         "HsmClientCertificateIdentifier": {
                             "type": "string"
@@ -89389,6 +89817,18 @@ var SamSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::Redshift::Cluster.Endpoint": {
+            "additionalProperties": false,
+            "properties": {
+                "Address": {
+                    "type": "string"
+                },
+                "Port": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Redshift::Cluster.LoggingProperties": {
@@ -111560,6 +112000,12 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::CloudFormation::ModuleVersion"
                         },
                         {
+                            "$ref": "#/definitions/AWS::CloudFormation::PublicTypeVersion"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::CloudFormation::Publisher"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::CloudFormation::ResourceDefaultVersion"
                         },
                         {
@@ -111570,6 +112016,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::CloudFormation::StackSet"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::CloudFormation::TypeActivation"
                         },
                         {
                             "$ref": "#/definitions/AWS::CloudFormation::WaitCondition"
@@ -111741,6 +112190,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Config::StoredQuery"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Connect::QuickConnect"
                         },
                         {
                             "$ref": "#/definitions/AWS::CustomerProfiles::Domain"

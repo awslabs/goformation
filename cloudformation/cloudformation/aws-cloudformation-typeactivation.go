@@ -1,4 +1,4 @@
-package appsync
+package cloudformation
 
 import (
 	"bytes"
@@ -8,54 +8,59 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// GraphQLApi AWS CloudFormation Resource (AWS::AppSync::GraphQLApi)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
-type GraphQLApi struct {
+// TypeActivation AWS CloudFormation Resource (AWS::CloudFormation::TypeActivation)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html
+type TypeActivation struct {
 
-	// AdditionalAuthenticationProviders AWS CloudFormation Property
+	// AutoUpdate AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
-	AdditionalAuthenticationProviders *GraphQLApi_AdditionalAuthenticationProviders `json:"AdditionalAuthenticationProviders,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
+	AutoUpdate bool `json:"AutoUpdate,omitempty"`
 
-	// AuthenticationType AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
-	AuthenticationType string `json:"AuthenticationType,omitempty"`
-
-	// LambdaAuthorizerConfig AWS CloudFormation Property
+	// ExecutionRoleArn AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig
-	LambdaAuthorizerConfig *GraphQLApi_LambdaAuthorizerConfig `json:"LambdaAuthorizerConfig,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
+	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
 
-	// LogConfig AWS CloudFormation Property
+	// LoggingConfig AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig
-	LogConfig *GraphQLApi_LogConfig `json:"LogConfig,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
+	LoggingConfig *TypeActivation_LoggingConfig `json:"LoggingConfig,omitempty"`
 
-	// Name AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
-	Name string `json:"Name,omitempty"`
-
-	// OpenIDConnectConfig AWS CloudFormation Property
+	// MajorVersion AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
-	OpenIDConnectConfig *GraphQLApi_OpenIDConnectConfig `json:"OpenIDConnectConfig,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
+	MajorVersion string `json:"MajorVersion,omitempty"`
 
-	// Tags AWS CloudFormation Property
+	// PublicTypeArn AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
-	Tags *GraphQLApi_Tags `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
+	PublicTypeArn string `json:"PublicTypeArn,omitempty"`
 
-	// UserPoolConfig AWS CloudFormation Property
+	// PublisherId AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
-	UserPoolConfig *GraphQLApi_UserPoolConfig `json:"UserPoolConfig,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
+	PublisherId string `json:"PublisherId,omitempty"`
 
-	// XrayEnabled AWS CloudFormation Property
+	// Type AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
-	XrayEnabled bool `json:"XrayEnabled,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
+	Type string `json:"Type,omitempty"`
+
+	// TypeName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
+	TypeName string `json:"TypeName,omitempty"`
+
+	// TypeNameAlias AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
+	TypeNameAlias string `json:"TypeNameAlias,omitempty"`
+
+	// VersionBump AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+	VersionBump string `json:"VersionBump,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -74,14 +79,14 @@ type GraphQLApi struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *GraphQLApi) AWSCloudFormationType() string {
-	return "AWS::AppSync::GraphQLApi"
+func (r *TypeActivation) AWSCloudFormationType() string {
+	return "AWS::CloudFormation::TypeActivation"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r GraphQLApi) MarshalJSON() ([]byte, error) {
-	type Properties GraphQLApi
+func (r TypeActivation) MarshalJSON() ([]byte, error) {
+	type Properties TypeActivation
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -103,8 +108,8 @@ func (r GraphQLApi) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
-	type Properties GraphQLApi
+func (r *TypeActivation) UnmarshalJSON(b []byte) error {
+	type Properties TypeActivation
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -125,7 +130,7 @@ func (r *GraphQLApi) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = GraphQLApi(*res.Properties)
+		*r = TypeActivation(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
