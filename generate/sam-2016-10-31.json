@@ -47,19 +47,19 @@
             "Properties": {
                 "Handler": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
-                    "Required": true,
+                    "Required": false,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 },
                 "Runtime": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
-                    "Required": true,
+                    "Required": false,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 },
                 "CodeUri": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction",
-                    "Required": true,
+                    "Required": false,
                     "PrimitiveTypes": [
                         "String"
                     ],
