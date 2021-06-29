@@ -33,7 +33,7 @@ type Function struct {
 	CodeSigningConfigArn string `json:"CodeSigningConfigArn,omitempty"`
 
 	// CodeUri AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	CodeUri *Function_CodeUri `json:"CodeUri,omitempty"`
 
@@ -78,7 +78,7 @@ type Function struct {
 	FunctionName string `json:"FunctionName,omitempty"`
 
 	// Handler AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Handler string `json:"Handler,omitempty"`
 
@@ -143,7 +143,7 @@ type Function struct {
 	Role string `json:"Role,omitempty"`
 
 	// Runtime AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Runtime string `json:"Runtime,omitempty"`
 
