@@ -102435,11 +102435,6 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::Serverless::Function.VpcConfig"
                         }
                     },
-                    "required": [
-                        "CodeUri",
-                        "Handler",
-                        "Runtime"
-                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -102458,8 +102453,7 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type",
-                "Properties"
+                "Type"
             ],
             "type": "object"
         },
