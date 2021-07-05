@@ -3266,6 +3266,9 @@ var SamSchema = `{
                         "MinimumCompressionSize": {
                             "type": "number"
                         },
+                        "Mode": {
+                            "type": "string"
+                        },
                         "Name": {
                             "type": "string"
                         },
@@ -11417,9 +11420,6 @@ var SamSchema = `{
                         "AuthenticationType": {
                             "type": "string"
                         },
-                        "LambdaAuthorizerConfig": {
-                            "$ref": "#/definitions/AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig"
-                        },
                         "LogConfig": {
                             "$ref": "#/definitions/AWS::AppSync::GraphQLApi.LogConfig"
                         },
@@ -11472,9 +11472,6 @@ var SamSchema = `{
                 "AuthenticationType": {
                     "type": "string"
                 },
-                "LambdaAuthorizerConfig": {
-                    "$ref": "#/definitions/AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig"
-                },
                 "OpenIDConnectConfig": {
                     "$ref": "#/definitions/AWS::AppSync::GraphQLApi.OpenIDConnectConfig"
                 },
@@ -11502,21 +11499,6 @@ var SamSchema = `{
                     "type": "string"
                 },
                 "UserPoolId": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig": {
-            "additionalProperties": false,
-            "properties": {
-                "AuthorizerResultTtlInSeconds": {
-                    "type": "number"
-                },
-                "AuthorizerUri": {
-                    "type": "string"
-                },
-                "IdentityValidationExpression": {
                     "type": "string"
                 }
             },
@@ -11916,6 +11898,9 @@ var SamSchema = `{
                     "type": "string"
                 },
                 "StartTime": {
+                    "type": "string"
+                },
+                "Timezone": {
                     "type": "string"
                 }
             },
@@ -32643,6 +32628,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "Context": {
+                            "type": "string"
+                        },
                         "ExcessCapacityTerminationPolicy": {
                             "type": "string"
                         },
@@ -36739,6 +36727,9 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "AllocationStrategy": {
+                    "type": "string"
+                },
+                "Context": {
                     "type": "string"
                 },
                 "ExcessCapacityTerminationPolicy": {
@@ -49090,25 +49081,6 @@ var SamSchema = `{
             ],
             "type": "object"
         },
-        "AWS::FSx::FileSystem.AuditLogConfiguration": {
-            "additionalProperties": false,
-            "properties": {
-                "AuditLogDestination": {
-                    "type": "string"
-                },
-                "FileAccessAuditLogLevel": {
-                    "type": "string"
-                },
-                "FileShareAccessAuditLogLevel": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "FileAccessAuditLogLevel",
-                "FileShareAccessAuditLogLevel"
-            ],
-            "type": "object"
-        },
         "AWS::FSx::FileSystem.LustreConfiguration": {
             "additionalProperties": false,
             "properties": {
@@ -49189,9 +49161,6 @@ var SamSchema = `{
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "AuditLogConfiguration": {
-                    "$ref": "#/definitions/AWS::FSx::FileSystem.AuditLogConfiguration"
                 },
                 "AutomaticBackupRetentionDays": {
                     "type": "number"
@@ -62797,6 +62766,9 @@ var SamSchema = `{
                         "DatastoreName": {
                             "type": "string"
                         },
+                        "DatastorePartitions": {
+                            "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.DatastorePartitions"
+                        },
                         "DatastoreStorage": {
                             "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.DatastoreStorage"
                         },
@@ -62870,6 +62842,30 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IoTAnalytics::Datastore.DatastorePartition": {
+            "additionalProperties": false,
+            "properties": {
+                "Partition": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.Partition"
+                },
+                "TimestampPartition": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.TimestampPartition"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Datastore.DatastorePartitions": {
+            "additionalProperties": false,
+            "properties": {
+                "Partitions": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.DatastorePartition"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
         "AWS::IoTAnalytics::Datastore.DatastoreStorage": {
             "additionalProperties": false,
             "properties": {
@@ -62908,6 +62904,18 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::IoTAnalytics::Datastore.Partition": {
+            "additionalProperties": false,
+            "properties": {
+                "AttributeName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AttributeName"
+            ],
+            "type": "object"
+        },
         "AWS::IoTAnalytics::Datastore.RetentionPeriod": {
             "additionalProperties": false,
             "properties": {
@@ -62935,6 +62943,21 @@ var SamSchema = `{
         "AWS::IoTAnalytics::Datastore.ServiceManagedS3": {
             "additionalProperties": false,
             "properties": {},
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Datastore.TimestampPartition": {
+            "additionalProperties": false,
+            "properties": {
+                "AttributeName": {
+                    "type": "string"
+                },
+                "TimestampFormat": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AttributeName"
+            ],
             "type": "object"
         },
         "AWS::IoTAnalytics::Pipeline": {
@@ -64797,6 +64820,12 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "Alarms": {
+                            "type": "object"
+                        },
+                        "NotificationSenderEmail": {
+                            "type": "string"
+                        },
                         "PortalAuthMode": {
                             "type": "string"
                         },
@@ -70752,6 +70781,9 @@ var SamSchema = `{
                         },
                         "StartingPosition": {
                             "type": "string"
+                        },
+                        "StartingPositionTimestamp": {
+                            "type": "number"
                         },
                         "Topics": {
                             "items": {
@@ -78289,12 +78321,6 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
-                        "EgressEndpoints": {
-                            "items": {
-                                "$ref": "#/definitions/AWS::MediaPackage::Asset.EgressEndpoint"
-                            },
-                            "type": "array"
-                        },
                         "Id": {
                             "type": "string"
                         },
@@ -88207,6 +88233,9 @@ var SamSchema = `{
                         },
                         "BackupRetentionPeriod": {
                             "type": "number"
+                        },
+                        "CopyTagsToSnapshot": {
+                            "type": "boolean"
                         },
                         "DBClusterIdentifier": {
                             "type": "string"
