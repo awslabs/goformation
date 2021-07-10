@@ -4472,9 +4472,6 @@ var CloudformationSchema = `{
                 "EndpointType": {
                     "type": "string"
                 },
-                "OwnershipVerificationCertificateArn": {
-                    "type": "string"
-                },
                 "SecurityPolicy": {
                     "type": "string"
                 }
@@ -21507,6 +21504,12 @@ var CloudformationSchema = `{
                         },
                         "ComputePlatform": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "type": "object"
@@ -21563,11 +21566,17 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "ComputePlatform": {
+                            "type": "string"
+                        },
                         "DeploymentConfigName": {
                             "type": "string"
                         },
                         "MinimumHealthyHosts": {
                             "$ref": "#/definitions/AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHosts"
+                        },
+                        "TrafficRoutingConfig": {
+                            "$ref": "#/definitions/AWS::CodeDeploy::DeploymentConfig.TrafficRoutingConfig"
                         }
                     },
                     "type": "object"
@@ -21605,6 +21614,56 @@ var CloudformationSchema = `{
             "required": [
                 "Type",
                 "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentConfig.TimeBasedCanary": {
+            "additionalProperties": false,
+            "properties": {
+                "CanaryInterval": {
+                    "type": "number"
+                },
+                "CanaryPercentage": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "CanaryInterval",
+                "CanaryPercentage"
+            ],
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentConfig.TimeBasedLinear": {
+            "additionalProperties": false,
+            "properties": {
+                "LinearInterval": {
+                    "type": "number"
+                },
+                "LinearPercentage": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "LinearInterval",
+                "LinearPercentage"
+            ],
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentConfig.TrafficRoutingConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "TimeBasedCanary": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentConfig.TimeBasedCanary"
+                },
+                "TimeBasedLinear": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentConfig.TimeBasedLinear"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
             ],
             "type": "object"
         },
@@ -21655,6 +21714,9 @@ var CloudformationSchema = `{
                             },
                             "type": "array"
                         },
+                        "BlueGreenDeploymentConfiguration": {
+                            "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.BlueGreenDeploymentConfiguration"
+                        },
                         "Deployment": {
                             "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.Deployment"
                         },
@@ -21666,6 +21728,12 @@ var CloudformationSchema = `{
                         },
                         "DeploymentStyle": {
                             "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.DeploymentStyle"
+                        },
+                        "ECSServices": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.ECSService"
+                            },
+                            "type": "array"
                         },
                         "Ec2TagFilters": {
                             "items": {
@@ -21767,6 +21835,33 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::CodeDeploy::DeploymentGroup.BlueGreenDeploymentConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DeploymentReadyOption": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.DeploymentReadyOption"
+                },
+                "GreenFleetProvisioningOption": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption"
+                },
+                "TerminateBlueInstancesOnDeploymentSuccess": {
+                    "$ref": "#/definitions/AWS::CodeDeploy::DeploymentGroup.BlueInstanceTerminationOption"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentGroup.BlueInstanceTerminationOption": {
+            "additionalProperties": false,
+            "properties": {
+                "Action": {
+                    "type": "string"
+                },
+                "TerminationWaitTimeInMinutes": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
         "AWS::CodeDeploy::DeploymentGroup.Deployment": {
             "additionalProperties": false,
             "properties": {
@@ -21783,6 +21878,18 @@ var CloudformationSchema = `{
             "required": [
                 "Revision"
             ],
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentGroup.DeploymentReadyOption": {
+            "additionalProperties": false,
+            "properties": {
+                "ActionOnTimeout": {
+                    "type": "string"
+                },
+                "WaitTimeInMinutes": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::CodeDeploy::DeploymentGroup.DeploymentStyle": {
@@ -21836,6 +21943,22 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::CodeDeploy::DeploymentGroup.ECSService": {
+            "additionalProperties": false,
+            "properties": {
+                "ClusterName": {
+                    "type": "string"
+                },
+                "ServiceName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClusterName",
+                "ServiceName"
+            ],
+            "type": "object"
+        },
         "AWS::CodeDeploy::DeploymentGroup.ELBInfo": {
             "additionalProperties": false,
             "properties": {
@@ -21859,6 +21982,15 @@ var CloudformationSchema = `{
                 "CommitId",
                 "Repository"
             ],
+            "type": "object"
+        },
+        "AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption": {
+            "additionalProperties": false,
+            "properties": {
+                "Action": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo": {
@@ -28350,6 +28482,12 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "DataCatalogOutputs": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::DataBrew::Job.DataCatalogOutput"
+                            },
+                            "type": "array"
+                        },
                         "DatasetName": {
                             "type": "string"
                         },
@@ -28440,6 +28578,49 @@ var CloudformationSchema = `{
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::DataBrew::Job.DataCatalogOutput": {
+            "additionalProperties": false,
+            "properties": {
+                "CatalogId": {
+                    "type": "string"
+                },
+                "DatabaseName": {
+                    "type": "string"
+                },
+                "DatabaseOptions": {
+                    "$ref": "#/definitions/AWS::DataBrew::Job.DatabaseTableOutputOptions"
+                },
+                "Overwrite": {
+                    "type": "boolean"
+                },
+                "S3Options": {
+                    "$ref": "#/definitions/AWS::DataBrew::Job.S3TableOutputOptions"
+                },
+                "TableName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DatabaseName",
+                "TableName"
+            ],
+            "type": "object"
+        },
+        "AWS::DataBrew::Job.DatabaseTableOutputOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "TableName": {
+                    "type": "string"
+                },
+                "TempDirectory": {
+                    "$ref": "#/definitions/AWS::DataBrew::Job.S3Location"
+                }
+            },
+            "required": [
+                "TableName"
+            ],
             "type": "object"
         },
         "AWS::DataBrew::Job.JobSample": {
@@ -28535,6 +28716,18 @@ var CloudformationSchema = `{
             },
             "required": [
                 "Bucket"
+            ],
+            "type": "object"
+        },
+        "AWS::DataBrew::Job.S3TableOutputOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "Location": {
+                    "$ref": "#/definitions/AWS::DataBrew::Job.S3Location"
+                }
+            },
+            "required": [
+                "Location"
             ],
             "type": "object"
         },
@@ -103694,6 +103887,9 @@ var CloudformationSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "Properties": {
+                            "$ref": "#/definitions/AWS::ServiceDiscovery::PrivateDnsNamespace.Properties"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -103729,6 +103925,33 @@ var CloudformationSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::ServiceDiscovery::PrivateDnsNamespace.PrivateDnsPropertiesMutable": {
+            "additionalProperties": false,
+            "properties": {
+                "SOA": {
+                    "$ref": "#/definitions/AWS::ServiceDiscovery::PrivateDnsNamespace.SOA"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ServiceDiscovery::PrivateDnsNamespace.Properties": {
+            "additionalProperties": false,
+            "properties": {
+                "DnsProperties": {
+                    "$ref": "#/definitions/AWS::ServiceDiscovery::PrivateDnsNamespace.PrivateDnsPropertiesMutable"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ServiceDiscovery::PrivateDnsNamespace.SOA": {
+            "additionalProperties": false,
+            "properties": {
+                "TTL": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::ServiceDiscovery::PublicDnsNamespace": {
@@ -103769,6 +103992,9 @@ var CloudformationSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "Properties": {
+                            "$ref": "#/definitions/AWS::ServiceDiscovery::PublicDnsNamespace.Properties"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -103800,6 +104026,33 @@ var CloudformationSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::ServiceDiscovery::PublicDnsNamespace.Properties": {
+            "additionalProperties": false,
+            "properties": {
+                "DnsProperties": {
+                    "$ref": "#/definitions/AWS::ServiceDiscovery::PublicDnsNamespace.PublicDnsPropertiesMutable"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ServiceDiscovery::PublicDnsNamespace.PublicDnsPropertiesMutable": {
+            "additionalProperties": false,
+            "properties": {
+                "SOA": {
+                    "$ref": "#/definitions/AWS::ServiceDiscovery::PublicDnsNamespace.SOA"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::ServiceDiscovery::PublicDnsNamespace.SOA": {
+            "additionalProperties": false,
+            "properties": {
+                "TTL": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::ServiceDiscovery::Service": {
