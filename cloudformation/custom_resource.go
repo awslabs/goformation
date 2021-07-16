@@ -3,7 +3,6 @@ package cloudformation
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
@@ -12,6 +11,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
 type CustomResource struct {
 	Type       string                 `json:"Type,omitempty"`
+	Version    string                 `json:"Version,omitempty"`
 	Properties map[string]interface{} `json:"Properties,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
@@ -40,6 +40,7 @@ func (r *CustomResource) AWSCloudFormationType() string {
 func (r CustomResource) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type                string
+		Version             string
 		Properties          interface{}
 		DependsOn           []string                     `json:"DependsOn,omitempty"`
 		Metadata            map[string]interface{}       `json:"Metadata,omitempty"`
@@ -48,6 +49,7 @@ func (r CustomResource) MarshalJSON() ([]byte, error) {
 		Condition           string                       `json:"Condition,omitempty"`
 	}{
 		Type:                r.AWSCloudFormationType(),
+		Version:             r.Version,
 		Properties:          (map[string]interface{})(r.Properties),
 		DependsOn:           r.AWSCloudFormationDependsOn,
 		Metadata:            r.AWSCloudFormationMetadata,
@@ -62,6 +64,7 @@ func (r CustomResource) MarshalJSON() ([]byte, error) {
 func (r *CustomResource) UnmarshalJSON(b []byte) error {
 	res := &struct {
 		Type                string
+		Version             string
 		Properties          map[string]interface{}
 		DependsOn           []string
 		Metadata            map[string]interface{}
@@ -74,11 +77,11 @@ func (r *CustomResource) UnmarshalJSON(b []byte) error {
 	dec.DisallowUnknownFields() // Force error if unknown field is found
 
 	if err := dec.Decode(&res); err != nil {
-		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
 
 	r.Type = res.Type
+	r.Version = res.Version
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
