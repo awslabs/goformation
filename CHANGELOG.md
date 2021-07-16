@@ -1,5 +1,13 @@
 # GoFormation Versioning Changelog
 
+## [5.2.6](https://github.com/awslabs/goformation/compare/v5.2.5...v5.2.6) (2021-07-16)
+
+
+### Bug Fixes
+
+* **schema:** Allow any type for Parameter AllowedValues ([#392](https://github.com/awslabs/goformation/issues/392)) ([ccc7fb0](https://github.com/awslabs/goformation/commit/ccc7fb0509b1bdddf208e6a4463dd882ddfa4b69))
+* **schema:** CloudFormation Updates ([#390](https://github.com/awslabs/goformation/issues/390)) ([ac83603](https://github.com/awslabs/goformation/commit/ac8360341ffc4e6576102a008a39b1674ea748fa))
+
 ## [5.2.5](https://github.com/awslabs/goformation/compare/v5.2.4...v5.2.5) (2021-07-16)
 
 
