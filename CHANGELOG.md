@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.2.5](https://github.com/awslabs/goformation/compare/v5.2.4...v5.2.5) (2021-07-16)
+
+
+### Bug Fixes
+
+* **schema:** Support Version field in custom resource ([#391](https://github.com/awslabs/goformation/issues/391)) ([eef8f36](https://github.com/awslabs/goformation/commit/eef8f361a61e0a3827b271019672c31a44937664))
+
 ## [5.2.4](https://github.com/awslabs/goformation/compare/v5.2.3...v5.2.4) (2021-07-05)
 
 
