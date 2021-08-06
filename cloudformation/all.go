@@ -110,6 +110,7 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/licensemanager"
 	"github.com/awslabs/goformation/v5/cloudformation/location"
 	"github.com/awslabs/goformation/v5/cloudformation/logs"
+	"github.com/awslabs/goformation/v5/cloudformation/lookoutequipment"
 	"github.com/awslabs/goformation/v5/cloudformation/lookoutmetrics"
 	"github.com/awslabs/goformation/v5/cloudformation/lookoutvision"
 	"github.com/awslabs/goformation/v5/cloudformation/macie"
@@ -137,6 +138,8 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/resourcegroups"
 	"github.com/awslabs/goformation/v5/cloudformation/robomaker"
 	"github.com/awslabs/goformation/v5/cloudformation/route53"
+	"github.com/awslabs/goformation/v5/cloudformation/route53recoverycontrol"
+	"github.com/awslabs/goformation/v5/cloudformation/route53recoveryreadiness"
 	"github.com/awslabs/goformation/v5/cloudformation/route53resolver"
 	"github.com/awslabs/goformation/v5/cloudformation/s3"
 	"github.com/awslabs/goformation/v5/cloudformation/s3objectlambda"
@@ -251,6 +254,7 @@ func AllResources() map[string]Resource {
 		"AWS::ApplicationInsights::Application":                       &applicationinsights.Application{},
 		"AWS::Athena::DataCatalog":                                    &athena.DataCatalog{},
 		"AWS::Athena::NamedQuery":                                     &athena.NamedQuery{},
+		"AWS::Athena::PreparedStatement":                              &athena.PreparedStatement{},
 		"AWS::Athena::WorkGroup":                                      &athena.WorkGroup{},
 		"AWS::AuditManager::Assessment":                               &auditmanager.Assessment{},
 		"AWS::AutoScaling::AutoScalingGroup":                          &autoscaling.AutoScalingGroup{},
@@ -689,7 +693,9 @@ func AllResources() map[string]Resource {
 		"AWS::Logs::LogStream":                                        &logs.LogStream{},
 		"AWS::Logs::MetricFilter":                                     &logs.MetricFilter{},
 		"AWS::Logs::QueryDefinition":                                  &logs.QueryDefinition{},
+		"AWS::Logs::ResourcePolicy":                                   &logs.ResourcePolicy{},
 		"AWS::Logs::SubscriptionFilter":                               &logs.SubscriptionFilter{},
+		"AWS::LookoutEquipment::InferenceScheduler":                   &lookoutequipment.InferenceScheduler{},
 		"AWS::LookoutMetrics::Alert":                                  &lookoutmetrics.Alert{},
 		"AWS::LookoutMetrics::AnomalyDetector":                        &lookoutmetrics.AnomalyDetector{},
 		"AWS::LookoutVision::Project":                                 &lookoutvision.Project{},
@@ -807,6 +813,14 @@ func AllResources() map[string]Resource {
 		"AWS::Route53::KeySigningKey":                                 &route53.KeySigningKey{},
 		"AWS::Route53::RecordSet":                                     &route53.RecordSet{},
 		"AWS::Route53::RecordSetGroup":                                &route53.RecordSetGroup{},
+		"AWS::Route53RecoveryControl::Cluster":                        &route53recoverycontrol.Cluster{},
+		"AWS::Route53RecoveryControl::ControlPanel":                   &route53recoverycontrol.ControlPanel{},
+		"AWS::Route53RecoveryControl::RoutingControl":                 &route53recoverycontrol.RoutingControl{},
+		"AWS::Route53RecoveryControl::SafetyRule":                     &route53recoverycontrol.SafetyRule{},
+		"AWS::Route53RecoveryReadiness::Cell":                         &route53recoveryreadiness.Cell{},
+		"AWS::Route53RecoveryReadiness::ReadinessCheck":               &route53recoveryreadiness.ReadinessCheck{},
+		"AWS::Route53RecoveryReadiness::RecoveryGroup":                &route53recoveryreadiness.RecoveryGroup{},
+		"AWS::Route53RecoveryReadiness::ResourceSet":                  &route53recoveryreadiness.ResourceSet{},
 		"AWS::Route53Resolver::FirewallDomainList":                    &route53resolver.FirewallDomainList{},
 		"AWS::Route53Resolver::FirewallRuleGroup":                     &route53resolver.FirewallRuleGroup{},
 		"AWS::Route53Resolver::FirewallRuleGroupAssociation":          &route53resolver.FirewallRuleGroupAssociation{},
@@ -2829,6 +2843,30 @@ func (t *Template) GetAthenaNamedQueryWithName(name string) (*athena.NamedQuery,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type athena.NamedQuery not found", name)
+}
+
+// GetAllAthenaPreparedStatementResources retrieves all athena.PreparedStatement items from an AWS CloudFormation template
+func (t *Template) GetAllAthenaPreparedStatementResources() map[string]*athena.PreparedStatement {
+	results := map[string]*athena.PreparedStatement{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *athena.PreparedStatement:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAthenaPreparedStatementWithName retrieves all athena.PreparedStatement items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAthenaPreparedStatementWithName(name string) (*athena.PreparedStatement, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *athena.PreparedStatement:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type athena.PreparedStatement not found", name)
 }
 
 // GetAllAthenaWorkGroupResources retrieves all athena.WorkGroup items from an AWS CloudFormation template
@@ -13343,6 +13381,30 @@ func (t *Template) GetLogsQueryDefinitionWithName(name string) (*logs.QueryDefin
 	return nil, fmt.Errorf("resource %q of type logs.QueryDefinition not found", name)
 }
 
+// GetAllLogsResourcePolicyResources retrieves all logs.ResourcePolicy items from an AWS CloudFormation template
+func (t *Template) GetAllLogsResourcePolicyResources() map[string]*logs.ResourcePolicy {
+	results := map[string]*logs.ResourcePolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *logs.ResourcePolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLogsResourcePolicyWithName retrieves all logs.ResourcePolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLogsResourcePolicyWithName(name string) (*logs.ResourcePolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *logs.ResourcePolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type logs.ResourcePolicy not found", name)
+}
+
 // GetAllLogsSubscriptionFilterResources retrieves all logs.SubscriptionFilter items from an AWS CloudFormation template
 func (t *Template) GetAllLogsSubscriptionFilterResources() map[string]*logs.SubscriptionFilter {
 	results := map[string]*logs.SubscriptionFilter{}
@@ -13365,6 +13427,30 @@ func (t *Template) GetLogsSubscriptionFilterWithName(name string) (*logs.Subscri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type logs.SubscriptionFilter not found", name)
+}
+
+// GetAllLookoutEquipmentInferenceSchedulerResources retrieves all lookoutequipment.InferenceScheduler items from an AWS CloudFormation template
+func (t *Template) GetAllLookoutEquipmentInferenceSchedulerResources() map[string]*lookoutequipment.InferenceScheduler {
+	results := map[string]*lookoutequipment.InferenceScheduler{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lookoutequipment.InferenceScheduler:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLookoutEquipmentInferenceSchedulerWithName retrieves all lookoutequipment.InferenceScheduler items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLookoutEquipmentInferenceSchedulerWithName(name string) (*lookoutequipment.InferenceScheduler, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lookoutequipment.InferenceScheduler:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lookoutequipment.InferenceScheduler not found", name)
 }
 
 // GetAllLookoutMetricsAlertResources retrieves all lookoutmetrics.Alert items from an AWS CloudFormation template
@@ -16173,6 +16259,198 @@ func (t *Template) GetRoute53RecordSetGroupWithName(name string) (*route53.Recor
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type route53.RecordSetGroup not found", name)
+}
+
+// GetAllRoute53RecoveryControlClusterResources retrieves all route53recoverycontrol.Cluster items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryControlClusterResources() map[string]*route53recoverycontrol.Cluster {
+	results := map[string]*route53recoverycontrol.Cluster{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.Cluster:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryControlClusterWithName retrieves all route53recoverycontrol.Cluster items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryControlClusterWithName(name string) (*route53recoverycontrol.Cluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.Cluster:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoverycontrol.Cluster not found", name)
+}
+
+// GetAllRoute53RecoveryControlControlPanelResources retrieves all route53recoverycontrol.ControlPanel items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryControlControlPanelResources() map[string]*route53recoverycontrol.ControlPanel {
+	results := map[string]*route53recoverycontrol.ControlPanel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.ControlPanel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryControlControlPanelWithName retrieves all route53recoverycontrol.ControlPanel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryControlControlPanelWithName(name string) (*route53recoverycontrol.ControlPanel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.ControlPanel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoverycontrol.ControlPanel not found", name)
+}
+
+// GetAllRoute53RecoveryControlRoutingControlResources retrieves all route53recoverycontrol.RoutingControl items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryControlRoutingControlResources() map[string]*route53recoverycontrol.RoutingControl {
+	results := map[string]*route53recoverycontrol.RoutingControl{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.RoutingControl:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryControlRoutingControlWithName retrieves all route53recoverycontrol.RoutingControl items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryControlRoutingControlWithName(name string) (*route53recoverycontrol.RoutingControl, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.RoutingControl:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoverycontrol.RoutingControl not found", name)
+}
+
+// GetAllRoute53RecoveryControlSafetyRuleResources retrieves all route53recoverycontrol.SafetyRule items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryControlSafetyRuleResources() map[string]*route53recoverycontrol.SafetyRule {
+	results := map[string]*route53recoverycontrol.SafetyRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.SafetyRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryControlSafetyRuleWithName retrieves all route53recoverycontrol.SafetyRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryControlSafetyRuleWithName(name string) (*route53recoverycontrol.SafetyRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoverycontrol.SafetyRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoverycontrol.SafetyRule not found", name)
+}
+
+// GetAllRoute53RecoveryReadinessCellResources retrieves all route53recoveryreadiness.Cell items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryReadinessCellResources() map[string]*route53recoveryreadiness.Cell {
+	results := map[string]*route53recoveryreadiness.Cell{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.Cell:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryReadinessCellWithName retrieves all route53recoveryreadiness.Cell items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryReadinessCellWithName(name string) (*route53recoveryreadiness.Cell, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.Cell:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoveryreadiness.Cell not found", name)
+}
+
+// GetAllRoute53RecoveryReadinessReadinessCheckResources retrieves all route53recoveryreadiness.ReadinessCheck items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryReadinessReadinessCheckResources() map[string]*route53recoveryreadiness.ReadinessCheck {
+	results := map[string]*route53recoveryreadiness.ReadinessCheck{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.ReadinessCheck:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryReadinessReadinessCheckWithName retrieves all route53recoveryreadiness.ReadinessCheck items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryReadinessReadinessCheckWithName(name string) (*route53recoveryreadiness.ReadinessCheck, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.ReadinessCheck:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoveryreadiness.ReadinessCheck not found", name)
+}
+
+// GetAllRoute53RecoveryReadinessRecoveryGroupResources retrieves all route53recoveryreadiness.RecoveryGroup items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryReadinessRecoveryGroupResources() map[string]*route53recoveryreadiness.RecoveryGroup {
+	results := map[string]*route53recoveryreadiness.RecoveryGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.RecoveryGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryReadinessRecoveryGroupWithName retrieves all route53recoveryreadiness.RecoveryGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryReadinessRecoveryGroupWithName(name string) (*route53recoveryreadiness.RecoveryGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.RecoveryGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoveryreadiness.RecoveryGroup not found", name)
+}
+
+// GetAllRoute53RecoveryReadinessResourceSetResources retrieves all route53recoveryreadiness.ResourceSet items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53RecoveryReadinessResourceSetResources() map[string]*route53recoveryreadiness.ResourceSet {
+	results := map[string]*route53recoveryreadiness.ResourceSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.ResourceSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53RecoveryReadinessResourceSetWithName retrieves all route53recoveryreadiness.ResourceSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53RecoveryReadinessResourceSetWithName(name string) (*route53recoveryreadiness.ResourceSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53recoveryreadiness.ResourceSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53recoveryreadiness.ResourceSet not found", name)
 }
 
 // GetAllRoute53ResolverFirewallDomainListResources retrieves all route53resolver.FirewallDomainList items from an AWS CloudFormation template

@@ -15,7 +15,7 @@ type AnomalyDetector struct {
 	// AnomalyDetectorConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
-	AnomalyDetectorConfig interface{} `json:"AnomalyDetectorConfig,omitempty"`
+	AnomalyDetectorConfig *AnomalyDetector_AnomalyDetectorConfig `json:"AnomalyDetectorConfig,omitempty"`
 
 	// AnomalyDetectorDescription AWS CloudFormation Property
 	// Required: false

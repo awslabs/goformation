@@ -18,6 +18,11 @@ type Job struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
 	DataCatalogOutputs []Job_DataCatalogOutput `json:"DataCatalogOutputs,omitempty"`
 
+	// DatabaseOutputs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+	DatabaseOutputs []Job_DatabaseOutput `json:"DatabaseOutputs,omitempty"`
+
 	// DatasetName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
@@ -67,6 +72,11 @@ type Job struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
 	Outputs []Job_Output `json:"Outputs,omitempty"`
+
+	// ProfileConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+	ProfileConfiguration *Job_ProfileConfiguration `json:"ProfileConfiguration,omitempty"`
 
 	// ProjectName AWS CloudFormation Property
 	// Required: false
