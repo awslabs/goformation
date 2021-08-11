@@ -15,7 +15,7 @@ type Alert struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
-	Action interface{} `json:"Action,omitempty"`
+	Action *Alert_Action `json:"Action,omitempty"`
 
 	// AlertDescription AWS CloudFormation Property
 	// Required: false

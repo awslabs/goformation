@@ -53,6 +53,11 @@ type Task_Options struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
 	PreserveDevices string `json:"PreserveDevices,omitempty"`
 
+	// SecurityDescriptorCopyFlags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+	SecurityDescriptorCopyFlags string `json:"SecurityDescriptorCopyFlags,omitempty"`
+
 	// TaskQueueing AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
