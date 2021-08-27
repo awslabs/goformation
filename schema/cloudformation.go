@@ -2590,6 +2590,9 @@ var CloudformationSchema = `{
                         "MutualTlsAuthentication": {
                             "$ref": "#/definitions/AWS::ApiGateway::DomainName.MutualTlsAuthentication"
                         },
+                        "OwnershipVerificationCertificateArn": {
+                            "type": "string"
+                        },
                         "RegionalCertificateArn": {
                             "type": "string"
                         },
@@ -4470,6 +4473,9 @@ var CloudformationSchema = `{
                     "type": "string"
                 },
                 "EndpointType": {
+                    "type": "string"
+                },
+                "OwnershipVerificationCertificateArn": {
                     "type": "string"
                 },
                 "SecurityPolicy": {
@@ -13810,6 +13816,9 @@ var CloudformationSchema = `{
                         "PolicyType": {
                             "type": "string"
                         },
+                        "PredictiveScalingConfiguration": {
+                            "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.PredictiveScalingConfiguration"
+                        },
                         "ScalingAdjustment": {
                             "type": "number"
                         },
@@ -13895,6 +13904,99 @@ var CloudformationSchema = `{
             "type": "object"
         },
         "AWS::AutoScaling::ScalingPolicy.PredefinedMetricSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "PredefinedMetricType": {
+                    "type": "string"
+                },
+                "ResourceLabel": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PredefinedMetricType"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.PredictiveScalingConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "MaxCapacityBreachBehavior": {
+                    "type": "string"
+                },
+                "MaxCapacityBuffer": {
+                    "type": "number"
+                },
+                "MetricSpecifications": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.PredictiveScalingMetricSpecification"
+                    },
+                    "type": "array"
+                },
+                "Mode": {
+                    "type": "string"
+                },
+                "SchedulingBufferTime": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "MetricSpecifications"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.PredictiveScalingMetricSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "PredefinedLoadMetricSpecification": {
+                    "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedLoadMetric"
+                },
+                "PredefinedMetricPairSpecification": {
+                    "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedMetricPair"
+                },
+                "PredefinedScalingMetricSpecification": {
+                    "$ref": "#/definitions/AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedScalingMetric"
+                },
+                "TargetValue": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "TargetValue"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedLoadMetric": {
+            "additionalProperties": false,
+            "properties": {
+                "PredefinedMetricType": {
+                    "type": "string"
+                },
+                "ResourceLabel": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PredefinedMetricType"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedMetricPair": {
+            "additionalProperties": false,
+            "properties": {
+                "PredefinedMetricType": {
+                    "type": "string"
+                },
+                "ResourceLabel": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PredefinedMetricType"
+            ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedScalingMetric": {
             "additionalProperties": false,
             "properties": {
                 "PredefinedMetricType": {
@@ -16233,6 +16335,9 @@ var CloudformationSchema = `{
                             "type": "string"
                         },
                         "Rules": {
+                            "type": "string"
+                        },
+                        "SplitChargeRules": {
                             "type": "string"
                         }
                     },
@@ -20777,6 +20882,9 @@ var CloudformationSchema = `{
                         "QueuedTimeoutInMinutes": {
                             "type": "number"
                         },
+                        "ResourceAccessRole": {
+                            "type": "string"
+                        },
                         "SecondaryArtifacts": {
                             "items": {
                                 "$ref": "#/definitions/AWS::CodeBuild::Project.Artifacts"
@@ -20815,6 +20923,9 @@ var CloudformationSchema = `{
                         },
                         "Triggers": {
                             "$ref": "#/definitions/AWS::CodeBuild::Project.ProjectTriggers"
+                        },
+                        "Visibility": {
+                            "type": "string"
                         },
                         "VpcConfig": {
                             "$ref": "#/definitions/AWS::CodeBuild::Project.VpcConfig"
@@ -42289,11 +42400,11 @@ var CloudformationSchema = `{
             "properties": {
                 "TransitionToIA": {
                     "type": "string"
+                },
+                "TransitionToPrimaryStorageClass": {
+                    "type": "string"
                 }
             },
-            "required": [
-                "TransitionToIA"
-            ],
             "type": "object"
         },
         "AWS::EFS::MountTarget": {
@@ -47761,6 +47872,15 @@ var CloudformationSchema = `{
             },
             "type": "object"
         },
+        "AWS::Elasticsearch::Domain.ColdStorageOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Elasticsearch::Domain.DomainEndpointOptions": {
             "additionalProperties": false,
             "properties": {
@@ -47803,6 +47923,9 @@ var CloudformationSchema = `{
         "AWS::Elasticsearch::Domain.ElasticsearchClusterConfig": {
             "additionalProperties": false,
             "properties": {
+                "ColdStorageOptions": {
+                    "$ref": "#/definitions/AWS::Elasticsearch::Domain.ColdStorageOptions"
+                },
                 "DedicatedMasterCount": {
                     "type": "number"
                 },
@@ -63445,6 +63568,21 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IoTAnalytics::Datastore.CustomerManagedS3Storage": {
+            "additionalProperties": false,
+            "properties": {
+                "Bucket": {
+                    "type": "string"
+                },
+                "KeyPrefix": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Bucket"
+            ],
+            "type": "object"
+        },
         "AWS::IoTAnalytics::Datastore.DatastorePartition": {
             "additionalProperties": false,
             "properties": {
@@ -63475,6 +63613,9 @@ var CloudformationSchema = `{
                 "CustomerManagedS3": {
                     "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.CustomerManagedS3"
                 },
+                "IotSiteWiseMultiLayerStorage": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.IotSiteWiseMultiLayerStorage"
+                },
                 "ServiceManagedS3": {
                     "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.ServiceManagedS3"
                 }
@@ -63491,6 +63632,18 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.ParquetConfiguration"
                 }
             },
+            "type": "object"
+        },
+        "AWS::IoTAnalytics::Datastore.IotSiteWiseMultiLayerStorage": {
+            "additionalProperties": false,
+            "properties": {
+                "CustomerManagedS3Storage": {
+                    "$ref": "#/definitions/AWS::IoTAnalytics::Datastore.CustomerManagedS3Storage"
+                }
+            },
+            "required": [
+                "CustomerManagedS3Storage"
+            ],
             "type": "object"
         },
         "AWS::IoTAnalytics::Datastore.JsonConfiguration": {
@@ -90542,11 +90695,23 @@ var CloudformationSchema = `{
                         "AllowVersionUpgrade": {
                             "type": "boolean"
                         },
+                        "AquaConfigurationStatus": {
+                            "type": "string"
+                        },
                         "AutomatedSnapshotRetentionPeriod": {
                             "type": "number"
                         },
                         "AvailabilityZone": {
                             "type": "string"
+                        },
+                        "AvailabilityZoneRelocation": {
+                            "type": "boolean"
+                        },
+                        "AvailabilityZoneRelocationStatus": {
+                            "type": "string"
+                        },
+                        "Classic": {
+                            "type": "boolean"
                         },
                         "ClusterIdentifier": {
                             "type": "string"
@@ -90572,6 +90737,24 @@ var CloudformationSchema = `{
                         "DBName": {
                             "type": "string"
                         },
+                        "DeferMaintenance": {
+                            "type": "boolean"
+                        },
+                        "DeferMaintenanceDuration": {
+                            "type": "number"
+                        },
+                        "DeferMaintenanceEndTime": {
+                            "type": "string"
+                        },
+                        "DeferMaintenanceIdentifier": {
+                            "type": "string"
+                        },
+                        "DeferMaintenanceStartTime": {
+                            "type": "string"
+                        },
+                        "DestinationRegion": {
+                            "type": "string"
+                        },
                         "ElasticIp": {
                             "type": "string"
                         },
@@ -90580,6 +90763,9 @@ var CloudformationSchema = `{
                         },
                         "Endpoint": {
                             "$ref": "#/definitions/AWS::Redshift::Cluster.Endpoint"
+                        },
+                        "EnhancedVpcRouting": {
+                            "type": "boolean"
                         },
                         "HsmClientCertificateIdentifier": {
                             "type": "string"
@@ -90598,6 +90784,12 @@ var CloudformationSchema = `{
                         },
                         "LoggingProperties": {
                             "$ref": "#/definitions/AWS::Redshift::Cluster.LoggingProperties"
+                        },
+                        "MaintenanceTrackName": {
+                            "type": "string"
+                        },
+                        "ManualSnapshotRetentionPeriod": {
+                            "type": "number"
                         },
                         "MasterUserPassword": {
                             "type": "string"
@@ -90623,8 +90815,26 @@ var CloudformationSchema = `{
                         "PubliclyAccessible": {
                             "type": "boolean"
                         },
+                        "ResourceAction": {
+                            "type": "string"
+                        },
+                        "RevisionTarget": {
+                            "type": "string"
+                        },
+                        "RotateEncryptionKey": {
+                            "type": "boolean"
+                        },
                         "SnapshotClusterIdentifier": {
                             "type": "string"
+                        },
+                        "SnapshotCopyGrantName": {
+                            "type": "string"
+                        },
+                        "SnapshotCopyManual": {
+                            "type": "boolean"
+                        },
+                        "SnapshotCopyRetentionPeriod": {
+                            "type": "number"
                         },
                         "SnapshotIdentifier": {
                             "type": "string"
@@ -100266,6 +100476,9 @@ var CloudformationSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "AsyncInferenceConfig": {
+                            "$ref": "#/definitions/AWS::SageMaker::EndpointConfig.AsyncInferenceConfig"
+                        },
                         "DataCaptureConfig": {
                             "$ref": "#/definitions/AWS::SageMaker::EndpointConfig.DataCaptureConfig"
                         },
@@ -100311,6 +100524,60 @@ var CloudformationSchema = `{
             "required": [
                 "Type",
                 "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::SageMaker::EndpointConfig.AsyncInferenceClientConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "MaxConcurrentInvocationsPerInstance": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::SageMaker::EndpointConfig.AsyncInferenceConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "ClientConfig": {
+                    "$ref": "#/definitions/AWS::SageMaker::EndpointConfig.AsyncInferenceClientConfig"
+                },
+                "OutputConfig": {
+                    "$ref": "#/definitions/AWS::SageMaker::EndpointConfig.AsyncInferenceOutputConfig"
+                }
+            },
+            "required": [
+                "OutputConfig"
+            ],
+            "type": "object"
+        },
+        "AWS::SageMaker::EndpointConfig.AsyncInferenceNotificationConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "ErrorTopic": {
+                    "type": "string"
+                },
+                "SuccessTopic": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::SageMaker::EndpointConfig.AsyncInferenceOutputConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "KmsKeyId": {
+                    "type": "string"
+                },
+                "NotificationConfig": {
+                    "$ref": "#/definitions/AWS::SageMaker::EndpointConfig.AsyncInferenceNotificationConfig"
+                },
+                "S3OutputPath": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "S3OutputPath"
             ],
             "type": "object"
         },
@@ -108469,6 +108736,105 @@ var CloudformationSchema = `{
             ],
             "type": "object"
         },
+        "AWS::WAFv2::LoggingConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "LogDestinationConfigs": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "LoggingFilter": {
+                            "type": "object"
+                        },
+                        "RedactedFields": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::WAFv2::LoggingConfiguration.FieldToMatch"
+                            },
+                            "type": "array"
+                        },
+                        "ResourceArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "LogDestinationConfigs",
+                        "ResourceArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::WAFv2::LoggingConfiguration"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::WAFv2::LoggingConfiguration.FieldToMatch": {
+            "additionalProperties": false,
+            "properties": {
+                "JsonBody": {
+                    "type": "object"
+                },
+                "Method": {
+                    "type": "object"
+                },
+                "QueryString": {
+                    "type": "object"
+                },
+                "SingleHeader": {
+                    "type": "object"
+                },
+                "UriPath": {
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
         "AWS::WAFv2::RegexPatternSet": {
             "additionalProperties": false,
             "properties": {
@@ -109571,6 +109937,9 @@ var CloudformationSchema = `{
                     "$ref": "#/definitions/AWS::WAFv2::WebACL.Statement"
                 },
                 "VendorName": {
+                    "type": "string"
+                },
+                "Version": {
                     "type": "string"
                 }
             },
@@ -113026,6 +113395,9 @@ var CloudformationSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::WAFv2::IPSet"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::WAFv2::LoggingConfiguration"
                         },
                         {
                             "$ref": "#/definitions/AWS::WAFv2::RegexPatternSet"

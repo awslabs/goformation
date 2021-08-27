@@ -957,6 +957,7 @@ func AllResources() map[string]Resource {
 		"AWS::WAFRegional::WebACLAssociation":                         &wafregional.WebACLAssociation{},
 		"AWS::WAFRegional::XssMatchSet":                               &wafregional.XssMatchSet{},
 		"AWS::WAFv2::IPSet":                                           &wafv2.IPSet{},
+		"AWS::WAFv2::LoggingConfiguration":                            &wafv2.LoggingConfiguration{},
 		"AWS::WAFv2::RegexPatternSet":                                 &wafv2.RegexPatternSet{},
 		"AWS::WAFv2::RuleGroup":                                       &wafv2.RuleGroup{},
 		"AWS::WAFv2::WebACL":                                          &wafv2.WebACL{},
@@ -19715,6 +19716,30 @@ func (t *Template) GetWAFv2IPSetWithName(name string) (*wafv2.IPSet, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type wafv2.IPSet not found", name)
+}
+
+// GetAllWAFv2LoggingConfigurationResources retrieves all wafv2.LoggingConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllWAFv2LoggingConfigurationResources() map[string]*wafv2.LoggingConfiguration {
+	results := map[string]*wafv2.LoggingConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *wafv2.LoggingConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWAFv2LoggingConfigurationWithName retrieves all wafv2.LoggingConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWAFv2LoggingConfigurationWithName(name string) (*wafv2.LoggingConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *wafv2.LoggingConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type wafv2.LoggingConfiguration not found", name)
 }
 
 // GetAllWAFv2RegexPatternSetResources retrieves all wafv2.RegexPatternSet items from an AWS CloudFormation template
