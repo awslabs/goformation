@@ -33,6 +33,11 @@ type DomainName struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
 	MutualTlsAuthentication *DomainName_MutualTlsAuthentication `json:"MutualTlsAuthentication,omitempty"`
 
+	// OwnershipVerificationCertificateArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+	OwnershipVerificationCertificateArn string `json:"OwnershipVerificationCertificateArn,omitempty"`
+
 	// RegionalCertificateArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn

@@ -13,6 +13,11 @@ type Datastore_DatastoreStorage struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-customermanageds3
 	CustomerManagedS3 *Datastore_CustomerManagedS3 `json:"CustomerManagedS3,omitempty"`
 
+	// IotSiteWiseMultiLayerStorage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-iotsitewisemultilayerstorage
+	IotSiteWiseMultiLayerStorage *Datastore_IotSiteWiseMultiLayerStorage `json:"IotSiteWiseMultiLayerStorage,omitempty"`
+
 	// ServiceManagedS3 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-servicemanageds3

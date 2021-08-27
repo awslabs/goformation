@@ -73,6 +73,11 @@ type Project struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-queuedtimeoutinminutes
 	QueuedTimeoutInMinutes int `json:"QueuedTimeoutInMinutes,omitempty"`
 
+	// ResourceAccessRole AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-resourceaccessrole
+	ResourceAccessRole string `json:"ResourceAccessRole,omitempty"`
+
 	// SecondaryArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
@@ -117,6 +122,11 @@ type Project struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-triggers
 	Triggers *Project_ProjectTriggers `json:"Triggers,omitempty"`
+
+	// Visibility AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-visibility
+	Visibility string `json:"Visibility,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false

@@ -18,6 +18,11 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
 	AllowVersionUpgrade bool `json:"AllowVersionUpgrade,omitempty"`
 
+	// AquaConfigurationStatus AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+	AquaConfigurationStatus string `json:"AquaConfigurationStatus,omitempty"`
+
 	// AutomatedSnapshotRetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
@@ -27,6 +32,21 @@ type Cluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
 	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+
+	// AvailabilityZoneRelocation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+	AvailabilityZoneRelocation bool `json:"AvailabilityZoneRelocation,omitempty"`
+
+	// AvailabilityZoneRelocationStatus AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+	AvailabilityZoneRelocationStatus string `json:"AvailabilityZoneRelocationStatus,omitempty"`
+
+	// Classic AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+	Classic bool `json:"Classic,omitempty"`
 
 	// ClusterIdentifier AWS CloudFormation Property
 	// Required: false
@@ -63,6 +83,36 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
 	DBName string `json:"DBName,omitempty"`
 
+	// DeferMaintenance AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+	DeferMaintenance bool `json:"DeferMaintenance,omitempty"`
+
+	// DeferMaintenanceDuration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+	DeferMaintenanceDuration int `json:"DeferMaintenanceDuration,omitempty"`
+
+	// DeferMaintenanceEndTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+	DeferMaintenanceEndTime string `json:"DeferMaintenanceEndTime,omitempty"`
+
+	// DeferMaintenanceIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceidentifier
+	DeferMaintenanceIdentifier string `json:"DeferMaintenanceIdentifier,omitempty"`
+
+	// DeferMaintenanceStartTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+	DeferMaintenanceStartTime string `json:"DeferMaintenanceStartTime,omitempty"`
+
+	// DestinationRegion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+	DestinationRegion string `json:"DestinationRegion,omitempty"`
+
 	// ElasticIp AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
@@ -77,6 +127,11 @@ type Cluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
 	Endpoint *Cluster_Endpoint `json:"Endpoint,omitempty"`
+
+	// EnhancedVpcRouting AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+	EnhancedVpcRouting bool `json:"EnhancedVpcRouting,omitempty"`
 
 	// HsmClientCertificateIdentifier AWS CloudFormation Property
 	// Required: false
@@ -102,6 +157,16 @@ type Cluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
 	LoggingProperties *Cluster_LoggingProperties `json:"LoggingProperties,omitempty"`
+
+	// MaintenanceTrackName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+	MaintenanceTrackName string `json:"MaintenanceTrackName,omitempty"`
+
+	// ManualSnapshotRetentionPeriod AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+	ManualSnapshotRetentionPeriod int `json:"ManualSnapshotRetentionPeriod,omitempty"`
 
 	// MasterUserPassword AWS CloudFormation Property
 	// Required: true
@@ -143,10 +208,40 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
 	PubliclyAccessible bool `json:"PubliclyAccessible,omitempty"`
 
+	// ResourceAction AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+	ResourceAction string `json:"ResourceAction,omitempty"`
+
+	// RevisionTarget AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+	RevisionTarget string `json:"RevisionTarget,omitempty"`
+
+	// RotateEncryptionKey AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+	RotateEncryptionKey bool `json:"RotateEncryptionKey,omitempty"`
+
 	// SnapshotClusterIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
 	SnapshotClusterIdentifier string `json:"SnapshotClusterIdentifier,omitempty"`
+
+	// SnapshotCopyGrantName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+	SnapshotCopyGrantName string `json:"SnapshotCopyGrantName,omitempty"`
+
+	// SnapshotCopyManual AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+	SnapshotCopyManual bool `json:"SnapshotCopyManual,omitempty"`
+
+	// SnapshotCopyRetentionPeriod AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+	SnapshotCopyRetentionPeriod int `json:"SnapshotCopyRetentionPeriod,omitempty"`
 
 	// SnapshotIdentifier AWS CloudFormation Property
 	// Required: false

@@ -1,4 +1,4 @@
-package sagemaker
+package wafv2
 
 import (
 	"bytes"
@@ -6,42 +6,31 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
-	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
-// EndpointConfig AWS CloudFormation Resource (AWS::SageMaker::EndpointConfig)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html
-type EndpointConfig struct {
+// LoggingConfiguration AWS CloudFormation Resource (AWS::WAFv2::LoggingConfiguration)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html
+type LoggingConfiguration struct {
 
-	// AsyncInferenceConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig
-	AsyncInferenceConfig *EndpointConfig_AsyncInferenceConfig `json:"AsyncInferenceConfig,omitempty"`
-
-	// DataCaptureConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig
-	DataCaptureConfig *EndpointConfig_DataCaptureConfig `json:"DataCaptureConfig,omitempty"`
-
-	// EndpointConfigName AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
-	EndpointConfigName string `json:"EndpointConfigName,omitempty"`
-
-	// KmsKeyId AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-kmskeyid
-	KmsKeyId string `json:"KmsKeyId,omitempty"`
-
-	// ProductionVariants AWS CloudFormation Property
+	// LogDestinationConfigs AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-productionvariants
-	ProductionVariants []EndpointConfig_ProductionVariant `json:"ProductionVariants,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
+	LogDestinationConfigs []string `json:"LogDestinationConfigs,omitempty"`
 
-	// Tags AWS CloudFormation Property
+	// LoggingFilter AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
+	LoggingFilter interface{} `json:"LoggingFilter,omitempty"`
+
+	// RedactedFields AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
+	RedactedFields []LoggingConfiguration_FieldToMatch `json:"RedactedFields,omitempty"`
+
+	// ResourceArn AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
+	ResourceArn string `json:"ResourceArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -60,14 +49,14 @@ type EndpointConfig struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *EndpointConfig) AWSCloudFormationType() string {
-	return "AWS::SageMaker::EndpointConfig"
+func (r *LoggingConfiguration) AWSCloudFormationType() string {
+	return "AWS::WAFv2::LoggingConfiguration"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r EndpointConfig) MarshalJSON() ([]byte, error) {
-	type Properties EndpointConfig
+func (r LoggingConfiguration) MarshalJSON() ([]byte, error) {
+	type Properties LoggingConfiguration
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -89,8 +78,8 @@ func (r EndpointConfig) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *EndpointConfig) UnmarshalJSON(b []byte) error {
-	type Properties EndpointConfig
+func (r *LoggingConfiguration) UnmarshalJSON(b []byte) error {
+	type Properties LoggingConfiguration
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -111,7 +100,7 @@ func (r *EndpointConfig) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = EndpointConfig(*res.Properties)
+		*r = LoggingConfiguration(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

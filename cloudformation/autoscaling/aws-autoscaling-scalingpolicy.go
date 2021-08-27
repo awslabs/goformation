@@ -47,6 +47,11 @@ type ScalingPolicy struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-policytype
 	PolicyType string `json:"PolicyType,omitempty"`
 
+	// PredictiveScalingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration
+	PredictiveScalingConfiguration *ScalingPolicy_PredictiveScalingConfiguration `json:"PredictiveScalingConfiguration,omitempty"`
+
 	// ScalingAdjustment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-scalingadjustment
