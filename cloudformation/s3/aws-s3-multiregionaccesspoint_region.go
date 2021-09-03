@@ -1,17 +1,17 @@
-package elasticache
+package s3
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// CacheCluster_CloudWatchLogsDestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
-type CacheCluster_CloudWatchLogsDestinationDetails struct {
+// MultiRegionAccessPoint_Region AWS CloudFormation Resource (AWS::S3::MultiRegionAccessPoint.Region)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
+type MultiRegionAccessPoint_Region struct {
 
-	// LogGroup AWS CloudFormation Property
+	// Bucket AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
-	LogGroup string `json:"LogGroup,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+	Bucket string `json:"Bucket,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type CacheCluster_CloudWatchLogsDestinationDetails struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *CacheCluster_CloudWatchLogsDestinationDetails) AWSCloudFormationType() string {
-	return "AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails"
+func (r *MultiRegionAccessPoint_Region) AWSCloudFormationType() string {
+	return "AWS::S3::MultiRegionAccessPoint.Region"
 }

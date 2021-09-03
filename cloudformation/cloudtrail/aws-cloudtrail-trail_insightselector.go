@@ -1,17 +1,17 @@
-package elasticache
+package cloudtrail
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// CacheCluster_CloudWatchLogsDestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
-type CacheCluster_CloudWatchLogsDestinationDetails struct {
+// Trail_InsightSelector AWS CloudFormation Resource (AWS::CloudTrail::Trail.InsightSelector)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
+type Trail_InsightSelector struct {
 
-	// LogGroup AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
-	LogGroup string `json:"LogGroup,omitempty"`
+	// InsightType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
+	InsightType string `json:"InsightType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type CacheCluster_CloudWatchLogsDestinationDetails struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *CacheCluster_CloudWatchLogsDestinationDetails) AWSCloudFormationType() string {
-	return "AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails"
+func (r *Trail_InsightSelector) AWSCloudFormationType() string {
+	return "AWS::CloudTrail::Trail.InsightSelector"
 }

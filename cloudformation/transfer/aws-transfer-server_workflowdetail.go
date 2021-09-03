@@ -1,17 +1,22 @@
-package elasticache
+package transfer
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// CacheCluster_CloudWatchLogsDestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
-type CacheCluster_CloudWatchLogsDestinationDetails struct {
+// Server_WorkflowDetail AWS CloudFormation Resource (AWS::Transfer::Server.WorkflowDetail)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html
+type Server_WorkflowDetail struct {
 
-	// LogGroup AWS CloudFormation Property
+	// ExecutionRole AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
-	LogGroup string `json:"LogGroup,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html#cfn-transfer-server-workflowdetail-executionrole
+	ExecutionRole string `json:"ExecutionRole,omitempty"`
+
+	// WorkflowId AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html#cfn-transfer-server-workflowdetail-workflowid
+	WorkflowId string `json:"WorkflowId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +35,6 @@ type CacheCluster_CloudWatchLogsDestinationDetails struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *CacheCluster_CloudWatchLogsDestinationDetails) AWSCloudFormationType() string {
-	return "AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails"
+func (r *Server_WorkflowDetail) AWSCloudFormationType() string {
+	return "AWS::Transfer::Server.WorkflowDetail"
 }

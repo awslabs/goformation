@@ -38,6 +38,11 @@ type Trail struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-includeglobalserviceevents
 	IncludeGlobalServiceEvents bool `json:"IncludeGlobalServiceEvents,omitempty"`
 
+	// InsightSelectors AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-insightselectors
+	InsightSelectors []Trail_InsightSelector `json:"InsightSelectors,omitempty"`
+
 	// IsLogging AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-islogging
@@ -47,6 +52,11 @@ type Trail struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-ismultiregiontrail
 	IsMultiRegionTrail bool `json:"IsMultiRegionTrail,omitempty"`
+
+	// IsOrganizationTrail AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-isorganizationtrail
+	IsOrganizationTrail bool `json:"IsOrganizationTrail,omitempty"`
 
 	// KMSKeyId AWS CloudFormation Property
 	// Required: false

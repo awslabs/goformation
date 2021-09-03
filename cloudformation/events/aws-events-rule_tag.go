@@ -1,17 +1,22 @@
-package elasticache
+package events
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// CacheCluster_CloudWatchLogsDestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
-type CacheCluster_CloudWatchLogsDestinationDetails struct {
+// Rule_Tag AWS CloudFormation Resource (AWS::Events::Rule.Tag)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-tag.html
+type Rule_Tag struct {
 
-	// LogGroup AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
-	LogGroup string `json:"LogGroup,omitempty"`
+	// Key AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-tag.html#cfn-events-rule-tag-key
+	Key string `json:"Key,omitempty"`
+
+	// Value AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-tag.html#cfn-events-rule-tag-value
+	Value string `json:"Value,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +35,6 @@ type CacheCluster_CloudWatchLogsDestinationDetails struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *CacheCluster_CloudWatchLogsDestinationDetails) AWSCloudFormationType() string {
-	return "AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails"
+func (r *Rule_Tag) AWSCloudFormationType() string {
+	return "AWS::Events::Rule.Tag"
 }

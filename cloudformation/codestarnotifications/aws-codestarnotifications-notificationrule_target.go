@@ -9,12 +9,12 @@ import (
 type NotificationRule_Target struct {
 
 	// TargetAddress AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
 	TargetAddress string `json:"TargetAddress,omitempty"`
 
 	// TargetType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
 	TargetType string `json:"TargetType,omitempty"`
 

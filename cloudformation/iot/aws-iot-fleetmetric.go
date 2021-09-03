@@ -1,4 +1,4 @@
-package datasync
+package iot
 
 import (
 	"bytes"
@@ -9,54 +9,59 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
-// Task AWS CloudFormation Resource (AWS::DataSync::Task)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
-type Task struct {
+// FleetMetric AWS CloudFormation Resource (AWS::IoT::FleetMetric)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html
+type FleetMetric struct {
 
-	// CloudWatchLogGroupArn AWS CloudFormation Property
+	// AggregationField AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
-	CloudWatchLogGroupArn string `json:"CloudWatchLogGroupArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationfield
+	AggregationField string `json:"AggregationField,omitempty"`
 
-	// DestinationLocationArn AWS CloudFormation Property
+	// AggregationType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationtype
+	AggregationType *FleetMetric_AggregationType `json:"AggregationType,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-description
+	Description string `json:"Description,omitempty"`
+
+	// IndexName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-indexname
+	IndexName string `json:"IndexName,omitempty"`
+
+	// MetricName AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
-	DestinationLocationArn string `json:"DestinationLocationArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-metricname
+	MetricName string `json:"MetricName,omitempty"`
 
-	// Excludes AWS CloudFormation Property
+	// Period AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-	Excludes []Task_FilterRule `json:"Excludes,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-period
+	Period int `json:"Period,omitempty"`
 
-	// Includes AWS CloudFormation Property
+	// QueryString AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-	Includes []Task_FilterRule `json:"Includes,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-querystring
+	QueryString string `json:"QueryString,omitempty"`
 
-	// Name AWS CloudFormation Property
+	// QueryVersion AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
-	Name string `json:"Name,omitempty"`
-
-	// Options AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-	Options *Task_Options `json:"Options,omitempty"`
-
-	// Schedule AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-	Schedule *Task_TaskSchedule `json:"Schedule,omitempty"`
-
-	// SourceLocationArn AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
-	SourceLocationArn string `json:"SourceLocationArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-queryversion
+	QueryVersion string `json:"QueryVersion,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// Unit AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-unit
+	Unit string `json:"Unit,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -75,14 +80,14 @@ type Task struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Task) AWSCloudFormationType() string {
-	return "AWS::DataSync::Task"
+func (r *FleetMetric) AWSCloudFormationType() string {
+	return "AWS::IoT::FleetMetric"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Task) MarshalJSON() ([]byte, error) {
-	type Properties Task
+func (r FleetMetric) MarshalJSON() ([]byte, error) {
+	type Properties FleetMetric
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -104,8 +109,8 @@ func (r Task) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Task) UnmarshalJSON(b []byte) error {
-	type Properties Task
+func (r *FleetMetric) UnmarshalJSON(b []byte) error {
+	type Properties FleetMetric
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -126,7 +131,7 @@ func (r *Task) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Task(*res.Properties)
+		*r = FleetMetric(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn
