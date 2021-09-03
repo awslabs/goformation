@@ -1,4 +1,4 @@
-package datasync
+package s3
 
 import (
 	"bytes"
@@ -6,57 +6,21 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
-	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
-// Task AWS CloudFormation Resource (AWS::DataSync::Task)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
-type Task struct {
+// MultiRegionAccessPointPolicy AWS CloudFormation Resource (AWS::S3::MultiRegionAccessPointPolicy)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+type MultiRegionAccessPointPolicy struct {
 
-	// CloudWatchLogGroupArn AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
-	CloudWatchLogGroupArn string `json:"CloudWatchLogGroupArn,omitempty"`
-
-	// DestinationLocationArn AWS CloudFormation Property
+	// MrapName AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
-	DestinationLocationArn string `json:"DestinationLocationArn,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+	MrapName string `json:"MrapName,omitempty"`
 
-	// Excludes AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-	Excludes []Task_FilterRule `json:"Excludes,omitempty"`
-
-	// Includes AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-	Includes []Task_FilterRule `json:"Includes,omitempty"`
-
-	// Name AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
-	Name string `json:"Name,omitempty"`
-
-	// Options AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-	Options *Task_Options `json:"Options,omitempty"`
-
-	// Schedule AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-	Schedule *Task_TaskSchedule `json:"Schedule,omitempty"`
-
-	// SourceLocationArn AWS CloudFormation Property
+	// Policy AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
-	SourceLocationArn string `json:"SourceLocationArn,omitempty"`
-
-	// Tags AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+	Policy interface{} `json:"Policy,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -75,14 +39,14 @@ type Task struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *Task) AWSCloudFormationType() string {
-	return "AWS::DataSync::Task"
+func (r *MultiRegionAccessPointPolicy) AWSCloudFormationType() string {
+	return "AWS::S3::MultiRegionAccessPointPolicy"
 }
 
 // MarshalJSON is a custom JSON marshalling hook that embeds this object into
 // an AWS CloudFormation JSON resource's 'Properties' field and adds a 'Type'.
-func (r Task) MarshalJSON() ([]byte, error) {
-	type Properties Task
+func (r MultiRegionAccessPointPolicy) MarshalJSON() ([]byte, error) {
+	type Properties MultiRegionAccessPointPolicy
 	return json.Marshal(&struct {
 		Type                string
 		Properties          Properties
@@ -104,8 +68,8 @@ func (r Task) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON is a custom JSON unmarshalling hook that strips the outer
 // AWS CloudFormation resource object, and just keeps the 'Properties' field.
-func (r *Task) UnmarshalJSON(b []byte) error {
-	type Properties Task
+func (r *MultiRegionAccessPointPolicy) UnmarshalJSON(b []byte) error {
+	type Properties MultiRegionAccessPointPolicy
 	res := &struct {
 		Type                string
 		Properties          *Properties
@@ -126,7 +90,7 @@ func (r *Task) UnmarshalJSON(b []byte) error {
 
 	// If the resource has no Properties set, it could be nil
 	if res.Properties != nil {
-		*r = Task(*res.Properties)
+		*r = MultiRegionAccessPointPolicy(*res.Properties)
 	}
 	if res.DependsOn != nil {
 		r.AWSCloudFormationDependsOn = res.DependsOn

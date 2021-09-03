@@ -1,17 +1,17 @@
-package elasticache
+package transfer
 
 import (
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
 )
 
-// CacheCluster_CloudWatchLogsDestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
-type CacheCluster_CloudWatchLogsDestinationDetails struct {
+// Server_WorkflowDetails AWS CloudFormation Resource (AWS::Transfer::Server.WorkflowDetails)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html
+type Server_WorkflowDetails struct {
 
-	// LogGroup AWS CloudFormation Property
+	// OnUpload AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
-	LogGroup string `json:"LogGroup,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onupload
+	OnUpload []Server_WorkflowDetail `json:"OnUpload,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
@@ -30,6 +30,6 @@ type CacheCluster_CloudWatchLogsDestinationDetails struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *CacheCluster_CloudWatchLogsDestinationDetails) AWSCloudFormationType() string {
-	return "AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails"
+func (r *Server_WorkflowDetails) AWSCloudFormationType() string {
+	return "AWS::Transfer::Server.WorkflowDetails"
 }

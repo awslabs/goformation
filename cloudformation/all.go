@@ -619,6 +619,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoT::CustomMetric":                                      &iot.CustomMetric{},
 		"AWS::IoT::Dimension":                                         &iot.Dimension{},
 		"AWS::IoT::DomainConfiguration":                               &iot.DomainConfiguration{},
+		"AWS::IoT::FleetMetric":                                       &iot.FleetMetric{},
 		"AWS::IoT::MitigationAction":                                  &iot.MitigationAction{},
 		"AWS::IoT::Policy":                                            &iot.Policy{},
 		"AWS::IoT::PolicyPrincipalAttachment":                         &iot.PolicyPrincipalAttachment{},
@@ -833,6 +834,8 @@ func AllResources() map[string]Resource {
 		"AWS::S3::AccessPoint":                                        &s3.AccessPoint{},
 		"AWS::S3::Bucket":                                             &s3.Bucket{},
 		"AWS::S3::BucketPolicy":                                       &s3.BucketPolicy{},
+		"AWS::S3::MultiRegionAccessPoint":                             &s3.MultiRegionAccessPoint{},
+		"AWS::S3::MultiRegionAccessPointPolicy":                       &s3.MultiRegionAccessPointPolicy{},
 		"AWS::S3::StorageLens":                                        &s3.StorageLens{},
 		"AWS::S3ObjectLambda::AccessPoint":                            &s3objectlambda.AccessPoint{},
 		"AWS::S3ObjectLambda::AccessPointPolicy":                      &s3objectlambda.AccessPointPolicy{},
@@ -11606,6 +11609,30 @@ func (t *Template) GetIoTDomainConfigurationWithName(name string) (*iot.DomainCo
 	return nil, fmt.Errorf("resource %q of type iot.DomainConfiguration not found", name)
 }
 
+// GetAllIoTFleetMetricResources retrieves all iot.FleetMetric items from an AWS CloudFormation template
+func (t *Template) GetAllIoTFleetMetricResources() map[string]*iot.FleetMetric {
+	results := map[string]*iot.FleetMetric{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.FleetMetric:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTFleetMetricWithName retrieves all iot.FleetMetric items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTFleetMetricWithName(name string) (*iot.FleetMetric, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.FleetMetric:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.FleetMetric not found", name)
+}
+
 // GetAllIoTMitigationActionResources retrieves all iot.MitigationAction items from an AWS CloudFormation template
 func (t *Template) GetAllIoTMitigationActionResources() map[string]*iot.MitigationAction {
 	results := map[string]*iot.MitigationAction{}
@@ -16740,6 +16767,54 @@ func (t *Template) GetS3BucketPolicyWithName(name string) (*s3.BucketPolicy, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type s3.BucketPolicy not found", name)
+}
+
+// GetAllS3MultiRegionAccessPointResources retrieves all s3.MultiRegionAccessPoint items from an AWS CloudFormation template
+func (t *Template) GetAllS3MultiRegionAccessPointResources() map[string]*s3.MultiRegionAccessPoint {
+	results := map[string]*s3.MultiRegionAccessPoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *s3.MultiRegionAccessPoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetS3MultiRegionAccessPointWithName retrieves all s3.MultiRegionAccessPoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetS3MultiRegionAccessPointWithName(name string) (*s3.MultiRegionAccessPoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *s3.MultiRegionAccessPoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type s3.MultiRegionAccessPoint not found", name)
+}
+
+// GetAllS3MultiRegionAccessPointPolicyResources retrieves all s3.MultiRegionAccessPointPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllS3MultiRegionAccessPointPolicyResources() map[string]*s3.MultiRegionAccessPointPolicy {
+	results := map[string]*s3.MultiRegionAccessPointPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *s3.MultiRegionAccessPointPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetS3MultiRegionAccessPointPolicyWithName retrieves all s3.MultiRegionAccessPointPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetS3MultiRegionAccessPointPolicyWithName(name string) (*s3.MultiRegionAccessPointPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *s3.MultiRegionAccessPointPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type s3.MultiRegionAccessPointPolicy not found", name)
 }
 
 // GetAllS3StorageLensResources retrieves all s3.StorageLens items from an AWS CloudFormation template

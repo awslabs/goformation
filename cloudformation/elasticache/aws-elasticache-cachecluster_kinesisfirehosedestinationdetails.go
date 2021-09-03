@@ -9,7 +9,7 @@ import (
 type CacheCluster_KinesisFirehoseDestinationDetails struct {
 
 	// DeliveryStream AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
 	DeliveryStream string `json:"DeliveryStream,omitempty"`
 
