@@ -43,6 +43,11 @@ type Flow_Source struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxlatency
 	MaxLatency int `json:"MaxLatency,omitempty"`
 
+	// MinLatency AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-minlatency
+	MinLatency int `json:"MinLatency,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-name
@@ -57,6 +62,11 @@ type Flow_Source struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-sourcearn
 	SourceArn string `json:"SourceArn,omitempty"`
+
+	// SourceIngestPort AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-sourceingestport
+	SourceIngestPort string `json:"SourceIngestPort,omitempty"`
 
 	// StreamId AWS CloudFormation Property
 	// Required: false

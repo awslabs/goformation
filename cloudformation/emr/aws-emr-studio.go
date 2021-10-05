@@ -33,6 +33,16 @@ type Studio struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-enginesecuritygroupid
 	EngineSecurityGroupId string `json:"EngineSecurityGroupId,omitempty"`
 
+	// IdpAuthUrl AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idpauthurl
+	IdpAuthUrl string `json:"IdpAuthUrl,omitempty"`
+
+	// IdpRelayStateParameterName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idprelaystateparametername
+	IdpRelayStateParameterName string `json:"IdpRelayStateParameterName,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-name
@@ -54,7 +64,7 @@ type Studio struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UserRole AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-userrole
 	UserRole string `json:"UserRole,omitempty"`
 

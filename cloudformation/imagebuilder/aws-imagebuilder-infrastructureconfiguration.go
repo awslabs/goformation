@@ -35,7 +35,7 @@ type InfrastructureConfiguration struct {
 	// Logging AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-	Logging interface{} `json:"Logging,omitempty"`
+	Logging *InfrastructureConfiguration_Logging `json:"Logging,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
