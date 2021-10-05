@@ -9,7 +9,7 @@ import (
 type FlowOutput_Encryption struct {
 
 	// Algorithm AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-algorithm
 	Algorithm string `json:"Algorithm,omitempty"`
 

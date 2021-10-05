@@ -13,6 +13,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 type DeliveryStream struct {
 
+	// AmazonopensearchserviceDestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration
+	AmazonopensearchserviceDestinationConfiguration *DeliveryStream_AmazonopensearchserviceDestinationConfiguration `json:"AmazonopensearchserviceDestinationConfiguration,omitempty"`
+
 	// DeliveryStreamEncryptionConfigurationInput AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput

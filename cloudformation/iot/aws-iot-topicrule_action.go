@@ -78,6 +78,11 @@ type TopicRule_Action struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
 	Lambda *TopicRule_LambdaAction `json:"Lambda,omitempty"`
 
+	// OpenSearch AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-opensearch
+	OpenSearch *TopicRule_OpenSearchAction `json:"OpenSearch,omitempty"`
+
 	// Republish AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish

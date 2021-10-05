@@ -14,7 +14,7 @@ type ImageRecipe_AdditionalInstanceConfiguration struct {
 	SystemsManagerAgent *ImageRecipe_SystemsManagerAgent `json:"SystemsManagerAgent,omitempty"`
 
 	// UserDataOverride AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
 	UserDataOverride string `json:"UserDataOverride,omitempty"`
 

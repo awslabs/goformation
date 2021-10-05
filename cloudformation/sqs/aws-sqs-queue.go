@@ -68,6 +68,11 @@ type Queue struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime
 	ReceiveMessageWaitTimeSeconds int `json:"ReceiveMessageWaitTimeSeconds,omitempty"`
 
+	// RedriveAllowPolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redriveallowpolicy
+	RedriveAllowPolicy interface{} `json:"RedriveAllowPolicy,omitempty"`
+
 	// RedrivePolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redrive
