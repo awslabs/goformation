@@ -107324,14 +107324,10 @@ var SamSchema = `{
             "properties": {
                 "OnFailure": {
                     "$ref": "#/definitions/AWS::Serverless::Function.Destination"
-                },
-                "OnSuccess": {
-                    "$ref": "#/definitions/AWS::Serverless::Function.Destination"
                 }
             },
             "required": [
-                "OnFailure",
-                "OnSuccess"
+                "OnFailure"
             ],
             "type": "object"
         },
@@ -107417,7 +107413,7 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "DestinationConfig": {
-                    "$ref": "#/definitions/AWS::Serverless::Function.DestinationConfig"
+                    "$ref": "#/definitions/AWS::Serverless::Function.EventInvokeDestinationConfig"
                 },
                 "MaximumEventAgeInSeconds": {
                     "type": "number"
@@ -107426,6 +107422,22 @@ var SamSchema = `{
                     "type": "number"
                 }
             },
+            "type": "object"
+        },
+        "AWS::Serverless::Function.EventInvokeDestinationConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "OnFailure": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.Destination"
+                },
+                "OnSuccess": {
+                    "$ref": "#/definitions/AWS::Serverless::Function.Destination"
+                }
+            },
+            "required": [
+                "OnFailure",
+                "OnSuccess"
+            ],
             "type": "object"
         },
         "AWS::Serverless::Function.EventSource": {
