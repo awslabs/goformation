@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.2.11](https://github.com/awslabs/goformation/compare/v5.2.10...v5.2.11) (2021-10-06)
+
+
+### Bug Fixes
+
+* **sam:** DestinationConfig shouldn't contain OnSuccess property ([#406](https://github.com/awslabs/goformation/issues/406)) ([6971966](https://github.com/awslabs/goformation/commit/69719668de26c4d9f54b4db25b2ce42313413375)), closes [#404](https://github.com/awslabs/goformation/issues/404)
+
 ## [5.2.10](https://github.com/awslabs/goformation/compare/v5.2.9...v5.2.10) (2021-10-05)
 
 
