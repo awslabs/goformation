@@ -1244,15 +1244,27 @@
                         "Required": true,
                         "Type": "Destination",
                         "UpdateType": "Immutable"
+                    }
+                }
+        },
+	"AWS::Serverless::Function.EventInvokeDestinationConfig": {
+                "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-destination-config-object",
+                "Properties": {
+                    "OnFailure": {
+                        "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-destination-config-object",
+                        "Required": true,
+                        "Type": "Destination",
+                        "UpdateType": "Immutable"
                     },
                     "OnSuccess": {
-                        "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#destination-config-object",
+                        "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-destination-config-object",
                         "Required": true,
                         "Type": "Destination",
                         "UpdateType": "Immutable"
                     }
                 }
         },
+
         "AWS::Serverless::Function.Destination": {
                 "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#destination-config-object",
                 "Properties": {
@@ -1761,7 +1773,7 @@
                 "DestinationConfig": {
                     "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-config-object",
                     "Required": false,
-                    "Type": "DestinationConfig",
+                    "Type": "EventInvokeDestinationConfig",
                     "UpdateType": "Immutable"
                 }
             }

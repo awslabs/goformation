@@ -11,7 +11,7 @@ type Function_EventInvokeConfig struct {
 	// DestinationConfig AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-config-object
-	DestinationConfig *Function_DestinationConfig `json:"DestinationConfig,omitempty"`
+	DestinationConfig *Function_EventInvokeDestinationConfig `json:"DestinationConfig,omitempty"`
 
 	// MaximumEventAgeInSeconds AWS CloudFormation Property
 	// Required: false
