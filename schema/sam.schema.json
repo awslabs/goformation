@@ -106894,6 +106894,12 @@
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "Architectures": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "AssumeRolePolicyDocument": {
                             "type": "object"
                         },
