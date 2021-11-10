@@ -182,18 +182,44 @@ func FindInMap(mapName, topLevelKey, secondLevelKey interface{}) string {
 
 // If returns one value if the specified condition evaluates to true and another value if the specified condition evaluates to false. Currently, AWS CloudFormation supports the Fn::If intrinsic function in the metadata attribute, update policy attribute, and property values in the Resources section and Outputs sections of a template. You can use the AWS::NoValue pseudo parameter as a return value to remove the corresponding property.
 func If(value, ifEqual interface{}, ifNotEqual interface{}) string {
+	var equal string
 
-	equal, err := json.Marshal(ifEqual)
-	if err != nil {
-		panic(err)
+	switch v := ifEqual.(type) {
+	case map[string]string, []string, string:
+		out, err := json.Marshal(ifEqual)
+		if err != nil {
+			panic(err)
+		}
+		equal = string(out)
+	default:
+		fmt.Printf("Unsupported type for ifEqual: %T\n", v)
+		return encode(fmt.Sprintf(`{ "Fn::If" : [ %q, %q, %q ] }`, value, ifEqual, ifNotEqual))
 	}
 
-	notEqual, err := json.Marshal(ifNotEqual)
-	if err != nil {
-		panic(err)
+	var notEqual string
+	switch v := ifNotEqual.(type) {
+	case map[string]string, []string, string:
+		out, err := json.Marshal(ifNotEqual)
+		if err != nil {
+			panic(err)
+		}
+		notEqual = string(out)
+	default:
+		fmt.Printf("Unsupported type for ifNotEqual: %T\n", v)
+		return encode(fmt.Sprintf(`{ "Fn::If" : [ %q, %q, %q ] }`, value, ifEqual, ifNotEqual))
 	}
 
-	return encode(fmt.Sprintf(`{ "Fn::If" : [ %q, %v, %v ] }`, value, string(equal), string(notEqual)))
+	if isBase64(equal) {
+		if isBase64(notEqual) {
+			return encode(fmt.Sprintf(`{ "Fn::If" : [ %q, %q, %q ] }`, value, equal, notEqual))
+		}
+		return encode(fmt.Sprintf(`{ "Fn::If" : [ %q, %q, %v ] }`, value, equal, notEqual))
+	}
+	if isBase64(notEqual) {
+		return encode(fmt.Sprintf(`{ "Fn::If" : [ %q, %v, %q ] }`, value, equal, notEqual))
+	}
+
+	return encode(fmt.Sprintf(`{ "Fn::If" : [ %q, %v, %v ] }`, value, equal, notEqual))
 }
 
 // (str, []str) -> str
@@ -269,4 +295,9 @@ func interfaceAtostrA(values []interface{}) []string {
 		converted[i] = fmt.Sprintf("%v", values[i])
 	}
 	return converted
+}
+
+func isBase64(s string) bool {
+	_, err := base64.StdEncoding.DecodeString(s)
+	return err == nil
 }
