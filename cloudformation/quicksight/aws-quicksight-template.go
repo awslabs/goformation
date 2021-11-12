@@ -29,7 +29,7 @@ type Template struct {
 	Permissions []Template_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
 	SourceEntity *Template_TemplateSourceEntity `json:"SourceEntity,omitempty"`
 

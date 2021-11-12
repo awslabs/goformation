@@ -13,6 +13,11 @@ type DataSource_DataSourceParameters struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
 	AmazonElasticsearchParameters *DataSource_AmazonElasticsearchParameters `json:"AmazonElasticsearchParameters,omitempty"`
 
+	// AmazonOpenSearchParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonopensearchparameters
+	AmazonOpenSearchParameters *DataSource_AmazonOpenSearchParameters `json:"AmazonOpenSearchParameters,omitempty"`
+
 	// AthenaParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters

@@ -23,6 +23,11 @@ type FileSystem struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtype
 	FileSystemType string `json:"FileSystemType,omitempty"`
 
+	// FileSystemTypeVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtypeversion
+	FileSystemTypeVersion string `json:"FileSystemTypeVersion,omitempty"`
+
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-kmskeyid
@@ -32,6 +37,11 @@ type FileSystem struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-lustreconfiguration
 	LustreConfiguration *FileSystem_LustreConfiguration `json:"LustreConfiguration,omitempty"`
+
+	// OntapConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-ontapconfiguration
+	OntapConfiguration *FileSystem_OntapConfiguration `json:"OntapConfiguration,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false

@@ -57,6 +57,11 @@ type Policy struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
 	ResourceTypeList []string `json:"ResourceTypeList,omitempty"`
 
+	// ResourcesCleanUp AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcescleanup
+	ResourcesCleanUp bool `json:"ResourcesCleanUp,omitempty"`
+
 	// SecurityServicePolicyData AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata

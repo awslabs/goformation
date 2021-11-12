@@ -118,6 +118,11 @@ type Endpoint struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-postgresqlsettings
 	PostgreSqlSettings *Endpoint_PostgreSqlSettings `json:"PostgreSqlSettings,omitempty"`
 
+	// RedisSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-redissettings
+	RedisSettings *Endpoint_RedisSettings `json:"RedisSettings,omitempty"`
+
 	// RedshiftSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-redshiftsettings

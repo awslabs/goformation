@@ -48,7 +48,7 @@ type BudgetsAction struct {
 	NotificationType string `json:"NotificationType,omitempty"`
 
 	// Subscribers AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
 	Subscribers []BudgetsAction_Subscriber `json:"Subscribers,omitempty"`
 

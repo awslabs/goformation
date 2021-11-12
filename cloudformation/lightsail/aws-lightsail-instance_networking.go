@@ -11,7 +11,7 @@ type Instance_Networking struct {
 	// MonthlyTransfer AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-monthlytransfer
-	MonthlyTransfer interface{} `json:"MonthlyTransfer,omitempty"`
+	MonthlyTransfer *Instance_MonthlyTransfer `json:"MonthlyTransfer,omitempty"`
 
 	// Ports AWS CloudFormation Property
 	// Required: true

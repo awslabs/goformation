@@ -14,7 +14,7 @@ import (
 type Cluster struct {
 
 	// ACLName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-aclname
 	ACLName string `json:"ACLName,omitempty"`
 
@@ -22,11 +22,6 @@ type Cluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-autominorversionupgrade
 	AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade,omitempty"`
-
-	// ClusterEndpoint AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-clusterendpoint
-	ClusterEndpoint *Cluster_Endpoint `json:"ClusterEndpoint,omitempty"`
 
 	// ClusterName AWS CloudFormation Property
 	// Required: true
@@ -59,7 +54,7 @@ type Cluster struct {
 	MaintenanceWindow string `json:"MaintenanceWindow,omitempty"`
 
 	// NodeType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-nodetype
 	NodeType string `json:"NodeType,omitempty"`
 

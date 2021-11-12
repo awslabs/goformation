@@ -24,7 +24,7 @@ type SubnetGroup struct {
 	SubnetGroupName string `json:"SubnetGroupName,omitempty"`
 
 	// SubnetIds AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-subnetids
 	SubnetIds []string `json:"SubnetIds,omitempty"`
 

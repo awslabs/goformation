@@ -9,12 +9,12 @@ import (
 type AccessPoint_TransformationConfiguration struct {
 
 	// Actions AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
 	Actions []string `json:"Actions,omitempty"`
 
 	// ContentTransformation AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
 	ContentTransformation interface{} `json:"ContentTransformation,omitempty"`
 
