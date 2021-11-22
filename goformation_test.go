@@ -1067,6 +1067,18 @@ var _ = Describe("Goformation", func() {
 				},
 			},
 			{
+				Name:  "Fn::SubVars",
+				Input: cloudformation.SubVars("test-sub", map[string]interface{}{"foo": "bar"}),
+				Expected: map[string]interface{}{
+					"Fn::Sub": []interface{}{
+						"test-sub",
+						map[string]interface{}{
+							"foo": "bar",
+						},
+					},
+				},
+			},
+			{
 				Name:  "Fn::And",
 				Input: cloudformation.And([]string{"test-and-first", "test-and-second", "test-and-third"}),
 				Expected: map[string]interface{}{

@@ -146,6 +146,16 @@ func Sub(value interface{}) string {
 	return encode(fmt.Sprintf(`{ "Fn::Sub" : %q }`, value))
 }
 
+// SubVars works like Sub(), except it accepts a map of variable values to replace
+func SubVars(value interface{}, variables map[string]interface{}) string {
+	pairs := make([]string, 0, len(variables))
+	for key, val := range variables {
+		pairs = append(pairs, fmt.Sprintf(`%q : %q`, key, val))
+	}
+
+	return encode(fmt.Sprintf(`{ "Fn::Sub" : [ %q, { %s } ] }`, value, strings.Join(pairs, ",")))
+}
+
 // (str, str) -> str
 
 // GetAtt returns the value of an attribute from a resource in the template.
