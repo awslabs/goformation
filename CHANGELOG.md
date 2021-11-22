@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [5.4.0](https://github.com/awslabs/goformation/compare/v5.3.0...v5.4.0) (2021-11-22)
+
+
+### Features
+
+* **intrinsics:** Add SubVars to Sub with replacement variables ([#411](https://github.com/awslabs/goformation/issues/411)) ([0940790](https://github.com/awslabs/goformation/commit/094079090ca6b9ec8a98b1eada9fe3ca0e9c163c))
+
 # [5.3.0](https://github.com/awslabs/goformation/compare/v5.2.12...v5.3.0) (2021-11-22)
 
 
