@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [5.3.0](https://github.com/awslabs/goformation/compare/v5.2.12...v5.3.0) (2021-11-22)
+
+
+### Features
+
+* **intrinsics:** add support for base64 encoded string in instrinsic if function ([#414](https://github.com/awslabs/goformation/issues/414)) ([652501b](https://github.com/awslabs/goformation/commit/652501b0c05dd136f7faa5ab7b291f56386f0f3f)), closes [#412](https://github.com/awslabs/goformation/issues/412)
+
 ## [5.2.12](https://github.com/awslabs/goformation/compare/v5.2.11...v5.2.12) (2021-11-22)
 
 
