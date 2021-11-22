@@ -13,12 +13,12 @@ import (
 type AccessPoint struct {
 
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
 	Name string `json:"Name,omitempty"`
 
 	// ObjectLambdaConfiguration AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
 	ObjectLambdaConfiguration *AccessPoint_ObjectLambdaConfiguration `json:"ObjectLambdaConfiguration,omitempty"`
 

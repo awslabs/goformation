@@ -2219,6 +2219,7 @@ var SamSchema = `{
                         }
                     },
                     "required": [
+                        "Name",
                         "RestApiId",
                         "Type"
                     ],
@@ -4005,6 +4006,12 @@ var SamSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
                         "TargetArns": {
                             "items": {
                                 "type": "string"
@@ -5583,6 +5590,9 @@ var SamSchema = `{
                             },
                             "type": "array"
                         },
+                        "Type": {
+                            "type": "string"
+                        },
                         "Validators": {
                             "items": {
                                 "$ref": "#/definitions/AWS::AppConfig::ConfigurationProfile.Validators"
@@ -6170,6 +6180,9 @@ var SamSchema = `{
                 "Redshift": {
                     "$ref": "#/definitions/AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileCredentials"
                 },
+                "SAPOData": {
+                    "$ref": "#/definitions/AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileCredentials"
+                },
                 "Salesforce": {
                     "$ref": "#/definitions/AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials"
                 },
@@ -6214,6 +6227,9 @@ var SamSchema = `{
                 },
                 "Redshift": {
                     "$ref": "#/definitions/AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileProperties"
+                },
+                "SAPOData": {
+                    "$ref": "#/definitions/AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileProperties"
                 },
                 "Salesforce": {
                     "$ref": "#/definitions/AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileProperties"
@@ -6383,6 +6399,24 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppFlow::ConnectorProfile.OAuthProperties": {
+            "additionalProperties": false,
+            "properties": {
+                "AuthCodeUrl": {
+                    "type": "string"
+                },
+                "OAuthScopes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "TokenUrl": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileCredentials": {
             "additionalProperties": false,
             "properties": {
@@ -6420,6 +6454,45 @@ var SamSchema = `{
                 "DatabaseUrl",
                 "RoleArn"
             ],
+            "type": "object"
+        },
+        "AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileCredentials": {
+            "additionalProperties": false,
+            "properties": {
+                "BasicAuthCredentials": {
+                    "type": "object"
+                },
+                "OAuthCredentials": {
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileProperties": {
+            "additionalProperties": false,
+            "properties": {
+                "ApplicationHostUrl": {
+                    "type": "string"
+                },
+                "ApplicationServicePath": {
+                    "type": "string"
+                },
+                "ClientNumber": {
+                    "type": "string"
+                },
+                "LogonLanguage": {
+                    "type": "string"
+                },
+                "OAuthProperties": {
+                    "$ref": "#/definitions/AWS::AppFlow::ConnectorProfile.OAuthProperties"
+                },
+                "PortNumber": {
+                    "type": "number"
+                },
+                "PrivateLinkServiceName": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials": {
@@ -6789,6 +6862,9 @@ var SamSchema = `{
                 "S3": {
                     "type": "string"
                 },
+                "SAPOData": {
+                    "type": "string"
+                },
                 "Salesforce": {
                     "type": "string"
                 },
@@ -7022,6 +7098,15 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AppFlow::Flow.S3InputFormatConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "S3InputFileType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AppFlow::Flow.S3OutputFormatConfig": {
             "additionalProperties": false,
             "properties": {
@@ -7045,11 +7130,26 @@ var SamSchema = `{
                 },
                 "BucketPrefix": {
                     "type": "string"
+                },
+                "S3InputFormatConfig": {
+                    "$ref": "#/definitions/AWS::AppFlow::Flow.S3InputFormatConfig"
                 }
             },
             "required": [
                 "BucketName",
                 "BucketPrefix"
+            ],
+            "type": "object"
+        },
+        "AWS::AppFlow::Flow.SAPODataSourceProperties": {
+            "additionalProperties": false,
+            "properties": {
+                "ObjectPath": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ObjectPath"
             ],
             "type": "object"
         },
@@ -7203,6 +7303,9 @@ var SamSchema = `{
                 },
                 "S3": {
                     "$ref": "#/definitions/AWS::AppFlow::Flow.S3SourceProperties"
+                },
+                "SAPOData": {
+                    "$ref": "#/definitions/AWS::AppFlow::Flow.SAPODataSourceProperties"
                 },
                 "Salesforce": {
                     "$ref": "#/definitions/AWS::AppFlow::Flow.SalesforceSourceProperties"
@@ -7703,6 +7806,9 @@ var SamSchema = `{
                 },
                 "HttpRoute": {
                     "$ref": "#/definitions/AWS::AppMesh::GatewayRoute.HttpGatewayRoute"
+                },
+                "Priority": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -13465,6 +13571,9 @@ var SamSchema = `{
                         "DesiredCapacity": {
                             "type": "string"
                         },
+                        "DesiredCapacityType": {
+                            "type": "string"
+                        },
                         "HealthCheckGracePeriod": {
                             "type": "number"
                         },
@@ -13580,6 +13689,132 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AutoScaling::AutoScalingGroup.AcceleratorTotalMemoryMiBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AutoScaling::AutoScalingGroup.InstanceRequirements": {
+            "additionalProperties": false,
+            "properties": {
+                "AcceleratorCount": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest"
+                },
+                "AcceleratorManufacturers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AcceleratorNames": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AcceleratorTotalMemoryMiB": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.AcceleratorTotalMemoryMiBRequest"
+                },
+                "AcceleratorTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "BareMetal": {
+                    "type": "string"
+                },
+                "BaselineEbsBandwidthMbps": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest"
+                },
+                "BurstablePerformance": {
+                    "type": "string"
+                },
+                "CpuManufacturers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ExcludedInstanceTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "InstanceGenerations": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "LocalStorage": {
+                    "type": "string"
+                },
+                "LocalStorageTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "MemoryGiBPerVCpu": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest"
+                },
+                "MemoryMiB": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest"
+                },
+                "NetworkInterfaceCount": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.NetworkInterfaceCountRequest"
+                },
+                "OnDemandMaxPricePercentageOverLowestPrice": {
+                    "type": "number"
+                },
+                "RequireHibernateSupport": {
+                    "type": "boolean"
+                },
+                "SpotMaxPricePercentageOverLowestPrice": {
+                    "type": "number"
+                },
+                "TotalLocalStorageGB": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.TotalLocalStorageGBRequest"
+                },
+                "VCpuCount": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.VCpuCountRequest"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AutoScaling::AutoScalingGroup.InstancesDistribution": {
             "additionalProperties": false,
             "properties": {
@@ -13625,6 +13860,9 @@ var SamSchema = `{
         "AWS::AutoScaling::AutoScalingGroup.LaunchTemplateOverrides": {
             "additionalProperties": false,
             "properties": {
+                "InstanceRequirements": {
+                    "$ref": "#/definitions/AWS::AutoScaling::AutoScalingGroup.InstanceRequirements"
+                },
                 "InstanceType": {
                     "type": "string"
                 },
@@ -13686,6 +13924,30 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
         "AWS::AutoScaling::AutoScalingGroup.MetricsCollection": {
             "additionalProperties": false,
             "properties": {
@@ -13717,6 +13979,18 @@ var SamSchema = `{
             "required": [
                 "LaunchTemplate"
             ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::AutoScalingGroup.NetworkInterfaceCountRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration": {
@@ -13755,6 +14029,30 @@ var SamSchema = `{
                 "PropagateAtLaunch",
                 "Value"
             ],
+            "type": "object"
+        },
+        "AWS::AutoScaling::AutoScalingGroup.TotalLocalStorageGBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::AutoScaling::AutoScalingGroup.VCpuCountRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::AutoScaling::LaunchConfiguration": {
@@ -15020,12 +15318,21 @@ var SamSchema = `{
         "AWS::Backup::BackupSelection.BackupSelectionResourceType": {
             "additionalProperties": false,
             "properties": {
+                "Conditions": {
+                    "type": "object"
+                },
                 "IamRoleArn": {
                     "type": "string"
                 },
                 "ListOfTags": {
                     "items": {
                         "$ref": "#/definitions/AWS::Backup::BackupSelection.ConditionResourceType"
+                    },
+                    "type": "array"
+                },
+                "NotResources": {
+                    "items": {
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -15426,6 +15733,9 @@ var SamSchema = `{
                         },
                         "Type": {
                             "type": "string"
+                        },
+                        "UnmanagedvCpus": {
+                            "type": "number"
                         }
                     },
                     "required": [
@@ -15613,6 +15923,9 @@ var SamSchema = `{
                         },
                         "RetryStrategy": {
                             "$ref": "#/definitions/AWS::Batch::JobDefinition.RetryStrategy"
+                        },
+                        "SchedulingPriority": {
+                            "type": "number"
                         },
                         "Tags": {
                             "type": "object"
@@ -16111,6 +16424,9 @@ var SamSchema = `{
                         "Priority": {
                             "type": "number"
                         },
+                        "SchedulingPolicyArn": {
+                            "type": "string"
+                        },
                         "State": {
                             "type": "string"
                         },
@@ -16159,6 +16475,106 @@ var SamSchema = `{
                 "ComputeEnvironment",
                 "Order"
             ],
+            "type": "object"
+        },
+        "AWS::Batch::SchedulingPolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "FairsharePolicy": {
+                            "$ref": "#/definitions/AWS::Batch::SchedulingPolicy.FairsharePolicy"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "additionalProperties": true,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Batch::SchedulingPolicy"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::Batch::SchedulingPolicy.FairsharePolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "ComputeReservation": {
+                    "type": "number"
+                },
+                "ShareDecaySeconds": {
+                    "type": "number"
+                },
+                "ShareDistribution": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Batch::SchedulingPolicy.ShareAttributes"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Batch::SchedulingPolicy.ShareAttributes": {
+            "additionalProperties": false,
+            "properties": {
+                "ShareIdentifier": {
+                    "type": "string"
+                },
+                "WeightFactor": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::Budgets::Budget": {
@@ -16454,7 +16870,8 @@ var SamSchema = `{
                         "BudgetName",
                         "Definition",
                         "ExecutionRoleArn",
-                        "NotificationType"
+                        "NotificationType",
+                        "Subscribers"
                     ],
                     "type": "object"
                 },
@@ -17062,6 +17479,9 @@ var SamSchema = `{
                                 "$ref": "#/definitions/AWS::Cassandra::Table.ClusteringKeyColumn"
                             },
                             "type": "array"
+                        },
+                        "DefaultTimeToLive": {
+                            "type": "number"
                         },
                         "EncryptionSpecification": {
                             "$ref": "#/definitions/AWS::Cassandra::Table.EncryptionSpecification"
@@ -19009,6 +19429,9 @@ var SamSchema = `{
                 "RealtimeLogConfigArn": {
                     "type": "string"
                 },
+                "ResponseHeadersPolicyId": {
+                    "type": "string"
+                },
                 "SmoothStreaming": {
                     "type": "boolean"
                 },
@@ -19159,6 +19582,9 @@ var SamSchema = `{
                     "type": "string"
                 },
                 "RealtimeLogConfigArn": {
+                    "type": "string"
+                },
+                "ResponseHeadersPolicyId": {
                     "type": "string"
                 },
                 "SmoothStreaming": {
@@ -19655,9 +20081,6 @@ var SamSchema = `{
                         "FunctionConfig": {
                             "$ref": "#/definitions/AWS::CloudFront::Function.FunctionConfig"
                         },
-                        "FunctionMetadata": {
-                            "$ref": "#/definitions/AWS::CloudFront::Function.FunctionMetadata"
-                        },
                         "Name": {
                             "type": "string"
                         }
@@ -20134,6 +20557,349 @@ var SamSchema = `{
             "required": [
                 "RoleArn",
                 "StreamArn"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ResponseHeadersPolicyConfig": {
+                            "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.ResponseHeadersPolicyConfig"
+                        }
+                    },
+                    "required": [
+                        "ResponseHeadersPolicyConfig"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::CloudFront::ResponseHeadersPolicy"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowHeaders": {
+            "additionalProperties": false,
+            "properties": {
+                "Items": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Items"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowMethods": {
+            "additionalProperties": false,
+            "properties": {
+                "Items": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Items"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowOrigins": {
+            "additionalProperties": false,
+            "properties": {
+                "Items": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Items"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.AccessControlExposeHeaders": {
+            "additionalProperties": false,
+            "properties": {
+                "Items": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Items"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.ContentSecurityPolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "ContentSecurityPolicy": {
+                    "type": "string"
+                },
+                "Override": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "ContentSecurityPolicy",
+                "Override"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.ContentTypeOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "Override": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "Override"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.CorsConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "AccessControlAllowCredentials": {
+                    "type": "boolean"
+                },
+                "AccessControlAllowHeaders": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowHeaders"
+                },
+                "AccessControlAllowMethods": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowMethods"
+                },
+                "AccessControlAllowOrigins": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowOrigins"
+                },
+                "AccessControlExposeHeaders": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.AccessControlExposeHeaders"
+                },
+                "AccessControlMaxAgeSec": {
+                    "type": "number"
+                },
+                "OriginOverride": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "AccessControlAllowCredentials",
+                "AccessControlAllowHeaders",
+                "AccessControlAllowMethods",
+                "AccessControlAllowOrigins",
+                "OriginOverride"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.CustomHeader": {
+            "additionalProperties": false,
+            "properties": {
+                "Header": {
+                    "type": "string"
+                },
+                "Override": {
+                    "type": "boolean"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Header",
+                "Override",
+                "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.CustomHeadersConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Items": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.CustomHeader"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Items"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.FrameOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "FrameOption": {
+                    "type": "string"
+                },
+                "Override": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "FrameOption",
+                "Override"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.ReferrerPolicy": {
+            "additionalProperties": false,
+            "properties": {
+                "Override": {
+                    "type": "boolean"
+                },
+                "ReferrerPolicy": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Override",
+                "ReferrerPolicy"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.ResponseHeadersPolicyConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Comment": {
+                    "type": "string"
+                },
+                "CorsConfig": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.CorsConfig"
+                },
+                "CustomHeadersConfig": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.CustomHeadersConfig"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "SecurityHeadersConfig": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.SecurityHeadersConfig"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.SecurityHeadersConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "ContentSecurityPolicy": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.ContentSecurityPolicy"
+                },
+                "ContentTypeOptions": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.ContentTypeOptions"
+                },
+                "FrameOptions": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.FrameOptions"
+                },
+                "ReferrerPolicy": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.ReferrerPolicy"
+                },
+                "StrictTransportSecurity": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.StrictTransportSecurity"
+                },
+                "XSSProtection": {
+                    "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy.XSSProtection"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.StrictTransportSecurity": {
+            "additionalProperties": false,
+            "properties": {
+                "AccessControlMaxAgeSec": {
+                    "type": "number"
+                },
+                "IncludeSubdomains": {
+                    "type": "boolean"
+                },
+                "Override": {
+                    "type": "boolean"
+                },
+                "Preload": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "AccessControlMaxAgeSec",
+                "Override"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudFront::ResponseHeadersPolicy.XSSProtection": {
+            "additionalProperties": false,
+            "properties": {
+                "ModeBlock": {
+                    "type": "boolean"
+                },
+                "Override": {
+                    "type": "boolean"
+                },
+                "Protection": {
+                    "type": "boolean"
+                },
+                "ReportUri": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Override",
+                "Protection"
             ],
             "type": "object"
         },
@@ -20737,11 +21503,6 @@ var SamSchema = `{
                             "type": "string"
                         }
                     },
-                    "required": [
-                        "MetricName",
-                        "Namespace",
-                        "Stat"
-                    ],
                     "type": "object"
                 },
                 "Type": {
@@ -20760,8 +21521,7 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "Type",
-                "Properties"
+                "Type"
             ],
             "type": "object"
         },
@@ -20793,6 +21553,86 @@ var SamSchema = `{
             "required": [
                 "Name",
                 "Value"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudWatch::AnomalyDetector.Metric": {
+            "additionalProperties": false,
+            "properties": {
+                "Dimensions": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::CloudWatch::AnomalyDetector.Dimension"
+                    },
+                    "type": "array"
+                },
+                "MetricName": {
+                    "type": "string"
+                },
+                "Namespace": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "MetricName",
+                "Namespace"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudWatch::AnomalyDetector.MetricDataQueries": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "AWS::CloudWatch::AnomalyDetector.MetricDataQuery": {
+            "additionalProperties": false,
+            "properties": {
+                "AccountId": {
+                    "type": "string"
+                },
+                "Expression": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "Label": {
+                    "type": "string"
+                },
+                "MetricStat": {
+                    "$ref": "#/definitions/AWS::CloudWatch::AnomalyDetector.MetricStat"
+                },
+                "Period": {
+                    "type": "number"
+                },
+                "ReturnData": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "Id"
+            ],
+            "type": "object"
+        },
+        "AWS::CloudWatch::AnomalyDetector.MetricStat": {
+            "additionalProperties": false,
+            "properties": {
+                "Metric": {
+                    "$ref": "#/definitions/AWS::CloudWatch::AnomalyDetector.Metric"
+                },
+                "Period": {
+                    "type": "number"
+                },
+                "Stat": {
+                    "type": "string"
+                },
+                "Unit": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Metric",
+                "Period",
+                "Stat"
             ],
             "type": "object"
         },
@@ -21634,6 +22474,9 @@ var SamSchema = `{
         "AWS::CodeBuild::Project.ProjectBuildBatchConfig": {
             "additionalProperties": false,
             "properties": {
+                "BatchReportMode": {
+                    "type": "string"
+                },
                 "CombineArtifacts": {
                     "type": "boolean"
                 },
@@ -23817,7 +24660,13 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "CreatedBy": {
+                            "type": "string"
+                        },
                         "DetailType": {
+                            "type": "string"
+                        },
+                        "EventTypeId": {
                             "type": "string"
                         },
                         "EventTypeIds": {
@@ -23837,6 +24686,9 @@ var SamSchema = `{
                         },
                         "Tags": {
                             "type": "object"
+                        },
+                        "TargetAddress": {
+                            "type": "string"
                         },
                         "Targets": {
                             "items": {
@@ -26629,6 +27481,128 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Connect::HoursOfOperation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Config": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Connect::HoursOfOperation.HoursOfOperationConfig"
+                            },
+                            "type": "array"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "InstanceArn": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "TimeZone": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Config",
+                        "InstanceArn",
+                        "Name",
+                        "TimeZone"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Connect::HoursOfOperation"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::HoursOfOperation.HoursOfOperationConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Day": {
+                    "type": "string"
+                },
+                "EndTime": {
+                    "$ref": "#/definitions/AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice"
+                },
+                "StartTime": {
+                    "$ref": "#/definitions/AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice"
+                }
+            },
+            "required": [
+                "Day",
+                "EndTime",
+                "StartTime"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice": {
+            "additionalProperties": false,
+            "properties": {
+                "Hours": {
+                    "type": "number"
+                },
+                "Minutes": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Hours",
+                "Minutes"
+            ],
+            "type": "object"
+        },
         "AWS::Connect::QuickConnect": {
             "additionalProperties": false,
             "properties": {
@@ -26770,6 +27744,210 @@ var SamSchema = `{
             "required": [
                 "ContactFlowArn",
                 "UserArn"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::User": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "DirectoryUserId": {
+                            "type": "string"
+                        },
+                        "HierarchyGroupArn": {
+                            "type": "string"
+                        },
+                        "IdentityInfo": {
+                            "$ref": "#/definitions/AWS::Connect::User.UserIdentityInfo"
+                        },
+                        "InstanceArn": {
+                            "type": "string"
+                        },
+                        "Password": {
+                            "type": "string"
+                        },
+                        "PhoneConfig": {
+                            "$ref": "#/definitions/AWS::Connect::User.UserPhoneConfig"
+                        },
+                        "RoutingProfileArn": {
+                            "type": "string"
+                        },
+                        "SecurityProfileArns": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "Username": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "InstanceArn",
+                        "PhoneConfig",
+                        "RoutingProfileArn",
+                        "SecurityProfileArns",
+                        "Username"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Connect::User"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::User.UserIdentityInfo": {
+            "additionalProperties": false,
+            "properties": {
+                "Email": {
+                    "type": "string"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Connect::User.UserPhoneConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "AfterContactWorkTimeLimit": {
+                    "type": "number"
+                },
+                "AutoAccept": {
+                    "type": "boolean"
+                },
+                "DeskPhoneNumber": {
+                    "type": "string"
+                },
+                "PhoneType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PhoneType"
+            ],
+            "type": "object"
+        },
+        "AWS::Connect::UserHierarchyGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "InstanceArn": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "ParentGroupArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "InstanceArn",
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Connect::UserHierarchyGroup"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
             ],
             "type": "object"
         },
@@ -28198,6 +29376,9 @@ var SamSchema = `{
                         "PostgreSqlSettings": {
                             "$ref": "#/definitions/AWS::DMS::Endpoint.PostgreSqlSettings"
                         },
+                        "RedisSettings": {
+                            "$ref": "#/definitions/AWS::DMS::Endpoint.RedisSettings"
+                        },
                         "RedshiftSettings": {
                             "$ref": "#/definitions/AWS::DMS::Endpoint.RedshiftSettings"
                         },
@@ -28310,6 +29491,45 @@ var SamSchema = `{
                 "Broker": {
                     "type": "string"
                 },
+                "IncludeControlDetails": {
+                    "type": "boolean"
+                },
+                "IncludeNullAndEmpty": {
+                    "type": "boolean"
+                },
+                "IncludeTableAlterOperations": {
+                    "type": "boolean"
+                },
+                "IncludeTransactionDetails": {
+                    "type": "boolean"
+                },
+                "NoHexPrefix": {
+                    "type": "boolean"
+                },
+                "PartitionIncludeSchemaTable": {
+                    "type": "boolean"
+                },
+                "SaslPassword": {
+                    "type": "string"
+                },
+                "SaslUserName": {
+                    "type": "string"
+                },
+                "SecurityProtocol": {
+                    "type": "string"
+                },
+                "SslCaCertificateArn": {
+                    "type": "string"
+                },
+                "SslClientCertificateArn": {
+                    "type": "string"
+                },
+                "SslClientKeyArn": {
+                    "type": "string"
+                },
+                "SslClientKeyPassword": {
+                    "type": "string"
+                },
                 "Topic": {
                     "type": "string"
                 }
@@ -28319,8 +29539,26 @@ var SamSchema = `{
         "AWS::DMS::Endpoint.KinesisSettings": {
             "additionalProperties": false,
             "properties": {
+                "IncludeControlDetails": {
+                    "type": "boolean"
+                },
+                "IncludeNullAndEmpty": {
+                    "type": "boolean"
+                },
+                "IncludeTableAlterOperations": {
+                    "type": "boolean"
+                },
+                "IncludeTransactionDetails": {
+                    "type": "boolean"
+                },
                 "MessageFormat": {
                     "type": "string"
+                },
+                "NoHexPrefix": {
+                    "type": "boolean"
+                },
+                "PartitionIncludeSchemaTable": {
+                    "type": "boolean"
                 },
                 "ServiceAccessRoleArn": {
                     "type": "string"
@@ -28452,6 +29690,33 @@ var SamSchema = `{
                     "type": "string"
                 },
                 "SecretsManagerSecretId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::DMS::Endpoint.RedisSettings": {
+            "additionalProperties": false,
+            "properties": {
+                "AuthPassword": {
+                    "type": "string"
+                },
+                "AuthType": {
+                    "type": "string"
+                },
+                "AuthUserName": {
+                    "type": "string"
+                },
+                "Port": {
+                    "type": "number"
+                },
+                "ServerName": {
+                    "type": "string"
+                },
+                "SslCaCertificateArn": {
+                    "type": "string"
+                },
+                "SslSecurityProtocol": {
                     "type": "string"
                 }
             },
@@ -30764,6 +32029,143 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::DataSync::LocationHDFS": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AgentArns": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "AuthenticationType": {
+                            "type": "string"
+                        },
+                        "BlockSize": {
+                            "type": "number"
+                        },
+                        "KerberosKeytab": {
+                            "type": "string"
+                        },
+                        "KerberosKrb5Conf": {
+                            "type": "string"
+                        },
+                        "KerberosPrincipal": {
+                            "type": "string"
+                        },
+                        "KmsKeyProviderUri": {
+                            "type": "string"
+                        },
+                        "NameNodes": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::DataSync::LocationHDFS.NameNode"
+                            },
+                            "type": "array"
+                        },
+                        "QopConfiguration": {
+                            "$ref": "#/definitions/AWS::DataSync::LocationHDFS.QopConfiguration"
+                        },
+                        "ReplicationFactor": {
+                            "type": "number"
+                        },
+                        "SimpleUser": {
+                            "type": "string"
+                        },
+                        "Subdirectory": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "AgentArns",
+                        "AuthenticationType",
+                        "NameNodes"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::DataSync::LocationHDFS"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::DataSync::LocationHDFS.NameNode": {
+            "additionalProperties": false,
+            "properties": {
+                "Hostname": {
+                    "type": "string"
+                },
+                "Port": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Hostname",
+                "Port"
+            ],
+            "type": "object"
+        },
+        "AWS::DataSync::LocationHDFS.QopConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "DataTransferProtection": {
+                    "type": "string"
+                },
+                "RpcProtection": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::DataSync::LocationNFS": {
             "additionalProperties": false,
             "properties": {
@@ -32962,6 +34364,12 @@ var SamSchema = `{
                         "InstanceType": {
                             "type": "string"
                         },
+                        "OutPostArn": {
+                            "type": "string"
+                        },
+                        "PlacementGroupArn": {
+                            "type": "string"
+                        },
                         "TagSpecifications": {
                             "items": {
                                 "$ref": "#/definitions/AWS::EC2::CapacityReservation.TagSpecification"
@@ -33002,6 +34410,136 @@ var SamSchema = `{
             "type": "object"
         },
         "AWS::EC2::CapacityReservation.TagSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "ResourceType": {
+                    "type": "string"
+                },
+                "Tags": {
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::CapacityReservationFleet": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AllocationStrategy": {
+                            "type": "string"
+                        },
+                        "EndDate": {
+                            "type": "string"
+                        },
+                        "InstanceMatchCriteria": {
+                            "type": "string"
+                        },
+                        "InstanceTypeSpecifications": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::EC2::CapacityReservationFleet.InstanceTypeSpecification"
+                            },
+                            "type": "array"
+                        },
+                        "NoRemoveEndDate": {
+                            "type": "boolean"
+                        },
+                        "RemoveEndDate": {
+                            "type": "boolean"
+                        },
+                        "TagSpecifications": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::EC2::CapacityReservationFleet.TagSpecification"
+                            },
+                            "type": "array"
+                        },
+                        "Tenancy": {
+                            "type": "string"
+                        },
+                        "TotalTargetCapacity": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::EC2::CapacityReservationFleet"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "type": "object"
+        },
+        "AWS::EC2::CapacityReservationFleet.InstanceTypeSpecification": {
+            "additionalProperties": false,
+            "properties": {
+                "AvailabilityZone": {
+                    "type": "string"
+                },
+                "AvailabilityZoneId": {
+                    "type": "string"
+                },
+                "EbsOptimized": {
+                    "type": "boolean"
+                },
+                "InstancePlatform": {
+                    "type": "string"
+                },
+                "InstanceType": {
+                    "type": "string"
+                },
+                "Priority": {
+                    "type": "number"
+                },
+                "Weight": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::CapacityReservationFleet.TagSpecification": {
             "additionalProperties": false,
             "properties": {
                 "ResourceType": {
@@ -33789,6 +35327,54 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EC2::EC2Fleet.AcceleratorCountRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.AcceleratorTotalMemoryMiBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.BaselineEbsBandwidthMbpsRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.CapacityRebalance": {
+            "additionalProperties": false,
+            "properties": {
+                "ReplacementStrategy": {
+                    "type": "string"
+                },
+                "TerminationDelay": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
         "AWS::EC2::EC2Fleet.CapacityReservationOptionsRequest": {
             "additionalProperties": false,
             "properties": {
@@ -33818,6 +35404,9 @@ var SamSchema = `{
             "properties": {
                 "AvailabilityZone": {
                     "type": "string"
+                },
+                "InstanceRequirements": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.InstanceRequirementsRequest"
                 },
                 "InstanceType": {
                     "type": "string"
@@ -33851,6 +35440,141 @@ var SamSchema = `{
                 },
                 "Version": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.InstanceRequirementsRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "AcceleratorCount": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.AcceleratorCountRequest"
+                },
+                "AcceleratorManufacturers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AcceleratorNames": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AcceleratorTotalMemoryMiB": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.AcceleratorTotalMemoryMiBRequest"
+                },
+                "AcceleratorTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "BareMetal": {
+                    "type": "string"
+                },
+                "BaselineEbsBandwidthMbps": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.BaselineEbsBandwidthMbpsRequest"
+                },
+                "BurstablePerformance": {
+                    "type": "string"
+                },
+                "CpuManufacturers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ExcludedInstanceTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "InstanceGenerations": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "LocalStorage": {
+                    "type": "string"
+                },
+                "LocalStorageTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "MemoryGiBPerVCpu": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.MemoryGiBPerVCpuRequest"
+                },
+                "MemoryMiB": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.MemoryMiBRequest"
+                },
+                "NetworkInterfaceCount": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.NetworkInterfaceCountRequest"
+                },
+                "OnDemandMaxPricePercentageOverLowestPrice": {
+                    "type": "number"
+                },
+                "RequireHibernateSupport": {
+                    "type": "boolean"
+                },
+                "SpotMaxPricePercentageOverLowestPrice": {
+                    "type": "number"
+                },
+                "TotalLocalStorageGB": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest"
+                },
+                "VCpuCount": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.VCpuCountRangeRequest"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.MaintenanceStrategies": {
+            "additionalProperties": false,
+            "properties": {
+                "CapacityRebalance": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.CapacityRebalance"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.MemoryGiBPerVCpuRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.MemoryMiBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.NetworkInterfaceCountRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -33921,6 +35645,9 @@ var SamSchema = `{
                 "InstancePoolsToUseCount": {
                     "type": "number"
                 },
+                "MaintenanceStrategies": {
+                    "$ref": "#/definitions/AWS::EC2::EC2Fleet.MaintenanceStrategies"
+                },
                 "MaxTotalPrice": {
                     "type": "string"
                 },
@@ -33963,6 +35690,9 @@ var SamSchema = `{
                 "SpotTargetCapacity": {
                     "type": "number"
                 },
+                "TargetCapacityUnitType": {
+                    "type": "string"
+                },
                 "TotalTargetCapacity": {
                     "type": "number"
                 }
@@ -33970,6 +35700,30 @@ var SamSchema = `{
             "required": [
                 "TotalTargetCapacity"
             ],
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.TotalLocalStorageGBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::EC2Fleet.VCpuCountRangeRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::EC2::EIP": {
@@ -37588,6 +39342,42 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EC2::SpotFleet.AcceleratorCountRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.AcceleratorTotalMemoryMiBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.BaselineEbsBandwidthMbpsRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
         "AWS::EC2::SpotFleet.BlockDeviceMapping": {
             "additionalProperties": false,
             "properties": {
@@ -37759,6 +39549,96 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::EC2::SpotFleet.InstanceRequirementsRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "AcceleratorCount": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.AcceleratorCountRequest"
+                },
+                "AcceleratorManufacturers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AcceleratorNames": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AcceleratorTotalMemoryMiB": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.AcceleratorTotalMemoryMiBRequest"
+                },
+                "AcceleratorTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "BareMetal": {
+                    "type": "string"
+                },
+                "BaselineEbsBandwidthMbps": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.BaselineEbsBandwidthMbpsRequest"
+                },
+                "BurstablePerformance": {
+                    "type": "string"
+                },
+                "CpuManufacturers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ExcludedInstanceTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "InstanceGenerations": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "LocalStorage": {
+                    "type": "string"
+                },
+                "LocalStorageTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "MemoryGiBPerVCpu": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.MemoryGiBPerVCpuRequest"
+                },
+                "MemoryMiB": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.MemoryMiBRequest"
+                },
+                "NetworkInterfaceCount": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.NetworkInterfaceCountRequest"
+                },
+                "OnDemandMaxPricePercentageOverLowestPrice": {
+                    "type": "number"
+                },
+                "RequireHibernateSupport": {
+                    "type": "boolean"
+                },
+                "SpotMaxPricePercentageOverLowestPrice": {
+                    "type": "number"
+                },
+                "TotalLocalStorageGB": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.TotalLocalStorageGBRequest"
+                },
+                "VCpuCount": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.VCpuCountRangeRequest"
+                }
+            },
+            "type": "object"
+        },
         "AWS::EC2::SpotFleet.LaunchTemplateConfig": {
             "additionalProperties": false,
             "properties": {
@@ -37779,6 +39659,9 @@ var SamSchema = `{
             "properties": {
                 "AvailabilityZone": {
                     "type": "string"
+                },
+                "InstanceRequirements": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.InstanceRequirementsRequest"
                 },
                 "InstanceType": {
                     "type": "string"
@@ -37807,6 +39690,42 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::EC2::SpotFleet.MemoryGiBPerVCpuRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.MemoryMiBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.NetworkInterfaceCountRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
         "AWS::EC2::SpotFleet.PrivateIpAddressSpecification": {
             "additionalProperties": false,
             "properties": {
@@ -37827,6 +39746,9 @@ var SamSchema = `{
             "properties": {
                 "ReplacementStrategy": {
                     "type": "string"
+                },
+                "TerminationDelay": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -37848,6 +39770,9 @@ var SamSchema = `{
                 },
                 "ImageId": {
                     "type": "string"
+                },
+                "InstanceRequirements": {
+                    "$ref": "#/definitions/AWS::EC2::SpotFleet.InstanceRequirementsRequest"
                 },
                 "InstanceType": {
                     "type": "string"
@@ -37899,8 +39824,7 @@ var SamSchema = `{
                 }
             },
             "required": [
-                "ImageId",
-                "InstanceType"
+                "ImageId"
             ],
             "type": "object"
         },
@@ -37972,6 +39896,9 @@ var SamSchema = `{
                 },
                 "TargetCapacity": {
                     "type": "number"
+                },
+                "TargetCapacityUnitType": {
+                    "type": "string"
                 },
                 "TerminateInstancesWithExpiration": {
                     "type": "boolean"
@@ -38056,6 +39983,30 @@ var SamSchema = `{
             "required": [
                 "TargetGroups"
             ],
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.TotalLocalStorageGBRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EC2::SpotFleet.VCpuCountRangeRequest": {
+            "additionalProperties": false,
+            "properties": {
+                "Max": {
+                    "type": "number"
+                },
+                "Min": {
+                    "type": "number"
+                }
+            },
             "type": "object"
         },
         "AWS::EC2::Subnet": {
@@ -39252,6 +41203,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "Options": {
+                            "$ref": "#/definitions/AWS::EC2::TransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptions"
+                        },
                         "PeerAccountId": {
                             "type": "string"
                         },
@@ -39298,6 +41252,15 @@ var SamSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::EC2::TransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "DynamicRouting": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::EC2::TransitGatewayRoute": {
@@ -40090,6 +42053,9 @@ var SamSchema = `{
                                 "type": "string"
                             },
                             "type": "array"
+                        },
+                        "PayerResponsibility": {
+                            "type": "string"
                         }
                     },
                     "type": "object"
@@ -41982,6 +43948,9 @@ var SamSchema = `{
                             },
                             "type": "array"
                         },
+                        "RuntimePlatform": {
+                            "$ref": "#/definitions/AWS::ECS::TaskDefinition.RuntimePlatform"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -42559,6 +44528,18 @@ var SamSchema = `{
                 "Type",
                 "Value"
             ],
+            "type": "object"
+        },
+        "AWS::ECS::TaskDefinition.RuntimePlatform": {
+            "additionalProperties": false,
+            "properties": {
+                "CpuArchitecture": {
+                    "type": "string"
+                },
+                "OperatingSystemFamily": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::ECS::TaskDefinition.Secret": {
@@ -43328,6 +45309,9 @@ var SamSchema = `{
                         "KubernetesNetworkConfig": {
                             "$ref": "#/definitions/AWS::EKS::Cluster.KubernetesNetworkConfig"
                         },
+                        "Logging": {
+                            "$ref": "#/definitions/AWS::EKS::Cluster.Logging"
+                        },
                         "Name": {
                             "type": "string"
                         },
@@ -43336,6 +45320,12 @@ var SamSchema = `{
                         },
                         "RoleArn": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         },
                         "Version": {
                             "type": "string"
@@ -43368,11 +45358,23 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::EKS::Cluster.ClusterLogging": {
+            "additionalProperties": false,
+            "properties": {
+                "EnabledTypes": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::EKS::Cluster.LoggingTypeConfig"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
         "AWS::EKS::Cluster.EncryptionConfig": {
             "additionalProperties": false,
             "properties": {
                 "Provider": {
-                    "$ref": "#/definitions/AWS::EKS::Cluster.Provider"
+                    "type": "object"
                 },
                 "Resources": {
                     "items": {
@@ -43392,10 +45394,19 @@ var SamSchema = `{
             },
             "type": "object"
         },
-        "AWS::EKS::Cluster.Provider": {
+        "AWS::EKS::Cluster.Logging": {
             "additionalProperties": false,
             "properties": {
-                "KeyArn": {
+                "ClusterLogging": {
+                    "$ref": "#/definitions/AWS::EKS::Cluster.ClusterLogging"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::EKS::Cluster.LoggingTypeConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Type": {
                     "type": "string"
                 }
             },
@@ -43404,6 +45415,18 @@ var SamSchema = `{
         "AWS::EKS::Cluster.ResourcesVpcConfig": {
             "additionalProperties": false,
             "properties": {
+                "EndpointPrivateAccess": {
+                    "type": "boolean"
+                },
+                "EndpointPublicAccess": {
+                    "type": "boolean"
+                },
+                "PublicAccessCidrs": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "SecurityGroupIds": {
                     "items": {
                         "type": "string"
@@ -50348,6 +52371,9 @@ var SamSchema = `{
                             },
                             "type": "array"
                         },
+                        "ResourcesCleanUp": {
+                            "type": "boolean"
+                        },
                         "SecurityServicePolicyData": {
                             "type": "object"
                         },
@@ -50475,11 +52501,17 @@ var SamSchema = `{
                         "FileSystemType": {
                             "type": "string"
                         },
+                        "FileSystemTypeVersion": {
+                            "type": "string"
+                        },
                         "KmsKeyId": {
                             "type": "string"
                         },
                         "LustreConfiguration": {
                             "$ref": "#/definitions/AWS::FSx::FileSystem.LustreConfiguration"
+                        },
+                        "OntapConfiguration": {
+                            "$ref": "#/definitions/AWS::FSx::FileSystem.OntapConfiguration"
                         },
                         "SecurityGroupIds": {
                             "items": {
@@ -50555,6 +52587,18 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::FSx::FileSystem.DiskIopsConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "Iops": {
+                    "type": "number"
+                },
+                "Mode": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::FSx::FileSystem.LustreConfiguration": {
             "additionalProperties": false,
             "properties": {
@@ -50595,6 +52639,48 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::FSx::FileSystem.OntapConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AutomaticBackupRetentionDays": {
+                    "type": "number"
+                },
+                "DailyAutomaticBackupStartTime": {
+                    "type": "string"
+                },
+                "DeploymentType": {
+                    "type": "string"
+                },
+                "DiskIopsConfiguration": {
+                    "$ref": "#/definitions/AWS::FSx::FileSystem.DiskIopsConfiguration"
+                },
+                "EndpointIpAddressRange": {
+                    "type": "string"
+                },
+                "FsxAdminPassword": {
+                    "type": "string"
+                },
+                "PreferredSubnetId": {
+                    "type": "string"
+                },
+                "RouteTableIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ThroughputCapacity": {
+                    "type": "number"
+                },
+                "WeeklyMaintenanceStartTime": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DeploymentType"
+            ],
             "type": "object"
         },
         "AWS::FSx::FileSystem.SelfManagedActiveDirectoryConfiguration": {
@@ -50701,6 +52787,12 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "DataBundles": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "Description": {
                             "type": "string"
                         },
@@ -50715,6 +52807,9 @@ var SamSchema = `{
                         },
                         "Name": {
                             "type": "string"
+                        },
+                        "SuperuserParameters": {
+                            "$ref": "#/definitions/AWS::FinSpace::Environment.SuperuserParameters"
                         }
                     },
                     "required": [
@@ -50762,6 +52857,21 @@ var SamSchema = `{
                     "type": "string"
                 },
                 "SamlMetadataURL": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::FinSpace::Environment.SuperuserParameters": {
+            "additionalProperties": false,
+            "properties": {
+                "EmailAddress": {
+                    "type": "string"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName": {
                     "type": "string"
                 }
             },
@@ -60357,6 +62467,9 @@ var SamSchema = `{
                 "SnapshotId": {
                     "type": "string"
                 },
+                "Throughput": {
+                    "type": "number"
+                },
                 "VolumeSize": {
                     "type": "number"
                 },
@@ -60923,6 +63036,9 @@ var SamSchema = `{
                 "SnapshotId": {
                     "type": "string"
                 },
+                "Throughput": {
+                    "type": "number"
+                },
                 "VolumeSize": {
                     "type": "number"
                 },
@@ -60993,6 +63109,9 @@ var SamSchema = `{
                     "properties": {
                         "Description": {
                             "type": "string"
+                        },
+                        "InstanceMetadataOptions": {
+                            "$ref": "#/definitions/AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions"
                         },
                         "InstanceProfileName": {
                             "type": "string"
@@ -61071,6 +63190,18 @@ var SamSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "HttpPutResponseHopLimit": {
+                    "type": "number"
+                },
+                "HttpTokens": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::ImageBuilder::InfrastructureConfiguration.Logging": {
@@ -62223,6 +64354,169 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::IoT::JobTemplate": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AbortConfig": {
+                            "type": "object"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Document": {
+                            "type": "string"
+                        },
+                        "DocumentSource": {
+                            "type": "string"
+                        },
+                        "JobArn": {
+                            "type": "string"
+                        },
+                        "JobExecutionsRolloutConfig": {
+                            "type": "object"
+                        },
+                        "JobTemplateId": {
+                            "type": "string"
+                        },
+                        "PresignedUrlConfig": {
+                            "type": "object"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "TimeoutConfig": {
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "Description",
+                        "JobTemplateId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoT::JobTemplate"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoT::Logging": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AccountId": {
+                            "type": "string"
+                        },
+                        "DefaultLogLevel": {
+                            "type": "string"
+                        },
+                        "RoleArn": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "AccountId",
+                        "DefaultLogLevel",
+                        "RoleArn"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoT::Logging"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::IoT::MitigationAction": {
             "additionalProperties": false,
             "properties": {
@@ -62629,6 +64923,76 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::IoT::ResourceSpecificLogging": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "LogLevel": {
+                            "type": "string"
+                        },
+                        "TargetName": {
+                            "type": "string"
+                        },
+                        "TargetType": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "LogLevel",
+                        "TargetName",
+                        "TargetType"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoT::ResourceSpecificLogging"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
             "type": "object"
         },
         "AWS::IoT::ScheduledAudit": {
@@ -67087,6 +69451,217 @@ var SamSchema = `{
                     "type": "boolean"
                 }
             },
+            "type": "object"
+        },
+        "AWS::IoTWireless::FuotaTask": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AssociateMulticastGroup": {
+                            "type": "string"
+                        },
+                        "AssociateWirelessDevice": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DisassociateMulticastGroup": {
+                            "type": "string"
+                        },
+                        "DisassociateWirelessDevice": {
+                            "type": "string"
+                        },
+                        "FirmwareUpdateImage": {
+                            "type": "string"
+                        },
+                        "FirmwareUpdateRole": {
+                            "type": "string"
+                        },
+                        "LoRaWAN": {
+                            "$ref": "#/definitions/AWS::IoTWireless::FuotaTask.LoRaWAN"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "FirmwareUpdateImage",
+                        "FirmwareUpdateRole",
+                        "LoRaWAN"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTWireless::FuotaTask"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTWireless::FuotaTask.LoRaWAN": {
+            "additionalProperties": false,
+            "properties": {
+                "RfRegion": {
+                    "type": "string"
+                },
+                "StartTime": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "RfRegion"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTWireless::MulticastGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AssociateWirelessDevice": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DisassociateWirelessDevice": {
+                            "type": "string"
+                        },
+                        "LoRaWAN": {
+                            "$ref": "#/definitions/AWS::IoTWireless::MulticastGroup.LoRaWAN"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "LoRaWAN"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::IoTWireless::MulticastGroup"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::IoTWireless::MulticastGroup.LoRaWAN": {
+            "additionalProperties": false,
+            "properties": {
+                "DlClass": {
+                    "type": "string"
+                },
+                "NumberOfDevicesInGroup": {
+                    "type": "number"
+                },
+                "NumberOfDevicesRequested": {
+                    "type": "number"
+                },
+                "RfRegion": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DlClass",
+                "RfRegion"
+            ],
             "type": "object"
         },
         "AWS::IoTWireless::PartnerAccount": {
@@ -73891,6 +76466,150 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Lightsail::Database": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AvailabilityZone": {
+                            "type": "string"
+                        },
+                        "BackupRetention": {
+                            "type": "boolean"
+                        },
+                        "CaCertificateIdentifier": {
+                            "type": "string"
+                        },
+                        "MasterDatabaseName": {
+                            "type": "string"
+                        },
+                        "MasterUserPassword": {
+                            "type": "string"
+                        },
+                        "MasterUsername": {
+                            "type": "string"
+                        },
+                        "PreferredBackupWindow": {
+                            "type": "string"
+                        },
+                        "PreferredMaintenanceWindow": {
+                            "type": "string"
+                        },
+                        "PubliclyAccessible": {
+                            "type": "boolean"
+                        },
+                        "RelationalDatabaseBlueprintId": {
+                            "type": "string"
+                        },
+                        "RelationalDatabaseBundleId": {
+                            "type": "string"
+                        },
+                        "RelationalDatabaseName": {
+                            "type": "string"
+                        },
+                        "RelationalDatabaseParameters": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Lightsail::Database.RelationalDatabaseParameter"
+                            },
+                            "type": "array"
+                        },
+                        "RotateMasterUserPassword": {
+                            "type": "boolean"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "MasterDatabaseName",
+                        "MasterUsername",
+                        "RelationalDatabaseBlueprintId",
+                        "RelationalDatabaseBundleId",
+                        "RelationalDatabaseName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Lightsail::Database"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Lightsail::Database.RelationalDatabaseParameter": {
+            "additionalProperties": false,
+            "properties": {
+                "AllowedValues": {
+                    "type": "string"
+                },
+                "ApplyMethod": {
+                    "type": "string"
+                },
+                "ApplyType": {
+                    "type": "string"
+                },
+                "DataType": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "IsModifiable": {
+                    "type": "boolean"
+                },
+                "ParameterName": {
+                    "type": "string"
+                },
+                "ParameterValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Lightsail::Disk": {
             "additionalProperties": false,
             "properties": {
@@ -74052,20 +76771,20 @@ var SamSchema = `{
                         "InstanceName": {
                             "type": "string"
                         },
-                        "Location": {
-                            "$ref": "#/definitions/AWS::Lightsail::Instance.Location"
+                        "KeyPairName": {
+                            "type": "string"
                         },
                         "Networking": {
                             "$ref": "#/definitions/AWS::Lightsail::Instance.Networking"
-                        },
-                        "State": {
-                            "$ref": "#/definitions/AWS::Lightsail::Instance.State"
                         },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
                             },
                             "type": "array"
+                        },
+                        "UserData": {
+                            "type": "string"
                         }
                     },
                     "required": [
@@ -74197,7 +76916,7 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "MonthlyTransfer": {
-                    "type": "object"
+                    "$ref": "#/definitions/AWS::Lightsail::Instance.MonthlyTransfer"
                 },
                 "Ports": {
                     "items": {
@@ -74266,6 +76985,71 @@ var SamSchema = `{
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "AWS::Lightsail::StaticIp": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AttachedTo": {
+                            "type": "string"
+                        },
+                        "StaticIpName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "StaticIpName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Lightsail::StaticIp"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
             "type": "object"
         },
         "AWS::Location::GeofenceCollection": {
@@ -74622,6 +77406,9 @@ var SamSchema = `{
                             "type": "string"
                         },
                         "KmsKeyId": {
+                            "type": "string"
+                        },
+                        "PositionFiltering": {
                             "type": "string"
                         },
                         "PricingPlan": {
@@ -76388,7 +79175,7 @@ var SamSchema = `{
                             "type": "string"
                         },
                         "Tags": {
-                            "$ref": "#/definitions/AWS::MWAA::Environment.TagMap"
+                            "type": "object"
                         },
                         "WebserverAccessMode": {
                             "type": "string"
@@ -76475,11 +79262,6 @@ var SamSchema = `{
                     "type": "array"
                 }
             },
-            "type": "object"
-        },
-        "AWS::MWAA::Environment.TagMap": {
-            "additionalProperties": false,
-            "properties": {},
             "type": "object"
         },
         "AWS::Macie::CustomDataIdentifier": {
@@ -82360,9 +85142,6 @@ var SamSchema = `{
                         "AutoMinorVersionUpgrade": {
                             "type": "boolean"
                         },
-                        "ClusterEndpoint": {
-                            "$ref": "#/definitions/AWS::MemoryDB::Cluster.Endpoint"
-                        },
                         "ClusterName": {
                             "type": "string"
                         },
@@ -82437,7 +85216,9 @@ var SamSchema = `{
                         }
                     },
                     "required": [
-                        "ClusterName"
+                        "ACLName",
+                        "ClusterName",
+                        "NodeType"
                     ],
                     "type": "object"
                 },
@@ -82526,6 +85307,7 @@ var SamSchema = `{
                         }
                     },
                     "required": [
+                        "Family",
                         "ParameterGroupName"
                     ],
                     "type": "object"
@@ -82603,7 +85385,8 @@ var SamSchema = `{
                         }
                     },
                     "required": [
-                        "SubnetGroupName"
+                        "SubnetGroupName",
+                        "SubnetIds"
                     ],
                     "type": "object"
                 },
@@ -83408,6 +86191,15 @@ var SamSchema = `{
         "AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy": {
             "additionalProperties": false,
             "properties": {
+                "StatefulDefaultActions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "StatefulEngineOptions": {
+                    "$ref": "#/definitions/AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions"
+                },
                 "StatefulRuleGroupReferences": {
                     "items": {
                         "$ref": "#/definitions/AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupReference"
@@ -83460,9 +86252,21 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "RuleOrder": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupReference": {
             "additionalProperties": false,
             "properties": {
+                "Priority": {
+                    "type": "number"
+                },
                 "ResourceArn": {
                     "type": "string"
                 }
@@ -83885,6 +86689,9 @@ var SamSchema = `{
                 },
                 "RulesSource": {
                     "$ref": "#/definitions/AWS::NetworkFirewall::RuleGroup.RulesSource"
+                },
+                "StatefulRuleOptions": {
+                    "$ref": "#/definitions/AWS::NetworkFirewall::RuleGroup.StatefulRuleOptions"
                 }
             },
             "required": [
@@ -84002,6 +86809,15 @@ var SamSchema = `{
                 "Header",
                 "RuleOptions"
             ],
+            "type": "object"
+        },
+        "AWS::NetworkFirewall::RuleGroup.StatefulRuleOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "RuleOrder": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::NetworkFirewall::RuleGroup.StatelessRule": {
@@ -86759,6 +89575,264 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::Panorama::ApplicationInstance": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ApplicationInstanceIdToReplace": {
+                            "type": "string"
+                        },
+                        "DefaultRuntimeContextDevice": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "DeviceId": {
+                            "type": "string"
+                        },
+                        "ManifestOverridesPayload": {
+                            "$ref": "#/definitions/AWS::Panorama::ApplicationInstance.ManifestOverridesPayload"
+                        },
+                        "ManifestPayload": {
+                            "$ref": "#/definitions/AWS::Panorama::ApplicationInstance.ManifestPayload"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "RuntimeRoleArn": {
+                            "type": "string"
+                        },
+                        "StatusFilter": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "DefaultRuntimeContextDevice",
+                        "ManifestPayload"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Panorama::ApplicationInstance"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Panorama::ApplicationInstance.ManifestOverridesPayload": {
+            "additionalProperties": false,
+            "properties": {
+                "PayloadData": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Panorama::ApplicationInstance.ManifestPayload": {
+            "additionalProperties": false,
+            "properties": {
+                "PayloadData": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Panorama::Package": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "PackageName": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "PackageName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Panorama::Package"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Panorama::PackageVersion": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "MarkLatest": {
+                            "type": "boolean"
+                        },
+                        "OwnerAccount": {
+                            "type": "string"
+                        },
+                        "PackageId": {
+                            "type": "string"
+                        },
+                        "PackageVersion": {
+                            "type": "string"
+                        },
+                        "PatchVersion": {
+                            "type": "string"
+                        },
+                        "UpdatedLatestPatchVersion": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "PackageId",
+                        "PackageVersion",
+                        "PatchVersion"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Panorama::PackageVersion"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
         "AWS::Pinpoint::ADMChannel": {
             "additionalProperties": false,
             "properties": {
@@ -87499,6 +90573,9 @@ var SamSchema = `{
                         "Name": {
                             "type": "string"
                         },
+                        "Priority": {
+                            "type": "number"
+                        },
                         "Schedule": {
                             "$ref": "#/definitions/AWS::Pinpoint::Campaign.Schedule"
                         },
@@ -87608,6 +90685,24 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::Pinpoint::Campaign.CampaignInAppMessage": {
+            "additionalProperties": false,
+            "properties": {
+                "Content": {
+                    "items": {
+                        "$ref": "#/definitions/AWS::Pinpoint::Campaign.InAppMessageContent"
+                    },
+                    "type": "array"
+                },
+                "CustomConfig": {
+                    "type": "object"
+                },
+                "Layout": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Pinpoint::Campaign.CampaignSmsMessage": {
             "additionalProperties": false,
             "properties": {
@@ -87632,6 +90727,30 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::Pinpoint::Campaign.DefaultButtonConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "BackgroundColor": {
+                    "type": "string"
+                },
+                "BorderRadius": {
+                    "type": "number"
+                },
+                "ButtonAction": {
+                    "type": "string"
+                },
+                "Link": {
+                    "type": "string"
+                },
+                "Text": {
+                    "type": "string"
+                },
+                "TextColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Pinpoint::Campaign.EventDimensions": {
             "additionalProperties": false,
             "properties": {
@@ -87647,6 +90766,78 @@ var SamSchema = `{
             },
             "type": "object"
         },
+        "AWS::Pinpoint::Campaign.InAppMessageBodyConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Alignment": {
+                    "type": "string"
+                },
+                "Body": {
+                    "type": "string"
+                },
+                "TextColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::Campaign.InAppMessageButton": {
+            "additionalProperties": false,
+            "properties": {
+                "Android": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.OverrideButtonConfiguration"
+                },
+                "DefaultConfig": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.DefaultButtonConfiguration"
+                },
+                "IOS": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.OverrideButtonConfiguration"
+                },
+                "Web": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.OverrideButtonConfiguration"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::Campaign.InAppMessageContent": {
+            "additionalProperties": false,
+            "properties": {
+                "BackgroundColor": {
+                    "type": "string"
+                },
+                "BodyConfig": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.InAppMessageBodyConfig"
+                },
+                "HeaderConfig": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.InAppMessageHeaderConfig"
+                },
+                "ImageUrl": {
+                    "type": "string"
+                },
+                "PrimaryBtn": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.InAppMessageButton"
+                },
+                "SecondaryBtn": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.InAppMessageButton"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::Campaign.InAppMessageHeaderConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Alignment": {
+                    "type": "string"
+                },
+                "Header": {
+                    "type": "string"
+                },
+                "TextColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Pinpoint::Campaign.Limits": {
             "additionalProperties": false,
             "properties": {
@@ -87657,6 +90848,9 @@ var SamSchema = `{
                     "type": "number"
                 },
                 "MessagesPerSecond": {
+                    "type": "number"
+                },
+                "Session": {
                     "type": "number"
                 },
                 "Total": {
@@ -87728,6 +90922,9 @@ var SamSchema = `{
                 "GCMMessage": {
                     "$ref": "#/definitions/AWS::Pinpoint::Campaign.Message"
                 },
+                "InAppMessage": {
+                    "$ref": "#/definitions/AWS::Pinpoint::Campaign.CampaignInAppMessage"
+                },
                 "SMSMessage": {
                     "$ref": "#/definitions/AWS::Pinpoint::Campaign.CampaignSmsMessage"
                 }
@@ -87742,6 +90939,18 @@ var SamSchema = `{
                 },
                 "Value": {
                     "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::Campaign.OverrideButtonConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ButtonAction": {
+                    "type": "string"
+                },
+                "Link": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -88122,6 +91331,194 @@ var SamSchema = `{
                 "Type",
                 "Properties"
             ],
+            "type": "object"
+        },
+        "AWS::Pinpoint::InAppTemplate": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Content": {
+                            "items": {
+                                "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.InAppMessageContent"
+                            },
+                            "type": "array"
+                        },
+                        "CustomConfig": {
+                            "type": "object"
+                        },
+                        "Layout": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "type": "object"
+                        },
+                        "TemplateDescription": {
+                            "type": "string"
+                        },
+                        "TemplateName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "TemplateName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Pinpoint::InAppTemplate"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Pinpoint::InAppTemplate.BodyConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Alignment": {
+                    "type": "string"
+                },
+                "Body": {
+                    "type": "string"
+                },
+                "TextColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::InAppTemplate.ButtonConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Android": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration"
+                },
+                "DefaultConfig": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.DefaultButtonConfiguration"
+                },
+                "IOS": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration"
+                },
+                "Web": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::InAppTemplate.DefaultButtonConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "BackgroundColor": {
+                    "type": "string"
+                },
+                "BorderRadius": {
+                    "type": "number"
+                },
+                "ButtonAction": {
+                    "type": "string"
+                },
+                "Link": {
+                    "type": "string"
+                },
+                "Text": {
+                    "type": "string"
+                },
+                "TextColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::InAppTemplate.HeaderConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "Alignment": {
+                    "type": "string"
+                },
+                "Header": {
+                    "type": "string"
+                },
+                "TextColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::InAppTemplate.InAppMessageContent": {
+            "additionalProperties": false,
+            "properties": {
+                "BackgroundColor": {
+                    "type": "string"
+                },
+                "BodyConfig": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.BodyConfig"
+                },
+                "HeaderConfig": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.HeaderConfig"
+                },
+                "ImageUrl": {
+                    "type": "string"
+                },
+                "PrimaryBtn": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.ButtonConfig"
+                },
+                "SecondaryBtn": {
+                    "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate.ButtonConfig"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "ButtonAction": {
+                    "type": "string"
+                },
+                "Link": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "AWS::Pinpoint::PushTemplate": {
@@ -89492,7 +92889,8 @@ var SamSchema = `{
                     },
                     "required": [
                         "AnalysisId",
-                        "AwsAccountId"
+                        "AwsAccountId",
+                        "SourceEntity"
                     ],
                     "type": "object"
                 },
@@ -89781,7 +93179,8 @@ var SamSchema = `{
                     },
                     "required": [
                         "AwsAccountId",
-                        "DashboardId"
+                        "DashboardId",
+                        "SourceEntity"
                     ],
                     "type": "object"
                 },
@@ -90749,6 +94148,18 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::QuickSight::DataSource.AmazonOpenSearchParameters": {
+            "additionalProperties": false,
+            "properties": {
+                "Domain": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Domain"
+            ],
+            "type": "object"
+        },
         "AWS::QuickSight::DataSource.AthenaParameters": {
             "additionalProperties": false,
             "properties": {
@@ -90849,6 +94260,9 @@ var SamSchema = `{
             "properties": {
                 "AmazonElasticsearchParameters": {
                     "$ref": "#/definitions/AWS::QuickSight::DataSource.AmazonElasticsearchParameters"
+                },
+                "AmazonOpenSearchParameters": {
+                    "$ref": "#/definitions/AWS::QuickSight::DataSource.AmazonOpenSearchParameters"
                 },
                 "AthenaParameters": {
                     "$ref": "#/definitions/AWS::QuickSight::DataSource.AthenaParameters"
@@ -91241,6 +94655,7 @@ var SamSchema = `{
                     },
                     "required": [
                         "AwsAccountId",
+                        "SourceEntity",
                         "TemplateId"
                     ],
                     "type": "object"
@@ -93313,9 +96728,6 @@ var SamSchema = `{
                         "Encrypted": {
                             "type": "boolean"
                         },
-                        "Endpoint": {
-                            "$ref": "#/definitions/AWS::Redshift::Cluster.Endpoint"
-                        },
                         "EnhancedVpcRouting": {
                             "type": "boolean"
                         },
@@ -93751,6 +97163,471 @@ var SamSchema = `{
                 "Type": {
                     "enum": [
                         "AWS::Redshift::ClusterSubnetGroup"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::EndpointAccess": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ClusterIdentifier": {
+                            "type": "string"
+                        },
+                        "EndpointName": {
+                            "type": "string"
+                        },
+                        "ResourceOwner": {
+                            "type": "string"
+                        },
+                        "SubnetGroupName": {
+                            "type": "string"
+                        },
+                        "VpcSecurityGroupIds": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "EndpointName",
+                        "VpcSecurityGroupIds"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Redshift::EndpointAccess"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::EndpointAccess.VpcSecurityGroup": {
+            "additionalProperties": false,
+            "properties": {
+                "Status": {
+                    "type": "string"
+                },
+                "VpcSecurityGroupId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Redshift::EndpointAuthorization": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Account": {
+                            "type": "string"
+                        },
+                        "ClusterIdentifier": {
+                            "type": "string"
+                        },
+                        "Force": {
+                            "type": "boolean"
+                        },
+                        "VpcIds": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Account",
+                        "ClusterIdentifier"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Redshift::EndpointAuthorization"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::EventSubscription": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Enabled": {
+                            "type": "boolean"
+                        },
+                        "EventCategories": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Severity": {
+                            "type": "string"
+                        },
+                        "SnsTopicArn": {
+                            "type": "string"
+                        },
+                        "SourceIds": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "SourceType": {
+                            "type": "string"
+                        },
+                        "SubscriptionName": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "SubscriptionName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Redshift::EventSubscription"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::ScheduledAction": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Enable": {
+                            "type": "boolean"
+                        },
+                        "EndTime": {
+                            "type": "string"
+                        },
+                        "IamRole": {
+                            "type": "string"
+                        },
+                        "Schedule": {
+                            "type": "string"
+                        },
+                        "ScheduledActionDescription": {
+                            "type": "string"
+                        },
+                        "ScheduledActionName": {
+                            "type": "string"
+                        },
+                        "StartTime": {
+                            "type": "string"
+                        },
+                        "TargetAction": {
+                            "$ref": "#/definitions/AWS::Redshift::ScheduledAction.ScheduledActionType"
+                        }
+                    },
+                    "required": [
+                        "ScheduledActionName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Redshift::ScheduledAction"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::ScheduledAction.PauseClusterMessage": {
+            "additionalProperties": false,
+            "properties": {
+                "ClusterIdentifier": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClusterIdentifier"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::ScheduledAction.ResizeClusterMessage": {
+            "additionalProperties": false,
+            "properties": {
+                "Classic": {
+                    "type": "boolean"
+                },
+                "ClusterIdentifier": {
+                    "type": "string"
+                },
+                "ClusterType": {
+                    "type": "string"
+                },
+                "NodeType": {
+                    "type": "string"
+                },
+                "NumberOfNodes": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "ClusterIdentifier"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::ScheduledAction.ResumeClusterMessage": {
+            "additionalProperties": false,
+            "properties": {
+                "ClusterIdentifier": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClusterIdentifier"
+            ],
+            "type": "object"
+        },
+        "AWS::Redshift::ScheduledAction.ScheduledActionType": {
+            "additionalProperties": false,
+            "properties": {
+                "PauseCluster": {
+                    "$ref": "#/definitions/AWS::Redshift::ScheduledAction.PauseClusterMessage"
+                },
+                "ResizeCluster": {
+                    "$ref": "#/definitions/AWS::Redshift::ScheduledAction.ResizeClusterMessage"
+                },
+                "ResumeCluster": {
+                    "$ref": "#/definitions/AWS::Redshift::ScheduledAction.ResumeClusterMessage"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Rekognition::Project": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ProjectName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ProjectName"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Rekognition::Project"
                     ],
                     "type": "string"
                 },
@@ -95177,6 +99054,12 @@ var SamSchema = `{
                     "properties": {
                         "Name": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "type": "object"
@@ -95250,6 +99133,12 @@ var SamSchema = `{
                         },
                         "Name": {
                             "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -95392,6 +99281,12 @@ var SamSchema = `{
                         },
                         "RuleConfig": {
                             "$ref": "#/definitions/AWS::Route53RecoveryControl::SafetyRule.RuleConfig"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
                         }
                     },
                     "required": [
@@ -96099,6 +99994,72 @@ var SamSchema = `{
                 "Type": {
                     "enum": [
                         "AWS::Route53Resolver::FirewallRuleGroupAssociation"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Route53Resolver::ResolverConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AutodefinedReverseFlag": {
+                            "type": "string"
+                        },
+                        "ResourceId": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "AutodefinedReverseFlag",
+                        "ResourceId"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Route53Resolver::ResolverConfig"
                     ],
                     "type": "string"
                 },
@@ -98286,7 +102247,7 @@ var SamSchema = `{
                         }
                     },
                     "required": [
-                        "Name"
+                        "ObjectLambdaConfiguration"
                     ],
                     "type": "object"
                 },
@@ -98352,6 +102313,10 @@ var SamSchema = `{
                     "type": "object"
                 }
             },
+            "required": [
+                "Actions",
+                "ContentTransformation"
+            ],
             "type": "object"
         },
         "AWS::S3ObjectLambda::AccessPointPolicy": {
@@ -103056,6 +107021,9 @@ var SamSchema = `{
                         "RetainAllVariantProperties": {
                             "type": "boolean"
                         },
+                        "RetainDeploymentConfig": {
+                            "type": "boolean"
+                        },
                         "Tags": {
                             "items": {
                                 "$ref": "#/definitions/Tag"
@@ -103169,6 +107137,9 @@ var SamSchema = `{
             "additionalProperties": false,
             "properties": {
                 "CanarySize": {
+                    "$ref": "#/definitions/AWS::SageMaker::Endpoint.CapacitySize"
+                },
+                "LinearStepSize": {
                     "$ref": "#/definitions/AWS::SageMaker::Endpoint.CapacitySize"
                 },
                 "Type": {
@@ -105448,6 +109419,9 @@ var SamSchema = `{
                         "NotebookInstanceName": {
                             "type": "string"
                         },
+                        "PlatformIdentifier": {
+                            "type": "string"
+                        },
                         "RoleArn": {
                             "type": "string"
                         },
@@ -106190,6 +110164,12 @@ var SamSchema = `{
                     "type": "string"
                 },
                 "RotationType": {
+                    "type": "string"
+                },
+                "SuperuserSecretArn": {
+                    "type": "string"
+                },
+                "SuperuserSecretKmsKeyArn": {
                     "type": "string"
                 },
                 "VpcSecurityGroupIds": {
@@ -111437,6 +115417,9 @@ var SamSchema = `{
                 "Properties": {
                     "additionalProperties": false,
                     "properties": {
+                        "ArtifactConfig": {
+                            "$ref": "#/definitions/AWS::Synthetics::Canary.ArtifactConfig"
+                        },
                         "ArtifactS3Location": {
                             "type": "string"
                         },
@@ -111512,6 +115495,15 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Synthetics::Canary.ArtifactConfig": {
+            "additionalProperties": false,
+            "properties": {
+                "S3Encryption": {
+                    "$ref": "#/definitions/AWS::Synthetics::Canary.S3Encryption"
+                }
+            },
+            "type": "object"
+        },
         "AWS::Synthetics::Canary.BaseScreenshot": {
             "additionalProperties": false,
             "properties": {
@@ -111574,6 +115566,18 @@ var SamSchema = `{
                 },
                 "TimeoutInSeconds": {
                     "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Synthetics::Canary.S3Encryption": {
+            "additionalProperties": false,
+            "properties": {
+                "EncryptionMode": {
+                    "type": "string"
+                },
+                "KmsKeyArn": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -115489,6 +119493,311 @@ var SamSchema = `{
             ],
             "type": "object"
         },
+        "AWS::Wisdom::Assistant": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "ServerSideEncryptionConfiguration": {
+                            "$ref": "#/definitions/AWS::Wisdom::Assistant.ServerSideEncryptionConfiguration"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        },
+                        "Type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name",
+                        "Type"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Wisdom::Assistant"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Wisdom::Assistant.ServerSideEncryptionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "KmsKeyId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Wisdom::AssistantAssociation": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "AssistantId": {
+                            "type": "string"
+                        },
+                        "Association": {
+                            "$ref": "#/definitions/AWS::Wisdom::AssistantAssociation.AssociationData"
+                        },
+                        "AssociationType": {
+                            "type": "string"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "AssistantId",
+                        "Association",
+                        "AssociationType"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Wisdom::AssistantAssociation"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Wisdom::AssistantAssociation.AssociationData": {
+            "additionalProperties": false,
+            "properties": {
+                "KnowledgeBaseId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "KnowledgeBaseId"
+            ],
+            "type": "object"
+        },
+        "AWS::Wisdom::KnowledgeBase": {
+            "additionalProperties": false,
+            "properties": {
+                "DeletionPolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                },
+                "DependsOn": {
+                    "anyOf": [
+                        {
+                            "pattern": "^[a-zA-Z0-9]+$",
+                            "type": "string"
+                        },
+                        {
+                            "items": {
+                                "pattern": "^[a-zA-Z0-9]+$",
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "Metadata": {
+                    "type": "object"
+                },
+                "Properties": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "Description": {
+                            "type": "string"
+                        },
+                        "KnowledgeBaseType": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "RenderingConfiguration": {
+                            "$ref": "#/definitions/AWS::Wisdom::KnowledgeBase.RenderingConfiguration"
+                        },
+                        "ServerSideEncryptionConfiguration": {
+                            "$ref": "#/definitions/AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration"
+                        },
+                        "SourceConfiguration": {
+                            "$ref": "#/definitions/AWS::Wisdom::KnowledgeBase.SourceConfiguration"
+                        },
+                        "Tags": {
+                            "items": {
+                                "$ref": "#/definitions/Tag"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "KnowledgeBaseType",
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "enum": [
+                        "AWS::Wisdom::KnowledgeBase"
+                    ],
+                    "type": "string"
+                },
+                "UpdateReplacePolicy": {
+                    "enum": [
+                        "Delete",
+                        "Retain",
+                        "Snapshot"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
+        },
+        "AWS::Wisdom::KnowledgeBase.AppIntegrationsConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AppIntegrationArn": {
+                    "type": "string"
+                },
+                "ObjectFields": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "AppIntegrationArn",
+                "ObjectFields"
+            ],
+            "type": "object"
+        },
+        "AWS::Wisdom::KnowledgeBase.RenderingConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "TemplateUri": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "KmsKeyId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AWS::Wisdom::KnowledgeBase.SourceConfiguration": {
+            "additionalProperties": false,
+            "properties": {
+                "AppIntegrations": {
+                    "$ref": "#/definitions/AWS::Wisdom::KnowledgeBase.AppIntegrationsConfiguration"
+                }
+            },
+            "type": "object"
+        },
         "AWS::WorkSpaces::ConnectionAlias": {
             "additionalProperties": false,
             "properties": {
@@ -116824,6 +121133,9 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::Batch::JobQueue"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Batch::SchedulingPolicy"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Budgets::Budget"
                         },
                         {
@@ -116921,6 +121233,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::CloudFront::RealtimeLogConfig"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::CloudFront::ResponseHeadersPolicy"
                         },
                         {
                             "$ref": "#/definitions/AWS::CloudFront::StreamingDistribution"
@@ -117064,7 +121379,16 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::Config::StoredQuery"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Connect::HoursOfOperation"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Connect::QuickConnect"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Connect::User"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Connect::UserHierarchyGroup"
                         },
                         {
                             "$ref": "#/definitions/AWS::CustomerProfiles::Domain"
@@ -117133,6 +121457,9 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::DataSync::LocationFSxWindows"
                         },
                         {
+                            "$ref": "#/definitions/AWS::DataSync::LocationHDFS"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::DataSync::LocationNFS"
                         },
                         {
@@ -117185,6 +121512,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::CapacityReservation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::EC2::CapacityReservationFleet"
                         },
                         {
                             "$ref": "#/definitions/AWS::EC2::CarrierGateway"
@@ -117880,6 +122210,12 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::IoT::FleetMetric"
                         },
                         {
+                            "$ref": "#/definitions/AWS::IoT::JobTemplate"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoT::Logging"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::IoT::MitigationAction"
                         },
                         {
@@ -117890,6 +122226,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::IoT::ProvisioningTemplate"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoT::ResourceSpecificLogging"
                         },
                         {
                             "$ref": "#/definitions/AWS::IoT::ScheduledAudit"
@@ -117962,6 +122301,12 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::IoTWireless::DeviceProfile"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTWireless::FuotaTask"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::IoTWireless::MulticastGroup"
                         },
                         {
                             "$ref": "#/definitions/AWS::IoTWireless::PartnerAccount"
@@ -118069,10 +122414,16 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::LicenseManager::License"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Lightsail::Database"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Lightsail::Disk"
                         },
                         {
                             "$ref": "#/definitions/AWS::Lightsail::Instance"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Lightsail::StaticIp"
                         },
                         {
                             "$ref": "#/definitions/AWS::Location::GeofenceCollection"
@@ -118300,6 +122651,15 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::OpsWorksCM::Server"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Panorama::ApplicationInstance"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Panorama::Package"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Panorama::PackageVersion"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::Pinpoint::ADMChannel"
                         },
                         {
@@ -118337,6 +122697,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Pinpoint::GCMChannel"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Pinpoint::InAppTemplate"
                         },
                         {
                             "$ref": "#/definitions/AWS::Pinpoint::PushTemplate"
@@ -118447,6 +122810,21 @@ var SamSchema = `{
                             "$ref": "#/definitions/AWS::Redshift::ClusterSubnetGroup"
                         },
                         {
+                            "$ref": "#/definitions/AWS::Redshift::EndpointAccess"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Redshift::EndpointAuthorization"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Redshift::EventSubscription"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Redshift::ScheduledAction"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Rekognition::Project"
+                        },
+                        {
                             "$ref": "#/definitions/AWS::ResourceGroups::Group"
                         },
                         {
@@ -118517,6 +122895,9 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::Route53Resolver::FirewallRuleGroupAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Route53Resolver::ResolverConfig"
                         },
                         {
                             "$ref": "#/definitions/AWS::Route53Resolver::ResolverDNSSECConfig"
@@ -118937,6 +123318,15 @@ var SamSchema = `{
                         },
                         {
                             "$ref": "#/definitions/AWS::WAFv2::WebACLAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Wisdom::Assistant"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Wisdom::AssistantAssociation"
+                        },
+                        {
+                            "$ref": "#/definitions/AWS::Wisdom::KnowledgeBase"
                         },
                         {
                             "$ref": "#/definitions/AWS::WorkSpaces::ConnectionAlias"

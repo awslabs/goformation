@@ -23,17 +23,17 @@ type AnomalyDetector struct {
 	Dimensions []AnomalyDetector_Dimension `json:"Dimensions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricname
 	MetricName string `json:"MetricName,omitempty"`
 
 	// Namespace AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-namespace
 	Namespace string `json:"Namespace,omitempty"`
 
 	// Stat AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-stat
 	Stat string `json:"Stat,omitempty"`
 

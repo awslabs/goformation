@@ -19,7 +19,7 @@ type ParameterGroup struct {
 	Description string `json:"Description,omitempty"`
 
 	// Family AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-parametergroup.html#cfn-memorydb-parametergroup-family
 	Family string `json:"Family,omitempty"`
 

@@ -28,8 +28,13 @@ type SpotFleet_SpotFleetLaunchSpecification struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
 	ImageId string `json:"ImageId,omitempty"`
 
+	// InstanceRequirements AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancerequirements
+	InstanceRequirements *SpotFleet_InstanceRequirementsRequest `json:"InstanceRequirements,omitempty"`
+
 	// InstanceType AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
 	InstanceType string `json:"InstanceType,omitempty"`
 

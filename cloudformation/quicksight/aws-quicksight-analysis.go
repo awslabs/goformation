@@ -44,7 +44,7 @@ type Analysis struct {
 	Permissions []Analysis_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
 	SourceEntity *Analysis_AnalysisSourceEntity `json:"SourceEntity,omitempty"`
 

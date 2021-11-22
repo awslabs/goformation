@@ -44,7 +44,7 @@ type Dashboard struct {
 	Permissions []Dashboard_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
 	SourceEntity *Dashboard_DashboardSourceEntity `json:"SourceEntity,omitempty"`
 
