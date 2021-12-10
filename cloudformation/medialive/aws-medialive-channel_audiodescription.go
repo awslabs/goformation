@@ -28,6 +28,11 @@ type Channel_AudioDescription struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audiotypecontrol
 	AudioTypeControl string `json:"AudioTypeControl,omitempty"`
 
+	// AudioWatermarkingSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audiowatermarkingsettings
+	AudioWatermarkingSettings *Channel_AudioWatermarkSettings `json:"AudioWatermarkingSettings,omitempty"`
+
 	// CodecSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-codecsettings

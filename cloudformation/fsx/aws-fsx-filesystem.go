@@ -43,6 +43,11 @@ type FileSystem struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-ontapconfiguration
 	OntapConfiguration *FileSystem_OntapConfiguration `json:"OntapConfiguration,omitempty"`
 
+	// OpenZFSConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-openzfsconfiguration
+	OpenZFSConfiguration *FileSystem_OpenZFSConfiguration `json:"OpenZFSConfiguration,omitempty"`
+
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-securitygroupids

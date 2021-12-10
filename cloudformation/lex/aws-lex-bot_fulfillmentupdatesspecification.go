@@ -1,0 +1,50 @@
+package lex
+
+import (
+	"github.com/awslabs/goformation/v5/cloudformation/policies"
+)
+
+// Bot_FulfillmentUpdatesSpecification AWS CloudFormation Resource (AWS::Lex::Bot.FulfillmentUpdatesSpecification)
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html
+type Bot_FulfillmentUpdatesSpecification struct {
+
+	// Active AWS CloudFormation Property
+	// Required: true
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-active
+	Active bool `json:"Active"`
+
+	// StartResponse AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-startresponse
+	StartResponse *Bot_FulfillmentStartResponseSpecification `json:"StartResponse,omitempty"`
+
+	// TimeoutInSeconds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-timeoutinseconds
+	TimeoutInSeconds int `json:"TimeoutInSeconds,omitempty"`
+
+	// UpdateResponse AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-updateresponse
+	UpdateResponse *Bot_FulfillmentUpdateResponseSpecification `json:"UpdateResponse,omitempty"`
+
+	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
+	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
+
+	// AWSCloudFormationUpdateReplacePolicy represents a CloudFormation UpdateReplacePolicy
+	AWSCloudFormationUpdateReplacePolicy policies.UpdateReplacePolicy `json:"-"`
+
+	// AWSCloudFormationDependsOn stores the logical ID of the resources to be created before this resource
+	AWSCloudFormationDependsOn []string `json:"-"`
+
+	// AWSCloudFormationMetadata stores structured data associated with this resource
+	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+
+	// AWSCloudFormationCondition stores the logical ID of the condition that must be satisfied for this resource to be created
+	AWSCloudFormationCondition string `json:"-"`
+}
+
+// AWSCloudFormationType returns the AWS CloudFormation resource type
+func (r *Bot_FulfillmentUpdatesSpecification) AWSCloudFormationType() string {
+	return "AWS::Lex::Bot.FulfillmentUpdatesSpecification"
+}

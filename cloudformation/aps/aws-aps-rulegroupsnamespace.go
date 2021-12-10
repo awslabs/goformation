@@ -19,7 +19,7 @@ type RuleGroupsNamespace struct {
 	Data string `json:"Data,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-name
 	Name string `json:"Name,omitempty"`
 

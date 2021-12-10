@@ -53,6 +53,11 @@ type WebACL_Statement struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
 	RateBasedStatement *WebACL_RateBasedStatement `json:"RateBasedStatement,omitempty"`
 
+	// RegexMatchStatement AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexmatchstatement
+	RegexMatchStatement *WebACL_RegexMatchStatement `json:"RegexMatchStatement,omitempty"`
+
 	// RegexPatternSetReferenceStatement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement

@@ -22,6 +22,11 @@ type AnomalyDetector struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-dimensions
 	Dimensions []AnomalyDetector_Dimension `json:"Dimensions,omitempty"`
 
+	// MetricMathAnomalyDetector AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector
+	MetricMathAnomalyDetector *AnomalyDetector_MetricMathAnomalyDetector `json:"MetricMathAnomalyDetector,omitempty"`
+
 	// MetricName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricname
@@ -31,6 +36,11 @@ type AnomalyDetector struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-namespace
 	Namespace string `json:"Namespace,omitempty"`
+
+	// SingleMetricAnomalyDetector AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector
+	SingleMetricAnomalyDetector *AnomalyDetector_SingleMetricAnomalyDetector `json:"SingleMetricAnomalyDetector,omitempty"`
 
 	// Stat AWS CloudFormation Property
 	// Required: false
