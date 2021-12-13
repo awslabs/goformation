@@ -18,6 +18,11 @@ type Job_ProfileConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
 	DatasetStatisticsConfiguration *Job_StatisticsConfiguration `json:"DatasetStatisticsConfiguration,omitempty"`
 
+	// EntityDetectorConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-entitydetectorconfiguration
+	EntityDetectorConfiguration *Job_EntityDetectorConfiguration `json:"EntityDetectorConfiguration,omitempty"`
+
 	// ProfileColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns

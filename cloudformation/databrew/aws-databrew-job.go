@@ -86,7 +86,7 @@ type Job struct {
 	// Recipe AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
-	Recipe interface{} `json:"Recipe,omitempty"`
+	Recipe *Job_Recipe `json:"Recipe,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
@@ -107,6 +107,11 @@ type Job struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
 	Type string `json:"Type,omitempty"`
+
+	// ValidationConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-validationconfigurations
+	ValidationConfigurations []Job_ValidationConfiguration `json:"ValidationConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

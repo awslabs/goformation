@@ -8,8 +8,13 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
 type StorageLens_DataExport struct {
 
+	// CloudWatchMetrics AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-cloudwatchmetrics
+	CloudWatchMetrics *StorageLens_CloudWatchMetrics `json:"CloudWatchMetrics,omitempty"`
+
 	// S3BucketDestination AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
 	S3BucketDestination *StorageLens_S3BucketDestination `json:"S3BucketDestination,omitempty"`
 

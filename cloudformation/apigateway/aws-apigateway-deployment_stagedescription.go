@@ -81,7 +81,7 @@ type Deployment_StageDescription struct {
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// ThrottlingBurstLimit AWS CloudFormation Property

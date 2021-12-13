@@ -14,7 +14,7 @@ import (
 type Fleet struct {
 
 	// ComputeCapacity AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-computecapacity
 	ComputeCapacity *Fleet_ComputeCapacity `json:"ComputeCapacity,omitempty"`
 
@@ -73,6 +73,11 @@ type Fleet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-instancetype
 	InstanceType string `json:"InstanceType,omitempty"`
 
+	// MaxConcurrentSessions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxconcurrentsessions
+	MaxConcurrentSessions int `json:"MaxConcurrentSessions,omitempty"`
+
 	// MaxUserDurationInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxuserdurationinseconds
@@ -83,6 +88,11 @@ type Fleet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 	Name string `json:"Name,omitempty"`
 
+	// Platform AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-platform
+	Platform string `json:"Platform,omitempty"`
+
 	// StreamView AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
@@ -92,6 +102,11 @@ type Fleet struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// UsbDeviceFilterStrings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-usbdevicefilterstrings
+	UsbDeviceFilterStrings []string `json:"UsbDeviceFilterStrings,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false

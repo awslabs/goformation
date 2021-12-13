@@ -18,6 +18,11 @@ type Dataset_Input struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
 	DatabaseInputDefinition *Dataset_DatabaseInputDefinition `json:"DatabaseInputDefinition,omitempty"`
 
+	// Metadata AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-metadata
+	Metadata *Dataset_Metadata `json:"Metadata,omitempty"`
+
 	// S3InputDefinition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition

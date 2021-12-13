@@ -48,6 +48,11 @@ type RuleGroup_Statement struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
 	RateBasedStatement *RuleGroup_RateBasedStatement `json:"RateBasedStatement,omitempty"`
 
+	// RegexMatchStatement AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexmatchstatement
+	RegexMatchStatement *RuleGroup_RegexMatchStatement `json:"RegexMatchStatement,omitempty"`
+
 	// RegexPatternSetReferenceStatement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
