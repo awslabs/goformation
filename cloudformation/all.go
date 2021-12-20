@@ -2,7 +2,7 @@ package cloudformation
 
 import (
 	"fmt"
-	"github.com/awslabs/goformation/v5/cloudformation/accessanalyzer"
+
 	"github.com/awslabs/goformation/v5/cloudformation/acmpca"
 	"github.com/awslabs/goformation/v5/cloudformation/amazonmq"
 	"github.com/awslabs/goformation/v5/cloudformation/amplify"
@@ -83,6 +83,7 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/frauddetector"
 	"github.com/awslabs/goformation/v5/cloudformation/fsx"
 	"github.com/awslabs/goformation/v5/cloudformation/gamelift"
+	"github.com/awslabs/goformation/v5/cloudformation/global"
 	"github.com/awslabs/goformation/v5/cloudformation/globalaccelerator"
 	"github.com/awslabs/goformation/v5/cloudformation/glue"
 	"github.com/awslabs/goformation/v5/cloudformation/greengrass"
@@ -183,13 +184,14 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/wisdom"
 	"github.com/awslabs/goformation/v5/cloudformation/workspaces"
 	"github.com/awslabs/goformation/v5/cloudformation/xray"
-
-	"github.com/awslabs/goformation/v5/cloudformation/global"
+	"github.com/ismferd//goformation/v5/cloudformation/accessanalyzer"
+	"github.com/ismferd/goformation/v5/cloudformation/cdkmetadata"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
 func AllResources() map[string]Resource {
 	return map[string]Resource{
+		"AWS::CDK::Metadata":                                          &cdkmetadata.CDKMetadata{},
 		"AWS::ACMPCA::Certificate":                                    &acmpca.Certificate{},
 		"AWS::ACMPCA::CertificateAuthority":                           &acmpca.CertificateAuthority{},
 		"AWS::ACMPCA::CertificateAuthorityActivation":                 &acmpca.CertificateAuthorityActivation{},

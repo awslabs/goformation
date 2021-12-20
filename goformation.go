@@ -2,11 +2,12 @@ package goformation
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"strings"
 
-	"github.com/awslabs/goformation/v5/cloudformation"
 	"github.com/awslabs/goformation/v5/intrinsics"
+	"github.com/ismferd/goformation/cloudformation"
 )
 
 //go:generate generate/generate.sh
@@ -43,12 +44,13 @@ func ParseYAML(data []byte) (*cloudformation.Template, error) {
 // ParseYAMLWithOptions an AWS CloudFormation template (expects a []byte of valid YAML)
 // Parsing can be tweaked via the specified options.
 func ParseYAMLWithOptions(data []byte, options *intrinsics.ProcessorOptions) (*cloudformation.Template, error) {
+
 	// Process all AWS CloudFormation intrinsic functions (e.g. Fn::Join)
 	intrinsified, err := intrinsics.ProcessYAML(data, options)
 	if err != nil {
 		return nil, err
 	}
-
+	fmt.Println("ParseYAMLWithOptions")
 	return unmarshal(intrinsified)
 
 }
@@ -73,9 +75,11 @@ func ParseJSONWithOptions(data []byte, options *intrinsics.ProcessorOptions) (*c
 }
 
 func unmarshal(data []byte) (*cloudformation.Template, error) {
-
+	fmt.Println("unmarshal")
 	template := &cloudformation.Template{}
+
 	if err := json.Unmarshal(data, template); err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 
