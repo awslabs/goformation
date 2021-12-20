@@ -82,7 +82,7 @@ func (resources *Resources) UnmarshalJSON(b []byte) error {
 
 func (globals *Globals) UnmarshalJSON(b []byte) error {
 	// Globals
-	fmt.Println("UnmarshalJSON")
+
 	var rawGlobals map[string]*json.RawMessage
 	err := json.Unmarshal(b, &rawGlobals)
 
