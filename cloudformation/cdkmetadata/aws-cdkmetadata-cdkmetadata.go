@@ -6,17 +6,11 @@ import (
 	"fmt"
 )
 
-// CustomResource AWS CloudFormation Resource (AWS::CloudFormation::CustomResource)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
+// CustomResource AWS CloudFormation Resource (AWS::CDK::Metadata)
 type CDKMetadata struct {
+	Analytics string `json:"Analytics,omitempty"`
 
-	// ServiceToken AWS CloudFormation Property
-	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#cfn-customresource-servicetoken
-	AWSCloudFormationAnalytics string `json:"-"`
-
-	// AWSCloudFormationMetadata stores structured data associated with this resource
-	AWSCloudFormationMetadata map[string]interface{} `json:"-"`
+	Metadata map[string]interface{} `json:"-"`
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
@@ -35,7 +29,7 @@ func (r CDKMetadata) MarshalJSON() ([]byte, error) {
 	}{
 		Type:       r.AWSCloudFormationType(),
 		Properties: (Properties)(r),
-		Metadata:   r.AWSCloudFormationMetadata,
+		Metadata:   r.Metadata,
 	})
 }
 

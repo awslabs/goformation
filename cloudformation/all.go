@@ -3,6 +3,7 @@ package cloudformation
 import (
 	"fmt"
 
+	"github.com/awslabs/goformation/v5/cloudformation/accessanalyzer"
 	"github.com/awslabs/goformation/v5/cloudformation/acmpca"
 	"github.com/awslabs/goformation/v5/cloudformation/amazonmq"
 	"github.com/awslabs/goformation/v5/cloudformation/amplify"
@@ -28,6 +29,7 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/batch"
 	"github.com/awslabs/goformation/v5/cloudformation/budgets"
 	"github.com/awslabs/goformation/v5/cloudformation/cassandra"
+	"github.com/awslabs/goformation/v5/cloudformation/cdkmetadata"
 	"github.com/awslabs/goformation/v5/cloudformation/ce"
 	"github.com/awslabs/goformation/v5/cloudformation/certificatemanager"
 	"github.com/awslabs/goformation/v5/cloudformation/chatbot"
@@ -184,8 +186,6 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/wisdom"
 	"github.com/awslabs/goformation/v5/cloudformation/workspaces"
 	"github.com/awslabs/goformation/v5/cloudformation/xray"
-	"github.com/ismferd//goformation/v5/cloudformation/accessanalyzer"
-	"github.com/ismferd/goformation/v5/cloudformation/cdkmetadata"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources

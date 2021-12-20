@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"strings"
 
+	"github.com/awslabs/goformation/v5/cloudformation"
 	"github.com/awslabs/goformation/v5/intrinsics"
-	"github.com/ismferd/goformation/cloudformation"
 )
 
 //go:generate generate/generate.sh
@@ -50,7 +50,7 @@ func ParseYAMLWithOptions(data []byte, options *intrinsics.ProcessorOptions) (*c
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("ParseYAMLWithOptions")
+
 	return unmarshal(intrinsified)
 
 }
@@ -75,7 +75,6 @@ func ParseJSONWithOptions(data []byte, options *intrinsics.ProcessorOptions) (*c
 }
 
 func unmarshal(data []byte) (*cloudformation.Template, error) {
-	fmt.Println("unmarshal")
 	template := &cloudformation.Template{}
 
 	if err := json.Unmarshal(data, template); err != nil {
