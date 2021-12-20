@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-// CustomResource AWS CloudFormation Resource (AWS::CDK::Metadata)
+// CDKMetadata AWS CloudFormation Resource (AWS::CDK::Metadata)
 type CDKMetadata struct {
 	Analytics string `json:"Analytics,omitempty"`
 

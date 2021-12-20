@@ -2,7 +2,6 @@ package goformation
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"strings"
 
@@ -78,7 +77,6 @@ func unmarshal(data []byte) (*cloudformation.Template, error) {
 	template := &cloudformation.Template{}
 
 	if err := json.Unmarshal(data, template); err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 
