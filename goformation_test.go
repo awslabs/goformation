@@ -1422,5 +1422,42 @@ var _ = Describe("Goformation", func() {
 				Expect(string(got)).To(Equal(expected))
 			})
 		})
+
+		Context("that has an image in arm64 architecture", func() {
+			template := cloudformation.NewTemplate()
+			transform := "AWS::Serverless-2016-10-31"
+			template.Transform = &cloudformation.Transform{
+				String: &transform,
+			}
+			template.Resources["TestFunction"] = &serverless.Function{
+				Architectures: []string{"arm64"},
+				ImageUri:      "image:latest-arm64",
+			}
+
+			expected := `{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "TestFunction": {
+      "Properties": {
+        "Architectures": [
+          "arm64"
+        ],
+        "ImageUri": "image:latest-arm64"
+      },
+      "Type": "AWS::Serverless::Function"
+    }
+  },
+  "Transform": "AWS::Serverless-2016-10-31"
+}`
+
+			got, err := template.JSON()
+			It("should marshal template successfully", func() {
+				Expect(err).To(BeNil())
+			})
+
+			It("should be equal to expected output", func() {
+				Expect(string(got)).To(Equal(expected))
+			})
+		})
 	})
 })

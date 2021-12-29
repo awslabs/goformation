@@ -257,6 +257,13 @@
                     "Required": false,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
+                },
+                "Architectures": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-architectures",
+                    "Required": false,
+                    "Type": "List",
+                    "ItemType": "String",
+                    "UpdateType": "Immutable"
                 }
             }
         },
