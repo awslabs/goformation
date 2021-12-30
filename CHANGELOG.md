@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.4.2](https://github.com/awslabs/goformation/compare/v5.4.1...v5.4.2) (2021-12-30)
+
+
+### Bug Fixes
+
+* **schema:** Add cdkmetada resource ([#418](https://github.com/awslabs/goformation/issues/418)) ([3d1b1f9](https://github.com/awslabs/goformation/commit/3d1b1f91c8e592604becd080a7a61b4064784d03))
+
 ## [5.4.1](https://github.com/awslabs/goformation/compare/v5.4.0...v5.4.1) (2021-12-13)
 
 
