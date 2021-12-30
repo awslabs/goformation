@@ -43,6 +43,7 @@ func ParseYAML(data []byte) (*cloudformation.Template, error) {
 // ParseYAMLWithOptions an AWS CloudFormation template (expects a []byte of valid YAML)
 // Parsing can be tweaked via the specified options.
 func ParseYAMLWithOptions(data []byte, options *intrinsics.ProcessorOptions) (*cloudformation.Template, error) {
+
 	// Process all AWS CloudFormation intrinsic functions (e.g. Fn::Join)
 	intrinsified, err := intrinsics.ProcessYAML(data, options)
 	if err != nil {
@@ -73,8 +74,8 @@ func ParseJSONWithOptions(data []byte, options *intrinsics.ProcessorOptions) (*c
 }
 
 func unmarshal(data []byte) (*cloudformation.Template, error) {
-
 	template := &cloudformation.Template{}
+
 	if err := json.Unmarshal(data, template); err != nil {
 		return nil, err
 	}

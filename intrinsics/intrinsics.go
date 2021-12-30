@@ -74,7 +74,6 @@ func ProcessYAML(input []byte, options *ProcessorOptions) ([]byte, error) {
 // AWS CloudFormation intrinsic functions, resolves them, and then returns
 // the resulting  interface{} object.
 func ProcessJSON(input []byte, options *ProcessorOptions) ([]byte, error) {
-
 	// First, unmarshal the JSON to a generic interface{} type
 	var unmarshalled interface{}
 	if err := json.Unmarshal(input, &unmarshalled); err != nil {

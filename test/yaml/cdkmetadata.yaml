@@ -1,0 +1,9 @@
+  
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Analytics: v2:deflate64:foobar
+    Metadata:
+      aws:cdk:path: foobar/CDKMetadata/Default

@@ -1267,6 +1267,33 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a CDKMetada template", func() {
+
+		template, err := goformation.Open("test/yaml/cdkmetadata.yaml")
+		It("should successfully validate the template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		It("should correctly Marshal the cdkmetadata resource", func() {
+			data, err := template.JSON()
+			Expect(err).To(BeNil())
+
+			var result map[string]interface{}
+			if err := json.Unmarshal(data, &result); err != nil {
+				Fail(err.Error())
+			}
+
+			resources, ok := result["Resources"].(map[string]interface{})
+			Expect(ok).To(BeTrue())
+			Expect(resources).To(HaveLen(1))
+			Expect(resources).To(HaveKey("CDKMetadata"))
+
+			mcr := resources["CDKMetadata"].(map[string]interface{})
+			Expect(mcr["Properties"]).To(HaveKey("Analytics"))
+		})
+	})
+
 	Context("with a template that contains conditional resources", func() {
 
 		template := &cloudformation.Template{
