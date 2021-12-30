@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.4.3](https://github.com/awslabs/goformation/compare/v5.4.2...v5.4.3) (2021-12-30)
+
+
+### Bug Fixes
+
+* **schema:** Add architectures support for sam functions ([#419](https://github.com/awslabs/goformation/issues/419)) ([b505b69](https://github.com/awslabs/goformation/commit/b505b694b7fc1d663282b67cdeba71013c4ea5ec))
+
 ## [5.4.2](https://github.com/awslabs/goformation/compare/v5.4.1...v5.4.2) (2021-12-30)
 
 
