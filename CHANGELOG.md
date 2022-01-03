@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.4.4](https://github.com/awslabs/goformation/compare/v5.4.3...v5.4.4) (2022-01-03)
+
+
+### Bug Fixes
+
+* **sam:** AWS::Serverless::Function Properties Architectures property should have a primitive type specified ([#420](https://github.com/awslabs/goformation/issues/420)) ([3aa91ed](https://github.com/awslabs/goformation/commit/3aa91edcb65cc6cfe8d0b2066944bc773acadc9f))
+
 ## [5.4.3](https://github.com/awslabs/goformation/compare/v5.4.2...v5.4.3) (2021-12-30)
 
 
