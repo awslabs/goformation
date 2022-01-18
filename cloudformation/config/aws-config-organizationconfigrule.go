@@ -22,6 +22,11 @@ type OrganizationConfigRule struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationconfigrulename
 	OrganizationConfigRuleName string `json:"OrganizationConfigRuleName,omitempty"`
 
+	// OrganizationCustomCodeRuleMetadata AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustomcoderulemetadata
+	OrganizationCustomCodeRuleMetadata *OrganizationConfigRule_OrganizationCustomCodeRuleMetadata `json:"OrganizationCustomCodeRuleMetadata,omitempty"`
+
 	// OrganizationCustomRuleMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata

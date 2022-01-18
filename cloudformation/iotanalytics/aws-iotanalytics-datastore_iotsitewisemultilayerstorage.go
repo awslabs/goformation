@@ -9,7 +9,7 @@ import (
 type Datastore_IotSiteWiseMultiLayerStorage struct {
 
 	// CustomerManagedS3Storage AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html#cfn-iotanalytics-datastore-iotsitewisemultilayerstorage-customermanageds3storage
 	CustomerManagedS3Storage *Datastore_CustomerManagedS3Storage `json:"CustomerManagedS3Storage,omitempty"`
 

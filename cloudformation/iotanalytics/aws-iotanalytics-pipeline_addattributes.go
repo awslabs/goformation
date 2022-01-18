@@ -9,12 +9,12 @@ import (
 type Pipeline_AddAttributes struct {
 
 	// Attributes AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-attributes
-	Attributes interface{} `json:"Attributes,omitempty"`
+	Attributes map[string]string `json:"Attributes,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-name
 	Name string `json:"Name,omitempty"`
 

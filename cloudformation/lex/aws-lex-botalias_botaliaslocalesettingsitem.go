@@ -9,12 +9,12 @@ import (
 type BotAlias_BotAliasLocaleSettingsItem struct {
 
 	// BotAliasLocaleSetting AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-botaliaslocalesetting
 	BotAliasLocaleSetting *BotAlias_BotAliasLocaleSettings `json:"BotAliasLocaleSetting,omitempty"`
 
 	// LocaleId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-localeid
 	LocaleId string `json:"LocaleId,omitempty"`
 

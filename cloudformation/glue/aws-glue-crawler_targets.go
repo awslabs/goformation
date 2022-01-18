@@ -23,6 +23,11 @@ type Crawler_Targets struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
 	JdbcTargets []Crawler_JdbcTarget `json:"JdbcTargets,omitempty"`
 
+	// MongoDBTargets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-mongodbtargets
+	MongoDBTargets []Crawler_MongoDBTarget `json:"MongoDBTargets,omitempty"`
+
 	// S3Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets

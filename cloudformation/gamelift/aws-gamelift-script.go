@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
 // Script AWS CloudFormation Resource (AWS::GameLift::Script)
@@ -21,6 +22,11 @@ type Script struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-storagelocation
 	StorageLocation *Script_S3Location `json:"StorageLocation,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Version AWS CloudFormation Property
 	// Required: false

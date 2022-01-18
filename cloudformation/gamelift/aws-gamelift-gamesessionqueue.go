@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v5/cloudformation/tags"
 )
 
 // GameSessionQueue AWS CloudFormation Resource (AWS::GameLift::GameSessionQueue)
@@ -46,6 +47,11 @@ type GameSessionQueue struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-priorityconfiguration
 	PriorityConfiguration *GameSessionQueue_PriorityConfiguration `json:"PriorityConfiguration,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TimeoutInSeconds AWS CloudFormation Property
 	// Required: false

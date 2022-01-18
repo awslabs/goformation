@@ -23,6 +23,16 @@ type LaunchProfile_StreamConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
 	MaxSessionLengthInMinutes float64 `json:"MaxSessionLengthInMinutes,omitempty"`
 
+	// MaxStoppedSessionLengthInMinutes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxstoppedsessionlengthinminutes
+	MaxStoppedSessionLengthInMinutes float64 `json:"MaxStoppedSessionLengthInMinutes,omitempty"`
+
+	// SessionStorage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-sessionstorage
+	SessionStorage *LaunchProfile_StreamConfigurationSessionStorage `json:"SessionStorage,omitempty"`
+
 	// StreamingImageIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
