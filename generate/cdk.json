@@ -1,0 +1,17 @@
+{
+    "ResourceSpecificationVersion": "2016-10-31",
+    "ResourceTypes": {
+        "AWS::CDK::Metadata": {
+            "Documentation": "https://github.com/aws/aws-cdk-rfcs/blob/master/text/0253-cdk-metadata-v2.md",
+            "Properties": {
+                "Analytics": {
+                    "Documentation": "https://github.com/aws/aws-cdk-rfcs/blob/master/text/0253-cdk-metadata-v2.md",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        }
+    },
+    "PropertyTypes": {}
+}

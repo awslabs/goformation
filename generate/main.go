@@ -16,6 +16,11 @@ func main() {
 		// We have a manually generated SAM specification in this repo too
 		// which needs to be manually updated when the SAM spec changes
 		"sam": "file://generate/sam-2016-10-31.json",
+		// We have a manually generated CDK specification too, which currently
+		// only includes the AWS::CDK::Metadata resource type, however it could
+		// include others in the future if more resources are published under the
+		// AWS::CDK:: namespace.
+		"cdk": "file://generate/cdk.json",
 	}
 
 	rg, err := NewResourceGenerator(cloudformationSpec, otherSpecs)
