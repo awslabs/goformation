@@ -14,9 +14,9 @@ type Resolver_CachingConfig struct {
 	CachingKeys []string `json:"CachingKeys,omitempty"`
 
 	// Ttl AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-ttl
-	Ttl float64 `json:"Ttl,omitempty"`
+	Ttl float64 `json:"Ttl"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

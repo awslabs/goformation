@@ -24,12 +24,12 @@ type AppMonitor struct {
 	CwLogEnabled bool `json:"CwLogEnabled,omitempty"`
 
 	// Domain AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-domain
 	Domain string `json:"Domain,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-name
 	Name string `json:"Name,omitempty"`
 

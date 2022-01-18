@@ -11,7 +11,7 @@ type BotAlias_TextLogDestination struct {
 	// CloudWatch AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogdestination.html#cfn-lex-botalias-textlogdestination-cloudwatch
-	CloudWatch interface{} `json:"CloudWatch,omitempty"`
+	CloudWatch *BotAlias_CloudWatchLogGroupLogDestination `json:"CloudWatch,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
