@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.4.5](https://github.com/awslabs/goformation/compare/v5.4.4...v5.4.5) (2022-01-18)
+
+
+### Bug Fixes
+
+* **schema:** AWS::CDK::Metadata resource should be automatically generated ([#421](https://github.com/awslabs/goformation/issues/421)) ([65569f7](https://github.com/awslabs/goformation/commit/65569f77c1708e52839ea486d5e10bdabdb24ce0)), closes [#418](https://github.com/awslabs/goformation/issues/418)
+
 ## [5.4.4](https://github.com/awslabs/goformation/compare/v5.4.3...v5.4.4) (2022-01-03)
 
 
