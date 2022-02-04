@@ -33,7 +33,7 @@ type PlaceIndex struct {
 	IndexName string `json:"IndexName,omitempty"`
 
 	// PricingPlan AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
 	PricingPlan string `json:"PricingPlan,omitempty"`
 

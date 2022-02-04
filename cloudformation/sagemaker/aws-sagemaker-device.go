@@ -16,7 +16,7 @@ type Device struct {
 	// Device AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-	Device interface{} `json:"Device,omitempty"`
+	Device *Device_Device `json:"Device,omitempty"`
 
 	// DeviceFleetName AWS CloudFormation Property
 	// Required: true

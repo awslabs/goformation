@@ -14,7 +14,7 @@ type SimulationApplication_SimulationSoftwareSuite struct {
 	Name string `json:"Name,omitempty"`
 
 	// Version AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
 	Version string `json:"Version,omitempty"`
 

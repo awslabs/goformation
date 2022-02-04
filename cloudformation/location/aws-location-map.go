@@ -28,7 +28,7 @@ type Map struct {
 	MapName string `json:"MapName,omitempty"`
 
 	// PricingPlan AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
 	PricingPlan string `json:"PricingPlan,omitempty"`
 

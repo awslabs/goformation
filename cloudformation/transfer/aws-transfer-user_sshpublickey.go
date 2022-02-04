@@ -5,7 +5,7 @@ import (
 )
 
 // User_SshPublicKey AWS CloudFormation Resource (AWS::Transfer::User.SshPublicKey)
-// See:
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-sshpublickey.html
 type User_SshPublicKey struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

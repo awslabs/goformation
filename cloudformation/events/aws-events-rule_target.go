@@ -78,6 +78,11 @@ type Rule_Target struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
 	RunCommandParameters *Rule_RunCommandParameters `json:"RunCommandParameters,omitempty"`
 
+	// SageMakerPipelineParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sagemakerpipelineparameters
+	SageMakerPipelineParameters *Rule_SageMakerPipelineParameters `json:"SageMakerPipelineParameters,omitempty"`
+
 	// SqsParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters
