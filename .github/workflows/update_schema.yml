@@ -45,7 +45,7 @@ jobs:
           base: master
           branch: auto-schema-update
           delete-branch: true
-          committer: "Paul Maddox <paul.maddox@gmail.com>"
-          author: "Paul Maddox <paul.maddox@gmail.com>"
-          assignees: PaulMaddox
+          committer: "Rúben Fonseca <fonseka@gmail.com>"
+          author: "Rúben Fonseca <fonseka@gmail.com>"
+          assignees: rubenfonseca
  
