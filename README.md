@@ -48,8 +48,6 @@ import (
 
 	"github.com/awslabs/goformation/v5/cloudformation"
 	"github.com/awslabs/goformation/v5/cloudformation/sns"
-
-
 )
 
 func main() {
