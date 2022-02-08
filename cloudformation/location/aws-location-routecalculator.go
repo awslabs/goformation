@@ -28,7 +28,7 @@ type RouteCalculator struct {
 	Description string `json:"Description,omitempty"`
 
 	// PricingPlan AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
 	PricingPlan string `json:"PricingPlan,omitempty"`
 

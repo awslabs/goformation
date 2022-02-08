@@ -17,6 +17,11 @@ type RotationSchedule struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
 	HostedRotationLambda *RotationSchedule_HostedRotationLambda `json:"HostedRotationLambda,omitempty"`
 
+	// RotateImmediatelyOnUpdate AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotateimmediatelyonupdate
+	RotateImmediatelyOnUpdate bool `json:"RotateImmediatelyOnUpdate,omitempty"`
+
 	// RotationLambdaARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn

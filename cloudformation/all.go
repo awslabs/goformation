@@ -106,6 +106,7 @@ import (
 	"github.com/awslabs/goformation/v5/cloudformation/iotthingsgraph"
 	"github.com/awslabs/goformation/v5/cloudformation/iotwireless"
 	"github.com/awslabs/goformation/v5/cloudformation/ivs"
+	"github.com/awslabs/goformation/v5/cloudformation/kafkaconnect"
 	"github.com/awslabs/goformation/v5/cloudformation/kendra"
 	"github.com/awslabs/goformation/v5/cloudformation/kinesis"
 	"github.com/awslabs/goformation/v5/cloudformation/kinesisanalytics"
@@ -249,6 +250,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppConfig::HostedConfigurationVersion":                  &appconfig.HostedConfigurationVersion{},
 		"AWS::AppFlow::ConnectorProfile":                              &appflow.ConnectorProfile{},
 		"AWS::AppFlow::Flow":                                          &appflow.Flow{},
+		"AWS::AppIntegrations::DataIntegration":                       &appintegrations.DataIntegration{},
 		"AWS::AppIntegrations::EventIntegration":                      &appintegrations.EventIntegration{},
 		"AWS::AppMesh::GatewayRoute":                                  &appmesh.GatewayRoute{},
 		"AWS::AppMesh::Mesh":                                          &appmesh.Mesh{},
@@ -719,6 +721,7 @@ func AllResources() map[string]Resource {
 		"AWS::KMS::Alias":                                             &kms.Alias{},
 		"AWS::KMS::Key":                                               &kms.Key{},
 		"AWS::KMS::ReplicaKey":                                        &kms.ReplicaKey{},
+		"AWS::KafkaConnect::Connector":                                &kafkaconnect.Connector{},
 		"AWS::Kendra::DataSource":                                     &kendra.DataSource{},
 		"AWS::Kendra::Faq":                                            &kendra.Faq{},
 		"AWS::Kendra::Index":                                          &kendra.Index{},
@@ -754,8 +757,11 @@ func AllResources() map[string]Resource {
 		"AWS::LicenseManager::License":                                &licensemanager.License{},
 		"AWS::Lightsail::Alarm":                                       &lightsail.Alarm{},
 		"AWS::Lightsail::Bucket":                                      &lightsail.Bucket{},
+		"AWS::Lightsail::Certificate":                                 &lightsail.Certificate{},
+		"AWS::Lightsail::Container":                                   &lightsail.Container{},
 		"AWS::Lightsail::Database":                                    &lightsail.Database{},
 		"AWS::Lightsail::Disk":                                        &lightsail.Disk{},
+		"AWS::Lightsail::Distribution":                                &lightsail.Distribution{},
 		"AWS::Lightsail::Instance":                                    &lightsail.Instance{},
 		"AWS::Lightsail::LoadBalancer":                                &lightsail.LoadBalancer{},
 		"AWS::Lightsail::LoadBalancerTlsCertificate":                  &lightsail.LoadBalancerTlsCertificate{},
@@ -897,6 +903,7 @@ func AllResources() map[string]Resource {
 		"AWS::RefactorSpaces::Environment":                            &refactorspaces.Environment{},
 		"AWS::RefactorSpaces::Route":                                  &refactorspaces.Route{},
 		"AWS::RefactorSpaces::Service":                                &refactorspaces.Service{},
+		"AWS::Rekognition::Collection":                                &rekognition.Collection{},
 		"AWS::Rekognition::Project":                                   &rekognition.Project{},
 		"AWS::ResilienceHub::App":                                     &resiliencehub.App{},
 		"AWS::ResilienceHub::ResiliencyPolicy":                        &resiliencehub.ResiliencyPolicy{},
@@ -2400,6 +2407,30 @@ func (t *Template) GetAppFlowFlowWithName(name string) (*appflow.Flow, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type appflow.Flow not found", name)
+}
+
+// GetAllAppIntegrationsDataIntegrationResources retrieves all appintegrations.DataIntegration items from an AWS CloudFormation template
+func (t *Template) GetAllAppIntegrationsDataIntegrationResources() map[string]*appintegrations.DataIntegration {
+	results := map[string]*appintegrations.DataIntegration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appintegrations.DataIntegration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppIntegrationsDataIntegrationWithName retrieves all appintegrations.DataIntegration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppIntegrationsDataIntegrationWithName(name string) (*appintegrations.DataIntegration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appintegrations.DataIntegration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appintegrations.DataIntegration not found", name)
 }
 
 // GetAllAppIntegrationsEventIntegrationResources retrieves all appintegrations.EventIntegration items from an AWS CloudFormation template
@@ -13682,6 +13713,30 @@ func (t *Template) GetKMSReplicaKeyWithName(name string) (*kms.ReplicaKey, error
 	return nil, fmt.Errorf("resource %q of type kms.ReplicaKey not found", name)
 }
 
+// GetAllKafkaConnectConnectorResources retrieves all kafkaconnect.Connector items from an AWS CloudFormation template
+func (t *Template) GetAllKafkaConnectConnectorResources() map[string]*kafkaconnect.Connector {
+	results := map[string]*kafkaconnect.Connector{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *kafkaconnect.Connector:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetKafkaConnectConnectorWithName retrieves all kafkaconnect.Connector items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetKafkaConnectConnectorWithName(name string) (*kafkaconnect.Connector, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *kafkaconnect.Connector:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type kafkaconnect.Connector not found", name)
+}
+
 // GetAllKendraDataSourceResources retrieves all kendra.DataSource items from an AWS CloudFormation template
 func (t *Template) GetAllKendraDataSourceResources() map[string]*kendra.DataSource {
 	results := map[string]*kendra.DataSource{}
@@ -14522,6 +14577,54 @@ func (t *Template) GetLightsailBucketWithName(name string) (*lightsail.Bucket, e
 	return nil, fmt.Errorf("resource %q of type lightsail.Bucket not found", name)
 }
 
+// GetAllLightsailCertificateResources retrieves all lightsail.Certificate items from an AWS CloudFormation template
+func (t *Template) GetAllLightsailCertificateResources() map[string]*lightsail.Certificate {
+	results := map[string]*lightsail.Certificate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lightsail.Certificate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLightsailCertificateWithName retrieves all lightsail.Certificate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLightsailCertificateWithName(name string) (*lightsail.Certificate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lightsail.Certificate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lightsail.Certificate not found", name)
+}
+
+// GetAllLightsailContainerResources retrieves all lightsail.Container items from an AWS CloudFormation template
+func (t *Template) GetAllLightsailContainerResources() map[string]*lightsail.Container {
+	results := map[string]*lightsail.Container{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lightsail.Container:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLightsailContainerWithName retrieves all lightsail.Container items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLightsailContainerWithName(name string) (*lightsail.Container, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lightsail.Container:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lightsail.Container not found", name)
+}
+
 // GetAllLightsailDatabaseResources retrieves all lightsail.Database items from an AWS CloudFormation template
 func (t *Template) GetAllLightsailDatabaseResources() map[string]*lightsail.Database {
 	results := map[string]*lightsail.Database{}
@@ -14568,6 +14671,30 @@ func (t *Template) GetLightsailDiskWithName(name string) (*lightsail.Disk, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type lightsail.Disk not found", name)
+}
+
+// GetAllLightsailDistributionResources retrieves all lightsail.Distribution items from an AWS CloudFormation template
+func (t *Template) GetAllLightsailDistributionResources() map[string]*lightsail.Distribution {
+	results := map[string]*lightsail.Distribution{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lightsail.Distribution:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLightsailDistributionWithName retrieves all lightsail.Distribution items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLightsailDistributionWithName(name string) (*lightsail.Distribution, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lightsail.Distribution:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lightsail.Distribution not found", name)
 }
 
 // GetAllLightsailInstanceResources retrieves all lightsail.Instance items from an AWS CloudFormation template
@@ -17952,6 +18079,30 @@ func (t *Template) GetRefactorSpacesServiceWithName(name string) (*refactorspace
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type refactorspaces.Service not found", name)
+}
+
+// GetAllRekognitionCollectionResources retrieves all rekognition.Collection items from an AWS CloudFormation template
+func (t *Template) GetAllRekognitionCollectionResources() map[string]*rekognition.Collection {
+	results := map[string]*rekognition.Collection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *rekognition.Collection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRekognitionCollectionWithName retrieves all rekognition.Collection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRekognitionCollectionWithName(name string) (*rekognition.Collection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *rekognition.Collection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type rekognition.Collection not found", name)
 }
 
 // GetAllRekognitionProjectResources retrieves all rekognition.Project items from an AWS CloudFormation template

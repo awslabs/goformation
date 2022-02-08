@@ -18,6 +18,16 @@ type Application_ConfigurationDetails struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
 	Alarms []Application_Alarm `json:"Alarms,omitempty"`
 
+	// HAClusterPrometheusExporter AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-haclusterprometheusexporter
+	HAClusterPrometheusExporter *Application_HAClusterPrometheusExporter `json:"HAClusterPrometheusExporter,omitempty"`
+
+	// HANAPrometheusExporter AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-hanaprometheusexporter
+	HANAPrometheusExporter *Application_HANAPrometheusExporter `json:"HANAPrometheusExporter,omitempty"`
+
 	// JMXPrometheusExporter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter

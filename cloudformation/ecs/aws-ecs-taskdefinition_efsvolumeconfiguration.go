@@ -11,7 +11,7 @@ type TaskDefinition_EFSVolumeConfiguration struct {
 	// AuthorizationConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
-	AuthorizationConfig interface{} `json:"AuthorizationConfig,omitempty"`
+	AuthorizationConfig *TaskDefinition_AuthorizationConfig `json:"AuthorizationConfig,omitempty"`
 
 	// FilesystemId AWS CloudFormation Property
 	// Required: true

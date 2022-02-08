@@ -28,7 +28,7 @@ type GeofenceCollection struct {
 	KmsKeyId string `json:"KmsKeyId,omitempty"`
 
 	// PricingPlan AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
 	PricingPlan string `json:"PricingPlan,omitempty"`
 
