@@ -1,4 +1,4 @@
-package goformation
+package cloudformation
 
 import (
 	"reflect"
