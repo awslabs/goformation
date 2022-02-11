@@ -31,7 +31,7 @@ type ListenerRule_Action struct {
 	// Order AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-order
-	Order int `json:"Order,omitempty"`
+	Order *int `json:"Order,omitempty"`
 
 	// RedirectConfig AWS CloudFormation Property
 	// Required: false
@@ -41,12 +41,12 @@ type ListenerRule_Action struct {
 	// TargetGroupArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-targetgrouparn
-	TargetGroupArn string `json:"TargetGroupArn,omitempty"`
+	TargetGroupArn *string `json:"TargetGroupArn,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

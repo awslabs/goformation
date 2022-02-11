@@ -11,7 +11,7 @@ type CachePolicy_CachePolicyConfig struct {
 	// Comment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
-	Comment string `json:"Comment,omitempty"`
+	Comment *string `json:"Comment,omitempty"`
 
 	// DefaultTTL AWS CloudFormation Property
 	// Required: true
@@ -31,12 +31,12 @@ type CachePolicy_CachePolicyConfig struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ParametersInCacheKeyAndForwardedToOrigin AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
-	ParametersInCacheKeyAndForwardedToOrigin *CachePolicy_ParametersInCacheKeyAndForwardedToOrigin `json:"ParametersInCacheKeyAndForwardedToOrigin,omitempty"`
+	ParametersInCacheKeyAndForwardedToOrigin *CachePolicy_ParametersInCacheKeyAndForwardedToOrigin `json:"ParametersInCacheKeyAndForwardedToOrigin"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type MaintenanceWindowTask_CloudWatchOutputConfig struct {
 	// CloudWatchLogGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html#cfn-ssm-maintenancewindowtask-cloudwatchoutputconfig-cloudwatchloggroupname
-	CloudWatchLogGroupName string `json:"CloudWatchLogGroupName,omitempty"`
+	CloudWatchLogGroupName *string `json:"CloudWatchLogGroupName,omitempty"`
 
 	// CloudWatchOutputEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html#cfn-ssm-maintenancewindowtask-cloudwatchoutputconfig-cloudwatchoutputenabled
-	CloudWatchOutputEnabled bool `json:"CloudWatchOutputEnabled,omitempty"`
+	CloudWatchOutputEnabled *bool `json:"CloudWatchOutputEnabled,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

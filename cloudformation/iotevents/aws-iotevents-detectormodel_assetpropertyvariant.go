@@ -11,22 +11,22 @@ type DetectorModel_AssetPropertyVariant struct {
 	// BooleanValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue
-	BooleanValue string `json:"BooleanValue,omitempty"`
+	BooleanValue *string `json:"BooleanValue,omitempty"`
 
 	// DoubleValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue
-	DoubleValue string `json:"DoubleValue,omitempty"`
+	DoubleValue *string `json:"DoubleValue,omitempty"`
 
 	// IntegerValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue
-	IntegerValue string `json:"IntegerValue,omitempty"`
+	IntegerValue *string `json:"IntegerValue,omitempty"`
 
 	// StringValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue
-	StringValue string `json:"StringValue,omitempty"`
+	StringValue *string `json:"StringValue,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

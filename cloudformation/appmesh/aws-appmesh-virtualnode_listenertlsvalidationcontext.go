@@ -16,7 +16,7 @@ type VirtualNode_ListenerTlsValidationContext struct {
 	// Trust AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html#cfn-appmesh-virtualnode-listenertlsvalidationcontext-trust
-	Trust *VirtualNode_ListenerTlsValidationContextTrust `json:"Trust,omitempty"`
+	Trust *VirtualNode_ListenerTlsValidationContextTrust `json:"Trust"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

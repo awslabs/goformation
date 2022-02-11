@@ -16,22 +16,22 @@ type Application struct {
 	// ApplicationDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
-	ApplicationDescription string `json:"ApplicationDescription,omitempty"`
+	ApplicationDescription *string `json:"ApplicationDescription,omitempty"`
 
 	// ApplicationName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
-	ApplicationName string `json:"ApplicationName,omitempty"`
+	ApplicationName string `json:"ApplicationName"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

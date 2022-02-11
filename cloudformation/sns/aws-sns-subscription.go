@@ -15,47 +15,47 @@ type Subscription struct {
 	// DeliveryPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-deliverypolicy
-	DeliveryPolicy interface{} `json:"DeliveryPolicy,omitempty"`
+	DeliveryPolicy *interface{} `json:"DeliveryPolicy,omitempty"`
 
 	// Endpoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-endpoint
-	Endpoint string `json:"Endpoint,omitempty"`
+	Endpoint *string `json:"Endpoint,omitempty"`
 
 	// FilterPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicy
-	FilterPolicy interface{} `json:"FilterPolicy,omitempty"`
+	FilterPolicy *interface{} `json:"FilterPolicy,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol string `json:"Protocol"`
 
 	// RawMessageDelivery AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery
-	RawMessageDelivery bool `json:"RawMessageDelivery,omitempty"`
+	RawMessageDelivery *bool `json:"RawMessageDelivery,omitempty"`
 
 	// RedrivePolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-redrivepolicy
-	RedrivePolicy interface{} `json:"RedrivePolicy,omitempty"`
+	RedrivePolicy *interface{} `json:"RedrivePolicy,omitempty"`
 
 	// Region AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
-	Region string `json:"Region,omitempty"`
+	Region *string `json:"Region,omitempty"`
 
 	// SubscriptionRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
-	SubscriptionRoleArn string `json:"SubscriptionRoleArn,omitempty"`
+	SubscriptionRoleArn *string `json:"SubscriptionRoleArn,omitempty"`
 
 	// TopicArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
-	TopicArn string `json:"TopicArn,omitempty"`
+	TopicArn string `json:"TopicArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

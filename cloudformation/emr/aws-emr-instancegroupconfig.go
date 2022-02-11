@@ -20,17 +20,17 @@ type InstanceGroupConfig struct {
 	// BidPrice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-bidprice
-	BidPrice string `json:"BidPrice,omitempty"`
+	BidPrice *string `json:"BidPrice,omitempty"`
 
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-configurations
-	Configurations []InstanceGroupConfig_Configuration `json:"Configurations,omitempty"`
+	Configurations *[]InstanceGroupConfig_Configuration `json:"Configurations,omitempty"`
 
 	// CustomAmiId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-customamiid
-	CustomAmiId string `json:"CustomAmiId,omitempty"`
+	CustomAmiId *string `json:"CustomAmiId,omitempty"`
 
 	// EbsConfiguration AWS CloudFormation Property
 	// Required: false
@@ -45,27 +45,27 @@ type InstanceGroupConfig struct {
 	// InstanceRole AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancerole
-	InstanceRole string `json:"InstanceRole,omitempty"`
+	InstanceRole string `json:"InstanceRole"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancetype
-	InstanceType string `json:"InstanceType,omitempty"`
+	InstanceType string `json:"InstanceType"`
 
 	// JobFlowId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-jobflowid
-	JobFlowId string `json:"JobFlowId,omitempty"`
+	JobFlowId string `json:"JobFlowId"`
 
 	// Market AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-market
-	Market string `json:"Market,omitempty"`
+	Market *string `json:"Market,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

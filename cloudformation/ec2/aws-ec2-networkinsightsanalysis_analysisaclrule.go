@@ -11,12 +11,12 @@ type NetworkInsightsAnalysis_AnalysisAclRule struct {
 	// Cidr AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr
-	Cidr string `json:"Cidr,omitempty"`
+	Cidr *string `json:"Cidr,omitempty"`
 
 	// Egress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress
-	Egress bool `json:"Egress,omitempty"`
+	Egress *bool `json:"Egress,omitempty"`
 
 	// PortRange AWS CloudFormation Property
 	// Required: false
@@ -26,17 +26,17 @@ type NetworkInsightsAnalysis_AnalysisAclRule struct {
 	// Protocol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol *string `json:"Protocol,omitempty"`
 
 	// RuleAction AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction
-	RuleAction string `json:"RuleAction,omitempty"`
+	RuleAction *string `json:"RuleAction,omitempty"`
 
 	// RuleNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber
-	RuleNumber int `json:"RuleNumber,omitempty"`
+	RuleNumber *int `json:"RuleNumber,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

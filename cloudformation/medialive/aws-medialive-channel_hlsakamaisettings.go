@@ -11,37 +11,37 @@ type Channel_HlsAkamaiSettings struct {
 	// ConnectionRetryInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html#cfn-medialive-channel-hlsakamaisettings-connectionretryinterval
-	ConnectionRetryInterval int `json:"ConnectionRetryInterval,omitempty"`
+	ConnectionRetryInterval *int `json:"ConnectionRetryInterval,omitempty"`
 
 	// FilecacheDuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html#cfn-medialive-channel-hlsakamaisettings-filecacheduration
-	FilecacheDuration int `json:"FilecacheDuration,omitempty"`
+	FilecacheDuration *int `json:"FilecacheDuration,omitempty"`
 
 	// HttpTransferMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html#cfn-medialive-channel-hlsakamaisettings-httptransfermode
-	HttpTransferMode string `json:"HttpTransferMode,omitempty"`
+	HttpTransferMode *string `json:"HttpTransferMode,omitempty"`
 
 	// NumRetries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html#cfn-medialive-channel-hlsakamaisettings-numretries
-	NumRetries int `json:"NumRetries,omitempty"`
+	NumRetries *int `json:"NumRetries,omitempty"`
 
 	// RestartDelay AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html#cfn-medialive-channel-hlsakamaisettings-restartdelay
-	RestartDelay int `json:"RestartDelay,omitempty"`
+	RestartDelay *int `json:"RestartDelay,omitempty"`
 
 	// Salt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html#cfn-medialive-channel-hlsakamaisettings-salt
-	Salt string `json:"Salt,omitempty"`
+	Salt *string `json:"Salt,omitempty"`
 
 	// Token AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html#cfn-medialive-channel-hlsakamaisettings-token
-	Token string `json:"Token,omitempty"`
+	Token *string `json:"Token,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

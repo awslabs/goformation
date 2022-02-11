@@ -11,17 +11,17 @@ type LaunchConfiguration_MetadataOptions struct {
 	// HttpEndpoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-metadataoptions.html#cfn-autoscaling-launchconfiguration-metadataoptions-httpendpoint
-	HttpEndpoint string `json:"HttpEndpoint,omitempty"`
+	HttpEndpoint *string `json:"HttpEndpoint,omitempty"`
 
 	// HttpPutResponseHopLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-metadataoptions.html#cfn-autoscaling-launchconfiguration-metadataoptions-httpputresponsehoplimit
-	HttpPutResponseHopLimit int `json:"HttpPutResponseHopLimit,omitempty"`
+	HttpPutResponseHopLimit *int `json:"HttpPutResponseHopLimit,omitempty"`
 
 	// HttpTokens AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-metadataoptions.html#cfn-autoscaling-launchconfiguration-metadataoptions-httptokens
-	HttpTokens string `json:"HttpTokens,omitempty"`
+	HttpTokens *string `json:"HttpTokens,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

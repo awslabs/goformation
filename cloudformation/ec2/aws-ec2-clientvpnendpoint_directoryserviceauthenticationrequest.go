@@ -11,7 +11,7 @@ type ClientVpnEndpoint_DirectoryServiceAuthenticationRequest struct {
 	// DirectoryId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid
-	DirectoryId string `json:"DirectoryId,omitempty"`
+	DirectoryId string `json:"DirectoryId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

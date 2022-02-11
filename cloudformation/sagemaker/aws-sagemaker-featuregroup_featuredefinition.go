@@ -11,12 +11,12 @@ type FeatureGroup_FeatureDefinition struct {
 	// FeatureName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
-	FeatureName string `json:"FeatureName,omitempty"`
+	FeatureName string `json:"FeatureName"`
 
 	// FeatureType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
-	FeatureType string `json:"FeatureType,omitempty"`
+	FeatureType string `json:"FeatureType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

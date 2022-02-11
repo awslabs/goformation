@@ -11,7 +11,7 @@ type DetectorModel_Lambda struct {
 	// FunctionArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
-	FunctionArn string `json:"FunctionArn,omitempty"`
+	FunctionArn string `json:"FunctionArn"`
 
 	// Payload AWS CloudFormation Property
 	// Required: false

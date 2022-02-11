@@ -15,32 +15,32 @@ type Domain struct {
 	// AppId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-	AppId string `json:"AppId,omitempty"`
+	AppId string `json:"AppId"`
 
 	// AutoSubDomainCreationPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-	AutoSubDomainCreationPatterns []string `json:"AutoSubDomainCreationPatterns,omitempty"`
+	AutoSubDomainCreationPatterns *[]string `json:"AutoSubDomainCreationPatterns,omitempty"`
 
 	// AutoSubDomainIAMRole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-	AutoSubDomainIAMRole string `json:"AutoSubDomainIAMRole,omitempty"`
+	AutoSubDomainIAMRole *string `json:"AutoSubDomainIAMRole,omitempty"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-	DomainName string `json:"DomainName,omitempty"`
+	DomainName string `json:"DomainName"`
 
 	// EnableAutoSubDomain AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-	EnableAutoSubDomain bool `json:"EnableAutoSubDomain,omitempty"`
+	EnableAutoSubDomain *bool `json:"EnableAutoSubDomain,omitempty"`
 
 	// SubDomainSettings AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-	SubDomainSettings []Domain_SubDomainSetting `json:"SubDomainSettings,omitempty"`
+	SubDomainSettings []Domain_SubDomainSetting `json:"SubDomainSettings"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

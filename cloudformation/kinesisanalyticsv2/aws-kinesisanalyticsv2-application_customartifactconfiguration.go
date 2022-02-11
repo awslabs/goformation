@@ -11,7 +11,7 @@ type Application_CustomArtifactConfiguration struct {
 	// ArtifactType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-customartifactconfiguration.html#cfn-kinesisanalyticsv2-application-customartifactconfiguration-artifacttype
-	ArtifactType string `json:"ArtifactType,omitempty"`
+	ArtifactType string `json:"ArtifactType"`
 
 	// MavenReference AWS CloudFormation Property
 	// Required: false

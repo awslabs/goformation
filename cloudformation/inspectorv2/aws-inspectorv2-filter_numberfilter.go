@@ -11,12 +11,12 @@ type Filter_NumberFilter struct {
 	// LowerInclusive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html#cfn-inspectorv2-filter-numberfilter-lowerinclusive
-	LowerInclusive float64 `json:"LowerInclusive,omitempty"`
+	LowerInclusive *float64 `json:"LowerInclusive,omitempty"`
 
 	// UpperInclusive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html#cfn-inspectorv2-filter-numberfilter-upperinclusive
-	UpperInclusive float64 `json:"UpperInclusive,omitempty"`
+	UpperInclusive *float64 `json:"UpperInclusive,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

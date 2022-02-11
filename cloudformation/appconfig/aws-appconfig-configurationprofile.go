@@ -15,42 +15,42 @@ type ConfigurationProfile struct {
 	// ApplicationId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-applicationid
-	ApplicationId string `json:"ApplicationId,omitempty"`
+	ApplicationId string `json:"ApplicationId"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// LocationUri AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-locationuri
-	LocationUri string `json:"LocationUri,omitempty"`
+	LocationUri string `json:"LocationUri"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RetrievalRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-retrievalrolearn
-	RetrievalRoleArn string `json:"RetrievalRoleArn,omitempty"`
+	RetrievalRoleArn *string `json:"RetrievalRoleArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-tags
-	Tags []ConfigurationProfile_Tags `json:"Tags,omitempty"`
+	Tags *[]ConfigurationProfile_Tags `json:"Tags,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-type
-	Type string `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 
 	// Validators AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-validators
-	Validators []ConfigurationProfile_Validators `json:"Validators,omitempty"`
+	Validators *[]ConfigurationProfile_Validators `json:"Validators,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

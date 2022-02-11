@@ -11,27 +11,27 @@ type ScheduledQuery_MixedMeasureMapping struct {
 	// MeasureName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-measurename
-	MeasureName string `json:"MeasureName,omitempty"`
+	MeasureName *string `json:"MeasureName,omitempty"`
 
 	// MeasureValueType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-measurevaluetype
-	MeasureValueType string `json:"MeasureValueType,omitempty"`
+	MeasureValueType string `json:"MeasureValueType"`
 
 	// MultiMeasureAttributeMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-multimeasureattributemappings
-	MultiMeasureAttributeMappings []ScheduledQuery_MultiMeasureAttributeMapping `json:"MultiMeasureAttributeMappings,omitempty"`
+	MultiMeasureAttributeMappings *[]ScheduledQuery_MultiMeasureAttributeMapping `json:"MultiMeasureAttributeMappings,omitempty"`
 
 	// SourceColumn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-sourcecolumn
-	SourceColumn string `json:"SourceColumn,omitempty"`
+	SourceColumn *string `json:"SourceColumn,omitempty"`
 
 	// TargetMeasureName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-targetmeasurename
-	TargetMeasureName string `json:"TargetMeasureName,omitempty"`
+	TargetMeasureName *string `json:"TargetMeasureName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

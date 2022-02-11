@@ -16,7 +16,7 @@ type ResponseHeadersPolicy_StrictTransportSecurity struct {
 	// IncludeSubdomains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html#cfn-cloudfront-responseheaderspolicy-stricttransportsecurity-includesubdomains
-	IncludeSubdomains bool `json:"IncludeSubdomains,omitempty"`
+	IncludeSubdomains *bool `json:"IncludeSubdomains,omitempty"`
 
 	// Override AWS CloudFormation Property
 	// Required: true
@@ -26,7 +26,7 @@ type ResponseHeadersPolicy_StrictTransportSecurity struct {
 	// Preload AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html#cfn-cloudfront-responseheaderspolicy-stricttransportsecurity-preload
-	Preload bool `json:"Preload,omitempty"`
+	Preload *bool `json:"Preload,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

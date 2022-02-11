@@ -16,17 +16,17 @@ type SAMLProvider struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// SamlMetadataDocument AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-samlmetadatadocument
-	SamlMetadataDocument string `json:"SamlMetadataDocument,omitempty"`
+	SamlMetadataDocument string `json:"SamlMetadataDocument"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

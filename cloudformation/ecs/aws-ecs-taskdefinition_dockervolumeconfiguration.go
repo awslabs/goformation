@@ -11,27 +11,27 @@ type TaskDefinition_DockerVolumeConfiguration struct {
 	// Autoprovision AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
-	Autoprovision bool `json:"Autoprovision,omitempty"`
+	Autoprovision *bool `json:"Autoprovision,omitempty"`
 
 	// Driver AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
-	Driver string `json:"Driver,omitempty"`
+	Driver *string `json:"Driver,omitempty"`
 
 	// DriverOpts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
-	DriverOpts map[string]string `json:"DriverOpts,omitempty"`
+	DriverOpts *map[string]string `json:"DriverOpts,omitempty"`
 
 	// Labels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
-	Labels map[string]string `json:"Labels,omitempty"`
+	Labels *map[string]string `json:"Labels,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
-	Scope string `json:"Scope,omitempty"`
+	Scope *string `json:"Scope,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

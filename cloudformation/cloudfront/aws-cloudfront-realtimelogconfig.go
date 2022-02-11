@@ -15,17 +15,17 @@ type RealtimeLogConfig struct {
 	// EndPoints AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-	EndPoints []RealtimeLogConfig_EndPoint `json:"EndPoints,omitempty"`
+	EndPoints []RealtimeLogConfig_EndPoint `json:"EndPoints"`
 
 	// Fields AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-	Fields []string `json:"Fields,omitempty"`
+	Fields []string `json:"Fields"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// SamplingRate AWS CloudFormation Property
 	// Required: true

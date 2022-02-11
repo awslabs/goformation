@@ -11,7 +11,7 @@ type BotAlias_CodeHookSpecification struct {
 	// LambdaCodeHook AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-codehookspecification.html#cfn-lex-botalias-codehookspecification-lambdacodehook
-	LambdaCodeHook *BotAlias_LambdaCodeHook `json:"LambdaCodeHook,omitempty"`
+	LambdaCodeHook *BotAlias_LambdaCodeHook `json:"LambdaCodeHook"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

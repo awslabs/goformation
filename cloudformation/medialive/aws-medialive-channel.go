@@ -20,12 +20,12 @@ type Channel struct {
 	// ChannelClass AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelclass
-	ChannelClass string `json:"ChannelClass,omitempty"`
+	ChannelClass *string `json:"ChannelClass,omitempty"`
 
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-destinations
-	Destinations []Channel_OutputDestination `json:"Destinations,omitempty"`
+	Destinations *[]Channel_OutputDestination `json:"Destinations,omitempty"`
 
 	// EncoderSettings AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type Channel struct {
 	// InputAttachments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputattachments
-	InputAttachments []Channel_InputAttachment `json:"InputAttachments,omitempty"`
+	InputAttachments *[]Channel_InputAttachment `json:"InputAttachments,omitempty"`
 
 	// InputSpecification AWS CloudFormation Property
 	// Required: false
@@ -45,22 +45,22 @@ type Channel struct {
 	// LogLevel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-loglevel
-	LogLevel string `json:"LogLevel,omitempty"`
+	LogLevel *string `json:"LogLevel,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn *string `json:"RoleArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// Vpc AWS CloudFormation Property
 	// Required: false

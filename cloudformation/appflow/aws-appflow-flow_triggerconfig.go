@@ -16,7 +16,7 @@ type Flow_TriggerConfig struct {
 	// TriggerType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
-	TriggerType string `json:"TriggerType,omitempty"`
+	TriggerType string `json:"TriggerType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type StudioComponent_ComputeFarmConfiguration struct {
 	// ActiveDirectoryUser AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
-	ActiveDirectoryUser string `json:"ActiveDirectoryUser,omitempty"`
+	ActiveDirectoryUser *string `json:"ActiveDirectoryUser,omitempty"`
 
 	// Endpoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
-	Endpoint string `json:"Endpoint,omitempty"`
+	Endpoint *string `json:"Endpoint,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

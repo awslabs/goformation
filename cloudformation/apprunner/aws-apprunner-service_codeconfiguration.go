@@ -16,7 +16,7 @@ type Service_CodeConfiguration struct {
 	// ConfigurationSource AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
-	ConfigurationSource string `json:"ConfigurationSource,omitempty"`
+	ConfigurationSource string `json:"ConfigurationSource"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

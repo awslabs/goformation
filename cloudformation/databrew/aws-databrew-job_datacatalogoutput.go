@@ -11,12 +11,12 @@ type Job_DataCatalogOutput struct {
 	// CatalogId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
-	CatalogId string `json:"CatalogId,omitempty"`
+	CatalogId *string `json:"CatalogId,omitempty"`
 
 	// DatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
-	DatabaseName string `json:"DatabaseName,omitempty"`
+	DatabaseName string `json:"DatabaseName"`
 
 	// DatabaseOptions AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type Job_DataCatalogOutput struct {
 	// Overwrite AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
-	Overwrite bool `json:"Overwrite,omitempty"`
+	Overwrite *bool `json:"Overwrite,omitempty"`
 
 	// S3Options AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type Job_DataCatalogOutput struct {
 	// TableName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName string `json:"TableName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

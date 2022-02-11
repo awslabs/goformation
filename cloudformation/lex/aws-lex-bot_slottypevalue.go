@@ -11,12 +11,12 @@ type Bot_SlotTypeValue struct {
 	// SampleValue AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html#cfn-lex-bot-slottypevalue-samplevalue
-	SampleValue *Bot_SampleValue `json:"SampleValue,omitempty"`
+	SampleValue *Bot_SampleValue `json:"SampleValue"`
 
 	// Synonyms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html#cfn-lex-bot-slottypevalue-synonyms
-	Synonyms []Bot_SampleValue `json:"Synonyms,omitempty"`
+	Synonyms *[]Bot_SampleValue `json:"Synonyms,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type PackagingGroup_Authorization struct {
 	// CdnIdentifierSecret AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
-	CdnIdentifierSecret string `json:"CdnIdentifierSecret,omitempty"`
+	CdnIdentifierSecret string `json:"CdnIdentifierSecret"`
 
 	// SecretsRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
-	SecretsRoleArn string `json:"SecretsRoleArn,omitempty"`
+	SecretsRoleArn string `json:"SecretsRoleArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

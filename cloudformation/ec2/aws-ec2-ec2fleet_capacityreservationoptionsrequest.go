@@ -11,7 +11,7 @@ type EC2Fleet_CapacityReservationOptionsRequest struct {
 	// UsageStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html#cfn-ec2-ec2fleet-capacityreservationoptionsrequest-usagestrategy
-	UsageStrategy string `json:"UsageStrategy,omitempty"`
+	UsageStrategy *string `json:"UsageStrategy,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,47 +15,47 @@ type APNSChannel struct {
 	// ApplicationId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-applicationid
-	ApplicationId string `json:"ApplicationId,omitempty"`
+	ApplicationId string `json:"ApplicationId"`
 
 	// BundleId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-bundleid
-	BundleId string `json:"BundleId,omitempty"`
+	BundleId *string `json:"BundleId,omitempty"`
 
 	// Certificate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-certificate
-	Certificate string `json:"Certificate,omitempty"`
+	Certificate *string `json:"Certificate,omitempty"`
 
 	// DefaultAuthenticationMethod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-defaultauthenticationmethod
-	DefaultAuthenticationMethod string `json:"DefaultAuthenticationMethod,omitempty"`
+	DefaultAuthenticationMethod *string `json:"DefaultAuthenticationMethod,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled *bool `json:"Enabled,omitempty"`
 
 	// PrivateKey AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-privatekey
-	PrivateKey string `json:"PrivateKey,omitempty"`
+	PrivateKey *string `json:"PrivateKey,omitempty"`
 
 	// TeamId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-teamid
-	TeamId string `json:"TeamId,omitempty"`
+	TeamId *string `json:"TeamId,omitempty"`
 
 	// TokenKey AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-tokenkey
-	TokenKey string `json:"TokenKey,omitempty"`
+	TokenKey *string `json:"TokenKey,omitempty"`
 
 	// TokenKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html#cfn-pinpoint-apnschannel-tokenkeyid
-	TokenKeyId string `json:"TokenKeyId,omitempty"`
+	TokenKeyId *string `json:"TokenKeyId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

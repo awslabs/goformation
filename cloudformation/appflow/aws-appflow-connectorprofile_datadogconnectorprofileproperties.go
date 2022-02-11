@@ -11,7 +11,7 @@ type ConnectorProfile_DatadogConnectorProfileProperties struct {
 	// InstanceUrl AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
-	InstanceUrl string `json:"InstanceUrl,omitempty"`
+	InstanceUrl string `json:"InstanceUrl"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

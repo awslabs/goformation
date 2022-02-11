@@ -11,47 +11,47 @@ type OrganizationConfigRule_OrganizationCustomRuleMetadata struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// InputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
-	InputParameters string `json:"InputParameters,omitempty"`
+	InputParameters *string `json:"InputParameters,omitempty"`
 
 	// LambdaFunctionArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
-	LambdaFunctionArn string `json:"LambdaFunctionArn,omitempty"`
+	LambdaFunctionArn string `json:"LambdaFunctionArn"`
 
 	// MaximumExecutionFrequency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
-	MaximumExecutionFrequency string `json:"MaximumExecutionFrequency,omitempty"`
+	MaximumExecutionFrequency *string `json:"MaximumExecutionFrequency,omitempty"`
 
 	// OrganizationConfigRuleTriggerTypes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
-	OrganizationConfigRuleTriggerTypes []string `json:"OrganizationConfigRuleTriggerTypes,omitempty"`
+	OrganizationConfigRuleTriggerTypes []string `json:"OrganizationConfigRuleTriggerTypes"`
 
 	// ResourceIdScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
-	ResourceIdScope string `json:"ResourceIdScope,omitempty"`
+	ResourceIdScope *string `json:"ResourceIdScope,omitempty"`
 
 	// ResourceTypesScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
-	ResourceTypesScope []string `json:"ResourceTypesScope,omitempty"`
+	ResourceTypesScope *[]string `json:"ResourceTypesScope,omitempty"`
 
 	// TagKeyScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
-	TagKeyScope string `json:"TagKeyScope,omitempty"`
+	TagKeyScope *string `json:"TagKeyScope,omitempty"`
 
 	// TagValueScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
-	TagValueScope string `json:"TagValueScope,omitempty"`
+	TagValueScope *string `json:"TagValueScope,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

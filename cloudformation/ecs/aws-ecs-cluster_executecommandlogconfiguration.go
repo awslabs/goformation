@@ -11,27 +11,27 @@ type Cluster_ExecuteCommandLogConfiguration struct {
 	// CloudWatchEncryptionEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
-	CloudWatchEncryptionEnabled bool `json:"CloudWatchEncryptionEnabled,omitempty"`
+	CloudWatchEncryptionEnabled *bool `json:"CloudWatchEncryptionEnabled,omitempty"`
 
 	// CloudWatchLogGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
-	CloudWatchLogGroupName string `json:"CloudWatchLogGroupName,omitempty"`
+	CloudWatchLogGroupName *string `json:"CloudWatchLogGroupName,omitempty"`
 
 	// S3BucketName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
-	S3BucketName string `json:"S3BucketName,omitempty"`
+	S3BucketName *string `json:"S3BucketName,omitempty"`
 
 	// S3EncryptionEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
-	S3EncryptionEnabled bool `json:"S3EncryptionEnabled,omitempty"`
+	S3EncryptionEnabled *bool `json:"S3EncryptionEnabled,omitempty"`
 
 	// S3KeyPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
-	S3KeyPrefix string `json:"S3KeyPrefix,omitempty"`
+	S3KeyPrefix *string `json:"S3KeyPrefix,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

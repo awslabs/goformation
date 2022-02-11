@@ -15,12 +15,12 @@ type ApplicationFleetAssociation struct {
 	// ApplicationArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html#cfn-appstream-applicationfleetassociation-applicationarn
-	ApplicationArn string `json:"ApplicationArn,omitempty"`
+	ApplicationArn string `json:"ApplicationArn"`
 
 	// FleetName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html#cfn-appstream-applicationfleetassociation-fleetname
-	FleetName string `json:"FleetName,omitempty"`
+	FleetName string `json:"FleetName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

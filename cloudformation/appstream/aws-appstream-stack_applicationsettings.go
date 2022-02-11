@@ -16,7 +16,7 @@ type Stack_ApplicationSettings struct {
 	// SettingsGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-settingsgroup
-	SettingsGroup string `json:"SettingsGroup,omitempty"`
+	SettingsGroup *string `json:"SettingsGroup,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

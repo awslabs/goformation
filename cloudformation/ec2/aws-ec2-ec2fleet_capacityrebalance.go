@@ -11,12 +11,12 @@ type EC2Fleet_CapacityRebalance struct {
 	// ReplacementStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html#cfn-ec2-ec2fleet-capacityrebalance-replacementstrategy
-	ReplacementStrategy string `json:"ReplacementStrategy,omitempty"`
+	ReplacementStrategy *string `json:"ReplacementStrategy,omitempty"`
 
 	// TerminationDelay AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html#cfn-ec2-ec2fleet-capacityrebalance-terminationdelay
-	TerminationDelay int `json:"TerminationDelay,omitempty"`
+	TerminationDelay *int `json:"TerminationDelay,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

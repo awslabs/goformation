@@ -11,7 +11,7 @@ type ModelBiasJobDefinition_MonitoringOutput struct {
 	// S3Output AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
-	S3Output *ModelBiasJobDefinition_S3Output `json:"S3Output,omitempty"`
+	S3Output *ModelBiasJobDefinition_S3Output `json:"S3Output"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

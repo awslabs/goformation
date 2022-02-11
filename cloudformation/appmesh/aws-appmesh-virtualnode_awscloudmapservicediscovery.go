@@ -11,17 +11,17 @@ type VirtualNode_AwsCloudMapServiceDiscovery struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-attributes
-	Attributes []VirtualNode_AwsCloudMapInstanceAttribute `json:"Attributes,omitempty"`
+	Attributes *[]VirtualNode_AwsCloudMapInstanceAttribute `json:"Attributes,omitempty"`
 
 	// NamespaceName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-namespacename
-	NamespaceName string `json:"NamespaceName,omitempty"`
+	NamespaceName string `json:"NamespaceName"`
 
 	// ServiceName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-servicename
-	ServiceName string `json:"ServiceName,omitempty"`
+	ServiceName string `json:"ServiceName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

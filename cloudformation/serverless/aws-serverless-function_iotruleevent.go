@@ -11,12 +11,12 @@ type Function_IoTRuleEvent struct {
 	// AwsIotSqlVersion AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#iotrule
-	AwsIotSqlVersion string `json:"AwsIotSqlVersion,omitempty"`
+	AwsIotSqlVersion *string `json:"AwsIotSqlVersion,omitempty"`
 
 	// Sql AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#iotrule
-	Sql string `json:"Sql,omitempty"`
+	Sql string `json:"Sql"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Feature_EntityOverride struct {
 	// EntityId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-entityoverride.html#cfn-evidently-feature-entityoverride-entityid
-	EntityId string `json:"EntityId,omitempty"`
+	EntityId *string `json:"EntityId,omitempty"`
 
 	// Variation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-entityoverride.html#cfn-evidently-feature-entityoverride-variation
-	Variation string `json:"Variation,omitempty"`
+	Variation *string `json:"Variation,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

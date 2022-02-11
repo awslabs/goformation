@@ -15,7 +15,7 @@ type PlaceIndex struct {
 	// DataSource AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-	DataSource string `json:"DataSource,omitempty"`
+	DataSource string `json:"DataSource"`
 
 	// DataSourceConfiguration AWS CloudFormation Property
 	// Required: false
@@ -25,17 +25,17 @@ type PlaceIndex struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// IndexName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-	IndexName string `json:"IndexName,omitempty"`
+	IndexName string `json:"IndexName"`
 
 	// PricingPlan AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-	PricingPlan string `json:"PricingPlan,omitempty"`
+	PricingPlan *string `json:"PricingPlan,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

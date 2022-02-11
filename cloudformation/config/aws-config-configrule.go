@@ -15,22 +15,22 @@ type ConfigRule struct {
 	// ConfigRuleName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-configrulename
-	ConfigRuleName string `json:"ConfigRuleName,omitempty"`
+	ConfigRuleName *string `json:"ConfigRuleName,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// InputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-inputparameters
-	InputParameters interface{} `json:"InputParameters,omitempty"`
+	InputParameters *interface{} `json:"InputParameters,omitempty"`
 
 	// MaximumExecutionFrequency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-maximumexecutionfrequency
-	MaximumExecutionFrequency string `json:"MaximumExecutionFrequency,omitempty"`
+	MaximumExecutionFrequency *string `json:"MaximumExecutionFrequency,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: false
@@ -40,7 +40,7 @@ type ConfigRule struct {
 	// Source AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source
-	Source *ConfigRule_Source `json:"Source,omitempty"`
+	Source *ConfigRule_Source `json:"Source"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

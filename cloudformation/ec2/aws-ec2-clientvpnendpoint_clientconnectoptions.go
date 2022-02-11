@@ -16,7 +16,7 @@ type ClientVpnEndpoint_ClientConnectOptions struct {
 	// LambdaFunctionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
-	LambdaFunctionArn string `json:"LambdaFunctionArn,omitempty"`
+	LambdaFunctionArn *string `json:"LambdaFunctionArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

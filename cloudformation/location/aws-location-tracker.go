@@ -15,32 +15,32 @@ type Tracker struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-	KmsKeyId string `json:"KmsKeyId,omitempty"`
+	KmsKeyId *string `json:"KmsKeyId,omitempty"`
 
 	// PositionFiltering AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-positionfiltering
-	PositionFiltering string `json:"PositionFiltering,omitempty"`
+	PositionFiltering *string `json:"PositionFiltering,omitempty"`
 
 	// PricingPlan AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-	PricingPlan string `json:"PricingPlan,omitempty"`
+	PricingPlan *string `json:"PricingPlan,omitempty"`
 
 	// PricingPlanDataSource AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
-	PricingPlanDataSource string `json:"PricingPlanDataSource,omitempty"`
+	PricingPlanDataSource *string `json:"PricingPlanDataSource,omitempty"`
 
 	// TrackerName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
-	TrackerName string `json:"TrackerName,omitempty"`
+	TrackerName string `json:"TrackerName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

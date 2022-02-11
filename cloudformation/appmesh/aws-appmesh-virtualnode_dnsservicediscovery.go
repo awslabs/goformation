@@ -11,12 +11,12 @@ type VirtualNode_DnsServiceDiscovery struct {
 	// Hostname AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-hostname
-	Hostname string `json:"Hostname,omitempty"`
+	Hostname string `json:"Hostname"`
 
 	// ResponseType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-responsetype
-	ResponseType string `json:"ResponseType,omitempty"`
+	ResponseType *string `json:"ResponseType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

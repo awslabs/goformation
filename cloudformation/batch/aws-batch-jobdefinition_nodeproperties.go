@@ -16,7 +16,7 @@ type JobDefinition_NodeProperties struct {
 	// NodeRangeProperties AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-noderangeproperties
-	NodeRangeProperties []JobDefinition_NodeRangeProperty `json:"NodeRangeProperties,omitempty"`
+	NodeRangeProperties []JobDefinition_NodeRangeProperty `json:"NodeRangeProperties"`
 
 	// NumNodes AWS CloudFormation Property
 	// Required: true

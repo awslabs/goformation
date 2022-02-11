@@ -16,32 +16,32 @@ type Addon struct {
 	// AddonName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
-	AddonName string `json:"AddonName,omitempty"`
+	AddonName string `json:"AddonName"`
 
 	// AddonVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
-	AddonVersion string `json:"AddonVersion,omitempty"`
+	AddonVersion *string `json:"AddonVersion,omitempty"`
 
 	// ClusterName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
-	ClusterName string `json:"ClusterName,omitempty"`
+	ClusterName string `json:"ClusterName"`
 
 	// ResolveConflicts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
-	ResolveConflicts string `json:"ResolveConflicts,omitempty"`
+	ResolveConflicts *string `json:"ResolveConflicts,omitempty"`
 
 	// ServiceAccountRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
-	ServiceAccountRoleArn string `json:"ServiceAccountRoleArn,omitempty"`
+	ServiceAccountRoleArn *string `json:"ServiceAccountRoleArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

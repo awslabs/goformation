@@ -21,32 +21,32 @@ type Endpoint struct {
 	// EndpointConfigName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointconfigname
-	EndpointConfigName string `json:"EndpointConfigName,omitempty"`
+	EndpointConfigName string `json:"EndpointConfigName"`
 
 	// EndpointName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointname
-	EndpointName string `json:"EndpointName,omitempty"`
+	EndpointName *string `json:"EndpointName,omitempty"`
 
 	// ExcludeRetainedVariantProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-excluderetainedvariantproperties
-	ExcludeRetainedVariantProperties []Endpoint_VariantProperty `json:"ExcludeRetainedVariantProperties,omitempty"`
+	ExcludeRetainedVariantProperties *[]Endpoint_VariantProperty `json:"ExcludeRetainedVariantProperties,omitempty"`
 
 	// RetainAllVariantProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-retainallvariantproperties
-	RetainAllVariantProperties bool `json:"RetainAllVariantProperties,omitempty"`
+	RetainAllVariantProperties *bool `json:"RetainAllVariantProperties,omitempty"`
 
 	// RetainDeploymentConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-retaindeploymentconfig
-	RetainDeploymentConfig bool `json:"RetainDeploymentConfig,omitempty"`
+	RetainDeploymentConfig *bool `json:"RetainDeploymentConfig,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,17 +15,17 @@ type ResourceDefaultVersion struct {
 	// TypeName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
-	TypeName string `json:"TypeName,omitempty"`
+	TypeName *string `json:"TypeName,omitempty"`
 
 	// TypeVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
-	TypeVersionArn string `json:"TypeVersionArn,omitempty"`
+	TypeVersionArn *string `json:"TypeVersionArn,omitempty"`
 
 	// VersionId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
-	VersionId string `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

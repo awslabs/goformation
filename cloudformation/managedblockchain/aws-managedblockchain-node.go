@@ -15,17 +15,17 @@ type Node struct {
 	// MemberId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid
-	MemberId string `json:"MemberId,omitempty"`
+	MemberId *string `json:"MemberId,omitempty"`
 
 	// NetworkId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-networkid
-	NetworkId string `json:"NetworkId,omitempty"`
+	NetworkId string `json:"NetworkId"`
 
 	// NodeConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-nodeconfiguration
-	NodeConfiguration *Node_NodeConfiguration `json:"NodeConfiguration,omitempty"`
+	NodeConfiguration *Node_NodeConfiguration `json:"NodeConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

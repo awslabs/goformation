@@ -15,17 +15,17 @@ type UserGroup struct {
 	// Engine AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
-	Engine string `json:"Engine,omitempty"`
+	Engine string `json:"Engine"`
 
 	// UserGroupId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
-	UserGroupId string `json:"UserGroupId,omitempty"`
+	UserGroupId string `json:"UserGroupId"`
 
 	// UserIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
-	UserIds []string `json:"UserIds,omitempty"`
+	UserIds *[]string `json:"UserIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

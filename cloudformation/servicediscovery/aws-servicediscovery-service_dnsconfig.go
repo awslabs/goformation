@@ -11,17 +11,17 @@ type Service_DnsConfig struct {
 	// DnsRecords AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-dnsrecords
-	DnsRecords []Service_DnsRecord `json:"DnsRecords,omitempty"`
+	DnsRecords []Service_DnsRecord `json:"DnsRecords"`
 
 	// NamespaceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid
-	NamespaceId string `json:"NamespaceId,omitempty"`
+	NamespaceId *string `json:"NamespaceId,omitempty"`
 
 	// RoutingPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-routingpolicy
-	RoutingPolicy string `json:"RoutingPolicy,omitempty"`
+	RoutingPolicy *string `json:"RoutingPolicy,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

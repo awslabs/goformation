@@ -11,17 +11,17 @@ type GlobalTable_TargetTrackingScalingPolicyConfiguration struct {
 	// DisableScaleIn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein
-	DisableScaleIn bool `json:"DisableScaleIn,omitempty"`
+	DisableScaleIn *bool `json:"DisableScaleIn,omitempty"`
 
 	// ScaleInCooldown AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown
-	ScaleInCooldown int `json:"ScaleInCooldown,omitempty"`
+	ScaleInCooldown *int `json:"ScaleInCooldown,omitempty"`
 
 	// ScaleOutCooldown AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown
-	ScaleOutCooldown int `json:"ScaleOutCooldown,omitempty"`
+	ScaleOutCooldown *int `json:"ScaleOutCooldown,omitempty"`
 
 	// TargetValue AWS CloudFormation Property
 	// Required: true

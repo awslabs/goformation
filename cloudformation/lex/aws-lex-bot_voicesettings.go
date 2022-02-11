@@ -11,7 +11,7 @@ type Bot_VoiceSettings struct {
 	// VoiceId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html#cfn-lex-bot-voicesettings-voiceid
-	VoiceId string `json:"VoiceId,omitempty"`
+	VoiceId string `json:"VoiceId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

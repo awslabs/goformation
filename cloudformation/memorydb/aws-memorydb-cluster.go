@@ -16,117 +16,117 @@ type Cluster struct {
 	// ACLName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-aclname
-	ACLName string `json:"ACLName,omitempty"`
+	ACLName string `json:"ACLName"`
 
 	// AutoMinorVersionUpgrade AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-autominorversionupgrade
-	AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade,omitempty"`
+	AutoMinorVersionUpgrade *bool `json:"AutoMinorVersionUpgrade,omitempty"`
 
 	// ClusterName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-clustername
-	ClusterName string `json:"ClusterName,omitempty"`
+	ClusterName string `json:"ClusterName"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// EngineVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-engineversion
-	EngineVersion string `json:"EngineVersion,omitempty"`
+	EngineVersion *string `json:"EngineVersion,omitempty"`
 
 	// FinalSnapshotName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-finalsnapshotname
-	FinalSnapshotName string `json:"FinalSnapshotName,omitempty"`
+	FinalSnapshotName *string `json:"FinalSnapshotName,omitempty"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-kmskeyid
-	KmsKeyId string `json:"KmsKeyId,omitempty"`
+	KmsKeyId *string `json:"KmsKeyId,omitempty"`
 
 	// MaintenanceWindow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-maintenancewindow
-	MaintenanceWindow string `json:"MaintenanceWindow,omitempty"`
+	MaintenanceWindow *string `json:"MaintenanceWindow,omitempty"`
 
 	// NodeType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-nodetype
-	NodeType string `json:"NodeType,omitempty"`
+	NodeType string `json:"NodeType"`
 
 	// NumReplicasPerShard AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-numreplicaspershard
-	NumReplicasPerShard int `json:"NumReplicasPerShard,omitempty"`
+	NumReplicasPerShard *int `json:"NumReplicasPerShard,omitempty"`
 
 	// NumShards AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-numshards
-	NumShards int `json:"NumShards,omitempty"`
+	NumShards *int `json:"NumShards,omitempty"`
 
 	// ParameterGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-parametergroupname
-	ParameterGroupName string `json:"ParameterGroupName,omitempty"`
+	ParameterGroupName *string `json:"ParameterGroupName,omitempty"`
 
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-port
-	Port int `json:"Port,omitempty"`
+	Port *int `json:"Port,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
 
 	// SnapshotArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-snapshotarns
-	SnapshotArns []string `json:"SnapshotArns,omitempty"`
+	SnapshotArns *[]string `json:"SnapshotArns,omitempty"`
 
 	// SnapshotName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-snapshotname
-	SnapshotName string `json:"SnapshotName,omitempty"`
+	SnapshotName *string `json:"SnapshotName,omitempty"`
 
 	// SnapshotRetentionLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-snapshotretentionlimit
-	SnapshotRetentionLimit int `json:"SnapshotRetentionLimit,omitempty"`
+	SnapshotRetentionLimit *int `json:"SnapshotRetentionLimit,omitempty"`
 
 	// SnapshotWindow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-snapshotwindow
-	SnapshotWindow string `json:"SnapshotWindow,omitempty"`
+	SnapshotWindow *string `json:"SnapshotWindow,omitempty"`
 
 	// SnsTopicArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-snstopicarn
-	SnsTopicArn string `json:"SnsTopicArn,omitempty"`
+	SnsTopicArn *string `json:"SnsTopicArn,omitempty"`
 
 	// SnsTopicStatus AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-snstopicstatus
-	SnsTopicStatus string `json:"SnsTopicStatus,omitempty"`
+	SnsTopicStatus *string `json:"SnsTopicStatus,omitempty"`
 
 	// SubnetGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-subnetgroupname
-	SubnetGroupName string `json:"SubnetGroupName,omitempty"`
+	SubnetGroupName *string `json:"SubnetGroupName,omitempty"`
 
 	// TLSEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-tlsenabled
-	TLSEnabled bool `json:"TLSEnabled,omitempty"`
+	TLSEnabled *bool `json:"TLSEnabled,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

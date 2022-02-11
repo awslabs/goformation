@@ -15,17 +15,17 @@ type LinkAssociation struct {
 	// DeviceId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
-	DeviceId string `json:"DeviceId,omitempty"`
+	DeviceId string `json:"DeviceId"`
 
 	// GlobalNetworkId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
-	GlobalNetworkId string `json:"GlobalNetworkId,omitempty"`
+	GlobalNetworkId string `json:"GlobalNetworkId"`
 
 	// LinkId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
-	LinkId string `json:"LinkId,omitempty"`
+	LinkId string `json:"LinkId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

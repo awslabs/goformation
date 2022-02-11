@@ -16,12 +16,12 @@ type Partition_SchemaReference struct {
 	// SchemaVersionId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
-	SchemaVersionId string `json:"SchemaVersionId,omitempty"`
+	SchemaVersionId *string `json:"SchemaVersionId,omitempty"`
 
 	// SchemaVersionNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
-	SchemaVersionNumber int `json:"SchemaVersionNumber,omitempty"`
+	SchemaVersionNumber *int `json:"SchemaVersionNumber,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

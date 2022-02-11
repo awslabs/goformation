@@ -11,7 +11,7 @@ type PartnerAccount_SidewalkUpdateAccount struct {
 	// AppServerPrivateKey AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkupdateaccount.html#cfn-iotwireless-partneraccount-sidewalkupdateaccount-appserverprivatekey
-	AppServerPrivateKey string `json:"AppServerPrivateKey,omitempty"`
+	AppServerPrivateKey *string `json:"AppServerPrivateKey,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

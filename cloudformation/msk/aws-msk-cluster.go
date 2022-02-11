@@ -15,7 +15,7 @@ type Cluster struct {
 	// BrokerNodeGroupInfo AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-brokernodegroupinfo
-	BrokerNodeGroupInfo *Cluster_BrokerNodeGroupInfo `json:"BrokerNodeGroupInfo,omitempty"`
+	BrokerNodeGroupInfo *Cluster_BrokerNodeGroupInfo `json:"BrokerNodeGroupInfo"`
 
 	// ClientAuthentication AWS CloudFormation Property
 	// Required: false
@@ -25,7 +25,7 @@ type Cluster struct {
 	// ClusterName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-clustername
-	ClusterName string `json:"ClusterName,omitempty"`
+	ClusterName string `json:"ClusterName"`
 
 	// ConfigurationInfo AWS CloudFormation Property
 	// Required: false
@@ -40,12 +40,12 @@ type Cluster struct {
 	// EnhancedMonitoring AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-enhancedmonitoring
-	EnhancedMonitoring string `json:"EnhancedMonitoring,omitempty"`
+	EnhancedMonitoring *string `json:"EnhancedMonitoring,omitempty"`
 
 	// KafkaVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-kafkaversion
-	KafkaVersion string `json:"KafkaVersion,omitempty"`
+	KafkaVersion string `json:"KafkaVersion"`
 
 	// LoggingInfo AWS CloudFormation Property
 	// Required: false
@@ -65,7 +65,7 @@ type Cluster struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

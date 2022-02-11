@@ -16,7 +16,7 @@ type ConfigurationSetEventDestination_EventDestination struct {
 	// Enabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled *bool `json:"Enabled,omitempty"`
 
 	// KinesisFirehoseDestination AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type ConfigurationSetEventDestination_EventDestination struct {
 	// MatchingEventTypes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-matchingeventtypes
-	MatchingEventTypes []string `json:"MatchingEventTypes,omitempty"`
+	MatchingEventTypes []string `json:"MatchingEventTypes"`
 
 	// PinpointDestination AWS CloudFormation Property
 	// Required: false

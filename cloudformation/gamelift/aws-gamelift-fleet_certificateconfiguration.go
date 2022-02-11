@@ -11,7 +11,7 @@ type Fleet_CertificateConfiguration struct {
 	// CertificateType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
-	CertificateType string `json:"CertificateType,omitempty"`
+	CertificateType string `json:"CertificateType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type ContainerRecipe_ComponentConfiguration struct {
 	// ComponentArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
-	ComponentArn string `json:"ComponentArn,omitempty"`
+	ComponentArn *string `json:"ComponentArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

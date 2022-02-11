@@ -11,27 +11,27 @@ type LaunchTemplate_SpotOptions struct {
 	// BlockDurationMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-blockdurationminutes
-	BlockDurationMinutes int `json:"BlockDurationMinutes,omitempty"`
+	BlockDurationMinutes *int `json:"BlockDurationMinutes,omitempty"`
 
 	// InstanceInterruptionBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-instanceinterruptionbehavior
-	InstanceInterruptionBehavior string `json:"InstanceInterruptionBehavior,omitempty"`
+	InstanceInterruptionBehavior *string `json:"InstanceInterruptionBehavior,omitempty"`
 
 	// MaxPrice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-maxprice
-	MaxPrice string `json:"MaxPrice,omitempty"`
+	MaxPrice *string `json:"MaxPrice,omitempty"`
 
 	// SpotInstanceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-spotinstancetype
-	SpotInstanceType string `json:"SpotInstanceType,omitempty"`
+	SpotInstanceType *string `json:"SpotInstanceType,omitempty"`
 
 	// ValidUntil AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-validuntil
-	ValidUntil string `json:"ValidUntil,omitempty"`
+	ValidUntil *string `json:"ValidUntil,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

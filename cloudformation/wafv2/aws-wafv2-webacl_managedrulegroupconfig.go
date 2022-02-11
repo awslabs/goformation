@@ -11,7 +11,7 @@ type WebACL_ManagedRuleGroupConfig struct {
 	// LoginPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-loginpath
-	LoginPath string `json:"LoginPath,omitempty"`
+	LoginPath *string `json:"LoginPath,omitempty"`
 
 	// PasswordField AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type WebACL_ManagedRuleGroupConfig struct {
 	// PayloadType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-payloadtype
-	PayloadType string `json:"PayloadType,omitempty"`
+	PayloadType *string `json:"PayloadType,omitempty"`
 
 	// UsernameField AWS CloudFormation Property
 	// Required: false

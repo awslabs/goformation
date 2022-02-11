@@ -11,12 +11,12 @@ type GatewayRoute_GrpcGatewayRoute struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-action
-	Action *GatewayRoute_GrpcGatewayRouteAction `json:"Action,omitempty"`
+	Action *GatewayRoute_GrpcGatewayRouteAction `json:"Action"`
 
 	// Match AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-match
-	Match *GatewayRoute_GrpcGatewayRouteMatch `json:"Match,omitempty"`
+	Match *GatewayRoute_GrpcGatewayRouteMatch `json:"Match"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

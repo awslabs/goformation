@@ -15,27 +15,27 @@ type GeofenceCollection struct {
 	// CollectionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-	CollectionName string `json:"CollectionName,omitempty"`
+	CollectionName string `json:"CollectionName"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-	KmsKeyId string `json:"KmsKeyId,omitempty"`
+	KmsKeyId *string `json:"KmsKeyId,omitempty"`
 
 	// PricingPlan AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-	PricingPlan string `json:"PricingPlan,omitempty"`
+	PricingPlan *string `json:"PricingPlan,omitempty"`
 
 	// PricingPlanDataSource AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
-	PricingPlanDataSource string `json:"PricingPlanDataSource,omitempty"`
+	PricingPlanDataSource *string `json:"PricingPlanDataSource,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

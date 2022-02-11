@@ -15,27 +15,27 @@ type SmsTemplate struct {
 	// Body AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-body
-	Body string `json:"Body,omitempty"`
+	Body string `json:"Body"`
 
 	// DefaultSubstitutions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-defaultsubstitutions
-	DefaultSubstitutions string `json:"DefaultSubstitutions,omitempty"`
+	DefaultSubstitutions *string `json:"DefaultSubstitutions,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// TemplateDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-templatedescription
-	TemplateDescription string `json:"TemplateDescription,omitempty"`
+	TemplateDescription *string `json:"TemplateDescription,omitempty"`
 
 	// TemplateName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-templatename
-	TemplateName string `json:"TemplateName,omitempty"`
+	TemplateName string `json:"TemplateName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

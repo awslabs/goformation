@@ -15,32 +15,32 @@ type Grant struct {
 	// AllowedOperations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-	AllowedOperations []string `json:"AllowedOperations,omitempty"`
+	AllowedOperations *[]string `json:"AllowedOperations,omitempty"`
 
 	// GrantName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
-	GrantName string `json:"GrantName,omitempty"`
+	GrantName *string `json:"GrantName,omitempty"`
 
 	// HomeRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
-	HomeRegion string `json:"HomeRegion,omitempty"`
+	HomeRegion *string `json:"HomeRegion,omitempty"`
 
 	// LicenseArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
-	LicenseArn string `json:"LicenseArn,omitempty"`
+	LicenseArn *string `json:"LicenseArn,omitempty"`
 
 	// Principals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-	Principals []string `json:"Principals,omitempty"`
+	Principals *[]string `json:"Principals,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-	Status string `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

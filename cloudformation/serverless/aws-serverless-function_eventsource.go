@@ -11,12 +11,12 @@ type Function_EventSource struct {
 	// Properties AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-types
-	Properties *Function_Properties `json:"Properties,omitempty"`
+	Properties *Function_Properties `json:"Properties"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-object
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

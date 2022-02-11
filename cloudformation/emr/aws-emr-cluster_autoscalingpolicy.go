@@ -11,12 +11,12 @@ type Cluster_AutoScalingPolicy struct {
 	// Constraints AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html#cfn-elasticmapreduce-cluster-autoscalingpolicy-constraints
-	Constraints *Cluster_ScalingConstraints `json:"Constraints,omitempty"`
+	Constraints *Cluster_ScalingConstraints `json:"Constraints"`
 
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html#cfn-elasticmapreduce-cluster-autoscalingpolicy-rules
-	Rules []Cluster_ScalingRule `json:"Rules,omitempty"`
+	Rules []Cluster_ScalingRule `json:"Rules"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

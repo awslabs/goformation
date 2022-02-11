@@ -11,12 +11,12 @@ type AssetModel_Transform struct {
 	// Expression AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
-	Expression string `json:"Expression,omitempty"`
+	Expression string `json:"Expression"`
 
 	// Variables AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
-	Variables []AssetModel_ExpressionVariable `json:"Variables,omitempty"`
+	Variables []AssetModel_ExpressionVariable `json:"Variables"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

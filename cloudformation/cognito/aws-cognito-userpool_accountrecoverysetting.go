@@ -11,7 +11,7 @@ type UserPool_AccountRecoverySetting struct {
 	// RecoveryMechanisms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-accountrecoverysetting.html#cfn-cognito-userpool-accountrecoverysetting-recoverymechanisms
-	RecoveryMechanisms []UserPool_RecoveryOption `json:"RecoveryMechanisms,omitempty"`
+	RecoveryMechanisms *[]UserPool_RecoveryOption `json:"RecoveryMechanisms,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

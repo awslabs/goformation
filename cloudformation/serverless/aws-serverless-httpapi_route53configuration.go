@@ -11,27 +11,27 @@ type HttpApi_Route53Configuration struct {
 	// DistributedDomainName AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-httpapi-route53configuration.html#sam-httpapi-route53configuration-distributiondomainname
-	DistributedDomainName string `json:"DistributedDomainName,omitempty"`
+	DistributedDomainName *string `json:"DistributedDomainName,omitempty"`
 
 	// EvaluateTargetHealth AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-httpapi-route53configuration.html#sam-httpapi-route53configuration-evaluatetargethealth
-	EvaluateTargetHealth bool `json:"EvaluateTargetHealth,omitempty"`
+	EvaluateTargetHealth *bool `json:"EvaluateTargetHealth,omitempty"`
 
 	// HostedZoneId AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-httpapi-route53configuration.html#sam-httpapi-route53configuration-hostedzoneid
-	HostedZoneId string `json:"HostedZoneId,omitempty"`
+	HostedZoneId *string `json:"HostedZoneId,omitempty"`
 
 	// HostedZoneName AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-httpapi-route53configuration.html#sam-httpapi-route53configuration-hostedzonename
-	HostedZoneName string `json:"HostedZoneName,omitempty"`
+	HostedZoneName *string `json:"HostedZoneName,omitempty"`
 
 	// IpV6 AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-httpapi-route53configuration.html#sam-httpapi-route53configuration-ipv6
-	IpV6 bool `json:"IpV6,omitempty"`
+	IpV6 *bool `json:"IpV6,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

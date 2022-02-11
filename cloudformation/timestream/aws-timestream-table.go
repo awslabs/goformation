@@ -16,27 +16,27 @@ type Table struct {
 	// DatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
-	DatabaseName string `json:"DatabaseName,omitempty"`
+	DatabaseName string `json:"DatabaseName"`
 
 	// MagneticStoreWriteProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-magneticstorewriteproperties
-	MagneticStoreWriteProperties interface{} `json:"MagneticStoreWriteProperties,omitempty"`
+	MagneticStoreWriteProperties *interface{} `json:"MagneticStoreWriteProperties,omitempty"`
 
 	// RetentionProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
-	RetentionProperties interface{} `json:"RetentionProperties,omitempty"`
+	RetentionProperties *interface{} `json:"RetentionProperties,omitempty"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName *string `json:"TableName,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

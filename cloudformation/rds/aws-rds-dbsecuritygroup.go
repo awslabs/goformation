@@ -16,22 +16,22 @@ type DBSecurityGroup struct {
 	// DBSecurityGroupIngress AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-dbsecuritygroupingress
-	DBSecurityGroupIngress []DBSecurityGroup_Ingress `json:"DBSecurityGroupIngress,omitempty"`
+	DBSecurityGroupIngress []DBSecurityGroup_Ingress `json:"DBSecurityGroupIngress"`
 
 	// EC2VpcId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-ec2vpcid
-	EC2VpcId string `json:"EC2VpcId,omitempty"`
+	EC2VpcId *string `json:"EC2VpcId,omitempty"`
 
 	// GroupDescription AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-groupdescription
-	GroupDescription string `json:"GroupDescription,omitempty"`
+	GroupDescription string `json:"GroupDescription"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

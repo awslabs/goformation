@@ -15,22 +15,22 @@ type TransitGatewayRoute struct {
 	// Blackhole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-blackhole
-	Blackhole bool `json:"Blackhole,omitempty"`
+	Blackhole *bool `json:"Blackhole,omitempty"`
 
 	// DestinationCidrBlock AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-destinationcidrblock
-	DestinationCidrBlock string `json:"DestinationCidrBlock,omitempty"`
+	DestinationCidrBlock *string `json:"DestinationCidrBlock,omitempty"`
 
 	// TransitGatewayAttachmentId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayattachmentid
-	TransitGatewayAttachmentId string `json:"TransitGatewayAttachmentId,omitempty"`
+	TransitGatewayAttachmentId *string `json:"TransitGatewayAttachmentId,omitempty"`
 
 	// TransitGatewayRouteTableId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayroutetableid
-	TransitGatewayRouteTableId string `json:"TransitGatewayRouteTableId,omitempty"`
+	TransitGatewayRouteTableId string `json:"TransitGatewayRouteTableId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,27 +11,27 @@ type ReplicationGroup_NodeGroupConfiguration struct {
 	// NodeGroupId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
-	NodeGroupId string `json:"NodeGroupId,omitempty"`
+	NodeGroupId *string `json:"NodeGroupId,omitempty"`
 
 	// PrimaryAvailabilityZone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
-	PrimaryAvailabilityZone string `json:"PrimaryAvailabilityZone,omitempty"`
+	PrimaryAvailabilityZone *string `json:"PrimaryAvailabilityZone,omitempty"`
 
 	// ReplicaAvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
-	ReplicaAvailabilityZones []string `json:"ReplicaAvailabilityZones,omitempty"`
+	ReplicaAvailabilityZones *[]string `json:"ReplicaAvailabilityZones,omitempty"`
 
 	// ReplicaCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
-	ReplicaCount int `json:"ReplicaCount,omitempty"`
+	ReplicaCount *int `json:"ReplicaCount,omitempty"`
 
 	// Slots AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots
-	Slots string `json:"Slots,omitempty"`
+	Slots *string `json:"Slots,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,27 +11,27 @@ type Component_Predicate struct {
 	// And AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-and
-	And []Component_Predicate `json:"And,omitempty"`
+	And *[]Component_Predicate `json:"And,omitempty"`
 
 	// Field AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-field
-	Field string `json:"Field,omitempty"`
+	Field *string `json:"Field,omitempty"`
 
 	// Operand AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operand
-	Operand string `json:"Operand,omitempty"`
+	Operand *string `json:"Operand,omitempty"`
 
 	// Operator AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operator
-	Operator string `json:"Operator,omitempty"`
+	Operator *string `json:"Operator,omitempty"`
 
 	// Or AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-or
-	Or []Component_Predicate `json:"Or,omitempty"`
+	Or *[]Component_Predicate `json:"Or,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

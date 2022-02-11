@@ -11,17 +11,17 @@ type Channel_Output struct {
 	// AudioDescriptionNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-audiodescriptionnames
-	AudioDescriptionNames []string `json:"AudioDescriptionNames,omitempty"`
+	AudioDescriptionNames *[]string `json:"AudioDescriptionNames,omitempty"`
 
 	// CaptionDescriptionNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-captiondescriptionnames
-	CaptionDescriptionNames []string `json:"CaptionDescriptionNames,omitempty"`
+	CaptionDescriptionNames *[]string `json:"CaptionDescriptionNames,omitempty"`
 
 	// OutputName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-outputname
-	OutputName string `json:"OutputName,omitempty"`
+	OutputName *string `json:"OutputName,omitempty"`
 
 	// OutputSettings AWS CloudFormation Property
 	// Required: false
@@ -31,7 +31,7 @@ type Channel_Output struct {
 	// VideoDescriptionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-videodescriptionname
-	VideoDescriptionName string `json:"VideoDescriptionName,omitempty"`
+	VideoDescriptionName *string `json:"VideoDescriptionName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type RuleGroup_RuleDefinition struct {
 	// Actions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-actions
-	Actions []string `json:"Actions,omitempty"`
+	Actions []string `json:"Actions"`
 
 	// MatchAttributes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-matchattributes
-	MatchAttributes *RuleGroup_MatchAttributes `json:"MatchAttributes,omitempty"`
+	MatchAttributes *RuleGroup_MatchAttributes `json:"MatchAttributes"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

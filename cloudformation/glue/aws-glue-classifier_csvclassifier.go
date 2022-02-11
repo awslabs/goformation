@@ -11,37 +11,37 @@ type Classifier_CsvClassifier struct {
 	// AllowSingleColumn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
-	AllowSingleColumn bool `json:"AllowSingleColumn,omitempty"`
+	AllowSingleColumn *bool `json:"AllowSingleColumn,omitempty"`
 
 	// ContainsHeader AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
-	ContainsHeader string `json:"ContainsHeader,omitempty"`
+	ContainsHeader *string `json:"ContainsHeader,omitempty"`
 
 	// Delimiter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
-	Delimiter string `json:"Delimiter,omitempty"`
+	Delimiter *string `json:"Delimiter,omitempty"`
 
 	// DisableValueTrimming AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
-	DisableValueTrimming bool `json:"DisableValueTrimming,omitempty"`
+	DisableValueTrimming *bool `json:"DisableValueTrimming,omitempty"`
 
 	// Header AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
-	Header []string `json:"Header,omitempty"`
+	Header *[]string `json:"Header,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// QuoteSymbol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
-	QuoteSymbol string `json:"QuoteSymbol,omitempty"`
+	QuoteSymbol *string `json:"QuoteSymbol,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

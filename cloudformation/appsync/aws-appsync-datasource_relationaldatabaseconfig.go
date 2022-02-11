@@ -16,7 +16,7 @@ type DataSource_RelationalDatabaseConfig struct {
 	// RelationalDatabaseSourceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-relationaldatabasesourcetype
-	RelationalDatabaseSourceType string `json:"RelationalDatabaseSourceType,omitempty"`
+	RelationalDatabaseSourceType string `json:"RelationalDatabaseSourceType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

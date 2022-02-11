@@ -11,7 +11,7 @@ type DataSource_AuthorizationConfig struct {
 	// AuthorizationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-authorizationtype
-	AuthorizationType string `json:"AuthorizationType,omitempty"`
+	AuthorizationType string `json:"AuthorizationType"`
 
 	// AwsIamConfig AWS CloudFormation Property
 	// Required: false

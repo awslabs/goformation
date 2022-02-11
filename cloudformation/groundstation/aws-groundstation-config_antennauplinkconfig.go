@@ -21,7 +21,7 @@ type Config_AntennaUplinkConfig struct {
 	// TransmitDisabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
-	TransmitDisabled bool `json:"TransmitDisabled,omitempty"`
+	TransmitDisabled *bool `json:"TransmitDisabled,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

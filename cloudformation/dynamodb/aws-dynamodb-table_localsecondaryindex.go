@@ -11,17 +11,17 @@ type Table_LocalSecondaryIndex struct {
 	// IndexName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-indexname
-	IndexName string `json:"IndexName,omitempty"`
+	IndexName string `json:"IndexName"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-keyschema
-	KeySchema []Table_KeySchema `json:"KeySchema,omitempty"`
+	KeySchema []Table_KeySchema `json:"KeySchema"`
 
 	// Projection AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-projection
-	Projection *Table_Projection `json:"Projection,omitempty"`
+	Projection *Table_Projection `json:"Projection"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

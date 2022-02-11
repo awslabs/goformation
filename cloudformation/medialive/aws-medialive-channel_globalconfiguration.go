@@ -11,12 +11,12 @@ type Channel_GlobalConfiguration struct {
 	// InitialAudioGain AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-initialaudiogain
-	InitialAudioGain int `json:"InitialAudioGain,omitempty"`
+	InitialAudioGain *int `json:"InitialAudioGain,omitempty"`
 
 	// InputEndAction AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-inputendaction
-	InputEndAction string `json:"InputEndAction,omitempty"`
+	InputEndAction *string `json:"InputEndAction,omitempty"`
 
 	// InputLossBehavior AWS CloudFormation Property
 	// Required: false
@@ -26,17 +26,17 @@ type Channel_GlobalConfiguration struct {
 	// OutputLockingMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputlockingmode
-	OutputLockingMode string `json:"OutputLockingMode,omitempty"`
+	OutputLockingMode *string `json:"OutputLockingMode,omitempty"`
 
 	// OutputTimingSource AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputtimingsource
-	OutputTimingSource string `json:"OutputTimingSource,omitempty"`
+	OutputTimingSource *string `json:"OutputTimingSource,omitempty"`
 
 	// SupportLowFramerateInputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-supportlowframerateinputs
-	SupportLowFramerateInputs string `json:"SupportLowFramerateInputs,omitempty"`
+	SupportLowFramerateInputs *string `json:"SupportLowFramerateInputs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

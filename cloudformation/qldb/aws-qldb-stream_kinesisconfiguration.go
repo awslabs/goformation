@@ -11,12 +11,12 @@ type Stream_KinesisConfiguration struct {
 	// AggregationEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
-	AggregationEnabled bool `json:"AggregationEnabled,omitempty"`
+	AggregationEnabled *bool `json:"AggregationEnabled,omitempty"`
 
 	// StreamArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
-	StreamArn string `json:"StreamArn,omitempty"`
+	StreamArn *string `json:"StreamArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Channel_MotionGraphicsConfiguration struct {
 	// MotionGraphicsInsertion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html#cfn-medialive-channel-motiongraphicsconfiguration-motiongraphicsinsertion
-	MotionGraphicsInsertion string `json:"MotionGraphicsInsertion,omitempty"`
+	MotionGraphicsInsertion *string `json:"MotionGraphicsInsertion,omitempty"`
 
 	// MotionGraphicsSettings AWS CloudFormation Property
 	// Required: false

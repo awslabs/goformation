@@ -11,12 +11,12 @@ type Certificate_PolicyQualifierInfo struct {
 	// PolicyQualifierId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
-	PolicyQualifierId string `json:"PolicyQualifierId,omitempty"`
+	PolicyQualifierId string `json:"PolicyQualifierId"`
 
 	// Qualifier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
-	Qualifier *Certificate_Qualifier `json:"Qualifier,omitempty"`
+	Qualifier *Certificate_Qualifier `json:"Qualifier"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

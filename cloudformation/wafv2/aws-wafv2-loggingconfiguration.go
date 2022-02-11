@@ -15,22 +15,22 @@ type LoggingConfiguration struct {
 	// LogDestinationConfigs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
-	LogDestinationConfigs []string `json:"LogDestinationConfigs,omitempty"`
+	LogDestinationConfigs []string `json:"LogDestinationConfigs"`
 
 	// LoggingFilter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
-	LoggingFilter interface{} `json:"LoggingFilter,omitempty"`
+	LoggingFilter *interface{} `json:"LoggingFilter,omitempty"`
 
 	// RedactedFields AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
-	RedactedFields []LoggingConfiguration_FieldToMatch `json:"RedactedFields,omitempty"`
+	RedactedFields *[]LoggingConfiguration_FieldToMatch `json:"RedactedFields,omitempty"`
 
 	// ResourceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
-	ResourceArn string `json:"ResourceArn,omitempty"`
+	ResourceArn string `json:"ResourceArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

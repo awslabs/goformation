@@ -11,12 +11,12 @@ type Distribution_LegacyS3Origin struct {
 	// DNSName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
-	DNSName string `json:"DNSName,omitempty"`
+	DNSName string `json:"DNSName"`
 
 	// OriginAccessIdentity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
-	OriginAccessIdentity string `json:"OriginAccessIdentity,omitempty"`
+	OriginAccessIdentity *string `json:"OriginAccessIdentity,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

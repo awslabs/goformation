@@ -11,7 +11,7 @@ type TransitGatewayPeeringAttachment_TransitGatewayPeeringAttachmentOptions stru
 	// DynamicRouting AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-transitgatewaypeeringattachmentoptions.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewaypeeringattachmentoptions-dynamicrouting
-	DynamicRouting string `json:"DynamicRouting,omitempty"`
+	DynamicRouting *string `json:"DynamicRouting,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

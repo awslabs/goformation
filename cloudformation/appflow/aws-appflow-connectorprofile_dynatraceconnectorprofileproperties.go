@@ -11,7 +11,7 @@ type ConnectorProfile_DynatraceConnectorProfileProperties struct {
 	// InstanceUrl AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
-	InstanceUrl string `json:"InstanceUrl,omitempty"`
+	InstanceUrl string `json:"InstanceUrl"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

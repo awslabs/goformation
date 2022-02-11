@@ -11,12 +11,12 @@ type Dataset_QueryAction struct {
 	// Filters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-filters
-	Filters []Dataset_Filter `json:"Filters,omitempty"`
+	Filters *[]Dataset_Filter `json:"Filters,omitempty"`
 
 	// SqlQuery AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-sqlquery
-	SqlQuery string `json:"SqlQuery,omitempty"`
+	SqlQuery string `json:"SqlQuery"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

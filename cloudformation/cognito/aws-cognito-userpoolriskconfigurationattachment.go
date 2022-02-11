@@ -20,7 +20,7 @@ type UserPoolRiskConfigurationAttachment struct {
 	// ClientId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-clientid
-	ClientId string `json:"ClientId,omitempty"`
+	ClientId string `json:"ClientId"`
 
 	// CompromisedCredentialsRiskConfiguration AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type UserPoolRiskConfigurationAttachment struct {
 	// UserPoolId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-userpoolid
-	UserPoolId string `json:"UserPoolId,omitempty"`
+	UserPoolId string `json:"UserPoolId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

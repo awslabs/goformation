@@ -11,7 +11,7 @@ type Dataset_DatasetParameter struct {
 	// CreateColumn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
-	CreateColumn bool `json:"CreateColumn,omitempty"`
+	CreateColumn *bool `json:"CreateColumn,omitempty"`
 
 	// DatetimeOptions AWS CloudFormation Property
 	// Required: false
@@ -26,12 +26,12 @@ type Dataset_DatasetParameter struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

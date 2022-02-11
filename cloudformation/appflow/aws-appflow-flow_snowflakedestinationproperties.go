@@ -11,7 +11,7 @@ type Flow_SnowflakeDestinationProperties struct {
 	// BucketPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
-	BucketPrefix string `json:"BucketPrefix,omitempty"`
+	BucketPrefix *string `json:"BucketPrefix,omitempty"`
 
 	// ErrorHandlingConfig AWS CloudFormation Property
 	// Required: false
@@ -21,12 +21,12 @@ type Flow_SnowflakeDestinationProperties struct {
 	// IntermediateBucketName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
-	IntermediateBucketName string `json:"IntermediateBucketName,omitempty"`
+	IntermediateBucketName string `json:"IntermediateBucketName"`
 
 	// Object AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
-	Object string `json:"Object,omitempty"`
+	Object string `json:"Object"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

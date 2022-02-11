@@ -11,27 +11,27 @@ type Workflow_WorkflowStep struct {
 	// CopyStepDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-copystepdetails
-	CopyStepDetails interface{} `json:"CopyStepDetails,omitempty"`
+	CopyStepDetails *interface{} `json:"CopyStepDetails,omitempty"`
 
 	// CustomStepDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-customstepdetails
-	CustomStepDetails interface{} `json:"CustomStepDetails,omitempty"`
+	CustomStepDetails *interface{} `json:"CustomStepDetails,omitempty"`
 
 	// DeleteStepDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-deletestepdetails
-	DeleteStepDetails interface{} `json:"DeleteStepDetails,omitempty"`
+	DeleteStepDetails *interface{} `json:"DeleteStepDetails,omitempty"`
 
 	// TagStepDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-tagstepdetails
-	TagStepDetails interface{} `json:"TagStepDetails,omitempty"`
+	TagStepDetails *interface{} `json:"TagStepDetails,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-type
-	Type string `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

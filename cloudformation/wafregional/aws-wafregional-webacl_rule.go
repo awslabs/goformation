@@ -11,7 +11,7 @@ type WebACL_Rule struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-action
-	Action *WebACL_Action `json:"Action,omitempty"`
+	Action *WebACL_Action `json:"Action"`
 
 	// Priority AWS CloudFormation Property
 	// Required: true
@@ -21,7 +21,7 @@ type WebACL_Rule struct {
 	// RuleId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-ruleid
-	RuleId string `json:"RuleId,omitempty"`
+	RuleId string `json:"RuleId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

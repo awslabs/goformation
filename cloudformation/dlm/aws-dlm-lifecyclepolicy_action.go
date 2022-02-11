@@ -11,12 +11,12 @@ type LifecyclePolicy_Action struct {
 	// CrossRegionCopy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-crossregioncopy
-	CrossRegionCopy []LifecyclePolicy_CrossRegionCopyAction `json:"CrossRegionCopy,omitempty"`
+	CrossRegionCopy []LifecyclePolicy_CrossRegionCopyAction `json:"CrossRegionCopy"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

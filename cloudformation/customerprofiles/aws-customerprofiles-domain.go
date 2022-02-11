@@ -16,27 +16,27 @@ type Domain struct {
 	// DeadLetterQueueUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
-	DeadLetterQueueUrl string `json:"DeadLetterQueueUrl,omitempty"`
+	DeadLetterQueueUrl *string `json:"DeadLetterQueueUrl,omitempty"`
 
 	// DefaultEncryptionKey AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
-	DefaultEncryptionKey string `json:"DefaultEncryptionKey,omitempty"`
+	DefaultEncryptionKey *string `json:"DefaultEncryptionKey,omitempty"`
 
 	// DefaultExpirationDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
-	DefaultExpirationDays int `json:"DefaultExpirationDays,omitempty"`
+	DefaultExpirationDays *int `json:"DefaultExpirationDays,omitempty"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
-	DomainName string `json:"DomainName,omitempty"`
+	DomainName string `json:"DomainName"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

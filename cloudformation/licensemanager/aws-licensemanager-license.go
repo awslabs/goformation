@@ -15,57 +15,57 @@ type License struct {
 	// Beneficiary AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-	Beneficiary string `json:"Beneficiary,omitempty"`
+	Beneficiary *string `json:"Beneficiary,omitempty"`
 
 	// ConsumptionConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-	ConsumptionConfiguration *License_ConsumptionConfiguration `json:"ConsumptionConfiguration,omitempty"`
+	ConsumptionConfiguration *License_ConsumptionConfiguration `json:"ConsumptionConfiguration"`
 
 	// Entitlements AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-	Entitlements []License_Entitlement `json:"Entitlements,omitempty"`
+	Entitlements []License_Entitlement `json:"Entitlements"`
 
 	// HomeRegion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
-	HomeRegion string `json:"HomeRegion,omitempty"`
+	HomeRegion string `json:"HomeRegion"`
 
 	// Issuer AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-	Issuer *License_IssuerData `json:"Issuer,omitempty"`
+	Issuer *License_IssuerData `json:"Issuer"`
 
 	// LicenseMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-	LicenseMetadata []License_Metadata `json:"LicenseMetadata,omitempty"`
+	LicenseMetadata *[]License_Metadata `json:"LicenseMetadata,omitempty"`
 
 	// LicenseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
-	LicenseName string `json:"LicenseName,omitempty"`
+	LicenseName string `json:"LicenseName"`
 
 	// ProductName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
-	ProductName string `json:"ProductName,omitempty"`
+	ProductName string `json:"ProductName"`
 
 	// ProductSKU AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
-	ProductSKU string `json:"ProductSKU,omitempty"`
+	ProductSKU *string `json:"ProductSKU,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-	Status string `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 
 	// Validity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-	Validity *License_ValidityDateFormat `json:"Validity,omitempty"`
+	Validity *License_ValidityDateFormat `json:"Validity"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

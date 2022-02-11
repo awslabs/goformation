@@ -15,27 +15,27 @@ type ClientVpnAuthorizationRule struct {
 	// AccessGroupId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-accessgroupid
-	AccessGroupId string `json:"AccessGroupId,omitempty"`
+	AccessGroupId *string `json:"AccessGroupId,omitempty"`
 
 	// AuthorizeAllGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-authorizeallgroups
-	AuthorizeAllGroups bool `json:"AuthorizeAllGroups,omitempty"`
+	AuthorizeAllGroups *bool `json:"AuthorizeAllGroups,omitempty"`
 
 	// ClientVpnEndpointId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-clientvpnendpointid
-	ClientVpnEndpointId string `json:"ClientVpnEndpointId,omitempty"`
+	ClientVpnEndpointId string `json:"ClientVpnEndpointId"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// TargetNetworkCidr AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-targetnetworkcidr
-	TargetNetworkCidr string `json:"TargetNetworkCidr,omitempty"`
+	TargetNetworkCidr string `json:"TargetNetworkCidr"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

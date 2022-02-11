@@ -11,7 +11,7 @@ type DataSource_DataSourceCredentials struct {
 	// CopySourceArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
-	CopySourceArn string `json:"CopySourceArn,omitempty"`
+	CopySourceArn *string `json:"CopySourceArn,omitempty"`
 
 	// CredentialPair AWS CloudFormation Property
 	// Required: false

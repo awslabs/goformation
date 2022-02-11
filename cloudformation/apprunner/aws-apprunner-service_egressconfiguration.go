@@ -11,12 +11,12 @@ type Service_EgressConfiguration struct {
 	// EgressType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-egresstype
-	EgressType string `json:"EgressType,omitempty"`
+	EgressType string `json:"EgressType"`
 
 	// VpcConnectorArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-vpcconnectorarn
-	VpcConnectorArn string `json:"VpcConnectorArn,omitempty"`
+	VpcConnectorArn *string `json:"VpcConnectorArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

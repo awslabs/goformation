@@ -11,7 +11,7 @@ type StorageLens_PrefixLevelStorageMetrics struct {
 	// IsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
-	IsEnabled bool `json:"IsEnabled,omitempty"`
+	IsEnabled *bool `json:"IsEnabled,omitempty"`
 
 	// SelectionCriteria AWS CloudFormation Property
 	// Required: false

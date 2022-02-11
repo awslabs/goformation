@@ -11,17 +11,17 @@ type Channel_Mp2Settings struct {
 	// Bitrate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-bitrate
-	Bitrate float64 `json:"Bitrate,omitempty"`
+	Bitrate *float64 `json:"Bitrate,omitempty"`
 
 	// CodingMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-codingmode
-	CodingMode string `json:"CodingMode,omitempty"`
+	CodingMode *string `json:"CodingMode,omitempty"`
 
 	// SampleRate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-samplerate
-	SampleRate float64 `json:"SampleRate,omitempty"`
+	SampleRate *float64 `json:"SampleRate,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

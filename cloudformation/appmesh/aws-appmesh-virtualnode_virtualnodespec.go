@@ -16,12 +16,12 @@ type VirtualNode_VirtualNodeSpec struct {
 	// Backends AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backends
-	Backends []VirtualNode_Backend `json:"Backends,omitempty"`
+	Backends *[]VirtualNode_Backend `json:"Backends,omitempty"`
 
 	// Listeners AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-listeners
-	Listeners []VirtualNode_Listener `json:"Listeners,omitempty"`
+	Listeners *[]VirtualNode_Listener `json:"Listeners,omitempty"`
 
 	// Logging AWS CloudFormation Property
 	// Required: false

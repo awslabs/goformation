@@ -15,47 +15,47 @@ type CapacityReservationFleet struct {
 	// AllocationStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-allocationstrategy
-	AllocationStrategy string `json:"AllocationStrategy,omitempty"`
+	AllocationStrategy *string `json:"AllocationStrategy,omitempty"`
 
 	// EndDate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-enddate
-	EndDate string `json:"EndDate,omitempty"`
+	EndDate *string `json:"EndDate,omitempty"`
 
 	// InstanceMatchCriteria AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-instancematchcriteria
-	InstanceMatchCriteria string `json:"InstanceMatchCriteria,omitempty"`
+	InstanceMatchCriteria *string `json:"InstanceMatchCriteria,omitempty"`
 
 	// InstanceTypeSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-instancetypespecifications
-	InstanceTypeSpecifications []CapacityReservationFleet_InstanceTypeSpecification `json:"InstanceTypeSpecifications,omitempty"`
+	InstanceTypeSpecifications *[]CapacityReservationFleet_InstanceTypeSpecification `json:"InstanceTypeSpecifications,omitempty"`
 
 	// NoRemoveEndDate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-noremoveenddate
-	NoRemoveEndDate bool `json:"NoRemoveEndDate,omitempty"`
+	NoRemoveEndDate *bool `json:"NoRemoveEndDate,omitempty"`
 
 	// RemoveEndDate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-removeenddate
-	RemoveEndDate bool `json:"RemoveEndDate,omitempty"`
+	RemoveEndDate *bool `json:"RemoveEndDate,omitempty"`
 
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-tagspecifications
-	TagSpecifications []CapacityReservationFleet_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications *[]CapacityReservationFleet_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// Tenancy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-tenancy
-	Tenancy string `json:"Tenancy,omitempty"`
+	Tenancy *string `json:"Tenancy,omitempty"`
 
 	// TotalTargetCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-totaltargetcapacity
-	TotalTargetCapacity int `json:"TotalTargetCapacity,omitempty"`
+	TotalTargetCapacity *int `json:"TotalTargetCapacity,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

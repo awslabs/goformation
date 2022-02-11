@@ -15,17 +15,17 @@ type EC2Fleet struct {
 	// Context AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-	Context string `json:"Context,omitempty"`
+	Context *string `json:"Context,omitempty"`
 
 	// ExcessCapacityTerminationPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-	ExcessCapacityTerminationPolicy string `json:"ExcessCapacityTerminationPolicy,omitempty"`
+	ExcessCapacityTerminationPolicy *string `json:"ExcessCapacityTerminationPolicy,omitempty"`
 
 	// LaunchTemplateConfigs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-	LaunchTemplateConfigs []EC2Fleet_FleetLaunchTemplateConfigRequest `json:"LaunchTemplateConfigs,omitempty"`
+	LaunchTemplateConfigs []EC2Fleet_FleetLaunchTemplateConfigRequest `json:"LaunchTemplateConfigs"`
 
 	// OnDemandOptions AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type EC2Fleet struct {
 	// ReplaceUnhealthyInstances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-	ReplaceUnhealthyInstances bool `json:"ReplaceUnhealthyInstances,omitempty"`
+	ReplaceUnhealthyInstances *bool `json:"ReplaceUnhealthyInstances,omitempty"`
 
 	// SpotOptions AWS CloudFormation Property
 	// Required: false
@@ -45,32 +45,32 @@ type EC2Fleet struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-	TagSpecifications []EC2Fleet_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications *[]EC2Fleet_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// TargetCapacitySpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-	TargetCapacitySpecification *EC2Fleet_TargetCapacitySpecificationRequest `json:"TargetCapacitySpecification,omitempty"`
+	TargetCapacitySpecification *EC2Fleet_TargetCapacitySpecificationRequest `json:"TargetCapacitySpecification"`
 
 	// TerminateInstancesWithExpiration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-	TerminateInstancesWithExpiration bool `json:"TerminateInstancesWithExpiration,omitempty"`
+	TerminateInstancesWithExpiration *bool `json:"TerminateInstancesWithExpiration,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-	Type string `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 
 	// ValidFrom AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-	ValidFrom string `json:"ValidFrom,omitempty"`
+	ValidFrom *string `json:"ValidFrom,omitempty"`
 
 	// ValidUntil AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-	ValidUntil string `json:"ValidUntil,omitempty"`
+	ValidUntil *string `json:"ValidUntil,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

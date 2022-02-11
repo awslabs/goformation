@@ -16,22 +16,22 @@ type PartnerAccount struct {
 	// AccountLinked AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-accountlinked
-	AccountLinked bool `json:"AccountLinked,omitempty"`
+	AccountLinked *bool `json:"AccountLinked,omitempty"`
 
 	// Fingerprint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-fingerprint
-	Fingerprint string `json:"Fingerprint,omitempty"`
+	Fingerprint *string `json:"Fingerprint,omitempty"`
 
 	// PartnerAccountId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partneraccountid
-	PartnerAccountId string `json:"PartnerAccountId,omitempty"`
+	PartnerAccountId *string `json:"PartnerAccountId,omitempty"`
 
 	// PartnerType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partnertype
-	PartnerType string `json:"PartnerType,omitempty"`
+	PartnerType *string `json:"PartnerType,omitempty"`
 
 	// Sidewalk AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type PartnerAccount struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

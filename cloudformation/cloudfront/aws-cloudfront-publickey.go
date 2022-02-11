@@ -15,7 +15,7 @@ type PublicKey struct {
 	// PublicKeyConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-	PublicKeyConfig *PublicKey_PublicKeyConfig `json:"PublicKeyConfig,omitempty"`
+	PublicKeyConfig *PublicKey_PublicKeyConfig `json:"PublicKeyConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

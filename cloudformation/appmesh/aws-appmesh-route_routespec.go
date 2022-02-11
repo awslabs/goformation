@@ -26,7 +26,7 @@ type Route_RouteSpec struct {
 	// Priority AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority *int `json:"Priority,omitempty"`
 
 	// TcpRoute AWS CloudFormation Property
 	// Required: false

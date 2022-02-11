@@ -15,12 +15,12 @@ type Group struct {
 	// FilterExpression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
-	FilterExpression string `json:"FilterExpression,omitempty"`
+	FilterExpression *string `json:"FilterExpression,omitempty"`
 
 	// GroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
-	GroupName string `json:"GroupName,omitempty"`
+	GroupName *string `json:"GroupName,omitempty"`
 
 	// InsightsConfiguration AWS CloudFormation Property
 	// Required: false
@@ -30,7 +30,7 @@ type Group struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-	Tags []interface{} `json:"Tags,omitempty"`
+	Tags *[]interface{} `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type TaskDefinition_InferenceAccelerator struct {
 	// DeviceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
-	DeviceName string `json:"DeviceName,omitempty"`
+	DeviceName *string `json:"DeviceName,omitempty"`
 
 	// DeviceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
-	DeviceType string `json:"DeviceType,omitempty"`
+	DeviceType *string `json:"DeviceType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type DeliveryStream_KMSEncryptionConfig struct {
 	// AWSKMSKeyARN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
-	AWSKMSKeyARN string `json:"AWSKMSKeyARN,omitempty"`
+	AWSKMSKeyARN string `json:"AWSKMSKeyARN"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

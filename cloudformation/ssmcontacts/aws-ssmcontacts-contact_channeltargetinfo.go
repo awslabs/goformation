@@ -11,7 +11,7 @@ type Contact_ChannelTargetInfo struct {
 	// ChannelId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
-	ChannelId string `json:"ChannelId,omitempty"`
+	ChannelId string `json:"ChannelId"`
 
 	// RetryIntervalInMinutes AWS CloudFormation Property
 	// Required: true

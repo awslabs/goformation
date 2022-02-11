@@ -15,12 +15,12 @@ type AccessPointPolicy struct {
 	// ObjectLambdaAccessPoint AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
-	ObjectLambdaAccessPoint string `json:"ObjectLambdaAccessPoint,omitempty"`
+	ObjectLambdaAccessPoint string `json:"ObjectLambdaAccessPoint"`
 
 	// PolicyDocument AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
-	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
+	PolicyDocument interface{} `json:"PolicyDocument"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

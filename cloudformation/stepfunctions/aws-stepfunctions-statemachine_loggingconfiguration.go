@@ -11,17 +11,17 @@ type StateMachine_LoggingConfiguration struct {
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
-	Destinations []StateMachine_LogDestination `json:"Destinations,omitempty"`
+	Destinations *[]StateMachine_LogDestination `json:"Destinations,omitempty"`
 
 	// IncludeExecutionData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
-	IncludeExecutionData bool `json:"IncludeExecutionData,omitempty"`
+	IncludeExecutionData *bool `json:"IncludeExecutionData,omitempty"`
 
 	// Level AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
-	Level string `json:"Level,omitempty"`
+	Level *string `json:"Level,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

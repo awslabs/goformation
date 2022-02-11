@@ -11,12 +11,12 @@ type WorkGroup_WorkGroupConfiguration struct {
 	// BytesScannedCutoffPerQuery AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
-	BytesScannedCutoffPerQuery int `json:"BytesScannedCutoffPerQuery,omitempty"`
+	BytesScannedCutoffPerQuery *int `json:"BytesScannedCutoffPerQuery,omitempty"`
 
 	// EnforceWorkGroupConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
-	EnforceWorkGroupConfiguration bool `json:"EnforceWorkGroupConfiguration,omitempty"`
+	EnforceWorkGroupConfiguration *bool `json:"EnforceWorkGroupConfiguration,omitempty"`
 
 	// EngineVersion AWS CloudFormation Property
 	// Required: false
@@ -26,12 +26,12 @@ type WorkGroup_WorkGroupConfiguration struct {
 	// PublishCloudWatchMetricsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
-	PublishCloudWatchMetricsEnabled bool `json:"PublishCloudWatchMetricsEnabled,omitempty"`
+	PublishCloudWatchMetricsEnabled *bool `json:"PublishCloudWatchMetricsEnabled,omitempty"`
 
 	// RequesterPaysEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
-	RequesterPaysEnabled bool `json:"RequesterPaysEnabled,omitempty"`
+	RequesterPaysEnabled *bool `json:"RequesterPaysEnabled,omitempty"`
 
 	// ResultConfiguration AWS CloudFormation Property
 	// Required: false

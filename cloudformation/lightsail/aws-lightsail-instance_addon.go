@@ -11,7 +11,7 @@ type Instance_AddOn struct {
 	// AddOnType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html#cfn-lightsail-instance-addon-addontype
-	AddOnType string `json:"AddOnType,omitempty"`
+	AddOnType string `json:"AddOnType"`
 
 	// AutoSnapshotAddOnRequest AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type Instance_AddOn struct {
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html#cfn-lightsail-instance-addon-status
-	Status string `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

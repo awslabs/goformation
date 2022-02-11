@@ -16,12 +16,12 @@ type Function_EventInvokeConfig struct {
 	// MaximumEventAgeInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-config-object
-	MaximumEventAgeInSeconds int `json:"MaximumEventAgeInSeconds,omitempty"`
+	MaximumEventAgeInSeconds *int `json:"MaximumEventAgeInSeconds,omitempty"`
 
 	// MaximumRetryAttempts AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-config-object
-	MaximumRetryAttempts int `json:"MaximumRetryAttempts,omitempty"`
+	MaximumRetryAttempts *int `json:"MaximumRetryAttempts,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

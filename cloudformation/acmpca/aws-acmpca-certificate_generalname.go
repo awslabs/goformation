@@ -16,7 +16,7 @@ type Certificate_GeneralName struct {
 	// DnsName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
-	DnsName string `json:"DnsName,omitempty"`
+	DnsName *string `json:"DnsName,omitempty"`
 
 	// EdiPartyName AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type Certificate_GeneralName struct {
 	// IpAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
-	IpAddress string `json:"IpAddress,omitempty"`
+	IpAddress *string `json:"IpAddress,omitempty"`
 
 	// OtherName AWS CloudFormation Property
 	// Required: false
@@ -36,17 +36,17 @@ type Certificate_GeneralName struct {
 	// RegisteredId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
-	RegisteredId string `json:"RegisteredId,omitempty"`
+	RegisteredId *string `json:"RegisteredId,omitempty"`
 
 	// Rfc822Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
-	Rfc822Name string `json:"Rfc822Name,omitempty"`
+	Rfc822Name *string `json:"Rfc822Name,omitempty"`
 
 	// UniformResourceIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
-	UniformResourceIdentifier string `json:"UniformResourceIdentifier,omitempty"`
+	UniformResourceIdentifier *string `json:"UniformResourceIdentifier,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

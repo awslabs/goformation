@@ -11,7 +11,7 @@ type Channel_CaptionDescription struct {
 	// CaptionSelectorName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-captionselectorname
-	CaptionSelectorName string `json:"CaptionSelectorName,omitempty"`
+	CaptionSelectorName *string `json:"CaptionSelectorName,omitempty"`
 
 	// DestinationSettings AWS CloudFormation Property
 	// Required: false
@@ -21,17 +21,17 @@ type Channel_CaptionDescription struct {
 	// LanguageCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-languagecode
-	LanguageCode string `json:"LanguageCode,omitempty"`
+	LanguageCode *string `json:"LanguageCode,omitempty"`
 
 	// LanguageDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-languagedescription
-	LanguageDescription string `json:"LanguageDescription,omitempty"`
+	LanguageDescription *string `json:"LanguageDescription,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

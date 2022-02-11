@@ -16,22 +16,22 @@ type Flow_Task struct {
 	// DestinationField AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
-	DestinationField string `json:"DestinationField,omitempty"`
+	DestinationField *string `json:"DestinationField,omitempty"`
 
 	// SourceFields AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
-	SourceFields []string `json:"SourceFields,omitempty"`
+	SourceFields []string `json:"SourceFields"`
 
 	// TaskProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
-	TaskProperties []Flow_TaskPropertiesObject `json:"TaskProperties,omitempty"`
+	TaskProperties *[]Flow_TaskPropertiesObject `json:"TaskProperties,omitempty"`
 
 	// TaskType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
-	TaskType string `json:"TaskType,omitempty"`
+	TaskType string `json:"TaskType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

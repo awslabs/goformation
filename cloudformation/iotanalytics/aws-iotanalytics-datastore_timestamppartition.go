@@ -11,12 +11,12 @@ type Datastore_TimestampPartition struct {
 	// AttributeName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html#cfn-iotanalytics-datastore-timestamppartition-attributename
-	AttributeName string `json:"AttributeName,omitempty"`
+	AttributeName string `json:"AttributeName"`
 
 	// TimestampFormat AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html#cfn-iotanalytics-datastore-timestamppartition-timestampformat
-	TimestampFormat string `json:"TimestampFormat,omitempty"`
+	TimestampFormat *string `json:"TimestampFormat,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

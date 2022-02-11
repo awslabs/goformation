@@ -11,12 +11,12 @@ type RuleGroup_SizeConstraintStatement struct {
 	// ComparisonOperator AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
-	ComparisonOperator string `json:"ComparisonOperator,omitempty"`
+	ComparisonOperator string `json:"ComparisonOperator"`
 
 	// FieldToMatch AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
-	FieldToMatch *RuleGroup_FieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *RuleGroup_FieldToMatch `json:"FieldToMatch"`
 
 	// Size AWS CloudFormation Property
 	// Required: true
@@ -26,7 +26,7 @@ type RuleGroup_SizeConstraintStatement struct {
 	// TextTransformations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
-	TextTransformations []RuleGroup_TextTransformation `json:"TextTransformations,omitempty"`
+	TextTransformations []RuleGroup_TextTransformation `json:"TextTransformations"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Segment_SegmentDimensions struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-attributes
-	Attributes interface{} `json:"Attributes,omitempty"`
+	Attributes *interface{} `json:"Attributes,omitempty"`
 
 	// Behavior AWS CloudFormation Property
 	// Required: false
@@ -31,12 +31,12 @@ type Segment_SegmentDimensions struct {
 	// Metrics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-metrics
-	Metrics interface{} `json:"Metrics,omitempty"`
+	Metrics *interface{} `json:"Metrics,omitempty"`
 
 	// UserAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-userattributes
-	UserAttributes interface{} `json:"UserAttributes,omitempty"`
+	UserAttributes *interface{} `json:"UserAttributes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

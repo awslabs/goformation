@@ -20,57 +20,57 @@ type FlowSource struct {
 	// Description AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
-	Description string `json:"Description,omitempty"`
+	Description string `json:"Description"`
 
 	// EntitlementArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
-	EntitlementArn string `json:"EntitlementArn,omitempty"`
+	EntitlementArn *string `json:"EntitlementArn,omitempty"`
 
 	// FlowArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
-	FlowArn string `json:"FlowArn,omitempty"`
+	FlowArn *string `json:"FlowArn,omitempty"`
 
 	// IngestPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
-	IngestPort int `json:"IngestPort,omitempty"`
+	IngestPort *int `json:"IngestPort,omitempty"`
 
 	// MaxBitrate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
-	MaxBitrate int `json:"MaxBitrate,omitempty"`
+	MaxBitrate *int `json:"MaxBitrate,omitempty"`
 
 	// MaxLatency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
-	MaxLatency int `json:"MaxLatency,omitempty"`
+	MaxLatency *int `json:"MaxLatency,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol *string `json:"Protocol,omitempty"`
 
 	// StreamId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
-	StreamId string `json:"StreamId,omitempty"`
+	StreamId *string `json:"StreamId,omitempty"`
 
 	// VpcInterfaceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
-	VpcInterfaceName string `json:"VpcInterfaceName,omitempty"`
+	VpcInterfaceName *string `json:"VpcInterfaceName,omitempty"`
 
 	// WhitelistCidr AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
-	WhitelistCidr string `json:"WhitelistCidr,omitempty"`
+	WhitelistCidr *string `json:"WhitelistCidr,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

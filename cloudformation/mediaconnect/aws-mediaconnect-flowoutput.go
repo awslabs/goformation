@@ -15,17 +15,17 @@ type FlowOutput struct {
 	// CidrAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
-	CidrAllowList []string `json:"CidrAllowList,omitempty"`
+	CidrAllowList *[]string `json:"CidrAllowList,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// Destination AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
-	Destination string `json:"Destination,omitempty"`
+	Destination *string `json:"Destination,omitempty"`
 
 	// Encryption AWS CloudFormation Property
 	// Required: false
@@ -35,47 +35,47 @@ type FlowOutput struct {
 	// FlowArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
-	FlowArn string `json:"FlowArn,omitempty"`
+	FlowArn string `json:"FlowArn"`
 
 	// MaxLatency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
-	MaxLatency int `json:"MaxLatency,omitempty"`
+	MaxLatency *int `json:"MaxLatency,omitempty"`
 
 	// MinLatency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-minlatency
-	MinLatency int `json:"MinLatency,omitempty"`
+	MinLatency *int `json:"MinLatency,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
-	Port int `json:"Port,omitempty"`
+	Port *int `json:"Port,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol string `json:"Protocol"`
 
 	// RemoteId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
-	RemoteId string `json:"RemoteId,omitempty"`
+	RemoteId *string `json:"RemoteId,omitempty"`
 
 	// SmoothingLatency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
-	SmoothingLatency int `json:"SmoothingLatency,omitempty"`
+	SmoothingLatency *int `json:"SmoothingLatency,omitempty"`
 
 	// StreamId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
-	StreamId string `json:"StreamId,omitempty"`
+	StreamId *string `json:"StreamId,omitempty"`
 
 	// VpcInterfaceAttachment AWS CloudFormation Property
 	// Required: false

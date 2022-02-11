@@ -15,7 +15,7 @@ type Segment struct {
 	// ApplicationId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-applicationid
-	ApplicationId string `json:"ApplicationId,omitempty"`
+	ApplicationId string `json:"ApplicationId"`
 
 	// Dimensions AWS CloudFormation Property
 	// Required: false
@@ -25,7 +25,7 @@ type Segment struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// SegmentGroups AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type Segment struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

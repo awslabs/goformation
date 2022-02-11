@@ -16,42 +16,42 @@ type LocationHDFS struct {
 	// AgentArns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-agentarns
-	AgentArns []string `json:"AgentArns,omitempty"`
+	AgentArns []string `json:"AgentArns"`
 
 	// AuthenticationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-authenticationtype
-	AuthenticationType string `json:"AuthenticationType,omitempty"`
+	AuthenticationType string `json:"AuthenticationType"`
 
 	// BlockSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-blocksize
-	BlockSize int `json:"BlockSize,omitempty"`
+	BlockSize *int `json:"BlockSize,omitempty"`
 
 	// KerberosKeytab AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-kerberoskeytab
-	KerberosKeytab string `json:"KerberosKeytab,omitempty"`
+	KerberosKeytab *string `json:"KerberosKeytab,omitempty"`
 
 	// KerberosKrb5Conf AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-kerberoskrb5conf
-	KerberosKrb5Conf string `json:"KerberosKrb5Conf,omitempty"`
+	KerberosKrb5Conf *string `json:"KerberosKrb5Conf,omitempty"`
 
 	// KerberosPrincipal AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-kerberosprincipal
-	KerberosPrincipal string `json:"KerberosPrincipal,omitempty"`
+	KerberosPrincipal *string `json:"KerberosPrincipal,omitempty"`
 
 	// KmsKeyProviderUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-kmskeyprovideruri
-	KmsKeyProviderUri string `json:"KmsKeyProviderUri,omitempty"`
+	KmsKeyProviderUri *string `json:"KmsKeyProviderUri,omitempty"`
 
 	// NameNodes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-namenodes
-	NameNodes []LocationHDFS_NameNode `json:"NameNodes,omitempty"`
+	NameNodes []LocationHDFS_NameNode `json:"NameNodes"`
 
 	// QopConfiguration AWS CloudFormation Property
 	// Required: false
@@ -61,22 +61,22 @@ type LocationHDFS struct {
 	// ReplicationFactor AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-replicationfactor
-	ReplicationFactor int `json:"ReplicationFactor,omitempty"`
+	ReplicationFactor *int `json:"ReplicationFactor,omitempty"`
 
 	// SimpleUser AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-simpleuser
-	SimpleUser string `json:"SimpleUser,omitempty"`
+	SimpleUser *string `json:"SimpleUser,omitempty"`
 
 	// Subdirectory AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-subdirectory
-	Subdirectory string `json:"Subdirectory,omitempty"`
+	Subdirectory *string `json:"Subdirectory,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

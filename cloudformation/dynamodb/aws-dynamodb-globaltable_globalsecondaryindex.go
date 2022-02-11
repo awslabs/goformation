@@ -11,17 +11,17 @@ type GlobalTable_GlobalSecondaryIndex struct {
 	// IndexName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-indexname
-	IndexName string `json:"IndexName,omitempty"`
+	IndexName string `json:"IndexName"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-keyschema
-	KeySchema []GlobalTable_KeySchema `json:"KeySchema,omitempty"`
+	KeySchema []GlobalTable_KeySchema `json:"KeySchema"`
 
 	// Projection AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
-	Projection *GlobalTable_Projection `json:"Projection,omitempty"`
+	Projection *GlobalTable_Projection `json:"Projection"`
 
 	// WriteProvisionedThroughputSettings AWS CloudFormation Property
 	// Required: false

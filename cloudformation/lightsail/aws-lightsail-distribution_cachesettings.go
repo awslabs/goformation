@@ -11,17 +11,17 @@ type Distribution_CacheSettings struct {
 	// AllowedHTTPMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-allowedhttpmethods
-	AllowedHTTPMethods string `json:"AllowedHTTPMethods,omitempty"`
+	AllowedHTTPMethods *string `json:"AllowedHTTPMethods,omitempty"`
 
 	// CachedHTTPMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-cachedhttpmethods
-	CachedHTTPMethods string `json:"CachedHTTPMethods,omitempty"`
+	CachedHTTPMethods *string `json:"CachedHTTPMethods,omitempty"`
 
 	// DefaultTTL AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-defaultttl
-	DefaultTTL int `json:"DefaultTTL,omitempty"`
+	DefaultTTL *int `json:"DefaultTTL,omitempty"`
 
 	// ForwardedCookies AWS CloudFormation Property
 	// Required: false
@@ -41,12 +41,12 @@ type Distribution_CacheSettings struct {
 	// MaximumTTL AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-maximumttl
-	MaximumTTL int `json:"MaximumTTL,omitempty"`
+	MaximumTTL *int `json:"MaximumTTL,omitempty"`
 
 	// MinimumTTL AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-minimumttl
-	MinimumTTL int `json:"MinimumTTL,omitempty"`
+	MinimumTTL *int `json:"MinimumTTL,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

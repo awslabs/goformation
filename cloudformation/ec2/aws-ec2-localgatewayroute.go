@@ -15,17 +15,17 @@ type LocalGatewayRoute struct {
 	// DestinationCidrBlock AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
-	DestinationCidrBlock string `json:"DestinationCidrBlock,omitempty"`
+	DestinationCidrBlock string `json:"DestinationCidrBlock"`
 
 	// LocalGatewayRouteTableId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
-	LocalGatewayRouteTableId string `json:"LocalGatewayRouteTableId,omitempty"`
+	LocalGatewayRouteTableId string `json:"LocalGatewayRouteTableId"`
 
 	// LocalGatewayVirtualInterfaceGroupId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
-	LocalGatewayVirtualInterfaceGroupId string `json:"LocalGatewayVirtualInterfaceGroupId,omitempty"`
+	LocalGatewayVirtualInterfaceGroupId string `json:"LocalGatewayVirtualInterfaceGroupId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

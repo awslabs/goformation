@@ -16,7 +16,7 @@ type Bot struct {
 	// AutoBuildBotLocales AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-autobuildbotlocales
-	AutoBuildBotLocales bool `json:"AutoBuildBotLocales,omitempty"`
+	AutoBuildBotLocales *bool `json:"AutoBuildBotLocales,omitempty"`
 
 	// BotFileS3Location AWS CloudFormation Property
 	// Required: false
@@ -26,22 +26,22 @@ type Bot struct {
 	// BotLocales AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botlocales
-	BotLocales []Bot_BotLocale `json:"BotLocales,omitempty"`
+	BotLocales *[]Bot_BotLocale `json:"BotLocales,omitempty"`
 
 	// BotTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-bottags
-	BotTags []tags.Tag `json:"BotTags,omitempty"`
+	BotTags *[]tags.Tag `json:"BotTags,omitempty"`
 
 	// DataPrivacy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-dataprivacy
-	DataPrivacy interface{} `json:"DataPrivacy,omitempty"`
+	DataPrivacy interface{} `json:"DataPrivacy"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// IdleSessionTTLInSeconds AWS CloudFormation Property
 	// Required: true
@@ -51,17 +51,17 @@ type Bot struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// TestBotAliasTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliastags
-	TestBotAliasTags []tags.Tag `json:"TestBotAliasTags,omitempty"`
+	TestBotAliasTags *[]tags.Tag `json:"TestBotAliasTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

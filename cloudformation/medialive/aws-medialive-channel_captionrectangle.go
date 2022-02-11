@@ -11,22 +11,22 @@ type Channel_CaptionRectangle struct {
 	// Height AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-height
-	Height float64 `json:"Height,omitempty"`
+	Height *float64 `json:"Height,omitempty"`
 
 	// LeftOffset AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-leftoffset
-	LeftOffset float64 `json:"LeftOffset,omitempty"`
+	LeftOffset *float64 `json:"LeftOffset,omitempty"`
 
 	// TopOffset AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-topoffset
-	TopOffset float64 `json:"TopOffset,omitempty"`
+	TopOffset *float64 `json:"TopOffset,omitempty"`
 
 	// Width AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-width
-	Width float64 `json:"Width,omitempty"`
+	Width *float64 `json:"Width,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

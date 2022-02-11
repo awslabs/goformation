@@ -16,7 +16,7 @@ type ResponsePlan struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
-	Actions []ResponsePlan_Action `json:"Actions,omitempty"`
+	Actions *[]ResponsePlan_Action `json:"Actions,omitempty"`
 
 	// ChatChannel AWS CloudFormation Property
 	// Required: false
@@ -26,27 +26,27 @@ type ResponsePlan struct {
 	// DisplayName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
-	DisplayName string `json:"DisplayName,omitempty"`
+	DisplayName *string `json:"DisplayName,omitempty"`
 
 	// Engagements AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
-	Engagements []string `json:"Engagements,omitempty"`
+	Engagements *[]string `json:"Engagements,omitempty"`
 
 	// IncidentTemplate AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
-	IncidentTemplate *ResponsePlan_IncidentTemplate `json:"IncidentTemplate,omitempty"`
+	IncidentTemplate *ResponsePlan_IncidentTemplate `json:"IncidentTemplate"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

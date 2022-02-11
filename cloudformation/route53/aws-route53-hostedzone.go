@@ -20,12 +20,12 @@ type HostedZone struct {
 	// HostedZoneTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-	HostedZoneTags []HostedZone_HostedZoneTag `json:"HostedZoneTags,omitempty"`
+	HostedZoneTags *[]HostedZone_HostedZoneTag `json:"HostedZoneTags,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// QueryLoggingConfig AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type HostedZone struct {
 	// VPCs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-	VPCs []HostedZone_VPC `json:"VPCs,omitempty"`
+	VPCs *[]HostedZone_VPC `json:"VPCs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,22 +15,22 @@ type ApiCache struct {
 	// ApiCachingBehavior AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apicachingbehavior
-	ApiCachingBehavior string `json:"ApiCachingBehavior,omitempty"`
+	ApiCachingBehavior string `json:"ApiCachingBehavior"`
 
 	// ApiId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apiid
-	ApiId string `json:"ApiId,omitempty"`
+	ApiId string `json:"ApiId"`
 
 	// AtRestEncryptionEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-atrestencryptionenabled
-	AtRestEncryptionEnabled bool `json:"AtRestEncryptionEnabled,omitempty"`
+	AtRestEncryptionEnabled *bool `json:"AtRestEncryptionEnabled,omitempty"`
 
 	// TransitEncryptionEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-transitencryptionenabled
-	TransitEncryptionEnabled bool `json:"TransitEncryptionEnabled,omitempty"`
+	TransitEncryptionEnabled *bool `json:"TransitEncryptionEnabled,omitempty"`
 
 	// Ttl AWS CloudFormation Property
 	// Required: true
@@ -40,7 +40,7 @@ type ApiCache struct {
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Bot_PromptSpecification struct {
 	// AllowInterrupt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-allowinterrupt
-	AllowInterrupt bool `json:"AllowInterrupt,omitempty"`
+	AllowInterrupt *bool `json:"AllowInterrupt,omitempty"`
 
 	// MaxRetries AWS CloudFormation Property
 	// Required: true
@@ -21,7 +21,7 @@ type Bot_PromptSpecification struct {
 	// MessageGroupsList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-messagegroupslist
-	MessageGroupsList []Bot_MessageGroup `json:"MessageGroupsList,omitempty"`
+	MessageGroupsList []Bot_MessageGroup `json:"MessageGroupsList"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

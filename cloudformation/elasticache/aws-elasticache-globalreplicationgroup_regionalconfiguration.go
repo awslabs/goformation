@@ -11,17 +11,17 @@ type GlobalReplicationGroup_RegionalConfiguration struct {
 	// ReplicationGroupId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
-	ReplicationGroupId string `json:"ReplicationGroupId,omitempty"`
+	ReplicationGroupId *string `json:"ReplicationGroupId,omitempty"`
 
 	// ReplicationGroupRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
-	ReplicationGroupRegion string `json:"ReplicationGroupRegion,omitempty"`
+	ReplicationGroupRegion *string `json:"ReplicationGroupRegion,omitempty"`
 
 	// ReshardingConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
-	ReshardingConfigurations []GlobalReplicationGroup_ReshardingConfiguration `json:"ReshardingConfigurations,omitempty"`
+	ReshardingConfigurations *[]GlobalReplicationGroup_ReshardingConfiguration `json:"ReshardingConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

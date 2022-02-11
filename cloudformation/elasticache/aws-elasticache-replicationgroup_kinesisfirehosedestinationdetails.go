@@ -11,7 +11,7 @@ type ReplicationGroup_KinesisFirehoseDestinationDetails struct {
 	// DeliveryStream AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
-	DeliveryStream string `json:"DeliveryStream,omitempty"`
+	DeliveryStream string `json:"DeliveryStream"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

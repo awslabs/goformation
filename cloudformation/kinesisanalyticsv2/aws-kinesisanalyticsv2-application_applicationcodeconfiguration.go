@@ -11,12 +11,12 @@ type Application_ApplicationCodeConfiguration struct {
 	// CodeContent AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontent
-	CodeContent *Application_CodeContent `json:"CodeContent,omitempty"`
+	CodeContent *Application_CodeContent `json:"CodeContent"`
 
 	// CodeContentType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontenttype
-	CodeContentType string `json:"CodeContentType,omitempty"`
+	CodeContentType string `json:"CodeContentType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

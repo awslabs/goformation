@@ -15,12 +15,12 @@ type Member struct {
 	// InvitationId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-invitationid
-	InvitationId string `json:"InvitationId,omitempty"`
+	InvitationId *string `json:"InvitationId,omitempty"`
 
 	// MemberConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-memberconfiguration
-	MemberConfiguration *Member_MemberConfiguration `json:"MemberConfiguration,omitempty"`
+	MemberConfiguration *Member_MemberConfiguration `json:"MemberConfiguration"`
 
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
@@ -30,7 +30,7 @@ type Member struct {
 	// NetworkId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-networkid
-	NetworkId string `json:"NetworkId,omitempty"`
+	NetworkId *string `json:"NetworkId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

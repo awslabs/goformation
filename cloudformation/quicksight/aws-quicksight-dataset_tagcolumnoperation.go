@@ -11,12 +11,12 @@ type DataSet_TagColumnOperation struct {
 	// ColumnName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
-	ColumnName string `json:"ColumnName,omitempty"`
+	ColumnName string `json:"ColumnName"`
 
 	// Tags AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
-	Tags []DataSet_ColumnTag `json:"Tags,omitempty"`
+	Tags []DataSet_ColumnTag `json:"Tags"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

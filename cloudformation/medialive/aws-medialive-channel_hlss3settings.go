@@ -11,7 +11,7 @@ type Channel_HlsS3Settings struct {
 	// CannedAcl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlss3settings.html#cfn-medialive-channel-hlss3settings-cannedacl
-	CannedAcl string `json:"CannedAcl,omitempty"`
+	CannedAcl *string `json:"CannedAcl,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

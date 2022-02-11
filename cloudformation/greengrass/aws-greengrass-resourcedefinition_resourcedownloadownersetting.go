@@ -11,12 +11,12 @@ type ResourceDefinition_ResourceDownloadOwnerSetting struct {
 	// GroupOwner AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinition-resourcedownloadownersetting-groupowner
-	GroupOwner string `json:"GroupOwner,omitempty"`
+	GroupOwner string `json:"GroupOwner"`
 
 	// GroupPermission AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinition-resourcedownloadownersetting-grouppermission
-	GroupPermission string `json:"GroupPermission,omitempty"`
+	GroupPermission string `json:"GroupPermission"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type ModelBiasJobDefinition_ModelBiasJobInput struct {
 	// EndpointInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-	EndpointInput *ModelBiasJobDefinition_EndpointInput `json:"EndpointInput,omitempty"`
+	EndpointInput *ModelBiasJobDefinition_EndpointInput `json:"EndpointInput"`
 
 	// GroundTruthS3Input AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
-	GroundTruthS3Input *ModelBiasJobDefinition_MonitoringGroundTruthS3Input `json:"GroundTruthS3Input,omitempty"`
+	GroundTruthS3Input *ModelBiasJobDefinition_MonitoringGroundTruthS3Input `json:"GroundTruthS3Input"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

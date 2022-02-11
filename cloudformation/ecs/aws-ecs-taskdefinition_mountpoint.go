@@ -11,17 +11,17 @@ type TaskDefinition_MountPoint struct {
 	// ContainerPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-containerpath
-	ContainerPath string `json:"ContainerPath,omitempty"`
+	ContainerPath *string `json:"ContainerPath,omitempty"`
 
 	// ReadOnly AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-readonly
-	ReadOnly bool `json:"ReadOnly,omitempty"`
+	ReadOnly *bool `json:"ReadOnly,omitempty"`
 
 	// SourceVolume AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-sourcevolume
-	SourceVolume string `json:"SourceVolume,omitempty"`
+	SourceVolume *string `json:"SourceVolume,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

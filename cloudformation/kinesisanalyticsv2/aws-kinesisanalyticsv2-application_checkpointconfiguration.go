@@ -11,22 +11,22 @@ type Application_CheckpointConfiguration struct {
 	// CheckpointInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-checkpointinterval
-	CheckpointInterval int `json:"CheckpointInterval,omitempty"`
+	CheckpointInterval *int `json:"CheckpointInterval,omitempty"`
 
 	// CheckpointingEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-checkpointingenabled
-	CheckpointingEnabled bool `json:"CheckpointingEnabled,omitempty"`
+	CheckpointingEnabled *bool `json:"CheckpointingEnabled,omitempty"`
 
 	// ConfigurationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-configurationtype
-	ConfigurationType string `json:"ConfigurationType,omitempty"`
+	ConfigurationType string `json:"ConfigurationType"`
 
 	// MinPauseBetweenCheckpoints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-minpausebetweencheckpoints
-	MinPauseBetweenCheckpoints int `json:"MinPauseBetweenCheckpoints,omitempty"`
+	MinPauseBetweenCheckpoints *int `json:"MinPauseBetweenCheckpoints,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

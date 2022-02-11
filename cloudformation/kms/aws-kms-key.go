@@ -16,47 +16,47 @@ type Key struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// EnableKeyRotation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
-	EnableKeyRotation bool `json:"EnableKeyRotation,omitempty"`
+	EnableKeyRotation *bool `json:"EnableKeyRotation,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled *bool `json:"Enabled,omitempty"`
 
 	// KeyPolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
-	KeyPolicy interface{} `json:"KeyPolicy,omitempty"`
+	KeyPolicy interface{} `json:"KeyPolicy"`
 
 	// KeySpec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
-	KeySpec string `json:"KeySpec,omitempty"`
+	KeySpec *string `json:"KeySpec,omitempty"`
 
 	// KeyUsage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
-	KeyUsage string `json:"KeyUsage,omitempty"`
+	KeyUsage *string `json:"KeyUsage,omitempty"`
 
 	// MultiRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
-	MultiRegion bool `json:"MultiRegion,omitempty"`
+	MultiRegion *bool `json:"MultiRegion,omitempty"`
 
 	// PendingWindowInDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
-	PendingWindowInDays int `json:"PendingWindowInDays,omitempty"`
+	PendingWindowInDays *int `json:"PendingWindowInDays,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

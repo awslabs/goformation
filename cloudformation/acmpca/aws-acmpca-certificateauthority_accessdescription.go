@@ -11,12 +11,12 @@ type CertificateAuthority_AccessDescription struct {
 	// AccessLocation AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
-	AccessLocation *CertificateAuthority_GeneralName `json:"AccessLocation,omitempty"`
+	AccessLocation *CertificateAuthority_GeneralName `json:"AccessLocation"`
 
 	// AccessMethod AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
-	AccessMethod *CertificateAuthority_AccessMethod `json:"AccessMethod,omitempty"`
+	AccessMethod *CertificateAuthority_AccessMethod `json:"AccessMethod"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

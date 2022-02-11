@@ -11,22 +11,22 @@ type MLTransform_FindMatchesParameters struct {
 	// AccuracyCostTradeoff AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff
-	AccuracyCostTradeoff float64 `json:"AccuracyCostTradeoff,omitempty"`
+	AccuracyCostTradeoff *float64 `json:"AccuracyCostTradeoff,omitempty"`
 
 	// EnforceProvidedLabels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels
-	EnforceProvidedLabels bool `json:"EnforceProvidedLabels,omitempty"`
+	EnforceProvidedLabels *bool `json:"EnforceProvidedLabels,omitempty"`
 
 	// PrecisionRecallTradeoff AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff
-	PrecisionRecallTradeoff float64 `json:"PrecisionRecallTradeoff,omitempty"`
+	PrecisionRecallTradeoff *float64 `json:"PrecisionRecallTradeoff,omitempty"`
 
 	// PrimaryKeyColumnName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname
-	PrimaryKeyColumnName string `json:"PrimaryKeyColumnName,omitempty"`
+	PrimaryKeyColumnName string `json:"PrimaryKeyColumnName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

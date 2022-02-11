@@ -11,37 +11,37 @@ type AnomalyDetector_MetricSet struct {
 	// DimensionList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
-	DimensionList []string `json:"DimensionList,omitempty"`
+	DimensionList *[]string `json:"DimensionList,omitempty"`
 
 	// MetricList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
-	MetricList []AnomalyDetector_Metric `json:"MetricList,omitempty"`
+	MetricList []AnomalyDetector_Metric `json:"MetricList"`
 
 	// MetricSetDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
-	MetricSetDescription string `json:"MetricSetDescription,omitempty"`
+	MetricSetDescription *string `json:"MetricSetDescription,omitempty"`
 
 	// MetricSetFrequency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
-	MetricSetFrequency string `json:"MetricSetFrequency,omitempty"`
+	MetricSetFrequency *string `json:"MetricSetFrequency,omitempty"`
 
 	// MetricSetName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
-	MetricSetName string `json:"MetricSetName,omitempty"`
+	MetricSetName string `json:"MetricSetName"`
 
 	// MetricSource AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
-	MetricSource *AnomalyDetector_MetricSource `json:"MetricSource,omitempty"`
+	MetricSource *AnomalyDetector_MetricSource `json:"MetricSource"`
 
 	// Offset AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
-	Offset int `json:"Offset,omitempty"`
+	Offset *int `json:"Offset,omitempty"`
 
 	// TimestampColumn AWS CloudFormation Property
 	// Required: false
@@ -51,7 +51,7 @@ type AnomalyDetector_MetricSet struct {
 	// Timezone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
-	Timezone string `json:"Timezone,omitempty"`
+	Timezone *string `json:"Timezone,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

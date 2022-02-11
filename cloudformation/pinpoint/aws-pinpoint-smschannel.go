@@ -15,22 +15,22 @@ type SMSChannel struct {
 	// ApplicationId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-applicationid
-	ApplicationId string `json:"ApplicationId,omitempty"`
+	ApplicationId string `json:"ApplicationId"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled *bool `json:"Enabled,omitempty"`
 
 	// SenderId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-senderid
-	SenderId string `json:"SenderId,omitempty"`
+	SenderId *string `json:"SenderId,omitempty"`
 
 	// ShortCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-shortcode
-	ShortCode string `json:"ShortCode,omitempty"`
+	ShortCode *string `json:"ShortCode,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

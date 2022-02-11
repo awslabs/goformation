@@ -11,32 +11,32 @@ type SecurityProfile_MetricValue struct {
 	// Cidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
-	Cidrs []string `json:"Cidrs,omitempty"`
+	Cidrs *[]string `json:"Cidrs,omitempty"`
 
 	// Count AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
-	Count string `json:"Count,omitempty"`
+	Count *string `json:"Count,omitempty"`
 
 	// Number AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
-	Number float64 `json:"Number,omitempty"`
+	Number *float64 `json:"Number,omitempty"`
 
 	// Numbers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
-	Numbers []float64 `json:"Numbers,omitempty"`
+	Numbers *[]float64 `json:"Numbers,omitempty"`
 
 	// Ports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
-	Ports []int `json:"Ports,omitempty"`
+	Ports *[]int `json:"Ports,omitempty"`
 
 	// Strings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
-	Strings []string `json:"Strings,omitempty"`
+	Strings *[]string `json:"Strings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

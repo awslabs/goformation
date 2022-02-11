@@ -11,17 +11,17 @@ type TopicRule_AssetPropertyValue struct {
 	// Quality AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
-	Quality string `json:"Quality,omitempty"`
+	Quality *string `json:"Quality,omitempty"`
 
 	// Timestamp AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
-	Timestamp *TopicRule_AssetPropertyTimestamp `json:"Timestamp,omitempty"`
+	Timestamp *TopicRule_AssetPropertyTimestamp `json:"Timestamp"`
 
 	// Value AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
-	Value *TopicRule_AssetPropertyVariant `json:"Value,omitempty"`
+	Value *TopicRule_AssetPropertyVariant `json:"Value"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

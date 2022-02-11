@@ -16,32 +16,32 @@ type TaskDefinition_LinuxParameters struct {
 	// Devices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
-	Devices []TaskDefinition_Device `json:"Devices,omitempty"`
+	Devices *[]TaskDefinition_Device `json:"Devices,omitempty"`
 
 	// InitProcessEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
-	InitProcessEnabled bool `json:"InitProcessEnabled,omitempty"`
+	InitProcessEnabled *bool `json:"InitProcessEnabled,omitempty"`
 
 	// MaxSwap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
-	MaxSwap int `json:"MaxSwap,omitempty"`
+	MaxSwap *int `json:"MaxSwap,omitempty"`
 
 	// SharedMemorySize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
-	SharedMemorySize int `json:"SharedMemorySize,omitempty"`
+	SharedMemorySize *int `json:"SharedMemorySize,omitempty"`
 
 	// Swappiness AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
-	Swappiness int `json:"Swappiness,omitempty"`
+	Swappiness *int `json:"Swappiness,omitempty"`
 
 	// Tmpfs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
-	Tmpfs []TaskDefinition_Tmpfs `json:"Tmpfs,omitempty"`
+	Tmpfs *[]TaskDefinition_Tmpfs `json:"Tmpfs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type Channel_InputSpecification struct {
 	// Codec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html#cfn-medialive-channel-inputspecification-codec
-	Codec string `json:"Codec,omitempty"`
+	Codec *string `json:"Codec,omitempty"`
 
 	// MaximumBitrate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html#cfn-medialive-channel-inputspecification-maximumbitrate
-	MaximumBitrate string `json:"MaximumBitrate,omitempty"`
+	MaximumBitrate *string `json:"MaximumBitrate,omitempty"`
 
 	// Resolution AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html#cfn-medialive-channel-inputspecification-resolution
-	Resolution string `json:"Resolution,omitempty"`
+	Resolution *string `json:"Resolution,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

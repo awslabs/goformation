@@ -11,12 +11,12 @@ type DataSource_ProxyConfiguration struct {
 	// Credentials AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-proxyconfiguration.html#cfn-kendra-datasource-proxyconfiguration-credentials
-	Credentials string `json:"Credentials,omitempty"`
+	Credentials *string `json:"Credentials,omitempty"`
 
 	// Host AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-proxyconfiguration.html#cfn-kendra-datasource-proxyconfiguration-host
-	Host string `json:"Host,omitempty"`
+	Host string `json:"Host"`
 
 	// Port AWS CloudFormation Property
 	// Required: true

@@ -21,22 +21,22 @@ type PatchBaseline struct {
 	// ApprovedPatches AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatches
-	ApprovedPatches []string `json:"ApprovedPatches,omitempty"`
+	ApprovedPatches *[]string `json:"ApprovedPatches,omitempty"`
 
 	// ApprovedPatchesComplianceLevel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchescompliancelevel
-	ApprovedPatchesComplianceLevel string `json:"ApprovedPatchesComplianceLevel,omitempty"`
+	ApprovedPatchesComplianceLevel *string `json:"ApprovedPatchesComplianceLevel,omitempty"`
 
 	// ApprovedPatchesEnableNonSecurity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity
-	ApprovedPatchesEnableNonSecurity bool `json:"ApprovedPatchesEnableNonSecurity,omitempty"`
+	ApprovedPatchesEnableNonSecurity *bool `json:"ApprovedPatchesEnableNonSecurity,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// GlobalFilters AWS CloudFormation Property
 	// Required: false
@@ -46,37 +46,37 @@ type PatchBaseline struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// OperatingSystem AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-operatingsystem
-	OperatingSystem string `json:"OperatingSystem,omitempty"`
+	OperatingSystem *string `json:"OperatingSystem,omitempty"`
 
 	// PatchGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-patchgroups
-	PatchGroups []string `json:"PatchGroups,omitempty"`
+	PatchGroups *[]string `json:"PatchGroups,omitempty"`
 
 	// RejectedPatches AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatches
-	RejectedPatches []string `json:"RejectedPatches,omitempty"`
+	RejectedPatches *[]string `json:"RejectedPatches,omitempty"`
 
 	// RejectedPatchesAction AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction
-	RejectedPatchesAction string `json:"RejectedPatchesAction,omitempty"`
+	RejectedPatchesAction *string `json:"RejectedPatchesAction,omitempty"`
 
 	// Sources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
-	Sources []PatchBaseline_PatchSource `json:"Sources,omitempty"`
+	Sources *[]PatchBaseline_PatchSource `json:"Sources,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

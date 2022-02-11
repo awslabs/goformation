@@ -11,7 +11,7 @@ type UserPool_UserPoolAddOns struct {
 	// AdvancedSecurityMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecuritymode
-	AdvancedSecurityMode string `json:"AdvancedSecurityMode,omitempty"`
+	AdvancedSecurityMode *string `json:"AdvancedSecurityMode,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

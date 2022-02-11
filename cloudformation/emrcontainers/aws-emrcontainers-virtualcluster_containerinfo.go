@@ -11,7 +11,7 @@ type VirtualCluster_ContainerInfo struct {
 	// EksInfo AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html#cfn-emrcontainers-virtualcluster-containerinfo-eksinfo
-	EksInfo *VirtualCluster_EksInfo `json:"EksInfo,omitempty"`
+	EksInfo *VirtualCluster_EksInfo `json:"EksInfo"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

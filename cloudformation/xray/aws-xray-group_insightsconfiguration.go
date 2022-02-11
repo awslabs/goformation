@@ -11,12 +11,12 @@ type Group_InsightsConfiguration struct {
 	// InsightsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-insightsenabled
-	InsightsEnabled bool `json:"InsightsEnabled,omitempty"`
+	InsightsEnabled *bool `json:"InsightsEnabled,omitempty"`
 
 	// NotificationsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-notificationsenabled
-	NotificationsEnabled bool `json:"NotificationsEnabled,omitempty"`
+	NotificationsEnabled *bool `json:"NotificationsEnabled,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

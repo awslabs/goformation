@@ -15,27 +15,27 @@ type Filter struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-action
-	Action string `json:"Action,omitempty"`
+	Action string `json:"Action"`
 
 	// Description AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-description
-	Description string `json:"Description,omitempty"`
+	Description string `json:"Description"`
 
 	// DetectorId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
-	DetectorId string `json:"DetectorId,omitempty"`
+	DetectorId string `json:"DetectorId"`
 
 	// FindingCriteria AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-findingcriteria
-	FindingCriteria *Filter_FindingCriteria `json:"FindingCriteria,omitempty"`
+	FindingCriteria *Filter_FindingCriteria `json:"FindingCriteria"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Rank AWS CloudFormation Property
 	// Required: true

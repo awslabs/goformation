@@ -11,27 +11,27 @@ type Canary_Code struct {
 	// Handler AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-	Handler string `json:"Handler,omitempty"`
+	Handler string `json:"Handler"`
 
 	// S3Bucket AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
-	S3Bucket string `json:"S3Bucket,omitempty"`
+	S3Bucket *string `json:"S3Bucket,omitempty"`
 
 	// S3Key AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
-	S3Key string `json:"S3Key,omitempty"`
+	S3Key *string `json:"S3Key,omitempty"`
 
 	// S3ObjectVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
-	S3ObjectVersion string `json:"S3ObjectVersion,omitempty"`
+	S3ObjectVersion *string `json:"S3ObjectVersion,omitempty"`
 
 	// Script AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
-	Script string `json:"Script,omitempty"`
+	Script *string `json:"Script,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

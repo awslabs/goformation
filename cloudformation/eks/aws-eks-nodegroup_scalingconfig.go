@@ -11,17 +11,17 @@ type Nodegroup_ScalingConfig struct {
 	// DesiredSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html#cfn-eks-nodegroup-scalingconfig-desiredsize
-	DesiredSize int `json:"DesiredSize,omitempty"`
+	DesiredSize *int `json:"DesiredSize,omitempty"`
 
 	// MaxSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html#cfn-eks-nodegroup-scalingconfig-maxsize
-	MaxSize int `json:"MaxSize,omitempty"`
+	MaxSize *int `json:"MaxSize,omitempty"`
 
 	// MinSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html#cfn-eks-nodegroup-scalingconfig-minsize
-	MinSize int `json:"MinSize,omitempty"`
+	MinSize *int `json:"MinSize,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

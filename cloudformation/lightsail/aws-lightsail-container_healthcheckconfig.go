@@ -11,32 +11,32 @@ type Container_HealthCheckConfig struct {
 	// HealthyThreshold AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html#cfn-lightsail-container-healthcheckconfig-healthythreshold
-	HealthyThreshold int `json:"HealthyThreshold,omitempty"`
+	HealthyThreshold *int `json:"HealthyThreshold,omitempty"`
 
 	// IntervalSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html#cfn-lightsail-container-healthcheckconfig-intervalseconds
-	IntervalSeconds int `json:"IntervalSeconds,omitempty"`
+	IntervalSeconds *int `json:"IntervalSeconds,omitempty"`
 
 	// Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html#cfn-lightsail-container-healthcheckconfig-path
-	Path string `json:"Path,omitempty"`
+	Path *string `json:"Path,omitempty"`
 
 	// SuccessCodes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html#cfn-lightsail-container-healthcheckconfig-successcodes
-	SuccessCodes string `json:"SuccessCodes,omitempty"`
+	SuccessCodes *string `json:"SuccessCodes,omitempty"`
 
 	// TimeoutSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html#cfn-lightsail-container-healthcheckconfig-timeoutseconds
-	TimeoutSeconds int `json:"TimeoutSeconds,omitempty"`
+	TimeoutSeconds *int `json:"TimeoutSeconds,omitempty"`
 
 	// UnhealthyThreshold AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html#cfn-lightsail-container-healthcheckconfig-unhealthythreshold
-	UnhealthyThreshold int `json:"UnhealthyThreshold,omitempty"`
+	UnhealthyThreshold *int `json:"UnhealthyThreshold,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

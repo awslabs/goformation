@@ -20,42 +20,42 @@ type ImageRecipe struct {
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
-	BlockDeviceMappings []ImageRecipe_InstanceBlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
+	BlockDeviceMappings *[]ImageRecipe_InstanceBlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
 	// Components AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
-	Components []ImageRecipe_ComponentConfiguration `json:"Components,omitempty"`
+	Components []ImageRecipe_ComponentConfiguration `json:"Components"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ParentImage AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
-	ParentImage string `json:"ParentImage,omitempty"`
+	ParentImage string `json:"ParentImage"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// Version AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
-	Version string `json:"Version,omitempty"`
+	Version string `json:"Version"`
 
 	// WorkingDirectory AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
-	WorkingDirectory string `json:"WorkingDirectory,omitempty"`
+	WorkingDirectory *string `json:"WorkingDirectory,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

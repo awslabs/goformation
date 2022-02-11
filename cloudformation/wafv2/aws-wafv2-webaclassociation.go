@@ -15,12 +15,12 @@ type WebACLAssociation struct {
 	// ResourceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-	ResourceArn string `json:"ResourceArn,omitempty"`
+	ResourceArn string `json:"ResourceArn"`
 
 	// WebACLArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-	WebACLArn string `json:"WebACLArn,omitempty"`
+	WebACLArn string `json:"WebACLArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

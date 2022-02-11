@@ -11,17 +11,17 @@ type RuleGroup_StatefulRule struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-action
-	Action string `json:"Action,omitempty"`
+	Action string `json:"Action"`
 
 	// Header AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
-	Header *RuleGroup_Header `json:"Header,omitempty"`
+	Header *RuleGroup_Header `json:"Header"`
 
 	// RuleOptions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
-	RuleOptions []RuleGroup_RuleOption `json:"RuleOptions,omitempty"`
+	RuleOptions []RuleGroup_RuleOption `json:"RuleOptions"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

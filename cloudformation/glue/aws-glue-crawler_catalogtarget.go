@@ -11,12 +11,12 @@ type Crawler_CatalogTarget struct {
 	// DatabaseName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-databasename
-	DatabaseName string `json:"DatabaseName,omitempty"`
+	DatabaseName *string `json:"DatabaseName,omitempty"`
 
 	// Tables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-tables
-	Tables []string `json:"Tables,omitempty"`
+	Tables *[]string `json:"Tables,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -21,7 +21,7 @@ type OriginEndpoint struct {
 	// ChannelId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
-	ChannelId string `json:"ChannelId,omitempty"`
+	ChannelId string `json:"ChannelId"`
 
 	// CmafPackage AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type OriginEndpoint struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// HlsPackage AWS CloudFormation Property
 	// Required: false
@@ -46,12 +46,12 @@ type OriginEndpoint struct {
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// ManifestName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
-	ManifestName string `json:"ManifestName,omitempty"`
+	ManifestName *string `json:"ManifestName,omitempty"`
 
 	// MssPackage AWS CloudFormation Property
 	// Required: false
@@ -61,27 +61,27 @@ type OriginEndpoint struct {
 	// Origination AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
-	Origination string `json:"Origination,omitempty"`
+	Origination *string `json:"Origination,omitempty"`
 
 	// StartoverWindowSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
-	StartoverWindowSeconds int `json:"StartoverWindowSeconds,omitempty"`
+	StartoverWindowSeconds *int `json:"StartoverWindowSeconds,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// TimeDelaySeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
-	TimeDelaySeconds int `json:"TimeDelaySeconds,omitempty"`
+	TimeDelaySeconds *int `json:"TimeDelaySeconds,omitempty"`
 
 	// Whitelist AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
-	Whitelist []string `json:"Whitelist,omitempty"`
+	Whitelist *[]string `json:"Whitelist,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

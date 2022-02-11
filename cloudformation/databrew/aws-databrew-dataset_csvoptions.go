@@ -11,12 +11,12 @@ type Dataset_CsvOptions struct {
 	// Delimiter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
-	Delimiter string `json:"Delimiter,omitempty"`
+	Delimiter *string `json:"Delimiter,omitempty"`
 
 	// HeaderRow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
-	HeaderRow bool `json:"HeaderRow,omitempty"`
+	HeaderRow *bool `json:"HeaderRow,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

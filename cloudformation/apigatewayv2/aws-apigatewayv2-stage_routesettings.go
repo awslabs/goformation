@@ -11,27 +11,27 @@ type Stage_RouteSettings struct {
 	// DataTraceEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-datatraceenabled
-	DataTraceEnabled bool `json:"DataTraceEnabled,omitempty"`
+	DataTraceEnabled *bool `json:"DataTraceEnabled,omitempty"`
 
 	// DetailedMetricsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-detailedmetricsenabled
-	DetailedMetricsEnabled bool `json:"DetailedMetricsEnabled,omitempty"`
+	DetailedMetricsEnabled *bool `json:"DetailedMetricsEnabled,omitempty"`
 
 	// LoggingLevel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-logginglevel
-	LoggingLevel string `json:"LoggingLevel,omitempty"`
+	LoggingLevel *string `json:"LoggingLevel,omitempty"`
 
 	// ThrottlingBurstLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-throttlingburstlimit
-	ThrottlingBurstLimit int `json:"ThrottlingBurstLimit,omitempty"`
+	ThrottlingBurstLimit *int `json:"ThrottlingBurstLimit,omitempty"`
 
 	// ThrottlingRateLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-throttlingratelimit
-	ThrottlingRateLimit float64 `json:"ThrottlingRateLimit,omitempty"`
+	ThrottlingRateLimit *float64 `json:"ThrottlingRateLimit,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,22 +15,22 @@ type Partition struct {
 	// CatalogId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-catalogid
-	CatalogId string `json:"CatalogId,omitempty"`
+	CatalogId string `json:"CatalogId"`
 
 	// DatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-databasename
-	DatabaseName string `json:"DatabaseName,omitempty"`
+	DatabaseName string `json:"DatabaseName"`
 
 	// PartitionInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-partitioninput
-	PartitionInput *Partition_PartitionInput `json:"PartitionInput,omitempty"`
+	PartitionInput *Partition_PartitionInput `json:"PartitionInput"`
 
 	// TableName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName string `json:"TableName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

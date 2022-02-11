@@ -11,17 +11,17 @@ type ConnectorProfile_OAuthProperties struct {
 	// AuthCodeUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-authcodeurl
-	AuthCodeUrl string `json:"AuthCodeUrl,omitempty"`
+	AuthCodeUrl *string `json:"AuthCodeUrl,omitempty"`
 
 	// OAuthScopes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-oauthscopes
-	OAuthScopes []string `json:"OAuthScopes,omitempty"`
+	OAuthScopes *[]string `json:"OAuthScopes,omitempty"`
 
 	// TokenUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-tokenurl
-	TokenUrl string `json:"TokenUrl,omitempty"`
+	TokenUrl *string `json:"TokenUrl,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

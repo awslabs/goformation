@@ -16,7 +16,7 @@ type DataSet_LogicalTableSource struct {
 	// PhysicalTableId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid
-	PhysicalTableId string `json:"PhysicalTableId,omitempty"`
+	PhysicalTableId *string `json:"PhysicalTableId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type ReceiptRule_SNSAction struct {
 	// Encoding AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-encoding
-	Encoding string `json:"Encoding,omitempty"`
+	Encoding *string `json:"Encoding,omitempty"`
 
 	// TopicArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-topicarn
-	TopicArn string `json:"TopicArn,omitempty"`
+	TopicArn *string `json:"TopicArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

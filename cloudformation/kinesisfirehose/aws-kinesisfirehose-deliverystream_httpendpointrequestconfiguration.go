@@ -11,12 +11,12 @@ type DeliveryStream_HttpEndpointRequestConfiguration struct {
 	// CommonAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
-	CommonAttributes []DeliveryStream_HttpEndpointCommonAttribute `json:"CommonAttributes,omitempty"`
+	CommonAttributes *[]DeliveryStream_HttpEndpointCommonAttribute `json:"CommonAttributes,omitempty"`
 
 	// ContentEncoding AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
-	ContentEncoding string `json:"ContentEncoding,omitempty"`
+	ContentEncoding *string `json:"ContentEncoding,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

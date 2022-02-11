@@ -11,12 +11,12 @@ type ClientVpnEndpoint_FederatedAuthenticationRequest struct {
 	// SAMLProviderArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
-	SAMLProviderArn string `json:"SAMLProviderArn,omitempty"`
+	SAMLProviderArn string `json:"SAMLProviderArn"`
 
 	// SelfServiceSAMLProviderArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
-	SelfServiceSAMLProviderArn string `json:"SelfServiceSAMLProviderArn,omitempty"`
+	SelfServiceSAMLProviderArn *string `json:"SelfServiceSAMLProviderArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

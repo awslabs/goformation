@@ -11,12 +11,12 @@ type SpotFleet_PrivateIpAddressSpecification struct {
 	// Primary AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
-	Primary bool `json:"Primary,omitempty"`
+	Primary *bool `json:"Primary,omitempty"`
 
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
-	PrivateIpAddress string `json:"PrivateIpAddress,omitempty"`
+	PrivateIpAddress string `json:"PrivateIpAddress"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

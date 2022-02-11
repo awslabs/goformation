@@ -11,12 +11,12 @@ type Channel_RtmpOutputSettings struct {
 	// CertificateMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-certificatemode
-	CertificateMode string `json:"CertificateMode,omitempty"`
+	CertificateMode *string `json:"CertificateMode,omitempty"`
 
 	// ConnectionRetryInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-connectionretryinterval
-	ConnectionRetryInterval int `json:"ConnectionRetryInterval,omitempty"`
+	ConnectionRetryInterval *int `json:"ConnectionRetryInterval,omitempty"`
 
 	// Destination AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type Channel_RtmpOutputSettings struct {
 	// NumRetries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-numretries
-	NumRetries int `json:"NumRetries,omitempty"`
+	NumRetries *int `json:"NumRetries,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

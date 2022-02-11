@@ -11,17 +11,17 @@ type Channel_FecOutputSettings struct {
 	// ColumnDepth AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html#cfn-medialive-channel-fecoutputsettings-columndepth
-	ColumnDepth int `json:"ColumnDepth,omitempty"`
+	ColumnDepth *int `json:"ColumnDepth,omitempty"`
 
 	// IncludeFec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html#cfn-medialive-channel-fecoutputsettings-includefec
-	IncludeFec string `json:"IncludeFec,omitempty"`
+	IncludeFec *string `json:"IncludeFec,omitempty"`
 
 	// RowLength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html#cfn-medialive-channel-fecoutputsettings-rowlength
-	RowLength int `json:"RowLength,omitempty"`
+	RowLength *int `json:"RowLength,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

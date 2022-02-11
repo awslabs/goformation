@@ -15,12 +15,12 @@ type GeoMatchSet struct {
 	// GeoMatchConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html#cfn-wafregional-geomatchset-geomatchconstraints
-	GeoMatchConstraints []GeoMatchSet_GeoMatchConstraint `json:"GeoMatchConstraints,omitempty"`
+	GeoMatchConstraints *[]GeoMatchSet_GeoMatchConstraint `json:"GeoMatchConstraints,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html#cfn-wafregional-geomatchset-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

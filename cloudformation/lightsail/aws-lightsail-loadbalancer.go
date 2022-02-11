@@ -16,12 +16,12 @@ type LoadBalancer struct {
 	// AttachedInstances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-attachedinstances
-	AttachedInstances []string `json:"AttachedInstances,omitempty"`
+	AttachedInstances *[]string `json:"AttachedInstances,omitempty"`
 
 	// HealthCheckPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-healthcheckpath
-	HealthCheckPath string `json:"HealthCheckPath,omitempty"`
+	HealthCheckPath *string `json:"HealthCheckPath,omitempty"`
 
 	// InstancePort AWS CloudFormation Property
 	// Required: true
@@ -31,27 +31,27 @@ type LoadBalancer struct {
 	// IpAddressType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-ipaddresstype
-	IpAddressType string `json:"IpAddressType,omitempty"`
+	IpAddressType *string `json:"IpAddressType,omitempty"`
 
 	// LoadBalancerName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-loadbalancername
-	LoadBalancerName string `json:"LoadBalancerName,omitempty"`
+	LoadBalancerName string `json:"LoadBalancerName"`
 
 	// SessionStickinessEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-sessionstickinessenabled
-	SessionStickinessEnabled bool `json:"SessionStickinessEnabled,omitempty"`
+	SessionStickinessEnabled *bool `json:"SessionStickinessEnabled,omitempty"`
 
 	// SessionStickinessLBCookieDurationSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-sessionstickinesslbcookiedurationseconds
-	SessionStickinessLBCookieDurationSeconds string `json:"SessionStickinessLBCookieDurationSeconds,omitempty"`
+	SessionStickinessLBCookieDurationSeconds *string `json:"SessionStickinessLBCookieDurationSeconds,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

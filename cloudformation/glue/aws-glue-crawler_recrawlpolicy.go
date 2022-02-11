@@ -11,7 +11,7 @@ type Crawler_RecrawlPolicy struct {
 	// RecrawlBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
-	RecrawlBehavior string `json:"RecrawlBehavior,omitempty"`
+	RecrawlBehavior *string `json:"RecrawlBehavior,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

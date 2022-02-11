@@ -11,22 +11,22 @@ type StateMachine_CloudWatchEventEvent struct {
 	// EventBusName AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-statemachine-cloudwatchevent.html
-	EventBusName string `json:"EventBusName,omitempty"`
+	EventBusName *string `json:"EventBusName,omitempty"`
 
 	// Input AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-statemachine-cloudwatchevent.html
-	Input string `json:"Input,omitempty"`
+	Input *string `json:"Input,omitempty"`
 
 	// InputPath AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-statemachine-cloudwatchevent.html
-	InputPath string `json:"InputPath,omitempty"`
+	InputPath *string `json:"InputPath,omitempty"`
 
 	// Pattern AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html
-	Pattern interface{} `json:"Pattern,omitempty"`
+	Pattern interface{} `json:"Pattern"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

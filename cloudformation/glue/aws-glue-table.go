@@ -15,17 +15,17 @@ type Table struct {
 	// CatalogId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-catalogid
-	CatalogId string `json:"CatalogId,omitempty"`
+	CatalogId string `json:"CatalogId"`
 
 	// DatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-databasename
-	DatabaseName string `json:"DatabaseName,omitempty"`
+	DatabaseName string `json:"DatabaseName"`
 
 	// TableInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput
-	TableInput *Table_TableInput `json:"TableInput,omitempty"`
+	TableInput *Table_TableInput `json:"TableInput"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

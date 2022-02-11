@@ -16,22 +16,22 @@ type ApplicationInstance struct {
 	// ApplicationInstanceIdToReplace AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-applicationinstanceidtoreplace
-	ApplicationInstanceIdToReplace string `json:"ApplicationInstanceIdToReplace,omitempty"`
+	ApplicationInstanceIdToReplace *string `json:"ApplicationInstanceIdToReplace,omitempty"`
 
 	// DefaultRuntimeContextDevice AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-defaultruntimecontextdevice
-	DefaultRuntimeContextDevice string `json:"DefaultRuntimeContextDevice,omitempty"`
+	DefaultRuntimeContextDevice string `json:"DefaultRuntimeContextDevice"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// DeviceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-deviceid
-	DeviceId string `json:"DeviceId,omitempty"`
+	DeviceId *string `json:"DeviceId,omitempty"`
 
 	// ManifestOverridesPayload AWS CloudFormation Property
 	// Required: false
@@ -41,27 +41,27 @@ type ApplicationInstance struct {
 	// ManifestPayload AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-manifestpayload
-	ManifestPayload *ApplicationInstance_ManifestPayload `json:"ManifestPayload,omitempty"`
+	ManifestPayload *ApplicationInstance_ManifestPayload `json:"ManifestPayload"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// RuntimeRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-runtimerolearn
-	RuntimeRoleArn string `json:"RuntimeRoleArn,omitempty"`
+	RuntimeRoleArn *string `json:"RuntimeRoleArn,omitempty"`
 
 	// StatusFilter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-statusfilter
-	StatusFilter string `json:"StatusFilter,omitempty"`
+	StatusFilter *string `json:"StatusFilter,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

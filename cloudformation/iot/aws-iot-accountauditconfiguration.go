@@ -15,12 +15,12 @@ type AccountAuditConfiguration struct {
 	// AccountId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
-	AccountId string `json:"AccountId,omitempty"`
+	AccountId string `json:"AccountId"`
 
 	// AuditCheckConfigurations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-	AuditCheckConfigurations *AccountAuditConfiguration_AuditCheckConfigurations `json:"AuditCheckConfigurations,omitempty"`
+	AuditCheckConfigurations *AccountAuditConfiguration_AuditCheckConfigurations `json:"AuditCheckConfigurations"`
 
 	// AuditNotificationTargetConfigurations AWS CloudFormation Property
 	// Required: false
@@ -30,7 +30,7 @@ type AccountAuditConfiguration struct {
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

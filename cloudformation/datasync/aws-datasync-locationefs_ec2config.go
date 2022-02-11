@@ -11,12 +11,12 @@ type LocationEFS_Ec2Config struct {
 	// SecurityGroupArns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
-	SecurityGroupArns []string `json:"SecurityGroupArns,omitempty"`
+	SecurityGroupArns []string `json:"SecurityGroupArns"`
 
 	// SubnetArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
-	SubnetArn string `json:"SubnetArn,omitempty"`
+	SubnetArn string `json:"SubnetArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

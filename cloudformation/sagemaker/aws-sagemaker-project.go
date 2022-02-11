@@ -16,22 +16,22 @@ type Project struct {
 	// ProjectDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-	ProjectDescription string `json:"ProjectDescription,omitempty"`
+	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 
 	// ProjectName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-	ProjectName string `json:"ProjectName,omitempty"`
+	ProjectName string `json:"ProjectName"`
 
 	// ServiceCatalogProvisioningDetails AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
-	ServiceCatalogProvisioningDetails interface{} `json:"ServiceCatalogProvisioningDetails,omitempty"`
+	ServiceCatalogProvisioningDetails interface{} `json:"ServiceCatalogProvisioningDetails"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

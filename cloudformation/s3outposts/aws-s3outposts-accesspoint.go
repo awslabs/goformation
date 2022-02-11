@@ -15,22 +15,22 @@ type AccessPoint struct {
 	// Bucket AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
-	Bucket string `json:"Bucket,omitempty"`
+	Bucket string `json:"Bucket"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Policy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
-	Policy interface{} `json:"Policy,omitempty"`
+	Policy *interface{} `json:"Policy,omitempty"`
 
 	// VpcConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
-	VpcConfiguration *AccessPoint_VpcConfiguration `json:"VpcConfiguration,omitempty"`
+	VpcConfiguration *AccessPoint_VpcConfiguration `json:"VpcConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

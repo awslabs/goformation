@@ -11,7 +11,7 @@ type Dataset_ResourceConfiguration struct {
 	// ComputeType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html#cfn-iotanalytics-dataset-resourceconfiguration-computetype
-	ComputeType string `json:"ComputeType,omitempty"`
+	ComputeType string `json:"ComputeType"`
 
 	// VolumeSizeInGB AWS CloudFormation Property
 	// Required: true

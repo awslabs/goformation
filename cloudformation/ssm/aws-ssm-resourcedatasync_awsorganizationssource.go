@@ -11,12 +11,12 @@ type ResourceDataSync_AwsOrganizationsSource struct {
 	// OrganizationSourceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
-	OrganizationSourceType string `json:"OrganizationSourceType,omitempty"`
+	OrganizationSourceType string `json:"OrganizationSourceType"`
 
 	// OrganizationalUnits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
-	OrganizationalUnits []string `json:"OrganizationalUnits,omitempty"`
+	OrganizationalUnits *[]string `json:"OrganizationalUnits,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,22 +15,22 @@ type RateBasedRule struct {
 	// MatchPredicates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-matchpredicates
-	MatchPredicates []RateBasedRule_Predicate `json:"MatchPredicates,omitempty"`
+	MatchPredicates *[]RateBasedRule_Predicate `json:"MatchPredicates,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-metricname
-	MetricName string `json:"MetricName,omitempty"`
+	MetricName string `json:"MetricName"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RateKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-ratekey
-	RateKey string `json:"RateKey,omitempty"`
+	RateKey string `json:"RateKey"`
 
 	// RateLimit AWS CloudFormation Property
 	// Required: true

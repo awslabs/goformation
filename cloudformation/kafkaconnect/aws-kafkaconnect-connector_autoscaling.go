@@ -26,12 +26,12 @@ type Connector_AutoScaling struct {
 	// ScaleInPolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleinpolicy
-	ScaleInPolicy *Connector_ScaleInPolicy `json:"ScaleInPolicy,omitempty"`
+	ScaleInPolicy *Connector_ScaleInPolicy `json:"ScaleInPolicy"`
 
 	// ScaleOutPolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleoutpolicy
-	ScaleOutPolicy *Connector_ScaleOutPolicy `json:"ScaleOutPolicy,omitempty"`
+	ScaleOutPolicy *Connector_ScaleOutPolicy `json:"ScaleOutPolicy"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

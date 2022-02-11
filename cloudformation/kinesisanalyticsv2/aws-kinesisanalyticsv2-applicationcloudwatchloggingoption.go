@@ -15,12 +15,12 @@ type ApplicationCloudWatchLoggingOption struct {
 	// ApplicationName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-applicationname
-	ApplicationName string `json:"ApplicationName,omitempty"`
+	ApplicationName string `json:"ApplicationName"`
 
 	// CloudWatchLoggingOption AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption
-	CloudWatchLoggingOption *ApplicationCloudWatchLoggingOption_CloudWatchLoggingOption `json:"CloudWatchLoggingOption,omitempty"`
+	CloudWatchLoggingOption *ApplicationCloudWatchLoggingOption_CloudWatchLoggingOption `json:"CloudWatchLoggingOption"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

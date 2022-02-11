@@ -15,12 +15,12 @@ type LoggerDefinitionVersion struct {
 	// LoggerDefinitionId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html#cfn-greengrass-loggerdefinitionversion-loggerdefinitionid
-	LoggerDefinitionId string `json:"LoggerDefinitionId,omitempty"`
+	LoggerDefinitionId string `json:"LoggerDefinitionId"`
 
 	// Loggers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html#cfn-greengrass-loggerdefinitionversion-loggers
-	Loggers []LoggerDefinitionVersion_Logger `json:"Loggers,omitempty"`
+	Loggers []LoggerDefinitionVersion_Logger `json:"Loggers"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

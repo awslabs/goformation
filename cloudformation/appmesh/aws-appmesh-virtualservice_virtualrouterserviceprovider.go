@@ -11,7 +11,7 @@ type VirtualService_VirtualRouterServiceProvider struct {
 	// VirtualRouterName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html#cfn-appmesh-virtualservice-virtualrouterserviceprovider-virtualroutername
-	VirtualRouterName string `json:"VirtualRouterName,omitempty"`
+	VirtualRouterName string `json:"VirtualRouterName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

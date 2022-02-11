@@ -16,7 +16,7 @@ type VirtualGateway_VirtualGatewayHttpConnectionPool struct {
 	// MaxPendingRequests AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests
-	MaxPendingRequests int `json:"MaxPendingRequests,omitempty"`
+	MaxPendingRequests *int `json:"MaxPendingRequests,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

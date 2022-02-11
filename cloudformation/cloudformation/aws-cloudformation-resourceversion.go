@@ -15,7 +15,7 @@ type ResourceVersion struct {
 	// ExecutionRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn
-	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
+	ExecutionRoleArn *string `json:"ExecutionRoleArn,omitempty"`
 
 	// LoggingConfig AWS CloudFormation Property
 	// Required: false
@@ -25,12 +25,12 @@ type ResourceVersion struct {
 	// SchemaHandlerPackage AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
-	SchemaHandlerPackage string `json:"SchemaHandlerPackage,omitempty"`
+	SchemaHandlerPackage string `json:"SchemaHandlerPackage"`
 
 	// TypeName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename
-	TypeName string `json:"TypeName,omitempty"`
+	TypeName string `json:"TypeName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

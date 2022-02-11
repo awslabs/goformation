@@ -11,7 +11,7 @@ type Endpoint_VariantProperty struct {
 	// VariantPropertyType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html#cfn-sagemaker-endpoint-variantproperty-variantpropertytype
-	VariantPropertyType string `json:"VariantPropertyType,omitempty"`
+	VariantPropertyType *string `json:"VariantPropertyType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type WebACL_RegexMatchStatement struct {
 	// FieldToMatch AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-fieldtomatch
-	FieldToMatch *WebACL_FieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WebACL_FieldToMatch `json:"FieldToMatch"`
 
 	// RegexString AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-regexstring
-	RegexString string `json:"RegexString,omitempty"`
+	RegexString string `json:"RegexString"`
 
 	// TextTransformations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-texttransformations
-	TextTransformations []WebACL_TextTransformation `json:"TextTransformations,omitempty"`
+	TextTransformations []WebACL_TextTransformation `json:"TextTransformations"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

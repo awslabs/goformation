@@ -11,7 +11,7 @@ type StorageLens_StorageLensConfiguration struct {
 	// AccountLevel AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
-	AccountLevel *StorageLens_AccountLevel `json:"AccountLevel,omitempty"`
+	AccountLevel *StorageLens_AccountLevel `json:"AccountLevel"`
 
 	// AwsOrg AWS CloudFormation Property
 	// Required: false
@@ -31,7 +31,7 @@ type StorageLens_StorageLensConfiguration struct {
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// Include AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type StorageLens_StorageLensConfiguration struct {
 	// StorageLensArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
-	StorageLensArn string `json:"StorageLensArn,omitempty"`
+	StorageLensArn *string `json:"StorageLensArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

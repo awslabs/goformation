@@ -15,12 +15,12 @@ type Database struct {
 	// CatalogId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-catalogid
-	CatalogId string `json:"CatalogId,omitempty"`
+	CatalogId string `json:"CatalogId"`
 
 	// DatabaseInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-databaseinput
-	DatabaseInput *Database_DatabaseInput `json:"DatabaseInput,omitempty"`
+	DatabaseInput *Database_DatabaseInput `json:"DatabaseInput"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

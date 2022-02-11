@@ -11,27 +11,27 @@ type FileSystem_RootVolumeConfiguration struct {
 	// CopyTagsToSnapshots AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-copytagstosnapshots
-	CopyTagsToSnapshots bool `json:"CopyTagsToSnapshots,omitempty"`
+	CopyTagsToSnapshots *bool `json:"CopyTagsToSnapshots,omitempty"`
 
 	// DataCompressionType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-datacompressiontype
-	DataCompressionType string `json:"DataCompressionType,omitempty"`
+	DataCompressionType *string `json:"DataCompressionType,omitempty"`
 
 	// NfsExports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports
-	NfsExports []FileSystem_NfsExports `json:"NfsExports,omitempty"`
+	NfsExports *[]FileSystem_NfsExports `json:"NfsExports,omitempty"`
 
 	// ReadOnly AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-readonly
-	ReadOnly bool `json:"ReadOnly,omitempty"`
+	ReadOnly *bool `json:"ReadOnly,omitempty"`
 
 	// UserAndGroupQuotas AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas
-	UserAndGroupQuotas []FileSystem_UserAndGroupQuotas `json:"UserAndGroupQuotas,omitempty"`
+	UserAndGroupQuotas *[]FileSystem_UserAndGroupQuotas `json:"UserAndGroupQuotas,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

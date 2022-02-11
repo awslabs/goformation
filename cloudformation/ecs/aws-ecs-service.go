@@ -16,12 +16,12 @@ type Service struct {
 	// CapacityProviderStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-	CapacityProviderStrategy []Service_CapacityProviderStrategyItem `json:"CapacityProviderStrategy,omitempty"`
+	CapacityProviderStrategy *[]Service_CapacityProviderStrategyItem `json:"CapacityProviderStrategy,omitempty"`
 
 	// Cluster AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-	Cluster string `json:"Cluster,omitempty"`
+	Cluster *string `json:"Cluster,omitempty"`
 
 	// DeploymentConfiguration AWS CloudFormation Property
 	// Required: false
@@ -36,32 +36,32 @@ type Service struct {
 	// DesiredCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-	DesiredCount int `json:"DesiredCount,omitempty"`
+	DesiredCount *int `json:"DesiredCount,omitempty"`
 
 	// EnableECSManagedTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
-	EnableECSManagedTags bool `json:"EnableECSManagedTags,omitempty"`
+	EnableECSManagedTags *bool `json:"EnableECSManagedTags,omitempty"`
 
 	// EnableExecuteCommand AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
-	EnableExecuteCommand bool `json:"EnableExecuteCommand,omitempty"`
+	EnableExecuteCommand *bool `json:"EnableExecuteCommand,omitempty"`
 
 	// HealthCheckGracePeriodSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
-	HealthCheckGracePeriodSeconds int `json:"HealthCheckGracePeriodSeconds,omitempty"`
+	HealthCheckGracePeriodSeconds *int `json:"HealthCheckGracePeriodSeconds,omitempty"`
 
 	// LaunchType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
-	LaunchType string `json:"LaunchType,omitempty"`
+	LaunchType *string `json:"LaunchType,omitempty"`
 
 	// LoadBalancers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-	LoadBalancers []Service_LoadBalancer `json:"LoadBalancers,omitempty"`
+	LoadBalancers *[]Service_LoadBalancer `json:"LoadBalancers,omitempty"`
 
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
@@ -71,52 +71,52 @@ type Service struct {
 	// PlacementConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-	PlacementConstraints []Service_PlacementConstraint `json:"PlacementConstraints,omitempty"`
+	PlacementConstraints *[]Service_PlacementConstraint `json:"PlacementConstraints,omitempty"`
 
 	// PlacementStrategies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-	PlacementStrategies []Service_PlacementStrategy `json:"PlacementStrategies,omitempty"`
+	PlacementStrategies *[]Service_PlacementStrategy `json:"PlacementStrategies,omitempty"`
 
 	// PlatformVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
-	PlatformVersion string `json:"PlatformVersion,omitempty"`
+	PlatformVersion *string `json:"PlatformVersion,omitempty"`
 
 	// PropagateTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
-	PropagateTags string `json:"PropagateTags,omitempty"`
+	PropagateTags *string `json:"PropagateTags,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-	Role string `json:"Role,omitempty"`
+	Role *string `json:"Role,omitempty"`
 
 	// SchedulingStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-	SchedulingStrategy string `json:"SchedulingStrategy,omitempty"`
+	SchedulingStrategy *string `json:"SchedulingStrategy,omitempty"`
 
 	// ServiceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-	ServiceName string `json:"ServiceName,omitempty"`
+	ServiceName *string `json:"ServiceName,omitempty"`
 
 	// ServiceRegistries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-	ServiceRegistries []Service_ServiceRegistry `json:"ServiceRegistries,omitempty"`
+	ServiceRegistries *[]Service_ServiceRegistry `json:"ServiceRegistries,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// TaskDefinition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-	TaskDefinition string `json:"TaskDefinition,omitempty"`
+	TaskDefinition *string `json:"TaskDefinition,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

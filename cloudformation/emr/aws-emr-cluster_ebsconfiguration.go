@@ -11,12 +11,12 @@ type Cluster_EbsConfiguration struct {
 	// EbsBlockDeviceConfigs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsconfiguration.html#cfn-elasticmapreduce-cluster-ebsconfiguration-ebsblockdeviceconfigs
-	EbsBlockDeviceConfigs []Cluster_EbsBlockDeviceConfig `json:"EbsBlockDeviceConfigs,omitempty"`
+	EbsBlockDeviceConfigs *[]Cluster_EbsBlockDeviceConfig `json:"EbsBlockDeviceConfigs,omitempty"`
 
 	// EbsOptimized AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsconfiguration.html#cfn-elasticmapreduce-cluster-ebsconfiguration-ebsoptimized
-	EbsOptimized bool `json:"EbsOptimized,omitempty"`
+	EbsOptimized *bool `json:"EbsOptimized,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

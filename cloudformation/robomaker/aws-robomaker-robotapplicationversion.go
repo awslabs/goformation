@@ -15,12 +15,12 @@ type RobotApplicationVersion struct {
 	// Application AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
-	Application string `json:"Application,omitempty"`
+	Application string `json:"Application"`
 
 	// CurrentRevisionId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
-	CurrentRevisionId string `json:"CurrentRevisionId,omitempty"`
+	CurrentRevisionId *string `json:"CurrentRevisionId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

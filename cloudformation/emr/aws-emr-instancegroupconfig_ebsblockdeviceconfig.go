@@ -11,12 +11,12 @@ type InstanceGroupConfig_EbsBlockDeviceConfig struct {
 	// VolumeSpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification
-	VolumeSpecification *InstanceGroupConfig_VolumeSpecification `json:"VolumeSpecification,omitempty"`
+	VolumeSpecification *InstanceGroupConfig_VolumeSpecification `json:"VolumeSpecification"`
 
 	// VolumesPerInstance AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumesperinstance
-	VolumesPerInstance int `json:"VolumesPerInstance,omitempty"`
+	VolumesPerInstance *int `json:"VolumesPerInstance,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

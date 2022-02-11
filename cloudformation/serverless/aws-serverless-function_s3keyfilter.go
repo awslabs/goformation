@@ -11,7 +11,7 @@ type Function_S3KeyFilter struct {
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html
-	Rules []Function_S3KeyFilterRule `json:"Rules,omitempty"`
+	Rules []Function_S3KeyFilterRule `json:"Rules"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

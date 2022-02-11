@@ -11,12 +11,12 @@ type Instance_Location struct {
 	// AvailabilityZone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-availabilityzone
-	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+	AvailabilityZone *string `json:"AvailabilityZone,omitempty"`
 
 	// RegionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html#cfn-lightsail-instance-location-regionname
-	RegionName string `json:"RegionName,omitempty"`
+	RegionName *string `json:"RegionName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

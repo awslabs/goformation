@@ -15,32 +15,32 @@ type App struct {
 	// AppTemplateBody AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-apptemplatebody
-	AppTemplateBody string `json:"AppTemplateBody,omitempty"`
+	AppTemplateBody string `json:"AppTemplateBody"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ResiliencyPolicyArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn
-	ResiliencyPolicyArn string `json:"ResiliencyPolicyArn,omitempty"`
+	ResiliencyPolicyArn *string `json:"ResiliencyPolicyArn,omitempty"`
 
 	// ResourceMappings AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resourcemappings
-	ResourceMappings []App_ResourceMapping `json:"ResourceMappings,omitempty"`
+	ResourceMappings []App_ResourceMapping `json:"ResourceMappings"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-tags
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

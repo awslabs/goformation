@@ -11,7 +11,7 @@ type ImageRecipe_SystemsManagerAgent struct {
 	// UninstallAfterBuild AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
-	UninstallAfterBuild bool `json:"UninstallAfterBuild,omitempty"`
+	UninstallAfterBuild *bool `json:"UninstallAfterBuild,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

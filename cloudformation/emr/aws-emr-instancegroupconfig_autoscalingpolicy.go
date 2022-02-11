@@ -11,12 +11,12 @@ type InstanceGroupConfig_AutoScalingPolicy struct {
 	// Constraints AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-constraints
-	Constraints *InstanceGroupConfig_ScalingConstraints `json:"Constraints,omitempty"`
+	Constraints *InstanceGroupConfig_ScalingConstraints `json:"Constraints"`
 
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-rules
-	Rules []InstanceGroupConfig_ScalingRule `json:"Rules,omitempty"`
+	Rules []InstanceGroupConfig_ScalingRule `json:"Rules"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

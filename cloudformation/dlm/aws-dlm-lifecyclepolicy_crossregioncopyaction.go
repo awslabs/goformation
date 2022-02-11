@@ -11,7 +11,7 @@ type LifecyclePolicy_CrossRegionCopyAction struct {
 	// EncryptionConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-encryptionconfiguration
-	EncryptionConfiguration *LifecyclePolicy_EncryptionConfiguration `json:"EncryptionConfiguration,omitempty"`
+	EncryptionConfiguration *LifecyclePolicy_EncryptionConfiguration `json:"EncryptionConfiguration"`
 
 	// RetainRule AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type LifecyclePolicy_CrossRegionCopyAction struct {
 	// Target AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-target
-	Target string `json:"Target,omitempty"`
+	Target string `json:"Target"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

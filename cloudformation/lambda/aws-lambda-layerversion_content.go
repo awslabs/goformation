@@ -11,17 +11,17 @@ type LayerVersion_Content struct {
 	// S3Bucket AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3bucket
-	S3Bucket string `json:"S3Bucket,omitempty"`
+	S3Bucket string `json:"S3Bucket"`
 
 	// S3Key AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3key
-	S3Key string `json:"S3Key,omitempty"`
+	S3Key string `json:"S3Key"`
 
 	// S3ObjectVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3objectversion
-	S3ObjectVersion string `json:"S3ObjectVersion,omitempty"`
+	S3ObjectVersion *string `json:"S3ObjectVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

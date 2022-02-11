@@ -16,7 +16,7 @@ type ComponentVersion_LambdaLinuxProcessParams struct {
 	// IsolationMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
-	IsolationMode string `json:"IsolationMode,omitempty"`
+	IsolationMode *string `json:"IsolationMode,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

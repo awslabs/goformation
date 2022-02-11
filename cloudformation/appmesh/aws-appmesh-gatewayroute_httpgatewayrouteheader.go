@@ -11,7 +11,7 @@ type GatewayRoute_HttpGatewayRouteHeader struct {
 	// Invert AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-invert
-	Invert bool `json:"Invert,omitempty"`
+	Invert *bool `json:"Invert,omitempty"`
 
 	// Match AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type GatewayRoute_HttpGatewayRouteHeader struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

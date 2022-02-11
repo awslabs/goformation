@@ -15,7 +15,7 @@ type SpotFleet struct {
 	// SpotFleetRequestConfigData AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
-	SpotFleetRequestConfigData *SpotFleet_SpotFleetRequestConfigData `json:"SpotFleetRequestConfigData,omitempty"`
+	SpotFleetRequestConfigData *SpotFleet_SpotFleetRequestConfigData `json:"SpotFleetRequestConfigData"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

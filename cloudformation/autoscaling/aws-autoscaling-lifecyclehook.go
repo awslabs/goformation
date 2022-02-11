@@ -15,42 +15,42 @@ type LifecycleHook struct {
 	// AutoScalingGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-autoscalinggroupname
-	AutoScalingGroupName string `json:"AutoScalingGroupName,omitempty"`
+	AutoScalingGroupName string `json:"AutoScalingGroupName"`
 
 	// DefaultResult AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-defaultresult
-	DefaultResult string `json:"DefaultResult,omitempty"`
+	DefaultResult *string `json:"DefaultResult,omitempty"`
 
 	// HeartbeatTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-heartbeattimeout
-	HeartbeatTimeout int `json:"HeartbeatTimeout,omitempty"`
+	HeartbeatTimeout *int `json:"HeartbeatTimeout,omitempty"`
 
 	// LifecycleHookName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-lifecyclehookname
-	LifecycleHookName string `json:"LifecycleHookName,omitempty"`
+	LifecycleHookName *string `json:"LifecycleHookName,omitempty"`
 
 	// LifecycleTransition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-lifecycletransition
-	LifecycleTransition string `json:"LifecycleTransition,omitempty"`
+	LifecycleTransition string `json:"LifecycleTransition"`
 
 	// NotificationMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-notificationmetadata
-	NotificationMetadata string `json:"NotificationMetadata,omitempty"`
+	NotificationMetadata *string `json:"NotificationMetadata,omitempty"`
 
 	// NotificationTargetARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-notificationtargetarn
-	NotificationTargetARN string `json:"NotificationTargetARN,omitempty"`
+	NotificationTargetARN *string `json:"NotificationTargetARN,omitempty"`
 
 	// RoleARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-rolearn
-	RoleARN string `json:"RoleARN,omitempty"`
+	RoleARN *string `json:"RoleARN,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

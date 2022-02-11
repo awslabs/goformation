@@ -11,12 +11,12 @@ type WirelessGateway_LoRaWANGateway struct {
 	// GatewayEui AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
-	GatewayEui string `json:"GatewayEui,omitempty"`
+	GatewayEui string `json:"GatewayEui"`
 
 	// RfRegion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
-	RfRegion string `json:"RfRegion,omitempty"`
+	RfRegion string `json:"RfRegion"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

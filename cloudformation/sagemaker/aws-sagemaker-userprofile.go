@@ -16,27 +16,27 @@ type UserProfile struct {
 	// DomainId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-domainid
-	DomainId string `json:"DomainId,omitempty"`
+	DomainId string `json:"DomainId"`
 
 	// SingleSignOnUserIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuseridentifier
-	SingleSignOnUserIdentifier string `json:"SingleSignOnUserIdentifier,omitempty"`
+	SingleSignOnUserIdentifier *string `json:"SingleSignOnUserIdentifier,omitempty"`
 
 	// SingleSignOnUserValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuservalue
-	SingleSignOnUserValue string `json:"SingleSignOnUserValue,omitempty"`
+	SingleSignOnUserValue *string `json:"SingleSignOnUserValue,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// UserProfileName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-userprofilename
-	UserProfileName string `json:"UserProfileName,omitempty"`
+	UserProfileName string `json:"UserProfileName"`
 
 	// UserSettings AWS CloudFormation Property
 	// Required: false

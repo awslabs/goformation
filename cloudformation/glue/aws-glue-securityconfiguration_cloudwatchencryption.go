@@ -11,12 +11,12 @@ type SecurityConfiguration_CloudWatchEncryption struct {
 	// CloudWatchEncryptionMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
-	CloudWatchEncryptionMode string `json:"CloudWatchEncryptionMode,omitempty"`
+	CloudWatchEncryptionMode *string `json:"CloudWatchEncryptionMode,omitempty"`
 
 	// KmsKeyArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
-	KmsKeyArn string `json:"KmsKeyArn,omitempty"`
+	KmsKeyArn *string `json:"KmsKeyArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,27 +11,27 @@ type ApiGatewayManagedOverrides_RouteOverrides struct {
 	// AuthorizationScopes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routeoverrides-authorizationscopes
-	AuthorizationScopes []string `json:"AuthorizationScopes,omitempty"`
+	AuthorizationScopes *[]string `json:"AuthorizationScopes,omitempty"`
 
 	// AuthorizationType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routeoverrides-authorizationtype
-	AuthorizationType string `json:"AuthorizationType,omitempty"`
+	AuthorizationType *string `json:"AuthorizationType,omitempty"`
 
 	// AuthorizerId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routeoverrides-authorizerid
-	AuthorizerId string `json:"AuthorizerId,omitempty"`
+	AuthorizerId *string `json:"AuthorizerId,omitempty"`
 
 	// OperationName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routeoverrides-operationname
-	OperationName string `json:"OperationName,omitempty"`
+	OperationName *string `json:"OperationName,omitempty"`
 
 	// Target AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routeoverrides-target
-	Target string `json:"Target,omitempty"`
+	Target *string `json:"Target,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

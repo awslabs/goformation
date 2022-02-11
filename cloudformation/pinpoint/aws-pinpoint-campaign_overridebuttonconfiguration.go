@@ -11,12 +11,12 @@ type Campaign_OverrideButtonConfiguration struct {
 	// ButtonAction AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-overridebuttonconfiguration.html#cfn-pinpoint-campaign-overridebuttonconfiguration-buttonaction
-	ButtonAction string `json:"ButtonAction,omitempty"`
+	ButtonAction *string `json:"ButtonAction,omitempty"`
 
 	// Link AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-overridebuttonconfiguration.html#cfn-pinpoint-campaign-overridebuttonconfiguration-link
-	Link string `json:"Link,omitempty"`
+	Link *string `json:"Link,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

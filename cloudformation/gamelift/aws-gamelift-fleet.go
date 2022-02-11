@@ -15,7 +15,7 @@ type Fleet struct {
 	// BuildId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
-	BuildId string `json:"BuildId,omitempty"`
+	BuildId *string `json:"BuildId,omitempty"`
 
 	// CertificateConfiguration AWS CloudFormation Property
 	// Required: false
@@ -25,72 +25,72 @@ type Fleet struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// DesiredEC2Instances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
-	DesiredEC2Instances int `json:"DesiredEC2Instances,omitempty"`
+	DesiredEC2Instances *int `json:"DesiredEC2Instances,omitempty"`
 
 	// EC2InboundPermissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
-	EC2InboundPermissions []Fleet_IpPermission `json:"EC2InboundPermissions,omitempty"`
+	EC2InboundPermissions *[]Fleet_IpPermission `json:"EC2InboundPermissions,omitempty"`
 
 	// EC2InstanceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
-	EC2InstanceType string `json:"EC2InstanceType,omitempty"`
+	EC2InstanceType *string `json:"EC2InstanceType,omitempty"`
 
 	// FleetType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
-	FleetType string `json:"FleetType,omitempty"`
+	FleetType *string `json:"FleetType,omitempty"`
 
 	// InstanceRoleARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
-	InstanceRoleARN string `json:"InstanceRoleARN,omitempty"`
+	InstanceRoleARN *string `json:"InstanceRoleARN,omitempty"`
 
 	// Locations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
-	Locations []Fleet_LocationConfiguration `json:"Locations,omitempty"`
+	Locations *[]Fleet_LocationConfiguration `json:"Locations,omitempty"`
 
 	// MaxSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
-	MaxSize int `json:"MaxSize,omitempty"`
+	MaxSize *int `json:"MaxSize,omitempty"`
 
 	// MetricGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
-	MetricGroups []string `json:"MetricGroups,omitempty"`
+	MetricGroups *[]string `json:"MetricGroups,omitempty"`
 
 	// MinSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
-	MinSize int `json:"MinSize,omitempty"`
+	MinSize *int `json:"MinSize,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// NewGameSessionProtectionPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
-	NewGameSessionProtectionPolicy string `json:"NewGameSessionProtectionPolicy,omitempty"`
+	NewGameSessionProtectionPolicy *string `json:"NewGameSessionProtectionPolicy,omitempty"`
 
 	// PeerVpcAwsAccountId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid
-	PeerVpcAwsAccountId string `json:"PeerVpcAwsAccountId,omitempty"`
+	PeerVpcAwsAccountId *string `json:"PeerVpcAwsAccountId,omitempty"`
 
 	// PeerVpcId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
-	PeerVpcId string `json:"PeerVpcId,omitempty"`
+	PeerVpcId *string `json:"PeerVpcId,omitempty"`
 
 	// ResourceCreationLimitPolicy AWS CloudFormation Property
 	// Required: false
@@ -105,7 +105,7 @@ type Fleet struct {
 	// ScriptId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
-	ScriptId string `json:"ScriptId,omitempty"`
+	ScriptId *string `json:"ScriptId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

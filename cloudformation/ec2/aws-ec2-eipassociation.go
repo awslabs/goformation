@@ -15,27 +15,27 @@ type EIPAssociation struct {
 	// AllocationId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-allocationid
-	AllocationId string `json:"AllocationId,omitempty"`
+	AllocationId *string `json:"AllocationId,omitempty"`
 
 	// EIP AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-eip
-	EIP string `json:"EIP,omitempty"`
+	EIP *string `json:"EIP,omitempty"`
 
 	// InstanceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-instanceid
-	InstanceId string `json:"InstanceId,omitempty"`
+	InstanceId *string `json:"InstanceId,omitempty"`
 
 	// NetworkInterfaceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-networkinterfaceid
-	NetworkInterfaceId string `json:"NetworkInterfaceId,omitempty"`
+	NetworkInterfaceId *string `json:"NetworkInterfaceId,omitempty"`
 
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-PrivateIpAddress
-	PrivateIpAddress string `json:"PrivateIpAddress,omitempty"`
+	PrivateIpAddress *string `json:"PrivateIpAddress,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

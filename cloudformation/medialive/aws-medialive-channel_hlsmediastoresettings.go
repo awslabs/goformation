@@ -11,27 +11,27 @@ type Channel_HlsMediaStoreSettings struct {
 	// ConnectionRetryInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-connectionretryinterval
-	ConnectionRetryInterval int `json:"ConnectionRetryInterval,omitempty"`
+	ConnectionRetryInterval *int `json:"ConnectionRetryInterval,omitempty"`
 
 	// FilecacheDuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-filecacheduration
-	FilecacheDuration int `json:"FilecacheDuration,omitempty"`
+	FilecacheDuration *int `json:"FilecacheDuration,omitempty"`
 
 	// MediaStoreStorageClass AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-mediastorestorageclass
-	MediaStoreStorageClass string `json:"MediaStoreStorageClass,omitempty"`
+	MediaStoreStorageClass *string `json:"MediaStoreStorageClass,omitempty"`
 
 	// NumRetries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-numretries
-	NumRetries int `json:"NumRetries,omitempty"`
+	NumRetries *int `json:"NumRetries,omitempty"`
 
 	// RestartDelay AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html#cfn-medialive-channel-hlsmediastoresettings-restartdelay
-	RestartDelay int `json:"RestartDelay,omitempty"`
+	RestartDelay *int `json:"RestartDelay,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

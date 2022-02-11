@@ -16,67 +16,67 @@ type ReplicationTask struct {
 	// CdcStartPosition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstartposition
-	CdcStartPosition string `json:"CdcStartPosition,omitempty"`
+	CdcStartPosition *string `json:"CdcStartPosition,omitempty"`
 
 	// CdcStartTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime
-	CdcStartTime float64 `json:"CdcStartTime,omitempty"`
+	CdcStartTime *float64 `json:"CdcStartTime,omitempty"`
 
 	// CdcStopPosition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstopposition
-	CdcStopPosition string `json:"CdcStopPosition,omitempty"`
+	CdcStopPosition *string `json:"CdcStopPosition,omitempty"`
 
 	// MigrationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-migrationtype
-	MigrationType string `json:"MigrationType,omitempty"`
+	MigrationType string `json:"MigrationType"`
 
 	// ReplicationInstanceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationinstancearn
-	ReplicationInstanceArn string `json:"ReplicationInstanceArn,omitempty"`
+	ReplicationInstanceArn string `json:"ReplicationInstanceArn"`
 
 	// ReplicationTaskIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtaskidentifier
-	ReplicationTaskIdentifier string `json:"ReplicationTaskIdentifier,omitempty"`
+	ReplicationTaskIdentifier *string `json:"ReplicationTaskIdentifier,omitempty"`
 
 	// ReplicationTaskSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtasksettings
-	ReplicationTaskSettings string `json:"ReplicationTaskSettings,omitempty"`
+	ReplicationTaskSettings *string `json:"ReplicationTaskSettings,omitempty"`
 
 	// ResourceIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-resourceidentifier
-	ResourceIdentifier string `json:"ResourceIdentifier,omitempty"`
+	ResourceIdentifier *string `json:"ResourceIdentifier,omitempty"`
 
 	// SourceEndpointArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-sourceendpointarn
-	SourceEndpointArn string `json:"SourceEndpointArn,omitempty"`
+	SourceEndpointArn string `json:"SourceEndpointArn"`
 
 	// TableMappings AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tablemappings
-	TableMappings string `json:"TableMappings,omitempty"`
+	TableMappings string `json:"TableMappings"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// TargetEndpointArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-targetendpointarn
-	TargetEndpointArn string `json:"TargetEndpointArn,omitempty"`
+	TargetEndpointArn string `json:"TargetEndpointArn"`
 
 	// TaskData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-taskdata
-	TaskData string `json:"TaskData,omitempty"`
+	TaskData *string `json:"TaskData,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

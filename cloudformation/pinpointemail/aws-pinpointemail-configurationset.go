@@ -20,7 +20,7 @@ type ConfigurationSet struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ReputationOptions AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type ConfigurationSet struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-tags
-	Tags []ConfigurationSet_Tags `json:"Tags,omitempty"`
+	Tags *[]ConfigurationSet_Tags `json:"Tags,omitempty"`
 
 	// TrackingOptions AWS CloudFormation Property
 	// Required: false

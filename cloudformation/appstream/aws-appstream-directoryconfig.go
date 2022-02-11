@@ -15,17 +15,17 @@ type DirectoryConfig struct {
 	// DirectoryName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-directoryname
-	DirectoryName string `json:"DirectoryName,omitempty"`
+	DirectoryName string `json:"DirectoryName"`
 
 	// OrganizationalUnitDistinguishedNames AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-organizationalunitdistinguishednames
-	OrganizationalUnitDistinguishedNames []string `json:"OrganizationalUnitDistinguishedNames,omitempty"`
+	OrganizationalUnitDistinguishedNames []string `json:"OrganizationalUnitDistinguishedNames"`
 
 	// ServiceAccountCredentials AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-serviceaccountcredentials
-	ServiceAccountCredentials *DirectoryConfig_ServiceAccountCredentials `json:"ServiceAccountCredentials,omitempty"`
+	ServiceAccountCredentials *DirectoryConfig_ServiceAccountCredentials `json:"ServiceAccountCredentials"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,32 +15,32 @@ type ExperimentTemplate struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-	Actions map[string]ExperimentTemplate_ExperimentTemplateAction `json:"Actions,omitempty"`
+	Actions *map[string]ExperimentTemplate_ExperimentTemplateAction `json:"Actions,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-	Description string `json:"Description,omitempty"`
+	Description string `json:"Description"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// StopConditions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-	StopConditions []ExperimentTemplate_ExperimentTemplateStopCondition `json:"StopConditions,omitempty"`
+	StopConditions []ExperimentTemplate_ExperimentTemplateStopCondition `json:"StopConditions"`
 
 	// Tags AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags"`
 
 	// Targets AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-	Targets map[string]ExperimentTemplate_ExperimentTemplateTarget `json:"Targets,omitempty"`
+	Targets map[string]ExperimentTemplate_ExperimentTemplateTarget `json:"Targets"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

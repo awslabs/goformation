@@ -15,22 +15,22 @@ type StudioSessionMapping struct {
 	// IdentityName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
-	IdentityName string `json:"IdentityName,omitempty"`
+	IdentityName string `json:"IdentityName"`
 
 	// IdentityType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
-	IdentityType string `json:"IdentityType,omitempty"`
+	IdentityType string `json:"IdentityType"`
 
 	// SessionPolicyArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
-	SessionPolicyArn string `json:"SessionPolicyArn,omitempty"`
+	SessionPolicyArn string `json:"SessionPolicyArn"`
 
 	// StudioId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
-	StudioId string `json:"StudioId,omitempty"`
+	StudioId string `json:"StudioId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

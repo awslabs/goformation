@@ -11,22 +11,22 @@ type Analysis_Parameters struct {
 	// DateTimeParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
-	DateTimeParameters []Analysis_DateTimeParameter `json:"DateTimeParameters,omitempty"`
+	DateTimeParameters *[]Analysis_DateTimeParameter `json:"DateTimeParameters,omitempty"`
 
 	// DecimalParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
-	DecimalParameters []Analysis_DecimalParameter `json:"DecimalParameters,omitempty"`
+	DecimalParameters *[]Analysis_DecimalParameter `json:"DecimalParameters,omitempty"`
 
 	// IntegerParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
-	IntegerParameters []Analysis_IntegerParameter `json:"IntegerParameters,omitempty"`
+	IntegerParameters *[]Analysis_IntegerParameter `json:"IntegerParameters,omitempty"`
 
 	// StringParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
-	StringParameters []Analysis_StringParameter `json:"StringParameters,omitempty"`
+	StringParameters *[]Analysis_StringParameter `json:"StringParameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

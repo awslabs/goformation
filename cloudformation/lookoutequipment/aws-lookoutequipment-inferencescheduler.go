@@ -16,47 +16,47 @@ type InferenceScheduler struct {
 	// DataDelayOffsetInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-datadelayoffsetinminutes
-	DataDelayOffsetInMinutes int `json:"DataDelayOffsetInMinutes,omitempty"`
+	DataDelayOffsetInMinutes *int `json:"DataDelayOffsetInMinutes,omitempty"`
 
 	// DataInputConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-datainputconfiguration
-	DataInputConfiguration interface{} `json:"DataInputConfiguration,omitempty"`
+	DataInputConfiguration interface{} `json:"DataInputConfiguration"`
 
 	// DataOutputConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-dataoutputconfiguration
-	DataOutputConfiguration interface{} `json:"DataOutputConfiguration,omitempty"`
+	DataOutputConfiguration interface{} `json:"DataOutputConfiguration"`
 
 	// DataUploadFrequency AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-datauploadfrequency
-	DataUploadFrequency string `json:"DataUploadFrequency,omitempty"`
+	DataUploadFrequency string `json:"DataUploadFrequency"`
 
 	// InferenceSchedulerName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-inferenceschedulername
-	InferenceSchedulerName string `json:"InferenceSchedulerName,omitempty"`
+	InferenceSchedulerName *string `json:"InferenceSchedulerName,omitempty"`
 
 	// ModelName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-modelname
-	ModelName string `json:"ModelName,omitempty"`
+	ModelName string `json:"ModelName"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// ServerSideKmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-serversidekmskeyid
-	ServerSideKmsKeyId string `json:"ServerSideKmsKeyId,omitempty"`
+	ServerSideKmsKeyId *string `json:"ServerSideKmsKeyId,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

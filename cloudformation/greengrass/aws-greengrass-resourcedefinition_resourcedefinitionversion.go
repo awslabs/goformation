@@ -11,7 +11,7 @@ type ResourceDefinition_ResourceDefinitionVersion struct {
 	// Resources AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html#cfn-greengrass-resourcedefinition-resourcedefinitionversion-resources
-	Resources []ResourceDefinition_ResourceInstance `json:"Resources,omitempty"`
+	Resources []ResourceDefinition_ResourceInstance `json:"Resources"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

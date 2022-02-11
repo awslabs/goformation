@@ -11,32 +11,32 @@ type DeliveryStream_ParquetSerDe struct {
 	// BlockSizeBytes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-blocksizebytes
-	BlockSizeBytes int `json:"BlockSizeBytes,omitempty"`
+	BlockSizeBytes *int `json:"BlockSizeBytes,omitempty"`
 
 	// Compression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-compression
-	Compression string `json:"Compression,omitempty"`
+	Compression *string `json:"Compression,omitempty"`
 
 	// EnableDictionaryCompression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-enabledictionarycompression
-	EnableDictionaryCompression bool `json:"EnableDictionaryCompression,omitempty"`
+	EnableDictionaryCompression *bool `json:"EnableDictionaryCompression,omitempty"`
 
 	// MaxPaddingBytes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-maxpaddingbytes
-	MaxPaddingBytes int `json:"MaxPaddingBytes,omitempty"`
+	MaxPaddingBytes *int `json:"MaxPaddingBytes,omitempty"`
 
 	// PageSizeBytes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-pagesizebytes
-	PageSizeBytes int `json:"PageSizeBytes,omitempty"`
+	PageSizeBytes *int `json:"PageSizeBytes,omitempty"`
 
 	// WriterVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-writerversion
-	WriterVersion string `json:"WriterVersion,omitempty"`
+	WriterVersion *string `json:"WriterVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

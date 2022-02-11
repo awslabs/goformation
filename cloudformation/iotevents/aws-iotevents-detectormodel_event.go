@@ -11,17 +11,17 @@ type DetectorModel_Event struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions
-	Actions []DetectorModel_Action `json:"Actions,omitempty"`
+	Actions *[]DetectorModel_Action `json:"Actions,omitempty"`
 
 	// Condition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition
-	Condition string `json:"Condition,omitempty"`
+	Condition *string `json:"Condition,omitempty"`
 
 	// EventName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
-	EventName string `json:"EventName,omitempty"`
+	EventName string `json:"EventName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

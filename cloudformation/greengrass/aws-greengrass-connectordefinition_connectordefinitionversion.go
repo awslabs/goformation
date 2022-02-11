@@ -11,7 +11,7 @@ type ConnectorDefinition_ConnectorDefinitionVersion struct {
 	// Connectors AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html#cfn-greengrass-connectordefinition-connectordefinitionversion-connectors
-	Connectors []ConnectorDefinition_Connector `json:"Connectors,omitempty"`
+	Connectors []ConnectorDefinition_Connector `json:"Connectors"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

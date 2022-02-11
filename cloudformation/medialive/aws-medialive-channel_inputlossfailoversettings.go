@@ -11,7 +11,7 @@ type Channel_InputLossFailoverSettings struct {
 	// InputLossThresholdMsec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html#cfn-medialive-channel-inputlossfailoversettings-inputlossthresholdmsec
-	InputLossThresholdMsec int `json:"InputLossThresholdMsec,omitempty"`
+	InputLossThresholdMsec *int `json:"InputLossThresholdMsec,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

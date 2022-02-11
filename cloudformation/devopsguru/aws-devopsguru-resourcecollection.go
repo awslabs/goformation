@@ -15,7 +15,7 @@ type ResourceCollection struct {
 	// ResourceCollectionFilter AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-	ResourceCollectionFilter *ResourceCollection_ResourceCollectionFilter `json:"ResourceCollectionFilter,omitempty"`
+	ResourceCollectionFilter *ResourceCollection_ResourceCollectionFilter `json:"ResourceCollectionFilter"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

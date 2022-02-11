@@ -11,12 +11,12 @@ type DataCatalogEncryptionSettings_EncryptionAtRest struct {
 	// CatalogEncryptionMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
-	CatalogEncryptionMode string `json:"CatalogEncryptionMode,omitempty"`
+	CatalogEncryptionMode *string `json:"CatalogEncryptionMode,omitempty"`
 
 	// SseAwsKmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
-	SseAwsKmsKeyId string `json:"SseAwsKmsKeyId,omitempty"`
+	SseAwsKmsKeyId *string `json:"SseAwsKmsKeyId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,22 +11,22 @@ type Channel_EbuTtDDestinationSettings struct {
 	// CopyrightHolder AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-copyrightholder
-	CopyrightHolder string `json:"CopyrightHolder,omitempty"`
+	CopyrightHolder *string `json:"CopyrightHolder,omitempty"`
 
 	// FillLineGap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-filllinegap
-	FillLineGap string `json:"FillLineGap,omitempty"`
+	FillLineGap *string `json:"FillLineGap,omitempty"`
 
 	// FontFamily AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-fontfamily
-	FontFamily string `json:"FontFamily,omitempty"`
+	FontFamily *string `json:"FontFamily,omitempty"`
 
 	// StyleControl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-stylecontrol
-	StyleControl string `json:"StyleControl,omitempty"`
+	StyleControl *string `json:"StyleControl,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

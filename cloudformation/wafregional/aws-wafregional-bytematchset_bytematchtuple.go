@@ -11,27 +11,27 @@ type ByteMatchSet_ByteMatchTuple struct {
 	// FieldToMatch AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-fieldtomatch
-	FieldToMatch *ByteMatchSet_FieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *ByteMatchSet_FieldToMatch `json:"FieldToMatch"`
 
 	// PositionalConstraint AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-positionalconstraint
-	PositionalConstraint string `json:"PositionalConstraint,omitempty"`
+	PositionalConstraint string `json:"PositionalConstraint"`
 
 	// TargetString AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstring
-	TargetString string `json:"TargetString,omitempty"`
+	TargetString *string `json:"TargetString,omitempty"`
 
 	// TargetStringBase64 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstringbase64
-	TargetStringBase64 string `json:"TargetStringBase64,omitempty"`
+	TargetStringBase64 *string `json:"TargetStringBase64,omitempty"`
 
 	// TextTransformation AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-texttransformation
-	TextTransformation string `json:"TextTransformation,omitempty"`
+	TextTransformation string `json:"TextTransformation"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

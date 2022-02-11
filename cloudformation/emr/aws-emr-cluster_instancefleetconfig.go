@@ -11,7 +11,7 @@ type Cluster_InstanceFleetConfig struct {
 	// InstanceTypeConfigs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-instancetypeconfigs
-	InstanceTypeConfigs []Cluster_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
+	InstanceTypeConfigs *[]Cluster_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
 
 	// LaunchSpecifications AWS CloudFormation Property
 	// Required: false
@@ -21,17 +21,17 @@ type Cluster_InstanceFleetConfig struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// TargetOnDemandCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-targetondemandcapacity
-	TargetOnDemandCapacity int `json:"TargetOnDemandCapacity,omitempty"`
+	TargetOnDemandCapacity *int `json:"TargetOnDemandCapacity,omitempty"`
 
 	// TargetSpotCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-targetspotcapacity
-	TargetSpotCapacity int `json:"TargetSpotCapacity,omitempty"`
+	TargetSpotCapacity *int `json:"TargetSpotCapacity,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,17 +16,17 @@ type Model struct {
 	// Containers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers
-	Containers []Model_ContainerDefinition `json:"Containers,omitempty"`
+	Containers *[]Model_ContainerDefinition `json:"Containers,omitempty"`
 
 	// EnableNetworkIsolation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-enablenetworkisolation
-	EnableNetworkIsolation bool `json:"EnableNetworkIsolation,omitempty"`
+	EnableNetworkIsolation *bool `json:"EnableNetworkIsolation,omitempty"`
 
 	// ExecutionRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
-	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
+	ExecutionRoleArn string `json:"ExecutionRoleArn"`
 
 	// InferenceExecutionConfig AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type Model struct {
 	// ModelName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname
-	ModelName string `json:"ModelName,omitempty"`
+	ModelName *string `json:"ModelName,omitempty"`
 
 	// PrimaryContainer AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type Model struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false

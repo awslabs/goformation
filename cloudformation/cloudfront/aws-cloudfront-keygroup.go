@@ -15,7 +15,7 @@ type KeyGroup struct {
 	// KeyGroupConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-	KeyGroupConfig *KeyGroup_KeyGroupConfig `json:"KeyGroupConfig,omitempty"`
+	KeyGroupConfig *KeyGroup_KeyGroupConfig `json:"KeyGroupConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

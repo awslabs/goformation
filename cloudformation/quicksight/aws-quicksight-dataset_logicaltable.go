@@ -11,17 +11,17 @@ type DataSet_LogicalTable struct {
 	// Alias AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
-	Alias string `json:"Alias,omitempty"`
+	Alias string `json:"Alias"`
 
 	// DataTransforms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
-	DataTransforms []DataSet_TransformOperation `json:"DataTransforms,omitempty"`
+	DataTransforms *[]DataSet_TransformOperation `json:"DataTransforms,omitempty"`
 
 	// Source AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-	Source *DataSet_LogicalTableSource `json:"Source,omitempty"`
+	Source *DataSet_LogicalTableSource `json:"Source"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

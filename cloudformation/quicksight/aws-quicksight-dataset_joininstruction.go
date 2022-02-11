@@ -16,12 +16,12 @@ type DataSet_JoinInstruction struct {
 	// LeftOperand AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
-	LeftOperand string `json:"LeftOperand,omitempty"`
+	LeftOperand string `json:"LeftOperand"`
 
 	// OnClause AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
-	OnClause string `json:"OnClause,omitempty"`
+	OnClause string `json:"OnClause"`
 
 	// RightJoinKeyProperties AWS CloudFormation Property
 	// Required: false
@@ -31,12 +31,12 @@ type DataSet_JoinInstruction struct {
 	// RightOperand AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
-	RightOperand string `json:"RightOperand,omitempty"`
+	RightOperand string `json:"RightOperand"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

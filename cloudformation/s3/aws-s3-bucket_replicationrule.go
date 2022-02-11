@@ -16,7 +16,7 @@ type Bucket_ReplicationRule struct {
 	// Destination AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-destination
-	Destination *Bucket_ReplicationDestination `json:"Destination,omitempty"`
+	Destination *Bucket_ReplicationDestination `json:"Destination"`
 
 	// Filter AWS CloudFormation Property
 	// Required: false
@@ -26,17 +26,17 @@ type Bucket_ReplicationRule struct {
 	// Id AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-id
-	Id string `json:"Id,omitempty"`
+	Id *string `json:"Id,omitempty"`
 
 	// Prefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-prefix
-	Prefix string `json:"Prefix,omitempty"`
+	Prefix *string `json:"Prefix,omitempty"`
 
 	// Priority AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority *int `json:"Priority,omitempty"`
 
 	// SourceSelectionCriteria AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type Bucket_ReplicationRule struct {
 	// Status AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-status
-	Status string `json:"Status,omitempty"`
+	Status string `json:"Status"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

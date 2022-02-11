@@ -11,12 +11,12 @@ type Table_EncryptionSpecification struct {
 	// EncryptionType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
-	EncryptionType string `json:"EncryptionType,omitempty"`
+	EncryptionType string `json:"EncryptionType"`
 
 	// KmsKeyIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
-	KmsKeyIdentifier string `json:"KmsKeyIdentifier,omitempty"`
+	KmsKeyIdentifier *string `json:"KmsKeyIdentifier,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

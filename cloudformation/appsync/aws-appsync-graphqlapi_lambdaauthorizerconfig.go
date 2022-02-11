@@ -11,17 +11,17 @@ type GraphQLApi_LambdaAuthorizerConfig struct {
 	// AuthorizerResultTtlInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig-authorizerresultttlinseconds
-	AuthorizerResultTtlInSeconds float64 `json:"AuthorizerResultTtlInSeconds,omitempty"`
+	AuthorizerResultTtlInSeconds *float64 `json:"AuthorizerResultTtlInSeconds,omitempty"`
 
 	// AuthorizerUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig-authorizeruri
-	AuthorizerUri string `json:"AuthorizerUri,omitempty"`
+	AuthorizerUri *string `json:"AuthorizerUri,omitempty"`
 
 	// IdentityValidationExpression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig-identityvalidationexpression
-	IdentityValidationExpression string `json:"IdentityValidationExpression,omitempty"`
+	IdentityValidationExpression *string `json:"IdentityValidationExpression,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -20,12 +20,12 @@ type RecordSet struct {
 	// Comment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-comment
-	Comment string `json:"Comment,omitempty"`
+	Comment *string `json:"Comment,omitempty"`
 
 	// Failover AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-failover
-	Failover string `json:"Failover,omitempty"`
+	Failover *string `json:"Failover,omitempty"`
 
 	// GeoLocation AWS CloudFormation Property
 	// Required: false
@@ -35,57 +35,57 @@ type RecordSet struct {
 	// HealthCheckId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-healthcheckid
-	HealthCheckId string `json:"HealthCheckId,omitempty"`
+	HealthCheckId *string `json:"HealthCheckId,omitempty"`
 
 	// HostedZoneId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzoneid
-	HostedZoneId string `json:"HostedZoneId,omitempty"`
+	HostedZoneId *string `json:"HostedZoneId,omitempty"`
 
 	// HostedZoneName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzonename
-	HostedZoneName string `json:"HostedZoneName,omitempty"`
+	HostedZoneName *string `json:"HostedZoneName,omitempty"`
 
 	// MultiValueAnswer AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-multivalueanswer
-	MultiValueAnswer bool `json:"MultiValueAnswer,omitempty"`
+	MultiValueAnswer *bool `json:"MultiValueAnswer,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Region AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-region
-	Region string `json:"Region,omitempty"`
+	Region *string `json:"Region,omitempty"`
 
 	// ResourceRecords AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-resourcerecords
-	ResourceRecords []string `json:"ResourceRecords,omitempty"`
+	ResourceRecords *[]string `json:"ResourceRecords,omitempty"`
 
 	// SetIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-setidentifier
-	SetIdentifier string `json:"SetIdentifier,omitempty"`
+	SetIdentifier *string `json:"SetIdentifier,omitempty"`
 
 	// TTL AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-ttl
-	TTL string `json:"TTL,omitempty"`
+	TTL *string `json:"TTL,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// Weight AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-weight
-	Weight int `json:"Weight,omitempty"`
+	Weight *int `json:"Weight,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

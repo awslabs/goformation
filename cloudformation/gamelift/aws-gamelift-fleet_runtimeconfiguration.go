@@ -11,17 +11,17 @@ type Fleet_RuntimeConfiguration struct {
 	// GameSessionActivationTimeoutSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
-	GameSessionActivationTimeoutSeconds int `json:"GameSessionActivationTimeoutSeconds,omitempty"`
+	GameSessionActivationTimeoutSeconds *int `json:"GameSessionActivationTimeoutSeconds,omitempty"`
 
 	// MaxConcurrentGameSessionActivations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
-	MaxConcurrentGameSessionActivations int `json:"MaxConcurrentGameSessionActivations,omitempty"`
+	MaxConcurrentGameSessionActivations *int `json:"MaxConcurrentGameSessionActivations,omitempty"`
 
 	// ServerProcesses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
-	ServerProcesses []Fleet_ServerProcess `json:"ServerProcesses,omitempty"`
+	ServerProcesses *[]Fleet_ServerProcess `json:"ServerProcesses,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

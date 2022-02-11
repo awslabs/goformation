@@ -15,37 +15,37 @@ type Listener struct {
 	// AlpnPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-	AlpnPolicy []string `json:"AlpnPolicy,omitempty"`
+	AlpnPolicy *[]string `json:"AlpnPolicy,omitempty"`
 
 	// Certificates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-	Certificates []Listener_Certificate `json:"Certificates,omitempty"`
+	Certificates *[]Listener_Certificate `json:"Certificates,omitempty"`
 
 	// DefaultActions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-	DefaultActions []Listener_Action `json:"DefaultActions,omitempty"`
+	DefaultActions []Listener_Action `json:"DefaultActions"`
 
 	// LoadBalancerArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-	LoadBalancerArn string `json:"LoadBalancerArn,omitempty"`
+	LoadBalancerArn string `json:"LoadBalancerArn"`
 
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port int `json:"Port,omitempty"`
+	Port *int `json:"Port,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol *string `json:"Protocol,omitempty"`
 
 	// SslPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-	SslPolicy string `json:"SslPolicy,omitempty"`
+	SslPolicy *string `json:"SslPolicy,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,12 +15,12 @@ type Resource struct {
 	// ResourceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-resourcearn
-	ResourceArn string `json:"ResourceArn,omitempty"`
+	ResourceArn string `json:"ResourceArn"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn *string `json:"RoleArn,omitempty"`
 
 	// UseServiceLinkedRole AWS CloudFormation Property
 	// Required: true

@@ -11,17 +11,17 @@ type JobDefinition_Device struct {
 	// ContainerPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-device.html#cfn-batch-jobdefinition-device-containerpath
-	ContainerPath string `json:"ContainerPath,omitempty"`
+	ContainerPath *string `json:"ContainerPath,omitempty"`
 
 	// HostPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-device.html#cfn-batch-jobdefinition-device-hostpath
-	HostPath string `json:"HostPath,omitempty"`
+	HostPath *string `json:"HostPath,omitempty"`
 
 	// Permissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-device.html#cfn-batch-jobdefinition-device-permissions
-	Permissions []string `json:"Permissions,omitempty"`
+	Permissions *[]string `json:"Permissions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

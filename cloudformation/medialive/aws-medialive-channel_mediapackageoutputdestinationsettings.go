@@ -11,7 +11,7 @@ type Channel_MediaPackageOutputDestinationSettings struct {
 	// ChannelId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html#cfn-medialive-channel-mediapackageoutputdestinationsettings-channelid
-	ChannelId string `json:"ChannelId,omitempty"`
+	ChannelId *string `json:"ChannelId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

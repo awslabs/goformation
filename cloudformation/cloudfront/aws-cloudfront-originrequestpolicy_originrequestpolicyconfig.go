@@ -11,27 +11,27 @@ type OriginRequestPolicy_OriginRequestPolicyConfig struct {
 	// Comment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
-	Comment string `json:"Comment,omitempty"`
+	Comment *string `json:"Comment,omitempty"`
 
 	// CookiesConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
-	CookiesConfig *OriginRequestPolicy_CookiesConfig `json:"CookiesConfig,omitempty"`
+	CookiesConfig *OriginRequestPolicy_CookiesConfig `json:"CookiesConfig"`
 
 	// HeadersConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
-	HeadersConfig *OriginRequestPolicy_HeadersConfig `json:"HeadersConfig,omitempty"`
+	HeadersConfig *OriginRequestPolicy_HeadersConfig `json:"HeadersConfig"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// QueryStringsConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
-	QueryStringsConfig *OriginRequestPolicy_QueryStringsConfig `json:"QueryStringsConfig,omitempty"`
+	QueryStringsConfig *OriginRequestPolicy_QueryStringsConfig `json:"QueryStringsConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

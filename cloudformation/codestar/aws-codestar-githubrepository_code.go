@@ -11,7 +11,7 @@ type GitHubRepository_Code struct {
 	// S3 AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-code.html#cfn-codestar-githubrepository-code-s3
-	S3 *GitHubRepository_S3 `json:"S3,omitempty"`
+	S3 *GitHubRepository_S3 `json:"S3"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -21,7 +21,7 @@ type Bot_FulfillmentUpdatesSpecification struct {
 	// TimeoutInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-timeoutinseconds
-	TimeoutInSeconds int `json:"TimeoutInSeconds,omitempty"`
+	TimeoutInSeconds *int `json:"TimeoutInSeconds,omitempty"`
 
 	// UpdateResponse AWS CloudFormation Property
 	// Required: false

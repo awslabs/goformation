@@ -11,22 +11,22 @@ type AccessPoint_ObjectLambdaConfiguration struct {
 	// AllowedFeatures AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-	AllowedFeatures []string `json:"AllowedFeatures,omitempty"`
+	AllowedFeatures *[]string `json:"AllowedFeatures,omitempty"`
 
 	// CloudWatchMetricsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled bool `json:"CloudWatchMetricsEnabled,omitempty"`
+	CloudWatchMetricsEnabled *bool `json:"CloudWatchMetricsEnabled,omitempty"`
 
 	// SupportingAccessPoint AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-	SupportingAccessPoint string `json:"SupportingAccessPoint,omitempty"`
+	SupportingAccessPoint string `json:"SupportingAccessPoint"`
 
 	// TransformationConfigurations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
-	TransformationConfigurations []AccessPoint_TransformationConfiguration `json:"TransformationConfigurations,omitempty"`
+	TransformationConfigurations []AccessPoint_TransformationConfiguration `json:"TransformationConfigurations"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

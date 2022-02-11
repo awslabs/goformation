@@ -11,7 +11,7 @@ type EC2Fleet_FleetLaunchTemplateOverridesRequest struct {
 	// AvailabilityZone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone
-	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+	AvailabilityZone *string `json:"AvailabilityZone,omitempty"`
 
 	// InstanceRequirements AWS CloudFormation Property
 	// Required: false
@@ -21,12 +21,12 @@ type EC2Fleet_FleetLaunchTemplateOverridesRequest struct {
 	// InstanceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype
-	InstanceType string `json:"InstanceType,omitempty"`
+	InstanceType *string `json:"InstanceType,omitempty"`
 
 	// MaxPrice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice
-	MaxPrice string `json:"MaxPrice,omitempty"`
+	MaxPrice *string `json:"MaxPrice,omitempty"`
 
 	// Placement AWS CloudFormation Property
 	// Required: false
@@ -36,17 +36,17 @@ type EC2Fleet_FleetLaunchTemplateOverridesRequest struct {
 	// Priority AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority
-	Priority float64 `json:"Priority,omitempty"`
+	Priority *float64 `json:"Priority,omitempty"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid
-	SubnetId string `json:"SubnetId,omitempty"`
+	SubnetId *string `json:"SubnetId,omitempty"`
 
 	// WeightedCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity
-	WeightedCapacity float64 `json:"WeightedCapacity,omitempty"`
+	WeightedCapacity *float64 `json:"WeightedCapacity,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,17 +15,17 @@ type DocumentationPart struct {
 	// Location AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-location
-	Location *DocumentationPart_Location `json:"Location,omitempty"`
+	Location *DocumentationPart_Location `json:"Location"`
 
 	// Properties AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-properties
-	Properties string `json:"Properties,omitempty"`
+	Properties string `json:"Properties"`
 
 	// RestApiId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-restapiid
-	RestApiId string `json:"RestApiId,omitempty"`
+	RestApiId string `json:"RestApiId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

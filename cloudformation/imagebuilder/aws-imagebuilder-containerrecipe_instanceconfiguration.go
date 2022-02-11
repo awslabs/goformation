@@ -11,12 +11,12 @@ type ContainerRecipe_InstanceConfiguration struct {
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
-	BlockDeviceMappings []ContainerRecipe_InstanceBlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
+	BlockDeviceMappings *[]ContainerRecipe_InstanceBlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
 	// Image AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
-	Image string `json:"Image,omitempty"`
+	Image *string `json:"Image,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

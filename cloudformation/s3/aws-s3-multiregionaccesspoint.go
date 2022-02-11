@@ -15,7 +15,7 @@ type MultiRegionAccessPoint struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// PublicAccessBlockConfiguration AWS CloudFormation Property
 	// Required: false
@@ -25,7 +25,7 @@ type MultiRegionAccessPoint struct {
 	// Regions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
-	Regions []MultiRegionAccessPoint_Region `json:"Regions,omitempty"`
+	Regions []MultiRegionAccessPoint_Region `json:"Regions"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

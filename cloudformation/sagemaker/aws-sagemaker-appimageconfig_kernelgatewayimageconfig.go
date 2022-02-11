@@ -16,7 +16,7 @@ type AppImageConfig_KernelGatewayImageConfig struct {
 	// KernelSpecs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
-	KernelSpecs []AppImageConfig_KernelSpec `json:"KernelSpecs,omitempty"`
+	KernelSpecs []AppImageConfig_KernelSpec `json:"KernelSpecs"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

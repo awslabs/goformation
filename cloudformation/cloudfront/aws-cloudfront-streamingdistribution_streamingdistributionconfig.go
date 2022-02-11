@@ -11,12 +11,12 @@ type StreamingDistribution_StreamingDistributionConfig struct {
 	// Aliases AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases
-	Aliases []string `json:"Aliases,omitempty"`
+	Aliases *[]string `json:"Aliases,omitempty"`
 
 	// Comment AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-comment
-	Comment string `json:"Comment,omitempty"`
+	Comment string `json:"Comment"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true
@@ -31,17 +31,17 @@ type StreamingDistribution_StreamingDistributionConfig struct {
 	// PriceClass AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-priceclass
-	PriceClass string `json:"PriceClass,omitempty"`
+	PriceClass *string `json:"PriceClass,omitempty"`
 
 	// S3Origin AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-s3origin
-	S3Origin *StreamingDistribution_S3Origin `json:"S3Origin,omitempty"`
+	S3Origin *StreamingDistribution_S3Origin `json:"S3Origin"`
 
 	// TrustedSigners AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-trustedsigners
-	TrustedSigners *StreamingDistribution_TrustedSigners `json:"TrustedSigners,omitempty"`
+	TrustedSigners *StreamingDistribution_TrustedSigners `json:"TrustedSigners"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

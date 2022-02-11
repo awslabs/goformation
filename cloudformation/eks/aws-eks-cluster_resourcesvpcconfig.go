@@ -11,27 +11,27 @@ type Cluster_ResourcesVpcConfig struct {
 	// EndpointPrivateAccess AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-endpointprivateaccess
-	EndpointPrivateAccess bool `json:"EndpointPrivateAccess,omitempty"`
+	EndpointPrivateAccess *bool `json:"EndpointPrivateAccess,omitempty"`
 
 	// EndpointPublicAccess AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-endpointpublicaccess
-	EndpointPublicAccess bool `json:"EndpointPublicAccess,omitempty"`
+	EndpointPublicAccess *bool `json:"EndpointPublicAccess,omitempty"`
 
 	// PublicAccessCidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-publicaccesscidrs
-	PublicAccessCidrs []string `json:"PublicAccessCidrs,omitempty"`
+	PublicAccessCidrs *[]string `json:"PublicAccessCidrs,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
 
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-subnetids
-	SubnetIds []string `json:"SubnetIds,omitempty"`
+	SubnetIds []string `json:"SubnetIds"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

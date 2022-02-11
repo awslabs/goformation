@@ -11,12 +11,12 @@ type Channel_Hdr10Settings struct {
 	// MaxCll AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hdr10settings.html#cfn-medialive-channel-hdr10settings-maxcll
-	MaxCll int `json:"MaxCll,omitempty"`
+	MaxCll *int `json:"MaxCll,omitempty"`
 
 	// MaxFall AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hdr10settings.html#cfn-medialive-channel-hdr10settings-maxfall
-	MaxFall int `json:"MaxFall,omitempty"`
+	MaxFall *int `json:"MaxFall,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

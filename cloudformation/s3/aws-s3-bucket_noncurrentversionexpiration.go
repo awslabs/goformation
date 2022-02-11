@@ -11,7 +11,7 @@ type Bucket_NoncurrentVersionExpiration struct {
 	// NewerNoncurrentVersions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversionexpiration.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversionexpiration-newernoncurrentversions
-	NewerNoncurrentVersions int `json:"NewerNoncurrentVersions,omitempty"`
+	NewerNoncurrentVersions *int `json:"NewerNoncurrentVersions,omitempty"`
 
 	// NoncurrentDays AWS CloudFormation Property
 	// Required: true

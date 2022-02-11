@@ -11,7 +11,7 @@ type ScalableTarget_ScheduledAction struct {
 	// EndTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
-	EndTime string `json:"EndTime,omitempty"`
+	EndTime *string `json:"EndTime,omitempty"`
 
 	// ScalableTargetAction AWS CloudFormation Property
 	// Required: false
@@ -21,22 +21,22 @@ type ScalableTarget_ScheduledAction struct {
 	// Schedule AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
-	Schedule string `json:"Schedule,omitempty"`
+	Schedule string `json:"Schedule"`
 
 	// ScheduledActionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scheduledactionname
-	ScheduledActionName string `json:"ScheduledActionName,omitempty"`
+	ScheduledActionName string `json:"ScheduledActionName"`
 
 	// StartTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-starttime
-	StartTime string `json:"StartTime,omitempty"`
+	StartTime *string `json:"StartTime,omitempty"`
 
 	// Timezone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-timezone
-	Timezone string `json:"Timezone,omitempty"`
+	Timezone *string `json:"Timezone,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type RealtimeLogConfig_EndPoint struct {
 	// KinesisStreamConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
-	KinesisStreamConfig *RealtimeLogConfig_KinesisStreamConfig `json:"KinesisStreamConfig,omitempty"`
+	KinesisStreamConfig *RealtimeLogConfig_KinesisStreamConfig `json:"KinesisStreamConfig"`
 
 	// StreamType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
-	StreamType string `json:"StreamType,omitempty"`
+	StreamType string `json:"StreamType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

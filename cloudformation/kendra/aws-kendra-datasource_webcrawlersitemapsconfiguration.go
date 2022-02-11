@@ -11,7 +11,7 @@ type DataSource_WebCrawlerSiteMapsConfiguration struct {
 	// SiteMaps AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html#cfn-kendra-datasource-webcrawlersitemapsconfiguration-sitemaps
-	SiteMaps []string `json:"SiteMaps,omitempty"`
+	SiteMaps []string `json:"SiteMaps"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

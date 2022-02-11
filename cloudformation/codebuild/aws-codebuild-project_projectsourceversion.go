@@ -11,12 +11,12 @@ type Project_ProjectSourceVersion struct {
 	// SourceIdentifier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html#cfn-codebuild-project-projectsourceversion-sourceidentifier
-	SourceIdentifier string `json:"SourceIdentifier,omitempty"`
+	SourceIdentifier string `json:"SourceIdentifier"`
 
 	// SourceVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html#cfn-codebuild-project-projectsourceversion-sourceversion
-	SourceVersion string `json:"SourceVersion,omitempty"`
+	SourceVersion *string `json:"SourceVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

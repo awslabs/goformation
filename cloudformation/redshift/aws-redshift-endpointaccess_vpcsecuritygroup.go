@@ -11,12 +11,12 @@ type EndpointAccess_VpcSecurityGroup struct {
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-status
-	Status string `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 
 	// VpcSecurityGroupId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-vpcsecuritygroupid
-	VpcSecurityGroupId string `json:"VpcSecurityGroupId,omitempty"`
+	VpcSecurityGroupId *string `json:"VpcSecurityGroupId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

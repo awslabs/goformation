@@ -11,12 +11,12 @@ type TopicRule_AssetPropertyTimestamp struct {
 	// OffsetInNanos AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
-	OffsetInNanos string `json:"OffsetInNanos,omitempty"`
+	OffsetInNanos *string `json:"OffsetInNanos,omitempty"`
 
 	// TimeInSeconds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
-	TimeInSeconds string `json:"TimeInSeconds,omitempty"`
+	TimeInSeconds string `json:"TimeInSeconds"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

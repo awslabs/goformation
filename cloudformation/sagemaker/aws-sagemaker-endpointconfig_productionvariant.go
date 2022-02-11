@@ -11,12 +11,12 @@ type EndpointConfig_ProductionVariant struct {
 	// AcceleratorType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
-	AcceleratorType string `json:"AcceleratorType,omitempty"`
+	AcceleratorType *string `json:"AcceleratorType,omitempty"`
 
 	// InitialInstanceCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
-	InitialInstanceCount int `json:"InitialInstanceCount,omitempty"`
+	InitialInstanceCount *int `json:"InitialInstanceCount,omitempty"`
 
 	// InitialVariantWeight AWS CloudFormation Property
 	// Required: true
@@ -26,12 +26,12 @@ type EndpointConfig_ProductionVariant struct {
 	// InstanceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
-	InstanceType string `json:"InstanceType,omitempty"`
+	InstanceType *string `json:"InstanceType,omitempty"`
 
 	// ModelName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
-	ModelName string `json:"ModelName,omitempty"`
+	ModelName string `json:"ModelName"`
 
 	// ServerlessConfig AWS CloudFormation Property
 	// Required: false
@@ -41,7 +41,7 @@ type EndpointConfig_ProductionVariant struct {
 	// VariantName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname
-	VariantName string `json:"VariantName,omitempty"`
+	VariantName string `json:"VariantName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

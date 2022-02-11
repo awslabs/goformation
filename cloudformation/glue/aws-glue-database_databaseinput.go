@@ -11,27 +11,27 @@ type Database_DatabaseInput struct {
 	// CreateTableDefaultPermissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
-	CreateTableDefaultPermissions []Database_PrincipalPrivileges `json:"CreateTableDefaultPermissions,omitempty"`
+	CreateTableDefaultPermissions *[]Database_PrincipalPrivileges `json:"CreateTableDefaultPermissions,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// LocationUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
-	LocationUri string `json:"LocationUri,omitempty"`
+	LocationUri *string `json:"LocationUri,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
-	Parameters interface{} `json:"Parameters,omitempty"`
+	Parameters *interface{} `json:"Parameters,omitempty"`
 
 	// TargetDatabase AWS CloudFormation Property
 	// Required: false

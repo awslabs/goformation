@@ -11,7 +11,7 @@ type Endpoint_CapacitySize struct {
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// Value AWS CloudFormation Property
 	// Required: true

@@ -15,37 +15,37 @@ type Nodegroup struct {
 	// AmiType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-amitype
-	AmiType string `json:"AmiType,omitempty"`
+	AmiType *string `json:"AmiType,omitempty"`
 
 	// CapacityType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype
-	CapacityType string `json:"CapacityType,omitempty"`
+	CapacityType *string `json:"CapacityType,omitempty"`
 
 	// ClusterName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
-	ClusterName string `json:"ClusterName,omitempty"`
+	ClusterName string `json:"ClusterName"`
 
 	// DiskSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-disksize
-	DiskSize int `json:"DiskSize,omitempty"`
+	DiskSize *int `json:"DiskSize,omitempty"`
 
 	// ForceUpdateEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-forceupdateenabled
-	ForceUpdateEnabled bool `json:"ForceUpdateEnabled,omitempty"`
+	ForceUpdateEnabled *bool `json:"ForceUpdateEnabled,omitempty"`
 
 	// InstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
-	InstanceTypes []string `json:"InstanceTypes,omitempty"`
+	InstanceTypes *[]string `json:"InstanceTypes,omitempty"`
 
 	// Labels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels
-	Labels interface{} `json:"Labels,omitempty"`
+	Labels *interface{} `json:"Labels,omitempty"`
 
 	// LaunchTemplate AWS CloudFormation Property
 	// Required: false
@@ -55,17 +55,17 @@ type Nodegroup struct {
 	// NodeRole AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
-	NodeRole string `json:"NodeRole,omitempty"`
+	NodeRole string `json:"NodeRole"`
 
 	// NodegroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname
-	NodegroupName string `json:"NodegroupName,omitempty"`
+	NodegroupName *string `json:"NodegroupName,omitempty"`
 
 	// ReleaseVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-releaseversion
-	ReleaseVersion string `json:"ReleaseVersion,omitempty"`
+	ReleaseVersion *string `json:"ReleaseVersion,omitempty"`
 
 	// RemoteAccess AWS CloudFormation Property
 	// Required: false
@@ -80,17 +80,17 @@ type Nodegroup struct {
 	// Subnets AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-subnets
-	Subnets []string `json:"Subnets,omitempty"`
+	Subnets []string `json:"Subnets"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// Taints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-taints
-	Taints []Nodegroup_Taint `json:"Taints,omitempty"`
+	Taints *[]Nodegroup_Taint `json:"Taints,omitempty"`
 
 	// UpdateConfig AWS CloudFormation Property
 	// Required: false
@@ -100,7 +100,7 @@ type Nodegroup struct {
 	// Version AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-version
-	Version string `json:"Version,omitempty"`
+	Version *string `json:"Version,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

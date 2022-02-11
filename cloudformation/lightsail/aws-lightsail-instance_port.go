@@ -11,52 +11,52 @@ type Instance_Port struct {
 	// AccessDirection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-accessdirection
-	AccessDirection string `json:"AccessDirection,omitempty"`
+	AccessDirection *string `json:"AccessDirection,omitempty"`
 
 	// AccessFrom AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-accessfrom
-	AccessFrom string `json:"AccessFrom,omitempty"`
+	AccessFrom *string `json:"AccessFrom,omitempty"`
 
 	// AccessType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-accesstype
-	AccessType string `json:"AccessType,omitempty"`
+	AccessType *string `json:"AccessType,omitempty"`
 
 	// CidrListAliases AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-cidrlistaliases
-	CidrListAliases []string `json:"CidrListAliases,omitempty"`
+	CidrListAliases *[]string `json:"CidrListAliases,omitempty"`
 
 	// Cidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-cidrs
-	Cidrs []string `json:"Cidrs,omitempty"`
+	Cidrs *[]string `json:"Cidrs,omitempty"`
 
 	// CommonName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-commonname
-	CommonName string `json:"CommonName,omitempty"`
+	CommonName *string `json:"CommonName,omitempty"`
 
 	// FromPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-fromport
-	FromPort int `json:"FromPort,omitempty"`
+	FromPort *int `json:"FromPort,omitempty"`
 
 	// Ipv6Cidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-ipv6cidrs
-	Ipv6Cidrs []string `json:"Ipv6Cidrs,omitempty"`
+	Ipv6Cidrs *[]string `json:"Ipv6Cidrs,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol *string `json:"Protocol,omitempty"`
 
 	// ToPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-toport
-	ToPort int `json:"ToPort,omitempty"`
+	ToPort *int `json:"ToPort,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

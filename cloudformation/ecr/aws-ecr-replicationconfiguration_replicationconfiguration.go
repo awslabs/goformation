@@ -11,7 +11,7 @@ type ReplicationConfiguration_ReplicationConfiguration struct {
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
-	Rules []ReplicationConfiguration_ReplicationRule `json:"Rules,omitempty"`
+	Rules []ReplicationConfiguration_ReplicationRule `json:"Rules"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

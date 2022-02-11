@@ -11,17 +11,17 @@ type Flow_DestinationFlowConfig struct {
 	// ConnectorProfileName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
-	ConnectorProfileName string `json:"ConnectorProfileName,omitempty"`
+	ConnectorProfileName *string `json:"ConnectorProfileName,omitempty"`
 
 	// ConnectorType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
-	ConnectorType string `json:"ConnectorType,omitempty"`
+	ConnectorType string `json:"ConnectorType"`
 
 	// DestinationConnectorProperties AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
-	DestinationConnectorProperties *Flow_DestinationConnectorProperties `json:"DestinationConnectorProperties,omitempty"`
+	DestinationConnectorProperties *Flow_DestinationConnectorProperties `json:"DestinationConnectorProperties"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

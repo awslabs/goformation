@@ -15,27 +15,27 @@ type CostCategory struct {
 	// DefaultValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
-	DefaultValue string `json:"DefaultValue,omitempty"`
+	DefaultValue *string `json:"DefaultValue,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RuleVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-	RuleVersion string `json:"RuleVersion,omitempty"`
+	RuleVersion string `json:"RuleVersion"`
 
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
-	Rules string `json:"Rules,omitempty"`
+	Rules string `json:"Rules"`
 
 	// SplitChargeRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
-	SplitChargeRules string `json:"SplitChargeRules,omitempty"`
+	SplitChargeRules *string `json:"SplitChargeRules,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

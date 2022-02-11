@@ -11,12 +11,12 @@ type HttpApi_MutualTlsAuthentication struct {
 	// TruststoreUri AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreuri
-	TruststoreUri string `json:"TruststoreUri,omitempty"`
+	TruststoreUri *string `json:"TruststoreUri,omitempty"`
 
 	// TruststoreVersion AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreversion
-	TruststoreVersion bool `json:"TruststoreVersion,omitempty"`
+	TruststoreVersion *bool `json:"TruststoreVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

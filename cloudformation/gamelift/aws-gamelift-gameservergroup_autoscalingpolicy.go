@@ -11,12 +11,12 @@ type GameServerGroup_AutoScalingPolicy struct {
 	// EstimatedInstanceWarmup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
-	EstimatedInstanceWarmup float64 `json:"EstimatedInstanceWarmup,omitempty"`
+	EstimatedInstanceWarmup *float64 `json:"EstimatedInstanceWarmup,omitempty"`
 
 	// TargetTrackingConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
-	TargetTrackingConfiguration *GameServerGroup_TargetTrackingConfiguration `json:"TargetTrackingConfiguration,omitempty"`
+	TargetTrackingConfiguration *GameServerGroup_TargetTrackingConfiguration `json:"TargetTrackingConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type AppImageConfig_FileSystemConfig struct {
 	// DefaultGid AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
-	DefaultGid int `json:"DefaultGid,omitempty"`
+	DefaultGid *int `json:"DefaultGid,omitempty"`
 
 	// DefaultUid AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
-	DefaultUid int `json:"DefaultUid,omitempty"`
+	DefaultUid *int `json:"DefaultUid,omitempty"`
 
 	// MountPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
-	MountPath string `json:"MountPath,omitempty"`
+	MountPath *string `json:"MountPath,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

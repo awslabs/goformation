@@ -11,7 +11,7 @@ type Dashboard_SheetControlsOption struct {
 	// VisibilityState AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
-	VisibilityState string `json:"VisibilityState,omitempty"`
+	VisibilityState *string `json:"VisibilityState,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

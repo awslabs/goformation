@@ -11,7 +11,7 @@ type Connector_ProvisionedCapacity struct {
 	// McuCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-provisionedcapacity.html#cfn-kafkaconnect-connector-provisionedcapacity-mcucount
-	McuCount int `json:"McuCount,omitempty"`
+	McuCount *int `json:"McuCount,omitempty"`
 
 	// WorkerCount AWS CloudFormation Property
 	// Required: true

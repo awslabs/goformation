@@ -11,12 +11,12 @@ type LifecyclePolicy_Parameters struct {
 	// ExcludeBootVolume AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
-	ExcludeBootVolume bool `json:"ExcludeBootVolume,omitempty"`
+	ExcludeBootVolume *bool `json:"ExcludeBootVolume,omitempty"`
 
 	// NoReboot AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
-	NoReboot bool `json:"NoReboot,omitempty"`
+	NoReboot *bool `json:"NoReboot,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

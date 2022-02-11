@@ -15,32 +15,32 @@ type GlobalCluster struct {
 	// DeletionProtection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
-	DeletionProtection bool `json:"DeletionProtection,omitempty"`
+	DeletionProtection *bool `json:"DeletionProtection,omitempty"`
 
 	// Engine AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
-	Engine string `json:"Engine,omitempty"`
+	Engine *string `json:"Engine,omitempty"`
 
 	// EngineVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
-	EngineVersion string `json:"EngineVersion,omitempty"`
+	EngineVersion *string `json:"EngineVersion,omitempty"`
 
 	// GlobalClusterIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
-	GlobalClusterIdentifier string `json:"GlobalClusterIdentifier,omitempty"`
+	GlobalClusterIdentifier *string `json:"GlobalClusterIdentifier,omitempty"`
 
 	// SourceDBClusterIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
-	SourceDBClusterIdentifier string `json:"SourceDBClusterIdentifier,omitempty"`
+	SourceDBClusterIdentifier *string `json:"SourceDBClusterIdentifier,omitempty"`
 
 	// StorageEncrypted AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
-	StorageEncrypted bool `json:"StorageEncrypted,omitempty"`
+	StorageEncrypted *bool `json:"StorageEncrypted,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

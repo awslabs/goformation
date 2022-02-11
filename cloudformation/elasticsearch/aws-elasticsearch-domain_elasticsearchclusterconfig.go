@@ -16,42 +16,42 @@ type Domain_ElasticsearchClusterConfig struct {
 	// DedicatedMasterCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-dedicatedmastercount
-	DedicatedMasterCount int `json:"DedicatedMasterCount,omitempty"`
+	DedicatedMasterCount *int `json:"DedicatedMasterCount,omitempty"`
 
 	// DedicatedMasterEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-dedicatedmasterenabled
-	DedicatedMasterEnabled bool `json:"DedicatedMasterEnabled,omitempty"`
+	DedicatedMasterEnabled *bool `json:"DedicatedMasterEnabled,omitempty"`
 
 	// DedicatedMasterType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-dedicatedmastertype
-	DedicatedMasterType string `json:"DedicatedMasterType,omitempty"`
+	DedicatedMasterType *string `json:"DedicatedMasterType,omitempty"`
 
 	// InstanceCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instancecount
-	InstanceCount int `json:"InstanceCount,omitempty"`
+	InstanceCount *int `json:"InstanceCount,omitempty"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instnacetype
-	InstanceType string `json:"InstanceType,omitempty"`
+	InstanceType *string `json:"InstanceType,omitempty"`
 
 	// WarmCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmcount
-	WarmCount int `json:"WarmCount,omitempty"`
+	WarmCount *int `json:"WarmCount,omitempty"`
 
 	// WarmEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmenabled
-	WarmEnabled bool `json:"WarmEnabled,omitempty"`
+	WarmEnabled *bool `json:"WarmEnabled,omitempty"`
 
 	// WarmType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmtype
-	WarmType string `json:"WarmType,omitempty"`
+	WarmType *string `json:"WarmType,omitempty"`
 
 	// ZoneAwarenessConfig AWS CloudFormation Property
 	// Required: false
@@ -61,7 +61,7 @@ type Domain_ElasticsearchClusterConfig struct {
 	// ZoneAwarenessEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-zoneawarenessenabled
-	ZoneAwarenessEnabled bool `json:"ZoneAwarenessEnabled,omitempty"`
+	ZoneAwarenessEnabled *bool `json:"ZoneAwarenessEnabled,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

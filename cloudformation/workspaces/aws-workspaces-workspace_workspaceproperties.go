@@ -11,27 +11,27 @@ type Workspace_WorkspaceProperties struct {
 	// ComputeTypeName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
-	ComputeTypeName string `json:"ComputeTypeName,omitempty"`
+	ComputeTypeName *string `json:"ComputeTypeName,omitempty"`
 
 	// RootVolumeSizeGib AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
-	RootVolumeSizeGib int `json:"RootVolumeSizeGib,omitempty"`
+	RootVolumeSizeGib *int `json:"RootVolumeSizeGib,omitempty"`
 
 	// RunningMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
-	RunningMode string `json:"RunningMode,omitempty"`
+	RunningMode *string `json:"RunningMode,omitempty"`
 
 	// RunningModeAutoStopTimeoutInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
-	RunningModeAutoStopTimeoutInMinutes int `json:"RunningModeAutoStopTimeoutInMinutes,omitempty"`
+	RunningModeAutoStopTimeoutInMinutes *int `json:"RunningModeAutoStopTimeoutInMinutes,omitempty"`
 
 	// UserVolumeSizeGib AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
-	UserVolumeSizeGib int `json:"UserVolumeSizeGib,omitempty"`
+	UserVolumeSizeGib *int `json:"UserVolumeSizeGib,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

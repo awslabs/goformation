@@ -15,17 +15,17 @@ type ListenerRule struct {
 	// Actions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-	Actions []ListenerRule_Action `json:"Actions,omitempty"`
+	Actions []ListenerRule_Action `json:"Actions"`
 
 	// Conditions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-	Conditions []ListenerRule_RuleCondition `json:"Conditions,omitempty"`
+	Conditions []ListenerRule_RuleCondition `json:"Conditions"`
 
 	// ListenerArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-	ListenerArn string `json:"ListenerArn,omitempty"`
+	ListenerArn string `json:"ListenerArn"`
 
 	// Priority AWS CloudFormation Property
 	// Required: true

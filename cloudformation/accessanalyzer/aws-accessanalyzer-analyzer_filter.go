@@ -11,27 +11,27 @@ type Analyzer_Filter struct {
 	// Contains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
-	Contains []string `json:"Contains,omitempty"`
+	Contains *[]string `json:"Contains,omitempty"`
 
 	// Eq AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
-	Eq []string `json:"Eq,omitempty"`
+	Eq *[]string `json:"Eq,omitempty"`
 
 	// Exists AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
-	Exists bool `json:"Exists,omitempty"`
+	Exists *bool `json:"Exists,omitempty"`
 
 	// Neq AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
-	Neq []string `json:"Neq,omitempty"`
+	Neq *[]string `json:"Neq,omitempty"`
 
 	// Property AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
-	Property string `json:"Property,omitempty"`
+	Property string `json:"Property"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

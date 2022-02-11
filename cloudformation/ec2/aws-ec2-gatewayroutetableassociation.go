@@ -15,12 +15,12 @@ type GatewayRouteTableAssociation struct {
 	// GatewayId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
-	GatewayId string `json:"GatewayId,omitempty"`
+	GatewayId string `json:"GatewayId"`
 
 	// RouteTableId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
-	RouteTableId string `json:"RouteTableId,omitempty"`
+	RouteTableId string `json:"RouteTableId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

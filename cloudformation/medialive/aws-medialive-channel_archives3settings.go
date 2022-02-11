@@ -11,7 +11,7 @@ type Channel_ArchiveS3Settings struct {
 	// CannedAcl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html#cfn-medialive-channel-archives3settings-cannedacl
-	CannedAcl string `json:"CannedAcl,omitempty"`
+	CannedAcl *string `json:"CannedAcl,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

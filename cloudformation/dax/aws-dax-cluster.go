@@ -15,47 +15,47 @@ type Cluster struct {
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-availabilityzones
-	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
+	AvailabilityZones *[]string `json:"AvailabilityZones,omitempty"`
 
 	// ClusterEndpointEncryptionType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-clusterendpointencryptiontype
-	ClusterEndpointEncryptionType string `json:"ClusterEndpointEncryptionType,omitempty"`
+	ClusterEndpointEncryptionType *string `json:"ClusterEndpointEncryptionType,omitempty"`
 
 	// ClusterName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-clustername
-	ClusterName string `json:"ClusterName,omitempty"`
+	ClusterName *string `json:"ClusterName,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// IAMRoleARN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-iamrolearn
-	IAMRoleARN string `json:"IAMRoleARN,omitempty"`
+	IAMRoleARN string `json:"IAMRoleARN"`
 
 	// NodeType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-nodetype
-	NodeType string `json:"NodeType,omitempty"`
+	NodeType string `json:"NodeType"`
 
 	// NotificationTopicARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-notificationtopicarn
-	NotificationTopicARN string `json:"NotificationTopicARN,omitempty"`
+	NotificationTopicARN *string `json:"NotificationTopicARN,omitempty"`
 
 	// ParameterGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-parametergroupname
-	ParameterGroupName string `json:"ParameterGroupName,omitempty"`
+	ParameterGroupName *string `json:"ParameterGroupName,omitempty"`
 
 	// PreferredMaintenanceWindow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-preferredmaintenancewindow
-	PreferredMaintenanceWindow string `json:"PreferredMaintenanceWindow,omitempty"`
+	PreferredMaintenanceWindow *string `json:"PreferredMaintenanceWindow,omitempty"`
 
 	// ReplicationFactor AWS CloudFormation Property
 	// Required: true
@@ -70,17 +70,17 @@ type Cluster struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
 
 	// SubnetGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-subnetgroupname
-	SubnetGroupName string `json:"SubnetGroupName,omitempty"`
+	SubnetGroupName *string `json:"SubnetGroupName,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

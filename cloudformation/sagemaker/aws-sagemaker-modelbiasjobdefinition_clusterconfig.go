@@ -16,12 +16,12 @@ type ModelBiasJobDefinition_ClusterConfig struct {
 	// InstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
-	InstanceType string `json:"InstanceType,omitempty"`
+	InstanceType string `json:"InstanceType"`
 
 	// VolumeKmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
-	VolumeKmsKeyId string `json:"VolumeKmsKeyId,omitempty"`
+	VolumeKmsKeyId *string `json:"VolumeKmsKeyId,omitempty"`
 
 	// VolumeSizeInGB AWS CloudFormation Property
 	// Required: true

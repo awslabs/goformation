@@ -16,22 +16,22 @@ type Analysis struct {
 	// AnalysisId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-	AnalysisId string `json:"AnalysisId,omitempty"`
+	AnalysisId string `json:"AnalysisId"`
 
 	// AwsAccountId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-	AwsAccountId string `json:"AwsAccountId,omitempty"`
+	AwsAccountId string `json:"AwsAccountId"`
 
 	// Errors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
-	Errors []Analysis_AnalysisError `json:"Errors,omitempty"`
+	Errors *[]Analysis_AnalysisError `json:"Errors,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
@@ -41,22 +41,22 @@ type Analysis struct {
 	// Permissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
-	Permissions []Analysis_ResourcePermission `json:"Permissions,omitempty"`
+	Permissions *[]Analysis_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-	SourceEntity *Analysis_AnalysisSourceEntity `json:"SourceEntity,omitempty"`
+	SourceEntity *Analysis_AnalysisSourceEntity `json:"SourceEntity"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// ThemeArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
-	ThemeArn string `json:"ThemeArn,omitempty"`
+	ThemeArn *string `json:"ThemeArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

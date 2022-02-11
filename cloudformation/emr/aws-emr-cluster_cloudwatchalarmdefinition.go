@@ -11,27 +11,27 @@ type Cluster_CloudWatchAlarmDefinition struct {
 	// ComparisonOperator AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-comparisonoperator
-	ComparisonOperator string `json:"ComparisonOperator,omitempty"`
+	ComparisonOperator string `json:"ComparisonOperator"`
 
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-dimensions
-	Dimensions []Cluster_MetricDimension `json:"Dimensions,omitempty"`
+	Dimensions *[]Cluster_MetricDimension `json:"Dimensions,omitempty"`
 
 	// EvaluationPeriods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-evaluationperiods
-	EvaluationPeriods int `json:"EvaluationPeriods,omitempty"`
+	EvaluationPeriods *int `json:"EvaluationPeriods,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-metricname
-	MetricName string `json:"MetricName,omitempty"`
+	MetricName string `json:"MetricName"`
 
 	// Namespace AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-namespace
-	Namespace string `json:"Namespace,omitempty"`
+	Namespace *string `json:"Namespace,omitempty"`
 
 	// Period AWS CloudFormation Property
 	// Required: true
@@ -41,7 +41,7 @@ type Cluster_CloudWatchAlarmDefinition struct {
 	// Statistic AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-statistic
-	Statistic string `json:"Statistic,omitempty"`
+	Statistic *string `json:"Statistic,omitempty"`
 
 	// Threshold AWS CloudFormation Property
 	// Required: true
@@ -51,7 +51,7 @@ type Cluster_CloudWatchAlarmDefinition struct {
 	// Unit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-unit
-	Unit string `json:"Unit,omitempty"`
+	Unit *string `json:"Unit,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

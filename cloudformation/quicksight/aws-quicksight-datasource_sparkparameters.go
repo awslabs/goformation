@@ -11,7 +11,7 @@ type DataSource_SparkParameters struct {
 	// Host AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
-	Host string `json:"Host,omitempty"`
+	Host string `json:"Host"`
 
 	// Port AWS CloudFormation Property
 	// Required: true

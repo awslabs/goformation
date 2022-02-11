@@ -11,7 +11,7 @@ type DataSet_FilterOperation struct {
 	// ConditionExpression AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
-	ConditionExpression string `json:"ConditionExpression,omitempty"`
+	ConditionExpression string `json:"ConditionExpression"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

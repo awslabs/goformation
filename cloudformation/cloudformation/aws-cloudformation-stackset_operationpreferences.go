@@ -11,32 +11,32 @@ type StackSet_OperationPreferences struct {
 	// FailureToleranceCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
-	FailureToleranceCount int `json:"FailureToleranceCount,omitempty"`
+	FailureToleranceCount *int `json:"FailureToleranceCount,omitempty"`
 
 	// FailureTolerancePercentage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
-	FailureTolerancePercentage int `json:"FailureTolerancePercentage,omitempty"`
+	FailureTolerancePercentage *int `json:"FailureTolerancePercentage,omitempty"`
 
 	// MaxConcurrentCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
-	MaxConcurrentCount int `json:"MaxConcurrentCount,omitempty"`
+	MaxConcurrentCount *int `json:"MaxConcurrentCount,omitempty"`
 
 	// MaxConcurrentPercentage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
-	MaxConcurrentPercentage int `json:"MaxConcurrentPercentage,omitempty"`
+	MaxConcurrentPercentage *int `json:"MaxConcurrentPercentage,omitempty"`
 
 	// RegionConcurrencyType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
-	RegionConcurrencyType string `json:"RegionConcurrencyType,omitempty"`
+	RegionConcurrencyType *string `json:"RegionConcurrencyType,omitempty"`
 
 	// RegionOrder AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
-	RegionOrder []string `json:"RegionOrder,omitempty"`
+	RegionOrder *[]string `json:"RegionOrder,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

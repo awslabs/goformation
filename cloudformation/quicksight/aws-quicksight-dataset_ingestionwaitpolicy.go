@@ -11,12 +11,12 @@ type DataSet_IngestionWaitPolicy struct {
 	// IngestionWaitTimeInHours AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
-	IngestionWaitTimeInHours float64 `json:"IngestionWaitTimeInHours,omitempty"`
+	IngestionWaitTimeInHours *float64 `json:"IngestionWaitTimeInHours,omitempty"`
 
 	// WaitForSpiceIngestion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
-	WaitForSpiceIngestion bool `json:"WaitForSpiceIngestion,omitempty"`
+	WaitForSpiceIngestion *bool `json:"WaitForSpiceIngestion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

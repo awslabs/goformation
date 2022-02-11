@@ -15,37 +15,37 @@ type Dataset struct {
 	// DataFrequency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-datafrequency
-	DataFrequency string `json:"DataFrequency,omitempty"`
+	DataFrequency *string `json:"DataFrequency,omitempty"`
 
 	// DatasetName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-datasetname
-	DatasetName string `json:"DatasetName,omitempty"`
+	DatasetName string `json:"DatasetName"`
 
 	// DatasetType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-datasettype
-	DatasetType string `json:"DatasetType,omitempty"`
+	DatasetType string `json:"DatasetType"`
 
 	// Domain AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-domain
-	Domain string `json:"Domain,omitempty"`
+	Domain string `json:"Domain"`
 
 	// EncryptionConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-encryptionconfig
-	EncryptionConfig interface{} `json:"EncryptionConfig,omitempty"`
+	EncryptionConfig *interface{} `json:"EncryptionConfig,omitempty"`
 
 	// Schema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-schema
-	Schema interface{} `json:"Schema,omitempty"`
+	Schema interface{} `json:"Schema"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-tags
-	Tags []interface{} `json:"Tags,omitempty"`
+	Tags *[]interface{} `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type GlobalReplicationGroup_GlobalReplicationGroupMember struct {
 	// ReplicationGroupId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
-	ReplicationGroupId string `json:"ReplicationGroupId,omitempty"`
+	ReplicationGroupId *string `json:"ReplicationGroupId,omitempty"`
 
 	// ReplicationGroupRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
-	ReplicationGroupRegion string `json:"ReplicationGroupRegion,omitempty"`
+	ReplicationGroupRegion *string `json:"ReplicationGroupRegion,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
-	Role string `json:"Role,omitempty"`
+	Role *string `json:"Role,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

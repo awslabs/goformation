@@ -11,32 +11,32 @@ type HttpApi_CorsConfigurationObject struct {
 	// AllowCredentials AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	AllowCredentials bool `json:"AllowCredentials,omitempty"`
+	AllowCredentials *bool `json:"AllowCredentials,omitempty"`
 
 	// AllowHeaders AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	AllowHeaders string `json:"AllowHeaders,omitempty"`
+	AllowHeaders *string `json:"AllowHeaders,omitempty"`
 
 	// AllowMethods AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	AllowMethods string `json:"AllowMethods,omitempty"`
+	AllowMethods *string `json:"AllowMethods,omitempty"`
 
 	// AllowOrigin AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	AllowOrigin string `json:"AllowOrigin,omitempty"`
+	AllowOrigin *string `json:"AllowOrigin,omitempty"`
 
 	// ExposeHeaders AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	ExposeHeaders []string `json:"ExposeHeaders,omitempty"`
+	ExposeHeaders *[]string `json:"ExposeHeaders,omitempty"`
 
 	// MaxAge AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	MaxAge string `json:"MaxAge,omitempty"`
+	MaxAge *string `json:"MaxAge,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

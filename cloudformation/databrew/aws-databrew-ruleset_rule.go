@@ -11,27 +11,27 @@ type Ruleset_Rule struct {
 	// CheckExpression AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html#cfn-databrew-ruleset-rule-checkexpression
-	CheckExpression string `json:"CheckExpression,omitempty"`
+	CheckExpression string `json:"CheckExpression"`
 
 	// ColumnSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html#cfn-databrew-ruleset-rule-columnselectors
-	ColumnSelectors []Ruleset_ColumnSelector `json:"ColumnSelectors,omitempty"`
+	ColumnSelectors *[]Ruleset_ColumnSelector `json:"ColumnSelectors,omitempty"`
 
 	// Disabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html#cfn-databrew-ruleset-rule-disabled
-	Disabled bool `json:"Disabled,omitempty"`
+	Disabled *bool `json:"Disabled,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html#cfn-databrew-ruleset-rule-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// SubstitutionMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html#cfn-databrew-ruleset-rule-substitutionmap
-	SubstitutionMap []Ruleset_SubstitutionValue `json:"SubstitutionMap,omitempty"`
+	SubstitutionMap *[]Ruleset_SubstitutionValue `json:"SubstitutionMap,omitempty"`
 
 	// Threshold AWS CloudFormation Property
 	// Required: false

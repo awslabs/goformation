@@ -11,12 +11,12 @@ type StorageLens_BucketsAndRegions struct {
 	// Buckets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
-	Buckets []string `json:"Buckets,omitempty"`
+	Buckets *[]string `json:"Buckets,omitempty"`
 
 	// Regions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
-	Regions []string `json:"Regions,omitempty"`
+	Regions *[]string `json:"Regions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

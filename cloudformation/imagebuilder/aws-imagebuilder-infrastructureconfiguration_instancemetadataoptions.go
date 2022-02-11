@@ -11,12 +11,12 @@ type InfrastructureConfiguration_InstanceMetadataOptions struct {
 	// HttpPutResponseHopLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-instancemetadataoptions.html#cfn-imagebuilder-infrastructureconfiguration-instancemetadataoptions-httpputresponsehoplimit
-	HttpPutResponseHopLimit int `json:"HttpPutResponseHopLimit,omitempty"`
+	HttpPutResponseHopLimit *int `json:"HttpPutResponseHopLimit,omitempty"`
 
 	// HttpTokens AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-instancemetadataoptions.html#cfn-imagebuilder-infrastructureconfiguration-instancemetadataoptions-httptokens
-	HttpTokens string `json:"HttpTokens,omitempty"`
+	HttpTokens *string `json:"HttpTokens,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

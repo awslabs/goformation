@@ -11,22 +11,22 @@ type ConnectorProfile_InforNexusConnectorProfileCredentials struct {
 	// AccessKeyId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
-	AccessKeyId string `json:"AccessKeyId,omitempty"`
+	AccessKeyId string `json:"AccessKeyId"`
 
 	// Datakey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey
-	Datakey string `json:"Datakey,omitempty"`
+	Datakey string `json:"Datakey"`
 
 	// SecretAccessKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey
-	SecretAccessKey string `json:"SecretAccessKey,omitempty"`
+	SecretAccessKey string `json:"SecretAccessKey"`
 
 	// UserId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid
-	UserId string `json:"UserId,omitempty"`
+	UserId string `json:"UserId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

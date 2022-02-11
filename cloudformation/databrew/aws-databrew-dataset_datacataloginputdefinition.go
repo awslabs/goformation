@@ -11,17 +11,17 @@ type Dataset_DataCatalogInputDefinition struct {
 	// CatalogId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
-	CatalogId string `json:"CatalogId,omitempty"`
+	CatalogId *string `json:"CatalogId,omitempty"`
 
 	// DatabaseName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
-	DatabaseName string `json:"DatabaseName,omitempty"`
+	DatabaseName *string `json:"DatabaseName,omitempty"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName *string `json:"TableName,omitempty"`
 
 	// TempDirectory AWS CloudFormation Property
 	// Required: false

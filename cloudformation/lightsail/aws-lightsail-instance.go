@@ -16,22 +16,22 @@ type Instance struct {
 	// AddOns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-addons
-	AddOns []Instance_AddOn `json:"AddOns,omitempty"`
+	AddOns *[]Instance_AddOn `json:"AddOns,omitempty"`
 
 	// AvailabilityZone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-availabilityzone
-	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+	AvailabilityZone *string `json:"AvailabilityZone,omitempty"`
 
 	// BlueprintId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-blueprintid
-	BlueprintId string `json:"BlueprintId,omitempty"`
+	BlueprintId string `json:"BlueprintId"`
 
 	// BundleId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-bundleid
-	BundleId string `json:"BundleId,omitempty"`
+	BundleId string `json:"BundleId"`
 
 	// Hardware AWS CloudFormation Property
 	// Required: false
@@ -41,12 +41,12 @@ type Instance struct {
 	// InstanceName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-instancename
-	InstanceName string `json:"InstanceName,omitempty"`
+	InstanceName string `json:"InstanceName"`
 
 	// KeyPairName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-keypairname
-	KeyPairName string `json:"KeyPairName,omitempty"`
+	KeyPairName *string `json:"KeyPairName,omitempty"`
 
 	// Networking AWS CloudFormation Property
 	// Required: false
@@ -56,12 +56,12 @@ type Instance struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// UserData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-userdata
-	UserData string `json:"UserData,omitempty"`
+	UserData *string `json:"UserData,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

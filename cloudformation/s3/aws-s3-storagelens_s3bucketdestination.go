@@ -11,12 +11,12 @@ type StorageLens_S3BucketDestination struct {
 	// AccountId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
-	AccountId string `json:"AccountId,omitempty"`
+	AccountId string `json:"AccountId"`
 
 	// Arn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
-	Arn string `json:"Arn,omitempty"`
+	Arn string `json:"Arn"`
 
 	// Encryption AWS CloudFormation Property
 	// Required: false
@@ -26,17 +26,17 @@ type StorageLens_S3BucketDestination struct {
 	// Format AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
-	Format string `json:"Format,omitempty"`
+	Format string `json:"Format"`
 
 	// OutputSchemaVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
-	OutputSchemaVersion string `json:"OutputSchemaVersion,omitempty"`
+	OutputSchemaVersion string `json:"OutputSchemaVersion"`
 
 	// Prefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
-	Prefix string `json:"Prefix,omitempty"`
+	Prefix *string `json:"Prefix,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

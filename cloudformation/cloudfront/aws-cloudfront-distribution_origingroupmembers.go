@@ -11,7 +11,7 @@ type Distribution_OriginGroupMembers struct {
 	// Items AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
-	Items []Distribution_OriginGroupMember `json:"Items,omitempty"`
+	Items []Distribution_OriginGroupMember `json:"Items"`
 
 	// Quantity AWS CloudFormation Property
 	// Required: true

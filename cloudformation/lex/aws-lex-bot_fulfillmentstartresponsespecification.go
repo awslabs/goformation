@@ -11,7 +11,7 @@ type Bot_FulfillmentStartResponseSpecification struct {
 	// AllowInterrupt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-allowinterrupt
-	AllowInterrupt bool `json:"AllowInterrupt,omitempty"`
+	AllowInterrupt *bool `json:"AllowInterrupt,omitempty"`
 
 	// DelayInSeconds AWS CloudFormation Property
 	// Required: true
@@ -21,7 +21,7 @@ type Bot_FulfillmentStartResponseSpecification struct {
 	// MessageGroups AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-messagegroups
-	MessageGroups []Bot_MessageGroup `json:"MessageGroups,omitempty"`
+	MessageGroups []Bot_MessageGroup `json:"MessageGroups"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

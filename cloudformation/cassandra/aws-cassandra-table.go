@@ -21,12 +21,12 @@ type Table struct {
 	// ClusteringKeyColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-	ClusteringKeyColumns []Table_ClusteringKeyColumn `json:"ClusteringKeyColumns,omitempty"`
+	ClusteringKeyColumns *[]Table_ClusteringKeyColumn `json:"ClusteringKeyColumns,omitempty"`
 
 	// DefaultTimeToLive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-defaulttimetolive
-	DefaultTimeToLive int `json:"DefaultTimeToLive,omitempty"`
+	DefaultTimeToLive *int `json:"DefaultTimeToLive,omitempty"`
 
 	// EncryptionSpecification AWS CloudFormation Property
 	// Required: false
@@ -36,32 +36,32 @@ type Table struct {
 	// KeyspaceName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-	KeyspaceName string `json:"KeyspaceName,omitempty"`
+	KeyspaceName string `json:"KeyspaceName"`
 
 	// PartitionKeyColumns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-	PartitionKeyColumns []Table_Column `json:"PartitionKeyColumns,omitempty"`
+	PartitionKeyColumns []Table_Column `json:"PartitionKeyColumns"`
 
 	// PointInTimeRecoveryEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
-	PointInTimeRecoveryEnabled bool `json:"PointInTimeRecoveryEnabled,omitempty"`
+	PointInTimeRecoveryEnabled *bool `json:"PointInTimeRecoveryEnabled,omitempty"`
 
 	// RegularColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-	RegularColumns []Table_Column `json:"RegularColumns,omitempty"`
+	RegularColumns *[]Table_Column `json:"RegularColumns,omitempty"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName *string `json:"TableName,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

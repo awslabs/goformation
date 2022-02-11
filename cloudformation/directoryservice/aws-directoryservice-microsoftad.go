@@ -15,37 +15,37 @@ type MicrosoftAD struct {
 	// CreateAlias AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-createalias
-	CreateAlias bool `json:"CreateAlias,omitempty"`
+	CreateAlias *bool `json:"CreateAlias,omitempty"`
 
 	// Edition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-edition
-	Edition string `json:"Edition,omitempty"`
+	Edition *string `json:"Edition,omitempty"`
 
 	// EnableSso AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-enablesso
-	EnableSso bool `json:"EnableSso,omitempty"`
+	EnableSso *bool `json:"EnableSso,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Password AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-password
-	Password string `json:"Password,omitempty"`
+	Password string `json:"Password"`
 
 	// ShortName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-shortname
-	ShortName string `json:"ShortName,omitempty"`
+	ShortName *string `json:"ShortName,omitempty"`
 
 	// VpcSettings AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-vpcsettings
-	VpcSettings *MicrosoftAD_VpcSettings `json:"VpcSettings,omitempty"`
+	VpcSettings *MicrosoftAD_VpcSettings `json:"VpcSettings"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

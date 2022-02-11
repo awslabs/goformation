@@ -16,52 +16,52 @@ type FuotaTask struct {
 	// AssociateMulticastGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-associatemulticastgroup
-	AssociateMulticastGroup string `json:"AssociateMulticastGroup,omitempty"`
+	AssociateMulticastGroup *string `json:"AssociateMulticastGroup,omitempty"`
 
 	// AssociateWirelessDevice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-associatewirelessdevice
-	AssociateWirelessDevice string `json:"AssociateWirelessDevice,omitempty"`
+	AssociateWirelessDevice *string `json:"AssociateWirelessDevice,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// DisassociateMulticastGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-disassociatemulticastgroup
-	DisassociateMulticastGroup string `json:"DisassociateMulticastGroup,omitempty"`
+	DisassociateMulticastGroup *string `json:"DisassociateMulticastGroup,omitempty"`
 
 	// DisassociateWirelessDevice AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-disassociatewirelessdevice
-	DisassociateWirelessDevice string `json:"DisassociateWirelessDevice,omitempty"`
+	DisassociateWirelessDevice *string `json:"DisassociateWirelessDevice,omitempty"`
 
 	// FirmwareUpdateImage AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-firmwareupdateimage
-	FirmwareUpdateImage string `json:"FirmwareUpdateImage,omitempty"`
+	FirmwareUpdateImage string `json:"FirmwareUpdateImage"`
 
 	// FirmwareUpdateRole AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-firmwareupdaterole
-	FirmwareUpdateRole string `json:"FirmwareUpdateRole,omitempty"`
+	FirmwareUpdateRole string `json:"FirmwareUpdateRole"`
 
 	// LoRaWAN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-lorawan
-	LoRaWAN *FuotaTask_LoRaWAN `json:"LoRaWAN,omitempty"`
+	LoRaWAN *FuotaTask_LoRaWAN `json:"LoRaWAN"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html#cfn-iotwireless-fuotatask-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

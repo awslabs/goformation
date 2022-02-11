@@ -11,7 +11,7 @@ type Workteam_NotificationConfiguration struct {
 	// NotificationTopicArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html#cfn-sagemaker-workteam-notificationconfiguration-notificationtopicarn
-	NotificationTopicArn string `json:"NotificationTopicArn,omitempty"`
+	NotificationTopicArn string `json:"NotificationTopicArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

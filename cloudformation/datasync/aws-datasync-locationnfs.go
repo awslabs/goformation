@@ -21,22 +21,22 @@ type LocationNFS struct {
 	// OnPremConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-	OnPremConfig *LocationNFS_OnPremConfig `json:"OnPremConfig,omitempty"`
+	OnPremConfig *LocationNFS_OnPremConfig `json:"OnPremConfig"`
 
 	// ServerHostname AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
-	ServerHostname string `json:"ServerHostname,omitempty"`
+	ServerHostname string `json:"ServerHostname"`
 
 	// Subdirectory AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
-	Subdirectory string `json:"Subdirectory,omitempty"`
+	Subdirectory string `json:"Subdirectory"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

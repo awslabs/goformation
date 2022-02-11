@@ -11,7 +11,7 @@ type Connector_KafkaClusterEncryptionInTransit struct {
 	// EncryptionType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit-encryptiontype
-	EncryptionType string `json:"EncryptionType,omitempty"`
+	EncryptionType string `json:"EncryptionType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

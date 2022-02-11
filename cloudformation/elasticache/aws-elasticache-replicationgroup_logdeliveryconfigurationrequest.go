@@ -11,22 +11,22 @@ type ReplicationGroup_LogDeliveryConfigurationRequest struct {
 	// DestinationDetails AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails
-	DestinationDetails *ReplicationGroup_DestinationDetails `json:"DestinationDetails,omitempty"`
+	DestinationDetails *ReplicationGroup_DestinationDetails `json:"DestinationDetails"`
 
 	// DestinationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype
-	DestinationType string `json:"DestinationType,omitempty"`
+	DestinationType string `json:"DestinationType"`
 
 	// LogFormat AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat
-	LogFormat string `json:"LogFormat,omitempty"`
+	LogFormat string `json:"LogFormat"`
 
 	// LogType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype
-	LogType string `json:"LogType,omitempty"`
+	LogType string `json:"LogType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

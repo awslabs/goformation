@@ -11,7 +11,7 @@ type ResponseHeadersPolicy_FrameOptions struct {
 	// FrameOption AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html#cfn-cloudfront-responseheaderspolicy-frameoptions-frameoption
-	FrameOption string `json:"FrameOption,omitempty"`
+	FrameOption string `json:"FrameOption"`
 
 	// Override AWS CloudFormation Property
 	// Required: true

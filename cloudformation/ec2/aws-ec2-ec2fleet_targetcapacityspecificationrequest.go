@@ -11,22 +11,22 @@ type EC2Fleet_TargetCapacitySpecificationRequest struct {
 	// DefaultTargetCapacityType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-defaulttargetcapacitytype
-	DefaultTargetCapacityType string `json:"DefaultTargetCapacityType,omitempty"`
+	DefaultTargetCapacityType *string `json:"DefaultTargetCapacityType,omitempty"`
 
 	// OnDemandTargetCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-ondemandtargetcapacity
-	OnDemandTargetCapacity int `json:"OnDemandTargetCapacity,omitempty"`
+	OnDemandTargetCapacity *int `json:"OnDemandTargetCapacity,omitempty"`
 
 	// SpotTargetCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-spottargetcapacity
-	SpotTargetCapacity int `json:"SpotTargetCapacity,omitempty"`
+	SpotTargetCapacity *int `json:"SpotTargetCapacity,omitempty"`
 
 	// TargetCapacityUnitType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-targetcapacityunittype
-	TargetCapacityUnitType string `json:"TargetCapacityUnitType,omitempty"`
+	TargetCapacityUnitType *string `json:"TargetCapacityUnitType,omitempty"`
 
 	// TotalTargetCapacity AWS CloudFormation Property
 	// Required: true

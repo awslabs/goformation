@@ -11,7 +11,7 @@ type WebACL_RateBasedStatement struct {
 	// AggregateKeyType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
-	AggregateKeyType string `json:"AggregateKeyType,omitempty"`
+	AggregateKeyType string `json:"AggregateKeyType"`
 
 	// ForwardedIPConfig AWS CloudFormation Property
 	// Required: false

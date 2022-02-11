@@ -16,17 +16,17 @@ type MissionProfile struct {
 	// ContactPostPassDurationSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-	ContactPostPassDurationSeconds int `json:"ContactPostPassDurationSeconds,omitempty"`
+	ContactPostPassDurationSeconds *int `json:"ContactPostPassDurationSeconds,omitempty"`
 
 	// ContactPrePassDurationSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-	ContactPrePassDurationSeconds int `json:"ContactPrePassDurationSeconds,omitempty"`
+	ContactPrePassDurationSeconds *int `json:"ContactPrePassDurationSeconds,omitempty"`
 
 	// DataflowEdges AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-	DataflowEdges []MissionProfile_DataflowEdge `json:"DataflowEdges,omitempty"`
+	DataflowEdges []MissionProfile_DataflowEdge `json:"DataflowEdges"`
 
 	// MinimumViableContactDurationSeconds AWS CloudFormation Property
 	// Required: true
@@ -36,17 +36,17 @@ type MissionProfile struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// TrackingConfigArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-	TrackingConfigArn string `json:"TrackingConfigArn,omitempty"`
+	TrackingConfigArn string `json:"TrackingConfigArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,67 +11,67 @@ type TaskDefinition_ContainerDefinition struct {
 	// Command AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
-	Command []string `json:"Command,omitempty"`
+	Command *[]string `json:"Command,omitempty"`
 
 	// Cpu AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
-	Cpu int `json:"Cpu,omitempty"`
+	Cpu *int `json:"Cpu,omitempty"`
 
 	// DependsOn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
-	DependsOnProp []TaskDefinition_ContainerDependency `json:"DependsOn,omitempty"`
+	DependsOnProp *[]TaskDefinition_ContainerDependency `json:"DependsOn,omitempty"`
 
 	// DisableNetworking AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
-	DisableNetworking bool `json:"DisableNetworking,omitempty"`
+	DisableNetworking *bool `json:"DisableNetworking,omitempty"`
 
 	// DnsSearchDomains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
-	DnsSearchDomains []string `json:"DnsSearchDomains,omitempty"`
+	DnsSearchDomains *[]string `json:"DnsSearchDomains,omitempty"`
 
 	// DnsServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
-	DnsServers []string `json:"DnsServers,omitempty"`
+	DnsServers *[]string `json:"DnsServers,omitempty"`
 
 	// DockerLabels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
-	DockerLabels map[string]string `json:"DockerLabels,omitempty"`
+	DockerLabels *map[string]string `json:"DockerLabels,omitempty"`
 
 	// DockerSecurityOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
-	DockerSecurityOptions []string `json:"DockerSecurityOptions,omitempty"`
+	DockerSecurityOptions *[]string `json:"DockerSecurityOptions,omitempty"`
 
 	// EntryPoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
-	EntryPoint []string `json:"EntryPoint,omitempty"`
+	EntryPoint *[]string `json:"EntryPoint,omitempty"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
-	Environment []TaskDefinition_KeyValuePair `json:"Environment,omitempty"`
+	Environment *[]TaskDefinition_KeyValuePair `json:"Environment,omitempty"`
 
 	// EnvironmentFiles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
-	EnvironmentFiles []TaskDefinition_EnvironmentFile `json:"EnvironmentFiles,omitempty"`
+	EnvironmentFiles *[]TaskDefinition_EnvironmentFile `json:"EnvironmentFiles,omitempty"`
 
 	// Essential AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
-	Essential bool `json:"Essential,omitempty"`
+	Essential *bool `json:"Essential,omitempty"`
 
 	// ExtraHosts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
-	ExtraHosts []TaskDefinition_HostEntry `json:"ExtraHosts,omitempty"`
+	ExtraHosts *[]TaskDefinition_HostEntry `json:"ExtraHosts,omitempty"`
 
 	// FirelensConfiguration AWS CloudFormation Property
 	// Required: false
@@ -86,22 +86,22 @@ type TaskDefinition_ContainerDefinition struct {
 	// Hostname AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
-	Hostname string `json:"Hostname,omitempty"`
+	Hostname *string `json:"Hostname,omitempty"`
 
 	// Image AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
-	Image string `json:"Image,omitempty"`
+	Image *string `json:"Image,omitempty"`
 
 	// Interactive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
-	Interactive bool `json:"Interactive,omitempty"`
+	Interactive *bool `json:"Interactive,omitempty"`
 
 	// Links AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
-	Links []string `json:"Links,omitempty"`
+	Links *[]string `json:"Links,omitempty"`
 
 	// LinuxParameters AWS CloudFormation Property
 	// Required: false
@@ -116,42 +116,42 @@ type TaskDefinition_ContainerDefinition struct {
 	// Memory AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
-	Memory int `json:"Memory,omitempty"`
+	Memory *int `json:"Memory,omitempty"`
 
 	// MemoryReservation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
-	MemoryReservation int `json:"MemoryReservation,omitempty"`
+	MemoryReservation *int `json:"MemoryReservation,omitempty"`
 
 	// MountPoints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
-	MountPoints []TaskDefinition_MountPoint `json:"MountPoints,omitempty"`
+	MountPoints *[]TaskDefinition_MountPoint `json:"MountPoints,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// PortMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
-	PortMappings []TaskDefinition_PortMapping `json:"PortMappings,omitempty"`
+	PortMappings *[]TaskDefinition_PortMapping `json:"PortMappings,omitempty"`
 
 	// Privileged AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
-	Privileged bool `json:"Privileged,omitempty"`
+	Privileged *bool `json:"Privileged,omitempty"`
 
 	// PseudoTerminal AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
-	PseudoTerminal bool `json:"PseudoTerminal,omitempty"`
+	PseudoTerminal *bool `json:"PseudoTerminal,omitempty"`
 
 	// ReadonlyRootFilesystem AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
-	ReadonlyRootFilesystem bool `json:"ReadonlyRootFilesystem,omitempty"`
+	ReadonlyRootFilesystem *bool `json:"ReadonlyRootFilesystem,omitempty"`
 
 	// RepositoryCredentials AWS CloudFormation Property
 	// Required: false
@@ -161,47 +161,47 @@ type TaskDefinition_ContainerDefinition struct {
 	// ResourceRequirements AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
-	ResourceRequirements []TaskDefinition_ResourceRequirement `json:"ResourceRequirements,omitempty"`
+	ResourceRequirements *[]TaskDefinition_ResourceRequirement `json:"ResourceRequirements,omitempty"`
 
 	// Secrets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
-	Secrets []TaskDefinition_Secret `json:"Secrets,omitempty"`
+	Secrets *[]TaskDefinition_Secret `json:"Secrets,omitempty"`
 
 	// StartTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
-	StartTimeout int `json:"StartTimeout,omitempty"`
+	StartTimeout *int `json:"StartTimeout,omitempty"`
 
 	// StopTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
-	StopTimeout int `json:"StopTimeout,omitempty"`
+	StopTimeout *int `json:"StopTimeout,omitempty"`
 
 	// SystemControls AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
-	SystemControls []TaskDefinition_SystemControl `json:"SystemControls,omitempty"`
+	SystemControls *[]TaskDefinition_SystemControl `json:"SystemControls,omitempty"`
 
 	// Ulimits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
-	Ulimits []TaskDefinition_Ulimit `json:"Ulimits,omitempty"`
+	Ulimits *[]TaskDefinition_Ulimit `json:"Ulimits,omitempty"`
 
 	// User AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
-	User string `json:"User,omitempty"`
+	User *string `json:"User,omitempty"`
 
 	// VolumesFrom AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
-	VolumesFrom []TaskDefinition_VolumeFrom `json:"VolumesFrom,omitempty"`
+	VolumesFrom *[]TaskDefinition_VolumeFrom `json:"VolumesFrom,omitempty"`
 
 	// WorkingDirectory AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
-	WorkingDirectory string `json:"WorkingDirectory,omitempty"`
+	WorkingDirectory *string `json:"WorkingDirectory,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

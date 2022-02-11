@@ -11,12 +11,12 @@ type Container_MetricPolicy struct {
 	// ContainerLevelMetrics AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-containerlevelmetrics
-	ContainerLevelMetrics string `json:"ContainerLevelMetrics,omitempty"`
+	ContainerLevelMetrics string `json:"ContainerLevelMetrics"`
 
 	// MetricPolicyRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-metricpolicyrules
-	MetricPolicyRules []Container_MetricPolicyRule `json:"MetricPolicyRules,omitempty"`
+	MetricPolicyRules *[]Container_MetricPolicyRule `json:"MetricPolicyRules,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

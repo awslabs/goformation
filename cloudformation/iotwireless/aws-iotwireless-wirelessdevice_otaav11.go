@@ -11,17 +11,17 @@ type WirelessDevice_OtaaV11 struct {
 	// AppKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
-	AppKey string `json:"AppKey,omitempty"`
+	AppKey string `json:"AppKey"`
 
 	// JoinEui AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
-	JoinEui string `json:"JoinEui,omitempty"`
+	JoinEui string `json:"JoinEui"`
 
 	// NwkKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
-	NwkKey string `json:"NwkKey,omitempty"`
+	NwkKey string `json:"NwkKey"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

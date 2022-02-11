@@ -11,7 +11,7 @@ type Function_FunctionSAMPT struct {
 	// FunctionName AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
-	FunctionName string `json:"FunctionName,omitempty"`
+	FunctionName string `json:"FunctionName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

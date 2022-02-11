@@ -16,27 +16,27 @@ type MonitoringSchedule_MonitoringJobDefinition struct {
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-	Environment map[string]string `json:"Environment,omitempty"`
+	Environment *map[string]string `json:"Environment,omitempty"`
 
 	// MonitoringAppSpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
-	MonitoringAppSpecification *MonitoringSchedule_MonitoringAppSpecification `json:"MonitoringAppSpecification,omitempty"`
+	MonitoringAppSpecification *MonitoringSchedule_MonitoringAppSpecification `json:"MonitoringAppSpecification"`
 
 	// MonitoringInputs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-	MonitoringInputs []MonitoringSchedule_MonitoringInput `json:"MonitoringInputs,omitempty"`
+	MonitoringInputs []MonitoringSchedule_MonitoringInput `json:"MonitoringInputs"`
 
 	// MonitoringOutputConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-	MonitoringOutputConfig *MonitoringSchedule_MonitoringOutputConfig `json:"MonitoringOutputConfig,omitempty"`
+	MonitoringOutputConfig *MonitoringSchedule_MonitoringOutputConfig `json:"MonitoringOutputConfig"`
 
 	// MonitoringResources AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
-	MonitoringResources *MonitoringSchedule_MonitoringResources `json:"MonitoringResources,omitempty"`
+	MonitoringResources *MonitoringSchedule_MonitoringResources `json:"MonitoringResources"`
 
 	// NetworkConfig AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type MonitoringSchedule_MonitoringJobDefinition struct {
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// StoppingCondition AWS CloudFormation Property
 	// Required: false

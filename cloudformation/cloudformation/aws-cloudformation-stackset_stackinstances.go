@@ -11,17 +11,17 @@ type StackSet_StackInstances struct {
 	// DeploymentTargets AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
-	DeploymentTargets *StackSet_DeploymentTargets `json:"DeploymentTargets,omitempty"`
+	DeploymentTargets *StackSet_DeploymentTargets `json:"DeploymentTargets"`
 
 	// ParameterOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
-	ParameterOverrides []StackSet_Parameter `json:"ParameterOverrides,omitempty"`
+	ParameterOverrides *[]StackSet_Parameter `json:"ParameterOverrides,omitempty"`
 
 	// Regions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
-	Regions []string `json:"Regions,omitempty"`
+	Regions []string `json:"Regions"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

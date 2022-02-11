@@ -11,7 +11,7 @@ type Service_NetworkConfiguration struct {
 	// EgressConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-egressconfiguration
-	EgressConfiguration *Service_EgressConfiguration `json:"EgressConfiguration,omitempty"`
+	EgressConfiguration *Service_EgressConfiguration `json:"EgressConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

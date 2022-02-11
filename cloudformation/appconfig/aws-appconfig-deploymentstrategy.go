@@ -20,12 +20,12 @@ type DeploymentStrategy struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// FinalBakeTimeInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-finalbaketimeinminutes
-	FinalBakeTimeInMinutes float64 `json:"FinalBakeTimeInMinutes,omitempty"`
+	FinalBakeTimeInMinutes *float64 `json:"FinalBakeTimeInMinutes,omitempty"`
 
 	// GrowthFactor AWS CloudFormation Property
 	// Required: true
@@ -35,22 +35,22 @@ type DeploymentStrategy struct {
 	// GrowthType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-growthtype
-	GrowthType string `json:"GrowthType,omitempty"`
+	GrowthType *string `json:"GrowthType,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ReplicateTo AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-replicateto
-	ReplicateTo string `json:"ReplicateTo,omitempty"`
+	ReplicateTo string `json:"ReplicateTo"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-tags
-	Tags []DeploymentStrategy_Tags `json:"Tags,omitempty"`
+	Tags *[]DeploymentStrategy_Tags `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -21,7 +21,7 @@ type Channel_ArchiveGroupSettings struct {
 	// RolloverInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-rolloverinterval
-	RolloverInterval int `json:"RolloverInterval,omitempty"`
+	RolloverInterval *int `json:"RolloverInterval,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

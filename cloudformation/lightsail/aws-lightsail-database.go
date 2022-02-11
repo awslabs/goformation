@@ -16,77 +16,77 @@ type Database struct {
 	// AvailabilityZone AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-availabilityzone
-	AvailabilityZone string `json:"AvailabilityZone,omitempty"`
+	AvailabilityZone *string `json:"AvailabilityZone,omitempty"`
 
 	// BackupRetention AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-backupretention
-	BackupRetention bool `json:"BackupRetention,omitempty"`
+	BackupRetention *bool `json:"BackupRetention,omitempty"`
 
 	// CaCertificateIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-cacertificateidentifier
-	CaCertificateIdentifier string `json:"CaCertificateIdentifier,omitempty"`
+	CaCertificateIdentifier *string `json:"CaCertificateIdentifier,omitempty"`
 
 	// MasterDatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-masterdatabasename
-	MasterDatabaseName string `json:"MasterDatabaseName,omitempty"`
+	MasterDatabaseName string `json:"MasterDatabaseName"`
 
 	// MasterUserPassword AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-masteruserpassword
-	MasterUserPassword string `json:"MasterUserPassword,omitempty"`
+	MasterUserPassword *string `json:"MasterUserPassword,omitempty"`
 
 	// MasterUsername AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-masterusername
-	MasterUsername string `json:"MasterUsername,omitempty"`
+	MasterUsername string `json:"MasterUsername"`
 
 	// PreferredBackupWindow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-preferredbackupwindow
-	PreferredBackupWindow string `json:"PreferredBackupWindow,omitempty"`
+	PreferredBackupWindow *string `json:"PreferredBackupWindow,omitempty"`
 
 	// PreferredMaintenanceWindow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-preferredmaintenancewindow
-	PreferredMaintenanceWindow string `json:"PreferredMaintenanceWindow,omitempty"`
+	PreferredMaintenanceWindow *string `json:"PreferredMaintenanceWindow,omitempty"`
 
 	// PubliclyAccessible AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-publiclyaccessible
-	PubliclyAccessible bool `json:"PubliclyAccessible,omitempty"`
+	PubliclyAccessible *bool `json:"PubliclyAccessible,omitempty"`
 
 	// RelationalDatabaseBlueprintId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-relationaldatabaseblueprintid
-	RelationalDatabaseBlueprintId string `json:"RelationalDatabaseBlueprintId,omitempty"`
+	RelationalDatabaseBlueprintId string `json:"RelationalDatabaseBlueprintId"`
 
 	// RelationalDatabaseBundleId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-relationaldatabasebundleid
-	RelationalDatabaseBundleId string `json:"RelationalDatabaseBundleId,omitempty"`
+	RelationalDatabaseBundleId string `json:"RelationalDatabaseBundleId"`
 
 	// RelationalDatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-relationaldatabasename
-	RelationalDatabaseName string `json:"RelationalDatabaseName,omitempty"`
+	RelationalDatabaseName string `json:"RelationalDatabaseName"`
 
 	// RelationalDatabaseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-relationaldatabaseparameters
-	RelationalDatabaseParameters []Database_RelationalDatabaseParameter `json:"RelationalDatabaseParameters,omitempty"`
+	RelationalDatabaseParameters *[]Database_RelationalDatabaseParameter `json:"RelationalDatabaseParameters,omitempty"`
 
 	// RotateMasterUserPassword AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-rotatemasteruserpassword
-	RotateMasterUserPassword bool `json:"RotateMasterUserPassword,omitempty"`
+	RotateMasterUserPassword *bool `json:"RotateMasterUserPassword,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

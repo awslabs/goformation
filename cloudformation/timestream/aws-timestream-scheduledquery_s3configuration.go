@@ -11,17 +11,17 @@ type ScheduledQuery_S3Configuration struct {
 	// BucketName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-bucketname
-	BucketName string `json:"BucketName,omitempty"`
+	BucketName string `json:"BucketName"`
 
 	// EncryptionOption AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-encryptionoption
-	EncryptionOption string `json:"EncryptionOption,omitempty"`
+	EncryptionOption *string `json:"EncryptionOption,omitempty"`
 
 	// ObjectKeyPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-objectkeyprefix
-	ObjectKeyPrefix string `json:"ObjectKeyPrefix,omitempty"`
+	ObjectKeyPrefix *string `json:"ObjectKeyPrefix,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

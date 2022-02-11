@@ -11,12 +11,12 @@ type Analyzer_ArchiveRule struct {
 	// Filter AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
-	Filter []Analyzer_Filter `json:"Filter,omitempty"`
+	Filter []Analyzer_Filter `json:"Filter"`
 
 	// RuleName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
-	RuleName string `json:"RuleName,omitempty"`
+	RuleName string `json:"RuleName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

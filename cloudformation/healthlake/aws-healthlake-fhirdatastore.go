@@ -16,12 +16,12 @@ type FHIRDatastore struct {
 	// DatastoreName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastorename
-	DatastoreName string `json:"DatastoreName,omitempty"`
+	DatastoreName *string `json:"DatastoreName,omitempty"`
 
 	// DatastoreTypeVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastoretypeversion
-	DatastoreTypeVersion string `json:"DatastoreTypeVersion,omitempty"`
+	DatastoreTypeVersion string `json:"DatastoreTypeVersion"`
 
 	// PreloadDataConfig AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type FHIRDatastore struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

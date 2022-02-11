@@ -15,17 +15,17 @@ type ClusterCapacityProviderAssociations struct {
 	// CapacityProviders AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-	CapacityProviders []string `json:"CapacityProviders,omitempty"`
+	CapacityProviders []string `json:"CapacityProviders"`
 
 	// Cluster AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
-	Cluster string `json:"Cluster,omitempty"`
+	Cluster string `json:"Cluster"`
 
 	// DefaultCapacityProviderStrategy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
-	DefaultCapacityProviderStrategy []ClusterCapacityProviderAssociations_CapacityProviderStrategy `json:"DefaultCapacityProviderStrategy,omitempty"`
+	DefaultCapacityProviderStrategy []ClusterCapacityProviderAssociations_CapacityProviderStrategy `json:"DefaultCapacityProviderStrategy"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
