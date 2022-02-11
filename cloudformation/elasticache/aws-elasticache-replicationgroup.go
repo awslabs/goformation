@@ -188,6 +188,9 @@ type ReplicationGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-usergroupids
 	UserGroupIds []string `json:"UserGroupIds,omitempty"`
 
+	// AWSCloudFormationUpdatePolicy represents a CloudFormation UpdatePolicy
+	AWSCloudFormationUpdatePolicy *policies.UpdatePolicy `json:"-"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
@@ -221,6 +224,7 @@ func (r ReplicationGroup) MarshalJSON() ([]byte, error) {
 		DeletionPolicy      policies.DeletionPolicy      `json:"DeletionPolicy,omitempty"`
 		UpdateReplacePolicy policies.UpdateReplacePolicy `json:"UpdateReplacePolicy,omitempty"`
 		Condition           string                       `json:"Condition,omitempty"`
+		UpdatePolicy        *policies.UpdatePolicy       `json:"UpdatePolicy,omitempty"`
 	}{
 		Type:                r.AWSCloudFormationType(),
 		Properties:          (Properties)(r),
@@ -229,6 +233,7 @@ func (r ReplicationGroup) MarshalJSON() ([]byte, error) {
 		DeletionPolicy:      r.AWSCloudFormationDeletionPolicy,
 		UpdateReplacePolicy: r.AWSCloudFormationUpdateReplacePolicy,
 		Condition:           r.AWSCloudFormationCondition,
+		UpdatePolicy:        r.AWSCloudFormationUpdatePolicy,
 	})
 }
 
@@ -244,6 +249,7 @@ func (r *ReplicationGroup) UnmarshalJSON(b []byte) error {
 		DeletionPolicy      string
 		UpdateReplacePolicy string
 		Condition           string
+		UpdatePolicy        *policies.UpdatePolicy
 	}{}
 
 	dec := json.NewDecoder(bytes.NewReader(b))
@@ -273,5 +279,9 @@ func (r *ReplicationGroup) UnmarshalJSON(b []byte) error {
 	if res.Condition != "" {
 		r.AWSCloudFormationCondition = res.Condition
 	}
+	if res.UpdatePolicy != nil {
+		r.AWSCloudFormationUpdatePolicy = res.UpdatePolicy
+	}
+
 	return nil
 }
