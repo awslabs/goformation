@@ -1,7 +1,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // PackagingConfiguration_DashEncryption AWS CloudFormation Resource (AWS::MediaPackage::PackagingConfiguration.DashEncryption)

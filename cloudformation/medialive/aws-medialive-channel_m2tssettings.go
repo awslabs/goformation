@@ -1,7 +1,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Channel_M2tsSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.M2tsSettings)

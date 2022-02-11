@@ -1,7 +1,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Ruleset_Rule AWS CloudFormation Resource (AWS::DataBrew::Ruleset.Rule)

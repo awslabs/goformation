@@ -3,11 +3,11 @@ package main_test
 import (
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v5/cloudformation/rds"
+	"github.com/awslabs/goformation/v6/cloudformation/rds"
 
-	"github.com/awslabs/goformation/v5/cloudformation/ec2"
-	"github.com/awslabs/goformation/v5/cloudformation/s3"
-	"github.com/awslabs/goformation/v5/cloudformation/serverless"
+	"github.com/awslabs/goformation/v6/cloudformation/ec2"
+	"github.com/awslabs/goformation/v6/cloudformation/s3"
+	"github.com/awslabs/goformation/v6/cloudformation/serverless"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

@@ -1,7 +1,7 @@
 package licensemanager
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // License_ValidityDateFormat AWS CloudFormation Resource (AWS::LicenseManager::License.ValidityDateFormat)

@@ -1,7 +1,7 @@
 package s3
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // StorageLens_BucketsAndRegions AWS CloudFormation Resource (AWS::S3::StorageLens.BucketsAndRegions)

@@ -1,8 +1,8 @@
 package dynamodb
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
-	"github.com/awslabs/goformation/v5/cloudformation/tags"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/tags"
 )
 
 // GlobalTable_ReplicaSpecification AWS CloudFormation Resource (AWS::DynamoDB::GlobalTable.ReplicaSpecification)

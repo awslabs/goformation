@@ -1,7 +1,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // RuleGroup_LabelSummary AWS CloudFormation Resource (AWS::WAFv2::RuleGroup.LabelSummary)

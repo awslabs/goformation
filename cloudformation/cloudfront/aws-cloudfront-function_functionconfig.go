@@ -1,7 +1,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Function_FunctionConfig AWS CloudFormation Resource (AWS::CloudFront::Function.FunctionConfig)

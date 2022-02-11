@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"sort"
 
-	"github.com/awslabs/goformation/v5/cloudformation/utils"
+	"github.com/awslabs/goformation/v6/cloudformation/utils"
 )
 
 // HttpApi_DefinitionUri is a helper struct that can hold either a String or S3Location value

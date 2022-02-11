@@ -1,7 +1,7 @@
 package networkmanager
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Device_Location AWS CloudFormation Resource (AWS::NetworkManager::Device.Location)

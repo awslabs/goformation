@@ -1,7 +1,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // BotAlias_BotAliasLocaleSettings AWS CloudFormation Resource (AWS::Lex::BotAlias.BotAliasLocaleSettings)

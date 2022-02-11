@@ -1,7 +1,7 @@
 package route53recoverycontrol
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // SafetyRule_GatingRule AWS CloudFormation Resource (AWS::Route53RecoveryControl::SafetyRule.GatingRule)

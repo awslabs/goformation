@@ -1,7 +1,7 @@
 package autoscaling
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ScalingPolicy_PredictiveScalingPredefinedMetricPair AWS CloudFormation Resource (AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedMetricPair)

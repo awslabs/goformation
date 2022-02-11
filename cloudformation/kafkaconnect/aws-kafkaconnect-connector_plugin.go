@@ -1,7 +1,7 @@
 package kafkaconnect
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Connector_Plugin AWS CloudFormation Resource (AWS::KafkaConnect::Connector.Plugin)

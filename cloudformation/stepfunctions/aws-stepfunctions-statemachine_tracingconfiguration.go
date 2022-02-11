@@ -1,7 +1,7 @@
 package stepfunctions
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // StateMachine_TracingConfiguration AWS CloudFormation Resource (AWS::StepFunctions::StateMachine.TracingConfiguration)

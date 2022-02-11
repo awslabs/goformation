@@ -1,7 +1,7 @@
 package appstream
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Stack_AccessEndpoint AWS CloudFormation Resource (AWS::AppStream::Stack.AccessEndpoint)

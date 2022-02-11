@@ -1,7 +1,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Job_ProfileConfiguration AWS CloudFormation Resource (AWS::DataBrew::Job.ProfileConfiguration)

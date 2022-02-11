@@ -1,7 +1,7 @@
 package mediaconnect
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // FlowSource_Encryption AWS CloudFormation Resource (AWS::MediaConnect::FlowSource.Encryption)

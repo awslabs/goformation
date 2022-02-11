@@ -1,7 +1,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ResourcePolicy_Policy AWS CloudFormation Resource (AWS::Lex::ResourcePolicy.Policy)

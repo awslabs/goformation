@@ -1,7 +1,7 @@
 package eks
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Cluster_ClusterLogging AWS CloudFormation Resource (AWS::EKS::Cluster.ClusterLogging)

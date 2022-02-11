@@ -1,7 +1,7 @@
 package signer
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // SigningProfile_SignatureValidityPeriod AWS CloudFormation Resource (AWS::Signer::SigningProfile.SignatureValidityPeriod)

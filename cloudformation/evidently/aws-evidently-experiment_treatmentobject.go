@@ -1,7 +1,7 @@
 package evidently
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Experiment_TreatmentObject AWS CloudFormation Resource (AWS::Evidently::Experiment.TreatmentObject)

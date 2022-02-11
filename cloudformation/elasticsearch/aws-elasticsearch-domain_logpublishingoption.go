@@ -1,7 +1,7 @@
 package elasticsearch
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Domain_LogPublishingOption AWS CloudFormation Resource (AWS::Elasticsearch::Domain.LogPublishingOption)

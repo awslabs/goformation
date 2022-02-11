@@ -1,7 +1,7 @@
 package backup
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Framework_FrameworkControl AWS CloudFormation Resource (AWS::Backup::Framework.FrameworkControl)

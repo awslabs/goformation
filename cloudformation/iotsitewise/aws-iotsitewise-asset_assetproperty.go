@@ -1,7 +1,7 @@
 package iotsitewise
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Asset_AssetProperty AWS CloudFormation Resource (AWS::IoTSiteWise::Asset.AssetProperty)

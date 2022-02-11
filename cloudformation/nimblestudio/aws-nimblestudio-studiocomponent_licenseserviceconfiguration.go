@@ -1,7 +1,7 @@
 package nimblestudio
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // StudioComponent_LicenseServiceConfiguration AWS CloudFormation Resource (AWS::NimbleStudio::StudioComponent.LicenseServiceConfiguration)

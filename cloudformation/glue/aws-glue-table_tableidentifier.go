@@ -1,7 +1,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Table_TableIdentifier AWS CloudFormation Resource (AWS::Glue::Table.TableIdentifier)

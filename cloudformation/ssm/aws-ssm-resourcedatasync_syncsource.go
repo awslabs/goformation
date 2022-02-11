@@ -1,7 +1,7 @@
 package ssm
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ResourceDataSync_SyncSource AWS CloudFormation Resource (AWS::SSM::ResourceDataSync.SyncSource)

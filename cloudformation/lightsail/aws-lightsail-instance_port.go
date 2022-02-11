@@ -1,7 +1,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Instance_Port AWS CloudFormation Resource (AWS::Lightsail::Instance.Port)

@@ -1,7 +1,7 @@
 package lambda
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // CodeSigningConfig_AllowedPublishers AWS CloudFormation Resource (AWS::Lambda::CodeSigningConfig.AllowedPublishers)

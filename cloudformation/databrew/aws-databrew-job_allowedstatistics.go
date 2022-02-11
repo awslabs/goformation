@@ -1,7 +1,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Job_AllowedStatistics AWS CloudFormation Resource (AWS::DataBrew::Job.AllowedStatistics)

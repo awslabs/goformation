@@ -1,7 +1,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // OriginEndpoint_CmafEncryption AWS CloudFormation Resource (AWS::MediaPackage::OriginEndpoint.CmafEncryption)

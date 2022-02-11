@@ -1,7 +1,7 @@
 package pinpointemail
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ConfigurationSetEventDestination_KinesisFirehoseDestination AWS CloudFormation Resource (AWS::PinpointEmail::ConfigurationSetEventDestination.KinesisFirehoseDestination)

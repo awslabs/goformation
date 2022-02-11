@@ -1,7 +1,7 @@
 package appintegrations
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DataIntegration_ScheduleConfig AWS CloudFormation Resource (AWS::AppIntegrations::DataIntegration.ScheduleConfig)

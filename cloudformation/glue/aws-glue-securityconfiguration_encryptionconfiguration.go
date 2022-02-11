@@ -1,7 +1,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // SecurityConfiguration_EncryptionConfiguration AWS CloudFormation Resource (AWS::Glue::SecurityConfiguration.EncryptionConfiguration)

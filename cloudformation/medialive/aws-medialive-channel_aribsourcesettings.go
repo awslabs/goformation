@@ -1,7 +1,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Channel_AribSourceSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.AribSourceSettings)

@@ -1,7 +1,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Bot_S3Location AWS CloudFormation Resource (AWS::Lex::Bot.S3Location)

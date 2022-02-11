@@ -1,7 +1,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DataSource_VpcConnectionProperties AWS CloudFormation Resource (AWS::QuickSight::DataSource.VpcConnectionProperties)

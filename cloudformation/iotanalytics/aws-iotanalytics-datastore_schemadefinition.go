@@ -1,7 +1,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Datastore_SchemaDefinition AWS CloudFormation Resource (AWS::IoTAnalytics::Datastore.SchemaDefinition)

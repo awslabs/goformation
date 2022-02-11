@@ -1,7 +1,7 @@
 package customerprofiles
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Integration_S3SourceProperties AWS CloudFormation Resource (AWS::CustomerProfiles::Integration.S3SourceProperties)

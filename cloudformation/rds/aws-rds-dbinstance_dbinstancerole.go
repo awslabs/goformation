@@ -1,7 +1,7 @@
 package rds
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DBInstance_DBInstanceRole AWS CloudFormation Resource (AWS::RDS::DBInstance.DBInstanceRole)

@@ -1,7 +1,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Container_EnvironmentVariable AWS CloudFormation Resource (AWS::Lightsail::Container.EnvironmentVariable)
