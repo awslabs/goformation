@@ -22,10 +22,30 @@ type VPCCidrBlock struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-cidrblock
 	CidrBlock string `json:"CidrBlock,omitempty"`
 
+	// Ipv4IpamPoolId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv4ipampoolid
+	Ipv4IpamPoolId string `json:"Ipv4IpamPoolId,omitempty"`
+
+	// Ipv4NetmaskLength AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv4netmasklength
+	Ipv4NetmaskLength int `json:"Ipv4NetmaskLength,omitempty"`
+
 	// Ipv6CidrBlock AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6cidrblock
 	Ipv6CidrBlock string `json:"Ipv6CidrBlock,omitempty"`
+
+	// Ipv6IpamPoolId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6ipampoolid
+	Ipv6IpamPoolId string `json:"Ipv6IpamPoolId,omitempty"`
+
+	// Ipv6NetmaskLength AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6netmasklength
+	Ipv6NetmaskLength int `json:"Ipv6NetmaskLength,omitempty"`
 
 	// Ipv6Pool AWS CloudFormation Property
 	// Required: false

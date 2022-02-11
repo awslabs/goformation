@@ -260,6 +260,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppMesh::VirtualRouter":                                 &appmesh.VirtualRouter{},
 		"AWS::AppMesh::VirtualService":                                &appmesh.VirtualService{},
 		"AWS::AppRunner::Service":                                     &apprunner.Service{},
+		"AWS::AppRunner::VpcConnector":                                &apprunner.VpcConnector{},
 		"AWS::AppStream::AppBlock":                                    &appstream.AppBlock{},
 		"AWS::AppStream::Application":                                 &appstream.Application{},
 		"AWS::AppStream::ApplicationEntitlementAssociation":           &appstream.ApplicationEntitlementAssociation{},
@@ -319,6 +320,9 @@ func AllResources() map[string]Resource {
 		"AWS::Chatbot::SlackChannelConfiguration":                     &chatbot.SlackChannelConfiguration{},
 		"AWS::Cloud9::EnvironmentEC2":                                 &cloud9.EnvironmentEC2{},
 		"AWS::CloudFormation::CustomResource":                         &cloudformation.CustomResource{},
+		"AWS::CloudFormation::HookDefaultVersion":                     &cloudformation.HookDefaultVersion{},
+		"AWS::CloudFormation::HookTypeConfig":                         &cloudformation.HookTypeConfig{},
+		"AWS::CloudFormation::HookVersion":                            &cloudformation.HookVersion{},
 		"AWS::CloudFormation::Macro":                                  &cloudformation.Macro{},
 		"AWS::CloudFormation::ModuleDefaultVersion":                   &cloudformation.ModuleDefaultVersion{},
 		"AWS::CloudFormation::ModuleVersion":                          &cloudformation.ModuleVersion{},
@@ -2649,6 +2653,30 @@ func (t *Template) GetAppRunnerServiceWithName(name string) (*apprunner.Service,
 	return nil, fmt.Errorf("resource %q of type apprunner.Service not found", name)
 }
 
+// GetAllAppRunnerVpcConnectorResources retrieves all apprunner.VpcConnector items from an AWS CloudFormation template
+func (t *Template) GetAllAppRunnerVpcConnectorResources() map[string]*apprunner.VpcConnector {
+	results := map[string]*apprunner.VpcConnector{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *apprunner.VpcConnector:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppRunnerVpcConnectorWithName retrieves all apprunner.VpcConnector items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppRunnerVpcConnectorWithName(name string) (*apprunner.VpcConnector, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *apprunner.VpcConnector:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type apprunner.VpcConnector not found", name)
+}
+
 // GetAllAppStreamAppBlockResources retrieves all appstream.AppBlock items from an AWS CloudFormation template
 func (t *Template) GetAllAppStreamAppBlockResources() map[string]*appstream.AppBlock {
 	results := map[string]*appstream.AppBlock{}
@@ -4063,6 +4091,78 @@ func (t *Template) GetCloudFormationCustomResourceWithName(name string) (*cloudf
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cloudformation.CustomResource not found", name)
+}
+
+// GetAllCloudFormationHookDefaultVersionResources retrieves all cloudformation.HookDefaultVersion items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFormationHookDefaultVersionResources() map[string]*cloudformation.HookDefaultVersion {
+	results := map[string]*cloudformation.HookDefaultVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudformation.HookDefaultVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFormationHookDefaultVersionWithName retrieves all cloudformation.HookDefaultVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFormationHookDefaultVersionWithName(name string) (*cloudformation.HookDefaultVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudformation.HookDefaultVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudformation.HookDefaultVersion not found", name)
+}
+
+// GetAllCloudFormationHookTypeConfigResources retrieves all cloudformation.HookTypeConfig items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFormationHookTypeConfigResources() map[string]*cloudformation.HookTypeConfig {
+	results := map[string]*cloudformation.HookTypeConfig{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudformation.HookTypeConfig:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFormationHookTypeConfigWithName retrieves all cloudformation.HookTypeConfig items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFormationHookTypeConfigWithName(name string) (*cloudformation.HookTypeConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudformation.HookTypeConfig:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudformation.HookTypeConfig not found", name)
+}
+
+// GetAllCloudFormationHookVersionResources retrieves all cloudformation.HookVersion items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFormationHookVersionResources() map[string]*cloudformation.HookVersion {
+	results := map[string]*cloudformation.HookVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudformation.HookVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFormationHookVersionWithName retrieves all cloudformation.HookVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFormationHookVersionWithName(name string) (*cloudformation.HookVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudformation.HookVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudformation.HookVersion not found", name)
 }
 
 // GetAllCloudFormationMacroResources retrieves all cloudformation.Macro items from an AWS CloudFormation template

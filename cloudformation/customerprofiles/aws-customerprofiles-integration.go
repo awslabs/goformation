@@ -24,9 +24,14 @@ type Integration struct {
 	FlowDefinition *Integration_FlowDefinition `json:"FlowDefinition,omitempty"`
 
 	// ObjectTypeName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
 	ObjectTypeName string `json:"ObjectTypeName,omitempty"`
+
+	// ObjectTypeNames AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypenames
+	ObjectTypeNames []Integration_ObjectTypeMapping `json:"ObjectTypeNames,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
