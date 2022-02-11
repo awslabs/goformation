@@ -25,7 +25,7 @@ type {{.StructName}} struct {
     // {{$name}} AWS CloudFormation Property
     // Required: {{$property.Required}}
     // See: {{$property.Documentation}}
-    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) )}}*{{end}}{{$property.GoType $.Name $.Basename $name}} `json:"{{$name}}{{if (not (and ($property.IsNumeric) ($property.Required)))}},omitempty{{end}}"`
+    {{$prop_name}} {{if (or ($property.IsPolymorphic) ($property.IsCustomType) (not ($property.Required)) )}}*{{end}}{{$property.GoType $.Name $.Basename $name}} `json:"{{$name}}{{if (not ($property.Required))}},omitempty{{end}}"`
     {{end}}
 	{{if .HasUpdatePolicy }}// AWSCloudFormationUpdatePolicy represents a CloudFormation UpdatePolicy
 	AWSCloudFormationUpdatePolicy *policies.UpdatePolicy `json:"-"`{{ end }}
