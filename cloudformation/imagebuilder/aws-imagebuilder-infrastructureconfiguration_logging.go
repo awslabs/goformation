@@ -1,7 +1,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // InfrastructureConfiguration_Logging AWS CloudFormation Resource (AWS::ImageBuilder::InfrastructureConfiguration.Logging)

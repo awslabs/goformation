@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
-	"github.com/awslabs/goformation/v5/cloudformation/tags"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/tags"
 )
 
 // EventType AWS CloudFormation Resource (AWS::FraudDetector::EventType)

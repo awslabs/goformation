@@ -1,7 +1,7 @@
 package opsworks
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // App_DataSource AWS CloudFormation Resource (AWS::OpsWorks::App.DataSource)

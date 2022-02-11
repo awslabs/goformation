@@ -1,7 +1,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // SpotFleet_ClassicLoadBalancer AWS CloudFormation Resource (AWS::EC2::SpotFleet.ClassicLoadBalancer)

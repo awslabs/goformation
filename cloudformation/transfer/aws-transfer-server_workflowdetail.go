@@ -1,7 +1,7 @@
 package transfer
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Server_WorkflowDetail AWS CloudFormation Resource (AWS::Transfer::Server.WorkflowDetail)

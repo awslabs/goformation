@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"sort"
 
-	"github.com/awslabs/goformation/v5/cloudformation/utils"
+	"github.com/awslabs/goformation/v6/cloudformation/utils"
 )
 
 // Function_Policies is a helper struct that can hold either a String, String, IAMPolicyDocument, SAMPolicyTemplate, or IAMPolicyDocument value

@@ -1,7 +1,7 @@
 package pinpoint
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Segment_Behavior AWS CloudFormation Resource (AWS::Pinpoint::Segment.Behavior)

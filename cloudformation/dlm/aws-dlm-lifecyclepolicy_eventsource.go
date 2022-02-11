@@ -1,7 +1,7 @@
 package dlm
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // LifecyclePolicy_EventSource AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.EventSource)

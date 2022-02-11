@@ -1,7 +1,7 @@
 package fms
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Policy_IEMap AWS CloudFormation Resource (AWS::FMS::Policy.IEMap)

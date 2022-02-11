@@ -1,7 +1,7 @@
 package apprunner
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Service_CodeRepository AWS CloudFormation Resource (AWS::AppRunner::Service.CodeRepository)

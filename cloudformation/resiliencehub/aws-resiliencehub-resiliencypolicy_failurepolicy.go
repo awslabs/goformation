@@ -1,7 +1,7 @@
 package resiliencehub
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ResiliencyPolicy_FailurePolicy AWS CloudFormation Resource (AWS::ResilienceHub::ResiliencyPolicy.FailurePolicy)

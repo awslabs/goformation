@@ -1,7 +1,7 @@
 package kinesisanalytics
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ApplicationOutput_LambdaOutput AWS CloudFormation Resource (AWS::KinesisAnalytics::ApplicationOutput.LambdaOutput)

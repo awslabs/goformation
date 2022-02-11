@@ -1,7 +1,7 @@
 package s3outposts
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Endpoint_NetworkInterface AWS CloudFormation Resource (AWS::S3Outposts::Endpoint.NetworkInterface)

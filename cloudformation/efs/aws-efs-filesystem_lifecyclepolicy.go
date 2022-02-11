@@ -1,7 +1,7 @@
 package efs
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // FileSystem_LifecyclePolicy AWS CloudFormation Resource (AWS::EFS::FileSystem.LifecyclePolicy)

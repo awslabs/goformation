@@ -1,7 +1,7 @@
 package nimblestudio
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Studio_StudioEncryptionConfiguration AWS CloudFormation Resource (AWS::NimbleStudio::Studio.StudioEncryptionConfiguration)

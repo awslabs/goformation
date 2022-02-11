@@ -1,7 +1,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // EventBus_TagEntry AWS CloudFormation Resource (AWS::Events::EventBus.TagEntry)

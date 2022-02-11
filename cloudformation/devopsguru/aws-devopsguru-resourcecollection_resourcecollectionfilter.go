@@ -1,7 +1,7 @@
 package devopsguru
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ResourceCollection_ResourceCollectionFilter AWS CloudFormation Resource (AWS::DevOpsGuru::ResourceCollection.ResourceCollectionFilter)

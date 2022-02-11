@@ -1,7 +1,7 @@
 package appstream
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // AppBlock_S3Location AWS CloudFormation Resource (AWS::AppStream::AppBlock.S3Location)

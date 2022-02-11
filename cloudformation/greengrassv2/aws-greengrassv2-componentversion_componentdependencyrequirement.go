@@ -1,7 +1,7 @@
 package greengrassv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ComponentVersion_ComponentDependencyRequirement AWS CloudFormation Resource (AWS::GreengrassV2::ComponentVersion.ComponentDependencyRequirement)

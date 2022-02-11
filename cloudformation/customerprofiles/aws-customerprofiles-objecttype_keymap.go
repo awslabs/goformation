@@ -1,7 +1,7 @@
 package customerprofiles
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ObjectType_KeyMap AWS CloudFormation Resource (AWS::CustomerProfiles::ObjectType.KeyMap)

@@ -1,7 +1,7 @@
 package emr
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // InstanceGroupConfig_VolumeSpecification AWS CloudFormation Resource (AWS::EMR::InstanceGroupConfig.VolumeSpecification)

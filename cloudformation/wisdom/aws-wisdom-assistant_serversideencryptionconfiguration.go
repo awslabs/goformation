@@ -1,7 +1,7 @@
 package wisdom
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Assistant_ServerSideEncryptionConfiguration AWS CloudFormation Resource (AWS::Wisdom::Assistant.ServerSideEncryptionConfiguration)

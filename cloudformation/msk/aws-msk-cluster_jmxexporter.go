@@ -1,7 +1,7 @@
 package msk
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Cluster_JmxExporter AWS CloudFormation Resource (AWS::MSK::Cluster.JmxExporter)

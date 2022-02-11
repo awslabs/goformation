@@ -1,7 +1,7 @@
 package ses
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ContactList_Topic AWS CloudFormation Resource (AWS::SES::ContactList.Topic)

@@ -1,7 +1,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Rule_SageMakerPipelineParameter AWS CloudFormation Resource (AWS::Events::Rule.SageMakerPipelineParameter)

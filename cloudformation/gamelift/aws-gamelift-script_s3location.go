@@ -1,7 +1,7 @@
 package gamelift
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Script_S3Location AWS CloudFormation Resource (AWS::GameLift::Script.S3Location)

@@ -1,7 +1,7 @@
 package wafregional
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // GeoMatchSet_GeoMatchConstraint AWS CloudFormation Resource (AWS::WAFRegional::GeoMatchSet.GeoMatchConstraint)

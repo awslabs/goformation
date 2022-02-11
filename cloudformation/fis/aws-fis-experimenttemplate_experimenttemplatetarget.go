@@ -1,7 +1,7 @@
 package fis
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ExperimentTemplate_ExperimentTemplateTarget AWS CloudFormation Resource (AWS::FIS::ExperimentTemplate.ExperimentTemplateTarget)

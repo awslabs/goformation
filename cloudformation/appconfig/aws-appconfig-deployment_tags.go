@@ -1,7 +1,7 @@
 package appconfig
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Deployment_Tags AWS CloudFormation Resource (AWS::AppConfig::Deployment.Tags)

@@ -1,7 +1,7 @@
 package budgets
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // BudgetsAction_SsmActionDefinition AWS CloudFormation Resource (AWS::Budgets::BudgetsAction.SsmActionDefinition)

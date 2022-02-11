@@ -1,7 +1,7 @@
 package apigatewayv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ApiGatewayManagedOverrides_IntegrationOverrides AWS CloudFormation Resource (AWS::ApiGatewayV2::ApiGatewayManagedOverrides.IntegrationOverrides)

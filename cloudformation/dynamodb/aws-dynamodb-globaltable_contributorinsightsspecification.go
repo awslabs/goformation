@@ -1,7 +1,7 @@
 package dynamodb
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // GlobalTable_ContributorInsightsSpecification AWS CloudFormation Resource (AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification)

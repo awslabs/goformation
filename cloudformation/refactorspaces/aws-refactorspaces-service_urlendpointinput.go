@@ -1,7 +1,7 @@
 package refactorspaces
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Service_UrlEndpointInput AWS CloudFormation Resource (AWS::RefactorSpaces::Service.UrlEndpointInput)

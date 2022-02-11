@@ -1,7 +1,7 @@
 package opsworks
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Stack_RdsDbInstance AWS CloudFormation Resource (AWS::OpsWorks::Stack.RdsDbInstance)

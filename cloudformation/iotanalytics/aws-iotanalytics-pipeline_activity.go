@@ -1,7 +1,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Pipeline_Activity AWS CloudFormation Resource (AWS::IoTAnalytics::Pipeline.Activity)

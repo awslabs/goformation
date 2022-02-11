@@ -1,7 +1,7 @@
 package elasticache
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ReplicationGroup_KinesisFirehoseDestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::ReplicationGroup.KinesisFirehoseDestinationDetails)

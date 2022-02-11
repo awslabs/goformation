@@ -1,7 +1,7 @@
 package s3outposts
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Bucket_AbortIncompleteMultipartUpload AWS CloudFormation Resource (AWS::S3Outposts::Bucket.AbortIncompleteMultipartUpload)

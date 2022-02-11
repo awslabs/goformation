@@ -1,7 +1,7 @@
 package kinesisfirehose
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DeliveryStream_Serializer AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.Serializer)

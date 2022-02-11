@@ -1,7 +1,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ImageRecipe_InstanceBlockDeviceMapping AWS CloudFormation Resource (AWS::ImageBuilder::ImageRecipe.InstanceBlockDeviceMapping)

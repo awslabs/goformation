@@ -1,7 +1,7 @@
 package pinpoint
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // PushTemplate_DefaultPushNotificationTemplate AWS CloudFormation Resource (AWS::Pinpoint::PushTemplate.DefaultPushNotificationTemplate)

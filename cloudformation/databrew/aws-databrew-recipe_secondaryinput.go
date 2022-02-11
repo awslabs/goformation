@@ -1,7 +1,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Recipe_SecondaryInput AWS CloudFormation Resource (AWS::DataBrew::Recipe.SecondaryInput)

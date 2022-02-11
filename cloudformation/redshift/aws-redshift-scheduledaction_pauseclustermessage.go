@@ -1,7 +1,7 @@
 package redshift
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ScheduledAction_PauseClusterMessage AWS CloudFormation Resource (AWS::Redshift::ScheduledAction.PauseClusterMessage)

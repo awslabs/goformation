@@ -1,7 +1,7 @@
 package panorama
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ApplicationInstance_ManifestPayload AWS CloudFormation Resource (AWS::Panorama::ApplicationInstance.ManifestPayload)

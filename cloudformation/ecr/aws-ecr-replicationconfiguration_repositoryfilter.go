@@ -1,7 +1,7 @@
 package ecr
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ReplicationConfiguration_RepositoryFilter AWS CloudFormation Resource (AWS::ECR::ReplicationConfiguration.RepositoryFilter)

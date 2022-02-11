@@ -1,7 +1,7 @@
 package dms
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Endpoint_S3Settings AWS CloudFormation Resource (AWS::DMS::Endpoint.S3Settings)

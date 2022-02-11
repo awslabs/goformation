@@ -1,7 +1,7 @@
 package apigatewayv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Integration_ResponseParameter AWS CloudFormation Resource (AWS::ApiGatewayV2::Integration.ResponseParameter)

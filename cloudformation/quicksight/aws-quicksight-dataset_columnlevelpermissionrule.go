@@ -1,7 +1,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DataSet_ColumnLevelPermissionRule AWS CloudFormation Resource (AWS::QuickSight::DataSet.ColumnLevelPermissionRule)

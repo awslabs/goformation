@@ -1,7 +1,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // VirtualNode_ListenerTlsAcmCertificate AWS CloudFormation Resource (AWS::AppMesh::VirtualNode.ListenerTlsAcmCertificate)

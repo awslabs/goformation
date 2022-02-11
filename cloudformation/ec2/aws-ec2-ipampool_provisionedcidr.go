@@ -1,7 +1,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // IPAMPool_ProvisionedCidr AWS CloudFormation Resource (AWS::EC2::IPAMPool.ProvisionedCidr)

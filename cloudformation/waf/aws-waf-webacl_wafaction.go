@@ -1,7 +1,7 @@
 package waf
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // WebACL_WafAction AWS CloudFormation Resource (AWS::WAF::WebACL.WafAction)

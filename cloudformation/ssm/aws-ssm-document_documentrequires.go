@@ -1,7 +1,7 @@
 package ssm
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Document_DocumentRequires AWS CloudFormation Resource (AWS::SSM::Document.DocumentRequires)

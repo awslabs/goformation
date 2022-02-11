@@ -1,7 +1,7 @@
 package gamelift
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // GameSessionQueue_PlayerLatencyPolicy AWS CloudFormation Resource (AWS::GameLift::GameSessionQueue.PlayerLatencyPolicy)

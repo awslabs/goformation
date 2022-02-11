@@ -1,7 +1,7 @@
 package lambda
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Version_ProvisionedConcurrencyConfiguration AWS CloudFormation Resource (AWS::Lambda::Version.ProvisionedConcurrencyConfiguration)

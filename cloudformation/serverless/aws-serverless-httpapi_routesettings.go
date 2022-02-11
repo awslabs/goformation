@@ -1,7 +1,7 @@
 package serverless
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // HttpApi_RouteSettings AWS CloudFormation Resource (AWS::Serverless::HttpApi.RouteSettings)

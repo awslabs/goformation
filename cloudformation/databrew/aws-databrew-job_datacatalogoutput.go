@@ -1,7 +1,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Job_DataCatalogOutput AWS CloudFormation Resource (AWS::DataBrew::Job.DataCatalogOutput)

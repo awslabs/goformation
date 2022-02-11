@@ -1,7 +1,7 @@
 package codebuild
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Project_FilterGroup AWS CloudFormation Resource (AWS::CodeBuild::Project.FilterGroup)

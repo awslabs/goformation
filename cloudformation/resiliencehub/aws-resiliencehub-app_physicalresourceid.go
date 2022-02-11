@@ -1,7 +1,7 @@
 package resiliencehub
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // App_PhysicalResourceId AWS CloudFormation Resource (AWS::ResilienceHub::App.PhysicalResourceId)
