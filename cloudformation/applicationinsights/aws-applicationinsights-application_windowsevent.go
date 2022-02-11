@@ -11,22 +11,22 @@ type Application_WindowsEvent struct {
 	// EventLevels AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
-	EventLevels []string `json:"EventLevels,omitempty"`
+	EventLevels []string `json:"EventLevels"`
 
 	// EventName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
-	EventName string `json:"EventName,omitempty"`
+	EventName string `json:"EventName"`
 
 	// LogGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
-	LogGroupName string `json:"LogGroupName,omitempty"`
+	LogGroupName string `json:"LogGroupName"`
 
 	// PatternSet AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
-	PatternSet string `json:"PatternSet,omitempty"`
+	PatternSet *string `json:"PatternSet,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

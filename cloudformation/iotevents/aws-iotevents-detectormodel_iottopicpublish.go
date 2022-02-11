@@ -11,7 +11,7 @@ type DetectorModel_IotTopicPublish struct {
 	// MqttTopic AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
-	MqttTopic string `json:"MqttTopic,omitempty"`
+	MqttTopic string `json:"MqttTopic"`
 
 	// Payload AWS CloudFormation Property
 	// Required: false

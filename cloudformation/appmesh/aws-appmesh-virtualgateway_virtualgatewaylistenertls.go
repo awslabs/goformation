@@ -11,12 +11,12 @@ type VirtualGateway_VirtualGatewayListenerTls struct {
 	// Certificate AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
-	Certificate *VirtualGateway_VirtualGatewayListenerTlsCertificate `json:"Certificate,omitempty"`
+	Certificate *VirtualGateway_VirtualGatewayListenerTlsCertificate `json:"Certificate"`
 
 	// Mode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
-	Mode string `json:"Mode,omitempty"`
+	Mode string `json:"Mode"`
 
 	// Validation AWS CloudFormation Property
 	// Required: false

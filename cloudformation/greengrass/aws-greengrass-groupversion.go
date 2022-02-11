@@ -15,42 +15,42 @@ type GroupVersion struct {
 	// ConnectorDefinitionVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-connectordefinitionversionarn
-	ConnectorDefinitionVersionArn string `json:"ConnectorDefinitionVersionArn,omitempty"`
+	ConnectorDefinitionVersionArn *string `json:"ConnectorDefinitionVersionArn,omitempty"`
 
 	// CoreDefinitionVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-coredefinitionversionarn
-	CoreDefinitionVersionArn string `json:"CoreDefinitionVersionArn,omitempty"`
+	CoreDefinitionVersionArn *string `json:"CoreDefinitionVersionArn,omitempty"`
 
 	// DeviceDefinitionVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-devicedefinitionversionarn
-	DeviceDefinitionVersionArn string `json:"DeviceDefinitionVersionArn,omitempty"`
+	DeviceDefinitionVersionArn *string `json:"DeviceDefinitionVersionArn,omitempty"`
 
 	// FunctionDefinitionVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-functiondefinitionversionarn
-	FunctionDefinitionVersionArn string `json:"FunctionDefinitionVersionArn,omitempty"`
+	FunctionDefinitionVersionArn *string `json:"FunctionDefinitionVersionArn,omitempty"`
 
 	// GroupId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-groupid
-	GroupId string `json:"GroupId,omitempty"`
+	GroupId string `json:"GroupId"`
 
 	// LoggerDefinitionVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-loggerdefinitionversionarn
-	LoggerDefinitionVersionArn string `json:"LoggerDefinitionVersionArn,omitempty"`
+	LoggerDefinitionVersionArn *string `json:"LoggerDefinitionVersionArn,omitempty"`
 
 	// ResourceDefinitionVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-resourcedefinitionversionarn
-	ResourceDefinitionVersionArn string `json:"ResourceDefinitionVersionArn,omitempty"`
+	ResourceDefinitionVersionArn *string `json:"ResourceDefinitionVersionArn,omitempty"`
 
 	// SubscriptionDefinitionVersionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-subscriptiondefinitionversionarn
-	SubscriptionDefinitionVersionArn string `json:"SubscriptionDefinitionVersionArn,omitempty"`
+	SubscriptionDefinitionVersionArn *string `json:"SubscriptionDefinitionVersionArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

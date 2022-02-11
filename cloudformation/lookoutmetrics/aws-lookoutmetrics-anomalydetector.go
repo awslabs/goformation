@@ -15,27 +15,27 @@ type AnomalyDetector struct {
 	// AnomalyDetectorConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
-	AnomalyDetectorConfig *AnomalyDetector_AnomalyDetectorConfig `json:"AnomalyDetectorConfig,omitempty"`
+	AnomalyDetectorConfig *AnomalyDetector_AnomalyDetectorConfig `json:"AnomalyDetectorConfig"`
 
 	// AnomalyDetectorDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
-	AnomalyDetectorDescription string `json:"AnomalyDetectorDescription,omitempty"`
+	AnomalyDetectorDescription *string `json:"AnomalyDetectorDescription,omitempty"`
 
 	// AnomalyDetectorName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
-	AnomalyDetectorName string `json:"AnomalyDetectorName,omitempty"`
+	AnomalyDetectorName *string `json:"AnomalyDetectorName,omitempty"`
 
 	// KmsKeyArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
-	KmsKeyArn string `json:"KmsKeyArn,omitempty"`
+	KmsKeyArn *string `json:"KmsKeyArn,omitempty"`
 
 	// MetricSetList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
-	MetricSetList []AnomalyDetector_MetricSet `json:"MetricSetList,omitempty"`
+	MetricSetList []AnomalyDetector_MetricSet `json:"MetricSetList"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

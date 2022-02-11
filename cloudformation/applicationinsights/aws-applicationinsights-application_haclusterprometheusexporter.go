@@ -11,7 +11,7 @@ type Application_HAClusterPrometheusExporter struct {
 	// PrometheusPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-haclusterprometheusexporter.html#cfn-applicationinsights-application-haclusterprometheusexporter-prometheusport
-	PrometheusPort string `json:"PrometheusPort,omitempty"`
+	PrometheusPort *string `json:"PrometheusPort,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

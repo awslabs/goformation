@@ -11,7 +11,7 @@ type Connector_Plugin struct {
 	// CustomPlugin AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html#cfn-kafkaconnect-connector-plugin-customplugin
-	CustomPlugin *Connector_CustomPlugin `json:"CustomPlugin,omitempty"`
+	CustomPlugin *Connector_CustomPlugin `json:"CustomPlugin"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

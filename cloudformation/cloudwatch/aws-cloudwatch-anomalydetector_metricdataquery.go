@@ -11,22 +11,22 @@ type AnomalyDetector_MetricDataQuery struct {
 	// AccountId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricdataquery.html#cfn-cloudwatch-anomalydetector-metricdataquery-accountid
-	AccountId string `json:"AccountId,omitempty"`
+	AccountId *string `json:"AccountId,omitempty"`
 
 	// Expression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricdataquery.html#cfn-cloudwatch-anomalydetector-metricdataquery-expression
-	Expression string `json:"Expression,omitempty"`
+	Expression *string `json:"Expression,omitempty"`
 
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricdataquery.html#cfn-cloudwatch-anomalydetector-metricdataquery-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// Label AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricdataquery.html#cfn-cloudwatch-anomalydetector-metricdataquery-label
-	Label string `json:"Label,omitempty"`
+	Label *string `json:"Label,omitempty"`
 
 	// MetricStat AWS CloudFormation Property
 	// Required: false
@@ -36,12 +36,12 @@ type AnomalyDetector_MetricDataQuery struct {
 	// Period AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricdataquery.html#cfn-cloudwatch-anomalydetector-metricdataquery-period
-	Period int `json:"Period,omitempty"`
+	Period *int `json:"Period,omitempty"`
 
 	// ReturnData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricdataquery.html#cfn-cloudwatch-anomalydetector-metricdataquery-returndata
-	ReturnData bool `json:"ReturnData,omitempty"`
+	ReturnData *bool `json:"ReturnData,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,7 +16,7 @@ type DataSource_InlineCustomDocumentEnrichmentConfiguration struct {
 	// DocumentContentDeletion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html#cfn-kendra-datasource-inlinecustomdocumentenrichmentconfiguration-documentcontentdeletion
-	DocumentContentDeletion bool `json:"DocumentContentDeletion,omitempty"`
+	DocumentContentDeletion *bool `json:"DocumentContentDeletion,omitempty"`
 
 	// Target AWS CloudFormation Property
 	// Required: false

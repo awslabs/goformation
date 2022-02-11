@@ -11,47 +11,47 @@ type Endpoint_KinesisSettings struct {
 	// IncludeControlDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-includecontroldetails
-	IncludeControlDetails bool `json:"IncludeControlDetails,omitempty"`
+	IncludeControlDetails *bool `json:"IncludeControlDetails,omitempty"`
 
 	// IncludeNullAndEmpty AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-includenullandempty
-	IncludeNullAndEmpty bool `json:"IncludeNullAndEmpty,omitempty"`
+	IncludeNullAndEmpty *bool `json:"IncludeNullAndEmpty,omitempty"`
 
 	// IncludeTableAlterOperations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-includetablealteroperations
-	IncludeTableAlterOperations bool `json:"IncludeTableAlterOperations,omitempty"`
+	IncludeTableAlterOperations *bool `json:"IncludeTableAlterOperations,omitempty"`
 
 	// IncludeTransactionDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-includetransactiondetails
-	IncludeTransactionDetails bool `json:"IncludeTransactionDetails,omitempty"`
+	IncludeTransactionDetails *bool `json:"IncludeTransactionDetails,omitempty"`
 
 	// MessageFormat AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-messageformat
-	MessageFormat string `json:"MessageFormat,omitempty"`
+	MessageFormat *string `json:"MessageFormat,omitempty"`
 
 	// NoHexPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-nohexprefix
-	NoHexPrefix bool `json:"NoHexPrefix,omitempty"`
+	NoHexPrefix *bool `json:"NoHexPrefix,omitempty"`
 
 	// PartitionIncludeSchemaTable AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-partitionincludeschematable
-	PartitionIncludeSchemaTable bool `json:"PartitionIncludeSchemaTable,omitempty"`
+	PartitionIncludeSchemaTable *bool `json:"PartitionIncludeSchemaTable,omitempty"`
 
 	// ServiceAccessRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-serviceaccessrolearn
-	ServiceAccessRoleArn string `json:"ServiceAccessRoleArn,omitempty"`
+	ServiceAccessRoleArn *string `json:"ServiceAccessRoleArn,omitempty"`
 
 	// StreamArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-streamarn
-	StreamArn string `json:"StreamArn,omitempty"`
+	StreamArn *string `json:"StreamArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

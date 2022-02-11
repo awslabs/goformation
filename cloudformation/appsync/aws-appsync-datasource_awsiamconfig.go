@@ -11,12 +11,12 @@ type DataSource_AwsIamConfig struct {
 	// SigningRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html#cfn-appsync-datasource-awsiamconfig-signingregion
-	SigningRegion string `json:"SigningRegion,omitempty"`
+	SigningRegion *string `json:"SigningRegion,omitempty"`
 
 	// SigningServiceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html#cfn-appsync-datasource-awsiamconfig-signingservicename
-	SigningServiceName string `json:"SigningServiceName,omitempty"`
+	SigningServiceName *string `json:"SigningServiceName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

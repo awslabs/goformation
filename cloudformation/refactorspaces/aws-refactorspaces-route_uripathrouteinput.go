@@ -11,22 +11,22 @@ type Route_UriPathRouteInput struct {
 	// ActivationState AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-activationstate
-	ActivationState string `json:"ActivationState,omitempty"`
+	ActivationState string `json:"ActivationState"`
 
 	// IncludeChildPaths AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-includechildpaths
-	IncludeChildPaths bool `json:"IncludeChildPaths,omitempty"`
+	IncludeChildPaths *bool `json:"IncludeChildPaths,omitempty"`
 
 	// Methods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-methods
-	Methods []string `json:"Methods,omitempty"`
+	Methods *[]string `json:"Methods,omitempty"`
 
 	// SourcePath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-sourcepath
-	SourcePath string `json:"SourcePath,omitempty"`
+	SourcePath *string `json:"SourcePath,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

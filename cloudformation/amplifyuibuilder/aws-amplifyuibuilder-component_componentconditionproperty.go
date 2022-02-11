@@ -16,27 +16,27 @@ type Component_ComponentConditionProperty struct {
 	// Field AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-field
-	Field string `json:"Field,omitempty"`
+	Field *string `json:"Field,omitempty"`
 
 	// Operand AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operand
-	Operand string `json:"Operand,omitempty"`
+	Operand *string `json:"Operand,omitempty"`
 
 	// OperandType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operandtype
-	OperandType string `json:"OperandType,omitempty"`
+	OperandType *string `json:"OperandType,omitempty"`
 
 	// Operator AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operator
-	Operator string `json:"Operator,omitempty"`
+	Operator *string `json:"Operator,omitempty"`
 
 	// Property AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-property
-	Property string `json:"Property,omitempty"`
+	Property *string `json:"Property,omitempty"`
 
 	// Then AWS CloudFormation Property
 	// Required: false

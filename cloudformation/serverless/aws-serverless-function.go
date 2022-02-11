@@ -15,27 +15,27 @@ type Function struct {
 	// Architectures AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-architectures
-	Architectures []string `json:"Architectures,omitempty"`
+	Architectures *[]string `json:"Architectures,omitempty"`
 
 	// AssumeRolePolicyDocument AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-assumerolepolicydocument
-	AssumeRolePolicyDocument interface{} `json:"AssumeRolePolicyDocument,omitempty"`
+	AssumeRolePolicyDocument *interface{} `json:"AssumeRolePolicyDocument,omitempty"`
 
 	// AutoPublishAlias AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	AutoPublishAlias string `json:"AutoPublishAlias,omitempty"`
+	AutoPublishAlias *string `json:"AutoPublishAlias,omitempty"`
 
 	// AutoPublishCodeSha256 AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-autopublishcodesha256
-	AutoPublishCodeSha256 string `json:"AutoPublishCodeSha256,omitempty"`
+	AutoPublishCodeSha256 *string `json:"AutoPublishCodeSha256,omitempty"`
 
 	// CodeSigningConfigArn AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-codesigningconfigarn
-	CodeSigningConfigArn string `json:"CodeSigningConfigArn,omitempty"`
+	CodeSigningConfigArn *string `json:"CodeSigningConfigArn,omitempty"`
 
 	// CodeUri AWS CloudFormation Property
 	// Required: false
@@ -55,7 +55,7 @@ type Function struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
@@ -70,22 +70,22 @@ type Function struct {
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Events map[string]Function_EventSource `json:"Events,omitempty"`
+	Events *map[string]Function_EventSource `json:"Events,omitempty"`
 
 	// FileSystemConfigs AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
-	FileSystemConfigs []Function_FileSystemConfig `json:"FileSystemConfigs,omitempty"`
+	FileSystemConfigs *[]Function_FileSystemConfig `json:"FileSystemConfigs,omitempty"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	FunctionName string `json:"FunctionName,omitempty"`
+	FunctionName *string `json:"FunctionName,omitempty"`
 
 	// Handler AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Handler string `json:"Handler,omitempty"`
+	Handler *string `json:"Handler,omitempty"`
 
 	// ImageConfig AWS CloudFormation Property
 	// Required: false
@@ -95,37 +95,37 @@ type Function struct {
 	// ImageUri AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-imageuri
-	ImageUri string `json:"ImageUri,omitempty"`
+	ImageUri *string `json:"ImageUri,omitempty"`
 
 	// InlineCode AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	InlineCode string `json:"InlineCode,omitempty"`
+	InlineCode *string `json:"InlineCode,omitempty"`
 
 	// KmsKeyArn AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	KmsKeyArn string `json:"KmsKeyArn,omitempty"`
+	KmsKeyArn *string `json:"KmsKeyArn,omitempty"`
 
 	// Layers AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Layers []string `json:"Layers,omitempty"`
+	Layers *[]string `json:"Layers,omitempty"`
 
 	// MemorySize AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	MemorySize int `json:"MemorySize,omitempty"`
+	MemorySize *int `json:"MemorySize,omitempty"`
 
 	// PackageType AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-packagetype
-	PackageType string `json:"PackageType,omitempty"`
+	PackageType *string `json:"PackageType,omitempty"`
 
 	// PermissionsBoundary AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	PermissionsBoundary string `json:"PermissionsBoundary,omitempty"`
+	PermissionsBoundary *string `json:"PermissionsBoundary,omitempty"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
@@ -140,37 +140,37 @@ type Function struct {
 	// ReservedConcurrentExecutions AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	ReservedConcurrentExecutions int `json:"ReservedConcurrentExecutions,omitempty"`
+	ReservedConcurrentExecutions *int `json:"ReservedConcurrentExecutions,omitempty"`
 
 	// Role AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Role string `json:"Role,omitempty"`
+	Role *string `json:"Role,omitempty"`
 
 	// Runtime AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Runtime string `json:"Runtime,omitempty"`
+	Runtime *string `json:"Runtime,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Timeout int `json:"Timeout,omitempty"`
+	Timeout *int `json:"Timeout,omitempty"`
 
 	// Tracing AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Tracing string `json:"Tracing,omitempty"`
+	Tracing *string `json:"Tracing,omitempty"`
 
 	// VersionDescription AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	VersionDescription string `json:"VersionDescription,omitempty"`
+	VersionDescription *string `json:"VersionDescription,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false

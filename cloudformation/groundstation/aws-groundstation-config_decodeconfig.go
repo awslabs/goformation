@@ -11,7 +11,7 @@ type Config_DecodeConfig struct {
 	// UnvalidatedJSON AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
-	UnvalidatedJSON string `json:"UnvalidatedJSON,omitempty"`
+	UnvalidatedJSON *string `json:"UnvalidatedJSON,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

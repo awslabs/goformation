@@ -15,17 +15,17 @@ type AccessPolicy struct {
 	// AccessPolicyIdentity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
-	AccessPolicyIdentity *AccessPolicy_AccessPolicyIdentity `json:"AccessPolicyIdentity,omitempty"`
+	AccessPolicyIdentity *AccessPolicy_AccessPolicyIdentity `json:"AccessPolicyIdentity"`
 
 	// AccessPolicyPermission AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
-	AccessPolicyPermission string `json:"AccessPolicyPermission,omitempty"`
+	AccessPolicyPermission string `json:"AccessPolicyPermission"`
 
 	// AccessPolicyResource AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
-	AccessPolicyResource *AccessPolicy_AccessPolicyResource `json:"AccessPolicyResource,omitempty"`
+	AccessPolicyResource *AccessPolicy_AccessPolicyResource `json:"AccessPolicyResource"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

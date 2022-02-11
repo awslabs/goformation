@@ -11,12 +11,12 @@ type Bot_IntentClosingSetting struct {
 	// ClosingResponse AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-closingresponse
-	ClosingResponse *Bot_ResponseSpecification `json:"ClosingResponse,omitempty"`
+	ClosingResponse *Bot_ResponseSpecification `json:"ClosingResponse"`
 
 	// IsActive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-isactive
-	IsActive bool `json:"IsActive,omitempty"`
+	IsActive *bool `json:"IsActive,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

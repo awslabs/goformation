@@ -11,12 +11,12 @@ type Project_DeviceTemplate struct {
 	// CallbackOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-devicetemplate.html#cfn-iot1click-project-devicetemplate-callbackoverrides
-	CallbackOverrides interface{} `json:"CallbackOverrides,omitempty"`
+	CallbackOverrides *interface{} `json:"CallbackOverrides,omitempty"`
 
 	// DeviceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-devicetemplate.html#cfn-iot1click-project-devicetemplate-devicetype
-	DeviceType string `json:"DeviceType,omitempty"`
+	DeviceType *string `json:"DeviceType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

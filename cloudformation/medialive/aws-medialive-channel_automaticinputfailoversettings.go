@@ -11,22 +11,22 @@ type Channel_AutomaticInputFailoverSettings struct {
 	// ErrorClearTimeMsec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-errorcleartimemsec
-	ErrorClearTimeMsec int `json:"ErrorClearTimeMsec,omitempty"`
+	ErrorClearTimeMsec *int `json:"ErrorClearTimeMsec,omitempty"`
 
 	// FailoverConditions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-failoverconditions
-	FailoverConditions []Channel_FailoverCondition `json:"FailoverConditions,omitempty"`
+	FailoverConditions *[]Channel_FailoverCondition `json:"FailoverConditions,omitempty"`
 
 	// InputPreference AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-inputpreference
-	InputPreference string `json:"InputPreference,omitempty"`
+	InputPreference *string `json:"InputPreference,omitempty"`
 
 	// SecondaryInputId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-secondaryinputid
-	SecondaryInputId string `json:"SecondaryInputId,omitempty"`
+	SecondaryInputId *string `json:"SecondaryInputId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Bot_ResponseSpecification struct {
 	// AllowInterrupt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-allowinterrupt
-	AllowInterrupt bool `json:"AllowInterrupt,omitempty"`
+	AllowInterrupt *bool `json:"AllowInterrupt,omitempty"`
 
 	// MessageGroupsList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-messagegroupslist
-	MessageGroupsList []Bot_MessageGroup `json:"MessageGroupsList,omitempty"`
+	MessageGroupsList []Bot_MessageGroup `json:"MessageGroupsList"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

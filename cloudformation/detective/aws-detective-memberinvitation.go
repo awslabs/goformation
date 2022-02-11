@@ -15,27 +15,27 @@ type MemberInvitation struct {
 	// DisableEmailNotification AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
-	DisableEmailNotification bool `json:"DisableEmailNotification,omitempty"`
+	DisableEmailNotification *bool `json:"DisableEmailNotification,omitempty"`
 
 	// GraphArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
-	GraphArn string `json:"GraphArn,omitempty"`
+	GraphArn string `json:"GraphArn"`
 
 	// MemberEmailAddress AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
-	MemberEmailAddress string `json:"MemberEmailAddress,omitempty"`
+	MemberEmailAddress string `json:"MemberEmailAddress"`
 
 	// MemberId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
-	MemberId string `json:"MemberId,omitempty"`
+	MemberId string `json:"MemberId"`
 
 	// Message AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
-	Message string `json:"Message,omitempty"`
+	Message *string `json:"Message,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

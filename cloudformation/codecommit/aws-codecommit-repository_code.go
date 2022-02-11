@@ -11,12 +11,12 @@ type Repository_Code struct {
 	// BranchName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname
-	BranchName string `json:"BranchName,omitempty"`
+	BranchName *string `json:"BranchName,omitempty"`
 
 	// S3 AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3
-	S3 *Repository_S3 `json:"S3,omitempty"`
+	S3 *Repository_S3 `json:"S3"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

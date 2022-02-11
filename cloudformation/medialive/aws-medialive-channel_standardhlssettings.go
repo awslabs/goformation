@@ -11,7 +11,7 @@ type Channel_StandardHlsSettings struct {
 	// AudioRenditionSets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html#cfn-medialive-channel-standardhlssettings-audiorenditionsets
-	AudioRenditionSets string `json:"AudioRenditionSets,omitempty"`
+	AudioRenditionSets *string `json:"AudioRenditionSets,omitempty"`
 
 	// M3u8Settings AWS CloudFormation Property
 	// Required: false

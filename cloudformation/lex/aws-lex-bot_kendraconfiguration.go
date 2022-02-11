@@ -11,17 +11,17 @@ type Bot_KendraConfiguration struct {
 	// KendraIndex AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-kendraconfiguration.html#cfn-lex-bot-kendraconfiguration-kendraindex
-	KendraIndex string `json:"KendraIndex,omitempty"`
+	KendraIndex string `json:"KendraIndex"`
 
 	// QueryFilterString AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-kendraconfiguration.html#cfn-lex-bot-kendraconfiguration-queryfilterstring
-	QueryFilterString string `json:"QueryFilterString,omitempty"`
+	QueryFilterString *string `json:"QueryFilterString,omitempty"`
 
 	// QueryFilterStringEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-kendraconfiguration.html#cfn-lex-bot-kendraconfiguration-queryfilterstringenabled
-	QueryFilterStringEnabled bool `json:"QueryFilterStringEnabled,omitempty"`
+	QueryFilterStringEnabled *bool `json:"QueryFilterStringEnabled,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

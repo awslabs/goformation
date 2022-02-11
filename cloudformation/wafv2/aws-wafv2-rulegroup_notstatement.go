@@ -11,7 +11,7 @@ type RuleGroup_NotStatement struct {
 	// Statement AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
-	Statement *RuleGroup_Statement `json:"Statement,omitempty"`
+	Statement *RuleGroup_Statement `json:"Statement"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

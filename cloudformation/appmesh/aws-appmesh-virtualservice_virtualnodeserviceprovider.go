@@ -11,7 +11,7 @@ type VirtualService_VirtualNodeServiceProvider struct {
 	// VirtualNodeName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html#cfn-appmesh-virtualservice-virtualnodeserviceprovider-virtualnodename
-	VirtualNodeName string `json:"VirtualNodeName,omitempty"`
+	VirtualNodeName string `json:"VirtualNodeName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

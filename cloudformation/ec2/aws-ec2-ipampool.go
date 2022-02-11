@@ -16,67 +16,67 @@ type IPAMPool struct {
 	// AddressFamily AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-addressfamily
-	AddressFamily string `json:"AddressFamily,omitempty"`
+	AddressFamily string `json:"AddressFamily"`
 
 	// AllocationDefaultNetmaskLength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-allocationdefaultnetmasklength
-	AllocationDefaultNetmaskLength int `json:"AllocationDefaultNetmaskLength,omitempty"`
+	AllocationDefaultNetmaskLength *int `json:"AllocationDefaultNetmaskLength,omitempty"`
 
 	// AllocationMaxNetmaskLength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-allocationmaxnetmasklength
-	AllocationMaxNetmaskLength int `json:"AllocationMaxNetmaskLength,omitempty"`
+	AllocationMaxNetmaskLength *int `json:"AllocationMaxNetmaskLength,omitempty"`
 
 	// AllocationMinNetmaskLength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-allocationminnetmasklength
-	AllocationMinNetmaskLength int `json:"AllocationMinNetmaskLength,omitempty"`
+	AllocationMinNetmaskLength *int `json:"AllocationMinNetmaskLength,omitempty"`
 
 	// AllocationResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-allocationresourcetags
-	AllocationResourceTags []tags.Tag `json:"AllocationResourceTags,omitempty"`
+	AllocationResourceTags *[]tags.Tag `json:"AllocationResourceTags,omitempty"`
 
 	// AutoImport AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-autoimport
-	AutoImport bool `json:"AutoImport,omitempty"`
+	AutoImport *bool `json:"AutoImport,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// IpamScopeId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-ipamscopeid
-	IpamScopeId string `json:"IpamScopeId,omitempty"`
+	IpamScopeId string `json:"IpamScopeId"`
 
 	// Locale AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-locale
-	Locale string `json:"Locale,omitempty"`
+	Locale *string `json:"Locale,omitempty"`
 
 	// ProvisionedCidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-provisionedcidrs
-	ProvisionedCidrs []IPAMPool_ProvisionedCidr `json:"ProvisionedCidrs,omitempty"`
+	ProvisionedCidrs *[]IPAMPool_ProvisionedCidr `json:"ProvisionedCidrs,omitempty"`
 
 	// PubliclyAdvertisable AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-publiclyadvertisable
-	PubliclyAdvertisable bool `json:"PubliclyAdvertisable,omitempty"`
+	PubliclyAdvertisable *bool `json:"PubliclyAdvertisable,omitempty"`
 
 	// SourceIpamPoolId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-sourceipampoolid
-	SourceIpamPoolId string `json:"SourceIpamPoolId,omitempty"`
+	SourceIpamPoolId *string `json:"SourceIpamPoolId,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

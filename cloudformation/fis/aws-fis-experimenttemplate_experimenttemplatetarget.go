@@ -11,27 +11,27 @@ type ExperimentTemplate_ExperimentTemplateTarget struct {
 	// Filters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-	Filters []ExperimentTemplate_ExperimentTemplateTargetFilter `json:"Filters,omitempty"`
+	Filters *[]ExperimentTemplate_ExperimentTemplateTargetFilter `json:"Filters,omitempty"`
 
 	// ResourceArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-	ResourceArns []string `json:"ResourceArns,omitempty"`
+	ResourceArns *[]string `json:"ResourceArns,omitempty"`
 
 	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-	ResourceTags map[string]string `json:"ResourceTags,omitempty"`
+	ResourceTags *map[string]string `json:"ResourceTags,omitempty"`
 
 	// ResourceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype
-	ResourceType string `json:"ResourceType,omitempty"`
+	ResourceType string `json:"ResourceType"`
 
 	// SelectionMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode
-	SelectionMode string `json:"SelectionMode,omitempty"`
+	SelectionMode string `json:"SelectionMode"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

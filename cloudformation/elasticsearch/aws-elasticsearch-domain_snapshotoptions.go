@@ -11,7 +11,7 @@ type Domain_SnapshotOptions struct {
 	// AutomatedSnapshotStartHour AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html#cfn-elasticsearch-domain-snapshotoptions-automatedsnapshotstarthour
-	AutomatedSnapshotStartHour int `json:"AutomatedSnapshotStartHour,omitempty"`
+	AutomatedSnapshotStartHour *int `json:"AutomatedSnapshotStartHour,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

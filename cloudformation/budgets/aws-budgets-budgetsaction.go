@@ -15,42 +15,42 @@ type BudgetsAction struct {
 	// ActionThreshold AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-	ActionThreshold *BudgetsAction_ActionThreshold `json:"ActionThreshold,omitempty"`
+	ActionThreshold *BudgetsAction_ActionThreshold `json:"ActionThreshold"`
 
 	// ActionType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-	ActionType string `json:"ActionType,omitempty"`
+	ActionType string `json:"ActionType"`
 
 	// ApprovalModel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-	ApprovalModel string `json:"ApprovalModel,omitempty"`
+	ApprovalModel *string `json:"ApprovalModel,omitempty"`
 
 	// BudgetName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-	BudgetName string `json:"BudgetName,omitempty"`
+	BudgetName string `json:"BudgetName"`
 
 	// Definition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-	Definition *BudgetsAction_Definition `json:"Definition,omitempty"`
+	Definition *BudgetsAction_Definition `json:"Definition"`
 
 	// ExecutionRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
+	ExecutionRoleArn string `json:"ExecutionRoleArn"`
 
 	// NotificationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-	NotificationType string `json:"NotificationType,omitempty"`
+	NotificationType string `json:"NotificationType"`
 
 	// Subscribers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-	Subscribers []BudgetsAction_Subscriber `json:"Subscribers,omitempty"`
+	Subscribers []BudgetsAction_Subscriber `json:"Subscribers"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

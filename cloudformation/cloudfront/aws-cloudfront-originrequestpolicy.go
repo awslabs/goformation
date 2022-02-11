@@ -15,7 +15,7 @@ type OriginRequestPolicy struct {
 	// OriginRequestPolicyConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-	OriginRequestPolicyConfig *OriginRequestPolicy_OriginRequestPolicyConfig `json:"OriginRequestPolicyConfig,omitempty"`
+	OriginRequestPolicyConfig *OriginRequestPolicy_OriginRequestPolicyConfig `json:"OriginRequestPolicyConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

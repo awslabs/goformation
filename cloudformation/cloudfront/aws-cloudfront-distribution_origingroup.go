@@ -11,17 +11,17 @@ type Distribution_OriginGroup struct {
 	// FailoverCriteria AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
-	FailoverCriteria *Distribution_OriginGroupFailoverCriteria `json:"FailoverCriteria,omitempty"`
+	FailoverCriteria *Distribution_OriginGroupFailoverCriteria `json:"FailoverCriteria"`
 
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// Members AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
-	Members *Distribution_OriginGroupMembers `json:"Members,omitempty"`
+	Members *Distribution_OriginGroupMembers `json:"Members"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

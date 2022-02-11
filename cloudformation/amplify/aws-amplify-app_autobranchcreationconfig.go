@@ -11,7 +11,7 @@ type App_AutoBranchCreationConfig struct {
 	// AutoBranchCreationPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
-	AutoBranchCreationPatterns []string `json:"AutoBranchCreationPatterns,omitempty"`
+	AutoBranchCreationPatterns *[]string `json:"AutoBranchCreationPatterns,omitempty"`
 
 	// BasicAuthConfig AWS CloudFormation Property
 	// Required: false
@@ -21,42 +21,42 @@ type App_AutoBranchCreationConfig struct {
 	// BuildSpec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
-	BuildSpec string `json:"BuildSpec,omitempty"`
+	BuildSpec *string `json:"BuildSpec,omitempty"`
 
 	// EnableAutoBranchCreation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
-	EnableAutoBranchCreation bool `json:"EnableAutoBranchCreation,omitempty"`
+	EnableAutoBranchCreation *bool `json:"EnableAutoBranchCreation,omitempty"`
 
 	// EnableAutoBuild AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
-	EnableAutoBuild bool `json:"EnableAutoBuild,omitempty"`
+	EnableAutoBuild *bool `json:"EnableAutoBuild,omitempty"`
 
 	// EnablePerformanceMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
-	EnablePerformanceMode bool `json:"EnablePerformanceMode,omitempty"`
+	EnablePerformanceMode *bool `json:"EnablePerformanceMode,omitempty"`
 
 	// EnablePullRequestPreview AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
-	EnablePullRequestPreview bool `json:"EnablePullRequestPreview,omitempty"`
+	EnablePullRequestPreview *bool `json:"EnablePullRequestPreview,omitempty"`
 
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
-	EnvironmentVariables []App_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
+	EnvironmentVariables *[]App_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
 
 	// PullRequestEnvironmentName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
-	PullRequestEnvironmentName string `json:"PullRequestEnvironmentName,omitempty"`
+	PullRequestEnvironmentName *string `json:"PullRequestEnvironmentName,omitempty"`
 
 	// Stage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
-	Stage string `json:"Stage,omitempty"`
+	Stage *string `json:"Stage,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

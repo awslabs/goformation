@@ -11,22 +11,22 @@ type DetectorModel_DynamoDB struct {
 	// HashKeyField AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
-	HashKeyField string `json:"HashKeyField,omitempty"`
+	HashKeyField string `json:"HashKeyField"`
 
 	// HashKeyType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
-	HashKeyType string `json:"HashKeyType,omitempty"`
+	HashKeyType *string `json:"HashKeyType,omitempty"`
 
 	// HashKeyValue AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
-	HashKeyValue string `json:"HashKeyValue,omitempty"`
+	HashKeyValue string `json:"HashKeyValue"`
 
 	// Operation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
-	Operation string `json:"Operation,omitempty"`
+	Operation *string `json:"Operation,omitempty"`
 
 	// Payload AWS CloudFormation Property
 	// Required: false
@@ -36,27 +36,27 @@ type DetectorModel_DynamoDB struct {
 	// PayloadField AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield
-	PayloadField string `json:"PayloadField,omitempty"`
+	PayloadField *string `json:"PayloadField,omitempty"`
 
 	// RangeKeyField AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield
-	RangeKeyField string `json:"RangeKeyField,omitempty"`
+	RangeKeyField *string `json:"RangeKeyField,omitempty"`
 
 	// RangeKeyType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype
-	RangeKeyType string `json:"RangeKeyType,omitempty"`
+	RangeKeyType *string `json:"RangeKeyType,omitempty"`
 
 	// RangeKeyValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue
-	RangeKeyValue string `json:"RangeKeyValue,omitempty"`
+	RangeKeyValue *string `json:"RangeKeyValue,omitempty"`
 
 	// TableName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName string `json:"TableName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

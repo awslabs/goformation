@@ -11,12 +11,12 @@ type Channel_TemporalFilterSettings struct {
 	// PostFilterSharpening AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-postfiltersharpening
-	PostFilterSharpening string `json:"PostFilterSharpening,omitempty"`
+	PostFilterSharpening *string `json:"PostFilterSharpening,omitempty"`
 
 	// Strength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-strength
-	Strength string `json:"Strength,omitempty"`
+	Strength *string `json:"Strength,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

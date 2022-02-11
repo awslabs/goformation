@@ -11,7 +11,7 @@ type Bot_MultipleValuesSetting struct {
 	// AllowMultipleValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html#cfn-lex-bot-multiplevaluessetting-allowmultiplevalues
-	AllowMultipleValues bool `json:"AllowMultipleValues,omitempty"`
+	AllowMultipleValues *bool `json:"AllowMultipleValues,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type ModelQualityJobDefinition_ModelQualityJobInput struct {
 	// EndpointInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-	EndpointInput *ModelQualityJobDefinition_EndpointInput `json:"EndpointInput,omitempty"`
+	EndpointInput *ModelQualityJobDefinition_EndpointInput `json:"EndpointInput"`
 
 	// GroundTruthS3Input AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
-	GroundTruthS3Input *ModelQualityJobDefinition_MonitoringGroundTruthS3Input `json:"GroundTruthS3Input,omitempty"`
+	GroundTruthS3Input *ModelQualityJobDefinition_MonitoringGroundTruthS3Input `json:"GroundTruthS3Input"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

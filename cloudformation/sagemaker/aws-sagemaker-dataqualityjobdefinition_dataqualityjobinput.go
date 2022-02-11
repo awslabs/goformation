@@ -11,7 +11,7 @@ type DataQualityJobDefinition_DataQualityJobInput struct {
 	// EndpointInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
-	EndpointInput *DataQualityJobDefinition_EndpointInput `json:"EndpointInput,omitempty"`
+	EndpointInput *DataQualityJobDefinition_EndpointInput `json:"EndpointInput"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

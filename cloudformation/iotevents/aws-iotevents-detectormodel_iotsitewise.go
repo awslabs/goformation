@@ -11,27 +11,27 @@ type DetectorModel_IotSiteWise struct {
 	// AssetId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
-	AssetId string `json:"AssetId,omitempty"`
+	AssetId *string `json:"AssetId,omitempty"`
 
 	// EntryId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
-	EntryId string `json:"EntryId,omitempty"`
+	EntryId *string `json:"EntryId,omitempty"`
 
 	// PropertyAlias AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
-	PropertyAlias string `json:"PropertyAlias,omitempty"`
+	PropertyAlias *string `json:"PropertyAlias,omitempty"`
 
 	// PropertyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
-	PropertyId string `json:"PropertyId,omitempty"`
+	PropertyId *string `json:"PropertyId,omitempty"`
 
 	// PropertyValue AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
-	PropertyValue *DetectorModel_AssetPropertyValue `json:"PropertyValue,omitempty"`
+	PropertyValue *DetectorModel_AssetPropertyValue `json:"PropertyValue"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

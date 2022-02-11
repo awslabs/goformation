@@ -11,7 +11,7 @@ type DataSource_CustomDocumentEnrichmentConfiguration struct {
 	// InlineConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration-inlineconfigurations
-	InlineConfigurations []DataSource_InlineCustomDocumentEnrichmentConfiguration `json:"InlineConfigurations,omitempty"`
+	InlineConfigurations *[]DataSource_InlineCustomDocumentEnrichmentConfiguration `json:"InlineConfigurations,omitempty"`
 
 	// PostExtractionHookConfiguration AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type DataSource_CustomDocumentEnrichmentConfiguration struct {
 	// RoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn *string `json:"RoleArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

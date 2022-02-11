@@ -11,17 +11,17 @@ type ApplicationReferenceDataSource_ReferenceSchema struct {
 	// RecordColumns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordcolumns
-	RecordColumns []ApplicationReferenceDataSource_RecordColumn `json:"RecordColumns,omitempty"`
+	RecordColumns []ApplicationReferenceDataSource_RecordColumn `json:"RecordColumns"`
 
 	// RecordEncoding AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordencoding
-	RecordEncoding string `json:"RecordEncoding,omitempty"`
+	RecordEncoding *string `json:"RecordEncoding,omitempty"`
 
 	// RecordFormat AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordformat
-	RecordFormat *ApplicationReferenceDataSource_RecordFormat `json:"RecordFormat,omitempty"`
+	RecordFormat *ApplicationReferenceDataSource_RecordFormat `json:"RecordFormat"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

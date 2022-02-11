@@ -11,17 +11,17 @@ type UserProfile_CustomImage struct {
 	// AppImageConfigName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
-	AppImageConfigName string `json:"AppImageConfigName,omitempty"`
+	AppImageConfigName string `json:"AppImageConfigName"`
 
 	// ImageName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
-	ImageName string `json:"ImageName,omitempty"`
+	ImageName string `json:"ImageName"`
 
 	// ImageVersionNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
-	ImageVersionNumber int `json:"ImageVersionNumber,omitempty"`
+	ImageVersionNumber *int `json:"ImageVersionNumber,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

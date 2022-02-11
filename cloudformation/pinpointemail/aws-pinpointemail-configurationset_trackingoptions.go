@@ -11,7 +11,7 @@ type ConfigurationSet_TrackingOptions struct {
 	// CustomRedirectDomain AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-trackingoptions.html#cfn-pinpointemail-configurationset-trackingoptions-customredirectdomain
-	CustomRedirectDomain string `json:"CustomRedirectDomain,omitempty"`
+	CustomRedirectDomain *string `json:"CustomRedirectDomain,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

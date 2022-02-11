@@ -11,17 +11,17 @@ type FileSystem_AuditLogConfiguration struct {
 	// AuditLogDestination AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-auditlogconfiguration-auditlogdestination
-	AuditLogDestination string `json:"AuditLogDestination,omitempty"`
+	AuditLogDestination *string `json:"AuditLogDestination,omitempty"`
 
 	// FileAccessAuditLogLevel AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-auditlogconfiguration-fileaccessauditloglevel
-	FileAccessAuditLogLevel string `json:"FileAccessAuditLogLevel,omitempty"`
+	FileAccessAuditLogLevel string `json:"FileAccessAuditLogLevel"`
 
 	// FileShareAccessAuditLogLevel AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-auditlogconfiguration-fileshareaccessauditloglevel
-	FileShareAccessAuditLogLevel string `json:"FileShareAccessAuditLogLevel,omitempty"`
+	FileShareAccessAuditLogLevel string `json:"FileShareAccessAuditLogLevel"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

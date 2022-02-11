@@ -15,17 +15,17 @@ type Skill struct {
 	// AuthenticationConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-authenticationconfiguration
-	AuthenticationConfiguration *Skill_AuthenticationConfiguration `json:"AuthenticationConfiguration,omitempty"`
+	AuthenticationConfiguration *Skill_AuthenticationConfiguration `json:"AuthenticationConfiguration"`
 
 	// SkillPackage AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-skillpackage
-	SkillPackage *Skill_SkillPackage `json:"SkillPackage,omitempty"`
+	SkillPackage *Skill_SkillPackage `json:"SkillPackage"`
 
 	// VendorId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-vendorid
-	VendorId string `json:"VendorId,omitempty"`
+	VendorId string `json:"VendorId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type GlobalTable_ReplicaSSESpecification struct {
 	// KMSMasterKeyId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
-	KMSMasterKeyId string `json:"KMSMasterKeyId,omitempty"`
+	KMSMasterKeyId string `json:"KMSMasterKeyId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

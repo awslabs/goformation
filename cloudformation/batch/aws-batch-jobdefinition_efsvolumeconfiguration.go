@@ -16,22 +16,22 @@ type JobDefinition_EfsVolumeConfiguration struct {
 	// FileSystemId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-filesystemid
-	FileSystemId string `json:"FileSystemId,omitempty"`
+	FileSystemId string `json:"FileSystemId"`
 
 	// RootDirectory AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-rootdirectory
-	RootDirectory string `json:"RootDirectory,omitempty"`
+	RootDirectory *string `json:"RootDirectory,omitempty"`
 
 	// TransitEncryption AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-transitencryption
-	TransitEncryption string `json:"TransitEncryption,omitempty"`
+	TransitEncryption *string `json:"TransitEncryption,omitempty"`
 
 	// TransitEncryptionPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-transitencryptionport
-	TransitEncryptionPort int `json:"TransitEncryptionPort,omitempty"`
+	TransitEncryptionPort *int `json:"TransitEncryptionPort,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

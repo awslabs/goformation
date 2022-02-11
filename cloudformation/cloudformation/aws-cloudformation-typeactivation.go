@@ -15,12 +15,12 @@ type TypeActivation struct {
 	// AutoUpdate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
-	AutoUpdate bool `json:"AutoUpdate,omitempty"`
+	AutoUpdate *bool `json:"AutoUpdate,omitempty"`
 
 	// ExecutionRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
-	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
+	ExecutionRoleArn *string `json:"ExecutionRoleArn,omitempty"`
 
 	// LoggingConfig AWS CloudFormation Property
 	// Required: false
@@ -30,37 +30,37 @@ type TypeActivation struct {
 	// MajorVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
-	MajorVersion string `json:"MajorVersion,omitempty"`
+	MajorVersion *string `json:"MajorVersion,omitempty"`
 
 	// PublicTypeArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
-	PublicTypeArn string `json:"PublicTypeArn,omitempty"`
+	PublicTypeArn *string `json:"PublicTypeArn,omitempty"`
 
 	// PublisherId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
-	PublisherId string `json:"PublisherId,omitempty"`
+	PublisherId *string `json:"PublisherId,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
-	Type string `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 
 	// TypeName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
-	TypeName string `json:"TypeName,omitempty"`
+	TypeName *string `json:"TypeName,omitempty"`
 
 	// TypeNameAlias AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
-	TypeNameAlias string `json:"TypeNameAlias,omitempty"`
+	TypeNameAlias *string `json:"TypeNameAlias,omitempty"`
 
 	// VersionBump AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
-	VersionBump string `json:"VersionBump,omitempty"`
+	VersionBump *string `json:"VersionBump,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

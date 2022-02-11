@@ -11,17 +11,17 @@ type Trigger_Action struct {
 	// Arguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
-	Arguments interface{} `json:"Arguments,omitempty"`
+	Arguments *interface{} `json:"Arguments,omitempty"`
 
 	// CrawlerName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-crawlername
-	CrawlerName string `json:"CrawlerName,omitempty"`
+	CrawlerName *string `json:"CrawlerName,omitempty"`
 
 	// JobName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
-	JobName string `json:"JobName,omitempty"`
+	JobName *string `json:"JobName,omitempty"`
 
 	// NotificationProperty AWS CloudFormation Property
 	// Required: false
@@ -31,12 +31,12 @@ type Trigger_Action struct {
 	// SecurityConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
-	SecurityConfiguration string `json:"SecurityConfiguration,omitempty"`
+	SecurityConfiguration *string `json:"SecurityConfiguration,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout
-	Timeout int `json:"Timeout,omitempty"`
+	Timeout *int `json:"Timeout,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

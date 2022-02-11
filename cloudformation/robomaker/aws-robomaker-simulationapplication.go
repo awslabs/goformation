@@ -15,17 +15,17 @@ type SimulationApplication struct {
 	// CurrentRevisionId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
-	CurrentRevisionId string `json:"CurrentRevisionId,omitempty"`
+	CurrentRevisionId *string `json:"CurrentRevisionId,omitempty"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-environment
-	Environment string `json:"Environment,omitempty"`
+	Environment *string `json:"Environment,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// RenderingEngine AWS CloudFormation Property
 	// Required: false
@@ -35,22 +35,22 @@ type SimulationApplication struct {
 	// RobotSoftwareSuite AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
-	RobotSoftwareSuite *SimulationApplication_RobotSoftwareSuite `json:"RobotSoftwareSuite,omitempty"`
+	RobotSoftwareSuite *SimulationApplication_RobotSoftwareSuite `json:"RobotSoftwareSuite"`
 
 	// SimulationSoftwareSuite AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
-	SimulationSoftwareSuite *SimulationApplication_SimulationSoftwareSuite `json:"SimulationSoftwareSuite,omitempty"`
+	SimulationSoftwareSuite *SimulationApplication_SimulationSoftwareSuite `json:"SimulationSoftwareSuite"`
 
 	// Sources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
-	Sources []SimulationApplication_SourceConfig `json:"Sources,omitempty"`
+	Sources *[]SimulationApplication_SourceConfig `json:"Sources,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type ApplicationOutput_Output struct {
 	// DestinationSchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-destinationschema
-	DestinationSchema *ApplicationOutput_DestinationSchema `json:"DestinationSchema,omitempty"`
+	DestinationSchema *ApplicationOutput_DestinationSchema `json:"DestinationSchema"`
 
 	// KinesisFirehoseOutput AWS CloudFormation Property
 	// Required: false
@@ -31,7 +31,7 @@ type ApplicationOutput_Output struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

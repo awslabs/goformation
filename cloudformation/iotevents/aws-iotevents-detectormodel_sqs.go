@@ -16,12 +16,12 @@ type DetectorModel_Sqs struct {
 	// QueueUrl AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
-	QueueUrl string `json:"QueueUrl,omitempty"`
+	QueueUrl string `json:"QueueUrl"`
 
 	// UseBase64 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
-	UseBase64 bool `json:"UseBase64,omitempty"`
+	UseBase64 *bool `json:"UseBase64,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

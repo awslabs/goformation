@@ -11,17 +11,17 @@ type Deployment_CanarySetting struct {
 	// PercentTraffic AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
-	PercentTraffic float64 `json:"PercentTraffic,omitempty"`
+	PercentTraffic *float64 `json:"PercentTraffic,omitempty"`
 
 	// StageVariableOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
-	StageVariableOverrides map[string]string `json:"StageVariableOverrides,omitempty"`
+	StageVariableOverrides *map[string]string `json:"StageVariableOverrides,omitempty"`
 
 	// UseStageCache AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
-	UseStageCache bool `json:"UseStageCache,omitempty"`
+	UseStageCache *bool `json:"UseStageCache,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

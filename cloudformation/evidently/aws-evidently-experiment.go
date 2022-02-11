@@ -16,47 +16,47 @@ type Experiment struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// MetricGoals AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-metricgoals
-	MetricGoals []Experiment_MetricGoalObject `json:"MetricGoals,omitempty"`
+	MetricGoals []Experiment_MetricGoalObject `json:"MetricGoals"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// OnlineAbConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-onlineabconfig
-	OnlineAbConfig *Experiment_OnlineAbConfigObject `json:"OnlineAbConfig,omitempty"`
+	OnlineAbConfig *Experiment_OnlineAbConfigObject `json:"OnlineAbConfig"`
 
 	// Project AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-project
-	Project string `json:"Project,omitempty"`
+	Project string `json:"Project"`
 
 	// RandomizationSalt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-randomizationsalt
-	RandomizationSalt string `json:"RandomizationSalt,omitempty"`
+	RandomizationSalt *string `json:"RandomizationSalt,omitempty"`
 
 	// SamplingRate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-samplingrate
-	SamplingRate int `json:"SamplingRate,omitempty"`
+	SamplingRate *int `json:"SamplingRate,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// Treatments AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-treatments
-	Treatments []Experiment_TreatmentObject `json:"Treatments,omitempty"`
+	Treatments []Experiment_TreatmentObject `json:"Treatments"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

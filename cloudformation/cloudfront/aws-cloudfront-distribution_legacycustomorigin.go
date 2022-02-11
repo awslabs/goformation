@@ -11,27 +11,27 @@ type Distribution_LegacyCustomOrigin struct {
 	// DNSName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
-	DNSName string `json:"DNSName,omitempty"`
+	DNSName string `json:"DNSName"`
 
 	// HTTPPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
-	HTTPPort int `json:"HTTPPort,omitempty"`
+	HTTPPort *int `json:"HTTPPort,omitempty"`
 
 	// HTTPSPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
-	HTTPSPort int `json:"HTTPSPort,omitempty"`
+	HTTPSPort *int `json:"HTTPSPort,omitempty"`
 
 	// OriginProtocolPolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
-	OriginProtocolPolicy string `json:"OriginProtocolPolicy,omitempty"`
+	OriginProtocolPolicy string `json:"OriginProtocolPolicy"`
 
 	// OriginSSLProtocols AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
-	OriginSSLProtocols []string `json:"OriginSSLProtocols,omitempty"`
+	OriginSSLProtocols []string `json:"OriginSSLProtocols"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

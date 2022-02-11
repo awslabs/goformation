@@ -15,7 +15,7 @@ type CloudFrontOriginAccessIdentity struct {
 	// CloudFrontOriginAccessIdentityConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentity_CloudFrontOriginAccessIdentityConfig `json:"CloudFrontOriginAccessIdentityConfig,omitempty"`
+	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentity_CloudFrontOriginAccessIdentityConfig `json:"CloudFrontOriginAccessIdentityConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

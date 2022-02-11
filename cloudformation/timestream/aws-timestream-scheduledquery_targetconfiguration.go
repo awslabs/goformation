@@ -11,7 +11,7 @@ type ScheduledQuery_TargetConfiguration struct {
 	// TimestreamConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html#cfn-timestream-scheduledquery-targetconfiguration-timestreamconfiguration
-	TimestreamConfiguration *ScheduledQuery_TimestreamConfiguration `json:"TimestreamConfiguration,omitempty"`
+	TimestreamConfiguration *ScheduledQuery_TimestreamConfiguration `json:"TimestreamConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

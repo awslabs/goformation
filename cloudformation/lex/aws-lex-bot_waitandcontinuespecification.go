@@ -11,12 +11,12 @@ type Bot_WaitAndContinueSpecification struct {
 	// ContinueResponse AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-continueresponse
-	ContinueResponse *Bot_ResponseSpecification `json:"ContinueResponse,omitempty"`
+	ContinueResponse *Bot_ResponseSpecification `json:"ContinueResponse"`
 
 	// IsActive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-isactive
-	IsActive bool `json:"IsActive,omitempty"`
+	IsActive *bool `json:"IsActive,omitempty"`
 
 	// StillWaitingResponse AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type Bot_WaitAndContinueSpecification struct {
 	// WaitingResponse AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-waitingresponse
-	WaitingResponse *Bot_ResponseSpecification `json:"WaitingResponse,omitempty"`
+	WaitingResponse *Bot_ResponseSpecification `json:"WaitingResponse"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

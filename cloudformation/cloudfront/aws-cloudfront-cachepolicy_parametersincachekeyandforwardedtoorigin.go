@@ -11,12 +11,12 @@ type CachePolicy_ParametersInCacheKeyAndForwardedToOrigin struct {
 	// CookiesConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
-	CookiesConfig *CachePolicy_CookiesConfig `json:"CookiesConfig,omitempty"`
+	CookiesConfig *CachePolicy_CookiesConfig `json:"CookiesConfig"`
 
 	// EnableAcceptEncodingBrotli AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
-	EnableAcceptEncodingBrotli bool `json:"EnableAcceptEncodingBrotli,omitempty"`
+	EnableAcceptEncodingBrotli *bool `json:"EnableAcceptEncodingBrotli,omitempty"`
 
 	// EnableAcceptEncodingGzip AWS CloudFormation Property
 	// Required: true
@@ -26,12 +26,12 @@ type CachePolicy_ParametersInCacheKeyAndForwardedToOrigin struct {
 	// HeadersConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
-	HeadersConfig *CachePolicy_HeadersConfig `json:"HeadersConfig,omitempty"`
+	HeadersConfig *CachePolicy_HeadersConfig `json:"HeadersConfig"`
 
 	// QueryStringsConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
-	QueryStringsConfig *CachePolicy_QueryStringsConfig `json:"QueryStringsConfig,omitempty"`
+	QueryStringsConfig *CachePolicy_QueryStringsConfig `json:"QueryStringsConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

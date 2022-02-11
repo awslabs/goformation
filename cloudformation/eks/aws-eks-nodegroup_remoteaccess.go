@@ -11,12 +11,12 @@ type Nodegroup_RemoteAccess struct {
 	// Ec2SshKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html#cfn-eks-nodegroup-remoteaccess-ec2sshkey
-	Ec2SshKey string `json:"Ec2SshKey,omitempty"`
+	Ec2SshKey string `json:"Ec2SshKey"`
 
 	// SourceSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html#cfn-eks-nodegroup-remoteaccess-sourcesecuritygroups
-	SourceSecurityGroups []string `json:"SourceSecurityGroups,omitempty"`
+	SourceSecurityGroups *[]string `json:"SourceSecurityGroups,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,32 +11,32 @@ type UserPool_PasswordPolicy struct {
 	// MinimumLength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-minimumlength
-	MinimumLength int `json:"MinimumLength,omitempty"`
+	MinimumLength *int `json:"MinimumLength,omitempty"`
 
 	// RequireLowercase AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requirelowercase
-	RequireLowercase bool `json:"RequireLowercase,omitempty"`
+	RequireLowercase *bool `json:"RequireLowercase,omitempty"`
 
 	// RequireNumbers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requirenumbers
-	RequireNumbers bool `json:"RequireNumbers,omitempty"`
+	RequireNumbers *bool `json:"RequireNumbers,omitempty"`
 
 	// RequireSymbols AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requiresymbols
-	RequireSymbols bool `json:"RequireSymbols,omitempty"`
+	RequireSymbols *bool `json:"RequireSymbols,omitempty"`
 
 	// RequireUppercase AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requireuppercase
-	RequireUppercase bool `json:"RequireUppercase,omitempty"`
+	RequireUppercase *bool `json:"RequireUppercase,omitempty"`
 
 	// TemporaryPasswordValidityDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays
-	TemporaryPasswordValidityDays int `json:"TemporaryPasswordValidityDays,omitempty"`
+	TemporaryPasswordValidityDays *int `json:"TemporaryPasswordValidityDays,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

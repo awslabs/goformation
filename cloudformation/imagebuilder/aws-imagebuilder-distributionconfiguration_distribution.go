@@ -11,27 +11,27 @@ type DistributionConfiguration_Distribution struct {
 	// AmiDistributionConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
-	AmiDistributionConfiguration interface{} `json:"AmiDistributionConfiguration,omitempty"`
+	AmiDistributionConfiguration *interface{} `json:"AmiDistributionConfiguration,omitempty"`
 
 	// ContainerDistributionConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
-	ContainerDistributionConfiguration interface{} `json:"ContainerDistributionConfiguration,omitempty"`
+	ContainerDistributionConfiguration *interface{} `json:"ContainerDistributionConfiguration,omitempty"`
 
 	// LaunchTemplateConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
-	LaunchTemplateConfigurations []DistributionConfiguration_LaunchTemplateConfiguration `json:"LaunchTemplateConfigurations,omitempty"`
+	LaunchTemplateConfigurations *[]DistributionConfiguration_LaunchTemplateConfiguration `json:"LaunchTemplateConfigurations,omitempty"`
 
 	// LicenseConfigurationArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
-	LicenseConfigurationArns []string `json:"LicenseConfigurationArns,omitempty"`
+	LicenseConfigurationArns *[]string `json:"LicenseConfigurationArns,omitempty"`
 
 	// Region AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
-	Region string `json:"Region,omitempty"`
+	Region string `json:"Region"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

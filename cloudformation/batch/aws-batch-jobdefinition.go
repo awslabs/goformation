@@ -20,7 +20,7 @@ type JobDefinition struct {
 	// JobDefinitionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-jobdefinitionname
-	JobDefinitionName string `json:"JobDefinitionName,omitempty"`
+	JobDefinitionName *string `json:"JobDefinitionName,omitempty"`
 
 	// NodeProperties AWS CloudFormation Property
 	// Required: false
@@ -30,17 +30,17 @@ type JobDefinition struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
-	Parameters interface{} `json:"Parameters,omitempty"`
+	Parameters *interface{} `json:"Parameters,omitempty"`
 
 	// PlatformCapabilities AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
-	PlatformCapabilities []string `json:"PlatformCapabilities,omitempty"`
+	PlatformCapabilities *[]string `json:"PlatformCapabilities,omitempty"`
 
 	// PropagateTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
-	PropagateTags bool `json:"PropagateTags,omitempty"`
+	PropagateTags *bool `json:"PropagateTags,omitempty"`
 
 	// RetryStrategy AWS CloudFormation Property
 	// Required: false
@@ -50,12 +50,12 @@ type JobDefinition struct {
 	// SchedulingPriority AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-schedulingpriority
-	SchedulingPriority int `json:"SchedulingPriority,omitempty"`
+	SchedulingPriority *int `json:"SchedulingPriority,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false
@@ -65,7 +65,7 @@ type JobDefinition struct {
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

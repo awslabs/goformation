@@ -11,7 +11,7 @@ type LocationS3_S3Config struct {
 	// BucketAccessRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
-	BucketAccessRoleArn string `json:"BucketAccessRoleArn,omitempty"`
+	BucketAccessRoleArn string `json:"BucketAccessRoleArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

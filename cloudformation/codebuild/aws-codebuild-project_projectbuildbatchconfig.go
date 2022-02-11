@@ -11,12 +11,12 @@ type Project_ProjectBuildBatchConfig struct {
 	// BatchReportMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-batchreportmode
-	BatchReportMode string `json:"BatchReportMode,omitempty"`
+	BatchReportMode *string `json:"BatchReportMode,omitempty"`
 
 	// CombineArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts
-	CombineArtifacts bool `json:"CombineArtifacts,omitempty"`
+	CombineArtifacts *bool `json:"CombineArtifacts,omitempty"`
 
 	// Restrictions AWS CloudFormation Property
 	// Required: false
@@ -26,12 +26,12 @@ type Project_ProjectBuildBatchConfig struct {
 	// ServiceRole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole
-	ServiceRole string `json:"ServiceRole,omitempty"`
+	ServiceRole *string `json:"ServiceRole,omitempty"`
 
 	// TimeoutInMins AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins
-	TimeoutInMins int `json:"TimeoutInMins,omitempty"`
+	TimeoutInMins *int `json:"TimeoutInMins,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

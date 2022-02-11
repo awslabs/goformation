@@ -11,27 +11,27 @@ type Container_CorsRule struct {
 	// AllowedHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-corsrule.html#cfn-mediastore-container-corsrule-allowedheaders
-	AllowedHeaders []string `json:"AllowedHeaders,omitempty"`
+	AllowedHeaders *[]string `json:"AllowedHeaders,omitempty"`
 
 	// AllowedMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-corsrule.html#cfn-mediastore-container-corsrule-allowedmethods
-	AllowedMethods []string `json:"AllowedMethods,omitempty"`
+	AllowedMethods *[]string `json:"AllowedMethods,omitempty"`
 
 	// AllowedOrigins AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-corsrule.html#cfn-mediastore-container-corsrule-allowedorigins
-	AllowedOrigins []string `json:"AllowedOrigins,omitempty"`
+	AllowedOrigins *[]string `json:"AllowedOrigins,omitempty"`
 
 	// ExposeHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-corsrule.html#cfn-mediastore-container-corsrule-exposeheaders
-	ExposeHeaders []string `json:"ExposeHeaders,omitempty"`
+	ExposeHeaders *[]string `json:"ExposeHeaders,omitempty"`
 
 	// MaxAgeSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-corsrule.html#cfn-mediastore-container-corsrule-maxageseconds
-	MaxAgeSeconds int `json:"MaxAgeSeconds,omitempty"`
+	MaxAgeSeconds *int `json:"MaxAgeSeconds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,7 +15,7 @@ type ResponseHeadersPolicy struct {
 	// ResponseHeadersPolicyConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig
-	ResponseHeadersPolicyConfig *ResponseHeadersPolicy_ResponseHeadersPolicyConfig `json:"ResponseHeadersPolicyConfig,omitempty"`
+	ResponseHeadersPolicyConfig *ResponseHeadersPolicy_ResponseHeadersPolicyConfig `json:"ResponseHeadersPolicyConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

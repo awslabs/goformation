@@ -16,22 +16,22 @@ type ModelPackageGroup struct {
 	// ModelPackageGroupDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-	ModelPackageGroupDescription string `json:"ModelPackageGroupDescription,omitempty"`
+	ModelPackageGroupDescription *string `json:"ModelPackageGroupDescription,omitempty"`
 
 	// ModelPackageGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-	ModelPackageGroupName string `json:"ModelPackageGroupName,omitempty"`
+	ModelPackageGroupName string `json:"ModelPackageGroupName"`
 
 	// ModelPackageGroupPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-	ModelPackageGroupPolicy interface{} `json:"ModelPackageGroupPolicy,omitempty"`
+	ModelPackageGroupPolicy *interface{} `json:"ModelPackageGroupPolicy,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

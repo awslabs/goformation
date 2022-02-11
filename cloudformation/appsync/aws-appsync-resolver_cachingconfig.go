@@ -11,7 +11,7 @@ type Resolver_CachingConfig struct {
 	// CachingKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-cachingkeys
-	CachingKeys []string `json:"CachingKeys,omitempty"`
+	CachingKeys *[]string `json:"CachingKeys,omitempty"`
 
 	// Ttl AWS CloudFormation Property
 	// Required: true

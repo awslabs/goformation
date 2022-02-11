@@ -11,32 +11,32 @@ type BackupSelection_BackupSelectionResourceType struct {
 	// Conditions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-conditions
-	Conditions interface{} `json:"Conditions,omitempty"`
+	Conditions *interface{} `json:"Conditions,omitempty"`
 
 	// IamRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
-	IamRoleArn string `json:"IamRoleArn,omitempty"`
+	IamRoleArn string `json:"IamRoleArn"`
 
 	// ListOfTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
-	ListOfTags []BackupSelection_ConditionResourceType `json:"ListOfTags,omitempty"`
+	ListOfTags *[]BackupSelection_ConditionResourceType `json:"ListOfTags,omitempty"`
 
 	// NotResources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-notresources
-	NotResources []string `json:"NotResources,omitempty"`
+	NotResources *[]string `json:"NotResources,omitempty"`
 
 	// Resources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
-	Resources []string `json:"Resources,omitempty"`
+	Resources *[]string `json:"Resources,omitempty"`
 
 	// SelectionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
-	SelectionName string `json:"SelectionName,omitempty"`
+	SelectionName string `json:"SelectionName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

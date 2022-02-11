@@ -11,7 +11,7 @@ type Cluster_ClusterLogging struct {
 	// EnabledTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html#cfn-eks-cluster-clusterlogging-enabledtypes
-	EnabledTypes []Cluster_LoggingTypeConfig `json:"EnabledTypes,omitempty"`
+	EnabledTypes *[]Cluster_LoggingTypeConfig `json:"EnabledTypes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Analysis_AnalysisSourceTemplate struct {
 	// Arn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
-	Arn string `json:"Arn,omitempty"`
+	Arn string `json:"Arn"`
 
 	// DataSetReferences AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
-	DataSetReferences []Analysis_DataSetReference `json:"DataSetReferences,omitempty"`
+	DataSetReferences []Analysis_DataSetReference `json:"DataSetReferences"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

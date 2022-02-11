@@ -15,12 +15,12 @@ type TransitGatewayRouteTablePropagation struct {
 	// TransitGatewayAttachmentId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayattachmentid
-	TransitGatewayAttachmentId string `json:"TransitGatewayAttachmentId,omitempty"`
+	TransitGatewayAttachmentId string `json:"TransitGatewayAttachmentId"`
 
 	// TransitGatewayRouteTableId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayroutetableid
-	TransitGatewayRouteTableId string `json:"TransitGatewayRouteTableId,omitempty"`
+	TransitGatewayRouteTableId string `json:"TransitGatewayRouteTableId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

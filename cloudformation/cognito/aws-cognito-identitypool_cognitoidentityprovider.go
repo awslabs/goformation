@@ -11,17 +11,17 @@ type IdentityPool_CognitoIdentityProvider struct {
 	// ClientId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-clientid
-	ClientId string `json:"ClientId,omitempty"`
+	ClientId *string `json:"ClientId,omitempty"`
 
 	// ProviderName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-providername
-	ProviderName string `json:"ProviderName,omitempty"`
+	ProviderName *string `json:"ProviderName,omitempty"`
 
 	// ServerSideTokenCheck AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-serversidetokencheck
-	ServerSideTokenCheck bool `json:"ServerSideTokenCheck,omitempty"`
+	ServerSideTokenCheck *bool `json:"ServerSideTokenCheck,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

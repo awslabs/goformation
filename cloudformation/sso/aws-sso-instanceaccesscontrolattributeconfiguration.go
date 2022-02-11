@@ -15,12 +15,12 @@ type InstanceAccessControlAttributeConfiguration struct {
 	// AccessControlAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-	AccessControlAttributes []InstanceAccessControlAttributeConfiguration_AccessControlAttribute `json:"AccessControlAttributes,omitempty"`
+	AccessControlAttributes *[]InstanceAccessControlAttributeConfiguration_AccessControlAttribute `json:"AccessControlAttributes,omitempty"`
 
 	// InstanceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
-	InstanceArn string `json:"InstanceArn,omitempty"`
+	InstanceArn string `json:"InstanceArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

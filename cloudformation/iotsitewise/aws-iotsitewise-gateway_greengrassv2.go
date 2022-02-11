@@ -11,7 +11,7 @@ type Gateway_GreengrassV2 struct {
 	// CoreDeviceThingName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredevicethingname
-	CoreDeviceThingName string `json:"CoreDeviceThingName,omitempty"`
+	CoreDeviceThingName string `json:"CoreDeviceThingName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

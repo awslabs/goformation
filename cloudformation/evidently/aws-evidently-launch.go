@@ -16,42 +16,42 @@ type Launch struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// Groups AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-groups
-	Groups []Launch_LaunchGroupObject `json:"Groups,omitempty"`
+	Groups []Launch_LaunchGroupObject `json:"Groups"`
 
 	// MetricMonitors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-metricmonitors
-	MetricMonitors []Launch_MetricDefinitionObject `json:"MetricMonitors,omitempty"`
+	MetricMonitors *[]Launch_MetricDefinitionObject `json:"MetricMonitors,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Project AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-project
-	Project string `json:"Project,omitempty"`
+	Project string `json:"Project"`
 
 	// RandomizationSalt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-randomizationsalt
-	RandomizationSalt string `json:"RandomizationSalt,omitempty"`
+	RandomizationSalt *string `json:"RandomizationSalt,omitempty"`
 
 	// ScheduledSplitsConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-scheduledsplitsconfig
-	ScheduledSplitsConfig []Launch_StepConfig `json:"ScheduledSplitsConfig,omitempty"`
+	ScheduledSplitsConfig []Launch_StepConfig `json:"ScheduledSplitsConfig"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

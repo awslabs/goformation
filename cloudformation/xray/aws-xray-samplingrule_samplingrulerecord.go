@@ -11,12 +11,12 @@ type SamplingRule_SamplingRuleRecord struct {
 	// CreatedAt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
-	CreatedAt string `json:"CreatedAt,omitempty"`
+	CreatedAt *string `json:"CreatedAt,omitempty"`
 
 	// ModifiedAt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
-	ModifiedAt string `json:"ModifiedAt,omitempty"`
+	ModifiedAt *string `json:"ModifiedAt,omitempty"`
 
 	// SamplingRule AWS CloudFormation Property
 	// Required: false

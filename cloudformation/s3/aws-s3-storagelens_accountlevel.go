@@ -16,7 +16,7 @@ type StorageLens_AccountLevel struct {
 	// BucketLevel AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
-	BucketLevel *StorageLens_BucketLevel `json:"BucketLevel,omitempty"`
+	BucketLevel *StorageLens_BucketLevel `json:"BucketLevel"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

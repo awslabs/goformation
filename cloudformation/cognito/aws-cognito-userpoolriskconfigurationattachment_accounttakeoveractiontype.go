@@ -11,7 +11,7 @@ type UserPoolRiskConfigurationAttachment_AccountTakeoverActionType struct {
 	// EventAction AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-eventaction
-	EventAction string `json:"EventAction,omitempty"`
+	EventAction string `json:"EventAction"`
 
 	// Notify AWS CloudFormation Property
 	// Required: true

@@ -11,7 +11,7 @@ type DataSource_S3Parameters struct {
 	// ManifestFileLocation AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
-	ManifestFileLocation *DataSource_ManifestFileLocation `json:"ManifestFileLocation,omitempty"`
+	ManifestFileLocation *DataSource_ManifestFileLocation `json:"ManifestFileLocation"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

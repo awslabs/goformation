@@ -11,7 +11,7 @@ type Connector_FirehoseLogDelivery struct {
 	// DeliveryStream AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html#cfn-kafkaconnect-connector-firehoselogdelivery-deliverystream
-	DeliveryStream string `json:"DeliveryStream,omitempty"`
+	DeliveryStream *string `json:"DeliveryStream,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true

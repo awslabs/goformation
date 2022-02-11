@@ -15,7 +15,7 @@ type Broker struct {
 	// AuthenticationStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
-	AuthenticationStrategy string `json:"AuthenticationStrategy,omitempty"`
+	AuthenticationStrategy *string `json:"AuthenticationStrategy,omitempty"`
 
 	// AutoMinorVersionUpgrade AWS CloudFormation Property
 	// Required: true
@@ -25,7 +25,7 @@ type Broker struct {
 	// BrokerName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername
-	BrokerName string `json:"BrokerName,omitempty"`
+	BrokerName string `json:"BrokerName"`
 
 	// Configuration AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type Broker struct {
 	// DeploymentMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode
-	DeploymentMode string `json:"DeploymentMode,omitempty"`
+	DeploymentMode string `json:"DeploymentMode"`
 
 	// EncryptionOptions AWS CloudFormation Property
 	// Required: false
@@ -45,17 +45,17 @@ type Broker struct {
 	// EngineType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype
-	EngineType string `json:"EngineType,omitempty"`
+	EngineType string `json:"EngineType"`
 
 	// EngineVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion
-	EngineVersion string `json:"EngineVersion,omitempty"`
+	EngineVersion string `json:"EngineVersion"`
 
 	// HostInstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
-	HostInstanceType string `json:"HostInstanceType,omitempty"`
+	HostInstanceType string `json:"HostInstanceType"`
 
 	// LdapServerMetadata AWS CloudFormation Property
 	// Required: false
@@ -80,27 +80,27 @@ type Broker struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
-	SecurityGroups []string `json:"SecurityGroups,omitempty"`
+	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
 
 	// StorageType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-storagetype
-	StorageType string `json:"StorageType,omitempty"`
+	StorageType *string `json:"StorageType,omitempty"`
 
 	// SubnetIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
-	SubnetIds []string `json:"SubnetIds,omitempty"`
+	SubnetIds *[]string `json:"SubnetIds,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
-	Tags []Broker_TagsEntry `json:"Tags,omitempty"`
+	Tags *[]Broker_TagsEntry `json:"Tags,omitempty"`
 
 	// Users AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
-	Users []Broker_User `json:"Users,omitempty"`
+	Users []Broker_User `json:"Users"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

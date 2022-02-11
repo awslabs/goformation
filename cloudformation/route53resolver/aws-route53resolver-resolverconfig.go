@@ -15,12 +15,12 @@ type ResolverConfig struct {
 	// AutodefinedReverseFlag AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-autodefinedreverseflag
-	AutodefinedReverseFlag string `json:"AutodefinedReverseFlag,omitempty"`
+	AutodefinedReverseFlag string `json:"AutodefinedReverseFlag"`
 
 	// ResourceId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-resourceid
-	ResourceId string `json:"ResourceId,omitempty"`
+	ResourceId string `json:"ResourceId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

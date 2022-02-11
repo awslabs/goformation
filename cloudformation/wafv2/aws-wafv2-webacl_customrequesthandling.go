@@ -11,7 +11,7 @@ type WebACL_CustomRequestHandling struct {
 	// InsertHeaders AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
-	InsertHeaders []WebACL_CustomHTTPHeader `json:"InsertHeaders,omitempty"`
+	InsertHeaders []WebACL_CustomHTTPHeader `json:"InsertHeaders"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

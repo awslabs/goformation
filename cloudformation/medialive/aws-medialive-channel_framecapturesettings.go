@@ -11,12 +11,12 @@ type Channel_FrameCaptureSettings struct {
 	// CaptureInterval AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureinterval
-	CaptureInterval int `json:"CaptureInterval,omitempty"`
+	CaptureInterval *int `json:"CaptureInterval,omitempty"`
 
 	// CaptureIntervalUnits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureintervalunits
-	CaptureIntervalUnits string `json:"CaptureIntervalUnits,omitempty"`
+	CaptureIntervalUnits *string `json:"CaptureIntervalUnits,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

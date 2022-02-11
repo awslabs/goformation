@@ -15,7 +15,7 @@ type NotificationChannel struct {
 	// Config AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-	Config *NotificationChannel_NotificationChannelConfig `json:"Config,omitempty"`
+	Config *NotificationChannel_NotificationChannelConfig `json:"Config"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

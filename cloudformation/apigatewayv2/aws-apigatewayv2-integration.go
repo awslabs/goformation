@@ -15,87 +15,87 @@ type Integration struct {
 	// ApiId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-apiid
-	ApiId string `json:"ApiId,omitempty"`
+	ApiId string `json:"ApiId"`
 
 	// ConnectionId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectionid
-	ConnectionId string `json:"ConnectionId,omitempty"`
+	ConnectionId *string `json:"ConnectionId,omitempty"`
 
 	// ConnectionType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectiontype
-	ConnectionType string `json:"ConnectionType,omitempty"`
+	ConnectionType *string `json:"ConnectionType,omitempty"`
 
 	// ContentHandlingStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-contenthandlingstrategy
-	ContentHandlingStrategy string `json:"ContentHandlingStrategy,omitempty"`
+	ContentHandlingStrategy *string `json:"ContentHandlingStrategy,omitempty"`
 
 	// CredentialsArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-credentialsarn
-	CredentialsArn string `json:"CredentialsArn,omitempty"`
+	CredentialsArn *string `json:"CredentialsArn,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// IntegrationMethod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationmethod
-	IntegrationMethod string `json:"IntegrationMethod,omitempty"`
+	IntegrationMethod *string `json:"IntegrationMethod,omitempty"`
 
 	// IntegrationSubtype AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
-	IntegrationSubtype string `json:"IntegrationSubtype,omitempty"`
+	IntegrationSubtype *string `json:"IntegrationSubtype,omitempty"`
 
 	// IntegrationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
-	IntegrationType string `json:"IntegrationType,omitempty"`
+	IntegrationType string `json:"IntegrationType"`
 
 	// IntegrationUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationuri
-	IntegrationUri string `json:"IntegrationUri,omitempty"`
+	IntegrationUri *string `json:"IntegrationUri,omitempty"`
 
 	// PassthroughBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-passthroughbehavior
-	PassthroughBehavior string `json:"PassthroughBehavior,omitempty"`
+	PassthroughBehavior *string `json:"PassthroughBehavior,omitempty"`
 
 	// PayloadFormatVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-payloadformatversion
-	PayloadFormatVersion string `json:"PayloadFormatVersion,omitempty"`
+	PayloadFormatVersion *string `json:"PayloadFormatVersion,omitempty"`
 
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-requestparameters
-	RequestParameters interface{} `json:"RequestParameters,omitempty"`
+	RequestParameters *interface{} `json:"RequestParameters,omitempty"`
 
 	// RequestTemplates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-requesttemplates
-	RequestTemplates interface{} `json:"RequestTemplates,omitempty"`
+	RequestTemplates *interface{} `json:"RequestTemplates,omitempty"`
 
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-responseparameters
-	ResponseParameters interface{} `json:"ResponseParameters,omitempty"`
+	ResponseParameters *interface{} `json:"ResponseParameters,omitempty"`
 
 	// TemplateSelectionExpression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-templateselectionexpression
-	TemplateSelectionExpression string `json:"TemplateSelectionExpression,omitempty"`
+	TemplateSelectionExpression *string `json:"TemplateSelectionExpression,omitempty"`
 
 	// TimeoutInMillis AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-timeoutinmillis
-	TimeoutInMillis int `json:"TimeoutInMillis,omitempty"`
+	TimeoutInMillis *int `json:"TimeoutInMillis,omitempty"`
 
 	// TlsConfig AWS CloudFormation Property
 	// Required: false

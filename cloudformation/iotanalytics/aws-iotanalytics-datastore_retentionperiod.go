@@ -11,12 +11,12 @@ type Datastore_RetentionPeriod struct {
 	// NumberOfDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html#cfn-iotanalytics-datastore-retentionperiod-numberofdays
-	NumberOfDays int `json:"NumberOfDays,omitempty"`
+	NumberOfDays *int `json:"NumberOfDays,omitempty"`
 
 	// Unlimited AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html#cfn-iotanalytics-datastore-retentionperiod-unlimited
-	Unlimited bool `json:"Unlimited,omitempty"`
+	Unlimited *bool `json:"Unlimited,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

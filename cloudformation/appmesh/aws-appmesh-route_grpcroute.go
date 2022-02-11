@@ -11,12 +11,12 @@ type Route_GrpcRoute struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-action
-	Action *Route_GrpcRouteAction `json:"Action,omitempty"`
+	Action *Route_GrpcRouteAction `json:"Action"`
 
 	// Match AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-match
-	Match *Route_GrpcRouteMatch `json:"Match,omitempty"`
+	Match *Route_GrpcRouteMatch `json:"Match"`
 
 	// RetryPolicy AWS CloudFormation Property
 	// Required: false

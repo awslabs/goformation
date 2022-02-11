@@ -11,17 +11,17 @@ type Application_ComponentMonitoringSetting struct {
 	// ComponentARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
-	ComponentARN string `json:"ComponentARN,omitempty"`
+	ComponentARN *string `json:"ComponentARN,omitempty"`
 
 	// ComponentConfigurationMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
-	ComponentConfigurationMode string `json:"ComponentConfigurationMode,omitempty"`
+	ComponentConfigurationMode string `json:"ComponentConfigurationMode"`
 
 	// ComponentName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
-	ComponentName string `json:"ComponentName,omitempty"`
+	ComponentName *string `json:"ComponentName,omitempty"`
 
 	// CustomComponentConfiguration AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type Application_ComponentMonitoringSetting struct {
 	// Tier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
-	Tier string `json:"Tier,omitempty"`
+	Tier string `json:"Tier"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

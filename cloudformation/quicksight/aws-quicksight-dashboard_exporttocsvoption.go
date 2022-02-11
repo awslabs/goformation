@@ -11,7 +11,7 @@ type Dashboard_ExportToCSVOption struct {
 	// AvailabilityStatus AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
-	AvailabilityStatus string `json:"AvailabilityStatus,omitempty"`
+	AvailabilityStatus *string `json:"AvailabilityStatus,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

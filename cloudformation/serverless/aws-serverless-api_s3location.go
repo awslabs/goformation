@@ -11,12 +11,12 @@ type Api_S3Location struct {
 	// Bucket AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3-location-object
-	Bucket string `json:"Bucket,omitempty"`
+	Bucket string `json:"Bucket"`
 
 	// Key AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3-location-object
-	Key string `json:"Key,omitempty"`
+	Key string `json:"Key"`
 
 	// Version AWS CloudFormation Property
 	// Required: true

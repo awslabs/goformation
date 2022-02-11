@@ -15,17 +15,17 @@ type Alert struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
-	Action *Alert_Action `json:"Action,omitempty"`
+	Action *Alert_Action `json:"Action"`
 
 	// AlertDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
-	AlertDescription string `json:"AlertDescription,omitempty"`
+	AlertDescription *string `json:"AlertDescription,omitempty"`
 
 	// AlertName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
-	AlertName string `json:"AlertName,omitempty"`
+	AlertName *string `json:"AlertName,omitempty"`
 
 	// AlertSensitivityThreshold AWS CloudFormation Property
 	// Required: true
@@ -35,7 +35,7 @@ type Alert struct {
 	// AnomalyDetectorArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
-	AnomalyDetectorArn string `json:"AnomalyDetectorArn,omitempty"`
+	AnomalyDetectorArn string `json:"AnomalyDetectorArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

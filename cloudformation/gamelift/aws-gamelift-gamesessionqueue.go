@@ -16,12 +16,12 @@ type GameSessionQueue struct {
 	// CustomEventData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-customeventdata
-	CustomEventData string `json:"CustomEventData,omitempty"`
+	CustomEventData *string `json:"CustomEventData,omitempty"`
 
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-destinations
-	Destinations []GameSessionQueue_Destination `json:"Destinations,omitempty"`
+	Destinations *[]GameSessionQueue_Destination `json:"Destinations,omitempty"`
 
 	// FilterConfiguration AWS CloudFormation Property
 	// Required: false
@@ -31,17 +31,17 @@ type GameSessionQueue struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// NotificationTarget AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-notificationtarget
-	NotificationTarget string `json:"NotificationTarget,omitempty"`
+	NotificationTarget *string `json:"NotificationTarget,omitempty"`
 
 	// PlayerLatencyPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-playerlatencypolicies
-	PlayerLatencyPolicies []GameSessionQueue_PlayerLatencyPolicy `json:"PlayerLatencyPolicies,omitempty"`
+	PlayerLatencyPolicies *[]GameSessionQueue_PlayerLatencyPolicy `json:"PlayerLatencyPolicies,omitempty"`
 
 	// PriorityConfiguration AWS CloudFormation Property
 	// Required: false
@@ -51,12 +51,12 @@ type GameSessionQueue struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// TimeoutInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-timeoutinseconds
-	TimeoutInSeconds int `json:"TimeoutInSeconds,omitempty"`
+	TimeoutInSeconds *int `json:"TimeoutInSeconds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

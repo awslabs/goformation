@@ -11,22 +11,22 @@ type SecurityProfile_BehaviorCriteria struct {
 	// ComparisonOperator AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
-	ComparisonOperator string `json:"ComparisonOperator,omitempty"`
+	ComparisonOperator *string `json:"ComparisonOperator,omitempty"`
 
 	// ConsecutiveDatapointsToAlarm AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
-	ConsecutiveDatapointsToAlarm int `json:"ConsecutiveDatapointsToAlarm,omitempty"`
+	ConsecutiveDatapointsToAlarm *int `json:"ConsecutiveDatapointsToAlarm,omitempty"`
 
 	// ConsecutiveDatapointsToClear AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
-	ConsecutiveDatapointsToClear int `json:"ConsecutiveDatapointsToClear,omitempty"`
+	ConsecutiveDatapointsToClear *int `json:"ConsecutiveDatapointsToClear,omitempty"`
 
 	// DurationSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
-	DurationSeconds int `json:"DurationSeconds,omitempty"`
+	DurationSeconds *int `json:"DurationSeconds,omitempty"`
 
 	// MlDetectionConfig AWS CloudFormation Property
 	// Required: false

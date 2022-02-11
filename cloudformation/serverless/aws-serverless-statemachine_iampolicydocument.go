@@ -11,7 +11,7 @@ type StateMachine_IAMPolicyDocument struct {
 	// Statement AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
-	Statement interface{} `json:"Statement,omitempty"`
+	Statement interface{} `json:"Statement"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

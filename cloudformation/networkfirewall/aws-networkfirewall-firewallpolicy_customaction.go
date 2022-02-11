@@ -11,12 +11,12 @@ type FirewallPolicy_CustomAction struct {
 	// ActionDefinition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actiondefinition
-	ActionDefinition *FirewallPolicy_ActionDefinition `json:"ActionDefinition,omitempty"`
+	ActionDefinition *FirewallPolicy_ActionDefinition `json:"ActionDefinition"`
 
 	// ActionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actionname
-	ActionName string `json:"ActionName,omitempty"`
+	ActionName string `json:"ActionName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

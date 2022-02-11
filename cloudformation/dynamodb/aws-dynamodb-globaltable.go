@@ -15,32 +15,32 @@ type GlobalTable struct {
 	// AttributeDefinitions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-	AttributeDefinitions []GlobalTable_AttributeDefinition `json:"AttributeDefinitions,omitempty"`
+	AttributeDefinitions []GlobalTable_AttributeDefinition `json:"AttributeDefinitions"`
 
 	// BillingMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-	BillingMode string `json:"BillingMode,omitempty"`
+	BillingMode *string `json:"BillingMode,omitempty"`
 
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-	GlobalSecondaryIndexes []GlobalTable_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
+	GlobalSecondaryIndexes *[]GlobalTable_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-	KeySchema []GlobalTable_KeySchema `json:"KeySchema,omitempty"`
+	KeySchema []GlobalTable_KeySchema `json:"KeySchema"`
 
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-	LocalSecondaryIndexes []GlobalTable_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
+	LocalSecondaryIndexes *[]GlobalTable_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
 
 	// Replicas AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-	Replicas []GlobalTable_ReplicaSpecification `json:"Replicas,omitempty"`
+	Replicas []GlobalTable_ReplicaSpecification `json:"Replicas"`
 
 	// SSESpecification AWS CloudFormation Property
 	// Required: false
@@ -55,7 +55,7 @@ type GlobalTable struct {
 	// TableName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName *string `json:"TableName,omitempty"`
 
 	// TimeToLiveSpecification AWS CloudFormation Property
 	// Required: false

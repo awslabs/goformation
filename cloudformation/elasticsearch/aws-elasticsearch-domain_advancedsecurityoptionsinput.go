@@ -11,12 +11,12 @@ type Domain_AdvancedSecurityOptionsInput struct {
 	// Enabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-enabled
-	Enabled bool `json:"Enabled,omitempty"`
+	Enabled *bool `json:"Enabled,omitempty"`
 
 	// InternalUserDatabaseEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
-	InternalUserDatabaseEnabled bool `json:"InternalUserDatabaseEnabled,omitempty"`
+	InternalUserDatabaseEnabled *bool `json:"InternalUserDatabaseEnabled,omitempty"`
 
 	// MasterUserOptions AWS CloudFormation Property
 	// Required: false

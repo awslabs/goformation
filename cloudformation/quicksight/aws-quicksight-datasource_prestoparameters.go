@@ -11,12 +11,12 @@ type DataSource_PrestoParameters struct {
 	// Catalog AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
-	Catalog string `json:"Catalog,omitempty"`
+	Catalog string `json:"Catalog"`
 
 	// Host AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
-	Host string `json:"Host,omitempty"`
+	Host string `json:"Host"`
 
 	// Port AWS CloudFormation Property
 	// Required: true

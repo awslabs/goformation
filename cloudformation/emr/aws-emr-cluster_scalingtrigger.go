@@ -11,7 +11,7 @@ type Cluster_ScalingTrigger struct {
 	// CloudWatchAlarmDefinition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html#cfn-elasticmapreduce-cluster-scalingtrigger-cloudwatchalarmdefinition
-	CloudWatchAlarmDefinition *Cluster_CloudWatchAlarmDefinition `json:"CloudWatchAlarmDefinition,omitempty"`
+	CloudWatchAlarmDefinition *Cluster_CloudWatchAlarmDefinition `json:"CloudWatchAlarmDefinition"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type RecordingConfiguration_ThumbnailConfiguration struct {
 	// RecordingMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-recordingmode
-	RecordingMode string `json:"RecordingMode,omitempty"`
+	RecordingMode string `json:"RecordingMode"`
 
 	// TargetIntervalSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-targetintervalseconds
-	TargetIntervalSeconds int `json:"TargetIntervalSeconds,omitempty"`
+	TargetIntervalSeconds *int `json:"TargetIntervalSeconds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

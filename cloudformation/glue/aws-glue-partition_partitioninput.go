@@ -11,7 +11,7 @@ type Partition_PartitionInput struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
-	Parameters interface{} `json:"Parameters,omitempty"`
+	Parameters *interface{} `json:"Parameters,omitempty"`
 
 	// StorageDescriptor AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type Partition_PartitionInput struct {
 	// Values AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
-	Values []string `json:"Values,omitempty"`
+	Values []string `json:"Values"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

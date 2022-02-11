@@ -11,17 +11,17 @@ type Campaign_CampaignHook struct {
 	// LambdaFunctionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaignhook.html#cfn-pinpoint-campaign-campaignhook-lambdafunctionname
-	LambdaFunctionName string `json:"LambdaFunctionName,omitempty"`
+	LambdaFunctionName *string `json:"LambdaFunctionName,omitempty"`
 
 	// Mode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaignhook.html#cfn-pinpoint-campaign-campaignhook-mode
-	Mode string `json:"Mode,omitempty"`
+	Mode *string `json:"Mode,omitempty"`
 
 	// WebUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaignhook.html#cfn-pinpoint-campaign-campaignhook-weburl
-	WebUrl string `json:"WebUrl,omitempty"`
+	WebUrl *string `json:"WebUrl,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

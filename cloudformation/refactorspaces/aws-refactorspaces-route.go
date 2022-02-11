@@ -16,27 +16,27 @@ type Route struct {
 	// ApplicationIdentifier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-applicationidentifier
-	ApplicationIdentifier string `json:"ApplicationIdentifier,omitempty"`
+	ApplicationIdentifier string `json:"ApplicationIdentifier"`
 
 	// EnvironmentIdentifier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-environmentidentifier
-	EnvironmentIdentifier string `json:"EnvironmentIdentifier,omitempty"`
+	EnvironmentIdentifier string `json:"EnvironmentIdentifier"`
 
 	// RouteType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-routetype
-	RouteType string `json:"RouteType,omitempty"`
+	RouteType *string `json:"RouteType,omitempty"`
 
 	// ServiceIdentifier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-serviceidentifier
-	ServiceIdentifier string `json:"ServiceIdentifier,omitempty"`
+	ServiceIdentifier string `json:"ServiceIdentifier"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// UriPathRoute AWS CloudFormation Property
 	// Required: false

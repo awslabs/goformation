@@ -11,32 +11,32 @@ type Integration_FlowDefinition struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// FlowName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
-	FlowName string `json:"FlowName,omitempty"`
+	FlowName string `json:"FlowName"`
 
 	// KmsArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
-	KmsArn string `json:"KmsArn,omitempty"`
+	KmsArn string `json:"KmsArn"`
 
 	// SourceFlowConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
-	SourceFlowConfig *Integration_SourceFlowConfig `json:"SourceFlowConfig,omitempty"`
+	SourceFlowConfig *Integration_SourceFlowConfig `json:"SourceFlowConfig"`
 
 	// Tasks AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
-	Tasks []Integration_Task `json:"Tasks,omitempty"`
+	Tasks []Integration_Task `json:"Tasks"`
 
 	// TriggerConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
-	TriggerConfig *Integration_TriggerConfig `json:"TriggerConfig,omitempty"`
+	TriggerConfig *Integration_TriggerConfig `json:"TriggerConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

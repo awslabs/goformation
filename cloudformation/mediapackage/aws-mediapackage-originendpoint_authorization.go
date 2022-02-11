@@ -11,12 +11,12 @@ type OriginEndpoint_Authorization struct {
 	// CdnIdentifierSecret AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
-	CdnIdentifierSecret string `json:"CdnIdentifierSecret,omitempty"`
+	CdnIdentifierSecret string `json:"CdnIdentifierSecret"`
 
 	// SecretsRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
-	SecretsRoleArn string `json:"SecretsRoleArn,omitempty"`
+	SecretsRoleArn string `json:"SecretsRoleArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

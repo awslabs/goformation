@@ -16,17 +16,17 @@ type VirtualNode_ClientPolicyTls struct {
 	// Enforce AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-enforce
-	Enforce bool `json:"Enforce,omitempty"`
+	Enforce *bool `json:"Enforce,omitempty"`
 
 	// Ports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-ports
-	Ports []int `json:"Ports,omitempty"`
+	Ports *[]int `json:"Ports,omitempty"`
 
 	// Validation AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-validation
-	Validation *VirtualNode_TlsValidationContext `json:"Validation,omitempty"`
+	Validation *VirtualNode_TlsValidationContext `json:"Validation"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,17 +15,17 @@ type LoggingConfiguration struct {
 	// FirewallArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-	FirewallArn string `json:"FirewallArn,omitempty"`
+	FirewallArn string `json:"FirewallArn"`
 
 	// FirewallName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-	FirewallName string `json:"FirewallName,omitempty"`
+	FirewallName *string `json:"FirewallName,omitempty"`
 
 	// LoggingConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-	LoggingConfiguration *LoggingConfiguration_LoggingConfiguration `json:"LoggingConfiguration,omitempty"`
+	LoggingConfiguration *LoggingConfiguration_LoggingConfiguration `json:"LoggingConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

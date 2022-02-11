@@ -11,7 +11,7 @@ type ClientVpnEndpoint_ClientLoginBannerOptions struct {
 	// BannerText AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientloginbanneroptions.html#cfn-ec2-clientvpnendpoint-clientloginbanneroptions-bannertext
-	BannerText string `json:"BannerText,omitempty"`
+	BannerText *string `json:"BannerText,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true

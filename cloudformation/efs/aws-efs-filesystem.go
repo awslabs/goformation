@@ -15,7 +15,7 @@ type FileSystem struct {
 	// AvailabilityZoneName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-	AvailabilityZoneName string `json:"AvailabilityZoneName,omitempty"`
+	AvailabilityZoneName *string `json:"AvailabilityZoneName,omitempty"`
 
 	// BackupPolicy AWS CloudFormation Property
 	// Required: false
@@ -25,47 +25,47 @@ type FileSystem struct {
 	// BypassPolicyLockoutSafetyCheck AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
-	BypassPolicyLockoutSafetyCheck bool `json:"BypassPolicyLockoutSafetyCheck,omitempty"`
+	BypassPolicyLockoutSafetyCheck *bool `json:"BypassPolicyLockoutSafetyCheck,omitempty"`
 
 	// Encrypted AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-	Encrypted bool `json:"Encrypted,omitempty"`
+	Encrypted *bool `json:"Encrypted,omitempty"`
 
 	// FileSystemPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-	FileSystemPolicy interface{} `json:"FileSystemPolicy,omitempty"`
+	FileSystemPolicy *interface{} `json:"FileSystemPolicy,omitempty"`
 
 	// FileSystemTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-	FileSystemTags []FileSystem_ElasticFileSystemTag `json:"FileSystemTags,omitempty"`
+	FileSystemTags *[]FileSystem_ElasticFileSystemTag `json:"FileSystemTags,omitempty"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-	KmsKeyId string `json:"KmsKeyId,omitempty"`
+	KmsKeyId *string `json:"KmsKeyId,omitempty"`
 
 	// LifecyclePolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-	LifecyclePolicies []FileSystem_LifecyclePolicy `json:"LifecyclePolicies,omitempty"`
+	LifecyclePolicies *[]FileSystem_LifecyclePolicy `json:"LifecyclePolicies,omitempty"`
 
 	// PerformanceMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-	PerformanceMode string `json:"PerformanceMode,omitempty"`
+	PerformanceMode *string `json:"PerformanceMode,omitempty"`
 
 	// ProvisionedThroughputInMibps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-	ProvisionedThroughputInMibps float64 `json:"ProvisionedThroughputInMibps,omitempty"`
+	ProvisionedThroughputInMibps *float64 `json:"ProvisionedThroughputInMibps,omitempty"`
 
 	// ThroughputMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-	ThroughputMode string `json:"ThroughputMode,omitempty"`
+	ThroughputMode *string `json:"ThroughputMode,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

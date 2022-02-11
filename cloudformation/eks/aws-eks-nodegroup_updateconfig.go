@@ -11,12 +11,12 @@ type Nodegroup_UpdateConfig struct {
 	// MaxUnavailable AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailable
-	MaxUnavailable float64 `json:"MaxUnavailable,omitempty"`
+	MaxUnavailable *float64 `json:"MaxUnavailable,omitempty"`
 
 	// MaxUnavailablePercentage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailablepercentage
-	MaxUnavailablePercentage float64 `json:"MaxUnavailablePercentage,omitempty"`
+	MaxUnavailablePercentage *float64 `json:"MaxUnavailablePercentage,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,12 +15,12 @@ type DataCatalogEncryptionSettings struct {
 	// CatalogId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-catalogid
-	CatalogId string `json:"CatalogId,omitempty"`
+	CatalogId string `json:"CatalogId"`
 
 	// DataCatalogEncryptionSettings AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings
-	DataCatalogEncryptionSettings *DataCatalogEncryptionSettings_DataCatalogEncryptionSettings `json:"DataCatalogEncryptionSettings,omitempty"`
+	DataCatalogEncryptionSettings *DataCatalogEncryptionSettings_DataCatalogEncryptionSettings `json:"DataCatalogEncryptionSettings"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

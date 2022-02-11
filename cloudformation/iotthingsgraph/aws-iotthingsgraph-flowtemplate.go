@@ -15,12 +15,12 @@ type FlowTemplate struct {
 	// CompatibleNamespaceVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html#cfn-iotthingsgraph-flowtemplate-compatiblenamespaceversion
-	CompatibleNamespaceVersion float64 `json:"CompatibleNamespaceVersion,omitempty"`
+	CompatibleNamespaceVersion *float64 `json:"CompatibleNamespaceVersion,omitempty"`
 
 	// Definition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html#cfn-iotthingsgraph-flowtemplate-definition
-	Definition *FlowTemplate_DefinitionDocument `json:"Definition,omitempty"`
+	Definition *FlowTemplate_DefinitionDocument `json:"Definition"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

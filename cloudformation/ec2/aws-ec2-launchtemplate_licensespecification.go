@@ -11,7 +11,7 @@ type LaunchTemplate_LicenseSpecification struct {
 	// LicenseConfigurationArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html#cfn-ec2-launchtemplate-licensespecification-licenseconfigurationarn
-	LicenseConfigurationArn string `json:"LicenseConfigurationArn,omitempty"`
+	LicenseConfigurationArn *string `json:"LicenseConfigurationArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

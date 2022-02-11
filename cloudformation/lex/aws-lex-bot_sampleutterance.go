@@ -11,7 +11,7 @@ type Bot_SampleUtterance struct {
 	// Utterance AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html#cfn-lex-bot-sampleutterance-utterance
-	Utterance string `json:"Utterance,omitempty"`
+	Utterance string `json:"Utterance"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

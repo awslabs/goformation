@@ -16,17 +16,17 @@ type ResponseHeadersPolicy_CorsConfig struct {
 	// AccessControlAllowHeaders AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolallowheaders
-	AccessControlAllowHeaders *ResponseHeadersPolicy_AccessControlAllowHeaders `json:"AccessControlAllowHeaders,omitempty"`
+	AccessControlAllowHeaders *ResponseHeadersPolicy_AccessControlAllowHeaders `json:"AccessControlAllowHeaders"`
 
 	// AccessControlAllowMethods AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolallowmethods
-	AccessControlAllowMethods *ResponseHeadersPolicy_AccessControlAllowMethods `json:"AccessControlAllowMethods,omitempty"`
+	AccessControlAllowMethods *ResponseHeadersPolicy_AccessControlAllowMethods `json:"AccessControlAllowMethods"`
 
 	// AccessControlAllowOrigins AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolalloworigins
-	AccessControlAllowOrigins *ResponseHeadersPolicy_AccessControlAllowOrigins `json:"AccessControlAllowOrigins,omitempty"`
+	AccessControlAllowOrigins *ResponseHeadersPolicy_AccessControlAllowOrigins `json:"AccessControlAllowOrigins"`
 
 	// AccessControlExposeHeaders AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type ResponseHeadersPolicy_CorsConfig struct {
 	// AccessControlMaxAgeSec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolmaxagesec
-	AccessControlMaxAgeSec int `json:"AccessControlMaxAgeSec,omitempty"`
+	AccessControlMaxAgeSec *int `json:"AccessControlMaxAgeSec,omitempty"`
 
 	// OriginOverride AWS CloudFormation Property
 	// Required: true

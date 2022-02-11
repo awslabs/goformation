@@ -11,12 +11,12 @@ type Pipeline_ArtifactStoreMap struct {
 	// ArtifactStore AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-artifactstore
-	ArtifactStore *Pipeline_ArtifactStore `json:"ArtifactStore,omitempty"`
+	ArtifactStore *Pipeline_ArtifactStore `json:"ArtifactStore"`
 
 	// Region AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-region
-	Region string `json:"Region,omitempty"`
+	Region string `json:"Region"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

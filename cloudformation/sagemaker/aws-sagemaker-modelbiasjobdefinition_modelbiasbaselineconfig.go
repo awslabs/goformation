@@ -11,7 +11,7 @@ type ModelBiasJobDefinition_ModelBiasBaselineConfig struct {
 	// BaseliningJobName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
-	BaseliningJobName string `json:"BaseliningJobName,omitempty"`
+	BaseliningJobName *string `json:"BaseliningJobName,omitempty"`
 
 	// ConstraintsResource AWS CloudFormation Property
 	// Required: false

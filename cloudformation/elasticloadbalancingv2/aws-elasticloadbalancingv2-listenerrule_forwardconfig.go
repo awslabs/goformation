@@ -16,7 +16,7 @@ type ListenerRule_ForwardConfig struct {
 	// TargetGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
-	TargetGroups []ListenerRule_TargetGroupTuple `json:"TargetGroups,omitempty"`
+	TargetGroups *[]ListenerRule_TargetGroupTuple `json:"TargetGroups,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

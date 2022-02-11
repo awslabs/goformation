@@ -11,32 +11,32 @@ type Channel_InputSettings struct {
 	// AudioSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-audioselectors
-	AudioSelectors []Channel_AudioSelector `json:"AudioSelectors,omitempty"`
+	AudioSelectors *[]Channel_AudioSelector `json:"AudioSelectors,omitempty"`
 
 	// CaptionSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-captionselectors
-	CaptionSelectors []Channel_CaptionSelector `json:"CaptionSelectors,omitempty"`
+	CaptionSelectors *[]Channel_CaptionSelector `json:"CaptionSelectors,omitempty"`
 
 	// DeblockFilter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-deblockfilter
-	DeblockFilter string `json:"DeblockFilter,omitempty"`
+	DeblockFilter *string `json:"DeblockFilter,omitempty"`
 
 	// DenoiseFilter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-denoisefilter
-	DenoiseFilter string `json:"DenoiseFilter,omitempty"`
+	DenoiseFilter *string `json:"DenoiseFilter,omitempty"`
 
 	// FilterStrength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-filterstrength
-	FilterStrength int `json:"FilterStrength,omitempty"`
+	FilterStrength *int `json:"FilterStrength,omitempty"`
 
 	// InputFilter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-inputfilter
-	InputFilter string `json:"InputFilter,omitempty"`
+	InputFilter *string `json:"InputFilter,omitempty"`
 
 	// NetworkInputSettings AWS CloudFormation Property
 	// Required: false
@@ -46,17 +46,17 @@ type Channel_InputSettings struct {
 	// Scte35Pid AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-scte35pid
-	Scte35Pid int `json:"Scte35Pid,omitempty"`
+	Scte35Pid *int `json:"Scte35Pid,omitempty"`
 
 	// Smpte2038DataPreference AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-smpte2038datapreference
-	Smpte2038DataPreference string `json:"Smpte2038DataPreference,omitempty"`
+	Smpte2038DataPreference *string `json:"Smpte2038DataPreference,omitempty"`
 
 	// SourceEndBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-sourceendbehavior
-	SourceEndBehavior string `json:"SourceEndBehavior,omitempty"`
+	SourceEndBehavior *string `json:"SourceEndBehavior,omitempty"`
 
 	// VideoSelector AWS CloudFormation Property
 	// Required: false

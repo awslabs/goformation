@@ -15,32 +15,32 @@ type Environment struct {
 	// AirflowConfigurationOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
-	AirflowConfigurationOptions interface{} `json:"AirflowConfigurationOptions,omitempty"`
+	AirflowConfigurationOptions *interface{} `json:"AirflowConfigurationOptions,omitempty"`
 
 	// AirflowVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
-	AirflowVersion string `json:"AirflowVersion,omitempty"`
+	AirflowVersion *string `json:"AirflowVersion,omitempty"`
 
 	// DagS3Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
-	DagS3Path string `json:"DagS3Path,omitempty"`
+	DagS3Path *string `json:"DagS3Path,omitempty"`
 
 	// EnvironmentClass AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
-	EnvironmentClass string `json:"EnvironmentClass,omitempty"`
+	EnvironmentClass *string `json:"EnvironmentClass,omitempty"`
 
 	// ExecutionRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
-	ExecutionRoleArn string `json:"ExecutionRoleArn,omitempty"`
+	ExecutionRoleArn *string `json:"ExecutionRoleArn,omitempty"`
 
 	// KmsKey AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
-	KmsKey string `json:"KmsKey,omitempty"`
+	KmsKey *string `json:"KmsKey,omitempty"`
 
 	// LoggingConfiguration AWS CloudFormation Property
 	// Required: false
@@ -50,17 +50,17 @@ type Environment struct {
 	// MaxWorkers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
-	MaxWorkers int `json:"MaxWorkers,omitempty"`
+	MaxWorkers *int `json:"MaxWorkers,omitempty"`
 
 	// MinWorkers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
-	MinWorkers int `json:"MinWorkers,omitempty"`
+	MinWorkers *int `json:"MinWorkers,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
@@ -70,47 +70,47 @@ type Environment struct {
 	// PluginsS3ObjectVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
-	PluginsS3ObjectVersion string `json:"PluginsS3ObjectVersion,omitempty"`
+	PluginsS3ObjectVersion *string `json:"PluginsS3ObjectVersion,omitempty"`
 
 	// PluginsS3Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
-	PluginsS3Path string `json:"PluginsS3Path,omitempty"`
+	PluginsS3Path *string `json:"PluginsS3Path,omitempty"`
 
 	// RequirementsS3ObjectVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
-	RequirementsS3ObjectVersion string `json:"RequirementsS3ObjectVersion,omitempty"`
+	RequirementsS3ObjectVersion *string `json:"RequirementsS3ObjectVersion,omitempty"`
 
 	// RequirementsS3Path AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
-	RequirementsS3Path string `json:"RequirementsS3Path,omitempty"`
+	RequirementsS3Path *string `json:"RequirementsS3Path,omitempty"`
 
 	// Schedulers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
-	Schedulers int `json:"Schedulers,omitempty"`
+	Schedulers *int `json:"Schedulers,omitempty"`
 
 	// SourceBucketArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
-	SourceBucketArn string `json:"SourceBucketArn,omitempty"`
+	SourceBucketArn *string `json:"SourceBucketArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags *interface{} `json:"Tags,omitempty"`
 
 	// WebserverAccessMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
-	WebserverAccessMode string `json:"WebserverAccessMode,omitempty"`
+	WebserverAccessMode *string `json:"WebserverAccessMode,omitempty"`
 
 	// WeeklyMaintenanceWindowStart AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
-	WeeklyMaintenanceWindowStart string `json:"WeeklyMaintenanceWindowStart,omitempty"`
+	WeeklyMaintenanceWindowStart *string `json:"WeeklyMaintenanceWindowStart,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

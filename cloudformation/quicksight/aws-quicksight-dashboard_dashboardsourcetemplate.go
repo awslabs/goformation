@@ -11,12 +11,12 @@ type Dashboard_DashboardSourceTemplate struct {
 	// Arn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
-	Arn string `json:"Arn,omitempty"`
+	Arn string `json:"Arn"`
 
 	// DataSetReferences AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
-	DataSetReferences []Dashboard_DataSetReference `json:"DataSetReferences,omitempty"`
+	DataSetReferences []Dashboard_DataSetReference `json:"DataSetReferences"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

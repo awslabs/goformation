@@ -11,17 +11,17 @@ type ScalableTarget_SuspendedState struct {
 	// DynamicScalingInSuspended AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html#cfn-applicationautoscaling-scalabletarget-suspendedstate-dynamicscalinginsuspended
-	DynamicScalingInSuspended bool `json:"DynamicScalingInSuspended,omitempty"`
+	DynamicScalingInSuspended *bool `json:"DynamicScalingInSuspended,omitempty"`
 
 	// DynamicScalingOutSuspended AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html#cfn-applicationautoscaling-scalabletarget-suspendedstate-dynamicscalingoutsuspended
-	DynamicScalingOutSuspended bool `json:"DynamicScalingOutSuspended,omitempty"`
+	DynamicScalingOutSuspended *bool `json:"DynamicScalingOutSuspended,omitempty"`
 
 	// ScheduledScalingSuspended AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html#cfn-applicationautoscaling-scalabletarget-suspendedstate-scheduledscalingsuspended
-	ScheduledScalingSuspended bool `json:"ScheduledScalingSuspended,omitempty"`
+	ScheduledScalingSuspended *bool `json:"ScheduledScalingSuspended,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type DataSource_DeltaSyncConfig struct {
 	// BaseTableTTL AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-basetablettl
-	BaseTableTTL string `json:"BaseTableTTL,omitempty"`
+	BaseTableTTL string `json:"BaseTableTTL"`
 
 	// DeltaSyncTableName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-deltasynctablename
-	DeltaSyncTableName string `json:"DeltaSyncTableName,omitempty"`
+	DeltaSyncTableName string `json:"DeltaSyncTableName"`
 
 	// DeltaSyncTableTTL AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-deltasynctablettl
-	DeltaSyncTableTTL string `json:"DeltaSyncTableTTL,omitempty"`
+	DeltaSyncTableTTL string `json:"DeltaSyncTableTTL"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,12 +15,12 @@ type JobQueue struct {
 	// ComputeEnvironmentOrder AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-computeenvironmentorder
-	ComputeEnvironmentOrder []JobQueue_ComputeEnvironmentOrder `json:"ComputeEnvironmentOrder,omitempty"`
+	ComputeEnvironmentOrder []JobQueue_ComputeEnvironmentOrder `json:"ComputeEnvironmentOrder"`
 
 	// JobQueueName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename
-	JobQueueName string `json:"JobQueueName,omitempty"`
+	JobQueueName *string `json:"JobQueueName,omitempty"`
 
 	// Priority AWS CloudFormation Property
 	// Required: true
@@ -30,17 +30,17 @@ type JobQueue struct {
 	// SchedulingPolicyArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-schedulingpolicyarn
-	SchedulingPolicyArn string `json:"SchedulingPolicyArn,omitempty"`
+	SchedulingPolicyArn *string `json:"SchedulingPolicyArn,omitempty"`
 
 	// State AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state
-	State string `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-tags
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

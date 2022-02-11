@@ -11,12 +11,12 @@ type Bucket_AccessRules struct {
 	// AllowPublicOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-bucket-accessrules.html#cfn-lightsail-bucket-accessrules-allowpublicoverrides
-	AllowPublicOverrides bool `json:"AllowPublicOverrides,omitempty"`
+	AllowPublicOverrides *bool `json:"AllowPublicOverrides,omitempty"`
 
 	// GetObject AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-bucket-accessrules.html#cfn-lightsail-bucket-accessrules-getobject
-	GetObject string `json:"GetObject,omitempty"`
+	GetObject *string `json:"GetObject,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

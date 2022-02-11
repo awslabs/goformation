@@ -11,12 +11,12 @@ type RestApi_EndpointConfiguration struct {
 	// Types AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
-	Types []string `json:"Types,omitempty"`
+	Types *[]string `json:"Types,omitempty"`
 
 	// VpcEndpointIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
-	VpcEndpointIds []string `json:"VpcEndpointIds,omitempty"`
+	VpcEndpointIds *[]string `json:"VpcEndpointIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

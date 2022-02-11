@@ -11,12 +11,12 @@ type UserPool_CustomEmailSender struct {
 	// LambdaArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaarn
-	LambdaArn string `json:"LambdaArn,omitempty"`
+	LambdaArn *string `json:"LambdaArn,omitempty"`
 
 	// LambdaVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaversion
-	LambdaVersion string `json:"LambdaVersion,omitempty"`
+	LambdaVersion *string `json:"LambdaVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

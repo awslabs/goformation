@@ -11,7 +11,7 @@ type Cluster_EncryptionAtRest struct {
 	// DataVolumeKMSKeyId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionatrest.html#cfn-msk-cluster-encryptionatrest-datavolumekmskeyid
-	DataVolumeKMSKeyId string `json:"DataVolumeKMSKeyId,omitempty"`
+	DataVolumeKMSKeyId string `json:"DataVolumeKMSKeyId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

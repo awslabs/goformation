@@ -15,22 +15,22 @@ type AnomalyMonitor struct {
 	// MonitorDimension AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitordimension
-	MonitorDimension string `json:"MonitorDimension,omitempty"`
+	MonitorDimension *string `json:"MonitorDimension,omitempty"`
 
 	// MonitorName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorname
-	MonitorName string `json:"MonitorName,omitempty"`
+	MonitorName string `json:"MonitorName"`
 
 	// MonitorSpecification AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorspecification
-	MonitorSpecification string `json:"MonitorSpecification,omitempty"`
+	MonitorSpecification *string `json:"MonitorSpecification,omitempty"`
 
 	// MonitorType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitortype
-	MonitorType string `json:"MonitorType,omitempty"`
+	MonitorType string `json:"MonitorType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

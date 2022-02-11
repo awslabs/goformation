@@ -16,7 +16,7 @@ type GlobalTable_ReplicaGlobalSecondaryIndexSpecification struct {
 	// IndexName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-indexname
-	IndexName string `json:"IndexName,omitempty"`
+	IndexName string `json:"IndexName"`
 
 	// ReadProvisionedThroughputSettings AWS CloudFormation Property
 	// Required: false

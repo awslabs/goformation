@@ -15,12 +15,12 @@ type XssMatchSet struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// XssMatchTuples AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples
-	XssMatchTuples []XssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
+	XssMatchTuples *[]XssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Bot_Slot struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// MultipleValuesSetting AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type Bot_Slot struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ObfuscationSetting AWS CloudFormation Property
 	// Required: false
@@ -31,12 +31,12 @@ type Bot_Slot struct {
 	// SlotTypeName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-slottypename
-	SlotTypeName string `json:"SlotTypeName,omitempty"`
+	SlotTypeName string `json:"SlotTypeName"`
 
 	// ValueElicitationSetting AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-valueelicitationsetting
-	ValueElicitationSetting *Bot_SlotValueElicitationSetting `json:"ValueElicitationSetting,omitempty"`
+	ValueElicitationSetting *Bot_SlotValueElicitationSetting `json:"ValueElicitationSetting"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

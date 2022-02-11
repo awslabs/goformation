@@ -11,7 +11,7 @@ type Contact_ContactTargetInfo struct {
 	// ContactId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
-	ContactId string `json:"ContactId,omitempty"`
+	ContactId string `json:"ContactId"`
 
 	// IsEssential AWS CloudFormation Property
 	// Required: true

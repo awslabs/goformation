@@ -15,12 +15,12 @@ type ConfigurationAssociation struct {
 	// Broker AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-broker
-	Broker string `json:"Broker,omitempty"`
+	Broker string `json:"Broker"`
 
 	// Configuration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-configuration
-	Configuration *ConfigurationAssociation_ConfigurationId `json:"Configuration,omitempty"`
+	Configuration *ConfigurationAssociation_ConfigurationId `json:"Configuration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

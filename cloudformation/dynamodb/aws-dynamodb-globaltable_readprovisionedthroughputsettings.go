@@ -16,7 +16,7 @@ type GlobalTable_ReadProvisionedThroughputSettings struct {
 	// ReadCapacityUnits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
-	ReadCapacityUnits int `json:"ReadCapacityUnits,omitempty"`
+	ReadCapacityUnits *int `json:"ReadCapacityUnits,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

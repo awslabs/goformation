@@ -11,17 +11,17 @@ type Bot_IntentConfirmationSetting struct {
 	// DeclinationResponse AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-declinationresponse
-	DeclinationResponse *Bot_ResponseSpecification `json:"DeclinationResponse,omitempty"`
+	DeclinationResponse *Bot_ResponseSpecification `json:"DeclinationResponse"`
 
 	// IsActive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-isactive
-	IsActive bool `json:"IsActive,omitempty"`
+	IsActive *bool `json:"IsActive,omitempty"`
 
 	// PromptSpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-promptspecification
-	PromptSpecification *Bot_PromptSpecification `json:"PromptSpecification,omitempty"`
+	PromptSpecification *Bot_PromptSpecification `json:"PromptSpecification"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

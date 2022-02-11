@@ -21,7 +21,7 @@ type VirtualGateway_VirtualGatewayListener struct {
 	// PortMapping AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-portmapping
-	PortMapping *VirtualGateway_VirtualGatewayPortMapping `json:"PortMapping,omitempty"`
+	PortMapping *VirtualGateway_VirtualGatewayPortMapping `json:"PortMapping"`
 
 	// TLS AWS CloudFormation Property
 	// Required: false

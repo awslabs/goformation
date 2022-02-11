@@ -11,12 +11,12 @@ type Channel_AudioSilenceFailoverSettings struct {
 	// AudioSelectorName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html#cfn-medialive-channel-audiosilencefailoversettings-audioselectorname
-	AudioSelectorName string `json:"AudioSelectorName,omitempty"`
+	AudioSelectorName *string `json:"AudioSelectorName,omitempty"`
 
 	// AudioSilenceThresholdMsec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html#cfn-medialive-channel-audiosilencefailoversettings-audiosilencethresholdmsec
-	AudioSilenceThresholdMsec int `json:"AudioSilenceThresholdMsec,omitempty"`
+	AudioSilenceThresholdMsec *int `json:"AudioSilenceThresholdMsec,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,57 +11,57 @@ type Broker_LdapServerMetadata struct {
 	// Hosts AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-hosts
-	Hosts []string `json:"Hosts,omitempty"`
+	Hosts []string `json:"Hosts"`
 
 	// RoleBase AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolebase
-	RoleBase string `json:"RoleBase,omitempty"`
+	RoleBase string `json:"RoleBase"`
 
 	// RoleName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolename
-	RoleName string `json:"RoleName,omitempty"`
+	RoleName *string `json:"RoleName,omitempty"`
 
 	// RoleSearchMatching AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchmatching
-	RoleSearchMatching string `json:"RoleSearchMatching,omitempty"`
+	RoleSearchMatching string `json:"RoleSearchMatching"`
 
 	// RoleSearchSubtree AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchsubtree
-	RoleSearchSubtree bool `json:"RoleSearchSubtree,omitempty"`
+	RoleSearchSubtree *bool `json:"RoleSearchSubtree,omitempty"`
 
 	// ServiceAccountPassword AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword
-	ServiceAccountPassword string `json:"ServiceAccountPassword,omitempty"`
+	ServiceAccountPassword string `json:"ServiceAccountPassword"`
 
 	// ServiceAccountUsername AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountusername
-	ServiceAccountUsername string `json:"ServiceAccountUsername,omitempty"`
+	ServiceAccountUsername string `json:"ServiceAccountUsername"`
 
 	// UserBase AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userbase
-	UserBase string `json:"UserBase,omitempty"`
+	UserBase string `json:"UserBase"`
 
 	// UserRoleName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userrolename
-	UserRoleName string `json:"UserRoleName,omitempty"`
+	UserRoleName *string `json:"UserRoleName,omitempty"`
 
 	// UserSearchMatching AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchmatching
-	UserSearchMatching string `json:"UserSearchMatching,omitempty"`
+	UserSearchMatching string `json:"UserSearchMatching"`
 
 	// UserSearchSubtree AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchsubtree
-	UserSearchSubtree bool `json:"UserSearchSubtree,omitempty"`
+	UserSearchSubtree *bool `json:"UserSearchSubtree,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

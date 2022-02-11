@@ -16,17 +16,17 @@ type ModelQualityJobDefinition struct {
 	// JobDefinitionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-	JobDefinitionName string `json:"JobDefinitionName,omitempty"`
+	JobDefinitionName *string `json:"JobDefinitionName,omitempty"`
 
 	// JobResources AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-	JobResources *ModelQualityJobDefinition_MonitoringResources `json:"JobResources,omitempty"`
+	JobResources *ModelQualityJobDefinition_MonitoringResources `json:"JobResources"`
 
 	// ModelQualityAppSpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-	ModelQualityAppSpecification *ModelQualityJobDefinition_ModelQualityAppSpecification `json:"ModelQualityAppSpecification,omitempty"`
+	ModelQualityAppSpecification *ModelQualityJobDefinition_ModelQualityAppSpecification `json:"ModelQualityAppSpecification"`
 
 	// ModelQualityBaselineConfig AWS CloudFormation Property
 	// Required: false
@@ -36,12 +36,12 @@ type ModelQualityJobDefinition struct {
 	// ModelQualityJobInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-	ModelQualityJobInput *ModelQualityJobDefinition_ModelQualityJobInput `json:"ModelQualityJobInput,omitempty"`
+	ModelQualityJobInput *ModelQualityJobDefinition_ModelQualityJobInput `json:"ModelQualityJobInput"`
 
 	// ModelQualityJobOutputConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-	ModelQualityJobOutputConfig *ModelQualityJobDefinition_MonitoringOutputConfig `json:"ModelQualityJobOutputConfig,omitempty"`
+	ModelQualityJobOutputConfig *ModelQualityJobDefinition_MonitoringOutputConfig `json:"ModelQualityJobOutputConfig"`
 
 	// NetworkConfig AWS CloudFormation Property
 	// Required: false
@@ -51,7 +51,7 @@ type ModelQualityJobDefinition struct {
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// StoppingCondition AWS CloudFormation Property
 	// Required: false
@@ -61,7 +61,7 @@ type ModelQualityJobDefinition struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

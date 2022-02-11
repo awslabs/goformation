@@ -11,7 +11,7 @@ type ResourceDefinitionVersion_S3MachineLearningModelResourceData struct {
 	// DestinationPath AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-destinationpath
-	DestinationPath string `json:"DestinationPath,omitempty"`
+	DestinationPath string `json:"DestinationPath"`
 
 	// OwnerSetting AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type ResourceDefinitionVersion_S3MachineLearningModelResourceData struct {
 	// S3Uri AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-s3uri
-	S3Uri string `json:"S3Uri,omitempty"`
+	S3Uri string `json:"S3Uri"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Flow_PrefixConfig struct {
 	// PrefixFormat AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
-	PrefixFormat string `json:"PrefixFormat,omitempty"`
+	PrefixFormat *string `json:"PrefixFormat,omitempty"`
 
 	// PrefixType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
-	PrefixType string `json:"PrefixType,omitempty"`
+	PrefixType *string `json:"PrefixType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

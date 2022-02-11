@@ -11,7 +11,7 @@ type Account_ExpiryEventsConfiguration struct {
 	// DaysBeforeExpiry AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
-	DaysBeforeExpiry int `json:"DaysBeforeExpiry,omitempty"`
+	DaysBeforeExpiry *int `json:"DaysBeforeExpiry,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

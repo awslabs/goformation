@@ -11,17 +11,17 @@ type Campaign_CampaignInAppMessage struct {
 	// Content AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-content
-	Content []Campaign_InAppMessageContent `json:"Content,omitempty"`
+	Content *[]Campaign_InAppMessageContent `json:"Content,omitempty"`
 
 	// CustomConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-customconfig
-	CustomConfig interface{} `json:"CustomConfig,omitempty"`
+	CustomConfig *interface{} `json:"CustomConfig,omitempty"`
 
 	// Layout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-layout
-	Layout string `json:"Layout,omitempty"`
+	Layout *string `json:"Layout,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

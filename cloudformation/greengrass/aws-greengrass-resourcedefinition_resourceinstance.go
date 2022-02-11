@@ -11,17 +11,17 @@ type ResourceDefinition_ResourceInstance struct {
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ResourceDataContainer AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-resourcedatacontainer
-	ResourceDataContainer *ResourceDefinition_ResourceDataContainer `json:"ResourceDataContainer,omitempty"`
+	ResourceDataContainer *ResourceDefinition_ResourceDataContainer `json:"ResourceDataContainer"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

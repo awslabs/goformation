@@ -15,22 +15,22 @@ type VPCEndpointService struct {
 	// AcceptanceRequired AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
-	AcceptanceRequired bool `json:"AcceptanceRequired,omitempty"`
+	AcceptanceRequired *bool `json:"AcceptanceRequired,omitempty"`
 
 	// GatewayLoadBalancerArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
-	GatewayLoadBalancerArns []string `json:"GatewayLoadBalancerArns,omitempty"`
+	GatewayLoadBalancerArns *[]string `json:"GatewayLoadBalancerArns,omitempty"`
 
 	// NetworkLoadBalancerArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
-	NetworkLoadBalancerArns []string `json:"NetworkLoadBalancerArns,omitempty"`
+	NetworkLoadBalancerArns *[]string `json:"NetworkLoadBalancerArns,omitempty"`
 
 	// PayerResponsibility AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-payerresponsibility
-	PayerResponsibility string `json:"PayerResponsibility,omitempty"`
+	PayerResponsibility *string `json:"PayerResponsibility,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

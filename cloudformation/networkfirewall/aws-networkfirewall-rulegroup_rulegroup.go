@@ -16,7 +16,7 @@ type RuleGroup_RuleGroup struct {
 	// RulesSource AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulessource
-	RulesSource *RuleGroup_RulesSource `json:"RulesSource,omitempty"`
+	RulesSource *RuleGroup_RulesSource `json:"RulesSource"`
 
 	// StatefulRuleOptions AWS CloudFormation Property
 	// Required: false

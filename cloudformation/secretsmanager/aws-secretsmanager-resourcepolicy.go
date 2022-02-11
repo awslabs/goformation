@@ -15,17 +15,17 @@ type ResourcePolicy struct {
 	// BlockPublicPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
-	BlockPublicPolicy bool `json:"BlockPublicPolicy,omitempty"`
+	BlockPublicPolicy *bool `json:"BlockPublicPolicy,omitempty"`
 
 	// ResourcePolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
-	ResourcePolicy interface{} `json:"ResourcePolicy,omitempty"`
+	ResourcePolicy interface{} `json:"ResourcePolicy"`
 
 	// SecretId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid
-	SecretId string `json:"SecretId,omitempty"`
+	SecretId string `json:"SecretId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

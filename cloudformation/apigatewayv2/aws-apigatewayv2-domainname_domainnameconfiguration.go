@@ -11,27 +11,27 @@ type DomainName_DomainNameConfiguration struct {
 	// CertificateArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatearn
-	CertificateArn string `json:"CertificateArn,omitempty"`
+	CertificateArn *string `json:"CertificateArn,omitempty"`
 
 	// CertificateName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatename
-	CertificateName string `json:"CertificateName,omitempty"`
+	CertificateName *string `json:"CertificateName,omitempty"`
 
 	// EndpointType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype
-	EndpointType string `json:"EndpointType,omitempty"`
+	EndpointType *string `json:"EndpointType,omitempty"`
 
 	// OwnershipVerificationCertificateArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-ownershipverificationcertificatearn
-	OwnershipVerificationCertificateArn string `json:"OwnershipVerificationCertificateArn,omitempty"`
+	OwnershipVerificationCertificateArn *string `json:"OwnershipVerificationCertificateArn,omitempty"`
 
 	// SecurityPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy
-	SecurityPolicy string `json:"SecurityPolicy,omitempty"`
+	SecurityPolicy *string `json:"SecurityPolicy,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

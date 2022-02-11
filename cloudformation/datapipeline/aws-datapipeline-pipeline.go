@@ -15,37 +15,37 @@ type Pipeline struct {
 	// Activate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-activate
-	Activate bool `json:"Activate,omitempty"`
+	Activate *bool `json:"Activate,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ParameterObjects AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
-	ParameterObjects []Pipeline_ParameterObject `json:"ParameterObjects,omitempty"`
+	ParameterObjects []Pipeline_ParameterObject `json:"ParameterObjects"`
 
 	// ParameterValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
-	ParameterValues []Pipeline_ParameterValue `json:"ParameterValues,omitempty"`
+	ParameterValues *[]Pipeline_ParameterValue `json:"ParameterValues,omitempty"`
 
 	// PipelineObjects AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects
-	PipelineObjects []Pipeline_PipelineObject `json:"PipelineObjects,omitempty"`
+	PipelineObjects *[]Pipeline_PipelineObject `json:"PipelineObjects,omitempty"`
 
 	// PipelineTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags
-	PipelineTags []Pipeline_PipelineTag `json:"PipelineTags,omitempty"`
+	PipelineTags *[]Pipeline_PipelineTag `json:"PipelineTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

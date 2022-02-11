@@ -16,17 +16,17 @@ type Cluster struct {
 	// CapacityProviders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
-	CapacityProviders []string `json:"CapacityProviders,omitempty"`
+	CapacityProviders *[]string `json:"CapacityProviders,omitempty"`
 
 	// ClusterName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
-	ClusterName string `json:"ClusterName,omitempty"`
+	ClusterName *string `json:"ClusterName,omitempty"`
 
 	// ClusterSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
-	ClusterSettings []Cluster_ClusterSettings `json:"ClusterSettings,omitempty"`
+	ClusterSettings *[]Cluster_ClusterSettings `json:"ClusterSettings,omitempty"`
 
 	// Configuration AWS CloudFormation Property
 	// Required: false
@@ -36,12 +36,12 @@ type Cluster struct {
 	// DefaultCapacityProviderStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
-	DefaultCapacityProviderStrategy []Cluster_CapacityProviderStrategyItem `json:"DefaultCapacityProviderStrategy,omitempty"`
+	DefaultCapacityProviderStrategy *[]Cluster_CapacityProviderStrategyItem `json:"DefaultCapacityProviderStrategy,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type RuleGroup_JsonBody struct {
 	// InvalidFallbackBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
-	InvalidFallbackBehavior string `json:"InvalidFallbackBehavior,omitempty"`
+	InvalidFallbackBehavior *string `json:"InvalidFallbackBehavior,omitempty"`
 
 	// MatchPattern AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
-	MatchPattern *RuleGroup_JsonMatchPattern `json:"MatchPattern,omitempty"`
+	MatchPattern *RuleGroup_JsonMatchPattern `json:"MatchPattern"`
 
 	// MatchScope AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
-	MatchScope string `json:"MatchScope,omitempty"`
+	MatchScope string `json:"MatchScope"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

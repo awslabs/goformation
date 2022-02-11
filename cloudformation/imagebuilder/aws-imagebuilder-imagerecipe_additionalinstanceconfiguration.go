@@ -16,7 +16,7 @@ type ImageRecipe_AdditionalInstanceConfiguration struct {
 	// UserDataOverride AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
-	UserDataOverride string `json:"UserDataOverride,omitempty"`
+	UserDataOverride *string `json:"UserDataOverride,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

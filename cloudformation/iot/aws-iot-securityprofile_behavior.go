@@ -16,7 +16,7 @@ type SecurityProfile_Behavior struct {
 	// Metric AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
-	Metric string `json:"Metric,omitempty"`
+	Metric *string `json:"Metric,omitempty"`
 
 	// MetricDimension AWS CloudFormation Property
 	// Required: false
@@ -26,12 +26,12 @@ type SecurityProfile_Behavior struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// SuppressAlerts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
-	SuppressAlerts bool `json:"SuppressAlerts,omitempty"`
+	SuppressAlerts *bool `json:"SuppressAlerts,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type Model_ContainerDefinition struct {
 	// ContainerHostname AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname
-	ContainerHostname string `json:"ContainerHostname,omitempty"`
+	ContainerHostname *string `json:"ContainerHostname,omitempty"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-environment
-	Environment interface{} `json:"Environment,omitempty"`
+	Environment *interface{} `json:"Environment,omitempty"`
 
 	// Image AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image
-	Image string `json:"Image,omitempty"`
+	Image *string `json:"Image,omitempty"`
 
 	// ImageConfig AWS CloudFormation Property
 	// Required: false
@@ -31,22 +31,22 @@ type Model_ContainerDefinition struct {
 	// InferenceSpecificationName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-inferencespecificationname
-	InferenceSpecificationName string `json:"InferenceSpecificationName,omitempty"`
+	InferenceSpecificationName *string `json:"InferenceSpecificationName,omitempty"`
 
 	// Mode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
-	Mode string `json:"Mode,omitempty"`
+	Mode *string `json:"Mode,omitempty"`
 
 	// ModelDataUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl
-	ModelDataUrl string `json:"ModelDataUrl,omitempty"`
+	ModelDataUrl *string `json:"ModelDataUrl,omitempty"`
 
 	// ModelPackageName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modelpackagename
-	ModelPackageName string `json:"ModelPackageName,omitempty"`
+	ModelPackageName *string `json:"ModelPackageName,omitempty"`
 
 	// MultiModelConfig AWS CloudFormation Property
 	// Required: false

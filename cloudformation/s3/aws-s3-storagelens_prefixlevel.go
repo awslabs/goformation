@@ -11,7 +11,7 @@ type StorageLens_PrefixLevel struct {
 	// StorageMetrics AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
-	StorageMetrics *StorageLens_PrefixLevelStorageMetrics `json:"StorageMetrics,omitempty"`
+	StorageMetrics *StorageLens_PrefixLevelStorageMetrics `json:"StorageMetrics"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

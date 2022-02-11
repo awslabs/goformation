@@ -11,22 +11,22 @@ type Bot_ImageResponseCard struct {
 	// Buttons AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-buttons
-	Buttons []Bot_Button `json:"Buttons,omitempty"`
+	Buttons *[]Bot_Button `json:"Buttons,omitempty"`
 
 	// ImageUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-imageurl
-	ImageUrl string `json:"ImageUrl,omitempty"`
+	ImageUrl *string `json:"ImageUrl,omitempty"`
 
 	// Subtitle AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-subtitle
-	Subtitle string `json:"Subtitle,omitempty"`
+	Subtitle *string `json:"Subtitle,omitempty"`
 
 	// Title AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-title
-	Title string `json:"Title,omitempty"`
+	Title string `json:"Title"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

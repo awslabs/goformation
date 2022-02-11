@@ -11,12 +11,12 @@ type Budget_NotificationWithSubscribers struct {
 	// Notification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
-	Notification *Budget_Notification `json:"Notification,omitempty"`
+	Notification *Budget_Notification `json:"Notification"`
 
 	// Subscribers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
-	Subscribers []Budget_Subscriber `json:"Subscribers,omitempty"`
+	Subscribers []Budget_Subscriber `json:"Subscribers"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

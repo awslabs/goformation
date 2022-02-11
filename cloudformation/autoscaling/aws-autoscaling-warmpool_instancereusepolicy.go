@@ -11,7 +11,7 @@ type WarmPool_InstanceReusePolicy struct {
 	// ReuseOnScaleIn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-warmpool-instancereusepolicy.html#cfn-autoscaling-warmpool-instancereusepolicy-reuseonscalein
-	ReuseOnScaleIn bool `json:"ReuseOnScaleIn,omitempty"`
+	ReuseOnScaleIn *bool `json:"ReuseOnScaleIn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

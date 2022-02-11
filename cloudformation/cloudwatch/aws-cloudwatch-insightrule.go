@@ -15,17 +15,17 @@ type InsightRule struct {
 	// RuleBody AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulebody
-	RuleBody string `json:"RuleBody,omitempty"`
+	RuleBody string `json:"RuleBody"`
 
 	// RuleName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulename
-	RuleName string `json:"RuleName,omitempty"`
+	RuleName string `json:"RuleName"`
 
 	// RuleState AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulestate
-	RuleState string `json:"RuleState,omitempty"`
+	RuleState string `json:"RuleState"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

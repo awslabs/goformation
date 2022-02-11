@@ -15,27 +15,27 @@ type ContactChannel struct {
 	// ChannelAddress AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
-	ChannelAddress string `json:"ChannelAddress,omitempty"`
+	ChannelAddress string `json:"ChannelAddress"`
 
 	// ChannelName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
-	ChannelName string `json:"ChannelName,omitempty"`
+	ChannelName string `json:"ChannelName"`
 
 	// ChannelType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
-	ChannelType string `json:"ChannelType,omitempty"`
+	ChannelType string `json:"ChannelType"`
 
 	// ContactId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
-	ContactId string `json:"ContactId,omitempty"`
+	ContactId string `json:"ContactId"`
 
 	// DeferActivation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
-	DeferActivation bool `json:"DeferActivation,omitempty"`
+	DeferActivation *bool `json:"DeferActivation,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,7 +16,7 @@ type Instance_Networking struct {
 	// Ports AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-ports
-	Ports []Instance_Port `json:"Ports,omitempty"`
+	Ports []Instance_Port `json:"Ports"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

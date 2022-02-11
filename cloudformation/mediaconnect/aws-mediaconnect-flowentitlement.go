@@ -15,12 +15,12 @@ type FlowEntitlement struct {
 	// DataTransferSubscriberFeePercent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
-	DataTransferSubscriberFeePercent int `json:"DataTransferSubscriberFeePercent,omitempty"`
+	DataTransferSubscriberFeePercent *int `json:"DataTransferSubscriberFeePercent,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description
-	Description string `json:"Description,omitempty"`
+	Description string `json:"Description"`
 
 	// Encryption AWS CloudFormation Property
 	// Required: false
@@ -30,22 +30,22 @@ type FlowEntitlement struct {
 	// EntitlementStatus AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
-	EntitlementStatus string `json:"EntitlementStatus,omitempty"`
+	EntitlementStatus *string `json:"EntitlementStatus,omitempty"`
 
 	// FlowArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn
-	FlowArn string `json:"FlowArn,omitempty"`
+	FlowArn string `json:"FlowArn"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Subscribers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
-	Subscribers []string `json:"Subscribers,omitempty"`
+	Subscribers []string `json:"Subscribers"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

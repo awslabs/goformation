@@ -16,27 +16,27 @@ type BotAlias struct {
 	// BotAliasLocaleSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliaslocalesettings
-	BotAliasLocaleSettings []BotAlias_BotAliasLocaleSettingsItem `json:"BotAliasLocaleSettings,omitempty"`
+	BotAliasLocaleSettings *[]BotAlias_BotAliasLocaleSettingsItem `json:"BotAliasLocaleSettings,omitempty"`
 
 	// BotAliasName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliasname
-	BotAliasName string `json:"BotAliasName,omitempty"`
+	BotAliasName string `json:"BotAliasName"`
 
 	// BotAliasTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliastags
-	BotAliasTags []tags.Tag `json:"BotAliasTags,omitempty"`
+	BotAliasTags *[]tags.Tag `json:"BotAliasTags,omitempty"`
 
 	// BotId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botid
-	BotId string `json:"BotId,omitempty"`
+	BotId string `json:"BotId"`
 
 	// BotVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botversion
-	BotVersion string `json:"BotVersion,omitempty"`
+	BotVersion *string `json:"BotVersion,omitempty"`
 
 	// ConversationLogSettings AWS CloudFormation Property
 	// Required: false
@@ -46,12 +46,12 @@ type BotAlias struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// SentimentAnalysisSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-sentimentanalysissettings
-	SentimentAnalysisSettings interface{} `json:"SentimentAnalysisSettings,omitempty"`
+	SentimentAnalysisSettings *interface{} `json:"SentimentAnalysisSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

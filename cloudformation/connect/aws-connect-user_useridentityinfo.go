@@ -11,17 +11,17 @@ type User_UserIdentityInfo struct {
 	// Email AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-email
-	Email string `json:"Email,omitempty"`
+	Email *string `json:"Email,omitempty"`
 
 	// FirstName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-firstname
-	FirstName string `json:"FirstName,omitempty"`
+	FirstName *string `json:"FirstName,omitempty"`
 
 	// LastName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-lastname
-	LastName string `json:"LastName,omitempty"`
+	LastName *string `json:"LastName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

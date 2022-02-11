@@ -20,7 +20,7 @@ type GraphQLApi struct {
 	// AuthenticationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
-	AuthenticationType string `json:"AuthenticationType,omitempty"`
+	AuthenticationType string `json:"AuthenticationType"`
 
 	// LambdaAuthorizerConfig AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type GraphQLApi struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// OpenIDConnectConfig AWS CloudFormation Property
 	// Required: false
@@ -55,7 +55,7 @@ type GraphQLApi struct {
 	// XrayEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
-	XrayEnabled bool `json:"XrayEnabled,omitempty"`
+	XrayEnabled *bool `json:"XrayEnabled,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

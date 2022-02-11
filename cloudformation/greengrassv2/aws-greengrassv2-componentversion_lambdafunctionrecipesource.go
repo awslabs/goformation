@@ -11,7 +11,7 @@ type ComponentVersion_LambdaFunctionRecipeSource struct {
 	// ComponentDependencies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
-	ComponentDependencies map[string]ComponentVersion_ComponentDependencyRequirement `json:"ComponentDependencies,omitempty"`
+	ComponentDependencies *map[string]ComponentVersion_ComponentDependencyRequirement `json:"ComponentDependencies,omitempty"`
 
 	// ComponentLambdaParameters AWS CloudFormation Property
 	// Required: false
@@ -21,22 +21,22 @@ type ComponentVersion_LambdaFunctionRecipeSource struct {
 	// ComponentName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
-	ComponentName string `json:"ComponentName,omitempty"`
+	ComponentName *string `json:"ComponentName,omitempty"`
 
 	// ComponentPlatforms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
-	ComponentPlatforms []ComponentVersion_ComponentPlatform `json:"ComponentPlatforms,omitempty"`
+	ComponentPlatforms *[]ComponentVersion_ComponentPlatform `json:"ComponentPlatforms,omitempty"`
 
 	// ComponentVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
-	ComponentVersion string `json:"ComponentVersion,omitempty"`
+	ComponentVersion *string `json:"ComponentVersion,omitempty"`
 
 	// LambdaArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
-	LambdaArn string `json:"LambdaArn,omitempty"`
+	LambdaArn *string `json:"LambdaArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

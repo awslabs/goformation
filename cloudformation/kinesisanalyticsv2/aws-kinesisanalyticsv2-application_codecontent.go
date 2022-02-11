@@ -16,12 +16,12 @@ type Application_CodeContent struct {
 	// TextContent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-textcontent
-	TextContent string `json:"TextContent,omitempty"`
+	TextContent *string `json:"TextContent,omitempty"`
 
 	// ZipFileContent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-zipfilecontent
-	ZipFileContent string `json:"ZipFileContent,omitempty"`
+	ZipFileContent *string `json:"ZipFileContent,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

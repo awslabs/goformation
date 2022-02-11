@@ -11,7 +11,7 @@ type Route_TcpRoute struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action
-	Action *Route_TcpRouteAction `json:"Action,omitempty"`
+	Action *Route_TcpRouteAction `json:"Action"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false

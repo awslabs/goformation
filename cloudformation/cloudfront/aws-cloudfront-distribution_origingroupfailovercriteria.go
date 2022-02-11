@@ -11,7 +11,7 @@ type Distribution_OriginGroupFailoverCriteria struct {
 	// StatusCodes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
-	StatusCodes *Distribution_StatusCodes `json:"StatusCodes,omitempty"`
+	StatusCodes *Distribution_StatusCodes `json:"StatusCodes"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

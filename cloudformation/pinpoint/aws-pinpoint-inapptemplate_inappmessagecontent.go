@@ -11,7 +11,7 @@ type InAppTemplate_InAppMessageContent struct {
 	// BackgroundColor AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-backgroundcolor
-	BackgroundColor string `json:"BackgroundColor,omitempty"`
+	BackgroundColor *string `json:"BackgroundColor,omitempty"`
 
 	// BodyConfig AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type InAppTemplate_InAppMessageContent struct {
 	// ImageUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-imageurl
-	ImageUrl string `json:"ImageUrl,omitempty"`
+	ImageUrl *string `json:"ImageUrl,omitempty"`
 
 	// PrimaryBtn AWS CloudFormation Property
 	// Required: false

@@ -11,27 +11,27 @@ type CapacityProvider_ManagedScaling struct {
 	// InstanceWarmupPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
-	InstanceWarmupPeriod int `json:"InstanceWarmupPeriod,omitempty"`
+	InstanceWarmupPeriod *int `json:"InstanceWarmupPeriod,omitempty"`
 
 	// MaximumScalingStepSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
-	MaximumScalingStepSize int `json:"MaximumScalingStepSize,omitempty"`
+	MaximumScalingStepSize *int `json:"MaximumScalingStepSize,omitempty"`
 
 	// MinimumScalingStepSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
-	MinimumScalingStepSize int `json:"MinimumScalingStepSize,omitempty"`
+	MinimumScalingStepSize *int `json:"MinimumScalingStepSize,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
-	Status string `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 
 	// TargetCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
-	TargetCapacity int `json:"TargetCapacity,omitempty"`
+	TargetCapacity *int `json:"TargetCapacity,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

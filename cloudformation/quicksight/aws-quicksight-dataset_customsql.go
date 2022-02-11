@@ -11,22 +11,22 @@ type DataSet_CustomSql struct {
 	// Columns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
-	Columns []DataSet_InputColumn `json:"Columns,omitempty"`
+	Columns []DataSet_InputColumn `json:"Columns"`
 
 	// DataSourceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
-	DataSourceArn string `json:"DataSourceArn,omitempty"`
+	DataSourceArn string `json:"DataSourceArn"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// SqlQuery AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
-	SqlQuery string `json:"SqlQuery,omitempty"`
+	SqlQuery string `json:"SqlQuery"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

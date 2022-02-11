@@ -11,7 +11,7 @@ type Container_ContainerServiceDeployment struct {
 	// Containers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html#cfn-lightsail-container-containerservicedeployment-containers
-	Containers []Container_Container `json:"Containers,omitempty"`
+	Containers *[]Container_Container `json:"Containers,omitempty"`
 
 	// PublicEndpoint AWS CloudFormation Property
 	// Required: false

@@ -11,12 +11,12 @@ type WirelessDevice_AbpV10x struct {
 	// DevAddr AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
-	DevAddr string `json:"DevAddr,omitempty"`
+	DevAddr string `json:"DevAddr"`
 
 	// SessionKeys AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
-	SessionKeys *WirelessDevice_SessionKeysAbpV10x `json:"SessionKeys,omitempty"`
+	SessionKeys *WirelessDevice_SessionKeysAbpV10x `json:"SessionKeys"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,12 +15,12 @@ type ListenerCertificate struct {
 	// Certificates AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-certificates
-	Certificates []ListenerCertificate_Certificate `json:"Certificates,omitempty"`
+	Certificates []ListenerCertificate_Certificate `json:"Certificates"`
 
 	// ListenerArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-listenerarn
-	ListenerArn string `json:"ListenerArn,omitempty"`
+	ListenerArn string `json:"ListenerArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

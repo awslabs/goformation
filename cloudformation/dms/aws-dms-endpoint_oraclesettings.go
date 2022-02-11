@@ -11,22 +11,22 @@ type Endpoint_OracleSettings struct {
 	// SecretsManagerAccessRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-secretsmanageraccessrolearn
-	SecretsManagerAccessRoleArn string `json:"SecretsManagerAccessRoleArn,omitempty"`
+	SecretsManagerAccessRoleArn *string `json:"SecretsManagerAccessRoleArn,omitempty"`
 
 	// SecretsManagerOracleAsmAccessRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-secretsmanageroracleasmaccessrolearn
-	SecretsManagerOracleAsmAccessRoleArn string `json:"SecretsManagerOracleAsmAccessRoleArn,omitempty"`
+	SecretsManagerOracleAsmAccessRoleArn *string `json:"SecretsManagerOracleAsmAccessRoleArn,omitempty"`
 
 	// SecretsManagerOracleAsmSecretId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-secretsmanageroracleasmsecretid
-	SecretsManagerOracleAsmSecretId string `json:"SecretsManagerOracleAsmSecretId,omitempty"`
+	SecretsManagerOracleAsmSecretId *string `json:"SecretsManagerOracleAsmSecretId,omitempty"`
 
 	// SecretsManagerSecretId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-secretsmanagersecretid
-	SecretsManagerSecretId string `json:"SecretsManagerSecretId,omitempty"`
+	SecretsManagerSecretId *string `json:"SecretsManagerSecretId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

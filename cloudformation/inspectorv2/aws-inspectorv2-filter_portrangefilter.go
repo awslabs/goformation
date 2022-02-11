@@ -11,12 +11,12 @@ type Filter_PortRangeFilter struct {
 	// BeginInclusive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-begininclusive
-	BeginInclusive int `json:"BeginInclusive,omitempty"`
+	BeginInclusive *int `json:"BeginInclusive,omitempty"`
 
 	// EndInclusive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-endinclusive
-	EndInclusive int `json:"EndInclusive,omitempty"`
+	EndInclusive *int `json:"EndInclusive,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

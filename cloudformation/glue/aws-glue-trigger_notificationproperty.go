@@ -11,7 +11,7 @@ type Trigger_NotificationProperty struct {
 	// NotifyDelayAfter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
-	NotifyDelayAfter int `json:"NotifyDelayAfter,omitempty"`
+	NotifyDelayAfter *int `json:"NotifyDelayAfter,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

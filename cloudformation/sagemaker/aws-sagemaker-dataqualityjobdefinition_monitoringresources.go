@@ -11,7 +11,7 @@ type DataQualityJobDefinition_MonitoringResources struct {
 	// ClusterConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
-	ClusterConfig *DataQualityJobDefinition_ClusterConfig `json:"ClusterConfig,omitempty"`
+	ClusterConfig *DataQualityJobDefinition_ClusterConfig `json:"ClusterConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

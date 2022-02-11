@@ -11,12 +11,12 @@ type DataSource_MySqlParameters struct {
 	// Database AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
-	Database string `json:"Database,omitempty"`
+	Database string `json:"Database"`
 
 	// Host AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
-	Host string `json:"Host,omitempty"`
+	Host string `json:"Host"`
 
 	// Port AWS CloudFormation Property
 	// Required: true

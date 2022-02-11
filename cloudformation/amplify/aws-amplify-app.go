@@ -16,7 +16,7 @@ type App struct {
 	// AccessToken AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-	AccessToken string `json:"AccessToken,omitempty"`
+	AccessToken *string `json:"AccessToken,omitempty"`
 
 	// AutoBranchCreationConfig AWS CloudFormation Property
 	// Required: false
@@ -31,57 +31,57 @@ type App struct {
 	// BuildSpec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-	BuildSpec string `json:"BuildSpec,omitempty"`
+	BuildSpec *string `json:"BuildSpec,omitempty"`
 
 	// CustomHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-	CustomHeaders string `json:"CustomHeaders,omitempty"`
+	CustomHeaders *string `json:"CustomHeaders,omitempty"`
 
 	// CustomRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-	CustomRules []App_CustomRule `json:"CustomRules,omitempty"`
+	CustomRules *[]App_CustomRule `json:"CustomRules,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// EnableBranchAutoDeletion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-	EnableBranchAutoDeletion bool `json:"EnableBranchAutoDeletion,omitempty"`
+	EnableBranchAutoDeletion *bool `json:"EnableBranchAutoDeletion,omitempty"`
 
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-	EnvironmentVariables []App_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
+	EnvironmentVariables *[]App_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
 
 	// IAMServiceRole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-	IAMServiceRole string `json:"IAMServiceRole,omitempty"`
+	IAMServiceRole *string `json:"IAMServiceRole,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// OauthToken AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-	OauthToken string `json:"OauthToken,omitempty"`
+	OauthToken *string `json:"OauthToken,omitempty"`
 
 	// Repository AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-	Repository string `json:"Repository,omitempty"`
+	Repository *string `json:"Repository,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

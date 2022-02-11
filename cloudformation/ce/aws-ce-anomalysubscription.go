@@ -15,22 +15,22 @@ type AnomalySubscription struct {
 	// Frequency AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-frequency
-	Frequency string `json:"Frequency,omitempty"`
+	Frequency string `json:"Frequency"`
 
 	// MonitorArnList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-monitorarnlist
-	MonitorArnList []string `json:"MonitorArnList,omitempty"`
+	MonitorArnList []string `json:"MonitorArnList"`
 
 	// Subscribers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-subscribers
-	Subscribers []AnomalySubscription_Subscriber `json:"Subscribers,omitempty"`
+	Subscribers []AnomalySubscription_Subscriber `json:"Subscribers"`
 
 	// SubscriptionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-subscriptionname
-	SubscriptionName string `json:"SubscriptionName,omitempty"`
+	SubscriptionName string `json:"SubscriptionName"`
 
 	// Threshold AWS CloudFormation Property
 	// Required: true

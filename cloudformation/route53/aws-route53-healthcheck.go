@@ -15,12 +15,12 @@ type HealthCheck struct {
 	// HealthCheckConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-	HealthCheckConfig interface{} `json:"HealthCheckConfig,omitempty"`
+	HealthCheckConfig interface{} `json:"HealthCheckConfig"`
 
 	// HealthCheckTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-	HealthCheckTags []HealthCheck_HealthCheckTag `json:"HealthCheckTags,omitempty"`
+	HealthCheckTags *[]HealthCheck_HealthCheckTag `json:"HealthCheckTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

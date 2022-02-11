@@ -15,12 +15,12 @@ type Identity struct {
 	// DkimSigningEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-dkimsigningenabled
-	DkimSigningEnabled bool `json:"DkimSigningEnabled,omitempty"`
+	DkimSigningEnabled *bool `json:"DkimSigningEnabled,omitempty"`
 
 	// FeedbackForwardingEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-feedbackforwardingenabled
-	FeedbackForwardingEnabled bool `json:"FeedbackForwardingEnabled,omitempty"`
+	FeedbackForwardingEnabled *bool `json:"FeedbackForwardingEnabled,omitempty"`
 
 	// MailFromAttributes AWS CloudFormation Property
 	// Required: false
@@ -30,12 +30,12 @@ type Identity struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-tags
-	Tags []Identity_Tags `json:"Tags,omitempty"`
+	Tags *[]Identity_Tags `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Route_GrpcRetryPolicy struct {
 	// GrpcRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-grpcretryevents
-	GrpcRetryEvents []string `json:"GrpcRetryEvents,omitempty"`
+	GrpcRetryEvents *[]string `json:"GrpcRetryEvents,omitempty"`
 
 	// HttpRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-httpretryevents
-	HttpRetryEvents []string `json:"HttpRetryEvents,omitempty"`
+	HttpRetryEvents *[]string `json:"HttpRetryEvents,omitempty"`
 
 	// MaxRetries AWS CloudFormation Property
 	// Required: true
@@ -26,12 +26,12 @@ type Route_GrpcRetryPolicy struct {
 	// PerRetryTimeout AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-perretrytimeout
-	PerRetryTimeout *Route_Duration `json:"PerRetryTimeout,omitempty"`
+	PerRetryTimeout *Route_Duration `json:"PerRetryTimeout"`
 
 	// TcpRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-tcpretryevents
-	TcpRetryEvents []string `json:"TcpRetryEvents,omitempty"`
+	TcpRetryEvents *[]string `json:"TcpRetryEvents,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,22 +16,22 @@ type Gateway struct {
 	// GatewayCapabilitySummaries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
-	GatewayCapabilitySummaries []Gateway_GatewayCapabilitySummary `json:"GatewayCapabilitySummaries,omitempty"`
+	GatewayCapabilitySummaries *[]Gateway_GatewayCapabilitySummary `json:"GatewayCapabilitySummaries,omitempty"`
 
 	// GatewayName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
-	GatewayName string `json:"GatewayName,omitempty"`
+	GatewayName string `json:"GatewayName"`
 
 	// GatewayPlatform AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
-	GatewayPlatform *Gateway_GatewayPlatform `json:"GatewayPlatform,omitempty"`
+	GatewayPlatform *Gateway_GatewayPlatform `json:"GatewayPlatform"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

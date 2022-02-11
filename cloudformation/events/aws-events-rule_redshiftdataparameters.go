@@ -11,32 +11,32 @@ type Rule_RedshiftDataParameters struct {
 	// Database AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
-	Database string `json:"Database,omitempty"`
+	Database string `json:"Database"`
 
 	// DbUser AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-dbuser
-	DbUser string `json:"DbUser,omitempty"`
+	DbUser *string `json:"DbUser,omitempty"`
 
 	// SecretManagerArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
-	SecretManagerArn string `json:"SecretManagerArn,omitempty"`
+	SecretManagerArn *string `json:"SecretManagerArn,omitempty"`
 
 	// Sql AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
-	Sql string `json:"Sql,omitempty"`
+	Sql string `json:"Sql"`
 
 	// StatementName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-statementname
-	StatementName string `json:"StatementName,omitempty"`
+	StatementName *string `json:"StatementName,omitempty"`
 
 	// WithEvent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-withevent
-	WithEvent bool `json:"WithEvent,omitempty"`
+	WithEvent *bool `json:"WithEvent,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Channel_NielsenNaesIiNw struct {
 	// CheckDigitString AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-checkdigitstring
-	CheckDigitString string `json:"CheckDigitString,omitempty"`
+	CheckDigitString *string `json:"CheckDigitString,omitempty"`
 
 	// Sid AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-sid
-	Sid float64 `json:"Sid,omitempty"`
+	Sid *float64 `json:"Sid,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

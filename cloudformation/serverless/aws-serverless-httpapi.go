@@ -35,7 +35,7 @@ type HttpApi struct {
 	// DefinitionBody AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesshttpapi
-	DefinitionBody interface{} `json:"DefinitionBody,omitempty"`
+	DefinitionBody *interface{} `json:"DefinitionBody,omitempty"`
 
 	// DefinitionUri AWS CloudFormation Property
 	// Required: false
@@ -45,12 +45,12 @@ type HttpApi struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesshttpapi
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// DisableExecuteApiEndpoint AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-httpapi.html#sam-httpapi-disableexecuteapiendpoint
-	DisableExecuteApiEndpoint bool `json:"DisableExecuteApiEndpoint,omitempty"`
+	DisableExecuteApiEndpoint *bool `json:"DisableExecuteApiEndpoint,omitempty"`
 
 	// Domain AWS CloudFormation Property
 	// Required: false
@@ -60,7 +60,7 @@ type HttpApi struct {
 	// FailOnWarnings AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesshttpapi
-	FailOnWarnings bool `json:"FailOnWarnings,omitempty"`
+	FailOnWarnings *bool `json:"FailOnWarnings,omitempty"`
 
 	// RouteSettings AWS CloudFormation Property
 	// Required: false
@@ -70,17 +70,17 @@ type HttpApi struct {
 	// StageName AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesshttpapi
-	StageName string `json:"StageName,omitempty"`
+	StageName *string `json:"StageName,omitempty"`
 
 	// StageVariables AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesshttpapi
-	StageVariables map[string]string `json:"StageVariables,omitempty"`
+	StageVariables *map[string]string `json:"StageVariables,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesshttpapi
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

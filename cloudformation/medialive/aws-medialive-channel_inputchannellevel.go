@@ -11,12 +11,12 @@ type Channel_InputChannelLevel struct {
 	// Gain AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-gain
-	Gain int `json:"Gain,omitempty"`
+	Gain *int `json:"Gain,omitempty"`
 
 	// InputChannel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-inputchannel
-	InputChannel int `json:"InputChannel,omitempty"`
+	InputChannel *int `json:"InputChannel,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

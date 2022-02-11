@@ -11,47 +11,47 @@ type Certificate_KeyUsage struct {
 	// CRLSign AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
-	CRLSign bool `json:"CRLSign,omitempty"`
+	CRLSign *bool `json:"CRLSign,omitempty"`
 
 	// DataEncipherment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
-	DataEncipherment bool `json:"DataEncipherment,omitempty"`
+	DataEncipherment *bool `json:"DataEncipherment,omitempty"`
 
 	// DecipherOnly AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
-	DecipherOnly bool `json:"DecipherOnly,omitempty"`
+	DecipherOnly *bool `json:"DecipherOnly,omitempty"`
 
 	// DigitalSignature AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
-	DigitalSignature bool `json:"DigitalSignature,omitempty"`
+	DigitalSignature *bool `json:"DigitalSignature,omitempty"`
 
 	// EncipherOnly AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
-	EncipherOnly bool `json:"EncipherOnly,omitempty"`
+	EncipherOnly *bool `json:"EncipherOnly,omitempty"`
 
 	// KeyAgreement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
-	KeyAgreement bool `json:"KeyAgreement,omitempty"`
+	KeyAgreement *bool `json:"KeyAgreement,omitempty"`
 
 	// KeyCertSign AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
-	KeyCertSign bool `json:"KeyCertSign,omitempty"`
+	KeyCertSign *bool `json:"KeyCertSign,omitempty"`
 
 	// KeyEncipherment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
-	KeyEncipherment bool `json:"KeyEncipherment,omitempty"`
+	KeyEncipherment *bool `json:"KeyEncipherment,omitempty"`
 
 	// NonRepudiation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
-	NonRepudiation bool `json:"NonRepudiation,omitempty"`
+	NonRepudiation *bool `json:"NonRepudiation,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

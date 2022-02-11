@@ -20,37 +20,37 @@ type GitHubRepository struct {
 	// ConnectionArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
-	ConnectionArn string `json:"ConnectionArn,omitempty"`
+	ConnectionArn *string `json:"ConnectionArn,omitempty"`
 
 	// EnableIssues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
-	EnableIssues bool `json:"EnableIssues,omitempty"`
+	EnableIssues *bool `json:"EnableIssues,omitempty"`
 
 	// IsPrivate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-isprivate
-	IsPrivate bool `json:"IsPrivate,omitempty"`
+	IsPrivate *bool `json:"IsPrivate,omitempty"`
 
 	// RepositoryAccessToken AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
-	RepositoryAccessToken string `json:"RepositoryAccessToken,omitempty"`
+	RepositoryAccessToken *string `json:"RepositoryAccessToken,omitempty"`
 
 	// RepositoryDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositorydescription
-	RepositoryDescription string `json:"RepositoryDescription,omitempty"`
+	RepositoryDescription *string `json:"RepositoryDescription,omitempty"`
 
 	// RepositoryName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryname
-	RepositoryName string `json:"RepositoryName,omitempty"`
+	RepositoryName string `json:"RepositoryName"`
 
 	// RepositoryOwner AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryowner
-	RepositoryOwner string `json:"RepositoryOwner,omitempty"`
+	RepositoryOwner string `json:"RepositoryOwner"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

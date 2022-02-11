@@ -11,7 +11,7 @@ type KnowledgeBase_RenderingConfiguration struct {
 	// TemplateUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html#cfn-wisdom-knowledgebase-renderingconfiguration-templateuri
-	TemplateUri string `json:"TemplateUri,omitempty"`
+	TemplateUri *string `json:"TemplateUri,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

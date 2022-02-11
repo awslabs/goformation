@@ -21,17 +21,17 @@ type Fleet struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// DisconnectTimeoutInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-disconnecttimeoutinseconds
-	DisconnectTimeoutInSeconds int `json:"DisconnectTimeoutInSeconds,omitempty"`
+	DisconnectTimeoutInSeconds *int `json:"DisconnectTimeoutInSeconds,omitempty"`
 
 	// DisplayName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-displayname
-	DisplayName string `json:"DisplayName,omitempty"`
+	DisplayName *string `json:"DisplayName,omitempty"`
 
 	// DomainJoinInfo AWS CloudFormation Property
 	// Required: false
@@ -41,72 +41,72 @@ type Fleet struct {
 	// EnableDefaultInternetAccess AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-enabledefaultinternetaccess
-	EnableDefaultInternetAccess bool `json:"EnableDefaultInternetAccess,omitempty"`
+	EnableDefaultInternetAccess *bool `json:"EnableDefaultInternetAccess,omitempty"`
 
 	// FleetType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
-	FleetType string `json:"FleetType,omitempty"`
+	FleetType *string `json:"FleetType,omitempty"`
 
 	// IamRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
-	IamRoleArn string `json:"IamRoleArn,omitempty"`
+	IamRoleArn *string `json:"IamRoleArn,omitempty"`
 
 	// IdleDisconnectTimeoutInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
-	IdleDisconnectTimeoutInSeconds int `json:"IdleDisconnectTimeoutInSeconds,omitempty"`
+	IdleDisconnectTimeoutInSeconds *int `json:"IdleDisconnectTimeoutInSeconds,omitempty"`
 
 	// ImageArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
-	ImageArn string `json:"ImageArn,omitempty"`
+	ImageArn *string `json:"ImageArn,omitempty"`
 
 	// ImageName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagename
-	ImageName string `json:"ImageName,omitempty"`
+	ImageName *string `json:"ImageName,omitempty"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-instancetype
-	InstanceType string `json:"InstanceType,omitempty"`
+	InstanceType string `json:"InstanceType"`
 
 	// MaxConcurrentSessions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxconcurrentsessions
-	MaxConcurrentSessions int `json:"MaxConcurrentSessions,omitempty"`
+	MaxConcurrentSessions *int `json:"MaxConcurrentSessions,omitempty"`
 
 	// MaxUserDurationInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxuserdurationinseconds
-	MaxUserDurationInSeconds int `json:"MaxUserDurationInSeconds,omitempty"`
+	MaxUserDurationInSeconds *int `json:"MaxUserDurationInSeconds,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Platform AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-platform
-	Platform string `json:"Platform,omitempty"`
+	Platform *string `json:"Platform,omitempty"`
 
 	// StreamView AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
-	StreamView string `json:"StreamView,omitempty"`
+	StreamView *string `json:"StreamView,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// UsbDeviceFilterStrings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-usbdevicefilterstrings
-	UsbDeviceFilterStrings []string `json:"UsbDeviceFilterStrings,omitempty"`
+	UsbDeviceFilterStrings *[]string `json:"UsbDeviceFilterStrings,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false

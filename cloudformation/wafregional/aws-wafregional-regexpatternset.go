@@ -15,12 +15,12 @@ type RegexPatternSet struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html#cfn-wafregional-regexpatternset-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RegexPatternStrings AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html#cfn-wafregional-regexpatternset-regexpatternstrings
-	RegexPatternStrings []string `json:"RegexPatternStrings,omitempty"`
+	RegexPatternStrings []string `json:"RegexPatternStrings"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

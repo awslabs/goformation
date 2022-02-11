@@ -31,7 +31,7 @@ type Component_ActionParameters struct {
 	// Model AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-model
-	Model string `json:"Model,omitempty"`
+	Model *string `json:"Model,omitempty"`
 
 	// State AWS CloudFormation Property
 	// Required: false

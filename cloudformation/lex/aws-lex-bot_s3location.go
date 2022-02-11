@@ -11,17 +11,17 @@ type Bot_S3Location struct {
 	// S3Bucket AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html#cfn-lex-bot-s3location-s3bucket
-	S3Bucket string `json:"S3Bucket,omitempty"`
+	S3Bucket string `json:"S3Bucket"`
 
 	// S3ObjectKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html#cfn-lex-bot-s3location-s3objectkey
-	S3ObjectKey string `json:"S3ObjectKey,omitempty"`
+	S3ObjectKey string `json:"S3ObjectKey"`
 
 	// S3ObjectVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html#cfn-lex-bot-s3location-s3objectversion
-	S3ObjectVersion string `json:"S3ObjectVersion,omitempty"`
+	S3ObjectVersion *string `json:"S3ObjectVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

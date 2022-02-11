@@ -11,27 +11,27 @@ type DataSet_UploadSettings struct {
 	// ContainsHeader AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
-	ContainsHeader bool `json:"ContainsHeader,omitempty"`
+	ContainsHeader *bool `json:"ContainsHeader,omitempty"`
 
 	// Delimiter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
-	Delimiter string `json:"Delimiter,omitempty"`
+	Delimiter *string `json:"Delimiter,omitempty"`
 
 	// Format AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
-	Format string `json:"Format,omitempty"`
+	Format *string `json:"Format,omitempty"`
 
 	// StartFromRow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
-	StartFromRow float64 `json:"StartFromRow,omitempty"`
+	StartFromRow *float64 `json:"StartFromRow,omitempty"`
 
 	// TextQualifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
-	TextQualifier string `json:"TextQualifier,omitempty"`
+	TextQualifier *string `json:"TextQualifier,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

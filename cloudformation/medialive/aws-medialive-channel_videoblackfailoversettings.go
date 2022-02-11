@@ -11,12 +11,12 @@ type Channel_VideoBlackFailoverSettings struct {
 	// BlackDetectThreshold AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoblackfailoversettings.html#cfn-medialive-channel-videoblackfailoversettings-blackdetectthreshold
-	BlackDetectThreshold float64 `json:"BlackDetectThreshold,omitempty"`
+	BlackDetectThreshold *float64 `json:"BlackDetectThreshold,omitempty"`
 
 	// VideoBlackThresholdMsec AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoblackfailoversettings.html#cfn-medialive-channel-videoblackfailoversettings-videoblackthresholdmsec
-	VideoBlackThresholdMsec int `json:"VideoBlackThresholdMsec,omitempty"`
+	VideoBlackThresholdMsec *int `json:"VideoBlackThresholdMsec,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

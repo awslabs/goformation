@@ -11,7 +11,7 @@ type Bucket_OwnershipControlsRule struct {
 	// ObjectOwnership AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
-	ObjectOwnership string `json:"ObjectOwnership,omitempty"`
+	ObjectOwnership *string `json:"ObjectOwnership,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

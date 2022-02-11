@@ -15,42 +15,42 @@ type Connector struct {
 	// Capacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-capacity
-	Capacity *Connector_Capacity `json:"Capacity,omitempty"`
+	Capacity *Connector_Capacity `json:"Capacity"`
 
 	// ConnectorConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorconfiguration
-	ConnectorConfiguration map[string]string `json:"ConnectorConfiguration,omitempty"`
+	ConnectorConfiguration map[string]string `json:"ConnectorConfiguration"`
 
 	// ConnectorDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectordescription
-	ConnectorDescription string `json:"ConnectorDescription,omitempty"`
+	ConnectorDescription *string `json:"ConnectorDescription,omitempty"`
 
 	// ConnectorName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorname
-	ConnectorName string `json:"ConnectorName,omitempty"`
+	ConnectorName string `json:"ConnectorName"`
 
 	// KafkaCluster AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkacluster
-	KafkaCluster *Connector_KafkaCluster `json:"KafkaCluster,omitempty"`
+	KafkaCluster *Connector_KafkaCluster `json:"KafkaCluster"`
 
 	// KafkaClusterClientAuthentication AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication
-	KafkaClusterClientAuthentication *Connector_KafkaClusterClientAuthentication `json:"KafkaClusterClientAuthentication,omitempty"`
+	KafkaClusterClientAuthentication *Connector_KafkaClusterClientAuthentication `json:"KafkaClusterClientAuthentication"`
 
 	// KafkaClusterEncryptionInTransit AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit
-	KafkaClusterEncryptionInTransit *Connector_KafkaClusterEncryptionInTransit `json:"KafkaClusterEncryptionInTransit,omitempty"`
+	KafkaClusterEncryptionInTransit *Connector_KafkaClusterEncryptionInTransit `json:"KafkaClusterEncryptionInTransit"`
 
 	// KafkaConnectVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaconnectversion
-	KafkaConnectVersion string `json:"KafkaConnectVersion,omitempty"`
+	KafkaConnectVersion string `json:"KafkaConnectVersion"`
 
 	// LogDelivery AWS CloudFormation Property
 	// Required: false
@@ -60,12 +60,12 @@ type Connector struct {
 	// Plugins AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-plugins
-	Plugins []Connector_Plugin `json:"Plugins,omitempty"`
+	Plugins []Connector_Plugin `json:"Plugins"`
 
 	// ServiceExecutionRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-serviceexecutionrolearn
-	ServiceExecutionRoleArn string `json:"ServiceExecutionRoleArn,omitempty"`
+	ServiceExecutionRoleArn string `json:"ServiceExecutionRoleArn"`
 
 	// WorkerConfiguration AWS CloudFormation Property
 	// Required: false

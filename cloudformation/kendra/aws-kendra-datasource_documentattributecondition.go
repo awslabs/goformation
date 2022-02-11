@@ -11,7 +11,7 @@ type DataSource_DocumentAttributeCondition struct {
 	// ConditionDocumentAttributeKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-conditiondocumentattributekey
-	ConditionDocumentAttributeKey string `json:"ConditionDocumentAttributeKey,omitempty"`
+	ConditionDocumentAttributeKey string `json:"ConditionDocumentAttributeKey"`
 
 	// ConditionOnValue AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type DataSource_DocumentAttributeCondition struct {
 	// Operator AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-operator
-	Operator string `json:"Operator,omitempty"`
+	Operator string `json:"Operator"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type DeliveryStream_OpenXJsonSerDe struct {
 	// CaseInsensitive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive
-	CaseInsensitive bool `json:"CaseInsensitive,omitempty"`
+	CaseInsensitive *bool `json:"CaseInsensitive,omitempty"`
 
 	// ColumnToJsonKeyMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings
-	ColumnToJsonKeyMappings map[string]string `json:"ColumnToJsonKeyMappings,omitempty"`
+	ColumnToJsonKeyMappings *map[string]string `json:"ColumnToJsonKeyMappings,omitempty"`
 
 	// ConvertDotsInJsonKeysToUnderscores AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores
-	ConvertDotsInJsonKeysToUnderscores bool `json:"ConvertDotsInJsonKeysToUnderscores,omitempty"`
+	ConvertDotsInJsonKeysToUnderscores *bool `json:"ConvertDotsInJsonKeysToUnderscores,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

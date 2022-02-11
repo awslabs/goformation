@@ -11,22 +11,22 @@ type Channel_EmbeddedSourceSettings struct {
 	// Convert608To708 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedsourcesettings.html#cfn-medialive-channel-embeddedsourcesettings-convert608to708
-	Convert608To708 string `json:"Convert608To708,omitempty"`
+	Convert608To708 *string `json:"Convert608To708,omitempty"`
 
 	// Scte20Detection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedsourcesettings.html#cfn-medialive-channel-embeddedsourcesettings-scte20detection
-	Scte20Detection string `json:"Scte20Detection,omitempty"`
+	Scte20Detection *string `json:"Scte20Detection,omitempty"`
 
 	// Source608ChannelNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedsourcesettings.html#cfn-medialive-channel-embeddedsourcesettings-source608channelnumber
-	Source608ChannelNumber int `json:"Source608ChannelNumber,omitempty"`
+	Source608ChannelNumber *int `json:"Source608ChannelNumber,omitempty"`
 
 	// Source608TrackNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedsourcesettings.html#cfn-medialive-channel-embeddedsourcesettings-source608tracknumber
-	Source608TrackNumber int `json:"Source608TrackNumber,omitempty"`
+	Source608TrackNumber *int `json:"Source608TrackNumber,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

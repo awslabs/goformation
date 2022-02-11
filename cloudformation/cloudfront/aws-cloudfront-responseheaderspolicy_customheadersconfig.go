@@ -11,7 +11,7 @@ type ResponseHeadersPolicy_CustomHeadersConfig struct {
 	// Items AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html#cfn-cloudfront-responseheaderspolicy-customheadersconfig-items
-	Items []ResponseHeadersPolicy_CustomHeader `json:"Items,omitempty"`
+	Items []ResponseHeadersPolicy_CustomHeader `json:"Items"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

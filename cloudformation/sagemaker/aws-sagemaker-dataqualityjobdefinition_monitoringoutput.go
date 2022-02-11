@@ -11,7 +11,7 @@ type DataQualityJobDefinition_MonitoringOutput struct {
 	// S3Output AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
-	S3Output *DataQualityJobDefinition_S3Output `json:"S3Output,omitempty"`
+	S3Output *DataQualityJobDefinition_S3Output `json:"S3Output"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

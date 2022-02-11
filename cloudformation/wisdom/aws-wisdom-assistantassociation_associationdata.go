@@ -11,7 +11,7 @@ type AssistantAssociation_AssociationData struct {
 	// KnowledgeBaseId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html#cfn-wisdom-assistantassociation-associationdata-knowledgebaseid
-	KnowledgeBaseId string `json:"KnowledgeBaseId,omitempty"`
+	KnowledgeBaseId string `json:"KnowledgeBaseId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

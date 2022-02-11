@@ -15,12 +15,12 @@ type StateMachine struct {
 	// Definition AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Definition interface{} `json:"Definition,omitempty"`
+	Definition *interface{} `json:"Definition,omitempty"`
 
 	// DefinitionSubstitutions AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	DefinitionSubstitutions map[string]string `json:"DefinitionSubstitutions,omitempty"`
+	DefinitionSubstitutions *map[string]string `json:"DefinitionSubstitutions,omitempty"`
 
 	// DefinitionUri AWS CloudFormation Property
 	// Required: false
@@ -30,7 +30,7 @@ type StateMachine struct {
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Events map[string]StateMachine_EventSource `json:"Events,omitempty"`
+	Events *map[string]StateMachine_EventSource `json:"Events,omitempty"`
 
 	// Logging AWS CloudFormation Property
 	// Required: false
@@ -40,12 +40,12 @@ type StateMachine struct {
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// PermissionsBoundaries AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-permissionsboundary
-	PermissionsBoundaries string `json:"PermissionsBoundaries,omitempty"`
+	PermissionsBoundaries *string `json:"PermissionsBoundaries,omitempty"`
 
 	// Policies AWS CloudFormation Property
 	// Required: false
@@ -55,12 +55,12 @@ type StateMachine struct {
 	// Role AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Role string `json:"Role,omitempty"`
+	Role *string `json:"Role,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// Tracing AWS CloudFormation Property
 	// Required: false
@@ -70,7 +70,7 @@ type StateMachine struct {
 	// Type AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Type string `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

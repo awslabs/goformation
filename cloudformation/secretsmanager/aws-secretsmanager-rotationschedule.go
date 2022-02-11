@@ -20,12 +20,12 @@ type RotationSchedule struct {
 	// RotateImmediatelyOnUpdate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotateimmediatelyonupdate
-	RotateImmediatelyOnUpdate bool `json:"RotateImmediatelyOnUpdate,omitempty"`
+	RotateImmediatelyOnUpdate *bool `json:"RotateImmediatelyOnUpdate,omitempty"`
 
 	// RotationLambdaARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
-	RotationLambdaARN string `json:"RotationLambdaARN,omitempty"`
+	RotationLambdaARN *string `json:"RotationLambdaARN,omitempty"`
 
 	// RotationRules AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type RotationSchedule struct {
 	// SecretId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-secretid
-	SecretId string `json:"SecretId,omitempty"`
+	SecretId string `json:"SecretId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

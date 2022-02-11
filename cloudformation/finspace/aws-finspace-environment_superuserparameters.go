@@ -11,17 +11,17 @@ type Environment_SuperuserParameters struct {
 	// EmailAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-emailaddress
-	EmailAddress string `json:"EmailAddress,omitempty"`
+	EmailAddress *string `json:"EmailAddress,omitempty"`
 
 	// FirstName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-firstname
-	FirstName string `json:"FirstName,omitempty"`
+	FirstName *string `json:"FirstName,omitempty"`
 
 	// LastName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-lastname
-	LastName string `json:"LastName,omitempty"`
+	LastName *string `json:"LastName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

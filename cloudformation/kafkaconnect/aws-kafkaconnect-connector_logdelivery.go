@@ -11,7 +11,7 @@ type Connector_LogDelivery struct {
 	// WorkerLogDelivery AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html#cfn-kafkaconnect-connector-logdelivery-workerlogdelivery
-	WorkerLogDelivery *Connector_WorkerLogDelivery `json:"WorkerLogDelivery,omitempty"`
+	WorkerLogDelivery *Connector_WorkerLogDelivery `json:"WorkerLogDelivery"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

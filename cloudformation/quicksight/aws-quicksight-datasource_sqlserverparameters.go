@@ -11,12 +11,12 @@ type DataSource_SqlServerParameters struct {
 	// Database AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
-	Database string `json:"Database,omitempty"`
+	Database string `json:"Database"`
 
 	// Host AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
-	Host string `json:"Host,omitempty"`
+	Host string `json:"Host"`
 
 	// Port AWS CloudFormation Property
 	// Required: true

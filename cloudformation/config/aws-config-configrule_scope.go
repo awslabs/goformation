@@ -11,22 +11,22 @@ type ConfigRule_Scope struct {
 	// ComplianceResourceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
-	ComplianceResourceId string `json:"ComplianceResourceId,omitempty"`
+	ComplianceResourceId *string `json:"ComplianceResourceId,omitempty"`
 
 	// ComplianceResourceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
-	ComplianceResourceTypes []string `json:"ComplianceResourceTypes,omitempty"`
+	ComplianceResourceTypes *[]string `json:"ComplianceResourceTypes,omitempty"`
 
 	// TagKey AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
-	TagKey string `json:"TagKey,omitempty"`
+	TagKey *string `json:"TagKey,omitempty"`
 
 	// TagValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
-	TagValue string `json:"TagValue,omitempty"`
+	TagValue *string `json:"TagValue,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Cluster_OpenMonitoring struct {
 	// Prometheus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html#cfn-msk-cluster-openmonitoring-prometheus
-	Prometheus *Cluster_Prometheus `json:"Prometheus,omitempty"`
+	Prometheus *Cluster_Prometheus `json:"Prometheus"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

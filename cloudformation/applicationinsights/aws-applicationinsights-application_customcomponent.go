@@ -11,12 +11,12 @@ type Application_CustomComponent struct {
 	// ComponentName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
-	ComponentName string `json:"ComponentName,omitempty"`
+	ComponentName string `json:"ComponentName"`
 
 	// ResourceList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
-	ResourceList []string `json:"ResourceList,omitempty"`
+	ResourceList []string `json:"ResourceList"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

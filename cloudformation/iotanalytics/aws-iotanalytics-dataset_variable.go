@@ -16,7 +16,7 @@ type Dataset_Variable struct {
 	// DoubleValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-doublevalue
-	DoubleValue float64 `json:"DoubleValue,omitempty"`
+	DoubleValue *float64 `json:"DoubleValue,omitempty"`
 
 	// OutputFileUriValue AWS CloudFormation Property
 	// Required: false
@@ -26,12 +26,12 @@ type Dataset_Variable struct {
 	// StringValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-stringvalue
-	StringValue string `json:"StringValue,omitempty"`
+	StringValue *string `json:"StringValue,omitempty"`
 
 	// VariableName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-variablename
-	VariableName string `json:"VariableName,omitempty"`
+	VariableName string `json:"VariableName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

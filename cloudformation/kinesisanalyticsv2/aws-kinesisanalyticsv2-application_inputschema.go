@@ -11,17 +11,17 @@ type Application_InputSchema struct {
 	// RecordColumns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordcolumns
-	RecordColumns []Application_RecordColumn `json:"RecordColumns,omitempty"`
+	RecordColumns []Application_RecordColumn `json:"RecordColumns"`
 
 	// RecordEncoding AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordencoding
-	RecordEncoding string `json:"RecordEncoding,omitempty"`
+	RecordEncoding *string `json:"RecordEncoding,omitempty"`
 
 	// RecordFormat AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordformat
-	RecordFormat *Application_RecordFormat `json:"RecordFormat,omitempty"`
+	RecordFormat *Application_RecordFormat `json:"RecordFormat"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type VirtualGateway_SubjectAlternativeNames struct {
 	// Match AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenames.html#cfn-appmesh-virtualgateway-subjectalternativenames-match
-	Match *VirtualGateway_SubjectAlternativeNameMatchers `json:"Match,omitempty"`
+	Match *VirtualGateway_SubjectAlternativeNameMatchers `json:"Match"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

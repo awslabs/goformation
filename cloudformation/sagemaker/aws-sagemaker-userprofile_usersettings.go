@@ -11,7 +11,7 @@ type UserProfile_UserSettings struct {
 	// ExecutionRole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
-	ExecutionRole string `json:"ExecutionRole,omitempty"`
+	ExecutionRole *string `json:"ExecutionRole,omitempty"`
 
 	// JupyterServerAppSettings AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type UserProfile_UserSettings struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
-	SecurityGroups []string `json:"SecurityGroups,omitempty"`
+	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
 
 	// SharingSettings AWS CloudFormation Property
 	// Required: false

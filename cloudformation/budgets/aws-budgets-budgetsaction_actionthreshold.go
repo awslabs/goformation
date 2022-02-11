@@ -11,7 +11,7 @@ type BudgetsAction_ActionThreshold struct {
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// Value AWS CloudFormation Property
 	// Required: true

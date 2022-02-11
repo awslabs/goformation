@@ -16,7 +16,7 @@ type Endpoint_DeploymentConfig struct {
 	// BlueGreenUpdatePolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-bluegreenupdatepolicy
-	BlueGreenUpdatePolicy *Endpoint_BlueGreenUpdatePolicy `json:"BlueGreenUpdatePolicy,omitempty"`
+	BlueGreenUpdatePolicy *Endpoint_BlueGreenUpdatePolicy `json:"BlueGreenUpdatePolicy"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

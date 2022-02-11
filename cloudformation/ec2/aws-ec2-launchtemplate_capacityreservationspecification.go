@@ -11,7 +11,7 @@ type LaunchTemplate_CapacityReservationSpecification struct {
 	// CapacityReservationPreference AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationpreference
-	CapacityReservationPreference string `json:"CapacityReservationPreference,omitempty"`
+	CapacityReservationPreference *string `json:"CapacityReservationPreference,omitempty"`
 
 	// CapacityReservationTarget AWS CloudFormation Property
 	// Required: false

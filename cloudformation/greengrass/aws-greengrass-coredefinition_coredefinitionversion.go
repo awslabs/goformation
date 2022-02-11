@@ -11,7 +11,7 @@ type CoreDefinition_CoreDefinitionVersion struct {
 	// Cores AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html#cfn-greengrass-coredefinition-coredefinitionversion-cores
-	Cores []CoreDefinition_Core `json:"Cores,omitempty"`
+	Cores []CoreDefinition_Core `json:"Cores"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

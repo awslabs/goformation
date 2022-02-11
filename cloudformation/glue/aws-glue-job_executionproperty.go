@@ -11,7 +11,7 @@ type Job_ExecutionProperty struct {
 	// MaxConcurrentRuns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
-	MaxConcurrentRuns float64 `json:"MaxConcurrentRuns,omitempty"`
+	MaxConcurrentRuns *float64 `json:"MaxConcurrentRuns,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

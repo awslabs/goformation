@@ -16,17 +16,17 @@ type ResourceDataSync_SyncSource struct {
 	// IncludeFutureRegions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
-	IncludeFutureRegions bool `json:"IncludeFutureRegions,omitempty"`
+	IncludeFutureRegions *bool `json:"IncludeFutureRegions,omitempty"`
 
 	// SourceRegions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
-	SourceRegions []string `json:"SourceRegions,omitempty"`
+	SourceRegions []string `json:"SourceRegions"`
 
 	// SourceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
-	SourceType string `json:"SourceType,omitempty"`
+	SourceType string `json:"SourceType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

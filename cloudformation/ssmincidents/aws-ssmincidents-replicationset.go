@@ -15,12 +15,12 @@ type ReplicationSet struct {
 	// DeletionProtected AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
-	DeletionProtected bool `json:"DeletionProtected,omitempty"`
+	DeletionProtected *bool `json:"DeletionProtected,omitempty"`
 
 	// Regions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
-	Regions []ReplicationSet_ReplicationRegion `json:"Regions,omitempty"`
+	Regions []ReplicationSet_ReplicationRegion `json:"Regions"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

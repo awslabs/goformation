@@ -11,12 +11,12 @@ type TopicRule_IotSiteWiseAction struct {
 	// PutAssetPropertyValueEntries AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
-	PutAssetPropertyValueEntries []TopicRule_PutAssetPropertyValueEntry `json:"PutAssetPropertyValueEntries,omitempty"`
+	PutAssetPropertyValueEntries []TopicRule_PutAssetPropertyValueEntry `json:"PutAssetPropertyValueEntries"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

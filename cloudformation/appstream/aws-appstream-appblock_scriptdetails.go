@@ -11,17 +11,17 @@ type AppBlock_ScriptDetails struct {
 	// ExecutableParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executableparameters
-	ExecutableParameters string `json:"ExecutableParameters,omitempty"`
+	ExecutableParameters *string `json:"ExecutableParameters,omitempty"`
 
 	// ExecutablePath AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executablepath
-	ExecutablePath string `json:"ExecutablePath,omitempty"`
+	ExecutablePath string `json:"ExecutablePath"`
 
 	// ScriptS3Location AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-scripts3location
-	ScriptS3Location *AppBlock_S3Location `json:"ScriptS3Location,omitempty"`
+	ScriptS3Location *AppBlock_S3Location `json:"ScriptS3Location"`
 
 	// TimeoutInSeconds AWS CloudFormation Property
 	// Required: true

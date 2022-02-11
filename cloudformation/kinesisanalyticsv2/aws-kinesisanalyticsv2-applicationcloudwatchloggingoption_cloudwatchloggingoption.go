@@ -11,7 +11,7 @@ type ApplicationCloudWatchLoggingOption_CloudWatchLoggingOption struct {
 	// LogStreamARN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption-logstreamarn
-	LogStreamARN string `json:"LogStreamARN,omitempty"`
+	LogStreamARN string `json:"LogStreamARN"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

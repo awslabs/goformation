@@ -11,7 +11,7 @@ type GlobalTable_TimeToLiveSpecification struct {
 	// AttributeName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename
-	AttributeName string `json:"AttributeName,omitempty"`
+	AttributeName *string `json:"AttributeName,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true

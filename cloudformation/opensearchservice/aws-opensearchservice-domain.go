@@ -16,12 +16,12 @@ type Domain struct {
 	// AccessPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-accesspolicies
-	AccessPolicies interface{} `json:"AccessPolicies,omitempty"`
+	AccessPolicies *interface{} `json:"AccessPolicies,omitempty"`
 
 	// AdvancedOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-advancedoptions
-	AdvancedOptions map[string]string `json:"AdvancedOptions,omitempty"`
+	AdvancedOptions *map[string]string `json:"AdvancedOptions,omitempty"`
 
 	// AdvancedSecurityOptions AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type Domain struct {
 	// DomainName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-domainname
-	DomainName string `json:"DomainName,omitempty"`
+	DomainName *string `json:"DomainName,omitempty"`
 
 	// EBSOptions AWS CloudFormation Property
 	// Required: false
@@ -61,12 +61,12 @@ type Domain struct {
 	// EngineVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-engineversion
-	EngineVersion string `json:"EngineVersion,omitempty"`
+	EngineVersion *string `json:"EngineVersion,omitempty"`
 
 	// LogPublishingOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-logpublishingoptions
-	LogPublishingOptions map[string]Domain_LogPublishingOption `json:"LogPublishingOptions,omitempty"`
+	LogPublishingOptions *map[string]Domain_LogPublishingOption `json:"LogPublishingOptions,omitempty"`
 
 	// NodeToNodeEncryptionOptions AWS CloudFormation Property
 	// Required: false
@@ -81,7 +81,7 @@ type Domain struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// VPCOptions AWS CloudFormation Property
 	// Required: false

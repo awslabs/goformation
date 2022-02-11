@@ -11,12 +11,12 @@ type Distribution_HeaderObject struct {
 	// HeadersAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html#cfn-lightsail-distribution-headerobject-headersallowlist
-	HeadersAllowList []string `json:"HeadersAllowList,omitempty"`
+	HeadersAllowList *[]string `json:"HeadersAllowList,omitempty"`
 
 	// Option AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html#cfn-lightsail-distribution-headerobject-option
-	Option string `json:"Option,omitempty"`
+	Option *string `json:"Option,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

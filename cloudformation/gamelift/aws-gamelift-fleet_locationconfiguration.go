@@ -11,7 +11,7 @@ type Fleet_LocationConfiguration struct {
 	// Location AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
-	Location string `json:"Location,omitempty"`
+	Location string `json:"Location"`
 
 	// LocationCapacity AWS CloudFormation Property
 	// Required: false

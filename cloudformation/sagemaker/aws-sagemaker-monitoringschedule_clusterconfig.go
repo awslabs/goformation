@@ -16,12 +16,12 @@ type MonitoringSchedule_ClusterConfig struct {
 	// InstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
-	InstanceType string `json:"InstanceType,omitempty"`
+	InstanceType string `json:"InstanceType"`
 
 	// VolumeKmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
-	VolumeKmsKeyId string `json:"VolumeKmsKeyId,omitempty"`
+	VolumeKmsKeyId *string `json:"VolumeKmsKeyId,omitempty"`
 
 	// VolumeSizeInGB AWS CloudFormation Property
 	// Required: true

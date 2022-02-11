@@ -11,62 +11,62 @@ type SamplingRule_SamplingRuleUpdate struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
-	Attributes map[string]string `json:"Attributes,omitempty"`
+	Attributes *map[string]string `json:"Attributes,omitempty"`
 
 	// FixedRate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
-	FixedRate float64 `json:"FixedRate,omitempty"`
+	FixedRate *float64 `json:"FixedRate,omitempty"`
 
 	// HTTPMethod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
-	HTTPMethod string `json:"HTTPMethod,omitempty"`
+	HTTPMethod *string `json:"HTTPMethod,omitempty"`
 
 	// Host AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
-	Host string `json:"Host,omitempty"`
+	Host *string `json:"Host,omitempty"`
 
 	// Priority AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
-	Priority int `json:"Priority,omitempty"`
+	Priority *int `json:"Priority,omitempty"`
 
 	// ReservoirSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
-	ReservoirSize int `json:"ReservoirSize,omitempty"`
+	ReservoirSize *int `json:"ReservoirSize,omitempty"`
 
 	// ResourceARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
-	ResourceARN string `json:"ResourceARN,omitempty"`
+	ResourceARN *string `json:"ResourceARN,omitempty"`
 
 	// RuleARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
-	RuleARN string `json:"RuleARN,omitempty"`
+	RuleARN *string `json:"RuleARN,omitempty"`
 
 	// RuleName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
-	RuleName string `json:"RuleName,omitempty"`
+	RuleName *string `json:"RuleName,omitempty"`
 
 	// ServiceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
-	ServiceName string `json:"ServiceName,omitempty"`
+	ServiceName *string `json:"ServiceName,omitempty"`
 
 	// ServiceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
-	ServiceType string `json:"ServiceType,omitempty"`
+	ServiceType *string `json:"ServiceType,omitempty"`
 
 	// URLPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
-	URLPath string `json:"URLPath,omitempty"`
+	URLPath *string `json:"URLPath,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

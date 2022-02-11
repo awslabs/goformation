@@ -16,27 +16,27 @@ type ReportPlan struct {
 	// ReportDeliveryChannel AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportdeliverychannel
-	ReportDeliveryChannel interface{} `json:"ReportDeliveryChannel,omitempty"`
+	ReportDeliveryChannel interface{} `json:"ReportDeliveryChannel"`
 
 	// ReportPlanDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportplandescription
-	ReportPlanDescription string `json:"ReportPlanDescription,omitempty"`
+	ReportPlanDescription *string `json:"ReportPlanDescription,omitempty"`
 
 	// ReportPlanName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportplanname
-	ReportPlanName string `json:"ReportPlanName,omitempty"`
+	ReportPlanName *string `json:"ReportPlanName,omitempty"`
 
 	// ReportPlanTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportplantags
-	ReportPlanTags []tags.Tag `json:"ReportPlanTags,omitempty"`
+	ReportPlanTags *[]tags.Tag `json:"ReportPlanTags,omitempty"`
 
 	// ReportSetting AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportsetting
-	ReportSetting interface{} `json:"ReportSetting,omitempty"`
+	ReportSetting interface{} `json:"ReportSetting"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

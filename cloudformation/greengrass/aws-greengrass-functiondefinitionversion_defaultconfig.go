@@ -11,7 +11,7 @@ type FunctionDefinitionVersion_DefaultConfig struct {
 	// Execution AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html#cfn-greengrass-functiondefinitionversion-defaultconfig-execution
-	Execution *FunctionDefinitionVersion_Execution `json:"Execution,omitempty"`
+	Execution *FunctionDefinitionVersion_Execution `json:"Execution"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

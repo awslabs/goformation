@@ -11,7 +11,7 @@ type IdentityPoolRoleAttachment_RulesConfigurationType struct {
 	// Rules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html#cfn-cognito-identitypoolroleattachment-rulesconfigurationtype-rules
-	Rules []IdentityPoolRoleAttachment_MappingRule `json:"Rules,omitempty"`
+	Rules []IdentityPoolRoleAttachment_MappingRule `json:"Rules"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Repository_ImageScanningConfiguration struct {
 	// ScanOnPush AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
-	ScanOnPush bool `json:"ScanOnPush,omitempty"`
+	ScanOnPush *bool `json:"ScanOnPush,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

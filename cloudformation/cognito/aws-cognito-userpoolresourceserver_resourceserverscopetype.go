@@ -11,12 +11,12 @@ type UserPoolResourceServer_ResourceServerScopeType struct {
 	// ScopeDescription AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopedescription
-	ScopeDescription string `json:"ScopeDescription,omitempty"`
+	ScopeDescription string `json:"ScopeDescription"`
 
 	// ScopeName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopename
-	ScopeName string `json:"ScopeName,omitempty"`
+	ScopeName string `json:"ScopeName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

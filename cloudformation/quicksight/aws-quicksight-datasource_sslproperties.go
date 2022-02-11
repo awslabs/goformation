@@ -11,7 +11,7 @@ type DataSource_SslProperties struct {
 	// DisableSsl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
-	DisableSsl bool `json:"DisableSsl,omitempty"`
+	DisableSsl *bool `json:"DisableSsl,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

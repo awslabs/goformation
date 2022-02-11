@@ -16,27 +16,27 @@ type Job struct {
 	// DataCatalogOutputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
-	DataCatalogOutputs []Job_DataCatalogOutput `json:"DataCatalogOutputs,omitempty"`
+	DataCatalogOutputs *[]Job_DataCatalogOutput `json:"DataCatalogOutputs,omitempty"`
 
 	// DatabaseOutputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
-	DatabaseOutputs []Job_DatabaseOutput `json:"DatabaseOutputs,omitempty"`
+	DatabaseOutputs *[]Job_DatabaseOutput `json:"DatabaseOutputs,omitempty"`
 
 	// DatasetName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
-	DatasetName string `json:"DatasetName,omitempty"`
+	DatasetName *string `json:"DatasetName,omitempty"`
 
 	// EncryptionKeyArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
-	EncryptionKeyArn string `json:"EncryptionKeyArn,omitempty"`
+	EncryptionKeyArn *string `json:"EncryptionKeyArn,omitempty"`
 
 	// EncryptionMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
-	EncryptionMode string `json:"EncryptionMode,omitempty"`
+	EncryptionMode *string `json:"EncryptionMode,omitempty"`
 
 	// JobSample AWS CloudFormation Property
 	// Required: false
@@ -46,22 +46,22 @@ type Job struct {
 	// LogSubscription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
-	LogSubscription string `json:"LogSubscription,omitempty"`
+	LogSubscription *string `json:"LogSubscription,omitempty"`
 
 	// MaxCapacity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
-	MaxCapacity int `json:"MaxCapacity,omitempty"`
+	MaxCapacity *int `json:"MaxCapacity,omitempty"`
 
 	// MaxRetries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
-	MaxRetries int `json:"MaxRetries,omitempty"`
+	MaxRetries *int `json:"MaxRetries,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// OutputLocation AWS CloudFormation Property
 	// Required: false
@@ -71,7 +71,7 @@ type Job struct {
 	// Outputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
-	Outputs []Job_Output `json:"Outputs,omitempty"`
+	Outputs *[]Job_Output `json:"Outputs,omitempty"`
 
 	// ProfileConfiguration AWS CloudFormation Property
 	// Required: false
@@ -81,7 +81,7 @@ type Job struct {
 	// ProjectName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
-	ProjectName string `json:"ProjectName,omitempty"`
+	ProjectName *string `json:"ProjectName,omitempty"`
 
 	// Recipe AWS CloudFormation Property
 	// Required: false
@@ -91,27 +91,27 @@ type Job struct {
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
-	Timeout int `json:"Timeout,omitempty"`
+	Timeout *int `json:"Timeout,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// ValidationConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-validationconfigurations
-	ValidationConfigurations []Job_ValidationConfiguration `json:"ValidationConfigurations,omitempty"`
+	ValidationConfigurations *[]Job_ValidationConfiguration `json:"ValidationConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

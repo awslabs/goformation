@@ -11,27 +11,27 @@ type Feature_VariationObject struct {
 	// BooleanValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-booleanvalue
-	BooleanValue bool `json:"BooleanValue,omitempty"`
+	BooleanValue *bool `json:"BooleanValue,omitempty"`
 
 	// DoubleValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-doublevalue
-	DoubleValue float64 `json:"DoubleValue,omitempty"`
+	DoubleValue *float64 `json:"DoubleValue,omitempty"`
 
 	// LongValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-longvalue
-	LongValue float64 `json:"LongValue,omitempty"`
+	LongValue *float64 `json:"LongValue,omitempty"`
 
 	// StringValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-stringvalue
-	StringValue string `json:"StringValue,omitempty"`
+	StringValue *string `json:"StringValue,omitempty"`
 
 	// VariationName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-variationname
-	VariationName string `json:"VariationName,omitempty"`
+	VariationName *string `json:"VariationName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

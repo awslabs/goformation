@@ -11,7 +11,7 @@ type Campaign_EventDimensions struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-attributes
-	Attributes interface{} `json:"Attributes,omitempty"`
+	Attributes *interface{} `json:"Attributes,omitempty"`
 
 	// EventType AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type Campaign_EventDimensions struct {
 	// Metrics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-metrics
-	Metrics interface{} `json:"Metrics,omitempty"`
+	Metrics *interface{} `json:"Metrics,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

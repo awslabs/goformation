@@ -15,7 +15,7 @@ type ApplicationSettings struct {
 	// ApplicationId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-applicationid
-	ApplicationId string `json:"ApplicationId,omitempty"`
+	ApplicationId string `json:"ApplicationId"`
 
 	// CampaignHook AWS CloudFormation Property
 	// Required: false
@@ -25,7 +25,7 @@ type ApplicationSettings struct {
 	// CloudWatchMetricsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled bool `json:"CloudWatchMetricsEnabled,omitempty"`
+	CloudWatchMetricsEnabled *bool `json:"CloudWatchMetricsEnabled,omitempty"`
 
 	// Limits AWS CloudFormation Property
 	// Required: false

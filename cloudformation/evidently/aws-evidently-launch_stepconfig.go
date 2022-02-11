@@ -11,12 +11,12 @@ type Launch_StepConfig struct {
 	// GroupWeights AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html#cfn-evidently-launch-stepconfig-groupweights
-	GroupWeights []Launch_GroupToWeight `json:"GroupWeights,omitempty"`
+	GroupWeights []Launch_GroupToWeight `json:"GroupWeights"`
 
 	// StartTime AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html#cfn-evidently-launch-stepconfig-starttime
-	StartTime string `json:"StartTime,omitempty"`
+	StartTime string `json:"StartTime"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type Application_SubComponentConfigurationDetails struct {
 	// AlarmMetrics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
-	AlarmMetrics []Application_AlarmMetric `json:"AlarmMetrics,omitempty"`
+	AlarmMetrics *[]Application_AlarmMetric `json:"AlarmMetrics,omitempty"`
 
 	// Logs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
-	Logs []Application_Log `json:"Logs,omitempty"`
+	Logs *[]Application_Log `json:"Logs,omitempty"`
 
 	// WindowsEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
-	WindowsEvents []Application_WindowsEvent `json:"WindowsEvents,omitempty"`
+	WindowsEvents *[]Application_WindowsEvent `json:"WindowsEvents,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

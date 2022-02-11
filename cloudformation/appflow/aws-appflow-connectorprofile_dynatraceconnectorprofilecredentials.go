@@ -11,7 +11,7 @@ type ConnectorProfile_DynatraceConnectorProfileCredentials struct {
 	// ApiToken AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
-	ApiToken string `json:"ApiToken,omitempty"`
+	ApiToken string `json:"ApiToken"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

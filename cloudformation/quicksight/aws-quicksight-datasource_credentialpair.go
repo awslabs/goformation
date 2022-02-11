@@ -11,17 +11,17 @@ type DataSource_CredentialPair struct {
 	// AlternateDataSourceParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
-	AlternateDataSourceParameters []DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
+	AlternateDataSourceParameters *[]DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
 
 	// Password AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
-	Password string `json:"Password,omitempty"`
+	Password string `json:"Password"`
 
 	// Username AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
-	Username string `json:"Username,omitempty"`
+	Username string `json:"Username"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

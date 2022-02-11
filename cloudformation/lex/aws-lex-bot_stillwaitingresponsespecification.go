@@ -11,7 +11,7 @@ type Bot_StillWaitingResponseSpecification struct {
 	// AllowInterrupt AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-allowinterrupt
-	AllowInterrupt bool `json:"AllowInterrupt,omitempty"`
+	AllowInterrupt *bool `json:"AllowInterrupt,omitempty"`
 
 	// FrequencyInSeconds AWS CloudFormation Property
 	// Required: true
@@ -21,7 +21,7 @@ type Bot_StillWaitingResponseSpecification struct {
 	// MessageGroupsList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-messagegroupslist
-	MessageGroupsList []Bot_MessageGroup `json:"MessageGroupsList,omitempty"`
+	MessageGroupsList []Bot_MessageGroup `json:"MessageGroupsList"`
 
 	// TimeoutInSeconds AWS CloudFormation Property
 	// Required: true

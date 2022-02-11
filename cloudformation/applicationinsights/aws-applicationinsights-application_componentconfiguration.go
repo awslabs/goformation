@@ -16,7 +16,7 @@ type Application_ComponentConfiguration struct {
 	// SubComponentTypeConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
-	SubComponentTypeConfigurations []Application_SubComponentTypeConfiguration `json:"SubComponentTypeConfigurations,omitempty"`
+	SubComponentTypeConfigurations *[]Application_SubComponentTypeConfiguration `json:"SubComponentTypeConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

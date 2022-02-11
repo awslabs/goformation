@@ -11,7 +11,7 @@ type Project_DataDeliveryObject struct {
 	// LogGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html#cfn-evidently-project-datadeliveryobject-loggroup
-	LogGroup string `json:"LogGroup,omitempty"`
+	LogGroup *string `json:"LogGroup,omitempty"`
 
 	// S3 AWS CloudFormation Property
 	// Required: false

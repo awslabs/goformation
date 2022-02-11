@@ -11,27 +11,27 @@ type StudioComponent_SharedFileSystemConfiguration struct {
 	// Endpoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
-	Endpoint string `json:"Endpoint,omitempty"`
+	Endpoint *string `json:"Endpoint,omitempty"`
 
 	// FileSystemId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
-	FileSystemId string `json:"FileSystemId,omitempty"`
+	FileSystemId *string `json:"FileSystemId,omitempty"`
 
 	// LinuxMountPoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
-	LinuxMountPoint string `json:"LinuxMountPoint,omitempty"`
+	LinuxMountPoint *string `json:"LinuxMountPoint,omitempty"`
 
 	// ShareName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
-	ShareName string `json:"ShareName,omitempty"`
+	ShareName *string `json:"ShareName,omitempty"`
 
 	// WindowsMountDrive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
-	WindowsMountDrive string `json:"WindowsMountDrive,omitempty"`
+	WindowsMountDrive *string `json:"WindowsMountDrive,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

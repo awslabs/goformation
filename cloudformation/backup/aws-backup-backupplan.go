@@ -15,12 +15,12 @@ type BackupPlan struct {
 	// BackupPlan AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-	BackupPlan *BackupPlan_BackupPlanResourceType `json:"BackupPlan,omitempty"`
+	BackupPlan *BackupPlan_BackupPlanResourceType `json:"BackupPlan"`
 
 	// BackupPlanTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags map[string]string `json:"BackupPlanTags,omitempty"`
+	BackupPlanTags *map[string]string `json:"BackupPlanTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

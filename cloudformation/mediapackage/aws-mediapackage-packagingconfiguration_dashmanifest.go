@@ -11,22 +11,22 @@ type PackagingConfiguration_DashManifest struct {
 	// ManifestLayout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
-	ManifestLayout string `json:"ManifestLayout,omitempty"`
+	ManifestLayout *string `json:"ManifestLayout,omitempty"`
 
 	// ManifestName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
-	ManifestName string `json:"ManifestName,omitempty"`
+	ManifestName *string `json:"ManifestName,omitempty"`
 
 	// MinBufferTimeSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
-	MinBufferTimeSeconds int `json:"MinBufferTimeSeconds,omitempty"`
+	MinBufferTimeSeconds *int `json:"MinBufferTimeSeconds,omitempty"`
 
 	// Profile AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
-	Profile string `json:"Profile,omitempty"`
+	Profile *string `json:"Profile,omitempty"`
 
 	// StreamSelection AWS CloudFormation Property
 	// Required: false

@@ -11,7 +11,7 @@ type Application_JSONMappingParameters struct {
 	// RecordRowPath AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-jsonmappingparameters.html#cfn-kinesisanalyticsv2-application-jsonmappingparameters-recordrowpath
-	RecordRowPath string `json:"RecordRowPath,omitempty"`
+	RecordRowPath string `json:"RecordRowPath"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

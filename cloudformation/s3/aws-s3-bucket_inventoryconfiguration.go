@@ -11,7 +11,7 @@ type Bucket_InventoryConfiguration struct {
 	// Destination AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination
-	Destination *Bucket_Destination `json:"Destination,omitempty"`
+	Destination *Bucket_Destination `json:"Destination"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true
@@ -21,27 +21,27 @@ type Bucket_InventoryConfiguration struct {
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// IncludedObjectVersions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-includedobjectversions
-	IncludedObjectVersions string `json:"IncludedObjectVersions,omitempty"`
+	IncludedObjectVersions string `json:"IncludedObjectVersions"`
 
 	// OptionalFields AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields
-	OptionalFields []string `json:"OptionalFields,omitempty"`
+	OptionalFields *[]string `json:"OptionalFields,omitempty"`
 
 	// Prefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix
-	Prefix string `json:"Prefix,omitempty"`
+	Prefix *string `json:"Prefix,omitempty"`
 
 	// ScheduleFrequency AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency
-	ScheduleFrequency string `json:"ScheduleFrequency,omitempty"`
+	ScheduleFrequency string `json:"ScheduleFrequency"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

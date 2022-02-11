@@ -11,17 +11,17 @@ type Project_ProjectTriggers struct {
 	// BuildType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
-	BuildType string `json:"BuildType,omitempty"`
+	BuildType *string `json:"BuildType,omitempty"`
 
 	// FilterGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
-	FilterGroups []Project_FilterGroup `json:"FilterGroups,omitempty"`
+	FilterGroups *[]Project_FilterGroup `json:"FilterGroups,omitempty"`
 
 	// Webhook AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook
-	Webhook bool `json:"Webhook,omitempty"`
+	Webhook *bool `json:"Webhook,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

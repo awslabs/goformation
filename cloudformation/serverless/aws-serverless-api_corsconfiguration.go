@@ -11,27 +11,27 @@ type Api_CorsConfiguration struct {
 	// AllowCredentials AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration
-	AllowCredentials bool `json:"AllowCredentials,omitempty"`
+	AllowCredentials *bool `json:"AllowCredentials,omitempty"`
 
 	// AllowHeaders AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration
-	AllowHeaders string `json:"AllowHeaders,omitempty"`
+	AllowHeaders *string `json:"AllowHeaders,omitempty"`
 
 	// AllowMethods AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration
-	AllowMethods string `json:"AllowMethods,omitempty"`
+	AllowMethods *string `json:"AllowMethods,omitempty"`
 
 	// AllowOrigin AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration
-	AllowOrigin string `json:"AllowOrigin,omitempty"`
+	AllowOrigin string `json:"AllowOrigin"`
 
 	// MaxAge AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration
-	MaxAge string `json:"MaxAge,omitempty"`
+	MaxAge *string `json:"MaxAge,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

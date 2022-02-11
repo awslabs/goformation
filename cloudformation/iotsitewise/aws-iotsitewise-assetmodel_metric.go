@@ -11,17 +11,17 @@ type AssetModel_Metric struct {
 	// Expression AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
-	Expression string `json:"Expression,omitempty"`
+	Expression string `json:"Expression"`
 
 	// Variables AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
-	Variables []AssetModel_ExpressionVariable `json:"Variables,omitempty"`
+	Variables []AssetModel_ExpressionVariable `json:"Variables"`
 
 	// Window AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
-	Window *AssetModel_MetricWindow `json:"Window,omitempty"`
+	Window *AssetModel_MetricWindow `json:"Window"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

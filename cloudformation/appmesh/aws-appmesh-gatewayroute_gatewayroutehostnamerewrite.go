@@ -11,7 +11,7 @@ type GatewayRoute_GatewayRouteHostnameRewrite struct {
 	// DefaultTargetHostname AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html#cfn-appmesh-gatewayroute-gatewayroutehostnamerewrite-defaulttargethostname
-	DefaultTargetHostname string `json:"DefaultTargetHostname,omitempty"`
+	DefaultTargetHostname *string `json:"DefaultTargetHostname,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

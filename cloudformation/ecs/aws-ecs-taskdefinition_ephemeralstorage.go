@@ -11,7 +11,7 @@ type TaskDefinition_EphemeralStorage struct {
 	// SizeInGiB AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
-	SizeInGiB int `json:"SizeInGiB,omitempty"`
+	SizeInGiB *int `json:"SizeInGiB,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,27 +11,27 @@ type ScalingPolicy_PredictiveScalingConfiguration struct {
 	// MaxCapacityBreachBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-maxcapacitybreachbehavior
-	MaxCapacityBreachBehavior string `json:"MaxCapacityBreachBehavior,omitempty"`
+	MaxCapacityBreachBehavior *string `json:"MaxCapacityBreachBehavior,omitempty"`
 
 	// MaxCapacityBuffer AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-maxcapacitybuffer
-	MaxCapacityBuffer int `json:"MaxCapacityBuffer,omitempty"`
+	MaxCapacityBuffer *int `json:"MaxCapacityBuffer,omitempty"`
 
 	// MetricSpecifications AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-metricspecifications
-	MetricSpecifications []ScalingPolicy_PredictiveScalingMetricSpecification `json:"MetricSpecifications,omitempty"`
+	MetricSpecifications []ScalingPolicy_PredictiveScalingMetricSpecification `json:"MetricSpecifications"`
 
 	// Mode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-mode
-	Mode string `json:"Mode,omitempty"`
+	Mode *string `json:"Mode,omitempty"`
 
 	// SchedulingBufferTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-schedulingbuffertime
-	SchedulingBufferTime int `json:"SchedulingBufferTime,omitempty"`
+	SchedulingBufferTime *int `json:"SchedulingBufferTime,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

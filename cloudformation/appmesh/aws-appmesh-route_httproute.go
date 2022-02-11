@@ -11,12 +11,12 @@ type Route_HttpRoute struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-action
-	Action *Route_HttpRouteAction `json:"Action,omitempty"`
+	Action *Route_HttpRouteAction `json:"Action"`
 
 	// Match AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-match
-	Match *Route_HttpRouteMatch `json:"Match,omitempty"`
+	Match *Route_HttpRouteMatch `json:"Match"`
 
 	// RetryPolicy AWS CloudFormation Property
 	// Required: false
