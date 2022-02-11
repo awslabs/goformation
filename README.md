@@ -29,7 +29,7 @@
 As with other Go libraries, GoFormation can be installed with `go get`.
 
 ```
-$ go get github.com/awslabs/goformation/v5
+$ go get github.com/awslabs/goformation/v6
 ```
 
 ## Usage
@@ -46,8 +46,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/awslabs/goformation/v5/cloudformation"
-	"github.com/awslabs/goformation/v5/cloudformation/sns"
+	"github.com/awslabs/goformation/v6/cloudformation"
+	"github.com/awslabs/goformation/v6/cloudformation/sns"
 )
 
 func main() {
@@ -159,7 +159,7 @@ package main
 import (
 	"log"
 
-	"github.com/awslabs/goformation/v5"
+	"github.com/awslabs/goformation/v6"
 )
 
 func main() {
