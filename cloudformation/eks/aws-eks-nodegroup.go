@@ -30,7 +30,7 @@ type Nodegroup struct {
 	// DiskSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-disksize
-	DiskSize float64 `json:"DiskSize,omitempty"`
+	DiskSize int `json:"DiskSize,omitempty"`
 
 	// ForceUpdateEnabled AWS CloudFormation Property
 	// Required: false

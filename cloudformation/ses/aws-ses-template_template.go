@@ -14,7 +14,7 @@ type Template_Template struct {
 	HtmlPart string `json:"HtmlPart,omitempty"`
 
 	// SubjectPart AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-subjectpart
 	SubjectPart string `json:"SubjectPart,omitempty"`
 
