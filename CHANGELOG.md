@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.4.8](https://github.com/awslabs/goformation/compare/v5.4.7...v5.4.8) (2022-02-11)
+
+
+### Bug Fixes
+
+* **generator:** updated resources that support update/creation policy ([18c08b9](https://github.com/awslabs/goformation/commit/18c08b988d0ae39d07bfc3e653bddb2621db8276))
+
 ## [5.4.7](https://github.com/awslabs/goformation/compare/v5.4.6...v5.4.7) (2022-02-11)
 
 
