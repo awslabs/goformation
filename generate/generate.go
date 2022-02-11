@@ -44,13 +44,18 @@ var (
 	// ResourcesThatSupportUpdatePolicies defines which CloudFormation resources support UpdatePolicies
 	// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
 	ResourcesThatSupportUpdatePolicies = []string{
+		"AWS::AppStream::Fleet",
 		"AWS::AutoScaling::AutoScalingGroup",
+		"AWS::ElastiCache::ReplicationGroup",
+		"AWS::OpenSearchService::Domain",
+		"AWS::Elasticsearch::Domain",
 		"AWS::Lambda::Alias",
 	}
 
 	// ResourcesThatSupportCreationPolicies defines which CloudFormation resources support CreationPolicies
 	// see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
 	ResourcesThatSupportCreationPolicies = []string{
+		"AWS::AppStream::Fleet",
 		"AWS::AutoScaling::AutoScalingGroup",
 		"AWS::EC2::Instance",
 		"AWS::CloudFormation::WaitCondition",
