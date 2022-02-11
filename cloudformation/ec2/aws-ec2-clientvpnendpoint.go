@@ -15,12 +15,12 @@ type ClientVpnEndpoint struct {
 	// AuthenticationOptions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-authenticationoptions
-	AuthenticationOptions []ClientVpnEndpoint_ClientAuthenticationRequest `json:"AuthenticationOptions,omitempty"`
+	AuthenticationOptions []ClientVpnEndpoint_ClientAuthenticationRequest `json:"AuthenticationOptions"`
 
 	// ClientCidrBlock AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientcidrblock
-	ClientCidrBlock string `json:"ClientCidrBlock,omitempty"`
+	ClientCidrBlock string `json:"ClientCidrBlock"`
 
 	// ClientConnectOptions AWS CloudFormation Property
 	// Required: false
@@ -35,62 +35,62 @@ type ClientVpnEndpoint struct {
 	// ConnectionLogOptions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
-	ConnectionLogOptions *ClientVpnEndpoint_ConnectionLogOptions `json:"ConnectionLogOptions,omitempty"`
+	ConnectionLogOptions *ClientVpnEndpoint_ConnectionLogOptions `json:"ConnectionLogOptions"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// DnsServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-dnsservers
-	DnsServers []string `json:"DnsServers,omitempty"`
+	DnsServers *[]string `json:"DnsServers,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
-	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
 
 	// SelfServicePortal AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
-	SelfServicePortal string `json:"SelfServicePortal,omitempty"`
+	SelfServicePortal *string `json:"SelfServicePortal,omitempty"`
 
 	// ServerCertificateArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
-	ServerCertificateArn string `json:"ServerCertificateArn,omitempty"`
+	ServerCertificateArn string `json:"ServerCertificateArn"`
 
 	// SessionTimeoutHours AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-sessiontimeouthours
-	SessionTimeoutHours int `json:"SessionTimeoutHours,omitempty"`
+	SessionTimeoutHours *int `json:"SessionTimeoutHours,omitempty"`
 
 	// SplitTunnel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-splittunnel
-	SplitTunnel bool `json:"SplitTunnel,omitempty"`
+	SplitTunnel *bool `json:"SplitTunnel,omitempty"`
 
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-tagspecifications
-	TagSpecifications []ClientVpnEndpoint_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications *[]ClientVpnEndpoint_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// TransportProtocol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-transportprotocol
-	TransportProtocol string `json:"TransportProtocol,omitempty"`
+	TransportProtocol *string `json:"TransportProtocol,omitempty"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-vpcid
-	VpcId string `json:"VpcId,omitempty"`
+	VpcId *string `json:"VpcId,omitempty"`
 
 	// VpnPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-vpnport
-	VpnPort int `json:"VpnPort,omitempty"`
+	VpnPort *int `json:"VpnPort,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

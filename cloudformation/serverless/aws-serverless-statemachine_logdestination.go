@@ -11,7 +11,7 @@ type StateMachine_LogDestination struct {
 	// CloudWatchLogsLogGroup AWS CloudFormation Property
 	// Required: true
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
-	CloudWatchLogsLogGroup *StateMachine_CloudWatchLogsLogGroup `json:"CloudWatchLogsLogGroup,omitempty"`
+	CloudWatchLogsLogGroup *StateMachine_CloudWatchLogsLogGroup `json:"CloudWatchLogsLogGroup"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

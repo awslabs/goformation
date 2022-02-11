@@ -16,7 +16,7 @@ type ResourceDefinition_GroupOwnerSetting struct {
 	// GroupOwner AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html#cfn-greengrass-resourcedefinition-groupownersetting-groupowner
-	GroupOwner string `json:"GroupOwner,omitempty"`
+	GroupOwner *string `json:"GroupOwner,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

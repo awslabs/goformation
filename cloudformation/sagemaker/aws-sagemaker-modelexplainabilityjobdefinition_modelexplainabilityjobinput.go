@@ -11,7 +11,7 @@ type ModelExplainabilityJobDefinition_ModelExplainabilityJobInput struct {
 	// EndpointInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
-	EndpointInput *ModelExplainabilityJobDefinition_EndpointInput `json:"EndpointInput,omitempty"`
+	EndpointInput *ModelExplainabilityJobDefinition_EndpointInput `json:"EndpointInput"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

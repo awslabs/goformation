@@ -11,12 +11,12 @@ type Function_EventInvokeDestinationConfig struct {
 	// OnFailure AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-destination-config-object
-	OnFailure *Function_Destination `json:"OnFailure,omitempty"`
+	OnFailure *Function_Destination `json:"OnFailure"`
 
 	// OnSuccess AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#event-invoke-destination-config-object
-	OnSuccess *Function_Destination `json:"OnSuccess,omitempty"`
+	OnSuccess *Function_Destination `json:"OnSuccess"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

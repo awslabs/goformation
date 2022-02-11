@@ -11,7 +11,7 @@ type Dataset_Action struct {
 	// ActionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-actionname
-	ActionName string `json:"ActionName,omitempty"`
+	ActionName string `json:"ActionName"`
 
 	// ContainerAction AWS CloudFormation Property
 	// Required: false

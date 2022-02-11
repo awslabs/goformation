@@ -11,22 +11,22 @@ type Application_ParallelismConfiguration struct {
 	// AutoScalingEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-autoscalingenabled
-	AutoScalingEnabled bool `json:"AutoScalingEnabled,omitempty"`
+	AutoScalingEnabled *bool `json:"AutoScalingEnabled,omitempty"`
 
 	// ConfigurationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-configurationtype
-	ConfigurationType string `json:"ConfigurationType,omitempty"`
+	ConfigurationType string `json:"ConfigurationType"`
 
 	// Parallelism AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-parallelism
-	Parallelism int `json:"Parallelism,omitempty"`
+	Parallelism *int `json:"Parallelism,omitempty"`
 
 	// ParallelismPerKPU AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-parallelismperkpu
-	ParallelismPerKPU int `json:"ParallelismPerKPU,omitempty"`
+	ParallelismPerKPU *int `json:"ParallelismPerKPU,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

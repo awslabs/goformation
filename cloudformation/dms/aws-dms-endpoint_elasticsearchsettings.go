@@ -11,22 +11,22 @@ type Endpoint_ElasticsearchSettings struct {
 	// EndpointUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-endpointuri
-	EndpointUri string `json:"EndpointUri,omitempty"`
+	EndpointUri *string `json:"EndpointUri,omitempty"`
 
 	// ErrorRetryDuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-errorretryduration
-	ErrorRetryDuration int `json:"ErrorRetryDuration,omitempty"`
+	ErrorRetryDuration *int `json:"ErrorRetryDuration,omitempty"`
 
 	// FullLoadErrorPercentage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-fullloaderrorpercentage
-	FullLoadErrorPercentage int `json:"FullLoadErrorPercentage,omitempty"`
+	FullLoadErrorPercentage *int `json:"FullLoadErrorPercentage,omitempty"`
 
 	// ServiceAccessRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-serviceaccessrolearn
-	ServiceAccessRoleArn string `json:"ServiceAccessRoleArn,omitempty"`
+	ServiceAccessRoleArn *string `json:"ServiceAccessRoleArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

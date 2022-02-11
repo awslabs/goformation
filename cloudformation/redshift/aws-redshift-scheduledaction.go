@@ -15,37 +15,37 @@ type ScheduledAction struct {
 	// Enable AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-enable
-	Enable bool `json:"Enable,omitempty"`
+	Enable *bool `json:"Enable,omitempty"`
 
 	// EndTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-endtime
-	EndTime string `json:"EndTime,omitempty"`
+	EndTime *string `json:"EndTime,omitempty"`
 
 	// IamRole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-iamrole
-	IamRole string `json:"IamRole,omitempty"`
+	IamRole *string `json:"IamRole,omitempty"`
 
 	// Schedule AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-schedule
-	Schedule string `json:"Schedule,omitempty"`
+	Schedule *string `json:"Schedule,omitempty"`
 
 	// ScheduledActionDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-scheduledactiondescription
-	ScheduledActionDescription string `json:"ScheduledActionDescription,omitempty"`
+	ScheduledActionDescription *string `json:"ScheduledActionDescription,omitempty"`
 
 	// ScheduledActionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-scheduledactionname
-	ScheduledActionName string `json:"ScheduledActionName,omitempty"`
+	ScheduledActionName string `json:"ScheduledActionName"`
 
 	// StartTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-starttime
-	StartTime string `json:"StartTime,omitempty"`
+	StartTime *string `json:"StartTime,omitempty"`
 
 	// TargetAction AWS CloudFormation Property
 	// Required: false

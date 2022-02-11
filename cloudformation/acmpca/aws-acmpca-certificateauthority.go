@@ -21,12 +21,12 @@ type CertificateAuthority struct {
 	// KeyAlgorithm AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
-	KeyAlgorithm string `json:"KeyAlgorithm,omitempty"`
+	KeyAlgorithm string `json:"KeyAlgorithm"`
 
 	// KeyStorageSecurityStandard AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
-	KeyStorageSecurityStandard string `json:"KeyStorageSecurityStandard,omitempty"`
+	KeyStorageSecurityStandard *string `json:"KeyStorageSecurityStandard,omitempty"`
 
 	// RevocationConfiguration AWS CloudFormation Property
 	// Required: false
@@ -36,22 +36,22 @@ type CertificateAuthority struct {
 	// SigningAlgorithm AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
-	SigningAlgorithm string `json:"SigningAlgorithm,omitempty"`
+	SigningAlgorithm string `json:"SigningAlgorithm"`
 
 	// Subject AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-	Subject *CertificateAuthority_Subject `json:"Subject,omitempty"`
+	Subject *CertificateAuthority_Subject `json:"Subject"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
-	Type string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type StackSet_DeploymentTargets struct {
 	// Accounts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
-	Accounts []string `json:"Accounts,omitempty"`
+	Accounts *[]string `json:"Accounts,omitempty"`
 
 	// OrganizationalUnitIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
-	OrganizationalUnitIds []string `json:"OrganizationalUnitIds,omitempty"`
+	OrganizationalUnitIds *[]string `json:"OrganizationalUnitIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

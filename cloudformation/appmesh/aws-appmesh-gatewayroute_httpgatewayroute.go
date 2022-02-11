@@ -11,12 +11,12 @@ type GatewayRoute_HttpGatewayRoute struct {
 	// Action AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-action
-	Action *GatewayRoute_HttpGatewayRouteAction `json:"Action,omitempty"`
+	Action *GatewayRoute_HttpGatewayRouteAction `json:"Action"`
 
 	// Match AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-match
-	Match *GatewayRoute_HttpGatewayRouteMatch `json:"Match,omitempty"`
+	Match *GatewayRoute_HttpGatewayRouteMatch `json:"Match"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Config_DataflowEndpointConfig struct {
 	// DataflowEndpointName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
-	DataflowEndpointName string `json:"DataflowEndpointName,omitempty"`
+	DataflowEndpointName *string `json:"DataflowEndpointName,omitempty"`
 
 	// DataflowEndpointRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
-	DataflowEndpointRegion string `json:"DataflowEndpointRegion,omitempty"`
+	DataflowEndpointRegion *string `json:"DataflowEndpointRegion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type Group_Query struct {
 	// ResourceTypeFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-	ResourceTypeFilters []string `json:"ResourceTypeFilters,omitempty"`
+	ResourceTypeFilters *[]string `json:"ResourceTypeFilters,omitempty"`
 
 	// StackIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-	StackIdentifier string `json:"StackIdentifier,omitempty"`
+	StackIdentifier *string `json:"StackIdentifier,omitempty"`
 
 	// TagFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-	TagFilters []Group_TagFilter `json:"TagFilters,omitempty"`
+	TagFilters *[]Group_TagFilter `json:"TagFilters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

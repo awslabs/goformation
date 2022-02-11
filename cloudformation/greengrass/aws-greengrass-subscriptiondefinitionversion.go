@@ -15,12 +15,12 @@ type SubscriptionDefinitionVersion struct {
 	// SubscriptionDefinitionId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinitionversion-subscriptiondefinitionid
-	SubscriptionDefinitionId string `json:"SubscriptionDefinitionId,omitempty"`
+	SubscriptionDefinitionId string `json:"SubscriptionDefinitionId"`
 
 	// Subscriptions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinitionversion-subscriptions
-	Subscriptions []SubscriptionDefinitionVersion_Subscription `json:"Subscriptions,omitempty"`
+	Subscriptions []SubscriptionDefinitionVersion_Subscription `json:"Subscriptions"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

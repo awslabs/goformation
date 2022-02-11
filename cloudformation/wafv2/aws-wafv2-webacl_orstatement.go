@@ -11,7 +11,7 @@ type WebACL_OrStatement struct {
 	// Statements AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
-	Statements []WebACL_Statement `json:"Statements,omitempty"`
+	Statements []WebACL_Statement `json:"Statements"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

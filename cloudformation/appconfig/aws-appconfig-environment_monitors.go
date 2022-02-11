@@ -11,12 +11,12 @@ type Environment_Monitors struct {
 	// AlarmArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmarn
-	AlarmArn string `json:"AlarmArn,omitempty"`
+	AlarmArn *string `json:"AlarmArn,omitempty"`
 
 	// AlarmRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmrolearn
-	AlarmRoleArn string `json:"AlarmRoleArn,omitempty"`
+	AlarmRoleArn *string `json:"AlarmRoleArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

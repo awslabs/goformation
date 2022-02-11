@@ -11,37 +11,37 @@ type Instance_Disk struct {
 	// AttachedTo AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-attachedto
-	AttachedTo string `json:"AttachedTo,omitempty"`
+	AttachedTo *string `json:"AttachedTo,omitempty"`
 
 	// AttachmentState AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-attachmentstate
-	AttachmentState string `json:"AttachmentState,omitempty"`
+	AttachmentState *string `json:"AttachmentState,omitempty"`
 
 	// DiskName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-diskname
-	DiskName string `json:"DiskName,omitempty"`
+	DiskName string `json:"DiskName"`
 
 	// IOPS AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-iops
-	IOPS int `json:"IOPS,omitempty"`
+	IOPS *int `json:"IOPS,omitempty"`
 
 	// IsSystemDisk AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-issystemdisk
-	IsSystemDisk bool `json:"IsSystemDisk,omitempty"`
+	IsSystemDisk *bool `json:"IsSystemDisk,omitempty"`
 
 	// Path AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-path
-	Path string `json:"Path,omitempty"`
+	Path string `json:"Path"`
 
 	// SizeInGb AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-sizeingb
-	SizeInGb string `json:"SizeInGb,omitempty"`
+	SizeInGb *string `json:"SizeInGb,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

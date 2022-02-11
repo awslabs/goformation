@@ -11,7 +11,7 @@ type Alarm_MetricStat struct {
 	// Metric AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-metric
-	Metric *Alarm_Metric `json:"Metric,omitempty"`
+	Metric *Alarm_Metric `json:"Metric"`
 
 	// Period AWS CloudFormation Property
 	// Required: true
@@ -21,12 +21,12 @@ type Alarm_MetricStat struct {
 	// Stat AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-stat
-	Stat string `json:"Stat,omitempty"`
+	Stat string `json:"Stat"`
 
 	// Unit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-unit
-	Unit string `json:"Unit,omitempty"`
+	Unit *string `json:"Unit,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

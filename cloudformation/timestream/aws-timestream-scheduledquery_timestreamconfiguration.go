@@ -11,22 +11,22 @@ type ScheduledQuery_TimestreamConfiguration struct {
 	// DatabaseName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-databasename
-	DatabaseName string `json:"DatabaseName,omitempty"`
+	DatabaseName string `json:"DatabaseName"`
 
 	// DimensionMappings AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-dimensionmappings
-	DimensionMappings []ScheduledQuery_DimensionMapping `json:"DimensionMappings,omitempty"`
+	DimensionMappings []ScheduledQuery_DimensionMapping `json:"DimensionMappings"`
 
 	// MeasureNameColumn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-measurenamecolumn
-	MeasureNameColumn string `json:"MeasureNameColumn,omitempty"`
+	MeasureNameColumn *string `json:"MeasureNameColumn,omitempty"`
 
 	// MixedMeasureMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-mixedmeasuremappings
-	MixedMeasureMappings []ScheduledQuery_MixedMeasureMapping `json:"MixedMeasureMappings,omitempty"`
+	MixedMeasureMappings *[]ScheduledQuery_MixedMeasureMapping `json:"MixedMeasureMappings,omitempty"`
 
 	// MultiMeasureMappings AWS CloudFormation Property
 	// Required: false
@@ -36,12 +36,12 @@ type ScheduledQuery_TimestreamConfiguration struct {
 	// TableName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName string `json:"TableName"`
 
 	// TimeColumn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-timecolumn
-	TimeColumn string `json:"TimeColumn,omitempty"`
+	TimeColumn string `json:"TimeColumn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

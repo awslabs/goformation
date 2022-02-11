@@ -15,7 +15,7 @@ type CodeSigningConfig struct {
 	// AllowedPublishers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
-	AllowedPublishers *CodeSigningConfig_AllowedPublishers `json:"AllowedPublishers,omitempty"`
+	AllowedPublishers *CodeSigningConfig_AllowedPublishers `json:"AllowedPublishers"`
 
 	// CodeSigningPolicies AWS CloudFormation Property
 	// Required: false
@@ -25,7 +25,7 @@ type CodeSigningConfig struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

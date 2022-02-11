@@ -11,12 +11,12 @@ type BackupVault_LockConfigurationType struct {
 	// ChangeableForDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-changeablefordays
-	ChangeableForDays float64 `json:"ChangeableForDays,omitempty"`
+	ChangeableForDays *float64 `json:"ChangeableForDays,omitempty"`
 
 	// MaxRetentionDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-maxretentiondays
-	MaxRetentionDays float64 `json:"MaxRetentionDays,omitempty"`
+	MaxRetentionDays *float64 `json:"MaxRetentionDays,omitempty"`
 
 	// MinRetentionDays AWS CloudFormation Property
 	// Required: true

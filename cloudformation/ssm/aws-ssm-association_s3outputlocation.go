@@ -11,17 +11,17 @@ type Association_S3OutputLocation struct {
 	// OutputS3BucketName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
-	OutputS3BucketName string `json:"OutputS3BucketName,omitempty"`
+	OutputS3BucketName *string `json:"OutputS3BucketName,omitempty"`
 
 	// OutputS3KeyPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
-	OutputS3KeyPrefix string `json:"OutputS3KeyPrefix,omitempty"`
+	OutputS3KeyPrefix *string `json:"OutputS3KeyPrefix,omitempty"`
 
 	// OutputS3Region AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
-	OutputS3Region string `json:"OutputS3Region,omitempty"`
+	OutputS3Region *string `json:"OutputS3Region,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

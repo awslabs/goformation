@@ -11,17 +11,17 @@ type DistributionConfiguration_LaunchTemplateConfiguration struct {
 	// AccountId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
-	AccountId string `json:"AccountId,omitempty"`
+	AccountId *string `json:"AccountId,omitempty"`
 
 	// LaunchTemplateId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
-	LaunchTemplateId string `json:"LaunchTemplateId,omitempty"`
+	LaunchTemplateId *string `json:"LaunchTemplateId,omitempty"`
 
 	// SetDefaultVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
-	SetDefaultVersion bool `json:"SetDefaultVersion,omitempty"`
+	SetDefaultVersion *bool `json:"SetDefaultVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

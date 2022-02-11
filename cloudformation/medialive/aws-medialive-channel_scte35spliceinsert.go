@@ -11,17 +11,17 @@ type Channel_Scte35SpliceInsert struct {
 	// AdAvailOffset AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html#cfn-medialive-channel-scte35spliceinsert-adavailoffset
-	AdAvailOffset int `json:"AdAvailOffset,omitempty"`
+	AdAvailOffset *int `json:"AdAvailOffset,omitempty"`
 
 	// NoRegionalBlackoutFlag AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html#cfn-medialive-channel-scte35spliceinsert-noregionalblackoutflag
-	NoRegionalBlackoutFlag string `json:"NoRegionalBlackoutFlag,omitempty"`
+	NoRegionalBlackoutFlag *string `json:"NoRegionalBlackoutFlag,omitempty"`
 
 	// WebDeliveryAllowedFlag AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html#cfn-medialive-channel-scte35spliceinsert-webdeliveryallowedflag
-	WebDeliveryAllowedFlag string `json:"WebDeliveryAllowedFlag,omitempty"`
+	WebDeliveryAllowedFlag *string `json:"WebDeliveryAllowedFlag,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

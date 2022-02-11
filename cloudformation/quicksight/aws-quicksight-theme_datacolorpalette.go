@@ -11,17 +11,17 @@ type Theme_DataColorPalette struct {
 	// Colors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
-	Colors []string `json:"Colors,omitempty"`
+	Colors *[]string `json:"Colors,omitempty"`
 
 	// EmptyFillColor AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
-	EmptyFillColor string `json:"EmptyFillColor,omitempty"`
+	EmptyFillColor *string `json:"EmptyFillColor,omitempty"`
 
 	// MinMaxGradient AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
-	MinMaxGradient []string `json:"MinMaxGradient,omitempty"`
+	MinMaxGradient *[]string `json:"MinMaxGradient,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

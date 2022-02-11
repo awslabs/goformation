@@ -11,7 +11,7 @@ type TaskDefinition_RepositoryCredentials struct {
 	// CredentialsParameter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
-	CredentialsParameter string `json:"CredentialsParameter,omitempty"`
+	CredentialsParameter *string `json:"CredentialsParameter,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

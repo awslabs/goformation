@@ -11,12 +11,12 @@ type TargetGroup_Matcher struct {
 	// GrpcCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-grpccode
-	GrpcCode string `json:"GrpcCode,omitempty"`
+	GrpcCode *string `json:"GrpcCode,omitempty"`
 
 	// HttpCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
-	HttpCode string `json:"HttpCode,omitempty"`
+	HttpCode *string `json:"HttpCode,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

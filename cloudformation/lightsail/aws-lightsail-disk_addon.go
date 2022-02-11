@@ -11,7 +11,7 @@ type Disk_AddOn struct {
 	// AddOnType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html#cfn-lightsail-disk-addon-addontype
-	AddOnType string `json:"AddOnType,omitempty"`
+	AddOnType string `json:"AddOnType"`
 
 	// AutoSnapshotAddOnRequest AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type Disk_AddOn struct {
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html#cfn-lightsail-disk-addon-status
-	Status string `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

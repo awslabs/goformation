@@ -11,27 +11,27 @@ type EventIntegration_EventIntegrationAssociation struct {
 	// ClientAssociationMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
-	ClientAssociationMetadata []EventIntegration_Metadata `json:"ClientAssociationMetadata,omitempty"`
+	ClientAssociationMetadata *[]EventIntegration_Metadata `json:"ClientAssociationMetadata,omitempty"`
 
 	// ClientId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientid
-	ClientId string `json:"ClientId,omitempty"`
+	ClientId *string `json:"ClientId,omitempty"`
 
 	// EventBridgeRuleName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventbridgerulename
-	EventBridgeRuleName string `json:"EventBridgeRuleName,omitempty"`
+	EventBridgeRuleName *string `json:"EventBridgeRuleName,omitempty"`
 
 	// EventIntegrationAssociationArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationarn
-	EventIntegrationAssociationArn string `json:"EventIntegrationAssociationArn,omitempty"`
+	EventIntegrationAssociationArn *string `json:"EventIntegrationAssociationArn,omitempty"`
 
 	// EventIntegrationAssociationId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationid
-	EventIntegrationAssociationId string `json:"EventIntegrationAssociationId,omitempty"`
+	EventIntegrationAssociationId *string `json:"EventIntegrationAssociationId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

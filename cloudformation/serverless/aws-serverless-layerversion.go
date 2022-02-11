@@ -15,7 +15,7 @@ type LayerVersion struct {
 	// CompatibleRuntimes AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
-	CompatibleRuntimes []string `json:"CompatibleRuntimes,omitempty"`
+	CompatibleRuntimes *[]string `json:"CompatibleRuntimes,omitempty"`
 
 	// ContentUri AWS CloudFormation Property
 	// Required: false
@@ -25,22 +25,22 @@ type LayerVersion struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// LayerName AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
-	LayerName string `json:"LayerName,omitempty"`
+	LayerName *string `json:"LayerName,omitempty"`
 
 	// LicenseInfo AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
-	LicenseInfo string `json:"LicenseInfo,omitempty"`
+	LicenseInfo *string `json:"LicenseInfo,omitempty"`
 
 	// RetentionPolicy AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
-	RetentionPolicy string `json:"RetentionPolicy,omitempty"`
+	RetentionPolicy *string `json:"RetentionPolicy,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

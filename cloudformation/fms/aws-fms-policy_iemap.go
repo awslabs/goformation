@@ -11,12 +11,12 @@ type Policy_IEMap struct {
 	// ACCOUNT AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-	ACCOUNT []string `json:"ACCOUNT,omitempty"`
+	ACCOUNT *[]string `json:"ACCOUNT,omitempty"`
 
 	// ORGUNIT AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
-	ORGUNIT []string `json:"ORGUNIT,omitempty"`
+	ORGUNIT *[]string `json:"ORGUNIT,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

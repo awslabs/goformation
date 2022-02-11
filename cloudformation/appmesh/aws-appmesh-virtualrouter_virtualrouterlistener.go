@@ -11,7 +11,7 @@ type VirtualRouter_VirtualRouterListener struct {
 	// PortMapping AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html#cfn-appmesh-virtualrouter-virtualrouterlistener-portmapping
-	PortMapping *VirtualRouter_PortMapping `json:"PortMapping,omitempty"`
+	PortMapping *VirtualRouter_PortMapping `json:"PortMapping"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

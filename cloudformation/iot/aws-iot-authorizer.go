@@ -16,42 +16,42 @@ type Authorizer struct {
 	// AuthorizerFunctionArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-	AuthorizerFunctionArn string `json:"AuthorizerFunctionArn,omitempty"`
+	AuthorizerFunctionArn string `json:"AuthorizerFunctionArn"`
 
 	// AuthorizerName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-	AuthorizerName string `json:"AuthorizerName,omitempty"`
+	AuthorizerName *string `json:"AuthorizerName,omitempty"`
 
 	// EnableCachingForHttp AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-enablecachingforhttp
-	EnableCachingForHttp bool `json:"EnableCachingForHttp,omitempty"`
+	EnableCachingForHttp *bool `json:"EnableCachingForHttp,omitempty"`
 
 	// SigningDisabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-	SigningDisabled bool `json:"SigningDisabled,omitempty"`
+	SigningDisabled *bool `json:"SigningDisabled,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-	Status string `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// TokenKeyName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-	TokenKeyName string `json:"TokenKeyName,omitempty"`
+	TokenKeyName *string `json:"TokenKeyName,omitempty"`
 
 	// TokenSigningPublicKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys map[string]string `json:"TokenSigningPublicKeys,omitempty"`
+	TokenSigningPublicKeys *map[string]string `json:"TokenSigningPublicKeys,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

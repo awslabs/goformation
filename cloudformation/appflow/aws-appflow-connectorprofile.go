@@ -15,7 +15,7 @@ type ConnectorProfile struct {
 	// ConnectionMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-	ConnectionMode string `json:"ConnectionMode,omitempty"`
+	ConnectionMode string `json:"ConnectionMode"`
 
 	// ConnectorProfileConfig AWS CloudFormation Property
 	// Required: false
@@ -25,17 +25,17 @@ type ConnectorProfile struct {
 	// ConnectorProfileName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-	ConnectorProfileName string `json:"ConnectorProfileName,omitempty"`
+	ConnectorProfileName string `json:"ConnectorProfileName"`
 
 	// ConnectorType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-	ConnectorType string `json:"ConnectorType,omitempty"`
+	ConnectorType string `json:"ConnectorType"`
 
 	// KMSArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
-	KMSArn string `json:"KMSArn,omitempty"`
+	KMSArn *string `json:"KMSArn,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

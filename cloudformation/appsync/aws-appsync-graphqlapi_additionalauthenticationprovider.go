@@ -11,7 +11,7 @@ type GraphQLApi_AdditionalAuthenticationProvider struct {
 	// AuthenticationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-authenticationtype
-	AuthenticationType string `json:"AuthenticationType,omitempty"`
+	AuthenticationType string `json:"AuthenticationType"`
 
 	// LambdaAuthorizerConfig AWS CloudFormation Property
 	// Required: false

@@ -12,7 +12,7 @@ type LifecyclePolicy_PolicyDetails struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
-	Actions []LifecyclePolicy_Action `json:"Actions,omitempty"`
+	Actions *[]LifecyclePolicy_Action `json:"Actions,omitempty"`
 
 	// EventSource AWS CloudFormation Property
 	// Required: false
@@ -27,27 +27,27 @@ type LifecyclePolicy_PolicyDetails struct {
 	// PolicyType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policytype
-	PolicyType string `json:"PolicyType,omitempty"`
+	PolicyType *string `json:"PolicyType,omitempty"`
 
 	// ResourceLocations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcelocations
-	ResourceLocations []string `json:"ResourceLocations,omitempty"`
+	ResourceLocations *[]string `json:"ResourceLocations,omitempty"`
 
 	// ResourceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes
-	ResourceTypes []string `json:"ResourceTypes,omitempty"`
+	ResourceTypes *[]string `json:"ResourceTypes,omitempty"`
 
 	// Schedules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-schedules
-	Schedules []LifecyclePolicy_Schedule `json:"Schedules,omitempty"`
+	Schedules *[]LifecyclePolicy_Schedule `json:"Schedules,omitempty"`
 
 	// TargetTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
-	TargetTags []tags.Tag `json:"TargetTags,omitempty"`
+	TargetTags *[]tags.Tag `json:"TargetTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

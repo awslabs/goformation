@@ -11,22 +11,22 @@ type App_ResourceMapping struct {
 	// LogicalStackName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-logicalstackname
-	LogicalStackName string `json:"LogicalStackName,omitempty"`
+	LogicalStackName *string `json:"LogicalStackName,omitempty"`
 
 	// MappingType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-mappingtype
-	MappingType string `json:"MappingType,omitempty"`
+	MappingType string `json:"MappingType"`
 
 	// PhysicalResourceId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-physicalresourceid
-	PhysicalResourceId *App_PhysicalResourceId `json:"PhysicalResourceId,omitempty"`
+	PhysicalResourceId *App_PhysicalResourceId `json:"PhysicalResourceId"`
 
 	// ResourceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-resourcename
-	ResourceName string `json:"ResourceName,omitempty"`
+	ResourceName *string `json:"ResourceName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

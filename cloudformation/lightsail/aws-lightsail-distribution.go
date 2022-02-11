@@ -16,7 +16,7 @@ type Distribution struct {
 	// BundleId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-bundleid
-	BundleId string `json:"BundleId,omitempty"`
+	BundleId string `json:"BundleId"`
 
 	// CacheBehaviorSettings AWS CloudFormation Property
 	// Required: false
@@ -26,42 +26,42 @@ type Distribution struct {
 	// CacheBehaviors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-cachebehaviors
-	CacheBehaviors []Distribution_CacheBehaviorPerPath `json:"CacheBehaviors,omitempty"`
+	CacheBehaviors *[]Distribution_CacheBehaviorPerPath `json:"CacheBehaviors,omitempty"`
 
 	// CertificateName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-certificatename
-	CertificateName string `json:"CertificateName,omitempty"`
+	CertificateName *string `json:"CertificateName,omitempty"`
 
 	// DefaultCacheBehavior AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-defaultcachebehavior
-	DefaultCacheBehavior *Distribution_CacheBehavior `json:"DefaultCacheBehavior,omitempty"`
+	DefaultCacheBehavior *Distribution_CacheBehavior `json:"DefaultCacheBehavior"`
 
 	// DistributionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-distributionname
-	DistributionName string `json:"DistributionName,omitempty"`
+	DistributionName string `json:"DistributionName"`
 
 	// IpAddressType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-ipaddresstype
-	IpAddressType string `json:"IpAddressType,omitempty"`
+	IpAddressType *string `json:"IpAddressType,omitempty"`
 
 	// IsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-isenabled
-	IsEnabled bool `json:"IsEnabled,omitempty"`
+	IsEnabled *bool `json:"IsEnabled,omitempty"`
 
 	// Origin AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-origin
-	Origin *Distribution_InputOrigin `json:"Origin,omitempty"`
+	Origin *Distribution_InputOrigin `json:"Origin"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html#cfn-lightsail-distribution-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type SpotFleet_ClassicLoadBalancersConfig struct {
 	// ClassicLoadBalancers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html#cfn-ec2-spotfleet-classicloadbalancersconfig-classicloadbalancers
-	ClassicLoadBalancers []SpotFleet_ClassicLoadBalancer `json:"ClassicLoadBalancers,omitempty"`
+	ClassicLoadBalancers []SpotFleet_ClassicLoadBalancer `json:"ClassicLoadBalancers"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

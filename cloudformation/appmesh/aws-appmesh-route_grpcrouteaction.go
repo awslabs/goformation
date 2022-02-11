@@ -11,7 +11,7 @@ type Route_GrpcRouteAction struct {
 	// WeightedTargets AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html#cfn-appmesh-route-grpcrouteaction-weightedtargets
-	WeightedTargets []Route_WeightedTarget `json:"WeightedTargets,omitempty"`
+	WeightedTargets []Route_WeightedTarget `json:"WeightedTargets"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

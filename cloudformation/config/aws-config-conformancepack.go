@@ -15,32 +15,32 @@ type ConformancePack struct {
 	// ConformancePackInputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
-	ConformancePackInputParameters []ConformancePack_ConformancePackInputParameter `json:"ConformancePackInputParameters,omitempty"`
+	ConformancePackInputParameters *[]ConformancePack_ConformancePackInputParameter `json:"ConformancePackInputParameters,omitempty"`
 
 	// ConformancePackName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
-	ConformancePackName string `json:"ConformancePackName,omitempty"`
+	ConformancePackName string `json:"ConformancePackName"`
 
 	// DeliveryS3Bucket AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-	DeliveryS3Bucket string `json:"DeliveryS3Bucket,omitempty"`
+	DeliveryS3Bucket *string `json:"DeliveryS3Bucket,omitempty"`
 
 	// DeliveryS3KeyPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
-	DeliveryS3KeyPrefix string `json:"DeliveryS3KeyPrefix,omitempty"`
+	DeliveryS3KeyPrefix *string `json:"DeliveryS3KeyPrefix,omitempty"`
 
 	// TemplateBody AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
-	TemplateBody string `json:"TemplateBody,omitempty"`
+	TemplateBody *string `json:"TemplateBody,omitempty"`
 
 	// TemplateS3Uri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
-	TemplateS3Uri string `json:"TemplateS3Uri,omitempty"`
+	TemplateS3Uri *string `json:"TemplateS3Uri,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

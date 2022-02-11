@@ -16,7 +16,7 @@ type AutoScalingGroup_MixedInstancesPolicy struct {
 	// LaunchTemplate AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html#cfn-as-mixedinstancespolicy-launchtemplate
-	LaunchTemplate *AutoScalingGroup_LaunchTemplate `json:"LaunchTemplate,omitempty"`
+	LaunchTemplate *AutoScalingGroup_LaunchTemplate `json:"LaunchTemplate"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

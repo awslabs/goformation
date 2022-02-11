@@ -11,12 +11,12 @@ type Integration_SourceFlowConfig struct {
 	// ConnectorProfileName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename
-	ConnectorProfileName string `json:"ConnectorProfileName,omitempty"`
+	ConnectorProfileName *string `json:"ConnectorProfileName,omitempty"`
 
 	// ConnectorType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype
-	ConnectorType string `json:"ConnectorType,omitempty"`
+	ConnectorType string `json:"ConnectorType"`
 
 	// IncrementalPullConfig AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type Integration_SourceFlowConfig struct {
 	// SourceConnectorProperties AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties
-	SourceConnectorProperties *Integration_SourceConnectorProperties `json:"SourceConnectorProperties,omitempty"`
+	SourceConnectorProperties *Integration_SourceConnectorProperties `json:"SourceConnectorProperties"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

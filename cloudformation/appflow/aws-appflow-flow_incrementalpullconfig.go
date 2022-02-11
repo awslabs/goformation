@@ -11,7 +11,7 @@ type Flow_IncrementalPullConfig struct {
 	// DatetimeTypeFieldName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
-	DatetimeTypeFieldName string `json:"DatetimeTypeFieldName,omitempty"`
+	DatetimeTypeFieldName *string `json:"DatetimeTypeFieldName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

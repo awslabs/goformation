@@ -11,7 +11,7 @@ type Function_FunctionMetadata struct {
 	// FunctionARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn
-	FunctionARN string `json:"FunctionARN,omitempty"`
+	FunctionARN *string `json:"FunctionARN,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

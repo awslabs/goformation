@@ -11,7 +11,7 @@ type Cluster_LoggingInfo struct {
 	// BrokerLogs AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs
-	BrokerLogs *Cluster_BrokerLogs `json:"BrokerLogs,omitempty"`
+	BrokerLogs *Cluster_BrokerLogs `json:"BrokerLogs"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

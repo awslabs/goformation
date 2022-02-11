@@ -15,12 +15,12 @@ type DeviceDefinitionVersion struct {
 	// DeviceDefinitionId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html#cfn-greengrass-devicedefinitionversion-devicedefinitionid
-	DeviceDefinitionId string `json:"DeviceDefinitionId,omitempty"`
+	DeviceDefinitionId string `json:"DeviceDefinitionId"`
 
 	// Devices AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html#cfn-greengrass-devicedefinitionversion-devices
-	Devices []DeviceDefinitionVersion_Device `json:"Devices,omitempty"`
+	Devices []DeviceDefinitionVersion_Device `json:"Devices"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

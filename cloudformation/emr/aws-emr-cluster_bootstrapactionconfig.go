@@ -11,12 +11,12 @@ type Cluster_BootstrapActionConfig struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ScriptBootstrapAction AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-scriptbootstrapaction
-	ScriptBootstrapAction *Cluster_ScriptBootstrapActionConfig `json:"ScriptBootstrapAction,omitempty"`
+	ScriptBootstrapAction *Cluster_ScriptBootstrapActionConfig `json:"ScriptBootstrapAction"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

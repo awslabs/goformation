@@ -11,7 +11,7 @@ type SafetyRule_AssertionRule struct {
 	// AssertedControls AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
-	AssertedControls []string `json:"AssertedControls,omitempty"`
+	AssertedControls []string `json:"AssertedControls"`
 
 	// WaitPeriodMs AWS CloudFormation Property
 	// Required: true

@@ -11,7 +11,7 @@ type Bucket_Tiering struct {
 	// AccessTier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-accesstier
-	AccessTier string `json:"AccessTier,omitempty"`
+	AccessTier string `json:"AccessTier"`
 
 	// Days AWS CloudFormation Property
 	// Required: true

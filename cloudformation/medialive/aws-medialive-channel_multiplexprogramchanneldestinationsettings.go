@@ -11,12 +11,12 @@ type Channel_MultiplexProgramChannelDestinationSettings struct {
 	// MultiplexId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html#cfn-medialive-channel-multiplexprogramchanneldestinationsettings-multiplexid
-	MultiplexId string `json:"MultiplexId,omitempty"`
+	MultiplexId *string `json:"MultiplexId,omitempty"`
 
 	// ProgramName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html#cfn-medialive-channel-multiplexprogramchanneldestinationsettings-programname
-	ProgramName string `json:"ProgramName,omitempty"`
+	ProgramName *string `json:"ProgramName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

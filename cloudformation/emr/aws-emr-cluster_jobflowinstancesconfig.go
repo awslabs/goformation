@@ -11,12 +11,12 @@ type Cluster_JobFlowInstancesConfig struct {
 	// AdditionalMasterSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-additionalmastersecuritygroups
-	AdditionalMasterSecurityGroups []string `json:"AdditionalMasterSecurityGroups,omitempty"`
+	AdditionalMasterSecurityGroups *[]string `json:"AdditionalMasterSecurityGroups,omitempty"`
 
 	// AdditionalSlaveSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-additionalslavesecuritygroups
-	AdditionalSlaveSecurityGroups []string `json:"AdditionalSlaveSecurityGroups,omitempty"`
+	AdditionalSlaveSecurityGroups *[]string `json:"AdditionalSlaveSecurityGroups,omitempty"`
 
 	// CoreInstanceFleet AWS CloudFormation Property
 	// Required: false
@@ -31,37 +31,37 @@ type Cluster_JobFlowInstancesConfig struct {
 	// Ec2KeyName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-ec2keyname
-	Ec2KeyName string `json:"Ec2KeyName,omitempty"`
+	Ec2KeyName *string `json:"Ec2KeyName,omitempty"`
 
 	// Ec2SubnetId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-ec2subnetid
-	Ec2SubnetId string `json:"Ec2SubnetId,omitempty"`
+	Ec2SubnetId *string `json:"Ec2SubnetId,omitempty"`
 
 	// Ec2SubnetIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-ec2subnetids
-	Ec2SubnetIds []string `json:"Ec2SubnetIds,omitempty"`
+	Ec2SubnetIds *[]string `json:"Ec2SubnetIds,omitempty"`
 
 	// EmrManagedMasterSecurityGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-emrmanagedmastersecuritygroup
-	EmrManagedMasterSecurityGroup string `json:"EmrManagedMasterSecurityGroup,omitempty"`
+	EmrManagedMasterSecurityGroup *string `json:"EmrManagedMasterSecurityGroup,omitempty"`
 
 	// EmrManagedSlaveSecurityGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-emrmanagedslavesecuritygroup
-	EmrManagedSlaveSecurityGroup string `json:"EmrManagedSlaveSecurityGroup,omitempty"`
+	EmrManagedSlaveSecurityGroup *string `json:"EmrManagedSlaveSecurityGroup,omitempty"`
 
 	// HadoopVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-hadoopversion
-	HadoopVersion string `json:"HadoopVersion,omitempty"`
+	HadoopVersion *string `json:"HadoopVersion,omitempty"`
 
 	// KeepJobFlowAliveWhenNoSteps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-keepjobflowalivewhennosteps
-	KeepJobFlowAliveWhenNoSteps bool `json:"KeepJobFlowAliveWhenNoSteps,omitempty"`
+	KeepJobFlowAliveWhenNoSteps *bool `json:"KeepJobFlowAliveWhenNoSteps,omitempty"`
 
 	// MasterInstanceFleet AWS CloudFormation Property
 	// Required: false
@@ -81,12 +81,12 @@ type Cluster_JobFlowInstancesConfig struct {
 	// ServiceAccessSecurityGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-serviceaccesssecuritygroup
-	ServiceAccessSecurityGroup string `json:"ServiceAccessSecurityGroup,omitempty"`
+	ServiceAccessSecurityGroup *string `json:"ServiceAccessSecurityGroup,omitempty"`
 
 	// TerminationProtected AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-terminationprotected
-	TerminationProtected bool `json:"TerminationProtected,omitempty"`
+	TerminationProtected *bool `json:"TerminationProtected,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

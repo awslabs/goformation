@@ -11,7 +11,7 @@ type Dataset_JsonOptions struct {
 	// MultiLine AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
-	MultiLine bool `json:"MultiLine,omitempty"`
+	MultiLine *bool `json:"MultiLine,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type VirtualNode_SubjectAlternativeNames struct {
 	// Match AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenames.html#cfn-appmesh-virtualnode-subjectalternativenames-match
-	Match *VirtualNode_SubjectAlternativeNameMatchers `json:"Match,omitempty"`
+	Match *VirtualNode_SubjectAlternativeNameMatchers `json:"Match"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

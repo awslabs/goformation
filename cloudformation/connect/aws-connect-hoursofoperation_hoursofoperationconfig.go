@@ -11,17 +11,17 @@ type HoursOfOperation_HoursOfOperationConfig struct {
 	// Day AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html#cfn-connect-hoursofoperation-hoursofoperationconfig-day
-	Day string `json:"Day,omitempty"`
+	Day string `json:"Day"`
 
 	// EndTime AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html#cfn-connect-hoursofoperation-hoursofoperationconfig-endtime
-	EndTime *HoursOfOperation_HoursOfOperationTimeSlice `json:"EndTime,omitempty"`
+	EndTime *HoursOfOperation_HoursOfOperationTimeSlice `json:"EndTime"`
 
 	// StartTime AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html#cfn-connect-hoursofoperation-hoursofoperationconfig-starttime
-	StartTime *HoursOfOperation_HoursOfOperationTimeSlice `json:"StartTime,omitempty"`
+	StartTime *HoursOfOperation_HoursOfOperationTimeSlice `json:"StartTime"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

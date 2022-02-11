@@ -11,7 +11,7 @@ type VirtualRouter_VirtualRouterSpec struct {
 	// Listeners AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html#cfn-appmesh-virtualrouter-virtualrouterspec-listeners
-	Listeners []VirtualRouter_VirtualRouterListener `json:"Listeners,omitempty"`
+	Listeners []VirtualRouter_VirtualRouterListener `json:"Listeners"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type CapacityProvider_AutoScalingGroupProvider struct {
 	// AutoScalingGroupArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
-	AutoScalingGroupArn string `json:"AutoScalingGroupArn,omitempty"`
+	AutoScalingGroupArn string `json:"AutoScalingGroupArn"`
 
 	// ManagedScaling AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type CapacityProvider_AutoScalingGroupProvider struct {
 	// ManagedTerminationProtection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
-	ManagedTerminationProtection string `json:"ManagedTerminationProtection,omitempty"`
+	ManagedTerminationProtection *string `json:"ManagedTerminationProtection,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

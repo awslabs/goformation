@@ -26,7 +26,7 @@ type VirtualNode_Listener struct {
 	// PortMapping AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
-	PortMapping *VirtualNode_PortMapping `json:"PortMapping,omitempty"`
+	PortMapping *VirtualNode_PortMapping `json:"PortMapping"`
 
 	// TLS AWS CloudFormation Property
 	// Required: false

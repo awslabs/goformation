@@ -11,12 +11,12 @@ type MitigationAction_AddThingsToThingGroupParams struct {
 	// OverrideDynamicGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
-	OverrideDynamicGroups bool `json:"OverrideDynamicGroups,omitempty"`
+	OverrideDynamicGroups *bool `json:"OverrideDynamicGroups,omitempty"`
 
 	// ThingGroupNames AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
-	ThingGroupNames []string `json:"ThingGroupNames,omitempty"`
+	ThingGroupNames []string `json:"ThingGroupNames"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

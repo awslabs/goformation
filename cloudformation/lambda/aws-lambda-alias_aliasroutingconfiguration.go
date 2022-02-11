@@ -11,7 +11,7 @@ type Alias_AliasRoutingConfiguration struct {
 	// AdditionalVersionWeights AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights
-	AdditionalVersionWeights []Alias_VersionWeight `json:"AdditionalVersionWeights,omitempty"`
+	AdditionalVersionWeights []Alias_VersionWeight `json:"AdditionalVersionWeights"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

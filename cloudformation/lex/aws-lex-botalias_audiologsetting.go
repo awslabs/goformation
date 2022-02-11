@@ -11,7 +11,7 @@ type BotAlias_AudioLogSetting struct {
 	// Destination AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html#cfn-lex-botalias-audiologsetting-destination
-	Destination *BotAlias_AudioLogDestination `json:"Destination,omitempty"`
+	Destination *BotAlias_AudioLogDestination `json:"Destination"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true

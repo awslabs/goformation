@@ -21,7 +21,7 @@ type SafetyRule struct {
 	// ControlPanelArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-	ControlPanelArn string `json:"ControlPanelArn,omitempty"`
+	ControlPanelArn string `json:"ControlPanelArn"`
 
 	// GatingRule AWS CloudFormation Property
 	// Required: false
@@ -31,17 +31,17 @@ type SafetyRule struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RuleConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-	RuleConfig *SafetyRule_RuleConfig `json:"RuleConfig,omitempty"`
+	RuleConfig *SafetyRule_RuleConfig `json:"RuleConfig"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

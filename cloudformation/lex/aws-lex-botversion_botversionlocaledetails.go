@@ -11,7 +11,7 @@ type BotVersion_BotVersionLocaleDetails struct {
 	// SourceBotVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html#cfn-lex-botversion-botversionlocaledetails-sourcebotversion
-	SourceBotVersion string `json:"SourceBotVersion,omitempty"`
+	SourceBotVersion string `json:"SourceBotVersion"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

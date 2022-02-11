@@ -11,7 +11,7 @@ type Datastore_DatastorePartitions struct {
 	// Partitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html#cfn-iotanalytics-datastore-datastorepartitions-partitions
-	Partitions []Datastore_DatastorePartition `json:"Partitions,omitempty"`
+	Partitions *[]Datastore_DatastorePartition `json:"Partitions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

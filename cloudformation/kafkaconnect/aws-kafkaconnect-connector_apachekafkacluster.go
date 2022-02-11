@@ -11,12 +11,12 @@ type Connector_ApacheKafkaCluster struct {
 	// BootstrapServers AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-bootstrapservers
-	BootstrapServers string `json:"BootstrapServers,omitempty"`
+	BootstrapServers string `json:"BootstrapServers"`
 
 	// Vpc AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-vpc
-	Vpc *Connector_Vpc `json:"Vpc,omitempty"`
+	Vpc *Connector_Vpc `json:"Vpc"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

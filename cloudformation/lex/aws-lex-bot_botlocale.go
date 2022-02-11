@@ -11,17 +11,17 @@ type Bot_BotLocale struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// Intents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-intents
-	Intents []Bot_Intent `json:"Intents,omitempty"`
+	Intents *[]Bot_Intent `json:"Intents,omitempty"`
 
 	// LocaleId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-localeid
-	LocaleId string `json:"LocaleId,omitempty"`
+	LocaleId string `json:"LocaleId"`
 
 	// NluConfidenceThreshold AWS CloudFormation Property
 	// Required: true
@@ -31,7 +31,7 @@ type Bot_BotLocale struct {
 	// SlotTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-slottypes
-	SlotTypes []Bot_SlotType `json:"SlotTypes,omitempty"`
+	SlotTypes *[]Bot_SlotType `json:"SlotTypes,omitempty"`
 
 	// VoiceSettings AWS CloudFormation Property
 	// Required: false

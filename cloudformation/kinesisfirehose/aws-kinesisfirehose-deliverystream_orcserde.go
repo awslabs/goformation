@@ -11,52 +11,52 @@ type DeliveryStream_OrcSerDe struct {
 	// BlockSizeBytes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-blocksizebytes
-	BlockSizeBytes int `json:"BlockSizeBytes,omitempty"`
+	BlockSizeBytes *int `json:"BlockSizeBytes,omitempty"`
 
 	// BloomFilterColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-bloomfiltercolumns
-	BloomFilterColumns []string `json:"BloomFilterColumns,omitempty"`
+	BloomFilterColumns *[]string `json:"BloomFilterColumns,omitempty"`
 
 	// BloomFilterFalsePositiveProbability AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-bloomfilterfalsepositiveprobability
-	BloomFilterFalsePositiveProbability float64 `json:"BloomFilterFalsePositiveProbability,omitempty"`
+	BloomFilterFalsePositiveProbability *float64 `json:"BloomFilterFalsePositiveProbability,omitempty"`
 
 	// Compression AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-compression
-	Compression string `json:"Compression,omitempty"`
+	Compression *string `json:"Compression,omitempty"`
 
 	// DictionaryKeyThreshold AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-dictionarykeythreshold
-	DictionaryKeyThreshold float64 `json:"DictionaryKeyThreshold,omitempty"`
+	DictionaryKeyThreshold *float64 `json:"DictionaryKeyThreshold,omitempty"`
 
 	// EnablePadding AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-enablepadding
-	EnablePadding bool `json:"EnablePadding,omitempty"`
+	EnablePadding *bool `json:"EnablePadding,omitempty"`
 
 	// FormatVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-formatversion
-	FormatVersion string `json:"FormatVersion,omitempty"`
+	FormatVersion *string `json:"FormatVersion,omitempty"`
 
 	// PaddingTolerance AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-paddingtolerance
-	PaddingTolerance float64 `json:"PaddingTolerance,omitempty"`
+	PaddingTolerance *float64 `json:"PaddingTolerance,omitempty"`
 
 	// RowIndexStride AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-rowindexstride
-	RowIndexStride int `json:"RowIndexStride,omitempty"`
+	RowIndexStride *int `json:"RowIndexStride,omitempty"`
 
 	// StripeSizeBytes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-stripesizebytes
-	StripeSizeBytes int `json:"StripeSizeBytes,omitempty"`
+	StripeSizeBytes *int `json:"StripeSizeBytes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

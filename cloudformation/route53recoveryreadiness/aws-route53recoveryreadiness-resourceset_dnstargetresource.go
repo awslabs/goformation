@@ -11,22 +11,22 @@ type ResourceSet_DNSTargetResource struct {
 	// DomainName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
-	DomainName string `json:"DomainName,omitempty"`
+	DomainName *string `json:"DomainName,omitempty"`
 
 	// HostedZoneArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
-	HostedZoneArn string `json:"HostedZoneArn,omitempty"`
+	HostedZoneArn *string `json:"HostedZoneArn,omitempty"`
 
 	// RecordSetId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
-	RecordSetId string `json:"RecordSetId,omitempty"`
+	RecordSetId *string `json:"RecordSetId,omitempty"`
 
 	// RecordType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
-	RecordType string `json:"RecordType,omitempty"`
+	RecordType *string `json:"RecordType,omitempty"`
 
 	// TargetResource AWS CloudFormation Property
 	// Required: false

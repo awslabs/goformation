@@ -11,17 +11,17 @@ type SchedulingPolicy_FairsharePolicy struct {
 	// ComputeReservation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-computereservation
-	ComputeReservation float64 `json:"ComputeReservation,omitempty"`
+	ComputeReservation *float64 `json:"ComputeReservation,omitempty"`
 
 	// ShareDecaySeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-sharedecayseconds
-	ShareDecaySeconds float64 `json:"ShareDecaySeconds,omitempty"`
+	ShareDecaySeconds *float64 `json:"ShareDecaySeconds,omitempty"`
 
 	// ShareDistribution AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-sharedistribution
-	ShareDistribution []SchedulingPolicy_ShareAttributes `json:"ShareDistribution,omitempty"`
+	ShareDistribution *[]SchedulingPolicy_ShareAttributes `json:"ShareDistribution,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

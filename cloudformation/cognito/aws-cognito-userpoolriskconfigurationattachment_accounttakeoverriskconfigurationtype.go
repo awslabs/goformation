@@ -11,7 +11,7 @@ type UserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationType st
 	// Actions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-actions
-	Actions *UserPoolRiskConfigurationAttachment_AccountTakeoverActionsType `json:"Actions,omitempty"`
+	Actions *UserPoolRiskConfigurationAttachment_AccountTakeoverActionsType `json:"Actions"`
 
 	// NotifyConfiguration AWS CloudFormation Property
 	// Required: false

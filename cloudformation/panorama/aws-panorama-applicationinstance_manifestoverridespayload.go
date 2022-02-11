@@ -11,7 +11,7 @@ type ApplicationInstance_ManifestOverridesPayload struct {
 	// PayloadData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html#cfn-panorama-applicationinstance-manifestoverridespayload-payloaddata
-	PayloadData string `json:"PayloadData,omitempty"`
+	PayloadData *string `json:"PayloadData,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

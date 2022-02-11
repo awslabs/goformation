@@ -11,7 +11,7 @@ type Config_TrackingConfig struct {
 	// Autotrack AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
-	Autotrack string `json:"Autotrack,omitempty"`
+	Autotrack *string `json:"Autotrack,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

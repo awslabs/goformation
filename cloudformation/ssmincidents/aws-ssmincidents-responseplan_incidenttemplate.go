@@ -11,7 +11,7 @@ type ResponsePlan_IncidentTemplate struct {
 	// DedupeString AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
-	DedupeString string `json:"DedupeString,omitempty"`
+	DedupeString *string `json:"DedupeString,omitempty"`
 
 	// Impact AWS CloudFormation Property
 	// Required: true
@@ -21,17 +21,17 @@ type ResponsePlan_IncidentTemplate struct {
 	// NotificationTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
-	NotificationTargets []ResponsePlan_NotificationTargetItem `json:"NotificationTargets,omitempty"`
+	NotificationTargets *[]ResponsePlan_NotificationTargetItem `json:"NotificationTargets,omitempty"`
 
 	// Summary AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
-	Summary string `json:"Summary,omitempty"`
+	Summary *string `json:"Summary,omitempty"`
 
 	// Title AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
-	Title string `json:"Title,omitempty"`
+	Title string `json:"Title"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

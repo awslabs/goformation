@@ -15,22 +15,22 @@ type ResourceDataSync struct {
 	// BucketName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-	BucketName string `json:"BucketName,omitempty"`
+	BucketName *string `json:"BucketName,omitempty"`
 
 	// BucketPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-	BucketPrefix string `json:"BucketPrefix,omitempty"`
+	BucketPrefix *string `json:"BucketPrefix,omitempty"`
 
 	// BucketRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-	BucketRegion string `json:"BucketRegion,omitempty"`
+	BucketRegion *string `json:"BucketRegion,omitempty"`
 
 	// KMSKeyArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-	KMSKeyArn string `json:"KMSKeyArn,omitempty"`
+	KMSKeyArn *string `json:"KMSKeyArn,omitempty"`
 
 	// S3Destination AWS CloudFormation Property
 	// Required: false
@@ -40,12 +40,12 @@ type ResourceDataSync struct {
 	// SyncFormat AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-	SyncFormat string `json:"SyncFormat,omitempty"`
+	SyncFormat *string `json:"SyncFormat,omitempty"`
 
 	// SyncName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-	SyncName string `json:"SyncName,omitempty"`
+	SyncName string `json:"SyncName"`
 
 	// SyncSource AWS CloudFormation Property
 	// Required: false
@@ -55,7 +55,7 @@ type ResourceDataSync struct {
 	// SyncType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-	SyncType string `json:"SyncType,omitempty"`
+	SyncType *string `json:"SyncType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type Endpoint_BlueGreenUpdatePolicy struct {
 	// MaximumExecutionTimeoutInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-maximumexecutiontimeoutinseconds
-	MaximumExecutionTimeoutInSeconds int `json:"MaximumExecutionTimeoutInSeconds,omitempty"`
+	MaximumExecutionTimeoutInSeconds *int `json:"MaximumExecutionTimeoutInSeconds,omitempty"`
 
 	// TerminationWaitInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-terminationwaitinseconds
-	TerminationWaitInSeconds int `json:"TerminationWaitInSeconds,omitempty"`
+	TerminationWaitInSeconds *int `json:"TerminationWaitInSeconds,omitempty"`
 
 	// TrafficRoutingConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-trafficroutingconfiguration
-	TrafficRoutingConfiguration *Endpoint_TrafficRoutingConfig `json:"TrafficRoutingConfiguration,omitempty"`
+	TrafficRoutingConfiguration *Endpoint_TrafficRoutingConfig `json:"TrafficRoutingConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

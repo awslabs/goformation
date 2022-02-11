@@ -11,7 +11,7 @@ type DataSource_DynamoDBConfig struct {
 	// AwsRegion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-awsregion
-	AwsRegion string `json:"AwsRegion,omitempty"`
+	AwsRegion string `json:"AwsRegion"`
 
 	// DeltaSyncConfig AWS CloudFormation Property
 	// Required: false
@@ -21,17 +21,17 @@ type DataSource_DynamoDBConfig struct {
 	// TableName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName string `json:"TableName"`
 
 	// UseCallerCredentials AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-usecallercredentials
-	UseCallerCredentials bool `json:"UseCallerCredentials,omitempty"`
+	UseCallerCredentials *bool `json:"UseCallerCredentials,omitempty"`
 
 	// Versioned AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-versioned
-	Versioned bool `json:"Versioned,omitempty"`
+	Versioned *bool `json:"Versioned,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,7 +16,7 @@ type DataQualityJobDefinition struct {
 	// DataQualityAppSpecification AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
-	DataQualityAppSpecification *DataQualityJobDefinition_DataQualityAppSpecification `json:"DataQualityAppSpecification,omitempty"`
+	DataQualityAppSpecification *DataQualityJobDefinition_DataQualityAppSpecification `json:"DataQualityAppSpecification"`
 
 	// DataQualityBaselineConfig AWS CloudFormation Property
 	// Required: false
@@ -26,22 +26,22 @@ type DataQualityJobDefinition struct {
 	// DataQualityJobInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
-	DataQualityJobInput *DataQualityJobDefinition_DataQualityJobInput `json:"DataQualityJobInput,omitempty"`
+	DataQualityJobInput *DataQualityJobDefinition_DataQualityJobInput `json:"DataQualityJobInput"`
 
 	// DataQualityJobOutputConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
-	DataQualityJobOutputConfig *DataQualityJobDefinition_MonitoringOutputConfig `json:"DataQualityJobOutputConfig,omitempty"`
+	DataQualityJobOutputConfig *DataQualityJobDefinition_MonitoringOutputConfig `json:"DataQualityJobOutputConfig"`
 
 	// JobDefinitionName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
-	JobDefinitionName string `json:"JobDefinitionName,omitempty"`
+	JobDefinitionName *string `json:"JobDefinitionName,omitempty"`
 
 	// JobResources AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
-	JobResources *DataQualityJobDefinition_MonitoringResources `json:"JobResources,omitempty"`
+	JobResources *DataQualityJobDefinition_MonitoringResources `json:"JobResources"`
 
 	// NetworkConfig AWS CloudFormation Property
 	// Required: false
@@ -51,7 +51,7 @@ type DataQualityJobDefinition struct {
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// StoppingCondition AWS CloudFormation Property
 	// Required: false
@@ -61,7 +61,7 @@ type DataQualityJobDefinition struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

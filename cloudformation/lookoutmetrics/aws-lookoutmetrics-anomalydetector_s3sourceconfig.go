@@ -11,22 +11,22 @@ type AnomalyDetector_S3SourceConfig struct {
 	// FileFormatDescriptor AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
-	FileFormatDescriptor *AnomalyDetector_FileFormatDescriptor `json:"FileFormatDescriptor,omitempty"`
+	FileFormatDescriptor *AnomalyDetector_FileFormatDescriptor `json:"FileFormatDescriptor"`
 
 	// HistoricalDataPathList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
-	HistoricalDataPathList []string `json:"HistoricalDataPathList,omitempty"`
+	HistoricalDataPathList *[]string `json:"HistoricalDataPathList,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// TemplatedPathList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
-	TemplatedPathList []string `json:"TemplatedPathList,omitempty"`
+	TemplatedPathList *[]string `json:"TemplatedPathList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

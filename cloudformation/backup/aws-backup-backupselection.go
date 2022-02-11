@@ -15,12 +15,12 @@ type BackupSelection struct {
 	// BackupPlanId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-	BackupPlanId string `json:"BackupPlanId,omitempty"`
+	BackupPlanId string `json:"BackupPlanId"`
 
 	// BackupSelection AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
-	BackupSelection *BackupSelection_BackupSelectionResourceType `json:"BackupSelection,omitempty"`
+	BackupSelection *BackupSelection_BackupSelectionResourceType `json:"BackupSelection"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,22 +11,22 @@ type User_UserPhoneConfig struct {
 	// AfterContactWorkTimeLimit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-aftercontactworktimelimit
-	AfterContactWorkTimeLimit int `json:"AfterContactWorkTimeLimit,omitempty"`
+	AfterContactWorkTimeLimit *int `json:"AfterContactWorkTimeLimit,omitempty"`
 
 	// AutoAccept AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-autoaccept
-	AutoAccept bool `json:"AutoAccept,omitempty"`
+	AutoAccept *bool `json:"AutoAccept,omitempty"`
 
 	// DeskPhoneNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-deskphonenumber
-	DeskPhoneNumber string `json:"DeskPhoneNumber,omitempty"`
+	DeskPhoneNumber *string `json:"DeskPhoneNumber,omitempty"`
 
 	// PhoneType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-phonetype
-	PhoneType string `json:"PhoneType,omitempty"`
+	PhoneType string `json:"PhoneType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

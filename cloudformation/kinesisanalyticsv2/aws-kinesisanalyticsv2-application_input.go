@@ -21,7 +21,7 @@ type Application_Input struct {
 	// InputSchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-inputschema
-	InputSchema *Application_InputSchema `json:"InputSchema,omitempty"`
+	InputSchema *Application_InputSchema `json:"InputSchema"`
 
 	// KinesisFirehoseInput AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type Application_Input struct {
 	// NamePrefix AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-nameprefix
-	NamePrefix string `json:"NamePrefix,omitempty"`
+	NamePrefix string `json:"NamePrefix"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

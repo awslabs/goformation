@@ -11,7 +11,7 @@ type DetectorModel_AssetPropertyValue struct {
 	// Quality AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
-	Quality string `json:"Quality,omitempty"`
+	Quality *string `json:"Quality,omitempty"`
 
 	// Timestamp AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type DetectorModel_AssetPropertyValue struct {
 	// Value AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
-	Value *DetectorModel_AssetPropertyVariant `json:"Value,omitempty"`
+	Value *DetectorModel_AssetPropertyVariant `json:"Value"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

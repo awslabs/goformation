@@ -16,22 +16,22 @@ type TaskDefinition_EFSVolumeConfiguration struct {
 	// FilesystemId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
-	FilesystemId string `json:"FilesystemId,omitempty"`
+	FilesystemId string `json:"FilesystemId"`
 
 	// RootDirectory AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
-	RootDirectory string `json:"RootDirectory,omitempty"`
+	RootDirectory *string `json:"RootDirectory,omitempty"`
 
 	// TransitEncryption AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
-	TransitEncryption string `json:"TransitEncryption,omitempty"`
+	TransitEncryption *string `json:"TransitEncryption,omitempty"`
 
 	// TransitEncryptionPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
-	TransitEncryptionPort int `json:"TransitEncryptionPort,omitempty"`
+	TransitEncryptionPort *int `json:"TransitEncryptionPort,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

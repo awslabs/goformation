@@ -11,7 +11,7 @@ type ScheduledQuery_NotificationConfiguration struct {
 	// SnsConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html#cfn-timestream-scheduledquery-notificationconfiguration-snsconfiguration
-	SnsConfiguration *ScheduledQuery_SnsConfiguration `json:"SnsConfiguration,omitempty"`
+	SnsConfiguration *ScheduledQuery_SnsConfiguration `json:"SnsConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type Integration_SalesforceSourceProperties struct {
 	// EnableDynamicFieldUpdate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
-	EnableDynamicFieldUpdate bool `json:"EnableDynamicFieldUpdate,omitempty"`
+	EnableDynamicFieldUpdate *bool `json:"EnableDynamicFieldUpdate,omitempty"`
 
 	// IncludeDeletedRecords AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
-	IncludeDeletedRecords bool `json:"IncludeDeletedRecords,omitempty"`
+	IncludeDeletedRecords *bool `json:"IncludeDeletedRecords,omitempty"`
 
 	// Object AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
-	Object string `json:"Object,omitempty"`
+	Object string `json:"Object"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

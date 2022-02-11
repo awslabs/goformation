@@ -11,12 +11,12 @@ type VirtualNode_ListenerTls struct {
 	// Certificate AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-certificate
-	Certificate *VirtualNode_ListenerTlsCertificate `json:"Certificate,omitempty"`
+	Certificate *VirtualNode_ListenerTlsCertificate `json:"Certificate"`
 
 	// Mode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-mode
-	Mode string `json:"Mode,omitempty"`
+	Mode string `json:"Mode"`
 
 	// Validation AWS CloudFormation Property
 	// Required: false

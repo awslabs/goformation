@@ -11,12 +11,12 @@ type Gateway_GatewayCapabilitySummary struct {
 	// CapabilityConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilityconfiguration
-	CapabilityConfiguration string `json:"CapabilityConfiguration,omitempty"`
+	CapabilityConfiguration *string `json:"CapabilityConfiguration,omitempty"`
 
 	// CapabilityNamespace AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilitynamespace
-	CapabilityNamespace string `json:"CapabilityNamespace,omitempty"`
+	CapabilityNamespace string `json:"CapabilityNamespace"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

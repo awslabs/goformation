@@ -11,12 +11,12 @@ type Canary_VisualReference struct {
 	// BaseCanaryRunId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
-	BaseCanaryRunId string `json:"BaseCanaryRunId,omitempty"`
+	BaseCanaryRunId string `json:"BaseCanaryRunId"`
 
 	// BaseScreenshots AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
-	BaseScreenshots []Canary_BaseScreenshot `json:"BaseScreenshots,omitempty"`
+	BaseScreenshots *[]Canary_BaseScreenshot `json:"BaseScreenshots,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

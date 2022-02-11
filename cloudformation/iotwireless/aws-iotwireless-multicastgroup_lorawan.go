@@ -11,22 +11,22 @@ type MulticastGroup_LoRaWAN struct {
 	// DlClass AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-dlclass
-	DlClass string `json:"DlClass,omitempty"`
+	DlClass string `json:"DlClass"`
 
 	// NumberOfDevicesInGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-numberofdevicesingroup
-	NumberOfDevicesInGroup int `json:"NumberOfDevicesInGroup,omitempty"`
+	NumberOfDevicesInGroup *int `json:"NumberOfDevicesInGroup,omitempty"`
 
 	// NumberOfDevicesRequested AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-numberofdevicesrequested
-	NumberOfDevicesRequested int `json:"NumberOfDevicesRequested,omitempty"`
+	NumberOfDevicesRequested *int `json:"NumberOfDevicesRequested,omitempty"`
 
 	// RfRegion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-rfregion
-	RfRegion string `json:"RfRegion,omitempty"`
+	RfRegion string `json:"RfRegion"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

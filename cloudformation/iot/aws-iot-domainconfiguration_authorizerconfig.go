@@ -11,12 +11,12 @@ type DomainConfiguration_AuthorizerConfig struct {
 	// AllowAuthorizerOverride AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride
-	AllowAuthorizerOverride bool `json:"AllowAuthorizerOverride,omitempty"`
+	AllowAuthorizerOverride *bool `json:"AllowAuthorizerOverride,omitempty"`
 
 	// DefaultAuthorizerName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername
-	DefaultAuthorizerName string `json:"DefaultAuthorizerName,omitempty"`
+	DefaultAuthorizerName *string `json:"DefaultAuthorizerName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

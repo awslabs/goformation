@@ -11,12 +11,12 @@ type LocationHDFS_QopConfiguration struct {
 	// DataTransferProtection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-datatransferprotection
-	DataTransferProtection string `json:"DataTransferProtection,omitempty"`
+	DataTransferProtection *string `json:"DataTransferProtection,omitempty"`
 
 	// RpcProtection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-rpcprotection
-	RpcProtection string `json:"RpcProtection,omitempty"`
+	RpcProtection *string `json:"RpcProtection,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type SchedulingPolicy_ShareAttributes struct {
 	// ShareIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-shareattributes.html#cfn-batch-schedulingpolicy-shareattributes-shareidentifier
-	ShareIdentifier string `json:"ShareIdentifier,omitempty"`
+	ShareIdentifier *string `json:"ShareIdentifier,omitempty"`
 
 	// WeightFactor AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-shareattributes.html#cfn-batch-schedulingpolicy-shareattributes-weightfactor
-	WeightFactor float64 `json:"WeightFactor,omitempty"`
+	WeightFactor *float64 `json:"WeightFactor,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Function_LogGroupSAMPT struct {
 	// LogGroupName AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
-	LogGroupName string `json:"LogGroupName,omitempty"`
+	LogGroupName string `json:"LogGroupName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

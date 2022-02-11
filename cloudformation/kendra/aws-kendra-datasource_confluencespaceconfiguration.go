@@ -11,27 +11,27 @@ type DataSource_ConfluenceSpaceConfiguration struct {
 	// CrawlArchivedSpaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlarchivedspaces
-	CrawlArchivedSpaces bool `json:"CrawlArchivedSpaces,omitempty"`
+	CrawlArchivedSpaces *bool `json:"CrawlArchivedSpaces,omitempty"`
 
 	// CrawlPersonalSpaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces
-	CrawlPersonalSpaces bool `json:"CrawlPersonalSpaces,omitempty"`
+	CrawlPersonalSpaces *bool `json:"CrawlPersonalSpaces,omitempty"`
 
 	// ExcludeSpaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-	ExcludeSpaces []string `json:"ExcludeSpaces,omitempty"`
+	ExcludeSpaces *[]string `json:"ExcludeSpaces,omitempty"`
 
 	// IncludeSpaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-	IncludeSpaces []string `json:"IncludeSpaces,omitempty"`
+	IncludeSpaces *[]string `json:"IncludeSpaces,omitempty"`
 
 	// SpaceFieldMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
-	SpaceFieldMappings []DataSource_ConfluenceSpaceToIndexFieldMapping `json:"SpaceFieldMappings,omitempty"`
+	SpaceFieldMappings *[]DataSource_ConfluenceSpaceToIndexFieldMapping `json:"SpaceFieldMappings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

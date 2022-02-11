@@ -11,7 +11,7 @@ type Bucket_RoutingRule struct {
 	// RedirectRule AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-redirectrule
-	RedirectRule *Bucket_RedirectRule `json:"RedirectRule,omitempty"`
+	RedirectRule *Bucket_RedirectRule `json:"RedirectRule"`
 
 	// RoutingRuleCondition AWS CloudFormation Property
 	// Required: false

@@ -11,12 +11,12 @@ type Filter_DateFilter struct {
 	// EndInclusive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html#cfn-inspectorv2-filter-datefilter-endinclusive
-	EndInclusive int `json:"EndInclusive,omitempty"`
+	EndInclusive *int `json:"EndInclusive,omitempty"`
 
 	// StartInclusive AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html#cfn-inspectorv2-filter-datefilter-startinclusive
-	StartInclusive int `json:"StartInclusive,omitempty"`
+	StartInclusive *int `json:"StartInclusive,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

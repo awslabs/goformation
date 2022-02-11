@@ -16,7 +16,7 @@ type ScalingPlan_ScalingInstruction struct {
 	// DisableDynamicScaling AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-disabledynamicscaling
-	DisableDynamicScaling bool `json:"DisableDynamicScaling,omitempty"`
+	DisableDynamicScaling *bool `json:"DisableDynamicScaling,omitempty"`
 
 	// MaxCapacity AWS CloudFormation Property
 	// Required: true
@@ -36,47 +36,47 @@ type ScalingPlan_ScalingInstruction struct {
 	// PredictiveScalingMaxCapacityBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-predictivescalingmaxcapacitybehavior
-	PredictiveScalingMaxCapacityBehavior string `json:"PredictiveScalingMaxCapacityBehavior,omitempty"`
+	PredictiveScalingMaxCapacityBehavior *string `json:"PredictiveScalingMaxCapacityBehavior,omitempty"`
 
 	// PredictiveScalingMaxCapacityBuffer AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-predictivescalingmaxcapacitybuffer
-	PredictiveScalingMaxCapacityBuffer int `json:"PredictiveScalingMaxCapacityBuffer,omitempty"`
+	PredictiveScalingMaxCapacityBuffer *int `json:"PredictiveScalingMaxCapacityBuffer,omitempty"`
 
 	// PredictiveScalingMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-predictivescalingmode
-	PredictiveScalingMode string `json:"PredictiveScalingMode,omitempty"`
+	PredictiveScalingMode *string `json:"PredictiveScalingMode,omitempty"`
 
 	// ResourceId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-resourceid
-	ResourceId string `json:"ResourceId,omitempty"`
+	ResourceId string `json:"ResourceId"`
 
 	// ScalableDimension AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-scalabledimension
-	ScalableDimension string `json:"ScalableDimension,omitempty"`
+	ScalableDimension string `json:"ScalableDimension"`
 
 	// ScalingPolicyUpdateBehavior AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-scalingpolicyupdatebehavior
-	ScalingPolicyUpdateBehavior string `json:"ScalingPolicyUpdateBehavior,omitempty"`
+	ScalingPolicyUpdateBehavior *string `json:"ScalingPolicyUpdateBehavior,omitempty"`
 
 	// ScheduledActionBufferTime AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-scheduledactionbuffertime
-	ScheduledActionBufferTime int `json:"ScheduledActionBufferTime,omitempty"`
+	ScheduledActionBufferTime *int `json:"ScheduledActionBufferTime,omitempty"`
 
 	// ServiceNamespace AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-servicenamespace
-	ServiceNamespace string `json:"ServiceNamespace,omitempty"`
+	ServiceNamespace string `json:"ServiceNamespace"`
 
 	// TargetTrackingConfigurations AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-targettrackingconfigurations
-	TargetTrackingConfigurations []ScalingPlan_TargetTrackingConfiguration `json:"TargetTrackingConfigurations,omitempty"`
+	TargetTrackingConfigurations []ScalingPlan_TargetTrackingConfiguration `json:"TargetTrackingConfigurations"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

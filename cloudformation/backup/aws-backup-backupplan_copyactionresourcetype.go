@@ -11,7 +11,7 @@ type BackupPlan_CopyActionResourceType struct {
 	// DestinationBackupVaultArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
-	DestinationBackupVaultArn string `json:"DestinationBackupVaultArn,omitempty"`
+	DestinationBackupVaultArn string `json:"DestinationBackupVaultArn"`
 
 	// Lifecycle AWS CloudFormation Property
 	// Required: false

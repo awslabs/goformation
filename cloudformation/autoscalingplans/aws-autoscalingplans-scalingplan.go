@@ -15,12 +15,12 @@ type ScalingPlan struct {
 	// ApplicationSource AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-applicationsource
-	ApplicationSource *ScalingPlan_ApplicationSource `json:"ApplicationSource,omitempty"`
+	ApplicationSource *ScalingPlan_ApplicationSource `json:"ApplicationSource"`
 
 	// ScalingInstructions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-scalinginstructions
-	ScalingInstructions []ScalingPlan_ScalingInstruction `json:"ScalingInstructions,omitempty"`
+	ScalingInstructions []ScalingPlan_ScalingInstruction `json:"ScalingInstructions"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

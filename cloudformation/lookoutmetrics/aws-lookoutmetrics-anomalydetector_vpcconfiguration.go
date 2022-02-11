@@ -11,12 +11,12 @@ type AnomalyDetector_VpcConfiguration struct {
 	// SecurityGroupIdList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
-	SecurityGroupIdList []string `json:"SecurityGroupIdList,omitempty"`
+	SecurityGroupIdList []string `json:"SecurityGroupIdList"`
 
 	// SubnetIdList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
-	SubnetIdList []string `json:"SubnetIdList,omitempty"`
+	SubnetIdList []string `json:"SubnetIdList"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

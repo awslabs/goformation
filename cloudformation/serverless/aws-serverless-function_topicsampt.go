@@ -11,7 +11,7 @@ type Function_TopicSAMPT struct {
 	// TopicName AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
-	TopicName string `json:"TopicName,omitempty"`
+	TopicName string `json:"TopicName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

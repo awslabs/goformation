@@ -16,7 +16,7 @@ type Service_SourceConfiguration struct {
 	// AutoDeploymentsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
-	AutoDeploymentsEnabled bool `json:"AutoDeploymentsEnabled,omitempty"`
+	AutoDeploymentsEnabled *bool `json:"AutoDeploymentsEnabled,omitempty"`
 
 	// CodeRepository AWS CloudFormation Property
 	// Required: false

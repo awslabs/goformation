@@ -11,7 +11,7 @@ type AnomalyDetector_MetricMathAnomalyDetector struct {
 	// MetricDataQueries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricmathanomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector-metricdataqueries
-	MetricDataQueries []AnomalyDetector_MetricDataQuery `json:"MetricDataQueries,omitempty"`
+	MetricDataQueries *[]AnomalyDetector_MetricDataQuery `json:"MetricDataQueries,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

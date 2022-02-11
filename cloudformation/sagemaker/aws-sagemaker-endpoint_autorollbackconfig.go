@@ -11,7 +11,7 @@ type Endpoint_AutoRollbackConfig struct {
 	// Alarms AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html#cfn-sagemaker-endpoint-autorollbackconfig-alarms
-	Alarms []Endpoint_Alarm `json:"Alarms,omitempty"`
+	Alarms []Endpoint_Alarm `json:"Alarms"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

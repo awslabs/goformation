@@ -16,32 +16,32 @@ type DataSet struct {
 	// AwsAccountId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-	AwsAccountId string `json:"AwsAccountId,omitempty"`
+	AwsAccountId *string `json:"AwsAccountId,omitempty"`
 
 	// ColumnGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
-	ColumnGroups []DataSet_ColumnGroup `json:"ColumnGroups,omitempty"`
+	ColumnGroups *[]DataSet_ColumnGroup `json:"ColumnGroups,omitempty"`
 
 	// ColumnLevelPermissionRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-	ColumnLevelPermissionRules []DataSet_ColumnLevelPermissionRule `json:"ColumnLevelPermissionRules,omitempty"`
+	ColumnLevelPermissionRules *[]DataSet_ColumnLevelPermissionRule `json:"ColumnLevelPermissionRules,omitempty"`
 
 	// DataSetId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-	DataSetId string `json:"DataSetId,omitempty"`
+	DataSetId *string `json:"DataSetId,omitempty"`
 
 	// FieldFolders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-	FieldFolders map[string]DataSet_FieldFolder `json:"FieldFolders,omitempty"`
+	FieldFolders *map[string]DataSet_FieldFolder `json:"FieldFolders,omitempty"`
 
 	// ImportMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-	ImportMode string `json:"ImportMode,omitempty"`
+	ImportMode *string `json:"ImportMode,omitempty"`
 
 	// IngestionWaitPolicy AWS CloudFormation Property
 	// Required: false
@@ -51,22 +51,22 @@ type DataSet struct {
 	// LogicalTableMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-	LogicalTableMap map[string]DataSet_LogicalTable `json:"LogicalTableMap,omitempty"`
+	LogicalTableMap *map[string]DataSet_LogicalTable `json:"LogicalTableMap,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
-	Name string `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 
 	// Permissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
-	Permissions []DataSet_ResourcePermission `json:"Permissions,omitempty"`
+	Permissions *[]DataSet_ResourcePermission `json:"Permissions,omitempty"`
 
 	// PhysicalTableMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-	PhysicalTableMap map[string]DataSet_PhysicalTable `json:"PhysicalTableMap,omitempty"`
+	PhysicalTableMap *map[string]DataSet_PhysicalTable `json:"PhysicalTableMap,omitempty"`
 
 	// RowLevelPermissionDataSet AWS CloudFormation Property
 	// Required: false
@@ -76,7 +76,7 @@ type DataSet struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

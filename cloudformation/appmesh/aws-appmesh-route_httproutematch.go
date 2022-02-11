@@ -11,12 +11,12 @@ type Route_HttpRouteMatch struct {
 	// Headers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-headers
-	Headers []Route_HttpRouteHeader `json:"Headers,omitempty"`
+	Headers *[]Route_HttpRouteHeader `json:"Headers,omitempty"`
 
 	// Method AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-method
-	Method string `json:"Method,omitempty"`
+	Method *string `json:"Method,omitempty"`
 
 	// Path AWS CloudFormation Property
 	// Required: false
@@ -26,17 +26,17 @@ type Route_HttpRouteMatch struct {
 	// Prefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-prefix
-	Prefix string `json:"Prefix,omitempty"`
+	Prefix *string `json:"Prefix,omitempty"`
 
 	// QueryParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-queryparameters
-	QueryParameters []Route_QueryParameter `json:"QueryParameters,omitempty"`
+	QueryParameters *[]Route_QueryParameter `json:"QueryParameters,omitempty"`
 
 	// Scheme AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-scheme
-	Scheme string `json:"Scheme,omitempty"`
+	Scheme *string `json:"Scheme,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

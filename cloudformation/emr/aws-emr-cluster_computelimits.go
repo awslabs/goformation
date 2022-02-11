@@ -16,12 +16,12 @@ type Cluster_ComputeLimits struct {
 	// MaximumCoreCapacityUnits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcorecapacityunits
-	MaximumCoreCapacityUnits int `json:"MaximumCoreCapacityUnits,omitempty"`
+	MaximumCoreCapacityUnits *int `json:"MaximumCoreCapacityUnits,omitempty"`
 
 	// MaximumOnDemandCapacityUnits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumondemandcapacityunits
-	MaximumOnDemandCapacityUnits int `json:"MaximumOnDemandCapacityUnits,omitempty"`
+	MaximumOnDemandCapacityUnits *int `json:"MaximumOnDemandCapacityUnits,omitempty"`
 
 	// MinimumCapacityUnits AWS CloudFormation Property
 	// Required: true
@@ -31,7 +31,7 @@ type Cluster_ComputeLimits struct {
 	// UnitType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-unittype
-	UnitType string `json:"UnitType,omitempty"`
+	UnitType string `json:"UnitType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

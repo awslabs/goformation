@@ -11,7 +11,7 @@ type Bucket_CorsConfiguration struct {
 	// CorsRules AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
-	CorsRules []Bucket_CorsRule `json:"CorsRules,omitempty"`
+	CorsRules []Bucket_CorsRule `json:"CorsRules"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,7 +16,7 @@ type VirtualGateway_VirtualGatewayTlsValidationContext struct {
 	// Trust AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext-trust
-	Trust *VirtualGateway_VirtualGatewayTlsValidationContextTrust `json:"Trust,omitempty"`
+	Trust *VirtualGateway_VirtualGatewayTlsValidationContextTrust `json:"Trust"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Function_KeySAMPT struct {
 	// KeyId AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
-	KeyId string `json:"KeyId,omitempty"`
+	KeyId string `json:"KeyId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

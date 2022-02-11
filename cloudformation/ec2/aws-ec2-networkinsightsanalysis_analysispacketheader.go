@@ -11,27 +11,27 @@ type NetworkInsightsAnalysis_AnalysisPacketHeader struct {
 	// DestinationAddresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
-	DestinationAddresses []string `json:"DestinationAddresses,omitempty"`
+	DestinationAddresses *[]string `json:"DestinationAddresses,omitempty"`
 
 	// DestinationPortRanges AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
-	DestinationPortRanges []NetworkInsightsAnalysis_PortRange `json:"DestinationPortRanges,omitempty"`
+	DestinationPortRanges *[]NetworkInsightsAnalysis_PortRange `json:"DestinationPortRanges,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
-	Protocol string `json:"Protocol,omitempty"`
+	Protocol *string `json:"Protocol,omitempty"`
 
 	// SourceAddresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
-	SourceAddresses []string `json:"SourceAddresses,omitempty"`
+	SourceAddresses *[]string `json:"SourceAddresses,omitempty"`
 
 	// SourcePortRanges AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
-	SourcePortRanges []NetworkInsightsAnalysis_PortRange `json:"SourcePortRanges,omitempty"`
+	SourcePortRanges *[]NetworkInsightsAnalysis_PortRange `json:"SourcePortRanges,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

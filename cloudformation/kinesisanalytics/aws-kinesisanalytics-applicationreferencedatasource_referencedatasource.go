@@ -11,7 +11,7 @@ type ApplicationReferenceDataSource_ReferenceDataSource struct {
 	// ReferenceSchema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource-referenceschema
-	ReferenceSchema *ApplicationReferenceDataSource_ReferenceSchema `json:"ReferenceSchema,omitempty"`
+	ReferenceSchema *ApplicationReferenceDataSource_ReferenceSchema `json:"ReferenceSchema"`
 
 	// S3ReferenceDataSource AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type ApplicationReferenceDataSource_ReferenceDataSource struct {
 	// TableName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource-tablename
-	TableName string `json:"TableName,omitempty"`
+	TableName *string `json:"TableName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

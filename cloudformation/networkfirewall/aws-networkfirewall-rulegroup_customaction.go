@@ -11,12 +11,12 @@ type RuleGroup_CustomAction struct {
 	// ActionDefinition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actiondefinition
-	ActionDefinition *RuleGroup_ActionDefinition `json:"ActionDefinition,omitempty"`
+	ActionDefinition *RuleGroup_ActionDefinition `json:"ActionDefinition"`
 
 	// ActionName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actionname
-	ActionName string `json:"ActionName,omitempty"`
+	ActionName string `json:"ActionName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

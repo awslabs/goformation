@@ -11,7 +11,7 @@ type DataSource_AclConfiguration struct {
 	// AllowedGroupsColumnName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname
-	AllowedGroupsColumnName string `json:"AllowedGroupsColumnName,omitempty"`
+	AllowedGroupsColumnName string `json:"AllowedGroupsColumnName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

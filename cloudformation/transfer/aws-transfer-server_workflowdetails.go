@@ -11,7 +11,7 @@ type Server_WorkflowDetails struct {
 	// OnUpload AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onupload
-	OnUpload []Server_WorkflowDetail `json:"OnUpload,omitempty"`
+	OnUpload []Server_WorkflowDetail `json:"OnUpload"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

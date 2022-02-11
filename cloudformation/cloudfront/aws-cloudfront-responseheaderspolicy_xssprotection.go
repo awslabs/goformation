@@ -11,7 +11,7 @@ type ResponseHeadersPolicy_XSSProtection struct {
 	// ModeBlock AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-modeblock
-	ModeBlock bool `json:"ModeBlock,omitempty"`
+	ModeBlock *bool `json:"ModeBlock,omitempty"`
 
 	// Override AWS CloudFormation Property
 	// Required: true
@@ -26,7 +26,7 @@ type ResponseHeadersPolicy_XSSProtection struct {
 	// ReportUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-reporturi
-	ReportUri string `json:"ReportUri,omitempty"`
+	ReportUri *string `json:"ReportUri,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

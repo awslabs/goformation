@@ -11,12 +11,12 @@ type Experiment_OnlineAbConfigObject struct {
 	// ControlTreatmentName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-onlineabconfigobject.html#cfn-evidently-experiment-onlineabconfigobject-controltreatmentname
-	ControlTreatmentName string `json:"ControlTreatmentName,omitempty"`
+	ControlTreatmentName *string `json:"ControlTreatmentName,omitempty"`
 
 	// TreatmentWeights AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-onlineabconfigobject.html#cfn-evidently-experiment-onlineabconfigobject-treatmentweights
-	TreatmentWeights []Experiment_TreatmentToWeight `json:"TreatmentWeights,omitempty"`
+	TreatmentWeights *[]Experiment_TreatmentToWeight `json:"TreatmentWeights,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Distribution_QueryStringObject struct {
 	// Option AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html#cfn-lightsail-distribution-querystringobject-option
-	Option bool `json:"Option,omitempty"`
+	Option *bool `json:"Option,omitempty"`
 
 	// QueryStringsAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html#cfn-lightsail-distribution-querystringobject-querystringsallowlist
-	QueryStringsAllowList []string `json:"QueryStringsAllowList,omitempty"`
+	QueryStringsAllowList *[]string `json:"QueryStringsAllowList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

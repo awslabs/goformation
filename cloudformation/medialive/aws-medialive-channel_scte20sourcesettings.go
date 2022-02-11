@@ -11,12 +11,12 @@ type Channel_Scte20SourceSettings struct {
 	// Convert608To708 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20sourcesettings.html#cfn-medialive-channel-scte20sourcesettings-convert608to708
-	Convert608To708 string `json:"Convert608To708,omitempty"`
+	Convert608To708 *string `json:"Convert608To708,omitempty"`
 
 	// Source608ChannelNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20sourcesettings.html#cfn-medialive-channel-scte20sourcesettings-source608channelnumber
-	Source608ChannelNumber int `json:"Source608ChannelNumber,omitempty"`
+	Source608ChannelNumber *int `json:"Source608ChannelNumber,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

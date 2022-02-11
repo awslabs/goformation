@@ -11,12 +11,12 @@ type Bucket_NoncurrentVersionTransition struct {
 	// NewerNoncurrentVersions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-newernoncurrentversions
-	NewerNoncurrentVersions int `json:"NewerNoncurrentVersions,omitempty"`
+	NewerNoncurrentVersions *int `json:"NewerNoncurrentVersions,omitempty"`
 
 	// StorageClass AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-storageclass
-	StorageClass string `json:"StorageClass,omitempty"`
+	StorageClass string `json:"StorageClass"`
 
 	// TransitionInDays AWS CloudFormation Property
 	// Required: true

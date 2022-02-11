@@ -11,12 +11,12 @@ type BotAlias_BotAliasLocaleSettingsItem struct {
 	// BotAliasLocaleSetting AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-botaliaslocalesetting
-	BotAliasLocaleSetting *BotAlias_BotAliasLocaleSettings `json:"BotAliasLocaleSetting,omitempty"`
+	BotAliasLocaleSetting *BotAlias_BotAliasLocaleSettings `json:"BotAliasLocaleSetting"`
 
 	// LocaleId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-localeid
-	LocaleId string `json:"LocaleId,omitempty"`
+	LocaleId string `json:"LocaleId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

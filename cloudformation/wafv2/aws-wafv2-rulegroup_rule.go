@@ -21,7 +21,7 @@ type RuleGroup_Rule struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Priority AWS CloudFormation Property
 	// Required: true
@@ -31,17 +31,17 @@ type RuleGroup_Rule struct {
 	// RuleLabels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
-	RuleLabels []RuleGroup_Label `json:"RuleLabels,omitempty"`
+	RuleLabels *[]RuleGroup_Label `json:"RuleLabels,omitempty"`
 
 	// Statement AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-	Statement *RuleGroup_Statement `json:"Statement,omitempty"`
+	Statement *RuleGroup_Statement `json:"Statement"`
 
 	// VisibilityConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
-	VisibilityConfig *RuleGroup_VisibilityConfig `json:"VisibilityConfig,omitempty"`
+	VisibilityConfig *RuleGroup_VisibilityConfig `json:"VisibilityConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

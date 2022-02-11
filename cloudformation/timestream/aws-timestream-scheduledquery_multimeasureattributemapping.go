@@ -11,17 +11,17 @@ type ScheduledQuery_MultiMeasureAttributeMapping struct {
 	// MeasureValueType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html#cfn-timestream-scheduledquery-multimeasureattributemapping-measurevaluetype
-	MeasureValueType string `json:"MeasureValueType,omitempty"`
+	MeasureValueType string `json:"MeasureValueType"`
 
 	// SourceColumn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html#cfn-timestream-scheduledquery-multimeasureattributemapping-sourcecolumn
-	SourceColumn string `json:"SourceColumn,omitempty"`
+	SourceColumn string `json:"SourceColumn"`
 
 	// TargetMultiMeasureAttributeName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html#cfn-timestream-scheduledquery-multimeasureattributemapping-targetmultimeasureattributename
-	TargetMultiMeasureAttributeName string `json:"TargetMultiMeasureAttributeName,omitempty"`
+	TargetMultiMeasureAttributeName *string `json:"TargetMultiMeasureAttributeName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

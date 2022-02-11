@@ -11,27 +11,27 @@ type TopicRule_PutAssetPropertyValueEntry struct {
 	// AssetId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
-	AssetId string `json:"AssetId,omitempty"`
+	AssetId *string `json:"AssetId,omitempty"`
 
 	// EntryId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
-	EntryId string `json:"EntryId,omitempty"`
+	EntryId *string `json:"EntryId,omitempty"`
 
 	// PropertyAlias AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
-	PropertyAlias string `json:"PropertyAlias,omitempty"`
+	PropertyAlias *string `json:"PropertyAlias,omitempty"`
 
 	// PropertyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid
-	PropertyId string `json:"PropertyId,omitempty"`
+	PropertyId *string `json:"PropertyId,omitempty"`
 
 	// PropertyValues AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
-	PropertyValues []TopicRule_AssetPropertyValue `json:"PropertyValues,omitempty"`
+	PropertyValues []TopicRule_AssetPropertyValue `json:"PropertyValues"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,17 +11,17 @@ type Channel_CaptionLanguageMapping struct {
 	// CaptionChannel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-captionchannel
-	CaptionChannel int `json:"CaptionChannel,omitempty"`
+	CaptionChannel *int `json:"CaptionChannel,omitempty"`
 
 	// LanguageCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagecode
-	LanguageCode string `json:"LanguageCode,omitempty"`
+	LanguageCode *string `json:"LanguageCode,omitempty"`
 
 	// LanguageDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagedescription
-	LanguageDescription string `json:"LanguageDescription,omitempty"`
+	LanguageDescription *string `json:"LanguageDescription,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

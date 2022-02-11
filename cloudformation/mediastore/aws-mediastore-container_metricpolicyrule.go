@@ -11,12 +11,12 @@ type Container_MetricPolicyRule struct {
 	// ObjectGroup AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroup
-	ObjectGroup string `json:"ObjectGroup,omitempty"`
+	ObjectGroup string `json:"ObjectGroup"`
 
 	// ObjectGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroupname
-	ObjectGroupName string `json:"ObjectGroupName,omitempty"`
+	ObjectGroupName string `json:"ObjectGroupName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

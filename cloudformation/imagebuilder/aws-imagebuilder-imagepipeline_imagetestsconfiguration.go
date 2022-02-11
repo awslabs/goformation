@@ -11,12 +11,12 @@ type ImagePipeline_ImageTestsConfiguration struct {
 	// ImageTestsEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
-	ImageTestsEnabled bool `json:"ImageTestsEnabled,omitempty"`
+	ImageTestsEnabled *bool `json:"ImageTestsEnabled,omitempty"`
 
 	// TimeoutMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
-	TimeoutMinutes int `json:"TimeoutMinutes,omitempty"`
+	TimeoutMinutes *int `json:"TimeoutMinutes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

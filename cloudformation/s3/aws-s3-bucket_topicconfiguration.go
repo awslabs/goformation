@@ -11,7 +11,7 @@ type Bucket_TopicConfiguration struct {
 	// Event AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-event
-	Event string `json:"Event,omitempty"`
+	Event string `json:"Event"`
 
 	// Filter AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type Bucket_TopicConfiguration struct {
 	// Topic AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-topic
-	Topic string `json:"Topic,omitempty"`
+	Topic string `json:"Topic"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

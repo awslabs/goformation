@@ -16,7 +16,7 @@ type EndpointConfig_AsyncInferenceConfig struct {
 	// OutputConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig-outputconfig
-	OutputConfig *EndpointConfig_AsyncInferenceOutputConfig `json:"OutputConfig,omitempty"`
+	OutputConfig *EndpointConfig_AsyncInferenceOutputConfig `json:"OutputConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

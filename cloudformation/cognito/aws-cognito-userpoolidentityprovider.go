@@ -15,32 +15,32 @@ type UserPoolIdentityProvider struct {
 	// AttributeMapping AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-attributemapping
-	AttributeMapping interface{} `json:"AttributeMapping,omitempty"`
+	AttributeMapping *interface{} `json:"AttributeMapping,omitempty"`
 
 	// IdpIdentifiers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers
-	IdpIdentifiers []string `json:"IdpIdentifiers,omitempty"`
+	IdpIdentifiers *[]string `json:"IdpIdentifiers,omitempty"`
 
 	// ProviderDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providerdetails
-	ProviderDetails interface{} `json:"ProviderDetails,omitempty"`
+	ProviderDetails *interface{} `json:"ProviderDetails,omitempty"`
 
 	// ProviderName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providername
-	ProviderName string `json:"ProviderName,omitempty"`
+	ProviderName string `json:"ProviderName"`
 
 	// ProviderType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providertype
-	ProviderType string `json:"ProviderType,omitempty"`
+	ProviderType string `json:"ProviderType"`
 
 	// UserPoolId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-userpoolid
-	UserPoolId string `json:"UserPoolId,omitempty"`
+	UserPoolId string `json:"UserPoolId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

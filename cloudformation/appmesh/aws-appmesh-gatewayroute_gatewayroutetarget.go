@@ -11,7 +11,7 @@ type GatewayRoute_GatewayRouteTarget struct {
 	// VirtualService AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
-	VirtualService *GatewayRoute_GatewayRouteVirtualService `json:"VirtualService,omitempty"`
+	VirtualService *GatewayRoute_GatewayRouteVirtualService `json:"VirtualService"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

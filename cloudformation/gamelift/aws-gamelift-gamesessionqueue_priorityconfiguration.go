@@ -11,12 +11,12 @@ type GameSessionQueue_PriorityConfiguration struct {
 	// LocationOrder AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html#cfn-gamelift-gamesessionqueue-priorityconfiguration-locationorder
-	LocationOrder []string `json:"LocationOrder,omitempty"`
+	LocationOrder *[]string `json:"LocationOrder,omitempty"`
 
 	// PriorityOrder AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html#cfn-gamelift-gamesessionqueue-priorityconfiguration-priorityorder
-	PriorityOrder []string `json:"PriorityOrder,omitempty"`
+	PriorityOrder *[]string `json:"PriorityOrder,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type DataSet_S3Source struct {
 	// DataSourceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
-	DataSourceArn string `json:"DataSourceArn,omitempty"`
+	DataSourceArn string `json:"DataSourceArn"`
 
 	// InputColumns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
-	InputColumns []DataSet_InputColumn `json:"InputColumns,omitempty"`
+	InputColumns []DataSet_InputColumn `json:"InputColumns"`
 
 	// UploadSettings AWS CloudFormation Property
 	// Required: false

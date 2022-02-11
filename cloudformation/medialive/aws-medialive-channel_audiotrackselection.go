@@ -11,7 +11,7 @@ type Channel_AudioTrackSelection struct {
 	// Tracks AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-tracks
-	Tracks []Channel_AudioTrack `json:"Tracks,omitempty"`
+	Tracks *[]Channel_AudioTrack `json:"Tracks,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

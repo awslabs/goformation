@@ -46,7 +46,7 @@ type NetworkInsightsAnalysis_PathComponent struct {
 	// SequenceNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sequencenumber
-	SequenceNumber int `json:"SequenceNumber,omitempty"`
+	SequenceNumber *int `json:"SequenceNumber,omitempty"`
 
 	// SourceVpc AWS CloudFormation Property
 	// Required: false

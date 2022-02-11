@@ -11,7 +11,7 @@ type PackagingConfiguration_DashPackage struct {
 	// DashManifests AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
-	DashManifests []PackagingConfiguration_DashManifest `json:"DashManifests,omitempty"`
+	DashManifests []PackagingConfiguration_DashManifest `json:"DashManifests"`
 
 	// Encryption AWS CloudFormation Property
 	// Required: false
@@ -21,22 +21,22 @@ type PackagingConfiguration_DashPackage struct {
 	// IncludeEncoderConfigurationInSegments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
-	IncludeEncoderConfigurationInSegments bool `json:"IncludeEncoderConfigurationInSegments,omitempty"`
+	IncludeEncoderConfigurationInSegments *bool `json:"IncludeEncoderConfigurationInSegments,omitempty"`
 
 	// PeriodTriggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
-	PeriodTriggers []string `json:"PeriodTriggers,omitempty"`
+	PeriodTriggers *[]string `json:"PeriodTriggers,omitempty"`
 
 	// SegmentDurationSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
-	SegmentDurationSeconds int `json:"SegmentDurationSeconds,omitempty"`
+	SegmentDurationSeconds *int `json:"SegmentDurationSeconds,omitempty"`
 
 	// SegmentTemplateFormat AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
-	SegmentTemplateFormat string `json:"SegmentTemplateFormat,omitempty"`
+	SegmentTemplateFormat *string `json:"SegmentTemplateFormat,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

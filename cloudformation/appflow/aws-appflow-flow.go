@@ -16,42 +16,42 @@ type Flow struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// DestinationFlowConfigList AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-	DestinationFlowConfigList []Flow_DestinationFlowConfig `json:"DestinationFlowConfigList,omitempty"`
+	DestinationFlowConfigList []Flow_DestinationFlowConfig `json:"DestinationFlowConfigList"`
 
 	// FlowName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-	FlowName string `json:"FlowName,omitempty"`
+	FlowName string `json:"FlowName"`
 
 	// KMSArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-	KMSArn string `json:"KMSArn,omitempty"`
+	KMSArn *string `json:"KMSArn,omitempty"`
 
 	// SourceFlowConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-	SourceFlowConfig *Flow_SourceFlowConfig `json:"SourceFlowConfig,omitempty"`
+	SourceFlowConfig *Flow_SourceFlowConfig `json:"SourceFlowConfig"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// Tasks AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-	Tasks []Flow_Task `json:"Tasks,omitempty"`
+	Tasks []Flow_Task `json:"Tasks"`
 
 	// TriggerConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-	TriggerConfig *Flow_TriggerConfig `json:"TriggerConfig,omitempty"`
+	TriggerConfig *Flow_TriggerConfig `json:"TriggerConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

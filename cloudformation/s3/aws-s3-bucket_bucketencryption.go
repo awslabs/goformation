@@ -11,7 +11,7 @@ type Bucket_BucketEncryption struct {
 	// ServerSideEncryptionConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html#cfn-s3-bucket-bucketencryption-serversideencryptionconfiguration
-	ServerSideEncryptionConfiguration []Bucket_ServerSideEncryptionRule `json:"ServerSideEncryptionConfiguration,omitempty"`
+	ServerSideEncryptionConfiguration []Bucket_ServerSideEncryptionRule `json:"ServerSideEncryptionConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Channel_AudioLanguageSelection struct {
 	// LanguageCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiolanguageselection.html#cfn-medialive-channel-audiolanguageselection-languagecode
-	LanguageCode string `json:"LanguageCode,omitempty"`
+	LanguageCode *string `json:"LanguageCode,omitempty"`
 
 	// LanguageSelectionPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiolanguageselection.html#cfn-medialive-channel-audiolanguageselection-languageselectionpolicy
-	LanguageSelectionPolicy string `json:"LanguageSelectionPolicy,omitempty"`
+	LanguageSelectionPolicy *string `json:"LanguageSelectionPolicy,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

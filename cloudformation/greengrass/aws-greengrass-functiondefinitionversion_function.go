@@ -11,17 +11,17 @@ type FunctionDefinitionVersion_Function struct {
 	// FunctionArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html#cfn-greengrass-functiondefinitionversion-function-functionarn
-	FunctionArn string `json:"FunctionArn,omitempty"`
+	FunctionArn string `json:"FunctionArn"`
 
 	// FunctionConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html#cfn-greengrass-functiondefinitionversion-function-functionconfiguration
-	FunctionConfiguration *FunctionDefinitionVersion_FunctionConfiguration `json:"FunctionConfiguration,omitempty"`
+	FunctionConfiguration *FunctionDefinitionVersion_FunctionConfiguration `json:"FunctionConfiguration"`
 
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html#cfn-greengrass-functiondefinitionversion-function-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

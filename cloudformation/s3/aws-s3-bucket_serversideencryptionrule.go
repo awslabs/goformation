@@ -11,7 +11,7 @@ type Bucket_ServerSideEncryptionRule struct {
 	// BucketKeyEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
-	BucketKeyEnabled bool `json:"BucketKeyEnabled,omitempty"`
+	BucketKeyEnabled *bool `json:"BucketKeyEnabled,omitempty"`
 
 	// ServerSideEncryptionByDefault AWS CloudFormation Property
 	// Required: false

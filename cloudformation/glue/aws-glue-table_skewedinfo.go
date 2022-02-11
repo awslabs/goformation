@@ -11,17 +11,17 @@ type Table_SkewedInfo struct {
 	// SkewedColumnNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames
-	SkewedColumnNames []string `json:"SkewedColumnNames,omitempty"`
+	SkewedColumnNames *[]string `json:"SkewedColumnNames,omitempty"`
 
 	// SkewedColumnValueLocationMaps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
-	SkewedColumnValueLocationMaps interface{} `json:"SkewedColumnValueLocationMaps,omitempty"`
+	SkewedColumnValueLocationMaps *interface{} `json:"SkewedColumnValueLocationMaps,omitempty"`
 
 	// SkewedColumnValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues
-	SkewedColumnValues []string `json:"SkewedColumnValues,omitempty"`
+	SkewedColumnValues *[]string `json:"SkewedColumnValues,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

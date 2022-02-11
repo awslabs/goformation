@@ -15,47 +15,47 @@ type GlobalReplicationGroup struct {
 	// AutomaticFailoverEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
-	AutomaticFailoverEnabled bool `json:"AutomaticFailoverEnabled,omitempty"`
+	AutomaticFailoverEnabled *bool `json:"AutomaticFailoverEnabled,omitempty"`
 
 	// CacheNodeType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype
-	CacheNodeType string `json:"CacheNodeType,omitempty"`
+	CacheNodeType *string `json:"CacheNodeType,omitempty"`
 
 	// CacheParameterGroupName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
-	CacheParameterGroupName string `json:"CacheParameterGroupName,omitempty"`
+	CacheParameterGroupName *string `json:"CacheParameterGroupName,omitempty"`
 
 	// EngineVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
-	EngineVersion string `json:"EngineVersion,omitempty"`
+	EngineVersion *string `json:"EngineVersion,omitempty"`
 
 	// GlobalNodeGroupCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
-	GlobalNodeGroupCount int `json:"GlobalNodeGroupCount,omitempty"`
+	GlobalNodeGroupCount *int `json:"GlobalNodeGroupCount,omitempty"`
 
 	// GlobalReplicationGroupDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription
-	GlobalReplicationGroupDescription string `json:"GlobalReplicationGroupDescription,omitempty"`
+	GlobalReplicationGroupDescription *string `json:"GlobalReplicationGroupDescription,omitempty"`
 
 	// GlobalReplicationGroupIdSuffix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix
-	GlobalReplicationGroupIdSuffix string `json:"GlobalReplicationGroupIdSuffix,omitempty"`
+	GlobalReplicationGroupIdSuffix *string `json:"GlobalReplicationGroupIdSuffix,omitempty"`
 
 	// Members AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
-	Members []GlobalReplicationGroup_GlobalReplicationGroupMember `json:"Members,omitempty"`
+	Members []GlobalReplicationGroup_GlobalReplicationGroupMember `json:"Members"`
 
 	// RegionalConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
-	RegionalConfigurations []GlobalReplicationGroup_RegionalConfiguration `json:"RegionalConfigurations,omitempty"`
+	RegionalConfigurations *[]GlobalReplicationGroup_RegionalConfiguration `json:"RegionalConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

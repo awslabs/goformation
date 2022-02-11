@@ -11,47 +11,47 @@ type AppMonitor_AppMonitorConfiguration struct {
 	// AllowCookies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-allowcookies
-	AllowCookies bool `json:"AllowCookies,omitempty"`
+	AllowCookies *bool `json:"AllowCookies,omitempty"`
 
 	// EnableXRay AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-enablexray
-	EnableXRay bool `json:"EnableXRay,omitempty"`
+	EnableXRay *bool `json:"EnableXRay,omitempty"`
 
 	// ExcludedPages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-excludedpages
-	ExcludedPages []string `json:"ExcludedPages,omitempty"`
+	ExcludedPages *[]string `json:"ExcludedPages,omitempty"`
 
 	// FavoritePages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-favoritepages
-	FavoritePages []string `json:"FavoritePages,omitempty"`
+	FavoritePages *[]string `json:"FavoritePages,omitempty"`
 
 	// GuestRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-guestrolearn
-	GuestRoleArn string `json:"GuestRoleArn,omitempty"`
+	GuestRoleArn *string `json:"GuestRoleArn,omitempty"`
 
 	// IdentityPoolId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-identitypoolid
-	IdentityPoolId string `json:"IdentityPoolId,omitempty"`
+	IdentityPoolId *string `json:"IdentityPoolId,omitempty"`
 
 	// IncludedPages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-includedpages
-	IncludedPages []string `json:"IncludedPages,omitempty"`
+	IncludedPages *[]string `json:"IncludedPages,omitempty"`
 
 	// SessionSampleRate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-sessionsamplerate
-	SessionSampleRate float64 `json:"SessionSampleRate,omitempty"`
+	SessionSampleRate *float64 `json:"SessionSampleRate,omitempty"`
 
 	// Telemetries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-telemetries
-	Telemetries []string `json:"Telemetries,omitempty"`
+	Telemetries *[]string `json:"Telemetries,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

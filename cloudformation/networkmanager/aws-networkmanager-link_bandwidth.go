@@ -11,12 +11,12 @@ type Link_Bandwidth struct {
 	// DownloadSpeed AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
-	DownloadSpeed int `json:"DownloadSpeed,omitempty"`
+	DownloadSpeed *int `json:"DownloadSpeed,omitempty"`
 
 	// UploadSpeed AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
-	UploadSpeed int `json:"UploadSpeed,omitempty"`
+	UploadSpeed *int `json:"UploadSpeed,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

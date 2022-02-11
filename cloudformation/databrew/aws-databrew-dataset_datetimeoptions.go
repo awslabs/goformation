@@ -11,17 +11,17 @@ type Dataset_DatetimeOptions struct {
 	// Format AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
-	Format string `json:"Format,omitempty"`
+	Format string `json:"Format"`
 
 	// LocaleCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
-	LocaleCode string `json:"LocaleCode,omitempty"`
+	LocaleCode *string `json:"LocaleCode,omitempty"`
 
 	// TimezoneOffset AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
-	TimezoneOffset string `json:"TimezoneOffset,omitempty"`
+	TimezoneOffset *string `json:"TimezoneOffset,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

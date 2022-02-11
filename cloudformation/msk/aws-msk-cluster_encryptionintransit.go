@@ -11,12 +11,12 @@ type Cluster_EncryptionInTransit struct {
 	// ClientBroker AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html#cfn-msk-cluster-encryptionintransit-clientbroker
-	ClientBroker string `json:"ClientBroker,omitempty"`
+	ClientBroker *string `json:"ClientBroker,omitempty"`
 
 	// InCluster AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html#cfn-msk-cluster-encryptionintransit-incluster
-	InCluster bool `json:"InCluster,omitempty"`
+	InCluster *bool `json:"InCluster,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

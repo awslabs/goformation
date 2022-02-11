@@ -11,7 +11,7 @@ type SecurityProfile_MachineLearningDetectionConfig struct {
 	// ConfidenceLevel AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
-	ConfidenceLevel string `json:"ConfidenceLevel,omitempty"`
+	ConfidenceLevel *string `json:"ConfidenceLevel,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type FunctionDefinitionVersion_Environment struct {
 	// AccessSysfs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-accesssysfs
-	AccessSysfs bool `json:"AccessSysfs,omitempty"`
+	AccessSysfs *bool `json:"AccessSysfs,omitempty"`
 
 	// Execution AWS CloudFormation Property
 	// Required: false
@@ -21,12 +21,12 @@ type FunctionDefinitionVersion_Environment struct {
 	// ResourceAccessPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-resourceaccesspolicies
-	ResourceAccessPolicies []FunctionDefinitionVersion_ResourceAccessPolicy `json:"ResourceAccessPolicies,omitempty"`
+	ResourceAccessPolicies *[]FunctionDefinitionVersion_ResourceAccessPolicy `json:"ResourceAccessPolicies,omitempty"`
 
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-variables
-	Variables interface{} `json:"Variables,omitempty"`
+	Variables *interface{} `json:"Variables,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

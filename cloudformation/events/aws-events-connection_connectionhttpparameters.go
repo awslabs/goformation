@@ -11,17 +11,17 @@ type Connection_ConnectionHttpParameters struct {
 	// BodyParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-bodyparameters
-	BodyParameters []Connection_Parameter `json:"BodyParameters,omitempty"`
+	BodyParameters *[]Connection_Parameter `json:"BodyParameters,omitempty"`
 
 	// HeaderParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-headerparameters
-	HeaderParameters []Connection_Parameter `json:"HeaderParameters,omitempty"`
+	HeaderParameters *[]Connection_Parameter `json:"HeaderParameters,omitempty"`
 
 	// QueryStringParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-querystringparameters
-	QueryStringParameters []Connection_Parameter `json:"QueryStringParameters,omitempty"`
+	QueryStringParameters *[]Connection_Parameter `json:"QueryStringParameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

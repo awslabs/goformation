@@ -11,7 +11,7 @@ type MonitoringSchedule_MonitoringInput struct {
 	// EndpointInput AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
-	EndpointInput *MonitoringSchedule_EndpointInput `json:"EndpointInput,omitempty"`
+	EndpointInput *MonitoringSchedule_EndpointInput `json:"EndpointInput"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type JobDefinition_AuthorizationConfig struct {
 	// AccessPointId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-authorizationconfig.html#cfn-batch-jobdefinition-authorizationconfig-accesspointid
-	AccessPointId string `json:"AccessPointId,omitempty"`
+	AccessPointId *string `json:"AccessPointId,omitempty"`
 
 	// Iam AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-authorizationconfig.html#cfn-batch-jobdefinition-authorizationconfig-iam
-	Iam string `json:"Iam,omitempty"`
+	Iam *string `json:"Iam,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

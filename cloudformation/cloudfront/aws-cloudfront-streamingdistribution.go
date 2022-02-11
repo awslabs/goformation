@@ -16,12 +16,12 @@ type StreamingDistribution struct {
 	// StreamingDistributionConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig
-	StreamingDistributionConfig *StreamingDistribution_StreamingDistributionConfig `json:"StreamingDistributionConfig,omitempty"`
+	StreamingDistributionConfig *StreamingDistribution_StreamingDistributionConfig `json:"StreamingDistributionConfig"`
 
 	// Tags AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

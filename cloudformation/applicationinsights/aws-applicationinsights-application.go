@@ -16,47 +16,47 @@ type Application struct {
 	// AutoConfigurationEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
-	AutoConfigurationEnabled bool `json:"AutoConfigurationEnabled,omitempty"`
+	AutoConfigurationEnabled *bool `json:"AutoConfigurationEnabled,omitempty"`
 
 	// CWEMonitorEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
-	CWEMonitorEnabled bool `json:"CWEMonitorEnabled,omitempty"`
+	CWEMonitorEnabled *bool `json:"CWEMonitorEnabled,omitempty"`
 
 	// ComponentMonitoringSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
-	ComponentMonitoringSettings []Application_ComponentMonitoringSetting `json:"ComponentMonitoringSettings,omitempty"`
+	ComponentMonitoringSettings *[]Application_ComponentMonitoringSetting `json:"ComponentMonitoringSettings,omitempty"`
 
 	// CustomComponents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
-	CustomComponents []Application_CustomComponent `json:"CustomComponents,omitempty"`
+	CustomComponents *[]Application_CustomComponent `json:"CustomComponents,omitempty"`
 
 	// LogPatternSets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
-	LogPatternSets []Application_LogPatternSet `json:"LogPatternSets,omitempty"`
+	LogPatternSets *[]Application_LogPatternSet `json:"LogPatternSets,omitempty"`
 
 	// OpsCenterEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
-	OpsCenterEnabled bool `json:"OpsCenterEnabled,omitempty"`
+	OpsCenterEnabled *bool `json:"OpsCenterEnabled,omitempty"`
 
 	// OpsItemSNSTopicArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
-	OpsItemSNSTopicArn string `json:"OpsItemSNSTopicArn,omitempty"`
+	OpsItemSNSTopicArn *string `json:"OpsItemSNSTopicArn,omitempty"`
 
 	// ResourceGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
-	ResourceGroupName string `json:"ResourceGroupName,omitempty"`
+	ResourceGroupName string `json:"ResourceGroupName"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

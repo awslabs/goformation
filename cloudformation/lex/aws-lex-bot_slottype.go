@@ -11,7 +11,7 @@ type Bot_SlotType struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// ExternalSourceSetting AWS CloudFormation Property
 	// Required: false
@@ -21,17 +21,17 @@ type Bot_SlotType struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ParentSlotTypeSignature AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-parentslottypesignature
-	ParentSlotTypeSignature string `json:"ParentSlotTypeSignature,omitempty"`
+	ParentSlotTypeSignature *string `json:"ParentSlotTypeSignature,omitempty"`
 
 	// SlotTypeValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-slottypevalues
-	SlotTypeValues []Bot_SlotTypeValue `json:"SlotTypeValues,omitempty"`
+	SlotTypeValues *[]Bot_SlotTypeValue `json:"SlotTypeValues,omitempty"`
 
 	// ValueSelectionSetting AWS CloudFormation Property
 	// Required: false

@@ -11,7 +11,7 @@ type UserPool_AdminCreateUserConfig struct {
 	// AllowAdminCreateUserOnly AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-allowadmincreateuseronly
-	AllowAdminCreateUserOnly bool `json:"AllowAdminCreateUserOnly,omitempty"`
+	AllowAdminCreateUserOnly *bool `json:"AllowAdminCreateUserOnly,omitempty"`
 
 	// InviteMessageTemplate AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type UserPool_AdminCreateUserConfig struct {
 	// UnusedAccountValidityDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-unusedaccountvaliditydays
-	UnusedAccountValidityDays int `json:"UnusedAccountValidityDays,omitempty"`
+	UnusedAccountValidityDays *int `json:"UnusedAccountValidityDays,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

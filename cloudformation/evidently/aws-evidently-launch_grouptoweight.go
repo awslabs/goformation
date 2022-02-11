@@ -11,7 +11,7 @@ type Launch_GroupToWeight struct {
 	// GroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-grouptoweight.html#cfn-evidently-launch-grouptoweight-groupname
-	GroupName string `json:"GroupName,omitempty"`
+	GroupName string `json:"GroupName"`
 
 	// SplitWeight AWS CloudFormation Property
 	// Required: true

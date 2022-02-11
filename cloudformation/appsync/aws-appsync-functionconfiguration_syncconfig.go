@@ -11,12 +11,12 @@ type FunctionConfiguration_SyncConfig struct {
 	// ConflictDetection AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflictdetection
-	ConflictDetection string `json:"ConflictDetection,omitempty"`
+	ConflictDetection string `json:"ConflictDetection"`
 
 	// ConflictHandler AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflicthandler
-	ConflictHandler string `json:"ConflictHandler,omitempty"`
+	ConflictHandler *string `json:"ConflictHandler,omitempty"`
 
 	// LambdaConflictHandlerConfig AWS CloudFormation Property
 	// Required: false

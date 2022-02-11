@@ -15,7 +15,7 @@ type Policy struct {
 	// DeleteAllPolicyResources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
-	DeleteAllPolicyResources bool `json:"DeleteAllPolicyResources,omitempty"`
+	DeleteAllPolicyResources *bool `json:"DeleteAllPolicyResources,omitempty"`
 
 	// ExcludeMap AWS CloudFormation Property
 	// Required: false
@@ -35,7 +35,7 @@ type Policy struct {
 	// PolicyName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
-	PolicyName string `json:"PolicyName,omitempty"`
+	PolicyName string `json:"PolicyName"`
 
 	// RemediationEnabled AWS CloudFormation Property
 	// Required: true
@@ -45,32 +45,32 @@ type Policy struct {
 	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-	ResourceTags []Policy_ResourceTag `json:"ResourceTags,omitempty"`
+	ResourceTags *[]Policy_ResourceTag `json:"ResourceTags,omitempty"`
 
 	// ResourceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-	ResourceType string `json:"ResourceType,omitempty"`
+	ResourceType string `json:"ResourceType"`
 
 	// ResourceTypeList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-	ResourceTypeList []string `json:"ResourceTypeList,omitempty"`
+	ResourceTypeList *[]string `json:"ResourceTypeList,omitempty"`
 
 	// ResourcesCleanUp AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcescleanup
-	ResourcesCleanUp bool `json:"ResourcesCleanUp,omitempty"`
+	ResourcesCleanUp *bool `json:"ResourcesCleanUp,omitempty"`
 
 	// SecurityServicePolicyData AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
-	SecurityServicePolicyData interface{} `json:"SecurityServicePolicyData,omitempty"`
+	SecurityServicePolicyData interface{} `json:"SecurityServicePolicyData"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-	Tags []Policy_PolicyTag `json:"Tags,omitempty"`
+	Tags *[]Policy_PolicyTag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

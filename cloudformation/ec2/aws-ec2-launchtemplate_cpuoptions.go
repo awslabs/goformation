@@ -11,12 +11,12 @@ type LaunchTemplate_CpuOptions struct {
 	// CoreCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-corecount
-	CoreCount int `json:"CoreCount,omitempty"`
+	CoreCount *int `json:"CoreCount,omitempty"`
 
 	// ThreadsPerCore AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-threadspercore
-	ThreadsPerCore int `json:"ThreadsPerCore,omitempty"`
+	ThreadsPerCore *int `json:"ThreadsPerCore,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

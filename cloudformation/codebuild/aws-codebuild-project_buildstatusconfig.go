@@ -11,12 +11,12 @@ type Project_BuildStatusConfig struct {
 	// Context AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-context
-	Context string `json:"Context,omitempty"`
+	Context *string `json:"Context,omitempty"`
 
 	// TargetUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-targeturl
-	TargetUrl string `json:"TargetUrl,omitempty"`
+	TargetUrl *string `json:"TargetUrl,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

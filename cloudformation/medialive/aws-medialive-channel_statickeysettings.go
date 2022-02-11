@@ -16,7 +16,7 @@ type Channel_StaticKeySettings struct {
 	// StaticKeyValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html#cfn-medialive-channel-statickeysettings-statickeyvalue
-	StaticKeyValue string `json:"StaticKeyValue,omitempty"`
+	StaticKeyValue *string `json:"StaticKeyValue,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

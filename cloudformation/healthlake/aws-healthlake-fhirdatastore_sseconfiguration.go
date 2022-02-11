@@ -11,7 +11,7 @@ type FHIRDatastore_SseConfiguration struct {
 	// KmsEncryptionConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-sseconfiguration.html#cfn-healthlake-fhirdatastore-sseconfiguration-kmsencryptionconfig
-	KmsEncryptionConfig *FHIRDatastore_KmsEncryptionConfig `json:"KmsEncryptionConfig,omitempty"`
+	KmsEncryptionConfig *FHIRDatastore_KmsEncryptionConfig `json:"KmsEncryptionConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

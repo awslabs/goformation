@@ -16,17 +16,17 @@ type WorkGroup_ResultConfigurationUpdates struct {
 	// OutputLocation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
-	OutputLocation string `json:"OutputLocation,omitempty"`
+	OutputLocation *string `json:"OutputLocation,omitempty"`
 
 	// RemoveEncryptionConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
-	RemoveEncryptionConfiguration bool `json:"RemoveEncryptionConfiguration,omitempty"`
+	RemoveEncryptionConfiguration *bool `json:"RemoveEncryptionConfiguration,omitempty"`
 
 	// RemoveOutputLocation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
-	RemoveOutputLocation bool `json:"RemoveOutputLocation,omitempty"`
+	RemoveOutputLocation *bool `json:"RemoveOutputLocation,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

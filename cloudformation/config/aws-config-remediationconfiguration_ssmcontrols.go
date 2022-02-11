@@ -11,12 +11,12 @@ type RemediationConfiguration_SsmControls struct {
 	// ConcurrentExecutionRatePercentage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage
-	ConcurrentExecutionRatePercentage int `json:"ConcurrentExecutionRatePercentage,omitempty"`
+	ConcurrentExecutionRatePercentage *int `json:"ConcurrentExecutionRatePercentage,omitempty"`
 
 	// ErrorPercentage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage
-	ErrorPercentage int `json:"ErrorPercentage,omitempty"`
+	ErrorPercentage *int `json:"ErrorPercentage,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

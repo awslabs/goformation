@@ -15,12 +15,12 @@ type StaticIp struct {
 	// AttachedTo AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html#cfn-lightsail-staticip-attachedto
-	AttachedTo string `json:"AttachedTo,omitempty"`
+	AttachedTo *string `json:"AttachedTo,omitempty"`
 
 	// StaticIpName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html#cfn-lightsail-staticip-staticipname
-	StaticIpName string `json:"StaticIpName,omitempty"`
+	StaticIpName string `json:"StaticIpName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

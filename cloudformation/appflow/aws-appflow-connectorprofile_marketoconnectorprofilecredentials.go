@@ -11,17 +11,17 @@ type ConnectorProfile_MarketoConnectorProfileCredentials struct {
 	// AccessToken AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
-	AccessToken string `json:"AccessToken,omitempty"`
+	AccessToken *string `json:"AccessToken,omitempty"`
 
 	// ClientId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientid
-	ClientId string `json:"ClientId,omitempty"`
+	ClientId string `json:"ClientId"`
 
 	// ClientSecret AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientsecret
-	ClientSecret string `json:"ClientSecret,omitempty"`
+	ClientSecret string `json:"ClientSecret"`
 
 	// ConnectorOAuthRequest AWS CloudFormation Property
 	// Required: false

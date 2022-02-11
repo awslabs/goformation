@@ -11,12 +11,12 @@ type ClientVpnEndpoint_ConnectionLogOptions struct {
 	// CloudwatchLogGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup
-	CloudwatchLogGroup string `json:"CloudwatchLogGroup,omitempty"`
+	CloudwatchLogGroup *string `json:"CloudwatchLogGroup,omitempty"`
 
 	// CloudwatchLogStream AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchlogstream
-	CloudwatchLogStream string `json:"CloudwatchLogStream,omitempty"`
+	CloudwatchLogStream *string `json:"CloudwatchLogStream,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true

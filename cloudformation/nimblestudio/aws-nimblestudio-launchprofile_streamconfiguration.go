@@ -11,22 +11,22 @@ type LaunchProfile_StreamConfiguration struct {
 	// ClipboardMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
-	ClipboardMode string `json:"ClipboardMode,omitempty"`
+	ClipboardMode string `json:"ClipboardMode"`
 
 	// Ec2InstanceTypes AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
-	Ec2InstanceTypes []string `json:"Ec2InstanceTypes,omitempty"`
+	Ec2InstanceTypes []string `json:"Ec2InstanceTypes"`
 
 	// MaxSessionLengthInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
-	MaxSessionLengthInMinutes float64 `json:"MaxSessionLengthInMinutes,omitempty"`
+	MaxSessionLengthInMinutes *float64 `json:"MaxSessionLengthInMinutes,omitempty"`
 
 	// MaxStoppedSessionLengthInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxstoppedsessionlengthinminutes
-	MaxStoppedSessionLengthInMinutes float64 `json:"MaxStoppedSessionLengthInMinutes,omitempty"`
+	MaxStoppedSessionLengthInMinutes *float64 `json:"MaxStoppedSessionLengthInMinutes,omitempty"`
 
 	// SessionStorage AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type LaunchProfile_StreamConfiguration struct {
 	// StreamingImageIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
-	StreamingImageIds []string `json:"StreamingImageIds,omitempty"`
+	StreamingImageIds []string `json:"StreamingImageIds"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

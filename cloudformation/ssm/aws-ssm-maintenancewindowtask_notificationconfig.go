@@ -11,17 +11,17 @@ type MaintenanceWindowTask_NotificationConfig struct {
 	// NotificationArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
-	NotificationArn string `json:"NotificationArn,omitempty"`
+	NotificationArn string `json:"NotificationArn"`
 
 	// NotificationEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
-	NotificationEvents []string `json:"NotificationEvents,omitempty"`
+	NotificationEvents *[]string `json:"NotificationEvents,omitempty"`
 
 	// NotificationType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
-	NotificationType string `json:"NotificationType,omitempty"`
+	NotificationType *string `json:"NotificationType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

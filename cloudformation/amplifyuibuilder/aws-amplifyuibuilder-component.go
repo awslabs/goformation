@@ -15,57 +15,57 @@ type Component struct {
 	// BindingProperties AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-bindingproperties
-	BindingProperties map[string]Component_ComponentBindingPropertiesValue `json:"BindingProperties,omitempty"`
+	BindingProperties map[string]Component_ComponentBindingPropertiesValue `json:"BindingProperties"`
 
 	// Children AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-children
-	Children []Component_ComponentChild `json:"Children,omitempty"`
+	Children *[]Component_ComponentChild `json:"Children,omitempty"`
 
 	// CollectionProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-collectionproperties
-	CollectionProperties map[string]Component_ComponentDataConfiguration `json:"CollectionProperties,omitempty"`
+	CollectionProperties *map[string]Component_ComponentDataConfiguration `json:"CollectionProperties,omitempty"`
 
 	// ComponentType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-componenttype
-	ComponentType string `json:"ComponentType,omitempty"`
+	ComponentType string `json:"ComponentType"`
 
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-events
-	Events map[string]Component_ComponentEvent `json:"Events,omitempty"`
+	Events *map[string]Component_ComponentEvent `json:"Events,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Overrides AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-overrides
-	Overrides map[string]Component_ComponentOverridesValue `json:"Overrides,omitempty"`
+	Overrides map[string]Component_ComponentOverridesValue `json:"Overrides"`
 
 	// Properties AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-properties
-	Properties map[string]Component_ComponentProperty `json:"Properties,omitempty"`
+	Properties map[string]Component_ComponentProperty `json:"Properties"`
 
 	// SourceId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-sourceid
-	SourceId string `json:"SourceId,omitempty"`
+	SourceId *string `json:"SourceId,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-tags
-	Tags map[string]string `json:"Tags,omitempty"`
+	Tags *map[string]string `json:"Tags,omitempty"`
 
 	// Variants AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-variants
-	Variants []Component_ComponentVariant `json:"Variants,omitempty"`
+	Variants []Component_ComponentVariant `json:"Variants"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

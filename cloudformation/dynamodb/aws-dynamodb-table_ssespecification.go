@@ -11,7 +11,7 @@ type Table_SSESpecification struct {
 	// KMSMasterKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-kmsmasterkeyid
-	KMSMasterKeyId string `json:"KMSMasterKeyId,omitempty"`
+	KMSMasterKeyId *string `json:"KMSMasterKeyId,omitempty"`
 
 	// SSEEnabled AWS CloudFormation Property
 	// Required: true
@@ -21,7 +21,7 @@ type Table_SSESpecification struct {
 	// SSEType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-ssetype
-	SSEType string `json:"SSEType,omitempty"`
+	SSEType *string `json:"SSEType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

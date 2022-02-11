@@ -11,12 +11,12 @@ type EndpointConfig_AsyncInferenceNotificationConfig struct {
 	// ErrorTopic AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-errortopic
-	ErrorTopic string `json:"ErrorTopic,omitempty"`
+	ErrorTopic *string `json:"ErrorTopic,omitempty"`
 
 	// SuccessTopic AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-successtopic
-	SuccessTopic string `json:"SuccessTopic,omitempty"`
+	SuccessTopic *string `json:"SuccessTopic,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

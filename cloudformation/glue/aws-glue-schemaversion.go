@@ -15,12 +15,12 @@ type SchemaVersion struct {
 	// Schema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-	Schema *SchemaVersion_Schema `json:"Schema,omitempty"`
+	Schema *SchemaVersion_Schema `json:"Schema"`
 
 	// SchemaDefinition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
-	SchemaDefinition string `json:"SchemaDefinition,omitempty"`
+	SchemaDefinition string `json:"SchemaDefinition"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

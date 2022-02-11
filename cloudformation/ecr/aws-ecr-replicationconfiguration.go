@@ -15,7 +15,7 @@ type ReplicationConfiguration struct {
 	// ReplicationConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
-	ReplicationConfiguration *ReplicationConfiguration_ReplicationConfiguration `json:"ReplicationConfiguration,omitempty"`
+	ReplicationConfiguration *ReplicationConfiguration_ReplicationConfiguration `json:"ReplicationConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

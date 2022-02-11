@@ -11,7 +11,7 @@ type Theme_Typography struct {
 	// FontFamilies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
-	FontFamilies []Theme_Font `json:"FontFamilies,omitempty"`
+	FontFamilies *[]Theme_Font `json:"FontFamilies,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type ResourceDefinitionVersion_LocalVolumeResourceData struct {
 	// DestinationPath AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-destinationpath
-	DestinationPath string `json:"DestinationPath,omitempty"`
+	DestinationPath string `json:"DestinationPath"`
 
 	// GroupOwnerSetting AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type ResourceDefinitionVersion_LocalVolumeResourceData struct {
 	// SourcePath AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-sourcepath
-	SourcePath string `json:"SourcePath,omitempty"`
+	SourcePath string `json:"SourcePath"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,7 +15,7 @@ type RegistryPolicy struct {
 	// PolicyText AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
-	PolicyText interface{} `json:"PolicyText,omitempty"`
+	PolicyText interface{} `json:"PolicyText"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

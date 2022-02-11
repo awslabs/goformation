@@ -11,7 +11,7 @@ type Distribution_CustomErrorResponse struct {
 	// ErrorCachingMinTTL AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
-	ErrorCachingMinTTL float64 `json:"ErrorCachingMinTTL,omitempty"`
+	ErrorCachingMinTTL *float64 `json:"ErrorCachingMinTTL,omitempty"`
 
 	// ErrorCode AWS CloudFormation Property
 	// Required: true
@@ -21,12 +21,12 @@ type Distribution_CustomErrorResponse struct {
 	// ResponseCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
-	ResponseCode int `json:"ResponseCode,omitempty"`
+	ResponseCode *int `json:"ResponseCode,omitempty"`
 
 	// ResponsePagePath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
-	ResponsePagePath string `json:"ResponsePagePath,omitempty"`
+	ResponsePagePath *string `json:"ResponsePagePath,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,12 +11,12 @@ type Bucket_WebsiteConfiguration struct {
 	// ErrorDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-errordocument
-	ErrorDocument string `json:"ErrorDocument,omitempty"`
+	ErrorDocument *string `json:"ErrorDocument,omitempty"`
 
 	// IndexDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-indexdocument
-	IndexDocument string `json:"IndexDocument,omitempty"`
+	IndexDocument *string `json:"IndexDocument,omitempty"`
 
 	// RedirectAllRequestsTo AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type Bucket_WebsiteConfiguration struct {
 	// RoutingRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-routingrules
-	RoutingRules []Bucket_RoutingRule `json:"RoutingRules,omitempty"`
+	RoutingRules *[]Bucket_RoutingRule `json:"RoutingRules,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

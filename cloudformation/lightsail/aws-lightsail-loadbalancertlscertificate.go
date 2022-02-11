@@ -15,27 +15,27 @@ type LoadBalancerTlsCertificate struct {
 	// CertificateAlternativeNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatealternativenames
-	CertificateAlternativeNames []string `json:"CertificateAlternativeNames,omitempty"`
+	CertificateAlternativeNames *[]string `json:"CertificateAlternativeNames,omitempty"`
 
 	// CertificateDomainName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatedomainname
-	CertificateDomainName string `json:"CertificateDomainName,omitempty"`
+	CertificateDomainName string `json:"CertificateDomainName"`
 
 	// CertificateName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatename
-	CertificateName string `json:"CertificateName,omitempty"`
+	CertificateName string `json:"CertificateName"`
 
 	// IsAttached AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-isattached
-	IsAttached bool `json:"IsAttached,omitempty"`
+	IsAttached *bool `json:"IsAttached,omitempty"`
 
 	// LoadBalancerName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-loadbalancername
-	LoadBalancerName string `json:"LoadBalancerName,omitempty"`
+	LoadBalancerName string `json:"LoadBalancerName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

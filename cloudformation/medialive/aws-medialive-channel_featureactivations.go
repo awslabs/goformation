@@ -11,7 +11,7 @@ type Channel_FeatureActivations struct {
 	// InputPrepareScheduleActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html#cfn-medialive-channel-featureactivations-inputpreparescheduleactions
-	InputPrepareScheduleActions string `json:"InputPrepareScheduleActions,omitempty"`
+	InputPrepareScheduleActions *string `json:"InputPrepareScheduleActions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

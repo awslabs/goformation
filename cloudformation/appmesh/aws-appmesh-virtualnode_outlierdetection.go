@@ -11,12 +11,12 @@ type VirtualNode_OutlierDetection struct {
 	// BaseEjectionDuration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-baseejectionduration
-	BaseEjectionDuration *VirtualNode_Duration `json:"BaseEjectionDuration,omitempty"`
+	BaseEjectionDuration *VirtualNode_Duration `json:"BaseEjectionDuration"`
 
 	// Interval AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-interval
-	Interval *VirtualNode_Duration `json:"Interval,omitempty"`
+	Interval *VirtualNode_Duration `json:"Interval"`
 
 	// MaxEjectionPercent AWS CloudFormation Property
 	// Required: true

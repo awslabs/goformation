@@ -15,32 +15,32 @@ type PackageVersion struct {
 	// MarkLatest AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html#cfn-panorama-packageversion-marklatest
-	MarkLatest bool `json:"MarkLatest,omitempty"`
+	MarkLatest *bool `json:"MarkLatest,omitempty"`
 
 	// OwnerAccount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html#cfn-panorama-packageversion-owneraccount
-	OwnerAccount string `json:"OwnerAccount,omitempty"`
+	OwnerAccount *string `json:"OwnerAccount,omitempty"`
 
 	// PackageId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html#cfn-panorama-packageversion-packageid
-	PackageId string `json:"PackageId,omitempty"`
+	PackageId string `json:"PackageId"`
 
 	// PackageVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html#cfn-panorama-packageversion-packageversion
-	PackageVersion string `json:"PackageVersion,omitempty"`
+	PackageVersion string `json:"PackageVersion"`
 
 	// PatchVersion AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html#cfn-panorama-packageversion-patchversion
-	PatchVersion string `json:"PatchVersion,omitempty"`
+	PatchVersion string `json:"PatchVersion"`
 
 	// UpdatedLatestPatchVersion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html#cfn-panorama-packageversion-updatedlatestpatchversion
-	UpdatedLatestPatchVersion string `json:"UpdatedLatestPatchVersion,omitempty"`
+	UpdatedLatestPatchVersion *string `json:"UpdatedLatestPatchVersion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

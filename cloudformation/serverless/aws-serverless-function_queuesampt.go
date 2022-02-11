@@ -11,7 +11,7 @@ type Function_QueueSAMPT struct {
 	// QueueName AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
-	QueueName string `json:"QueueName,omitempty"`
+	QueueName string `json:"QueueName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

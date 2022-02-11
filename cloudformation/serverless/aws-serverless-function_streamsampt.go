@@ -11,7 +11,7 @@ type Function_StreamSAMPT struct {
 	// StreamName AWS CloudFormation Property
 	// Required: true
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
-	StreamName string `json:"StreamName,omitempty"`
+	StreamName string `json:"StreamName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

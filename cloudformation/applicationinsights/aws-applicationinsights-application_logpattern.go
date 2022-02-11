@@ -11,12 +11,12 @@ type Application_LogPattern struct {
 	// Pattern AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
-	Pattern string `json:"Pattern,omitempty"`
+	Pattern string `json:"Pattern"`
 
 	// PatternName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
-	PatternName string `json:"PatternName,omitempty"`
+	PatternName string `json:"PatternName"`
 
 	// Rank AWS CloudFormation Property
 	// Required: true

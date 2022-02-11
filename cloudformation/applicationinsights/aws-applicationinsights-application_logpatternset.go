@@ -11,12 +11,12 @@ type Application_LogPatternSet struct {
 	// LogPatterns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
-	LogPatterns []Application_LogPattern `json:"LogPatterns,omitempty"`
+	LogPatterns []Application_LogPattern `json:"LogPatterns"`
 
 	// PatternSetName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
-	PatternSetName string `json:"PatternSetName,omitempty"`
+	PatternSetName string `json:"PatternSetName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

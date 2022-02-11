@@ -11,7 +11,7 @@ type ResponseHeadersPolicy_ContentSecurityPolicy struct {
 	// ContentSecurityPolicy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html#cfn-cloudfront-responseheaderspolicy-contentsecuritypolicy-contentsecuritypolicy
-	ContentSecurityPolicy string `json:"ContentSecurityPolicy,omitempty"`
+	ContentSecurityPolicy string `json:"ContentSecurityPolicy"`
 
 	// Override AWS CloudFormation Property
 	// Required: true

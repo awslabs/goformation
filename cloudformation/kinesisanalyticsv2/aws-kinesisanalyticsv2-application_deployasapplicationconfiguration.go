@@ -11,7 +11,7 @@ type Application_DeployAsApplicationConfiguration struct {
 	// S3ContentLocation AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-deployasapplicationconfiguration-s3contentlocation
-	S3ContentLocation *Application_S3ContentBaseLocation `json:"S3ContentLocation,omitempty"`
+	S3ContentLocation *Application_S3ContentBaseLocation `json:"S3ContentLocation"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

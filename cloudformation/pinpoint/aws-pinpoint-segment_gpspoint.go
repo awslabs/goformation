@@ -11,7 +11,7 @@ type Segment_GPSPoint struct {
 	// Coordinates AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint.html#cfn-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates
-	Coordinates *Segment_Coordinates `json:"Coordinates,omitempty"`
+	Coordinates *Segment_Coordinates `json:"Coordinates"`
 
 	// RangeInKilometers AWS CloudFormation Property
 	// Required: true

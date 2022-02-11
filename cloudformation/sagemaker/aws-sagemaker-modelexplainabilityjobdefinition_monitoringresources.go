@@ -11,7 +11,7 @@ type ModelExplainabilityJobDefinition_MonitoringResources struct {
 	// ClusterConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
-	ClusterConfig *ModelExplainabilityJobDefinition_ClusterConfig `json:"ClusterConfig,omitempty"`
+	ClusterConfig *ModelExplainabilityJobDefinition_ClusterConfig `json:"ClusterConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

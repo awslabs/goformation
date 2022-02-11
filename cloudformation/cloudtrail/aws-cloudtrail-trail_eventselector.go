@@ -11,22 +11,22 @@ type Trail_EventSelector struct {
 	// DataResources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
-	DataResources []Trail_DataResource `json:"DataResources,omitempty"`
+	DataResources *[]Trail_DataResource `json:"DataResources,omitempty"`
 
 	// ExcludeManagementEventSources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
-	ExcludeManagementEventSources []string `json:"ExcludeManagementEventSources,omitempty"`
+	ExcludeManagementEventSources *[]string `json:"ExcludeManagementEventSources,omitempty"`
 
 	// IncludeManagementEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
-	IncludeManagementEvents bool `json:"IncludeManagementEvents,omitempty"`
+	IncludeManagementEvents *bool `json:"IncludeManagementEvents,omitempty"`
 
 	// ReadWriteType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
-	ReadWriteType string `json:"ReadWriteType,omitempty"`
+	ReadWriteType *string `json:"ReadWriteType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

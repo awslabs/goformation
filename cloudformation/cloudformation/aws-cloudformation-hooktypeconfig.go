@@ -15,22 +15,22 @@ type HookTypeConfig struct {
 	// Configuration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-configuration
-	Configuration string `json:"Configuration,omitempty"`
+	Configuration string `json:"Configuration"`
 
 	// ConfigurationAlias AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-configurationalias
-	ConfigurationAlias string `json:"ConfigurationAlias,omitempty"`
+	ConfigurationAlias *string `json:"ConfigurationAlias,omitempty"`
 
 	// TypeArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-typearn
-	TypeArn string `json:"TypeArn,omitempty"`
+	TypeArn *string `json:"TypeArn,omitempty"`
 
 	// TypeName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-typename
-	TypeName string `json:"TypeName,omitempty"`
+	TypeName *string `json:"TypeName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

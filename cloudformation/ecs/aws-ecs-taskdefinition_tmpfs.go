@@ -11,12 +11,12 @@ type TaskDefinition_Tmpfs struct {
 	// ContainerPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
-	ContainerPath string `json:"ContainerPath,omitempty"`
+	ContainerPath *string `json:"ContainerPath,omitempty"`
 
 	// MountOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
-	MountOptions []string `json:"MountOptions,omitempty"`
+	MountOptions *[]string `json:"MountOptions,omitempty"`
 
 	// Size AWS CloudFormation Property
 	// Required: true

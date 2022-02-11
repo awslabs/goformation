@@ -11,22 +11,22 @@ type ConnectorProfile_SAPODataConnectorProfileProperties struct {
 	// ApplicationHostUrl AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-applicationhosturl
-	ApplicationHostUrl string `json:"ApplicationHostUrl,omitempty"`
+	ApplicationHostUrl *string `json:"ApplicationHostUrl,omitempty"`
 
 	// ApplicationServicePath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-applicationservicepath
-	ApplicationServicePath string `json:"ApplicationServicePath,omitempty"`
+	ApplicationServicePath *string `json:"ApplicationServicePath,omitempty"`
 
 	// ClientNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-clientnumber
-	ClientNumber string `json:"ClientNumber,omitempty"`
+	ClientNumber *string `json:"ClientNumber,omitempty"`
 
 	// LogonLanguage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-logonlanguage
-	LogonLanguage string `json:"LogonLanguage,omitempty"`
+	LogonLanguage *string `json:"LogonLanguage,omitempty"`
 
 	// OAuthProperties AWS CloudFormation Property
 	// Required: false
@@ -36,12 +36,12 @@ type ConnectorProfile_SAPODataConnectorProfileProperties struct {
 	// PortNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-portnumber
-	PortNumber int `json:"PortNumber,omitempty"`
+	PortNumber *int `json:"PortNumber,omitempty"`
 
 	// PrivateLinkServiceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html#cfn-appflow-connectorprofile-sapodataconnectorprofileproperties-privatelinkservicename
-	PrivateLinkServiceName string `json:"PrivateLinkServiceName,omitempty"`
+	PrivateLinkServiceName *string `json:"PrivateLinkServiceName,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

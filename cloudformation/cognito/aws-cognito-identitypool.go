@@ -15,7 +15,7 @@ type IdentityPool struct {
 	// AllowClassicFlow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowclassicflow
-	AllowClassicFlow bool `json:"AllowClassicFlow,omitempty"`
+	AllowClassicFlow *bool `json:"AllowClassicFlow,omitempty"`
 
 	// AllowUnauthenticatedIdentities AWS CloudFormation Property
 	// Required: true
@@ -25,12 +25,12 @@ type IdentityPool struct {
 	// CognitoEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoevents
-	CognitoEvents interface{} `json:"CognitoEvents,omitempty"`
+	CognitoEvents *interface{} `json:"CognitoEvents,omitempty"`
 
 	// CognitoIdentityProviders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoidentityproviders
-	CognitoIdentityProviders []IdentityPool_CognitoIdentityProvider `json:"CognitoIdentityProviders,omitempty"`
+	CognitoIdentityProviders *[]IdentityPool_CognitoIdentityProvider `json:"CognitoIdentityProviders,omitempty"`
 
 	// CognitoStreams AWS CloudFormation Property
 	// Required: false
@@ -40,17 +40,17 @@ type IdentityPool struct {
 	// DeveloperProviderName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-developerprovidername
-	DeveloperProviderName string `json:"DeveloperProviderName,omitempty"`
+	DeveloperProviderName *string `json:"DeveloperProviderName,omitempty"`
 
 	// IdentityPoolName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname
-	IdentityPoolName string `json:"IdentityPoolName,omitempty"`
+	IdentityPoolName *string `json:"IdentityPoolName,omitempty"`
 
 	// OpenIdConnectProviderARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
-	OpenIdConnectProviderARNs []string `json:"OpenIdConnectProviderARNs,omitempty"`
+	OpenIdConnectProviderARNs *[]string `json:"OpenIdConnectProviderARNs,omitempty"`
 
 	// PushSync AWS CloudFormation Property
 	// Required: false
@@ -60,12 +60,12 @@ type IdentityPool struct {
 	// SamlProviderARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-samlproviderarns
-	SamlProviderARNs []string `json:"SamlProviderARNs,omitempty"`
+	SamlProviderARNs *[]string `json:"SamlProviderARNs,omitempty"`
 
 	// SupportedLoginProviders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-supportedloginproviders
-	SupportedLoginProviders interface{} `json:"SupportedLoginProviders,omitempty"`
+	SupportedLoginProviders *interface{} `json:"SupportedLoginProviders,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

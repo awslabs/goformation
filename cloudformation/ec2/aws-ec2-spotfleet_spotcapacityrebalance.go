@@ -11,12 +11,12 @@ type SpotFleet_SpotCapacityRebalance struct {
 	// ReplacementStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html#cfn-ec2-spotfleet-spotcapacityrebalance-replacementstrategy
-	ReplacementStrategy string `json:"ReplacementStrategy,omitempty"`
+	ReplacementStrategy *string `json:"ReplacementStrategy,omitempty"`
 
 	// TerminationDelay AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html#cfn-ec2-spotfleet-spotcapacityrebalance-terminationdelay
-	TerminationDelay int `json:"TerminationDelay,omitempty"`
+	TerminationDelay *int `json:"TerminationDelay,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -15,12 +15,12 @@ type Function struct {
 	// AutoPublish AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-	AutoPublish bool `json:"AutoPublish,omitempty"`
+	AutoPublish *bool `json:"AutoPublish,omitempty"`
 
 	// FunctionCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-	FunctionCode string `json:"FunctionCode,omitempty"`
+	FunctionCode *string `json:"FunctionCode,omitempty"`
 
 	// FunctionConfig AWS CloudFormation Property
 	// Required: false
@@ -30,7 +30,7 @@ type Function struct {
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-	Name string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

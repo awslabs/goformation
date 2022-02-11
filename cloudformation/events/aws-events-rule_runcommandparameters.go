@@ -11,7 +11,7 @@ type Rule_RunCommandParameters struct {
 	// RunCommandTargets AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets
-	RunCommandTargets []Rule_RunCommandTarget `json:"RunCommandTargets,omitempty"`
+	RunCommandTargets []Rule_RunCommandTarget `json:"RunCommandTargets"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

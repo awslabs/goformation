@@ -16,12 +16,12 @@ type Channel_InputAttachment struct {
 	// InputAttachmentName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputattachmentname
-	InputAttachmentName string `json:"InputAttachmentName,omitempty"`
+	InputAttachmentName *string `json:"InputAttachmentName,omitempty"`
 
 	// InputId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputid
-	InputId string `json:"InputId,omitempty"`
+	InputId *string `json:"InputId,omitempty"`
 
 	// InputSettings AWS CloudFormation Property
 	// Required: false

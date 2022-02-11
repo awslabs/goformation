@@ -11,7 +11,7 @@ type CodeSigningConfig_AllowedPublishers struct {
 	// SigningProfileVersionArns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
-	SigningProfileVersionArns []string `json:"SigningProfileVersionArns,omitempty"`
+	SigningProfileVersionArns []string `json:"SigningProfileVersionArns"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

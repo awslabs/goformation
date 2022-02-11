@@ -11,22 +11,22 @@ type CoreDefinition_Core struct {
 	// CertificateArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-certificatearn
-	CertificateArn string `json:"CertificateArn,omitempty"`
+	CertificateArn string `json:"CertificateArn"`
 
 	// Id AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-id
-	Id string `json:"Id,omitempty"`
+	Id string `json:"Id"`
 
 	// SyncShadow AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-syncshadow
-	SyncShadow bool `json:"SyncShadow,omitempty"`
+	SyncShadow *bool `json:"SyncShadow,omitempty"`
 
 	// ThingArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-thingarn
-	ThingArn string `json:"ThingArn,omitempty"`
+	ThingArn string `json:"ThingArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

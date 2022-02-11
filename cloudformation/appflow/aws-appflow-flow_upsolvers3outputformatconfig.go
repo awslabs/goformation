@@ -16,12 +16,12 @@ type Flow_UpsolverS3OutputFormatConfig struct {
 	// FileType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
-	FileType string `json:"FileType,omitempty"`
+	FileType *string `json:"FileType,omitempty"`
 
 	// PrefixConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
-	PrefixConfig *Flow_PrefixConfig `json:"PrefixConfig,omitempty"`
+	PrefixConfig *Flow_PrefixConfig `json:"PrefixConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

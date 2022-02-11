@@ -11,7 +11,7 @@ type Distribution_StatusCodes struct {
 	// Items AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
-	Items []int `json:"Items,omitempty"`
+	Items []int `json:"Items"`
 
 	// Quantity AWS CloudFormation Property
 	// Required: true

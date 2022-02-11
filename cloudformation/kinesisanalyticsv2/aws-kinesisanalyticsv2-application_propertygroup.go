@@ -11,12 +11,12 @@ type Application_PropertyGroup struct {
 	// PropertyGroupId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertygroupid
-	PropertyGroupId string `json:"PropertyGroupId,omitempty"`
+	PropertyGroupId *string `json:"PropertyGroupId,omitempty"`
 
 	// PropertyMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertymap
-	PropertyMap interface{} `json:"PropertyMap,omitempty"`
+	PropertyMap *interface{} `json:"PropertyMap,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

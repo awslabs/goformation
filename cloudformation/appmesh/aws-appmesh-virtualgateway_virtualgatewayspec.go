@@ -16,7 +16,7 @@ type VirtualGateway_VirtualGatewaySpec struct {
 	// Listeners AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners
-	Listeners []VirtualGateway_VirtualGatewayListener `json:"Listeners,omitempty"`
+	Listeners []VirtualGateway_VirtualGatewayListener `json:"Listeners"`
 
 	// Logging AWS CloudFormation Property
 	// Required: false

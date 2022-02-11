@@ -11,12 +11,12 @@ type DeploymentGroup_DeploymentReadyOption struct {
 	// ActionOnTimeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentreadyoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-deploymentreadyoption-actionontimeout
-	ActionOnTimeout string `json:"ActionOnTimeout,omitempty"`
+	ActionOnTimeout *string `json:"ActionOnTimeout,omitempty"`
 
 	// WaitTimeInMinutes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentreadyoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-deploymentreadyoption-waittimeinminutes
-	WaitTimeInMinutes int `json:"WaitTimeInMinutes,omitempty"`
+	WaitTimeInMinutes *int `json:"WaitTimeInMinutes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

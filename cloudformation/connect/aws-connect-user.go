@@ -16,12 +16,12 @@ type User struct {
 	// DirectoryUserId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-directoryuserid
-	DirectoryUserId string `json:"DirectoryUserId,omitempty"`
+	DirectoryUserId *string `json:"DirectoryUserId,omitempty"`
 
 	// HierarchyGroupArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-hierarchygrouparn
-	HierarchyGroupArn string `json:"HierarchyGroupArn,omitempty"`
+	HierarchyGroupArn *string `json:"HierarchyGroupArn,omitempty"`
 
 	// IdentityInfo AWS CloudFormation Property
 	// Required: false
@@ -31,37 +31,37 @@ type User struct {
 	// InstanceArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-instancearn
-	InstanceArn string `json:"InstanceArn,omitempty"`
+	InstanceArn string `json:"InstanceArn"`
 
 	// Password AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-password
-	Password string `json:"Password,omitempty"`
+	Password *string `json:"Password,omitempty"`
 
 	// PhoneConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-phoneconfig
-	PhoneConfig *User_UserPhoneConfig `json:"PhoneConfig,omitempty"`
+	PhoneConfig *User_UserPhoneConfig `json:"PhoneConfig"`
 
 	// RoutingProfileArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-routingprofilearn
-	RoutingProfileArn string `json:"RoutingProfileArn,omitempty"`
+	RoutingProfileArn string `json:"RoutingProfileArn"`
 
 	// SecurityProfileArns AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-securityprofilearns
-	SecurityProfileArns []string `json:"SecurityProfileArns,omitempty"`
+	SecurityProfileArns []string `json:"SecurityProfileArns"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// Username AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-username
-	Username string `json:"Username,omitempty"`
+	Username string `json:"Username"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

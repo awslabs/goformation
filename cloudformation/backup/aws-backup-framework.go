@@ -16,22 +16,22 @@ type Framework struct {
 	// FrameworkControls AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html#cfn-backup-framework-frameworkcontrols
-	FrameworkControls []Framework_FrameworkControl `json:"FrameworkControls,omitempty"`
+	FrameworkControls []Framework_FrameworkControl `json:"FrameworkControls"`
 
 	// FrameworkDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html#cfn-backup-framework-frameworkdescription
-	FrameworkDescription string `json:"FrameworkDescription,omitempty"`
+	FrameworkDescription *string `json:"FrameworkDescription,omitempty"`
 
 	// FrameworkName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html#cfn-backup-framework-frameworkname
-	FrameworkName string `json:"FrameworkName,omitempty"`
+	FrameworkName *string `json:"FrameworkName,omitempty"`
 
 	// FrameworkTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html#cfn-backup-framework-frameworktags
-	FrameworkTags []tags.Tag `json:"FrameworkTags,omitempty"`
+	FrameworkTags *[]tags.Tag `json:"FrameworkTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

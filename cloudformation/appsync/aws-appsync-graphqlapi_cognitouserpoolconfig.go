@@ -11,17 +11,17 @@ type GraphQLApi_CognitoUserPoolConfig struct {
 	// AppIdClientRegex AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-appidclientregex
-	AppIdClientRegex string `json:"AppIdClientRegex,omitempty"`
+	AppIdClientRegex *string `json:"AppIdClientRegex,omitempty"`
 
 	// AwsRegion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-awsregion
-	AwsRegion string `json:"AwsRegion,omitempty"`
+	AwsRegion *string `json:"AwsRegion,omitempty"`
 
 	// UserPoolId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-userpoolid
-	UserPoolId string `json:"UserPoolId,omitempty"`
+	UserPoolId *string `json:"UserPoolId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

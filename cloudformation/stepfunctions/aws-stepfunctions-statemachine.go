@@ -25,12 +25,12 @@ type StateMachine struct {
 	// DefinitionString AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-	DefinitionString string `json:"DefinitionString,omitempty"`
+	DefinitionString *string `json:"DefinitionString,omitempty"`
 
 	// DefinitionSubstitutions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions map[string]string `json:"DefinitionSubstitutions,omitempty"`
+	DefinitionSubstitutions *map[string]string `json:"DefinitionSubstitutions,omitempty"`
 
 	// LoggingConfiguration AWS CloudFormation Property
 	// Required: false
@@ -40,22 +40,22 @@ type StateMachine struct {
 	// RoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// StateMachineName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-	StateMachineName string `json:"StateMachineName,omitempty"`
+	StateMachineName *string `json:"StateMachineName,omitempty"`
 
 	// StateMachineType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-	StateMachineType string `json:"StateMachineType,omitempty"`
+	StateMachineType *string `json:"StateMachineType,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-	Tags []StateMachine_TagsEntry `json:"Tags,omitempty"`
+	Tags *[]StateMachine_TagsEntry `json:"Tags,omitempty"`
 
 	// TracingConfiguration AWS CloudFormation Property
 	// Required: false

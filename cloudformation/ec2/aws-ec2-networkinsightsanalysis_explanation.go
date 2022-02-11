@@ -21,12 +21,12 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// Address AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-address
-	Address string `json:"Address,omitempty"`
+	Address *string `json:"Address,omitempty"`
 
 	// Addresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-addresses
-	Addresses []string `json:"Addresses,omitempty"`
+	Addresses *[]string `json:"Addresses,omitempty"`
 
 	// AttachedTo AWS CloudFormation Property
 	// Required: false
@@ -36,12 +36,12 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-availabilityzones
-	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
+	AvailabilityZones *[]string `json:"AvailabilityZones,omitempty"`
 
 	// Cidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-cidrs
-	Cidrs []string `json:"Cidrs,omitempty"`
+	Cidrs *[]string `json:"Cidrs,omitempty"`
 
 	// ClassicLoadBalancerListener AWS CloudFormation Property
 	// Required: false
@@ -71,7 +71,7 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// Direction AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-direction
-	Direction string `json:"Direction,omitempty"`
+	Direction *string `json:"Direction,omitempty"`
 
 	// ElasticLoadBalancerListener AWS CloudFormation Property
 	// Required: false
@@ -81,7 +81,7 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// ExplanationCode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-explanationcode
-	ExplanationCode string `json:"ExplanationCode,omitempty"`
+	ExplanationCode *string `json:"ExplanationCode,omitempty"`
 
 	// IngressRouteTable AWS CloudFormation Property
 	// Required: false
@@ -96,12 +96,12 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// LoadBalancerArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerarn
-	LoadBalancerArn string `json:"LoadBalancerArn,omitempty"`
+	LoadBalancerArn *string `json:"LoadBalancerArn,omitempty"`
 
 	// LoadBalancerListenerPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerlistenerport
-	LoadBalancerListenerPort int `json:"LoadBalancerListenerPort,omitempty"`
+	LoadBalancerListenerPort *int `json:"LoadBalancerListenerPort,omitempty"`
 
 	// LoadBalancerTarget AWS CloudFormation Property
 	// Required: false
@@ -116,17 +116,17 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// LoadBalancerTargetGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroups
-	LoadBalancerTargetGroups []NetworkInsightsAnalysis_AnalysisComponent `json:"LoadBalancerTargetGroups,omitempty"`
+	LoadBalancerTargetGroups *[]NetworkInsightsAnalysis_AnalysisComponent `json:"LoadBalancerTargetGroups,omitempty"`
 
 	// LoadBalancerTargetPort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetport
-	LoadBalancerTargetPort int `json:"LoadBalancerTargetPort,omitempty"`
+	LoadBalancerTargetPort *int `json:"LoadBalancerTargetPort,omitempty"`
 
 	// MissingComponent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-missingcomponent
-	MissingComponent string `json:"MissingComponent,omitempty"`
+	MissingComponent *string `json:"MissingComponent,omitempty"`
 
 	// NatGateway AWS CloudFormation Property
 	// Required: false
@@ -141,17 +141,17 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// PacketField AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-packetfield
-	PacketField string `json:"PacketField,omitempty"`
+	PacketField *string `json:"PacketField,omitempty"`
 
 	// Port AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-port
-	Port int `json:"Port,omitempty"`
+	Port *int `json:"Port,omitempty"`
 
 	// PortRanges AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-portranges
-	PortRanges []NetworkInsightsAnalysis_PortRange `json:"PortRanges,omitempty"`
+	PortRanges *[]NetworkInsightsAnalysis_PortRange `json:"PortRanges,omitempty"`
 
 	// PrefixList AWS CloudFormation Property
 	// Required: false
@@ -161,7 +161,7 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// Protocols AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-protocols
-	Protocols []string `json:"Protocols,omitempty"`
+	Protocols *[]string `json:"Protocols,omitempty"`
 
 	// RouteTable AWS CloudFormation Property
 	// Required: false
@@ -186,7 +186,7 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroups
-	SecurityGroups []NetworkInsightsAnalysis_AnalysisComponent `json:"SecurityGroups,omitempty"`
+	SecurityGroups *[]NetworkInsightsAnalysis_AnalysisComponent `json:"SecurityGroups,omitempty"`
 
 	// SourceVpc AWS CloudFormation Property
 	// Required: false
@@ -196,7 +196,7 @@ type NetworkInsightsAnalysis_Explanation struct {
 	// State AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-state
-	State string `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 
 	// Subnet AWS CloudFormation Property
 	// Required: false

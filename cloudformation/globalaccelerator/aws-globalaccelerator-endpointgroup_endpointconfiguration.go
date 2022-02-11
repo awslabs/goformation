@@ -11,17 +11,17 @@ type EndpointGroup_EndpointConfiguration struct {
 	// ClientIPPreservationEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
-	ClientIPPreservationEnabled bool `json:"ClientIPPreservationEnabled,omitempty"`
+	ClientIPPreservationEnabled *bool `json:"ClientIPPreservationEnabled,omitempty"`
 
 	// EndpointId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
-	EndpointId string `json:"EndpointId,omitempty"`
+	EndpointId string `json:"EndpointId"`
 
 	// Weight AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
-	Weight int `json:"Weight,omitempty"`
+	Weight *int `json:"Weight,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

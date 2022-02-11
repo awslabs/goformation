@@ -11,27 +11,27 @@ type Campaign_Limits struct {
 	// Daily AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html#cfn-pinpoint-campaign-limits-daily
-	Daily int `json:"Daily,omitempty"`
+	Daily *int `json:"Daily,omitempty"`
 
 	// MaximumDuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html#cfn-pinpoint-campaign-limits-maximumduration
-	MaximumDuration int `json:"MaximumDuration,omitempty"`
+	MaximumDuration *int `json:"MaximumDuration,omitempty"`
 
 	// MessagesPerSecond AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html#cfn-pinpoint-campaign-limits-messagespersecond
-	MessagesPerSecond int `json:"MessagesPerSecond,omitempty"`
+	MessagesPerSecond *int `json:"MessagesPerSecond,omitempty"`
 
 	// Session AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html#cfn-pinpoint-campaign-limits-session
-	Session int `json:"Session,omitempty"`
+	Session *int `json:"Session,omitempty"`
 
 	// Total AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html#cfn-pinpoint-campaign-limits-total
-	Total int `json:"Total,omitempty"`
+	Total *int `json:"Total,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

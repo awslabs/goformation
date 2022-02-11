@@ -16,27 +16,27 @@ type CustomActionType struct {
 	// Category AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-category
-	Category string `json:"Category,omitempty"`
+	Category string `json:"Category"`
 
 	// ConfigurationProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-configurationproperties
-	ConfigurationProperties []CustomActionType_ConfigurationProperties `json:"ConfigurationProperties,omitempty"`
+	ConfigurationProperties *[]CustomActionType_ConfigurationProperties `json:"ConfigurationProperties,omitempty"`
 
 	// InputArtifactDetails AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-inputartifactdetails
-	InputArtifactDetails *CustomActionType_ArtifactDetails `json:"InputArtifactDetails,omitempty"`
+	InputArtifactDetails *CustomActionType_ArtifactDetails `json:"InputArtifactDetails"`
 
 	// OutputArtifactDetails AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-outputartifactdetails
-	OutputArtifactDetails *CustomActionType_ArtifactDetails `json:"OutputArtifactDetails,omitempty"`
+	OutputArtifactDetails *CustomActionType_ArtifactDetails `json:"OutputArtifactDetails"`
 
 	// Provider AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-provider
-	Provider string `json:"Provider,omitempty"`
+	Provider string `json:"Provider"`
 
 	// Settings AWS CloudFormation Property
 	// Required: false
@@ -46,12 +46,12 @@ type CustomActionType struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// Version AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-version
-	Version string `json:"Version,omitempty"`
+	Version string `json:"Version"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

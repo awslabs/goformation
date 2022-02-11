@@ -11,7 +11,7 @@ type MonitoringSchedule_MonitoringResources struct {
 	// ClusterConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
-	ClusterConfig *MonitoringSchedule_ClusterConfig `json:"ClusterConfig,omitempty"`
+	ClusterConfig *MonitoringSchedule_ClusterConfig `json:"ClusterConfig"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

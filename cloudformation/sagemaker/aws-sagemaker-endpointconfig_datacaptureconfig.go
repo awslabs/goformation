@@ -16,17 +16,17 @@ type EndpointConfig_DataCaptureConfig struct {
 	// CaptureOptions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-captureoptions
-	CaptureOptions []EndpointConfig_CaptureOption `json:"CaptureOptions,omitempty"`
+	CaptureOptions []EndpointConfig_CaptureOption `json:"CaptureOptions"`
 
 	// DestinationS3Uri AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-destinations3uri
-	DestinationS3Uri string `json:"DestinationS3Uri,omitempty"`
+	DestinationS3Uri string `json:"DestinationS3Uri"`
 
 	// EnableCapture AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-enablecapture
-	EnableCapture bool `json:"EnableCapture,omitempty"`
+	EnableCapture *bool `json:"EnableCapture,omitempty"`
 
 	// InitialSamplingPercentage AWS CloudFormation Property
 	// Required: true
@@ -36,7 +36,7 @@ type EndpointConfig_DataCaptureConfig struct {
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-kmskeyid
-	KmsKeyId string `json:"KmsKeyId,omitempty"`
+	KmsKeyId *string `json:"KmsKeyId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

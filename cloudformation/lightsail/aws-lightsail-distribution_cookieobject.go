@@ -11,12 +11,12 @@ type Distribution_CookieObject struct {
 	// CookiesAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html#cfn-lightsail-distribution-cookieobject-cookiesallowlist
-	CookiesAllowList []string `json:"CookiesAllowList,omitempty"`
+	CookiesAllowList *[]string `json:"CookiesAllowList,omitempty"`
 
 	// Option AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html#cfn-lightsail-distribution-cookieobject-option
-	Option string `json:"Option,omitempty"`
+	Option *string `json:"Option,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

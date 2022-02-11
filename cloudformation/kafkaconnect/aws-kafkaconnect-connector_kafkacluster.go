@@ -11,7 +11,7 @@ type Connector_KafkaCluster struct {
 	// ApacheKafkaCluster AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html#cfn-kafkaconnect-connector-kafkacluster-apachekafkacluster
-	ApacheKafkaCluster *Connector_ApacheKafkaCluster `json:"ApacheKafkaCluster,omitempty"`
+	ApacheKafkaCluster *Connector_ApacheKafkaCluster `json:"ApacheKafkaCluster"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

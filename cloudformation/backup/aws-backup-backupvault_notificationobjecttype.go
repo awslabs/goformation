@@ -11,12 +11,12 @@ type BackupVault_NotificationObjectType struct {
 	// BackupVaultEvents AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
-	BackupVaultEvents []string `json:"BackupVaultEvents,omitempty"`
+	BackupVaultEvents []string `json:"BackupVaultEvents"`
 
 	// SNSTopicArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
-	SNSTopicArn string `json:"SNSTopicArn,omitempty"`
+	SNSTopicArn string `json:"SNSTopicArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

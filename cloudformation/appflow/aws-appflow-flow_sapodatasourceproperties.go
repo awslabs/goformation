@@ -11,7 +11,7 @@ type Flow_SAPODataSourceProperties struct {
 	// ObjectPath AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-objectpath
-	ObjectPath string `json:"ObjectPath,omitempty"`
+	ObjectPath string `json:"ObjectPath"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,47 +16,47 @@ type FeatureGroup struct {
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
-	Description string `json:"Description,omitempty"`
+	Description *string `json:"Description,omitempty"`
 
 	// EventTimeFeatureName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
-	EventTimeFeatureName string `json:"EventTimeFeatureName,omitempty"`
+	EventTimeFeatureName string `json:"EventTimeFeatureName"`
 
 	// FeatureDefinitions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
-	FeatureDefinitions []FeatureGroup_FeatureDefinition `json:"FeatureDefinitions,omitempty"`
+	FeatureDefinitions []FeatureGroup_FeatureDefinition `json:"FeatureDefinitions"`
 
 	// FeatureGroupName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
-	FeatureGroupName string `json:"FeatureGroupName,omitempty"`
+	FeatureGroupName string `json:"FeatureGroupName"`
 
 	// OfflineStoreConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-	OfflineStoreConfig interface{} `json:"OfflineStoreConfig,omitempty"`
+	OfflineStoreConfig *interface{} `json:"OfflineStoreConfig,omitempty"`
 
 	// OnlineStoreConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-	OnlineStoreConfig interface{} `json:"OnlineStoreConfig,omitempty"`
+	OnlineStoreConfig *interface{} `json:"OnlineStoreConfig,omitempty"`
 
 	// RecordIdentifierFeatureName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
-	RecordIdentifierFeatureName string `json:"RecordIdentifierFeatureName,omitempty"`
+	RecordIdentifierFeatureName string `json:"RecordIdentifierFeatureName"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
-	RoleArn string `json:"RoleArn,omitempty"`
+	RoleArn *string `json:"RoleArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

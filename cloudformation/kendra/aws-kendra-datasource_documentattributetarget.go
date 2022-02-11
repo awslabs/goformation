@@ -11,7 +11,7 @@ type DataSource_DocumentAttributeTarget struct {
 	// TargetDocumentAttributeKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html#cfn-kendra-datasource-documentattributetarget-targetdocumentattributekey
-	TargetDocumentAttributeKey string `json:"TargetDocumentAttributeKey,omitempty"`
+	TargetDocumentAttributeKey string `json:"TargetDocumentAttributeKey"`
 
 	// TargetDocumentAttributeValue AWS CloudFormation Property
 	// Required: false
@@ -21,7 +21,7 @@ type DataSource_DocumentAttributeTarget struct {
 	// TargetDocumentAttributeValueDeletion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html#cfn-kendra-datasource-documentattributetarget-targetdocumentattributevaluedeletion
-	TargetDocumentAttributeValueDeletion bool `json:"TargetDocumentAttributeValueDeletion,omitempty"`
+	TargetDocumentAttributeValueDeletion *bool `json:"TargetDocumentAttributeValueDeletion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

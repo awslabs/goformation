@@ -15,7 +15,7 @@ type Account struct {
 	// ExpiryEventsConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
-	ExpiryEventsConfiguration *Account_ExpiryEventsConfiguration `json:"ExpiryEventsConfiguration,omitempty"`
+	ExpiryEventsConfiguration *Account_ExpiryEventsConfiguration `json:"ExpiryEventsConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

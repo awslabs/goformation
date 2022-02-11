@@ -16,7 +16,7 @@ type Channel_NielsenWatermarksSettings struct {
 	// NielsenDistributionType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsendistributiontype
-	NielsenDistributionType string `json:"NielsenDistributionType,omitempty"`
+	NielsenDistributionType *string `json:"NielsenDistributionType,omitempty"`
 
 	// NielsenNaesIiNwSettings AWS CloudFormation Property
 	// Required: false

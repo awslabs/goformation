@@ -11,12 +11,12 @@ type Distribution_FunctionAssociation struct {
 	// EventType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-eventtype
-	EventType string `json:"EventType,omitempty"`
+	EventType *string `json:"EventType,omitempty"`
 
 	// FunctionARN AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn
-	FunctionARN string `json:"FunctionARN,omitempty"`
+	FunctionARN *string `json:"FunctionARN,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -11,7 +11,7 @@ type Table_BillingMode struct {
 	// Mode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
-	Mode string `json:"Mode,omitempty"`
+	Mode string `json:"Mode"`
 
 	// ProvisionedThroughput AWS CloudFormation Property
 	// Required: false

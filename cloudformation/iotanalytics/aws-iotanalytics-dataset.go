@@ -16,22 +16,22 @@ type Dataset struct {
 	// Actions AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-actions
-	Actions []Dataset_Action `json:"Actions,omitempty"`
+	Actions []Dataset_Action `json:"Actions"`
 
 	// ContentDeliveryRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-contentdeliveryrules
-	ContentDeliveryRules []Dataset_DatasetContentDeliveryRule `json:"ContentDeliveryRules,omitempty"`
+	ContentDeliveryRules *[]Dataset_DatasetContentDeliveryRule `json:"ContentDeliveryRules,omitempty"`
 
 	// DatasetName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-datasetname
-	DatasetName string `json:"DatasetName,omitempty"`
+	DatasetName *string `json:"DatasetName,omitempty"`
 
 	// LateDataRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-latedatarules
-	LateDataRules []Dataset_LateDataRule `json:"LateDataRules,omitempty"`
+	LateDataRules *[]Dataset_LateDataRule `json:"LateDataRules,omitempty"`
 
 	// RetentionPeriod AWS CloudFormation Property
 	// Required: false
@@ -41,12 +41,12 @@ type Dataset struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// Triggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers
-	Triggers []Dataset_Trigger `json:"Triggers,omitempty"`
+	Triggers *[]Dataset_Trigger `json:"Triggers,omitempty"`
 
 	// VersioningConfiguration AWS CloudFormation Property
 	// Required: false

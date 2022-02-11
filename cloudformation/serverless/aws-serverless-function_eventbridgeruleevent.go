@@ -11,22 +11,22 @@ type Function_EventBridgeRuleEvent struct {
 	// EventBusName AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#eventbridgerule
-	EventBusName string `json:"EventBusName,omitempty"`
+	EventBusName *string `json:"EventBusName,omitempty"`
 
 	// Input AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#eventbridgerule
-	Input string `json:"Input,omitempty"`
+	Input *string `json:"Input,omitempty"`
 
 	// InputPath AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#eventbridgerule
-	InputPath string `json:"InputPath,omitempty"`
+	InputPath *string `json:"InputPath,omitempty"`
 
 	// Pattern AWS CloudFormation Property
 	// Required: true
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/filtering-examples-structure.html
-	Pattern interface{} `json:"Pattern,omitempty"`
+	Pattern interface{} `json:"Pattern"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
