@@ -1,7 +1,7 @@
 package lambda
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // EventInvokeConfig_OnSuccess AWS CloudFormation Resource (AWS::Lambda::EventInvokeConfig.OnSuccess)

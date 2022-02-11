@@ -1,7 +1,7 @@
 package auditmanager
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Assessment_AWSAccount AWS CloudFormation Resource (AWS::AuditManager::Assessment.AWSAccount)

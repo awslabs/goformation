@@ -1,7 +1,7 @@
 package wafregional
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // RateBasedRule_Predicate AWS CloudFormation Resource (AWS::WAFRegional::RateBasedRule.Predicate)

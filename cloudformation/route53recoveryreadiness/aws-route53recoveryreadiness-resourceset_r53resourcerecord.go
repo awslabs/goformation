@@ -1,7 +1,7 @@
 package route53recoveryreadiness
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ResourceSet_R53ResourceRecord AWS CloudFormation Resource (AWS::Route53RecoveryReadiness::ResourceSet.R53ResourceRecord)

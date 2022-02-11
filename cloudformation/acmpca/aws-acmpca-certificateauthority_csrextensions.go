@@ -1,7 +1,7 @@
 package acmpca
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // CertificateAuthority_CsrExtensions AWS CloudFormation Resource (AWS::ACMPCA::CertificateAuthority.CsrExtensions)

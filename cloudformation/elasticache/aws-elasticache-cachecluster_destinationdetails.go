@@ -1,7 +1,7 @@
 package elasticache
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // CacheCluster_DestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster.DestinationDetails)

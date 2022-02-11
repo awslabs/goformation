@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ResourceUpdateConstraint AWS CloudFormation Resource (AWS::ServiceCatalog::ResourceUpdateConstraint)

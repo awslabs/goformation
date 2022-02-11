@@ -1,7 +1,7 @@
 package lookoutmetrics
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // AnomalyDetector_AppFlowConfig AWS CloudFormation Resource (AWS::LookoutMetrics::AnomalyDetector.AppFlowConfig)

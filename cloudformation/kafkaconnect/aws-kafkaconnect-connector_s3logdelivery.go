@@ -1,7 +1,7 @@
 package kafkaconnect
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Connector_S3LogDelivery AWS CloudFormation Resource (AWS::KafkaConnect::Connector.S3LogDelivery)

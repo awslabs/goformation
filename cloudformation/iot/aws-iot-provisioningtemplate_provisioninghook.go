@@ -1,7 +1,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ProvisioningTemplate_ProvisioningHook AWS CloudFormation Resource (AWS::IoT::ProvisioningTemplate.ProvisioningHook)

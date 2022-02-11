@@ -1,7 +1,7 @@
 package route53resolver
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // FirewallRuleGroup_FirewallRule AWS CloudFormation Resource (AWS::Route53Resolver::FirewallRuleGroup.FirewallRule)

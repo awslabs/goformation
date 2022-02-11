@@ -1,7 +1,7 @@
 package kinesisanalyticsv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Application_CSVMappingParameters AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.CSVMappingParameters)

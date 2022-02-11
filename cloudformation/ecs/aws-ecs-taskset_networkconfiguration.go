@@ -1,7 +1,7 @@
 package ecs
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // TaskSet_NetworkConfiguration AWS CloudFormation Resource (AWS::ECS::TaskSet.NetworkConfiguration)

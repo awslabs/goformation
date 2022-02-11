@@ -1,7 +1,7 @@
 package amazonmq
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Broker_LdapServerMetadata AWS CloudFormation Resource (AWS::AmazonMQ::Broker.LdapServerMetadata)

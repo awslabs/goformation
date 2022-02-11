@@ -1,7 +1,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Channel_EmbeddedPlusScte20DestinationSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.EmbeddedPlusScte20DestinationSettings)

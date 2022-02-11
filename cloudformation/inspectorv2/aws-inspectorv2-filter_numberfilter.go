@@ -1,7 +1,7 @@
 package inspectorv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Filter_NumberFilter AWS CloudFormation Resource (AWS::InspectorV2::Filter.NumberFilter)

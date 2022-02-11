@@ -1,7 +1,7 @@
 package networkfirewall
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Firewall_SubnetMapping AWS CloudFormation Resource (AWS::NetworkFirewall::Firewall.SubnetMapping)

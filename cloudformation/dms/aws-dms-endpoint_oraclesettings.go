@@ -1,7 +1,7 @@
 package dms
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Endpoint_OracleSettings AWS CloudFormation Resource (AWS::DMS::Endpoint.OracleSettings)

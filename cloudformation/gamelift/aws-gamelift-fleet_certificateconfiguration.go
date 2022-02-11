@@ -1,7 +1,7 @@
 package gamelift
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Fleet_CertificateConfiguration AWS CloudFormation Resource (AWS::GameLift::Fleet.CertificateConfiguration)

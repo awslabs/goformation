@@ -1,7 +1,7 @@
 package macie
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // FindingsFilter_FindingsFilterListItem AWS CloudFormation Resource (AWS::Macie::FindingsFilter.FindingsFilterListItem)

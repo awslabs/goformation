@@ -1,7 +1,7 @@
 package codedeploy
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DeploymentConfig_TrafficRoutingConfig AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentConfig.TrafficRoutingConfig)

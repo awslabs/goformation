@@ -1,7 +1,7 @@
 package customerprofiles
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ObjectType_ObjectTypeField AWS CloudFormation Resource (AWS::CustomerProfiles::ObjectType.ObjectTypeField)

@@ -1,7 +1,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DataSource_WebCrawlerSeedUrlConfiguration AWS CloudFormation Resource (AWS::Kendra::DataSource.WebCrawlerSeedUrlConfiguration)

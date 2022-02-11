@@ -1,7 +1,7 @@
 package fsx
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // FileSystem_OpenZFSConfiguration AWS CloudFormation Resource (AWS::FSx::FileSystem.OpenZFSConfiguration)

@@ -1,7 +1,7 @@
 package eks
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Nodegroup_UpdateConfig AWS CloudFormation Resource (AWS::EKS::Nodegroup.UpdateConfig)

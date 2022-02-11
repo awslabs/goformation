@@ -1,7 +1,7 @@
 package emr
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // InstanceFleetConfig_InstanceTypeConfig AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig.InstanceTypeConfig)

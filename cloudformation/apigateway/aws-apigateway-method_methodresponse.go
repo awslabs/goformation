@@ -1,7 +1,7 @@
 package apigateway
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Method_MethodResponse AWS CloudFormation Resource (AWS::ApiGateway::Method.MethodResponse)

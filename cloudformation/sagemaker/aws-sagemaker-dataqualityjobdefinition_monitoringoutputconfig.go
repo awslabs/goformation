@@ -1,7 +1,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // DataQualityJobDefinition_MonitoringOutputConfig AWS CloudFormation Resource (AWS::SageMaker::DataQualityJobDefinition.MonitoringOutputConfig)

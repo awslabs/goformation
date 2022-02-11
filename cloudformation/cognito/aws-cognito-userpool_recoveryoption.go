@@ -1,7 +1,7 @@
 package cognito
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // UserPool_RecoveryOption AWS CloudFormation Resource (AWS::Cognito::UserPool.RecoveryOption)

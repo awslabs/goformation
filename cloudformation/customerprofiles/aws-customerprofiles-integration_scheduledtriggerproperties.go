@@ -1,7 +1,7 @@
 package customerprofiles
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Integration_ScheduledTriggerProperties AWS CloudFormation Resource (AWS::CustomerProfiles::Integration.ScheduledTriggerProperties)

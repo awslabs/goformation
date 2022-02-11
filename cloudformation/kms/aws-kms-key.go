@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
-	"github.com/awslabs/goformation/v5/cloudformation/tags"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/tags"
 )
 
 // Key AWS CloudFormation Resource (AWS::KMS::Key)

@@ -1,7 +1,7 @@
 package apigateway
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Stage_AccessLogSetting AWS CloudFormation Resource (AWS::ApiGateway::Stage.AccessLogSetting)

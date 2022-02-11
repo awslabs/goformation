@@ -1,7 +1,7 @@
 package datasync
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // LocationSMB_MountOptions AWS CloudFormation Resource (AWS::DataSync::LocationSMB.MountOptions)

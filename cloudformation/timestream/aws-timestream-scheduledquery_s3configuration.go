@@ -1,7 +1,7 @@
 package timestream
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // ScheduledQuery_S3Configuration AWS CloudFormation Resource (AWS::Timestream::ScheduledQuery.S3Configuration)

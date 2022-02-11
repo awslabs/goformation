@@ -1,7 +1,7 @@
 package licensemanager
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // License_BorrowConfiguration AWS CloudFormation Resource (AWS::LicenseManager::License.BorrowConfiguration)

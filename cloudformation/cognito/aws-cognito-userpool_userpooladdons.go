@@ -1,7 +1,7 @@
 package cognito
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // UserPool_UserPoolAddOns AWS CloudFormation Resource (AWS::Cognito::UserPool.UserPoolAddOns)

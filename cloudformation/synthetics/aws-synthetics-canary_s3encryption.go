@@ -1,7 +1,7 @@
 package synthetics
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Canary_S3Encryption AWS CloudFormation Resource (AWS::Synthetics::Canary.S3Encryption)

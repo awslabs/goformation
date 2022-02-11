@@ -1,7 +1,7 @@
 package groundstation
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Config_FrequencyBandwidth AWS CloudFormation Resource (AWS::GroundStation::Config.FrequencyBandwidth)

@@ -1,7 +1,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // OriginRequestPolicy_HeadersConfig AWS CloudFormation Resource (AWS::CloudFront::OriginRequestPolicy.HeadersConfig)

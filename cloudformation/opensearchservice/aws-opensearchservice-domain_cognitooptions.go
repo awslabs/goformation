@@ -1,7 +1,7 @@
 package opensearchservice
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Domain_CognitoOptions AWS CloudFormation Resource (AWS::OpenSearchService::Domain.CognitoOptions)

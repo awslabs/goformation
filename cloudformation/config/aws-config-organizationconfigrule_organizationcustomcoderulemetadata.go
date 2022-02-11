@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // OrganizationConfigRule_OrganizationCustomCodeRuleMetadata AWS CloudFormation Resource (AWS::Config::OrganizationConfigRule.OrganizationCustomCodeRuleMetadata)

@@ -1,7 +1,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // WebACL_BlockAction AWS CloudFormation Resource (AWS::WAFv2::WebACL.BlockAction)

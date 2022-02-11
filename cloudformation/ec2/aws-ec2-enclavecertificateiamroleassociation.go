@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // EnclaveCertificateIamRoleAssociation AWS CloudFormation Resource (AWS::EC2::EnclaveCertificateIamRoleAssociation)

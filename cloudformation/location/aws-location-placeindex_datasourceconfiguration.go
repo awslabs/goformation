@@ -1,7 +1,7 @@
 package location
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // PlaceIndex_DataSourceConfiguration AWS CloudFormation Resource (AWS::Location::PlaceIndex.DataSourceConfiguration)

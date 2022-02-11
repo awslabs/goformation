@@ -1,7 +1,7 @@
 package cloudformation
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // StackSet_Parameter AWS CloudFormation Resource (AWS::CloudFormation::StackSet.Parameter)

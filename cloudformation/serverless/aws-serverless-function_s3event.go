@@ -1,7 +1,7 @@
 package serverless
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Function_S3Event AWS CloudFormation Resource (AWS::Serverless::Function.S3Event)

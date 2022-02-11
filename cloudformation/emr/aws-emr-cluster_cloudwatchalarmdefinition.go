@@ -1,7 +1,7 @@
 package emr
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Cluster_CloudWatchAlarmDefinition AWS CloudFormation Resource (AWS::EMR::Cluster.CloudWatchAlarmDefinition)

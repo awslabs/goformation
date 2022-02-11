@@ -1,7 +1,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Dataset_GlueConfiguration AWS CloudFormation Resource (AWS::IoTAnalytics::Dataset.GlueConfiguration)

@@ -1,7 +1,7 @@
 package refactorspaces
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Application_ApiGatewayProxyInput AWS CloudFormation Resource (AWS::RefactorSpaces::Application.ApiGatewayProxyInput)

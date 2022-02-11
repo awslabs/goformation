@@ -1,7 +1,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Dashboard_DataSetReference AWS CloudFormation Resource (AWS::QuickSight::Dashboard.DataSetReference)

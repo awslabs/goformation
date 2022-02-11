@@ -1,7 +1,7 @@
 package ssm
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // MaintenanceWindowTarget_Targets AWS CloudFormation Resource (AWS::SSM::MaintenanceWindowTarget.Targets)

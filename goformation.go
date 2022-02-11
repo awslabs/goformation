@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/awslabs/goformation/v5/cloudformation"
-	"github.com/awslabs/goformation/v5/intrinsics"
+	"github.com/awslabs/goformation/v6/cloudformation"
+	"github.com/awslabs/goformation/v6/intrinsics"
 )
 
 //go:generate generate/generate.sh

@@ -1,7 +1,7 @@
 package guardduty
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Detector_CFNKubernetesAuditLogsConfiguration AWS CloudFormation Resource (AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration)

@@ -1,7 +1,7 @@
 package iotthingsgraph
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // FlowTemplate_DefinitionDocument AWS CloudFormation Resource (AWS::IoTThingsGraph::FlowTemplate.DefinitionDocument)

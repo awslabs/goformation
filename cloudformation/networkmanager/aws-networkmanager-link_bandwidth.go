@@ -1,7 +1,7 @@
 package networkmanager
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Link_Bandwidth AWS CloudFormation Resource (AWS::NetworkManager::Link.Bandwidth)

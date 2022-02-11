@@ -1,7 +1,7 @@
 package codebuild
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Project_VpcConfig AWS CloudFormation Resource (AWS::CodeBuild::Project.VpcConfig)

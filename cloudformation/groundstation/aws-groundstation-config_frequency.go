@@ -1,7 +1,7 @@
 package groundstation
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Config_Frequency AWS CloudFormation Resource (AWS::GroundStation::Config.Frequency)

@@ -1,7 +1,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Database_RelationalDatabaseParameter AWS CloudFormation Resource (AWS::Lightsail::Database.RelationalDatabaseParameter)

@@ -1,7 +1,7 @@
 package evidently
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Experiment_MetricGoalObject AWS CloudFormation Resource (AWS::Evidently::Experiment.MetricGoalObject)

@@ -1,7 +1,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Dataset_CsvOptions AWS CloudFormation Resource (AWS::DataBrew::Dataset.CsvOptions)

@@ -1,7 +1,7 @@
 package acmpca
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // Certificate_PolicyQualifierInfo AWS CloudFormation Resource (AWS::ACMPCA::Certificate.PolicyQualifierInfo)

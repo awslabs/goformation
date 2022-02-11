@@ -1,7 +1,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // LoggingConfiguration_FieldToMatch AWS CloudFormation Resource (AWS::WAFv2::LoggingConfiguration.FieldToMatch)

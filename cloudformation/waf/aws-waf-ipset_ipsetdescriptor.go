@@ -1,7 +1,7 @@
 package waf
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // IPSet_IPSetDescriptor AWS CloudFormation Resource (AWS::WAF::IPSet.IPSetDescriptor)

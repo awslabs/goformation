@@ -1,7 +1,7 @@
 package connect
 
 import (
-	"github.com/awslabs/goformation/v5/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
 
 // QuickConnect_PhoneNumberQuickConnectConfig AWS CloudFormation Resource (AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig)
