@@ -519,6 +519,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::Volume":                                            &ec2.Volume{},
 		"AWS::EC2::VolumeAttachment":                                  &ec2.VolumeAttachment{},
 		"AWS::ECR::PublicRepository":                                  &ecr.PublicRepository{},
+		"AWS::ECR::PullThroughCacheRule":                              &ecr.PullThroughCacheRule{},
 		"AWS::ECR::RegistryPolicy":                                    &ecr.RegistryPolicy{},
 		"AWS::ECR::ReplicationConfiguration":                          &ecr.ReplicationConfiguration{},
 		"AWS::ECR::Repository":                                        &ecr.Repository{},
@@ -8867,6 +8868,30 @@ func (t *Template) GetECRPublicRepositoryWithName(name string) (*ecr.PublicRepos
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ecr.PublicRepository not found", name)
+}
+
+// GetAllECRPullThroughCacheRuleResources retrieves all ecr.PullThroughCacheRule items from an AWS CloudFormation template
+func (t *Template) GetAllECRPullThroughCacheRuleResources() map[string]*ecr.PullThroughCacheRule {
+	results := map[string]*ecr.PullThroughCacheRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ecr.PullThroughCacheRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetECRPullThroughCacheRuleWithName retrieves all ecr.PullThroughCacheRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetECRPullThroughCacheRuleWithName(name string) (*ecr.PullThroughCacheRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ecr.PullThroughCacheRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ecr.PullThroughCacheRule not found", name)
 }
 
 // GetAllECRRegistryPolicyResources retrieves all ecr.RegistryPolicy items from an AWS CloudFormation template

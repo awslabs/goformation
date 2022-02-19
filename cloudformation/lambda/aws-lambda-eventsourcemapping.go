@@ -40,7 +40,7 @@ type EventSourceMapping struct {
 	// FilterCriteria AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-filtercriteria
-	FilterCriteria interface{} `json:"FilterCriteria,omitempty"`
+	FilterCriteria *EventSourceMapping_FilterCriteria `json:"FilterCriteria,omitempty"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: true

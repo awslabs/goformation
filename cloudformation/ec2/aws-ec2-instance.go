@@ -148,6 +148,11 @@ type Instance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-placementgroupname
 	PlacementGroupName string `json:"PlacementGroupName,omitempty"`
 
+	// PrivateDnsNameOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-privatednsnameoptions
+	PrivateDnsNameOptions *Instance_PrivateDnsNameOptions `json:"PrivateDnsNameOptions,omitempty"`
+
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-privateipaddress
