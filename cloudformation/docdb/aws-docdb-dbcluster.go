@@ -64,12 +64,12 @@ type DBCluster struct {
 	KmsKeyId string `json:"KmsKeyId,omitempty"`
 
 	// MasterUserPassword AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masteruserpassword
 	MasterUserPassword string `json:"MasterUserPassword,omitempty"`
 
 	// MasterUsername AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusername
 	MasterUsername string `json:"MasterUsername,omitempty"`
 
