@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [5.4.9](https://github.com/awslabs/goformation/compare/v5.4.8...v5.4.9) (2022-02-21)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([2f3e802](https://github.com/awslabs/goformation/commit/2f3e8023c760b0869ec947a520ffb60a4ed81c1c))
+
 ## [5.4.8](https://github.com/awslabs/goformation/compare/v5.4.7...v5.4.8) (2022-02-11)
 
 
