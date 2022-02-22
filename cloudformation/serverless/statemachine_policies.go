@@ -1,7 +1,9 @@
 package serverless
 
 import (
+	"bytes"
 	"encoding/json"
+	"io"
 	"sort"
 
 	"github.com/awslabs/goformation/v6/cloudformation/utils"
@@ -74,7 +76,15 @@ func (r *StateMachine_Policies) UnmarshalJSON(b []byte) error {
 	case map[string]interface{}:
 		val = val // This ensures val is used to stop an error
 
-		json.Unmarshal(b, &r.IAMPolicyDocument)
+		reader := bytes.NewReader(b)
+		decoder := json.NewDecoder(reader)
+		decoder.DisallowUnknownFields()
+		reader.Seek(0, io.SeekStart)
+
+		if err := decoder.Decode(&r.IAMPolicyDocument); err != nil {
+			r.IAMPolicyDocument = nil
+		}
+		reader.Seek(0, io.SeekStart)
 
 	case []interface{}:
 
