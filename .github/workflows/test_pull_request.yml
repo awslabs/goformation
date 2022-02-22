@@ -13,7 +13,6 @@ jobs:
         go:
           - "1.17"
           - "1.16"
-          - "1.15"
 
     steps:
       - name: Set up Go ${{ matrix.go }}
