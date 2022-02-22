@@ -11,4 +11,4 @@ require (
 	github.com/xeipuuv/gojsonschema v0.0.0-20181112162635-ac52e6811b56
 )
 
-go 1.13
+go 1.15
