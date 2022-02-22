@@ -1,7 +1,7 @@
 module github.com/awslabs/goformation/v6
 
 require (
-	github.com/onsi/ginkgo v1.16.5
+	github.com/onsi/ginkgo/v2 v2.1.3
 	github.com/onsi/gomega v1.18.1
 	github.com/sanathkr/go-yaml v0.0.0-20170819195128-ed9d249f429b
 	github.com/sanathkr/yaml v0.0.0-20170819201035-0056894fa522

@@ -3,12 +3,13 @@ package main_test
 import (
 	"encoding/json"
 
+	"github.com/awslabs/goformation/v6/cloudformation"
 	"github.com/awslabs/goformation/v6/cloudformation/rds"
 
 	"github.com/awslabs/goformation/v6/cloudformation/ec2"
 	"github.com/awslabs/goformation/v6/cloudformation/s3"
 	"github.com/awslabs/goformation/v6/cloudformation/serverless"
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 
@@ -22,7 +23,7 @@ var _ = Describe("Resource", func() {
 
 				codeuri := "s3://bucket/key"
 				resource := &serverless.Function{
-					Runtime: "nodejs6.10",
+					Runtime: cloudformation.String("nodejs6.10"),
 					CodeUri: &serverless.Function_CodeUri{
 						String: &codeuri,
 					},
@@ -41,12 +42,12 @@ var _ = Describe("Resource", func() {
 			Context("with a custom type used for a polymorphic property", func() {
 
 				resource := &serverless.Function{
-					Runtime: "nodejs6.10",
+					Runtime: cloudformation.String("nodejs6.10"),
 					CodeUri: &serverless.Function_CodeUri{
 						S3Location: &serverless.Function_S3Location{
 							Bucket:  "test-bucket",
 							Key:     "test-key",
-							Version: 123,
+							Version: cloudformation.Int(123),
 						},
 					},
 				}
@@ -72,7 +73,7 @@ var _ = Describe("Resource", func() {
 			Context("with a dependency on another resource", func() {
 
 				resource := &ec2.Instance{
-					ImageId: "ami-0123456789",
+					ImageId: cloudformation.String("ami-0123456789"),
 				}
 				resource.AWSCloudFormationDependsOn = []string{"MyDependency"}
 
@@ -89,7 +90,7 @@ var _ = Describe("Resource", func() {
 			Context("with a metadata attribute", func() {
 
 				resource := &s3.Bucket{
-					BucketName: "MyBucket",
+					BucketName: cloudformation.String("MyBucket"),
 				}
 				resource.AWSCloudFormationMetadata = map[string]interface{}{"Object1": "Location1", "Object2": "Location2"}
 
@@ -106,11 +107,12 @@ var _ = Describe("Resource", func() {
 			Context("with a condition attribute", func() {
 
 				resource := &rds.DBCluster{
-					DatabaseName: "MyDatabase",
+					DatabaseName: cloudformation.String("MyDatabase"),
+					Engine:       "mysql",
 				}
 				resource.AWSCloudFormationCondition = "MyCondition"
 
-				expected := []byte(`{"Type":"AWS::RDS::DBCluster","Properties":{"DatabaseName":"MyDatabase"},"Condition":"MyCondition"}`)
+				expected := []byte(`{"Type":"AWS::RDS::DBCluster","Properties":{"DatabaseName":"MyDatabase","Engine":"mysql"},"Condition":"MyCondition"}`)
 
 				result, err := json.Marshal(resource)
 				It("should marshal to JSON successfully", func() {
@@ -128,7 +130,7 @@ var _ = Describe("Resource", func() {
 
 				property := []byte(`{"Type":"AWS::EC2::Instance","Properties":{"ImageId":"ami-0123456789"},"DependsOn":["MyDependency"]}`)
 				expected := &ec2.Instance{
-					ImageId: "ami-0123456789",
+					ImageId: cloudformation.String("ami-0123456789"),
 				}
 				expected.AWSCloudFormationDependsOn = []string{"MyDependency"}
 
@@ -145,7 +147,7 @@ var _ = Describe("Resource", func() {
 
 				property := []byte(`{"Type":"AWS::S3::Bucket","Properties":{"BucketName":"MyBucket"},"Metadata":{"Object1":"Location1","Object2":"Location2"}}`)
 				expected := &s3.Bucket{
-					BucketName: "MyBucket",
+					BucketName: cloudformation.String("MyBucket"),
 				}
 				expected.AWSCloudFormationMetadata = map[string]interface{}{"Object1": "Location1", "Object2": "Location2"}
 
@@ -162,7 +164,7 @@ var _ = Describe("Resource", func() {
 
 				property := []byte(`{"Type":"AWS::RDS::DBCluster","Properties":{"DatabaseName":"MyDatabase"},"Condition":"MyCondition"}`)
 				expected := &rds.DBCluster{
-					DatabaseName: "MyDatabase",
+					DatabaseName: cloudformation.String("MyDatabase"),
 				}
 				expected.AWSCloudFormationCondition = "MyCondition"
 

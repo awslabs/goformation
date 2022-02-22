@@ -3,8 +3,9 @@ package main_test
 import (
 	"encoding/json"
 
+	"github.com/awslabs/goformation/v6/cloudformation"
 	"github.com/awslabs/goformation/v6/cloudformation/serverless"
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 
@@ -17,7 +18,7 @@ var _ = Describe("Goformation Code Generator", func() {
 			property := &serverless.Function_S3Location{
 				Bucket:  "test-bucket",
 				Key:     "test-key",
-				Version: 123,
+				Version: cloudformation.Int(123),
 			}
 			expected := []byte(`{"Bucket":"test-bucket","Key":"test-key","Version":123}`)
 
@@ -34,7 +35,7 @@ var _ = Describe("Goformation Code Generator", func() {
 			expected := &serverless.Function_S3Location{
 				Bucket:  "test-bucket",
 				Key:     "test-key",
-				Version: 123,
+				Version: cloudformation.Int(123),
 			}
 
 			result := &serverless.Function_S3Location{}
@@ -85,11 +86,11 @@ var _ = Describe("Goformation Code Generator", func() {
 			})
 
 			Context("properly Marshals best value", func() {
-				expected := []byte(`{"BatchSize":10,"Stream":"arn"}`)
+				expected := []byte(`{"BatchSize":10,"StartingPosition":"LATEST","Stream":"stream"}`)
 
 				result := &serverless.Function_Properties{
-					SQSEvent:     &serverless.Function_SQSEvent{BatchSize: 10},
-					KinesisEvent: &serverless.Function_KinesisEvent{BatchSize: 10, Stream: "arn"},
+					SQSEvent:     &serverless.Function_SQSEvent{BatchSize: cloudformation.Int(10)},
+					KinesisEvent: &serverless.Function_KinesisEvent{BatchSize: cloudformation.Int(10), StartingPosition: "LATEST", Stream: "stream"},
 				}
 
 				output, err := result.MarshalJSON()
@@ -148,7 +149,7 @@ var _ = Describe("Goformation Code Generator", func() {
 					S3Location: &serverless.Function_S3Location{
 						Bucket:  "test-bucket",
 						Key:     "test-key",
-						Version: 123,
+						Version: cloudformation.Int(123),
 					},
 				}
 
@@ -170,7 +171,7 @@ var _ = Describe("Goformation Code Generator", func() {
 					S3Location: &serverless.Function_S3Location{
 						Bucket:  "test-bucket",
 						Key:     "test-key",
-						Version: 123,
+						Version: cloudformation.Int(123),
 					},
 				}
 

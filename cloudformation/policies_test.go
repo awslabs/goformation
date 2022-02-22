@@ -7,7 +7,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/autoscaling"
 	"github.com/awslabs/goformation/v6/cloudformation/policies"
 
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 
