@@ -175,7 +175,7 @@ func (r *UserPool) UnmarshalJSON(b []byte) error {
 	res := &struct {
 		Type                string
 		Properties          *Properties
-		DependsOn           []string
+		DependsOn           interface{}
 		Metadata            map[string]interface{}
 		DeletionPolicy      string
 		UpdateReplacePolicy string
@@ -195,7 +195,18 @@ func (r *UserPool) UnmarshalJSON(b []byte) error {
 		*r = UserPool(*res.Properties)
 	}
 	if res.DependsOn != nil {
-		r.AWSCloudFormationDependsOn = res.DependsOn
+		switch obj := res.DependsOn.(type) {
+		case string:
+			r.AWSCloudFormationDependsOn = []string{obj}
+		case []interface{}:
+			s := make([]string, 0, len(obj))
+			for _, v := range obj {
+				if value, ok := v.(string); ok {
+					s = append(s, value)
+				}
+			}
+			r.AWSCloudFormationDependsOn = s
+		}
 	}
 	if res.Metadata != nil {
 		r.AWSCloudFormationMetadata = res.Metadata
