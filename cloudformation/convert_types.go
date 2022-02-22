@@ -7,6 +7,15 @@ func String(v string) *string {
 	return &v
 }
 
+// Strings returns a pointer to a slice of string pointers.
+func Strings(v... string) *[]string {
+	slice := make([]string, len(v))
+	for i := 0; i < len(v); i++ {
+		slice[i] = v[i]
+	}
+	return &slice
+}
+
 // StringValue returns the value of the string pointer passed in or
 // "" if the pointer is nil.
 func StringValue(v *string) string {

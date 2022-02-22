@@ -6,7 +6,7 @@ import (
 	// in the main repo: https://github.com/xeipuuv/gojsonschema/pull/146
 	"os"
 
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	. "github.com/xeipuuv/gojsonschema"
 )
