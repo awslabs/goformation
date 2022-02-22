@@ -1,7 +1,9 @@
 package serverless
 
 import (
+	"bytes"
 	"encoding/json"
+	"io"
 	"sort"
 
 	"github.com/awslabs/goformation/v6/cloudformation/utils"
@@ -54,7 +56,15 @@ func (r *Application_Location) UnmarshalJSON(b []byte) error {
 	case map[string]interface{}:
 		val = val // This ensures val is used to stop an error
 
-		json.Unmarshal(b, &r.ApplicationLocation)
+		reader := bytes.NewReader(b)
+		decoder := json.NewDecoder(reader)
+		decoder.DisallowUnknownFields()
+		reader.Seek(0, io.SeekStart)
+
+		if err := decoder.Decode(&r.ApplicationLocation); err != nil {
+			r.ApplicationLocation = nil
+		}
+		reader.Seek(0, io.SeekStart)
 
 	case []interface{}:
 

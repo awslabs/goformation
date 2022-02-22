@@ -79,7 +79,6 @@ func (r Function_Properties) value() interface{} {
 	sort.Sort(utils.ByJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
 		return ret[0]
-		// log.Fatalf("FunctionProperties matched more than one property. This is a bug. %+v", r)
 	}
 
 	return nil
@@ -106,65 +105,67 @@ func (r *Function_Properties) UnmarshalJSON(b []byte) error {
 		reader := bytes.NewReader(b)
 		decoder := json.NewDecoder(reader)
 		decoder.DisallowUnknownFields()
+		reader.Seek(0, io.SeekStart)
 
 		if err := decoder.Decode(&r.S3Event); err != nil {
 			r.S3Event = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.SNSEvent); err != nil {
 			r.SNSEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.SQSEvent); err != nil {
 			r.SQSEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.KinesisEvent); err != nil {
 			r.KinesisEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.DynamoDBEvent); err != nil {
 			r.DynamoDBEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.ApiEvent); err != nil {
 			r.ApiEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.ScheduleEvent); err != nil {
 			r.ScheduleEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.CloudWatchEventEvent); err != nil {
 			r.CloudWatchEventEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.CloudWatchLogsEvent); err != nil {
 			r.CloudWatchLogsEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.IoTRuleEvent); err != nil {
 			r.IoTRuleEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.AlexaSkillEvent); err != nil {
 			r.AlexaSkillEvent = nil
 		}
-
 		reader.Seek(0, io.SeekStart)
+
 		if err := decoder.Decode(&r.EventBridgeRuleEvent); err != nil {
 			r.EventBridgeRuleEvent = nil
 		}
+		reader.Seek(0, io.SeekStart)
 
 	case []interface{}:
 
