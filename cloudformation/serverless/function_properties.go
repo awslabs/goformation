@@ -1,7 +1,9 @@
 package serverless
 
 import (
+	"bytes"
 	"encoding/json"
+	"io"
 	"sort"
 
 	"github.com/awslabs/goformation/v6/cloudformation/utils"
@@ -77,6 +79,7 @@ func (r Function_Properties) value() interface{} {
 	sort.Sort(utils.ByJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
 		return ret[0]
+		// log.Fatalf("FunctionProperties matched more than one property. This is a bug. %+v", r)
 	}
 
 	return nil
@@ -100,29 +103,68 @@ func (r *Function_Properties) UnmarshalJSON(b []byte) error {
 	case map[string]interface{}:
 		val = val // This ensures val is used to stop an error
 
-		json.Unmarshal(b, &r.S3Event)
+		reader := bytes.NewReader(b)
+		decoder := json.NewDecoder(reader)
+		decoder.DisallowUnknownFields()
 
-		json.Unmarshal(b, &r.SNSEvent)
+		if err := decoder.Decode(&r.S3Event); err != nil {
+			r.S3Event = nil
+		}
 
-		json.Unmarshal(b, &r.SQSEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.SNSEvent); err != nil {
+			r.SNSEvent = nil
+		}
 
-		json.Unmarshal(b, &r.KinesisEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.SQSEvent); err != nil {
+			r.SQSEvent = nil
+		}
 
-		json.Unmarshal(b, &r.DynamoDBEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.KinesisEvent); err != nil {
+			r.KinesisEvent = nil
+		}
 
-		json.Unmarshal(b, &r.ApiEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.DynamoDBEvent); err != nil {
+			r.DynamoDBEvent = nil
+		}
 
-		json.Unmarshal(b, &r.ScheduleEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.ApiEvent); err != nil {
+			r.ApiEvent = nil
+		}
 
-		json.Unmarshal(b, &r.CloudWatchEventEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.ScheduleEvent); err != nil {
+			r.ScheduleEvent = nil
+		}
 
-		json.Unmarshal(b, &r.CloudWatchLogsEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.CloudWatchEventEvent); err != nil {
+			r.CloudWatchEventEvent = nil
+		}
 
-		json.Unmarshal(b, &r.IoTRuleEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.CloudWatchLogsEvent); err != nil {
+			r.CloudWatchLogsEvent = nil
+		}
 
-		json.Unmarshal(b, &r.AlexaSkillEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.IoTRuleEvent); err != nil {
+			r.IoTRuleEvent = nil
+		}
 
-		json.Unmarshal(b, &r.EventBridgeRuleEvent)
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.AlexaSkillEvent); err != nil {
+			r.AlexaSkillEvent = nil
+		}
+
+		reader.Seek(0, io.SeekStart)
+		if err := decoder.Decode(&r.EventBridgeRuleEvent); err != nil {
+			r.EventBridgeRuleEvent = nil
+		}
 
 	case []interface{}:
 

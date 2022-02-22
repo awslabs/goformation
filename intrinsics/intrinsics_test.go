@@ -6,7 +6,7 @@ import (
 
 	. "github.com/awslabs/goformation/v6/intrinsics"
 
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 

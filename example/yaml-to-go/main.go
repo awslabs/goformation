@@ -20,7 +20,7 @@ func main() {
 	for name, topic := range topics {
 
 		// E.g. Found a AWS::SNS::Topic with Logical ID ExampleTopic and TopicName 'example'
-		log.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), name, topic.TopicName)
+		log.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), name, *topic.TopicName)
 
 	}
 
@@ -32,6 +32,6 @@ func main() {
 	}
 
 	// E.g. Found a AWS::Serverless::Function named GetHelloWorld (runtime: nodejs6.10)
-	log.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), search, topic.TopicName)
+	log.Printf("Found a %s with Logical ID %s and TopicName %s\n", topic.AWSCloudFormationType(), search, *topic.TopicName)
 
 }

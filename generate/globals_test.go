@@ -7,7 +7,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation"
 	"github.com/awslabs/goformation/v6/cloudformation/global"
 	"github.com/awslabs/goformation/v6/cloudformation/serverless"
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 
@@ -21,7 +21,7 @@ var _ = Describe("SAM Globals", func() {
 
 				codeuri := "s3://bucket/key"
 				resource := &global.Function{
-					Runtime: "nodejs6.10",
+					Runtime: cloudformation.String("nodejs6.10"),
 					CodeUri: &serverless.Function_CodeUri{
 						String: &codeuri,
 					},
@@ -40,12 +40,12 @@ var _ = Describe("SAM Globals", func() {
 			Context("with a custom type used for a polymorphic property", func() {
 
 				resource := &global.Function{
-					Runtime: "nodejs6.10",
+					Runtime: cloudformation.String("nodejs6.10"),
 					CodeUri: &serverless.Function_CodeUri{
 						S3Location: &serverless.Function_S3Location{
 							Bucket:  "test-bucket",
 							Key:     "test-key",
-							Version: 123,
+							Version: cloudformation.Int(123),
 						},
 					},
 				}
@@ -67,9 +67,9 @@ var _ = Describe("SAM Globals", func() {
 
 		template := cloudformation.NewTemplate()
 		template.Globals["Function"] = &global.Function{
-			Runtime: "nodejs12.x",
-			Timeout: 180,
-			Handler: "index.handler",
+			Runtime: cloudformation.String("nodejs12.x"),
+			Timeout: cloudformation.Int(180),
+			Handler: cloudformation.String("index.handler"),
 			Environment: &serverless.Function_FunctionEnvironment{
 				Variables: map[string]string{
 					"TABLE_NAME": "data-table",
@@ -115,9 +115,9 @@ var _ = Describe("SAM Globals", func() {
 		It("should have a global Function, with properties set", func() {
 
 			expected := &global.Function{
-				Runtime: "nodejs12.x",
-				Timeout: 180,
-				Handler: "index.handler",
+				Runtime: cloudformation.String("nodejs12.x"),
+				Timeout: cloudformation.Int(180),
+				Handler: cloudformation.String("index.handler"),
 				Environment: &serverless.Function_FunctionEnvironment{
 					Variables: map[string]string{
 						"TABLE_NAME": "data-table",
