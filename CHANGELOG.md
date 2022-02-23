@@ -1,5 +1,26 @@
 # GoFormation Versioning Changelog
 
+# [6.0.0-beta.1](https://github.com/awslabs/goformation/compare/v5.4.9...v6.0.0-beta.1) (2022-02-23)
+
+### Bug Fixes
+
+* **build:** build the project again ([5b8ac7d](https://github.com/awslabs/goformation/commit/5b8ac7dff9a7900d8b8d2dd849fd2d27a344b749))
+* change version to v6 ([68254e2](https://github.com/awslabs/goformation/commit/68254e21559c1a5e5c43aa008b0d46cb1509210b))
+* **policies:** add policies back ([2e26547](https://github.com/awslabs/goformation/commit/2e265475fa1102011fd18a430da9b51e78eefacb))
+* **schema:** generated schema acording to new rules ([4321f42](https://github.com/awslabs/goformation/commit/4321f42ac0164cec7ea5bbebeafcc0792626fa06))
+* **schema:** re-generate schema ([b0ccc0a](https://github.com/awslabs/goformation/commit/b0ccc0a1779eaa12cca9b9164f890d3b5fd9f648))
+* **tags:** bring tag back. ([a3b2b57](https://github.com/awslabs/goformation/commit/a3b2b57e5939ce5a823e243c1e9470995a28f42d))
+
+
+* feature(types)!: added utils to create pointer types ([bbf53ec](https://github.com/awslabs/goformation/commit/bbf53ec690533f207846100dc957e9bfea7a6b15))
+* feat(generate)!: allow for optional params ([43a094e](https://github.com/awslabs/goformation/commit/43a094e3ca2e30a35645604372f1e4408ef49c6a))
+
+### BREAKING CHANGES
+
+* use cloudformation.{String,Int,...} as helpers for
+creating pointer types.
+* optional parameters are now marked as a pointer.
+
 ## [5.4.10](https://github.com/awslabs/goformation/compare/v5.4.9...v5.4.10) (2022-02-25)
 
 
