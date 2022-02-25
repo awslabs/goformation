@@ -1,5 +1,36 @@
 # GoFormation Versioning Changelog
 
+# [6.0.0](https://github.com/awslabs/goformation/compare/v5.4.10...v6.0.0) (2022-02-25)
+
+
+### Bug Fixes
+
+* **generate:** DependsOn should also accept a string ([09908b6](https://github.com/awslabs/goformation/commit/09908b63bdf5cd326032008fa346e88c3765e1ae)), closes [#407](https://github.com/awslabs/goformation/issues/407)
+* **policies:** re-create deleted files ([bdd5860](https://github.com/awslabs/goformation/commit/bdd58609a976e73fbd037866eadcb0db1f5a58a0))
+* **schema:** generated schema acording to new rules ([d9dc863](https://github.com/awslabs/goformation/commit/d9dc86308402cf56b966a55a23fbcd2ca2c92291))
+* **schema:** re-generate schema ([58dc56b](https://github.com/awslabs/goformation/commit/58dc56beb3a58acc391a5b3020f8cf3fabc19d6b))
+* **schema:** regenerated with latest code ([33f99bf](https://github.com/awslabs/goformation/commit/33f99bf7d46415148bc42a1906a4b40843fa5c16))
+
+
+### feature
+
+* **types:** added utils to create pointer types ([4a68a60](https://github.com/awslabs/goformation/commit/4a68a60c13392084a04d71f69663b03959edd76d))
+
+
+### Features
+
+* **generate:** allow for optional params ([d9bfdff](https://github.com/awslabs/goformation/commit/d9bfdff22704915630f6341efbd11ceac7f3315d))
+* **go:** drop support for go 1.13 and 1.14 ([05bb704](https://github.com/awslabs/goformation/commit/05bb704b8824417888bc7880f3478d9f2a380737))
+* **go:** drop support for go 1.15 ([2e45a2b](https://github.com/awslabs/goformation/commit/2e45a2bbb85234c489f4c7cbb644c325a793f704))
+
+
+### BREAKING CHANGES
+
+* **generate:** DependsOn can now parse a single string instead of just a list of strings.
+* **types:** use cloudformation.{String,Int,...} as helpers for
+creating pointer types.
+* **generate:** optional parameters are now marked as a pointer.
+
 # [6.0.0-beta.1](https://github.com/awslabs/goformation/compare/v5.4.9...v6.0.0-beta.1) (2022-02-23)
 
 ### Bug Fixes
