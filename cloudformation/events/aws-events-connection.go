@@ -15,7 +15,7 @@ type Connection struct {
 	// AuthParameters AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-	AuthParameters interface{} `json:"AuthParameters,omitempty"`
+	AuthParameters *Connection_AuthParameters `json:"AuthParameters,omitempty"`
 
 	// AuthorizationType AWS CloudFormation Property
 	// Required: true
