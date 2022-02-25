@@ -13,7 +13,7 @@ import (
 type Component struct {
 
 	// BindingProperties AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-bindingproperties
 	BindingProperties map[string]Component_ComponentBindingPropertiesValue `json:"BindingProperties,omitempty"`
 
@@ -28,22 +28,27 @@ type Component struct {
 	CollectionProperties map[string]Component_ComponentDataConfiguration `json:"CollectionProperties,omitempty"`
 
 	// ComponentType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-componenttype
 	ComponentType string `json:"ComponentType,omitempty"`
 
-	// Name AWS CloudFormation Property
+	// Events AWS CloudFormation Property
 	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-events
+	Events map[string]Component_ComponentEvent `json:"Events,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-name
 	Name string `json:"Name,omitempty"`
 
 	// Overrides AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-overrides
 	Overrides map[string]Component_ComponentOverridesValue `json:"Overrides,omitempty"`
 
 	// Properties AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-properties
 	Properties map[string]Component_ComponentProperty `json:"Properties,omitempty"`
 
@@ -58,7 +63,7 @@ type Component struct {
 	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Variants AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-variants
 	Variants []Component_ComponentVariant `json:"Variants,omitempty"`
 

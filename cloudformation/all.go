@@ -419,6 +419,7 @@ func AllResources() map[string]Resource {
 		"AWS::DataPipeline::Pipeline":                                 &datapipeline.Pipeline{},
 		"AWS::DataSync::Agent":                                        &datasync.Agent{},
 		"AWS::DataSync::LocationEFS":                                  &datasync.LocationEFS{},
+		"AWS::DataSync::LocationFSxLustre":                            &datasync.LocationFSxLustre{},
 		"AWS::DataSync::LocationFSxWindows":                           &datasync.LocationFSxWindows{},
 		"AWS::DataSync::LocationHDFS":                                 &datasync.LocationHDFS{},
 		"AWS::DataSync::LocationNFS":                                  &datasync.LocationNFS{},
@@ -6468,6 +6469,30 @@ func (t *Template) GetDataSyncLocationEFSWithName(name string) (*datasync.Locati
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type datasync.LocationEFS not found", name)
+}
+
+// GetAllDataSyncLocationFSxLustreResources retrieves all datasync.LocationFSxLustre items from an AWS CloudFormation template
+func (t *Template) GetAllDataSyncLocationFSxLustreResources() map[string]*datasync.LocationFSxLustre {
+	results := map[string]*datasync.LocationFSxLustre{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datasync.LocationFSxLustre:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataSyncLocationFSxLustreWithName retrieves all datasync.LocationFSxLustre items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataSyncLocationFSxLustreWithName(name string) (*datasync.LocationFSxLustre, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datasync.LocationFSxLustre:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datasync.LocationFSxLustre not found", name)
 }
 
 // GetAllDataSyncLocationFSxWindowsResources retrieves all datasync.LocationFSxWindows items from an AWS CloudFormation template
