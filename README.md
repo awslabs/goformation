@@ -3,19 +3,21 @@
 # AWS GoFormation
 
 ![Version](https://img.shields.io/github/v/release/awslabs/goformation?label=stable%20version) ![Commits since release](https://img.shields.io/github/commits-since/awslabs/goformation/latest) [![Actions Status](https://github.com/awslabs/goformation/workflows/Release/badge.svg)](https://github.com/awslabs/goformation/actions) ![Update Schema](https://github.com/awslabs/goformation/workflows/Update%20Schema/badge.svg) [![GoDoc Reference](https://godoc.org/gopkg.in/awslabs/goformation.v1?status.svg)](http://godoc.org/github.com/awslabs/goformation) ![Apache-2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg) ![Downloads](https://img.shields.io/github/downloads/awslabs/goformation/total)
- 
+
 `GoFormation` is a Go library for working with AWS CloudFormation / AWS Serverless Application Model (SAM) templates.
-- [Main features](#main-features)
-- [Installation](#installation)
-- [Usage](#usage)
-	- [Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marshalling-cloudformationsam-described-with-go-structs-into-yamljson)
-	- [Unmarshalling CloudFormation YAML/JSON into Go structs](#unmarshalling-cloudformation-yamljson-into-go-structs)
-- [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation--sam-resources-in-goformation)
-- [Advanced](#advanced)
-	- [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
-		- [Resolving References (Ref)](#resolving-references-ref)
-- [Versioning](#versioning)
-- [Contributing](#contributing)
+
+- [AWS GoFormation](#aws-goformation)
+	- [Main features](#main-features)
+	- [Installation](#installation)
+	- [Usage](#usage)
+		- [Marshalling CloudFormation/SAM described with Go structs, into YAML/JSON](#marshalling-cloudformationsam-described-with-go-structs-into-yamljson)
+		- [Unmarshalling CloudFormation YAML/JSON into Go structs](#unmarshalling-cloudformation-yamljson-into-go-structs)
+	- [Updating CloudFormation / SAM Resources in GoFormation](#updating-cloudformation--sam-resources-in-goformation)
+	- [Advanced](#advanced)
+		- [AWS CloudFormation Intrinsic Functions](#aws-cloudformation-intrinsic-functions)
+			- [Resolving References (Ref)](#resolving-references-ref)
+	- [Versioning](#versioning)
+	- [Contributing](#contributing)
 
 ## Main features
 
@@ -57,14 +59,14 @@ func main() {
 
 	// Create an Amazon SNS topic, with a unique name based off the current timestamp
 	template.Resources["MyTopic"] = &sns.Topic{
-		TopicName: "my-topic-" + strconv.FormatInt(time.Now().Unix(), 10),
+		TopicName: cloudformation.String("my-topic-" + strconv.FormatInt(time.Now().Unix(), 10)),
 	}
 
 	// Create a subscription, connected to our topic, that forwards notifications to an email address
 	template.Resources["MyTopicSubscription"] = &sns.Subscription{
 		TopicArn: cloudformation.Ref("MyTopic"),
 		Protocol: "email",
-		Endpoint: "some.email@example.com",
+		Endpoint: cloudformation.String("some.email@example.com"),
 	}
 
 	// Let's see the JSON AWS CloudFormation template
