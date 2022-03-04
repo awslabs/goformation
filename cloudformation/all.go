@@ -539,6 +539,7 @@ func AllResources() map[string]Resource {
 		"AWS::EKS::Addon":                                             &eks.Addon{},
 		"AWS::EKS::Cluster":                                           &eks.Cluster{},
 		"AWS::EKS::FargateProfile":                                    &eks.FargateProfile{},
+		"AWS::EKS::IdentityProviderConfig":                            &eks.IdentityProviderConfig{},
 		"AWS::EKS::Nodegroup":                                         &eks.Nodegroup{},
 		"AWS::EMR::Cluster":                                           &emr.Cluster{},
 		"AWS::EMR::InstanceFleetConfig":                               &emr.InstanceFleetConfig{},
@@ -791,7 +792,9 @@ func AllResources() map[string]Resource {
 		"AWS::LookoutMetrics::Alert":                                  &lookoutmetrics.Alert{},
 		"AWS::LookoutMetrics::AnomalyDetector":                        &lookoutmetrics.AnomalyDetector{},
 		"AWS::LookoutVision::Project":                                 &lookoutvision.Project{},
+		"AWS::MSK::BatchScramSecret":                                  &msk.BatchScramSecret{},
 		"AWS::MSK::Cluster":                                           &msk.Cluster{},
+		"AWS::MSK::Configuration":                                     &msk.Configuration{},
 		"AWS::MWAA::Environment":                                      &mwaa.Environment{},
 		"AWS::Macie::CustomDataIdentifier":                            &macie.CustomDataIdentifier{},
 		"AWS::Macie::FindingsFilter":                                  &macie.FindingsFilter{},
@@ -9305,6 +9308,30 @@ func (t *Template) GetEKSFargateProfileWithName(name string) (*eks.FargateProfil
 	return nil, fmt.Errorf("resource %q of type eks.FargateProfile not found", name)
 }
 
+// GetAllEKSIdentityProviderConfigResources retrieves all eks.IdentityProviderConfig items from an AWS CloudFormation template
+func (t *Template) GetAllEKSIdentityProviderConfigResources() map[string]*eks.IdentityProviderConfig {
+	results := map[string]*eks.IdentityProviderConfig{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *eks.IdentityProviderConfig:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEKSIdentityProviderConfigWithName retrieves all eks.IdentityProviderConfig items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEKSIdentityProviderConfigWithName(name string) (*eks.IdentityProviderConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *eks.IdentityProviderConfig:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type eks.IdentityProviderConfig not found", name)
+}
+
 // GetAllEKSNodegroupResources retrieves all eks.Nodegroup items from an AWS CloudFormation template
 func (t *Template) GetAllEKSNodegroupResources() map[string]*eks.Nodegroup {
 	results := map[string]*eks.Nodegroup{}
@@ -15353,6 +15380,30 @@ func (t *Template) GetLookoutVisionProjectWithName(name string) (*lookoutvision.
 	return nil, fmt.Errorf("resource %q of type lookoutvision.Project not found", name)
 }
 
+// GetAllMSKBatchScramSecretResources retrieves all msk.BatchScramSecret items from an AWS CloudFormation template
+func (t *Template) GetAllMSKBatchScramSecretResources() map[string]*msk.BatchScramSecret {
+	results := map[string]*msk.BatchScramSecret{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *msk.BatchScramSecret:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMSKBatchScramSecretWithName retrieves all msk.BatchScramSecret items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMSKBatchScramSecretWithName(name string) (*msk.BatchScramSecret, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *msk.BatchScramSecret:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type msk.BatchScramSecret not found", name)
+}
+
 // GetAllMSKClusterResources retrieves all msk.Cluster items from an AWS CloudFormation template
 func (t *Template) GetAllMSKClusterResources() map[string]*msk.Cluster {
 	results := map[string]*msk.Cluster{}
@@ -15375,6 +15426,30 @@ func (t *Template) GetMSKClusterWithName(name string) (*msk.Cluster, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type msk.Cluster not found", name)
+}
+
+// GetAllMSKConfigurationResources retrieves all msk.Configuration items from an AWS CloudFormation template
+func (t *Template) GetAllMSKConfigurationResources() map[string]*msk.Configuration {
+	results := map[string]*msk.Configuration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *msk.Configuration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMSKConfigurationWithName retrieves all msk.Configuration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMSKConfigurationWithName(name string) (*msk.Configuration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *msk.Configuration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type msk.Configuration not found", name)
 }
 
 // GetAllMWAAEnvironmentResources retrieves all mwaa.Environment items from an AWS CloudFormation template
