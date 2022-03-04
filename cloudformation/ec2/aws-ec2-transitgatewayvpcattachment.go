@@ -31,9 +31,9 @@ type TransitGatewayVpcAttachment struct {
 	RemoveSubnetIds *[]string `json:"RemoveSubnetIds,omitempty"`
 
 	// SubnetIds AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids
-	SubnetIds *[]string `json:"SubnetIds,omitempty"`
+	SubnetIds []string `json:"SubnetIds"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -41,14 +41,14 @@ type TransitGatewayVpcAttachment struct {
 	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// TransitGatewayId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-transitgatewayid
-	TransitGatewayId *string `json:"TransitGatewayId,omitempty"`
+	TransitGatewayId string `json:"TransitGatewayId"`
 
 	// VpcId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid
-	VpcId *string `json:"VpcId,omitempty"`
+	VpcId string `json:"VpcId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
