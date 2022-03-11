@@ -25,30 +25,15 @@ type Subnet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-availabilityzone
 	AvailabilityZone *string `json:"AvailabilityZone,omitempty"`
 
-	// AvailabilityZoneId AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-availabilityzoneid
-	AvailabilityZoneId *string `json:"AvailabilityZoneId,omitempty"`
-
 	// CidrBlock AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-cidrblock
 	CidrBlock string `json:"CidrBlock"`
 
-	// EnableDns64 AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-enabledns64
-	EnableDns64 *bool `json:"EnableDns64,omitempty"`
-
 	// Ipv6CidrBlock AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblock
 	Ipv6CidrBlock *string `json:"Ipv6CidrBlock,omitempty"`
-
-	// Ipv6Native AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6native
-	Ipv6Native *bool `json:"Ipv6Native,omitempty"`
 
 	// MapPublicIpOnLaunch AWS CloudFormation Property
 	// Required: false
@@ -60,11 +45,6 @@ type Subnet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-outpostarn
 	OutpostArn *string `json:"OutpostArn,omitempty"`
 
-	// PrivateDnsNameOptionsOnLaunch AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-privatednsnameoptionsonlaunch
-	PrivateDnsNameOptionsOnLaunch *Subnet_PrivateDnsNameOptionsOnLaunch `json:"PrivateDnsNameOptionsOnLaunch,omitempty"`
-
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
@@ -72,7 +52,7 @@ type Subnet struct {
 
 	// VpcId AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-awsec2subnet-prop-vpcid
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-vpcid
 	VpcId string `json:"VpcId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

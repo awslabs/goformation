@@ -144,6 +144,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/opsworks"
 	"github.com/awslabs/goformation/v6/cloudformation/opsworkscm"
 	"github.com/awslabs/goformation/v6/cloudformation/panorama"
+	"github.com/awslabs/goformation/v6/cloudformation/personalize"
 	"github.com/awslabs/goformation/v6/cloudformation/pinpoint"
 	"github.com/awslabs/goformation/v6/cloudformation/pinpointemail"
 	"github.com/awslabs/goformation/v6/cloudformation/qldb"
@@ -855,6 +856,10 @@ func AllResources() map[string]Resource {
 		"AWS::Panorama::ApplicationInstance":                          &panorama.ApplicationInstance{},
 		"AWS::Panorama::Package":                                      &panorama.Package{},
 		"AWS::Panorama::PackageVersion":                               &panorama.PackageVersion{},
+		"AWS::Personalize::Dataset":                                   &personalize.Dataset{},
+		"AWS::Personalize::DatasetGroup":                              &personalize.DatasetGroup{},
+		"AWS::Personalize::Schema":                                    &personalize.Schema{},
+		"AWS::Personalize::Solution":                                  &personalize.Solution{},
 		"AWS::Pinpoint::ADMChannel":                                   &pinpoint.ADMChannel{},
 		"AWS::Pinpoint::APNSChannel":                                  &pinpoint.APNSChannel{},
 		"AWS::Pinpoint::APNSSandboxChannel":                           &pinpoint.APNSSandboxChannel{},
@@ -16890,6 +16895,102 @@ func (t *Template) GetPanoramaPackageVersionWithName(name string) (*panorama.Pac
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type panorama.PackageVersion not found", name)
+}
+
+// GetAllPersonalizeDatasetResources retrieves all personalize.Dataset items from an AWS CloudFormation template
+func (t *Template) GetAllPersonalizeDatasetResources() map[string]*personalize.Dataset {
+	results := map[string]*personalize.Dataset{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *personalize.Dataset:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPersonalizeDatasetWithName retrieves all personalize.Dataset items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPersonalizeDatasetWithName(name string) (*personalize.Dataset, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *personalize.Dataset:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type personalize.Dataset not found", name)
+}
+
+// GetAllPersonalizeDatasetGroupResources retrieves all personalize.DatasetGroup items from an AWS CloudFormation template
+func (t *Template) GetAllPersonalizeDatasetGroupResources() map[string]*personalize.DatasetGroup {
+	results := map[string]*personalize.DatasetGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *personalize.DatasetGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPersonalizeDatasetGroupWithName retrieves all personalize.DatasetGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPersonalizeDatasetGroupWithName(name string) (*personalize.DatasetGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *personalize.DatasetGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type personalize.DatasetGroup not found", name)
+}
+
+// GetAllPersonalizeSchemaResources retrieves all personalize.Schema items from an AWS CloudFormation template
+func (t *Template) GetAllPersonalizeSchemaResources() map[string]*personalize.Schema {
+	results := map[string]*personalize.Schema{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *personalize.Schema:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPersonalizeSchemaWithName retrieves all personalize.Schema items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPersonalizeSchemaWithName(name string) (*personalize.Schema, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *personalize.Schema:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type personalize.Schema not found", name)
+}
+
+// GetAllPersonalizeSolutionResources retrieves all personalize.Solution items from an AWS CloudFormation template
+func (t *Template) GetAllPersonalizeSolutionResources() map[string]*personalize.Solution {
+	results := map[string]*personalize.Solution{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *personalize.Solution:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPersonalizeSolutionWithName retrieves all personalize.Solution items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPersonalizeSolutionWithName(name string) (*personalize.Solution, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *personalize.Solution:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type personalize.Solution not found", name)
 }
 
 // GetAllPinpointADMChannelResources retrieves all pinpoint.ADMChannel items from an AWS CloudFormation template

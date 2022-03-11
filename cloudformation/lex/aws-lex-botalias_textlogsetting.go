@@ -11,14 +11,14 @@ import (
 type BotAlias_TextLogSetting struct {
 
 	// Destination AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html#cfn-lex-botalias-textlogsetting-destination
-	Destination *BotAlias_TextLogDestination `json:"Destination,omitempty"`
+	Destination *BotAlias_TextLogDestination `json:"Destination"`
 
 	// Enabled AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html#cfn-lex-botalias-textlogsetting-enabled
-	Enabled *bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
