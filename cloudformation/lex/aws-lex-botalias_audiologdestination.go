@@ -11,9 +11,9 @@ import (
 type BotAlias_AudioLogDestination struct {
 
 	// S3Bucket AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html#cfn-lex-botalias-audiologdestination-s3bucket
-	S3Bucket *BotAlias_S3BucketLogDestination `json:"S3Bucket,omitempty"`
+	S3Bucket *BotAlias_S3BucketLogDestination `json:"S3Bucket"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
