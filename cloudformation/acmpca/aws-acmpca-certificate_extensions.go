@@ -15,6 +15,11 @@ type Certificate_Extensions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
 	CertificatePolicies *[]Certificate_PolicyInformation `json:"CertificatePolicies,omitempty"`
 
+	// CustomExtensions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-customextensions
+	CustomExtensions *[]Certificate_CustomExtension `json:"CustomExtensions,omitempty"`
+
 	// ExtendedKeyUsage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage

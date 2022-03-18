@@ -28,6 +28,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/autoscalingplans"
 	"github.com/awslabs/goformation/v6/cloudformation/backup"
 	"github.com/awslabs/goformation/v6/cloudformation/batch"
+	"github.com/awslabs/goformation/v6/cloudformation/billingconductor"
 	"github.com/awslabs/goformation/v6/cloudformation/budgets"
 	"github.com/awslabs/goformation/v6/cloudformation/cassandra"
 	"github.com/awslabs/goformation/v6/cloudformation/cdk"
@@ -309,6 +310,10 @@ func AllResources() map[string]Resource {
 		"AWS::Batch::JobDefinition":                                   &batch.JobDefinition{},
 		"AWS::Batch::JobQueue":                                        &batch.JobQueue{},
 		"AWS::Batch::SchedulingPolicy":                                &batch.SchedulingPolicy{},
+		"AWS::BillingConductor::BillingGroup":                         &billingconductor.BillingGroup{},
+		"AWS::BillingConductor::CustomLineItem":                       &billingconductor.CustomLineItem{},
+		"AWS::BillingConductor::PricingPlan":                          &billingconductor.PricingPlan{},
+		"AWS::BillingConductor::PricingRule":                          &billingconductor.PricingRule{},
 		"AWS::Budgets::Budget":                                        &budgets.Budget{},
 		"AWS::Budgets::BudgetsAction":                                 &budgets.BudgetsAction{},
 		"AWS::CDK::Metadata":                                          &cdk.Metadata{},
@@ -3767,6 +3772,102 @@ func (t *Template) GetBatchSchedulingPolicyWithName(name string) (*batch.Schedul
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type batch.SchedulingPolicy not found", name)
+}
+
+// GetAllBillingConductorBillingGroupResources retrieves all billingconductor.BillingGroup items from an AWS CloudFormation template
+func (t *Template) GetAllBillingConductorBillingGroupResources() map[string]*billingconductor.BillingGroup {
+	results := map[string]*billingconductor.BillingGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *billingconductor.BillingGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBillingConductorBillingGroupWithName retrieves all billingconductor.BillingGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBillingConductorBillingGroupWithName(name string) (*billingconductor.BillingGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *billingconductor.BillingGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type billingconductor.BillingGroup not found", name)
+}
+
+// GetAllBillingConductorCustomLineItemResources retrieves all billingconductor.CustomLineItem items from an AWS CloudFormation template
+func (t *Template) GetAllBillingConductorCustomLineItemResources() map[string]*billingconductor.CustomLineItem {
+	results := map[string]*billingconductor.CustomLineItem{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *billingconductor.CustomLineItem:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBillingConductorCustomLineItemWithName retrieves all billingconductor.CustomLineItem items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBillingConductorCustomLineItemWithName(name string) (*billingconductor.CustomLineItem, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *billingconductor.CustomLineItem:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type billingconductor.CustomLineItem not found", name)
+}
+
+// GetAllBillingConductorPricingPlanResources retrieves all billingconductor.PricingPlan items from an AWS CloudFormation template
+func (t *Template) GetAllBillingConductorPricingPlanResources() map[string]*billingconductor.PricingPlan {
+	results := map[string]*billingconductor.PricingPlan{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *billingconductor.PricingPlan:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBillingConductorPricingPlanWithName retrieves all billingconductor.PricingPlan items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBillingConductorPricingPlanWithName(name string) (*billingconductor.PricingPlan, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *billingconductor.PricingPlan:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type billingconductor.PricingPlan not found", name)
+}
+
+// GetAllBillingConductorPricingRuleResources retrieves all billingconductor.PricingRule items from an AWS CloudFormation template
+func (t *Template) GetAllBillingConductorPricingRuleResources() map[string]*billingconductor.PricingRule {
+	results := map[string]*billingconductor.PricingRule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *billingconductor.PricingRule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBillingConductorPricingRuleWithName retrieves all billingconductor.PricingRule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBillingConductorPricingRuleWithName(name string) (*billingconductor.PricingRule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *billingconductor.PricingRule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type billingconductor.PricingRule not found", name)
 }
 
 // GetAllBudgetsBudgetResources retrieves all budgets.Budget items from an AWS CloudFormation template
