@@ -45,6 +45,16 @@ type LaunchTemplate_NetworkInterface struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-interfacetype
 	InterfaceType *string `json:"InterfaceType,omitempty"`
 
+	// Ipv4PrefixCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv4prefixcount
+	Ipv4PrefixCount *int `json:"Ipv4PrefixCount,omitempty"`
+
+	// Ipv4Prefixes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv4prefixes
+	Ipv4Prefixes *[]LaunchTemplate_Ipv4PrefixSpecification `json:"Ipv4Prefixes,omitempty"`
+
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresscount
@@ -54,6 +64,16 @@ type LaunchTemplate_NetworkInterface struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
 	Ipv6Addresses *[]LaunchTemplate_Ipv6Add `json:"Ipv6Addresses,omitempty"`
+
+	// Ipv6PrefixCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6prefixcount
+	Ipv6PrefixCount *int `json:"Ipv6PrefixCount,omitempty"`
+
+	// Ipv6Prefixes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6prefixes
+	Ipv6Prefixes *[]LaunchTemplate_Ipv6PrefixSpecification `json:"Ipv6Prefixes,omitempty"`
 
 	// NetworkCardIndex AWS CloudFormation Property
 	// Required: false
