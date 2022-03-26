@@ -60,6 +60,11 @@ type Bot struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn
 	RoleArn string `json:"RoleArn"`
 
+	// TestBotAliasSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliassettings
+	TestBotAliasSettings *Bot_TestBotAliasSettings `json:"TestBotAliasSettings,omitempty"`
+
 	// TestBotAliasTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliastags

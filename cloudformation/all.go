@@ -593,6 +593,9 @@ func AllResources() map[string]Resource {
 		"AWS::FMS::NotificationChannel":                               &fms.NotificationChannel{},
 		"AWS::FMS::Policy":                                            &fms.Policy{},
 		"AWS::FSx::FileSystem":                                        &fsx.FileSystem{},
+		"AWS::FSx::Snapshot":                                          &fsx.Snapshot{},
+		"AWS::FSx::StorageVirtualMachine":                             &fsx.StorageVirtualMachine{},
+		"AWS::FSx::Volume":                                            &fsx.Volume{},
 		"AWS::FinSpace::Environment":                                  &finspace.Environment{},
 		"AWS::Forecast::Dataset":                                      &forecast.Dataset{},
 		"AWS::Forecast::DatasetGroup":                                 &forecast.DatasetGroup{},
@@ -713,6 +716,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoTAnalytics::Datastore":                                &iotanalytics.Datastore{},
 		"AWS::IoTAnalytics::Pipeline":                                 &iotanalytics.Pipeline{},
 		"AWS::IoTCoreDeviceAdvisor::SuiteDefinition":                  &iotcoredeviceadvisor.SuiteDefinition{},
+		"AWS::IoTEvents::AlarmModel":                                  &iotevents.AlarmModel{},
 		"AWS::IoTEvents::DetectorModel":                               &iotevents.DetectorModel{},
 		"AWS::IoTEvents::Input":                                       &iotevents.Input{},
 		"AWS::IoTFleetHub::Application":                               &iotfleethub.Application{},
@@ -10566,6 +10570,78 @@ func (t *Template) GetFSxFileSystemWithName(name string) (*fsx.FileSystem, error
 	return nil, fmt.Errorf("resource %q of type fsx.FileSystem not found", name)
 }
 
+// GetAllFSxSnapshotResources retrieves all fsx.Snapshot items from an AWS CloudFormation template
+func (t *Template) GetAllFSxSnapshotResources() map[string]*fsx.Snapshot {
+	results := map[string]*fsx.Snapshot{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *fsx.Snapshot:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFSxSnapshotWithName retrieves all fsx.Snapshot items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFSxSnapshotWithName(name string) (*fsx.Snapshot, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *fsx.Snapshot:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type fsx.Snapshot not found", name)
+}
+
+// GetAllFSxStorageVirtualMachineResources retrieves all fsx.StorageVirtualMachine items from an AWS CloudFormation template
+func (t *Template) GetAllFSxStorageVirtualMachineResources() map[string]*fsx.StorageVirtualMachine {
+	results := map[string]*fsx.StorageVirtualMachine{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *fsx.StorageVirtualMachine:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFSxStorageVirtualMachineWithName retrieves all fsx.StorageVirtualMachine items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFSxStorageVirtualMachineWithName(name string) (*fsx.StorageVirtualMachine, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *fsx.StorageVirtualMachine:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type fsx.StorageVirtualMachine not found", name)
+}
+
+// GetAllFSxVolumeResources retrieves all fsx.Volume items from an AWS CloudFormation template
+func (t *Template) GetAllFSxVolumeResources() map[string]*fsx.Volume {
+	results := map[string]*fsx.Volume{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *fsx.Volume:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFSxVolumeWithName retrieves all fsx.Volume items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFSxVolumeWithName(name string) (*fsx.Volume, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *fsx.Volume:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type fsx.Volume not found", name)
+}
+
 // GetAllFinSpaceEnvironmentResources retrieves all finspace.Environment items from an AWS CloudFormation template
 func (t *Template) GetAllFinSpaceEnvironmentResources() map[string]*finspace.Environment {
 	results := map[string]*finspace.Environment{}
@@ -13444,6 +13520,30 @@ func (t *Template) GetIoTCoreDeviceAdvisorSuiteDefinitionWithName(name string) (
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iotcoredeviceadvisor.SuiteDefinition not found", name)
+}
+
+// GetAllIoTEventsAlarmModelResources retrieves all iotevents.AlarmModel items from an AWS CloudFormation template
+func (t *Template) GetAllIoTEventsAlarmModelResources() map[string]*iotevents.AlarmModel {
+	results := map[string]*iotevents.AlarmModel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotevents.AlarmModel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTEventsAlarmModelWithName retrieves all iotevents.AlarmModel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTEventsAlarmModelWithName(name string) (*iotevents.AlarmModel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotevents.AlarmModel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotevents.AlarmModel not found", name)
 }
 
 // GetAllIoTEventsDetectorModelResources retrieves all iotevents.DetectorModel items from an AWS CloudFormation template
