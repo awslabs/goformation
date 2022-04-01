@@ -10,6 +10,116 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html
 type Endpoint_OracleSettings struct {
 
+	// AccessAlternateDirectly AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-accessalternatedirectly
+	AccessAlternateDirectly *bool `json:"AccessAlternateDirectly,omitempty"`
+
+	// AddSupplementalLogging AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-addsupplementallogging
+	AddSupplementalLogging *bool `json:"AddSupplementalLogging,omitempty"`
+
+	// AdditionalArchivedLogDestId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-additionalarchivedlogdestid
+	AdditionalArchivedLogDestId *int `json:"AdditionalArchivedLogDestId,omitempty"`
+
+	// AllowSelectNestedTables AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-allowselectnestedtables
+	AllowSelectNestedTables *bool `json:"AllowSelectNestedTables,omitempty"`
+
+	// ArchivedLogDestId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-archivedlogdestid
+	ArchivedLogDestId *int `json:"ArchivedLogDestId,omitempty"`
+
+	// ArchivedLogsOnly AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-archivedlogsonly
+	ArchivedLogsOnly *bool `json:"ArchivedLogsOnly,omitempty"`
+
+	// AsmPassword AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-asmpassword
+	AsmPassword *string `json:"AsmPassword,omitempty"`
+
+	// AsmServer AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-asmserver
+	AsmServer *string `json:"AsmServer,omitempty"`
+
+	// AsmUser AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-asmuser
+	AsmUser *string `json:"AsmUser,omitempty"`
+
+	// CharLengthSemantics AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-charlengthsemantics
+	CharLengthSemantics *string `json:"CharLengthSemantics,omitempty"`
+
+	// DirectPathNoLog AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-directpathnolog
+	DirectPathNoLog *bool `json:"DirectPathNoLog,omitempty"`
+
+	// DirectPathParallelLoad AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-directpathparallelload
+	DirectPathParallelLoad *bool `json:"DirectPathParallelLoad,omitempty"`
+
+	// EnableHomogenousTablespace AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-enablehomogenoustablespace
+	EnableHomogenousTablespace *bool `json:"EnableHomogenousTablespace,omitempty"`
+
+	// ExtraArchivedLogDestIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-extraarchivedlogdestids
+	ExtraArchivedLogDestIds *[]int `json:"ExtraArchivedLogDestIds,omitempty"`
+
+	// FailTasksOnLobTruncation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-failtasksonlobtruncation
+	FailTasksOnLobTruncation *bool `json:"FailTasksOnLobTruncation,omitempty"`
+
+	// NumberDatatypeScale AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-numberdatatypescale
+	NumberDatatypeScale *int `json:"NumberDatatypeScale,omitempty"`
+
+	// OraclePathPrefix AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-oraclepathprefix
+	OraclePathPrefix *string `json:"OraclePathPrefix,omitempty"`
+
+	// ParallelAsmReadThreads AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-parallelasmreadthreads
+	ParallelAsmReadThreads *int `json:"ParallelAsmReadThreads,omitempty"`
+
+	// ReadAheadBlocks AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-readaheadblocks
+	ReadAheadBlocks *int `json:"ReadAheadBlocks,omitempty"`
+
+	// ReadTableSpaceName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-readtablespacename
+	ReadTableSpaceName *bool `json:"ReadTableSpaceName,omitempty"`
+
+	// ReplacePathPrefix AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-replacepathprefix
+	ReplacePathPrefix *bool `json:"ReplacePathPrefix,omitempty"`
+
+	// RetryInterval AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-retryinterval
+	RetryInterval *int `json:"RetryInterval,omitempty"`
+
 	// SecretsManagerAccessRoleArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-secretsmanageraccessrolearn
@@ -29,6 +139,51 @@ type Endpoint_OracleSettings struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-secretsmanagersecretid
 	SecretsManagerSecretId *string `json:"SecretsManagerSecretId,omitempty"`
+
+	// SecurityDbEncryption AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-securitydbencryption
+	SecurityDbEncryption *string `json:"SecurityDbEncryption,omitempty"`
+
+	// SecurityDbEncryptionName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-securitydbencryptionname
+	SecurityDbEncryptionName *string `json:"SecurityDbEncryptionName,omitempty"`
+
+	// SpatialDataOptionToGeoJsonFunctionName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-spatialdataoptiontogeojsonfunctionname
+	SpatialDataOptionToGeoJsonFunctionName *string `json:"SpatialDataOptionToGeoJsonFunctionName,omitempty"`
+
+	// StandbyDelayTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-standbydelaytime
+	StandbyDelayTime *int `json:"StandbyDelayTime,omitempty"`
+
+	// UseAlternateFolderForOnline AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-usealternatefolderforonline
+	UseAlternateFolderForOnline *bool `json:"UseAlternateFolderForOnline,omitempty"`
+
+	// UseBFile AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-usebfile
+	UseBFile *bool `json:"UseBFile,omitempty"`
+
+	// UseDirectPathFullLoad AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-usedirectpathfullload
+	UseDirectPathFullLoad *bool `json:"UseDirectPathFullLoad,omitempty"`
+
+	// UseLogminerReader AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-uselogminerreader
+	UseLogminerReader *bool `json:"UseLogminerReader,omitempty"`
+
+	// UsePathPrefix AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-usepathprefix
+	UsePathPrefix *string `json:"UsePathPrefix,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -582,6 +582,7 @@ func AllResources() map[string]Resource {
 		"AWS::Events::ApiDestination":                                 &events.ApiDestination{},
 		"AWS::Events::Archive":                                        &events.Archive{},
 		"AWS::Events::Connection":                                     &events.Connection{},
+		"AWS::Events::Endpoint":                                       &events.Endpoint{},
 		"AWS::Events::EventBus":                                       &events.EventBus{},
 		"AWS::Events::EventBusPolicy":                                 &events.EventBusPolicy{},
 		"AWS::Events::Rule":                                           &events.Rule{},
@@ -10304,6 +10305,30 @@ func (t *Template) GetEventsConnectionWithName(name string) (*events.Connection,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type events.Connection not found", name)
+}
+
+// GetAllEventsEndpointResources retrieves all events.Endpoint items from an AWS CloudFormation template
+func (t *Template) GetAllEventsEndpointResources() map[string]*events.Endpoint {
+	results := map[string]*events.Endpoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *events.Endpoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEventsEndpointWithName retrieves all events.Endpoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEventsEndpointWithName(name string) (*events.Endpoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *events.Endpoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type events.Endpoint not found", name)
 }
 
 // GetAllEventsEventBusResources retrieves all events.EventBus items from an AWS CloudFormation template
