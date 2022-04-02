@@ -20,6 +20,11 @@ type Domain struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appnetworkaccesstype
 	AppNetworkAccessType *string `json:"AppNetworkAccessType,omitempty"`
 
+	// AppSecurityGroupManagement AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appsecuritygroupmanagement
+	AppSecurityGroupManagement *string `json:"AppSecurityGroupManagement,omitempty"`
+
 	// AuthMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode
@@ -34,6 +39,11 @@ type Domain struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
 	DomainName string `json:"DomainName"`
+
+	// DomainSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainsettings
+	DomainSettings *Domain_DomainSettings `json:"DomainSettings,omitempty"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false

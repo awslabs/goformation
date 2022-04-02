@@ -25,6 +25,11 @@ type UserProfile_UserSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
 	KernelGatewayAppSettings *UserProfile_KernelGatewayAppSettings `json:"KernelGatewayAppSettings,omitempty"`
 
+	// RStudioServerProAppSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-rstudioserverproappsettings
+	RStudioServerProAppSettings *UserProfile_RStudioServerProAppSettings `json:"RStudioServerProAppSettings,omitempty"`
+
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
