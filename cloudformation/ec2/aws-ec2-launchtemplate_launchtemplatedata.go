@@ -105,6 +105,11 @@ type LaunchTemplate_LaunchTemplateData struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
 	LicenseSpecifications *[]LaunchTemplate_LicenseSpecification `json:"LicenseSpecifications,omitempty"`
 
+	// MaintenanceOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-maintenanceoptions
+	MaintenanceOptions *LaunchTemplate_MaintenanceOptions `json:"MaintenanceOptions,omitempty"`
+
 	// MetadataOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions

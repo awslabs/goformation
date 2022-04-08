@@ -134,6 +134,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/medialive"
 	"github.com/awslabs/goformation/v6/cloudformation/mediapackage"
 	"github.com/awslabs/goformation/v6/cloudformation/mediastore"
+	"github.com/awslabs/goformation/v6/cloudformation/mediatailor"
 	"github.com/awslabs/goformation/v6/cloudformation/memorydb"
 	"github.com/awslabs/goformation/v6/cloudformation/msk"
 	"github.com/awslabs/goformation/v6/cloudformation/mwaa"
@@ -428,6 +429,7 @@ func AllResources() map[string]Resource {
 		"AWS::DataSync::Agent":                                        &datasync.Agent{},
 		"AWS::DataSync::LocationEFS":                                  &datasync.LocationEFS{},
 		"AWS::DataSync::LocationFSxLustre":                            &datasync.LocationFSxLustre{},
+		"AWS::DataSync::LocationFSxOpenZFS":                           &datasync.LocationFSxOpenZFS{},
 		"AWS::DataSync::LocationFSxWindows":                           &datasync.LocationFSxWindows{},
 		"AWS::DataSync::LocationHDFS":                                 &datasync.LocationHDFS{},
 		"AWS::DataSync::LocationNFS":                                  &datasync.LocationNFS{},
@@ -582,6 +584,7 @@ func AllResources() map[string]Resource {
 		"AWS::Events::ApiDestination":                                 &events.ApiDestination{},
 		"AWS::Events::Archive":                                        &events.Archive{},
 		"AWS::Events::Connection":                                     &events.Connection{},
+		"AWS::Events::Endpoint":                                       &events.Endpoint{},
 		"AWS::Events::EventBus":                                       &events.EventBus{},
 		"AWS::Events::EventBusPolicy":                                 &events.EventBusPolicy{},
 		"AWS::Events::Rule":                                           &events.Rule{},
@@ -767,6 +770,7 @@ func AllResources() map[string]Resource {
 		"AWS::Lambda::LayerVersion":                                   &lambda.LayerVersion{},
 		"AWS::Lambda::LayerVersionPermission":                         &lambda.LayerVersionPermission{},
 		"AWS::Lambda::Permission":                                     &lambda.Permission{},
+		"AWS::Lambda::Url":                                            &lambda.Url{},
 		"AWS::Lambda::Version":                                        &lambda.Version{},
 		"AWS::Lex::Bot":                                               &lex.Bot{},
 		"AWS::Lex::BotAlias":                                          &lex.BotAlias{},
@@ -828,6 +832,7 @@ func AllResources() map[string]Resource {
 		"AWS::MediaPackage::PackagingConfiguration":                   &mediapackage.PackagingConfiguration{},
 		"AWS::MediaPackage::PackagingGroup":                           &mediapackage.PackagingGroup{},
 		"AWS::MediaStore::Container":                                  &mediastore.Container{},
+		"AWS::MediaTailor::PlaybackConfiguration":                     &mediatailor.PlaybackConfiguration{},
 		"AWS::MemoryDB::ACL":                                          &memorydb.ACL{},
 		"AWS::MemoryDB::Cluster":                                      &memorydb.Cluster{},
 		"AWS::MemoryDB::ParameterGroup":                               &memorydb.ParameterGroup{},
@@ -6610,6 +6615,30 @@ func (t *Template) GetDataSyncLocationFSxLustreWithName(name string) (*datasync.
 	return nil, fmt.Errorf("resource %q of type datasync.LocationFSxLustre not found", name)
 }
 
+// GetAllDataSyncLocationFSxOpenZFSResources retrieves all datasync.LocationFSxOpenZFS items from an AWS CloudFormation template
+func (t *Template) GetAllDataSyncLocationFSxOpenZFSResources() map[string]*datasync.LocationFSxOpenZFS {
+	results := map[string]*datasync.LocationFSxOpenZFS{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datasync.LocationFSxOpenZFS:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataSyncLocationFSxOpenZFSWithName retrieves all datasync.LocationFSxOpenZFS items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataSyncLocationFSxOpenZFSWithName(name string) (*datasync.LocationFSxOpenZFS, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datasync.LocationFSxOpenZFS:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datasync.LocationFSxOpenZFS not found", name)
+}
+
 // GetAllDataSyncLocationFSxWindowsResources retrieves all datasync.LocationFSxWindows items from an AWS CloudFormation template
 func (t *Template) GetAllDataSyncLocationFSxWindowsResources() map[string]*datasync.LocationFSxWindows {
 	results := map[string]*datasync.LocationFSxWindows{}
@@ -10304,6 +10333,30 @@ func (t *Template) GetEventsConnectionWithName(name string) (*events.Connection,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type events.Connection not found", name)
+}
+
+// GetAllEventsEndpointResources retrieves all events.Endpoint items from an AWS CloudFormation template
+func (t *Template) GetAllEventsEndpointResources() map[string]*events.Endpoint {
+	results := map[string]*events.Endpoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *events.Endpoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEventsEndpointWithName retrieves all events.Endpoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEventsEndpointWithName(name string) (*events.Endpoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *events.Endpoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type events.Endpoint not found", name)
 }
 
 // GetAllEventsEventBusResources retrieves all events.EventBus items from an AWS CloudFormation template
@@ -14746,6 +14799,30 @@ func (t *Template) GetLambdaPermissionWithName(name string) (*lambda.Permission,
 	return nil, fmt.Errorf("resource %q of type lambda.Permission not found", name)
 }
 
+// GetAllLambdaUrlResources retrieves all lambda.Url items from an AWS CloudFormation template
+func (t *Template) GetAllLambdaUrlResources() map[string]*lambda.Url {
+	results := map[string]*lambda.Url{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lambda.Url:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLambdaUrlWithName retrieves all lambda.Url items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLambdaUrlWithName(name string) (*lambda.Url, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lambda.Url:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lambda.Url not found", name)
+}
+
 // GetAllLambdaVersionResources retrieves all lambda.Version items from an AWS CloudFormation template
 func (t *Template) GetAllLambdaVersionResources() map[string]*lambda.Version {
 	results := map[string]*lambda.Version{}
@@ -16208,6 +16285,30 @@ func (t *Template) GetMediaStoreContainerWithName(name string) (*mediastore.Cont
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type mediastore.Container not found", name)
+}
+
+// GetAllMediaTailorPlaybackConfigurationResources retrieves all mediatailor.PlaybackConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllMediaTailorPlaybackConfigurationResources() map[string]*mediatailor.PlaybackConfiguration {
+	results := map[string]*mediatailor.PlaybackConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediatailor.PlaybackConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaTailorPlaybackConfigurationWithName retrieves all mediatailor.PlaybackConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaTailorPlaybackConfigurationWithName(name string) (*mediatailor.PlaybackConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediatailor.PlaybackConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediatailor.PlaybackConfiguration not found", name)
 }
 
 // GetAllMemoryDBACLResources retrieves all memorydb.ACL items from an AWS CloudFormation template
