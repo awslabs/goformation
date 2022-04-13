@@ -220,7 +220,7 @@ func NewTemplate() *Template {
 // JSON converts an AWS CloudFormation template object to JSON
 func (t *Template) JSON() ([]byte, error) {
 
-	j, err := json.MarshalIndent(t, "", "  ")
+	j, err := json.MarshalIndent(t, "", " ")
 	if err != nil {
 		return nil, err
 	}
