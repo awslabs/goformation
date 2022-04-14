@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.0.8](https://github.com/awslabs/goformation/compare/v6.0.7...v6.0.8) (2022-04-14)
+
+
+### Performance Improvements
+
+* reduce JSON CloudFormation template size ([f893af7](https://github.com/awslabs/goformation/commit/f893af783a76ef4aff4c27710e2d4202c9fbf91a))
+
 ## [6.0.7](https://github.com/awslabs/goformation/compare/v6.0.6...v6.0.7) (2022-04-08)
 
 
