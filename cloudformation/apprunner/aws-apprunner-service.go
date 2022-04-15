@@ -40,6 +40,11 @@ type Service struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-networkconfiguration
 	NetworkConfiguration *Service_NetworkConfiguration `json:"NetworkConfiguration,omitempty"`
 
+	// ObservabilityConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-observabilityconfiguration
+	ObservabilityConfiguration *Service_ServiceObservabilityConfiguration `json:"ObservabilityConfiguration,omitempty"`
+
 	// ServiceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename

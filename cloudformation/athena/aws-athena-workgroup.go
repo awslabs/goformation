@@ -45,11 +45,6 @@ type WorkGroup struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
 	WorkGroupConfiguration *WorkGroup_WorkGroupConfiguration `json:"WorkGroupConfiguration,omitempty"`
 
-	// WorkGroupConfigurationUpdates AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
-	WorkGroupConfigurationUpdates *WorkGroup_WorkGroupConfigurationUpdates `json:"WorkGroupConfigurationUpdates,omitempty"`
-
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

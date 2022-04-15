@@ -95,6 +95,11 @@ type Fleet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-platform
 	Platform *string `json:"Platform,omitempty"`
 
+	// SessionScriptS3Location AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-sessionscripts3location
+	SessionScriptS3Location *Fleet_S3Location `json:"SessionScriptS3Location,omitempty"`
+
 	// StreamView AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview

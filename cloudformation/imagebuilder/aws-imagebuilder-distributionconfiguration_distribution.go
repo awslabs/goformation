@@ -13,12 +13,12 @@ type DistributionConfiguration_Distribution struct {
 	// AmiDistributionConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
-	AmiDistributionConfiguration *interface{} `json:"AmiDistributionConfiguration,omitempty"`
+	AmiDistributionConfiguration *DistributionConfiguration_AmiDistributionConfiguration `json:"AmiDistributionConfiguration,omitempty"`
 
 	// ContainerDistributionConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
-	ContainerDistributionConfiguration *interface{} `json:"ContainerDistributionConfiguration,omitempty"`
+	ContainerDistributionConfiguration *DistributionConfiguration_ContainerDistributionConfiguration `json:"ContainerDistributionConfiguration,omitempty"`
 
 	// LaunchTemplateConfigurations AWS CloudFormation Property
 	// Required: false
