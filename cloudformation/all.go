@@ -264,6 +264,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppMesh::VirtualNode":                                   &appmesh.VirtualNode{},
 		"AWS::AppMesh::VirtualRouter":                                 &appmesh.VirtualRouter{},
 		"AWS::AppMesh::VirtualService":                                &appmesh.VirtualService{},
+		"AWS::AppRunner::ObservabilityConfiguration":                  &apprunner.ObservabilityConfiguration{},
 		"AWS::AppRunner::Service":                                     &apprunner.Service{},
 		"AWS::AppRunner::VpcConnector":                                &apprunner.VpcConnector{},
 		"AWS::AppStream::AppBlock":                                    &appstream.AppBlock{},
@@ -2653,6 +2654,30 @@ func (t *Template) GetAppMeshVirtualServiceWithName(name string) (*appmesh.Virtu
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type appmesh.VirtualService not found", name)
+}
+
+// GetAllAppRunnerObservabilityConfigurationResources retrieves all apprunner.ObservabilityConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllAppRunnerObservabilityConfigurationResources() map[string]*apprunner.ObservabilityConfiguration {
+	results := map[string]*apprunner.ObservabilityConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *apprunner.ObservabilityConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppRunnerObservabilityConfigurationWithName retrieves all apprunner.ObservabilityConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppRunnerObservabilityConfigurationWithName(name string) (*apprunner.ObservabilityConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *apprunner.ObservabilityConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type apprunner.ObservabilityConfiguration not found", name)
 }
 
 // GetAllAppRunnerServiceResources retrieves all apprunner.Service items from an AWS CloudFormation template
