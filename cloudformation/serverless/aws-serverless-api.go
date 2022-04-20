@@ -64,6 +64,11 @@ type Api struct {
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-description
 	Description *string `json:"Description,omitempty"`
 
+	// Domain AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-domain
+	Domain *Api_DomainConfiguration `json:"Domain,omitempty"`
+
 	// EndpointConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
