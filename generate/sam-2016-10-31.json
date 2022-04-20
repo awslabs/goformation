@@ -1446,6 +1446,11 @@
                     "Type": "BucketSAMPT",
                     "UpdateType": "Immutable"
                 },
+                "S3WritePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "BucketSAMPT",
+                    "UpdateType": "Immutable"
+                },
                 "S3CrudPolicy": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
                     "Type": "BucketSAMPT",

@@ -110,6 +110,11 @@ type Function_SAMPolicyTemplate struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
 	S3ReadPolicy *Function_BucketSAMPT `json:"S3ReadPolicy,omitempty"`
 
+	// S3WritePolicy AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+	S3WritePolicy *Function_BucketSAMPT `json:"S3WritePolicy,omitempty"`
+
 	// SESBulkTemplatedCrudPolicy AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
