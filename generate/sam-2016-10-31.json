@@ -1511,6 +1511,16 @@
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
                     "Type": "StateMachineSAMPT",
                     "UpdateType": "Immutable"
+                },
+                "SSMParameterReadPolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "ParameterNameSAMPT",
+                    "UpdateType": "Immutable"
+                },
+                "AWSSecretsManagerGetSecretValuePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Type": "SecretArnSAMPT",
+                    "UpdateType": "Immutable"
                 }
             }
         },
@@ -1660,6 +1670,28 @@
             "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
             "Properties": {
                 "StateMachineName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.ParameterNameSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "ParameterName": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.SecretArnSAMPT": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
+            "Properties": {
+                "SecretArn": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst",
                     "Required": true,
                     "PrimitiveType": "String",
