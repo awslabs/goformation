@@ -15,6 +15,11 @@ type Function_SAMPolicyTemplate struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
 	AMIDescribePolicy *Function_EmptySAMPT `json:"AMIDescribePolicy,omitempty"`
 
+	// AWSSecretsManagerGetSecretValuePolicy AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+	AWSSecretsManagerGetSecretValuePolicy *Function_SecretArnSAMPT `json:"AWSSecretsManagerGetSecretValuePolicy,omitempty"`
+
 	// CloudFormationDescribeStacksPolicy AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
@@ -149,6 +154,11 @@ type Function_SAMPolicyTemplate struct {
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
 	SQSSendMessagePolicy *Function_QueueSAMPT `json:"SQSSendMessagePolicy,omitempty"`
+
+	// SSMParameterReadPolicy AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+	SSMParameterReadPolicy *Function_ParameterNameSAMPT `json:"SSMParameterReadPolicy,omitempty"`
 
 	// StepFunctionsExecutionPolicy AWS CloudFormation Property
 	// Required: false
