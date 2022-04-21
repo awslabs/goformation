@@ -40,6 +40,11 @@ type Function_SAMPolicyTemplate struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
 	DynamoDBStreamReadPolicy *Function_TableStreamSAMPT `json:"DynamoDBStreamReadPolicy,omitempty"`
 
+	// DynamoDBWritePolicy AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
+	DynamoDBWritePolicy *Function_TableSAMPT `json:"DynamoDBWritePolicy,omitempty"`
+
 	// EC2DescribePolicy AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/docs/policy_templates.rst
