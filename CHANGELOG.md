@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.0.12](https://github.com/awslabs/goformation/compare/v6.0.11...v6.0.12) (2022-04-22)
+
+
+### Bug Fixes
+
+* **schema:** Add DynamoDBWritePolicy to sam policy template ([6f08c13](https://github.com/awslabs/goformation/commit/6f08c136b112813bee5f329561ed25122f4a77cf))
+
 ## [6.0.11](https://github.com/awslabs/goformation/compare/v6.0.10...v6.0.11) (2022-04-22)
 
 
