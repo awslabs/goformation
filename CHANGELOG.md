@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.0.14](https://github.com/awslabs/goformation/compare/v6.0.13...v6.0.14) (2022-04-22)
+
+
+### Bug Fixes
+
+* **schema:** Add S3WritePolicy to sam policy template ([c9f775e](https://github.com/awslabs/goformation/commit/c9f775ede18530893f446eb7538f5364946fcf6f))
+
 ## [6.0.13](https://github.com/awslabs/goformation/compare/v6.0.12...v6.0.13) (2022-04-22)
 
 
