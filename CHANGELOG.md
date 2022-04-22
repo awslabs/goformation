@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.0.13](https://github.com/awslabs/goformation/compare/v6.0.12...v6.0.13) (2022-04-22)
+
+
+### Bug Fixes
+
+* **schema:** Add SSMParameterReadPolicy and AWSSecretsManagerGetSecretValuePolicy into AWS::Serverless::Function.SAMPolicyTemplate ([7a85ab9](https://github.com/awslabs/goformation/commit/7a85ab9fa99256ac54e0cf269ad10b1e5207c721))
+
 ## [6.0.12](https://github.com/awslabs/goformation/compare/v6.0.11...v6.0.12) (2022-04-22)
 
 
