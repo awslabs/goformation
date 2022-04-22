@@ -107,6 +107,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/iotfleethub"
 	"github.com/awslabs/goformation/v6/cloudformation/iotsitewise"
 	"github.com/awslabs/goformation/v6/cloudformation/iotthingsgraph"
+	"github.com/awslabs/goformation/v6/cloudformation/iottwinmaker"
 	"github.com/awslabs/goformation/v6/cloudformation/iotwireless"
 	"github.com/awslabs/goformation/v6/cloudformation/ivs"
 	"github.com/awslabs/goformation/v6/cloudformation/kafkaconnect"
@@ -404,6 +405,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::ContactFlow":                                   &connect.ContactFlow{},
 		"AWS::Connect::ContactFlowModule":                             &connect.ContactFlowModule{},
 		"AWS::Connect::HoursOfOperation":                              &connect.HoursOfOperation{},
+		"AWS::Connect::PhoneNumber":                                   &connect.PhoneNumber{},
 		"AWS::Connect::QuickConnect":                                  &connect.QuickConnect{},
 		"AWS::Connect::User":                                          &connect.User{},
 		"AWS::Connect::UserHierarchyGroup":                            &connect.UserHierarchyGroup{},
@@ -732,6 +734,10 @@ func AllResources() map[string]Resource {
 		"AWS::IoTSiteWise::Portal":                                    &iotsitewise.Portal{},
 		"AWS::IoTSiteWise::Project":                                   &iotsitewise.Project{},
 		"AWS::IoTThingsGraph::FlowTemplate":                           &iotthingsgraph.FlowTemplate{},
+		"AWS::IoTTwinMaker::ComponentType":                            &iottwinmaker.ComponentType{},
+		"AWS::IoTTwinMaker::Entity":                                   &iottwinmaker.Entity{},
+		"AWS::IoTTwinMaker::Scene":                                    &iottwinmaker.Scene{},
+		"AWS::IoTTwinMaker::Workspace":                                &iottwinmaker.Workspace{},
 		"AWS::IoTWireless::Destination":                               &iotwireless.Destination{},
 		"AWS::IoTWireless::DeviceProfile":                             &iotwireless.DeviceProfile{},
 		"AWS::IoTWireless::FuotaTask":                                 &iotwireless.FuotaTask{},
@@ -6014,6 +6020,30 @@ func (t *Template) GetConnectHoursOfOperationWithName(name string) (*connect.Hou
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.HoursOfOperation not found", name)
+}
+
+// GetAllConnectPhoneNumberResources retrieves all connect.PhoneNumber items from an AWS CloudFormation template
+func (t *Template) GetAllConnectPhoneNumberResources() map[string]*connect.PhoneNumber {
+	results := map[string]*connect.PhoneNumber{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.PhoneNumber:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectPhoneNumberWithName retrieves all connect.PhoneNumber items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectPhoneNumberWithName(name string) (*connect.PhoneNumber, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.PhoneNumber:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.PhoneNumber not found", name)
 }
 
 // GetAllConnectQuickConnectResources retrieves all connect.QuickConnect items from an AWS CloudFormation template
@@ -13886,6 +13916,102 @@ func (t *Template) GetIoTThingsGraphFlowTemplateWithName(name string) (*iotthing
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iotthingsgraph.FlowTemplate not found", name)
+}
+
+// GetAllIoTTwinMakerComponentTypeResources retrieves all iottwinmaker.ComponentType items from an AWS CloudFormation template
+func (t *Template) GetAllIoTTwinMakerComponentTypeResources() map[string]*iottwinmaker.ComponentType {
+	results := map[string]*iottwinmaker.ComponentType{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.ComponentType:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTTwinMakerComponentTypeWithName retrieves all iottwinmaker.ComponentType items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTTwinMakerComponentTypeWithName(name string) (*iottwinmaker.ComponentType, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.ComponentType:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iottwinmaker.ComponentType not found", name)
+}
+
+// GetAllIoTTwinMakerEntityResources retrieves all iottwinmaker.Entity items from an AWS CloudFormation template
+func (t *Template) GetAllIoTTwinMakerEntityResources() map[string]*iottwinmaker.Entity {
+	results := map[string]*iottwinmaker.Entity{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.Entity:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTTwinMakerEntityWithName retrieves all iottwinmaker.Entity items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTTwinMakerEntityWithName(name string) (*iottwinmaker.Entity, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.Entity:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iottwinmaker.Entity not found", name)
+}
+
+// GetAllIoTTwinMakerSceneResources retrieves all iottwinmaker.Scene items from an AWS CloudFormation template
+func (t *Template) GetAllIoTTwinMakerSceneResources() map[string]*iottwinmaker.Scene {
+	results := map[string]*iottwinmaker.Scene{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.Scene:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTTwinMakerSceneWithName retrieves all iottwinmaker.Scene items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTTwinMakerSceneWithName(name string) (*iottwinmaker.Scene, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.Scene:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iottwinmaker.Scene not found", name)
+}
+
+// GetAllIoTTwinMakerWorkspaceResources retrieves all iottwinmaker.Workspace items from an AWS CloudFormation template
+func (t *Template) GetAllIoTTwinMakerWorkspaceResources() map[string]*iottwinmaker.Workspace {
+	results := map[string]*iottwinmaker.Workspace{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.Workspace:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTTwinMakerWorkspaceWithName retrieves all iottwinmaker.Workspace items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTTwinMakerWorkspaceWithName(name string) (*iottwinmaker.Workspace, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.Workspace:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iottwinmaker.Workspace not found", name)
 }
 
 // GetAllIoTWirelessDestinationResources retrieves all iotwireless.Destination items from an AWS CloudFormation template

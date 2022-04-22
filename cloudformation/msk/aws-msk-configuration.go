@@ -25,9 +25,9 @@ type Configuration struct {
 	KafkaVersionsList *[]string `json:"KafkaVersionsList,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// ServerProperties AWS CloudFormation Property
 	// Required: true
