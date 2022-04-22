@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.0.11](https://github.com/awslabs/goformation/compare/v6.0.10...v6.0.11) (2022-04-22)
+
+
+### Bug Fixes
+
+* **schema:** Add Domain in AWS::Serverless::API schema ([dff256a](https://github.com/awslabs/goformation/commit/dff256ac71a956b090bf957765fa3ab32288b13f))
+
 ## [6.0.10](https://github.com/awslabs/goformation/compare/v6.0.9...v6.0.10) (2022-04-22)
 
 
