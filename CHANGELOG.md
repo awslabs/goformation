@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.0.15](https://github.com/awslabs/goformation/compare/v6.0.14...v6.0.15) (2022-04-22)
+
+
+### Bug Fixes
+
+* **schema:** string should be a primitivetype ([5fa746c](https://github.com/awslabs/goformation/commit/5fa746cc18b5ab0892f987f48d37989783787b33))
+
 ## [6.0.14](https://github.com/awslabs/goformation/compare/v6.0.13...v6.0.14) (2022-04-22)
 
 
