@@ -12,6 +12,26 @@
             }{{if (or .Property.PrimitiveItemTypes (or .Property.Types .Property.ItemTypes))}},{{end}}
         {{end}}
 
+        {{if (or .Property.InclusivePrimitiveItemTypes .Property.InclusiveItemTypes)}}
+            {
+                "type": "array",
+                "items": {
+                    "anyOf": [
+                        {{$length := len .Property.InclusivePrimitiveItemTypes}}{{$rc := counter $length}}{{range $index, $primitiveType := .Property.InclusivePrimitiveItemTypes}}
+                            {
+                                "type": "{{convertToJSONType $primitiveType}}"{{if call $rc}},{{end}}
+                            }{{if $.Property.InclusiveItemTypes}},{{end}}
+                        {{end}}
+                        {{$length := len .Property.InclusiveItemTypes}}{{$rc := counter $length}}{{range $index, $itemType := .Property.InclusiveItemTypes}}
+                            {
+                                "$ref": "#/definitions/{{$.Parent}}.{{$itemType}}"
+                            }{{if call $rc}},{{end}}
+                        {{end}}
+                    ]
+                }
+            }{{if (or $.Property.InclusivePrimitiveItemTypes $.Property.InclusiveItemTypes)}},{{end}}
+        {{end}}
+
         {{if .Property.PrimitiveItemTypes}}
             {{$length := len .Property.PrimitiveItemTypes}}{{$rc := counter $length}}{{range $index, $primitiveItemType := .Property.PrimitiveItemTypes}}
                 {
