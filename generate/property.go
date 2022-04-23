@@ -88,6 +88,24 @@ type Property struct {
 	// resource type documentation.
 	UpdateType string `json:"UpdateType"`
 
+	// InclusivePrimitiveItemTypes - items of an array that must be grouped together with other InclusivePrimitiveItemTypes
+	// and InclusiveItemTypes. If the value of the Type field is List or Map, indicates the type of list or map
+	// if they contain primitive types. Otherwise, this field is omitted. Valid types are the same as primitive item
+	// types String, Long, Integer, Double, Boolean, or Timestamp.
+	//
+	// This will allow a single array to contain multiple item types rather than one type per array instance
+	InclusivePrimitiveItemTypes []string `json:"InclusivePrimitiveItemTypes"`
+
+	// InclusiveItemTypes - items of an array that must be grouped together with other InclusiveItemTypes
+	// and InclusivePrimitiveItemTypes. If the value of the Type field is List or Map, indicates the type of list or
+	// map if they contain non-primitive types. Otherwise, this field is omitted.
+	//
+	// A subproperty name is a valid item type. For example, if the type value is List and the item type
+	//  value is PortMapping, you can specify a list of port mapping properties.
+	//
+	// This will allow a single array to contain multiple item types rather than one type per array instance
+	InclusiveItemTypes []string `json:"InclusiveItemTypes"`
+
 	// Types - if a property can be different types, they will be listed here
 	PrimitiveTypes     []string `json:"PrimitiveTypes"`
 	PrimitiveItemTypes []string `json:"PrimitiveItemTypes"`
@@ -185,7 +203,13 @@ func (p Property) HasValidType() bool {
 
 // IsPolymorphic checks whether a property can be multiple different types
 func (p Property) IsPolymorphic() bool {
-	return len(p.PrimitiveTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.PrimitiveItemTypes) > 0 || len(p.ItemTypes) > 0 || len(p.Types) > 0
+	return len(p.PrimitiveTypes) > 0 ||
+		len(p.PrimitiveItemTypes) > 0 ||
+		len(p.PrimitiveItemTypes) > 0 ||
+		len(p.ItemTypes) > 0 ||
+		len(p.Types) > 0 ||
+		len(p.InclusivePrimitiveItemTypes) > 0 ||
+		len(p.InclusiveItemTypes) > 0
 }
 
 // IsPrimitive checks whether a property is a primitive type

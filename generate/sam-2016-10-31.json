@@ -117,13 +117,13 @@
                     "PrimitiveTypes": [
                         "String"
                     ],
-                    "PrimitiveItemTypes": [
-                        "String"
-                    ],
                     "Types": [
                         "IAMPolicyDocument"
                     ],
-                    "ItemTypes": [
+                    "InclusivePrimitiveItemTypes": [
+                        "String"
+                    ],
+                    "InclusiveItemTypes": [
                         "IAMPolicyDocument",
                         "SAMPolicyTemplate"
                     ],
@@ -705,13 +705,13 @@
                     "PrimitiveTypes": [
                         "String"
                     ],
-                    "PrimitiveItemTypes": [
-                        "String"
-                    ],
                     "Types": [
                         "IAMPolicyDocument"
                     ],
-                    "ItemTypes": [
+                    "InclusivePrimitiveItemTypes": [
+                        "String"
+                    ],
+                    "InclusiveItemTypes": [
                         "IAMPolicyDocument",
                         "SAMPolicyTemplate"
                     ],

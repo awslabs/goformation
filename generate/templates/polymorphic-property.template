@@ -19,11 +19,17 @@ type {{.Name}} struct {
 	{{range $type := $.Property.PrimitiveItemTypes}}
 	{{$type}}Array *[]{{convertToGoType $type}}{{end}}
 
+	{{range $type := $.Property.InclusivePrimitiveItemTypes}}
+    {{$type}}Array *[]{{convertToGoType $type}}{{end}}
+
 	{{range $type := $.Property.Types}}
 	{{$type}} *{{$.Basename}}_{{$type}}{{end}}
 
 	{{range $type := $.Property.ItemTypes}}
 	{{$type}}Array *[]{{$.Basename}}_{{$type}}{{end}}
+
+    {{range $type := $.Property.InclusiveItemTypes}}
+    {{$type}}Array *[]{{$.Basename}}_{{$type}}{{end}}
 }
 
 func (r {{.Name}}) value() interface{} {
@@ -41,6 +47,12 @@ func (r {{.Name}}) value() interface{} {
 		}
 	{{end}}
 
+	{{range $type := $.Property.InclusivePrimitiveItemTypes}}
+        if r.{{$type}}Array != nil {
+            ret = append(ret, r.{{$type}}Array)
+        }
+    {{end}}
+
 	{{ if (.Property.Types) }}
 		{{range $type := $.Property.Types}}
 			if r.{{$type}} != nil {
@@ -54,6 +66,12 @@ func (r {{.Name}}) value() interface{} {
 			ret = append(ret, r.{{$type}}Array)
 		}
 	{{end}}
+
+	{{range $type := $.Property.InclusiveItemTypes}}
+        if r.{{$type}}Array != nil {
+            ret = append(ret, r.{{$type}}Array)
+        }
+    {{end}}
 
 	sort.Sort(utils.ByJSONLength(ret)) // Heuristic to select best attribute
 	if len(ret) > 0 {
@@ -88,6 +106,11 @@ func (r *{{.Name}}) UnmarshalJSON(b []byte) error {
 			r.{{$type}}Array = &val
 		{{end}}
 
+        {{range $type := $.Property.InclusivePrimitiveItemTypes}}
+			case []{{convertToGoType $type}}:
+			r.{{$type}}Array = &val
+		{{end}}
+
 		case map[string]interface{}:
 			val = val // This ensures val is used to stop an error
 
@@ -107,9 +130,15 @@ func (r *{{.Name}}) UnmarshalJSON(b []byte) error {
 		{{range $type := $.Property.PrimitiveItemTypes}}
 			json.Unmarshal(b, &r.{{$type}}Array)
 		{{end}}
-		{{range $type := $.Property.ItemTypes}}
+		{{range $type := $.Property.InclusivePrimitiveItemTypes}}
 			json.Unmarshal(b, &r.{{$type}}Array)
 		{{end}}
+		{{range $type := $.Property.ItemTypes}}
+            json.Unmarshal(b, &r.{{$type}}Array)
+        {{end}}
+        {{range $type := $.Property.InclusiveItemTypes}}
+            json.Unmarshal(b, &r.{{$type}}Array)
+        {{end}}
 
 	}
 

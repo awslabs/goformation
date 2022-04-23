@@ -556,7 +556,9 @@ func generatePolymorphicProperty(typename string, name string, property Property
 
 	types := append([]string{}, property.PrimitiveTypes...)
 	types = append(types, property.PrimitiveItemTypes...)
+	types = append(types, property.InclusivePrimitiveItemTypes...)
 	types = append(types, property.ItemTypes...)
+	types = append(types, property.InclusiveItemTypes...)
 	types = append(types, property.Types...)
 
 	packageName, err := packageName(typename, true)
