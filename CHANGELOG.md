@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.1.1](https://github.com/awslabs/goformation/compare/v6.1.0...v6.1.1) (2022-04-25)
+
+
+### Bug Fixes
+
+* **schema:** Add Version property into IAMPolicyDocument and fix Statement type ([846268a](https://github.com/awslabs/goformation/commit/846268a5028d9ca2cf93dde2b88ef7d3ba01e45d))
+
 # [6.1.0](https://github.com/awslabs/goformation/compare/v6.0.15...v6.1.0) (2022-04-25)
 
 
