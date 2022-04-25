@@ -1,5 +1,17 @@
 # GoFormation Versioning Changelog
 
+# [6.1.0](https://github.com/awslabs/goformation/compare/v6.0.15...v6.1.0) (2022-04-25)
+
+
+### Bug Fixes
+
+* **generate:** remove duplicated line ([a18d04c](https://github.com/awslabs/goformation/commit/a18d04c1844fbfacfdff709c51d09b6538603714))
+
+
+### Features
+
+* **schema:** Support generation of array items that should be combined in one anyOf ([d5e468f](https://github.com/awslabs/goformation/commit/d5e468fb4e4f83bcf08345232c8a7745fa0b7ff9))
+
 ## [6.0.15](https://github.com/awslabs/goformation/compare/v6.0.14...v6.0.15) (2022-04-22)
 
 
