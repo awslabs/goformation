@@ -1348,7 +1348,14 @@
             "Properties": {
                 "Statement": {
                     "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
-                    "PrimitiveType": "Json",
+                    "Required": true,
+                    "Type": "List",
+                    "ItemType": "Json",
+                    "UpdateType": "Immutable"
+                },
+                "Version": {
+                    "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
+                    "PrimitiveType": "String",
                     "Required": true,
                     "UpdateType": "Immutable"
                 }
@@ -2433,7 +2440,14 @@
             "Properties": {
                 "Statement": {
                     "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
-                    "PrimitiveType": "Json",
+                    "Required": true,
+                    "Type": "List",
+                    "ItemType": "Json",
+                    "UpdateType": "Immutable"
+                },
+                "Version": {
+                    "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
+                    "PrimitiveType": "String",
                     "Required": true,
                     "UpdateType": "Immutable"
                 }
