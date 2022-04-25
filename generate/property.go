@@ -205,7 +205,6 @@ func (p Property) HasValidType() bool {
 func (p Property) IsPolymorphic() bool {
 	return len(p.PrimitiveTypes) > 0 ||
 		len(p.PrimitiveItemTypes) > 0 ||
-		len(p.PrimitiveItemTypes) > 0 ||
 		len(p.ItemTypes) > 0 ||
 		len(p.Types) > 0 ||
 		len(p.InclusivePrimitiveItemTypes) > 0 ||
