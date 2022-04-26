@@ -1048,6 +1048,71 @@
                     "Required": false,
                     "Type": "Auth",
                     "UpdateType": "Immutable"
+                },
+                "RequestModel": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api",
+                    "Required": false,
+                    "Type": "RequestModel",
+                    "UpdateType": "Immutable"
+                },
+                "RequestParameters": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api",
+                    "Required": false,
+                    "Type": "List",
+                    "InclusivePrimitiveItemTypes": [
+                        "String"
+                    ],
+                    "InclusiveItemTypes": [
+                        "RequestParameter"
+                    ],
+                    "InclusiveItemPattern": true,
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.RequestModel": {
+            "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestmodel.html",
+            "Properties": {
+                "Model": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestmodel.html#sam-function-requestmodel-model",
+                    "Required": true,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Required": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestmodel.html#sam-function-requestmodel-required",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                },
+                "ValidateBody": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestmodel.html#sam-function-requestmodel-validatebody",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                },
+                "ValidateParameters": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestmodel.html#sam-function-requestmodel-validateparameters",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.RequestParameter": {
+            "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestparameter.html",
+            "Properties": {
+                "Caching": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestparameter.html#sam-function-requestparameter-caching",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                },
+                "Required": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestparameter.html#sam-function-requestparameter-required",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
                 }
             }
         },
