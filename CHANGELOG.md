@@ -1,5 +1,18 @@
 # GoFormation Versioning Changelog
 
+# [6.2.0](https://github.com/awslabs/goformation/compare/v6.1.1...v6.2.0) (2022-04-26)
+
+
+### Bug Fixes
+
+* **schema:** Add RequestModel and RequestParameters for AWS::Serverless::Function.EventSource ([e0c2673](https://github.com/awslabs/goformation/commit/e0c26738fb4f8558cc8538b128a490924592b94c))
+* **schema:** Fix JSON Schema generation commas for InclusivePrimitiveItemTypes ([28db940](https://github.com/awslabs/goformation/commit/28db9408fa2a0b4ffc9814dd0509d8026d9de223))
+
+
+### Features
+
+* **schema:** Add the ability to create items using pattern properties rather than normal references ([7b60160](https://github.com/awslabs/goformation/commit/7b6016076b6653a7c930b15a94262db16aa93b5a))
+
 ## [6.1.1](https://github.com/awslabs/goformation/compare/v6.1.0...v6.1.1) (2022-04-25)
 
 
