@@ -19,8 +19,8 @@
                     "anyOf": [
                         {{$length := len .Property.InclusivePrimitiveItemTypes}}{{$rc := counter $length}}{{range $index, $primitiveType := .Property.InclusivePrimitiveItemTypes}}
                             {
-                                "type": "{{convertToJSONType $primitiveType}}"{{if call $rc}},{{end}}
-                            }{{if $.Property.InclusiveItemTypes}},{{end}}
+                                "type": "{{convertToJSONType $primitiveType}}"
+                            }{{if (or $.Property.InclusiveItemTypes (call $rc))}},{{end}}
                         {{end}}
                         {{$length := len .Property.InclusiveItemTypes}}{{$rc := counter $length}}{{range $index, $itemType := .Property.InclusiveItemTypes}}
                             {
@@ -29,7 +29,7 @@
                         {{end}}
                     ]
                 }
-            }{{if (or $.Property.InclusivePrimitiveItemTypes $.Property.InclusiveItemTypes)}},{{end}}
+            }{{if (or $.Property.PrimitiveItemTypes (or $.Property.Types $.Property.ItemTypes))}},{{end}}
         {{end}}
 
         {{if .Property.PrimitiveItemTypes}}
