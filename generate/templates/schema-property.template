@@ -22,10 +22,22 @@
                                 "type": "{{convertToJSONType $primitiveType}}"
                             }{{if (or $.Property.InclusiveItemTypes (call $rc))}},{{end}}
                         {{end}}
-                        {{$length := len .Property.InclusiveItemTypes}}{{$rc := counter $length}}{{range $index, $itemType := .Property.InclusiveItemTypes}}
+                        {{ if .Property.InclusiveItemPattern }}
+                            {{$length := len .Property.InclusiveItemTypes}}{{$rc := counter $length}}{{range $index, $itemType := .Property.InclusiveItemTypes}}
+                            {
+                                "patternProperties": {
+                                    "^[a-zA-Z0-9]+$": {
+                                          "$ref": "#/definitions/{{$.Parent}}.{{$itemType}}"
+                                    }
+                                }{{if call $rc}},{{end}}
+                            }
+                            {{end}}
+                        {{else}}
+                            {{$length := len .Property.InclusiveItemTypes}}{{$rc := counter $length}}{{range $index, $itemType := .Property.InclusiveItemTypes}}
                             {
                                 "$ref": "#/definitions/{{$.Parent}}.{{$itemType}}"
                             }{{if call $rc}},{{end}}
+                            {{end}}
                         {{end}}
                     ]
                 }

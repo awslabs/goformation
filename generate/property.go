@@ -106,6 +106,11 @@ type Property struct {
 	// This will allow a single array to contain multiple item types rather than one type per array instance
 	InclusiveItemTypes []string `json:"InclusiveItemTypes"`
 
+	// InclusiveItemPattern - Indicates if item types should be created with a pattern property rather than
+	// a regular reference. This is useful in cases where you have a List of objects where the key is arbitrary
+	// but the values need to be referenced.
+	InclusiveItemPattern bool `json:"InclusiveItemPattern"`
+
 	// Types - if a property can be different types, they will be listed here
 	PrimitiveTypes     []string `json:"PrimitiveTypes"`
 	PrimitiveItemTypes []string `json:"PrimitiveItemTypes"`
