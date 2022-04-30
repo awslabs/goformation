@@ -60,6 +60,16 @@ type NetworkInsightsAnalysis_PathComponent struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet
 	Subnet *NetworkInsightsAnalysis_AnalysisComponent `json:"Subnet,omitempty"`
 
+	// TransitGateway AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-transitgateway
+	TransitGateway *NetworkInsightsAnalysis_AnalysisComponent `json:"TransitGateway,omitempty"`
+
+	// TransitGatewayRouteTableRoute AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-transitgatewayroutetableroute
+	TransitGatewayRouteTableRoute *NetworkInsightsAnalysis_TransitGatewayRouteTableRoute `json:"TransitGatewayRouteTableRoute,omitempty"`
+
 	// Vpc AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc

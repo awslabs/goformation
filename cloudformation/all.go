@@ -475,6 +475,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::IPAMScope":                                         &ec2.IPAMScope{},
 		"AWS::EC2::Instance":                                          &ec2.Instance{},
 		"AWS::EC2::InternetGateway":                                   &ec2.InternetGateway{},
+		"AWS::EC2::KeyPair":                                           &ec2.KeyPair{},
 		"AWS::EC2::LaunchTemplate":                                    &ec2.LaunchTemplate{},
 		"AWS::EC2::LocalGatewayRoute":                                 &ec2.LocalGatewayRoute{},
 		"AWS::EC2::LocalGatewayRouteTableVPCAssociation":              &ec2.LocalGatewayRouteTableVPCAssociation{},
@@ -7700,6 +7701,30 @@ func (t *Template) GetEC2InternetGatewayWithName(name string) (*ec2.InternetGate
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.InternetGateway not found", name)
+}
+
+// GetAllEC2KeyPairResources retrieves all ec2.KeyPair items from an AWS CloudFormation template
+func (t *Template) GetAllEC2KeyPairResources() map[string]*ec2.KeyPair {
+	results := map[string]*ec2.KeyPair{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.KeyPair:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2KeyPairWithName retrieves all ec2.KeyPair items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2KeyPairWithName(name string) (*ec2.KeyPair, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.KeyPair:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.KeyPair not found", name)
 }
 
 // GetAllEC2LaunchTemplateResources retrieves all ec2.LaunchTemplate items from an AWS CloudFormation template
