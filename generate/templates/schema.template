@@ -83,7 +83,10 @@
                 "^[a-zA-Z0-9]+$": {
                     "anyOf": [
                         {{$length := len .Resources}}{{$c := counter $length}}{{range $name, $resources := .Resources}} { "$ref": "#/definitions/{{$name}}" }{{if call $c}}, {{end}}
-                        {{end}}
+                        {{end}},
+                        {
+                            "$ref": "#/definitions/CustomResource"
+                        }
                     ]
                 }
             },
@@ -205,6 +208,32 @@
             "required": [
                 "Type"
             ]
+        },
+        "CustomResource": {
+            "additionalProperties": false,
+            "properties": {
+                "Properties": {
+                    "additionalProperties": true,
+                    "properties": {
+                        "ServiceToken": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ServiceToken"
+                    ],
+                    "type": "object"
+                },
+                "Type": {
+                    "pattern": "^Custom::[a-zA-Z_@-]+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Properties"
+            ],
+            "type": "object"
         },
 
         {{range $name, $resource := .Resources}}
