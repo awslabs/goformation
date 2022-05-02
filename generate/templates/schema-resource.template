@@ -26,6 +26,9 @@
                 "{{.Name}}"
             ]
         },
+        "Condition": {
+            "type": "string"
+        },
         {{if eq .Name "AWS::AutoScaling::AutoScalingGroup" "AWS::EC2::Instance" "AWS::CloudFormation::WaitCondition"}}
         "CreationPolicy": {
             "type": "object"
