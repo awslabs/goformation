@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.3.0](https://github.com/awslabs/goformation/compare/v6.2.1...v6.3.0) (2022-05-03)
+
+
+### Features
+
+* **schema:** Support custom resource types ([1274ccd](https://github.com/awslabs/goformation/commit/1274ccd9317134522e92dd7fae402c7927076182))
+
 ## [6.2.1](https://github.com/awslabs/goformation/compare/v6.2.0...v6.2.1) (2022-04-30)
 
 
