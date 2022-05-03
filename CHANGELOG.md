@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.4.0](https://github.com/awslabs/goformation/compare/v6.3.0...v6.4.0) (2022-05-03)
+
+
+### Features
+
+* **schema:** Support condition properties in resources ([b3b7397](https://github.com/awslabs/goformation/commit/b3b739703c2436466cfa9416aeba96840e09423c))
+
 # [6.3.0](https://github.com/awslabs/goformation/compare/v6.2.1...v6.3.0) (2022-05-03)
 
 
