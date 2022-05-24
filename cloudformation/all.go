@@ -188,6 +188,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/synthetics"
 	"github.com/awslabs/goformation/v6/cloudformation/timestream"
 	"github.com/awslabs/goformation/v6/cloudformation/transfer"
+	"github.com/awslabs/goformation/v6/cloudformation/voiceid"
 	"github.com/awslabs/goformation/v6/cloudformation/waf"
 	"github.com/awslabs/goformation/v6/cloudformation/wafregional"
 	"github.com/awslabs/goformation/v6/cloudformation/wafv2"
@@ -712,6 +713,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoT::PolicyPrincipalAttachment":                         &iot.PolicyPrincipalAttachment{},
 		"AWS::IoT::ProvisioningTemplate":                              &iot.ProvisioningTemplate{},
 		"AWS::IoT::ResourceSpecificLogging":                           &iot.ResourceSpecificLogging{},
+		"AWS::IoT::RoleAlias":                                         &iot.RoleAlias{},
 		"AWS::IoT::ScheduledAudit":                                    &iot.ScheduledAudit{},
 		"AWS::IoT::SecurityProfile":                                   &iot.SecurityProfile{},
 		"AWS::IoT::Thing":                                             &iot.Thing{},
@@ -855,13 +857,18 @@ func AllResources() map[string]Resource {
 		"AWS::NetworkFirewall::FirewallPolicy":                        &networkfirewall.FirewallPolicy{},
 		"AWS::NetworkFirewall::LoggingConfiguration":                  &networkfirewall.LoggingConfiguration{},
 		"AWS::NetworkFirewall::RuleGroup":                             &networkfirewall.RuleGroup{},
+		"AWS::NetworkManager::ConnectAttachment":                      &networkmanager.ConnectAttachment{},
+		"AWS::NetworkManager::ConnectPeer":                            &networkmanager.ConnectPeer{},
+		"AWS::NetworkManager::CoreNetwork":                            &networkmanager.CoreNetwork{},
 		"AWS::NetworkManager::CustomerGatewayAssociation":             &networkmanager.CustomerGatewayAssociation{},
 		"AWS::NetworkManager::Device":                                 &networkmanager.Device{},
 		"AWS::NetworkManager::GlobalNetwork":                          &networkmanager.GlobalNetwork{},
 		"AWS::NetworkManager::Link":                                   &networkmanager.Link{},
 		"AWS::NetworkManager::LinkAssociation":                        &networkmanager.LinkAssociation{},
 		"AWS::NetworkManager::Site":                                   &networkmanager.Site{},
+		"AWS::NetworkManager::SiteToSiteVpnAttachment":                &networkmanager.SiteToSiteVpnAttachment{},
 		"AWS::NetworkManager::TransitGatewayRegistration":             &networkmanager.TransitGatewayRegistration{},
+		"AWS::NetworkManager::VpcAttachment":                          &networkmanager.VpcAttachment{},
 		"AWS::NimbleStudio::LaunchProfile":                            &nimblestudio.LaunchProfile{},
 		"AWS::NimbleStudio::StreamingImage":                           &nimblestudio.StreamingImage{},
 		"AWS::NimbleStudio::Studio":                                   &nimblestudio.Studio{},
@@ -943,6 +950,7 @@ func AllResources() map[string]Resource {
 		"AWS::RefactorSpaces::Service":                                &refactorspaces.Service{},
 		"AWS::Rekognition::Collection":                                &rekognition.Collection{},
 		"AWS::Rekognition::Project":                                   &rekognition.Project{},
+		"AWS::Rekognition::StreamProcessor":                           &rekognition.StreamProcessor{},
 		"AWS::ResilienceHub::App":                                     &resiliencehub.App{},
 		"AWS::ResilienceHub::ResiliencyPolicy":                        &resiliencehub.ResiliencyPolicy{},
 		"AWS::ResourceGroups::Group":                                  &resourcegroups.Group{},
@@ -1031,6 +1039,7 @@ func AllResources() map[string]Resource {
 		"AWS::SageMaker::Model":                                       &sagemaker.Model{},
 		"AWS::SageMaker::ModelBiasJobDefinition":                      &sagemaker.ModelBiasJobDefinition{},
 		"AWS::SageMaker::ModelExplainabilityJobDefinition":            &sagemaker.ModelExplainabilityJobDefinition{},
+		"AWS::SageMaker::ModelPackage":                                &sagemaker.ModelPackage{},
 		"AWS::SageMaker::ModelPackageGroup":                           &sagemaker.ModelPackageGroup{},
 		"AWS::SageMaker::ModelQualityJobDefinition":                   &sagemaker.ModelQualityJobDefinition{},
 		"AWS::SageMaker::MonitoringSchedule":                          &sagemaker.MonitoringSchedule{},
@@ -1088,6 +1097,7 @@ func AllResources() map[string]Resource {
 		"AWS::Transfer::Server":                                       &transfer.Server{},
 		"AWS::Transfer::User":                                         &transfer.User{},
 		"AWS::Transfer::Workflow":                                     &transfer.Workflow{},
+		"AWS::VoiceID::Domain":                                        &voiceid.Domain{},
 		"AWS::WAF::ByteMatchSet":                                      &waf.ByteMatchSet{},
 		"AWS::WAF::IPSet":                                             &waf.IPSet{},
 		"AWS::WAF::Rule":                                              &waf.Rule{},
@@ -13391,6 +13401,30 @@ func (t *Template) GetIoTResourceSpecificLoggingWithName(name string) (*iot.Reso
 	return nil, fmt.Errorf("resource %q of type iot.ResourceSpecificLogging not found", name)
 }
 
+// GetAllIoTRoleAliasResources retrieves all iot.RoleAlias items from an AWS CloudFormation template
+func (t *Template) GetAllIoTRoleAliasResources() map[string]*iot.RoleAlias {
+	results := map[string]*iot.RoleAlias{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.RoleAlias:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTRoleAliasWithName retrieves all iot.RoleAlias items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTRoleAliasWithName(name string) (*iot.RoleAlias, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.RoleAlias:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.RoleAlias not found", name)
+}
+
 // GetAllIoTScheduledAuditResources retrieves all iot.ScheduledAudit items from an AWS CloudFormation template
 func (t *Template) GetAllIoTScheduledAuditResources() map[string]*iot.ScheduledAudit {
 	results := map[string]*iot.ScheduledAudit{}
@@ -16823,6 +16857,78 @@ func (t *Template) GetNetworkFirewallRuleGroupWithName(name string) (*networkfir
 	return nil, fmt.Errorf("resource %q of type networkfirewall.RuleGroup not found", name)
 }
 
+// GetAllNetworkManagerConnectAttachmentResources retrieves all networkmanager.ConnectAttachment items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkManagerConnectAttachmentResources() map[string]*networkmanager.ConnectAttachment {
+	results := map[string]*networkmanager.ConnectAttachment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkmanager.ConnectAttachment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkManagerConnectAttachmentWithName retrieves all networkmanager.ConnectAttachment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkManagerConnectAttachmentWithName(name string) (*networkmanager.ConnectAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkmanager.ConnectAttachment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkmanager.ConnectAttachment not found", name)
+}
+
+// GetAllNetworkManagerConnectPeerResources retrieves all networkmanager.ConnectPeer items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkManagerConnectPeerResources() map[string]*networkmanager.ConnectPeer {
+	results := map[string]*networkmanager.ConnectPeer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkmanager.ConnectPeer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkManagerConnectPeerWithName retrieves all networkmanager.ConnectPeer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkManagerConnectPeerWithName(name string) (*networkmanager.ConnectPeer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkmanager.ConnectPeer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkmanager.ConnectPeer not found", name)
+}
+
+// GetAllNetworkManagerCoreNetworkResources retrieves all networkmanager.CoreNetwork items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkManagerCoreNetworkResources() map[string]*networkmanager.CoreNetwork {
+	results := map[string]*networkmanager.CoreNetwork{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkmanager.CoreNetwork:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkManagerCoreNetworkWithName retrieves all networkmanager.CoreNetwork items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkManagerCoreNetworkWithName(name string) (*networkmanager.CoreNetwork, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkmanager.CoreNetwork:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkmanager.CoreNetwork not found", name)
+}
+
 // GetAllNetworkManagerCustomerGatewayAssociationResources retrieves all networkmanager.CustomerGatewayAssociation items from an AWS CloudFormation template
 func (t *Template) GetAllNetworkManagerCustomerGatewayAssociationResources() map[string]*networkmanager.CustomerGatewayAssociation {
 	results := map[string]*networkmanager.CustomerGatewayAssociation{}
@@ -16967,6 +17073,30 @@ func (t *Template) GetNetworkManagerSiteWithName(name string) (*networkmanager.S
 	return nil, fmt.Errorf("resource %q of type networkmanager.Site not found", name)
 }
 
+// GetAllNetworkManagerSiteToSiteVpnAttachmentResources retrieves all networkmanager.SiteToSiteVpnAttachment items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkManagerSiteToSiteVpnAttachmentResources() map[string]*networkmanager.SiteToSiteVpnAttachment {
+	results := map[string]*networkmanager.SiteToSiteVpnAttachment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkmanager.SiteToSiteVpnAttachment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkManagerSiteToSiteVpnAttachmentWithName retrieves all networkmanager.SiteToSiteVpnAttachment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkManagerSiteToSiteVpnAttachmentWithName(name string) (*networkmanager.SiteToSiteVpnAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkmanager.SiteToSiteVpnAttachment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkmanager.SiteToSiteVpnAttachment not found", name)
+}
+
 // GetAllNetworkManagerTransitGatewayRegistrationResources retrieves all networkmanager.TransitGatewayRegistration items from an AWS CloudFormation template
 func (t *Template) GetAllNetworkManagerTransitGatewayRegistrationResources() map[string]*networkmanager.TransitGatewayRegistration {
 	results := map[string]*networkmanager.TransitGatewayRegistration{}
@@ -16989,6 +17119,30 @@ func (t *Template) GetNetworkManagerTransitGatewayRegistrationWithName(name stri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type networkmanager.TransitGatewayRegistration not found", name)
+}
+
+// GetAllNetworkManagerVpcAttachmentResources retrieves all networkmanager.VpcAttachment items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkManagerVpcAttachmentResources() map[string]*networkmanager.VpcAttachment {
+	results := map[string]*networkmanager.VpcAttachment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkmanager.VpcAttachment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkManagerVpcAttachmentWithName retrieves all networkmanager.VpcAttachment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkManagerVpcAttachmentWithName(name string) (*networkmanager.VpcAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkmanager.VpcAttachment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkmanager.VpcAttachment not found", name)
 }
 
 // GetAllNimbleStudioLaunchProfileResources retrieves all nimblestudio.LaunchProfile items from an AWS CloudFormation template
@@ -18933,6 +19087,30 @@ func (t *Template) GetRekognitionProjectWithName(name string) (*rekognition.Proj
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type rekognition.Project not found", name)
+}
+
+// GetAllRekognitionStreamProcessorResources retrieves all rekognition.StreamProcessor items from an AWS CloudFormation template
+func (t *Template) GetAllRekognitionStreamProcessorResources() map[string]*rekognition.StreamProcessor {
+	results := map[string]*rekognition.StreamProcessor{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *rekognition.StreamProcessor:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRekognitionStreamProcessorWithName retrieves all rekognition.StreamProcessor items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRekognitionStreamProcessorWithName(name string) (*rekognition.StreamProcessor, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *rekognition.StreamProcessor:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type rekognition.StreamProcessor not found", name)
 }
 
 // GetAllResilienceHubAppResources retrieves all resiliencehub.App items from an AWS CloudFormation template
@@ -21047,6 +21225,30 @@ func (t *Template) GetSageMakerModelExplainabilityJobDefinitionWithName(name str
 	return nil, fmt.Errorf("resource %q of type sagemaker.ModelExplainabilityJobDefinition not found", name)
 }
 
+// GetAllSageMakerModelPackageResources retrieves all sagemaker.ModelPackage items from an AWS CloudFormation template
+func (t *Template) GetAllSageMakerModelPackageResources() map[string]*sagemaker.ModelPackage {
+	results := map[string]*sagemaker.ModelPackage{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sagemaker.ModelPackage:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSageMakerModelPackageWithName retrieves all sagemaker.ModelPackage items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSageMakerModelPackageWithName(name string) (*sagemaker.ModelPackage, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sagemaker.ModelPackage:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sagemaker.ModelPackage not found", name)
+}
+
 // GetAllSageMakerModelPackageGroupResources retrieves all sagemaker.ModelPackageGroup items from an AWS CloudFormation template
 func (t *Template) GetAllSageMakerModelPackageGroupResources() map[string]*sagemaker.ModelPackageGroup {
 	results := map[string]*sagemaker.ModelPackageGroup{}
@@ -22413,6 +22615,30 @@ func (t *Template) GetTransferWorkflowWithName(name string) (*transfer.Workflow,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type transfer.Workflow not found", name)
+}
+
+// GetAllVoiceIDDomainResources retrieves all voiceid.Domain items from an AWS CloudFormation template
+func (t *Template) GetAllVoiceIDDomainResources() map[string]*voiceid.Domain {
+	results := map[string]*voiceid.Domain{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *voiceid.Domain:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVoiceIDDomainWithName retrieves all voiceid.Domain items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVoiceIDDomainWithName(name string) (*voiceid.Domain, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *voiceid.Domain:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type voiceid.Domain not found", name)
 }
 
 // GetAllWAFByteMatchSetResources retrieves all waf.ByteMatchSet items from an AWS CloudFormation template

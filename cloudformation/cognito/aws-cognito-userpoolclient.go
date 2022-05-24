@@ -54,6 +54,11 @@ type UserPoolClient struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-defaultredirecturi
 	DefaultRedirectURI *string `json:"DefaultRedirectURI,omitempty"`
 
+	// EnablePropagateAdditionalUserContextData AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-enablepropagateadditionalusercontextdata
+	EnablePropagateAdditionalUserContextData *bool `json:"EnablePropagateAdditionalUserContextData,omitempty"`
+
 	// EnableTokenRevocation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-enabletokenrevocation
