@@ -10,6 +10,11 @@ import (
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object
 type Api_Auth struct {
 
+	// AddDefaultAuthorizerToCorsPreflight AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object
+	AddDefaultAuthorizerToCorsPreflight *bool `json:"AddDefaultAuthorizerToCorsPreflight,omitempty"`
+
 	// Authorizers AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object

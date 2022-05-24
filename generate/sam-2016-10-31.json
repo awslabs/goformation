@@ -2013,6 +2013,12 @@
                     "Required": false,
                     "PrimitiveType": "Json",
                     "UpdateType": "Immutable"
+                },
+                "AddDefaultAuthorizerToCorsPreflight": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
                 }
             }
         },
