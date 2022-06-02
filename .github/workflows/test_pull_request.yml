@@ -17,22 +17,16 @@ jobs:
           - "1.16"
 
     steps:
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+
       - name: Set up Go ${{ matrix.go }}
         uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go }}
+          check-latest: true
+          cache: true
         id: go
-
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ matrix.go }}-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-${{ matrix.go }}-
 
       - name: Test
         run: go test -race -coverprofile=coverage.txt -covermode=atomic ./...
