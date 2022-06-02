@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [6.4.1](https://github.com/awslabs/goformation/compare/v6.4.0...v6.4.1) (2022-06-02)
+
+
+### Bug Fixes
+
+* **schema:** Add AddDefaultAuthorizerToCorsPreflight to Serverless Auth ([637150c](https://github.com/awslabs/goformation/commit/637150c9f24eec6e4c86be18869340f12dd50763))
+
 # [6.4.0](https://github.com/awslabs/goformation/compare/v6.3.0...v6.4.0) (2022-05-03)
 
 
