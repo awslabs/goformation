@@ -1,5 +1,17 @@
 # GoFormation Versioning Changelog
 
+# [6.5.0](https://github.com/awslabs/goformation/compare/v6.4.1...v6.5.0) (2022-06-14)
+
+
+### Bug Fixes
+
+* **schema:** re-generated schema ([eae0a91](https://github.com/awslabs/goformation/commit/eae0a9138e8e5417bd615bcee6ba02301e813ba2))
+
+
+### Features
+
+* **generator:** add support for new sagemaker properties ([bfd39c4](https://github.com/awslabs/goformation/commit/bfd39c480e6460ef1d1b3cf339ca30d8dd202c92))
+
 ## [6.4.1](https://github.com/awslabs/goformation/compare/v6.4.0...v6.4.1) (2022-06-02)
 
 
