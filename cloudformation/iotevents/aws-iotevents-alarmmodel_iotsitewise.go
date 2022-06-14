@@ -31,9 +31,9 @@ type AlarmModel_IotSiteWise struct {
 	PropertyId *string `json:"PropertyId,omitempty"`
 
 	// PropertyValue AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-propertyvalue
-	PropertyValue *AlarmModel_AssetPropertyValue `json:"PropertyValue"`
+	PropertyValue *AlarmModel_AssetPropertyValue `json:"PropertyValue,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

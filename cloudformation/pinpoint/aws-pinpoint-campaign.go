@@ -29,6 +29,11 @@ type Campaign struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-campaignhook
 	CampaignHook *Campaign_CampaignHook `json:"CampaignHook,omitempty"`
 
+	// CustomDeliveryConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-customdeliveryconfiguration
+	CustomDeliveryConfiguration *Campaign_CustomDeliveryConfiguration `json:"CustomDeliveryConfiguration,omitempty"`
+
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-description
@@ -50,9 +55,9 @@ type Campaign struct {
 	Limits *Campaign_Limits `json:"Limits,omitempty"`
 
 	// MessageConfiguration AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-messageconfiguration
-	MessageConfiguration *Campaign_MessageConfiguration `json:"MessageConfiguration"`
+	MessageConfiguration *Campaign_MessageConfiguration `json:"MessageConfiguration,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -83,6 +88,11 @@ type Campaign struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-tags
 	Tags *interface{} `json:"Tags,omitempty"`
+
+	// TemplateConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-templateconfiguration
+	TemplateConfiguration *Campaign_TemplateConfiguration `json:"TemplateConfiguration,omitempty"`
 
 	// TreatmentDescription AWS CloudFormation Property
 	// Required: false

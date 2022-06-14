@@ -94,6 +94,11 @@ type UserPool struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-smsverificationmessage
 	SmsVerificationMessage *string `json:"SmsVerificationMessage,omitempty"`
 
+	// UserAttributeUpdateSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userattributeupdatesettings
+	UserAttributeUpdateSettings *UserPool_UserAttributeUpdateSettings `json:"UserAttributeUpdateSettings,omitempty"`
+
 	// UserPoolAddOns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooladdons

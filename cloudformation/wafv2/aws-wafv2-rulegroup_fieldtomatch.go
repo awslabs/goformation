@@ -18,7 +18,17 @@ type RuleGroup_FieldToMatch struct {
 	// Body AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
-	Body *interface{} `json:"Body,omitempty"`
+	Body *RuleGroup_Body `json:"Body,omitempty"`
+
+	// Cookies AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-cookies
+	Cookies *RuleGroup_Cookies `json:"Cookies,omitempty"`
+
+	// Headers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-headers
+	Headers *RuleGroup_Headers `json:"Headers,omitempty"`
 
 	// JsonBody AWS CloudFormation Property
 	// Required: false
