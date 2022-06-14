@@ -20,6 +20,11 @@ type DistributionConfiguration_Distribution struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
 	ContainerDistributionConfiguration *DistributionConfiguration_ContainerDistributionConfiguration `json:"ContainerDistributionConfiguration,omitempty"`
 
+	// FastLaunchConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-fastlaunchconfigurations
+	FastLaunchConfigurations *[]DistributionConfiguration_FastLaunchConfiguration `json:"FastLaunchConfigurations,omitempty"`
+
 	// LaunchTemplateConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations

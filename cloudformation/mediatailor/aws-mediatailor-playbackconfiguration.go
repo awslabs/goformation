@@ -43,7 +43,7 @@ type PlaybackConfiguration struct {
 	// DashConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration
-	DashConfiguration *PlaybackConfiguration_DashConfigurationForPut `json:"DashConfiguration,omitempty"`
+	DashConfiguration *PlaybackConfiguration_DashConfiguration `json:"DashConfiguration,omitempty"`
 
 	// LivePreRollConfiguration AWS CloudFormation Property
 	// Required: false
@@ -64,11 +64,6 @@ type PlaybackConfiguration struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-personalizationthresholdseconds
 	PersonalizationThresholdSeconds *int `json:"PersonalizationThresholdSeconds,omitempty"`
-
-	// SessionInitializationEndpointPrefix AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-sessioninitializationendpointprefix
-	SessionInitializationEndpointPrefix *string `json:"SessionInitializationEndpointPrefix,omitempty"`
 
 	// SlateAdUrl AWS CloudFormation Property
 	// Required: false
