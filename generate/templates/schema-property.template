@@ -122,5 +122,9 @@
         {{end}}
     {{end}}
 
+    {{ if and (eq .Property.Type "Tag") (eq .Property.ItemType "Tag") }}
+        "$ref": "#/definitions/Tag"
+    {{end}}
+
 {{end}}
 }

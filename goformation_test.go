@@ -1358,7 +1358,7 @@ var _ = Describe("Goformation", func() {
 			template := cloudformation.NewTemplate()
 
 			template.Resources["Vpc"] = &ec2.VPC{
-				CidrBlock: "192.168.0.0/20",
+				CidrBlock: cloudformation.String("192.168.0.0/20"),
 			}
 
 			template.Outputs["VpcId"] = cloudformation.Output{
