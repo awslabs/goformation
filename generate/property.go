@@ -186,6 +186,22 @@ func (p *Property) UnmarshalJSON(data []byte) error {
 		fmt.Printf("Warning: auto-fixing property that has a map of lists, with no list item type. Assuming the lists contain strings ([]string) for %s\n", p.Documentation)
 	}
 
+	if p.Type == "List" && p.ItemType == "List" && p.PrimitiveItemType == "" {
+		p.PrimitiveItemType = "String"
+		// WORKAROUND: On 2022-06-01, AWS::Rekognition::StreamProcessor published a property
+		// called 'PolygonRegionsOfInterest' which has Type: List, and ItemType: List, with no PrimitiveItemType.
+		// This workaround assumes that it should be a list, containing a list of strings.
+		fmt.Printf("Warning: auto-fixing property that has a list of lists, with no list item type. Assuming the lists contain strings ([]string) for %s\n", p.Documentation)
+	}
+
+	if p.Type == "Tag" && p.ItemType == "" {
+		p.ItemType = "Tag"
+		// WORKAROUND: On 2022-06-01, AWS::Rekognition::ModelPackage published a property
+		// called 'Tag' with no ItemType.
+		// This workaround assumes that it should be a tag.
+		fmt.Printf("Warning: auto-fixing property that is marked as tag but has no tag ItemType for %s\n", p.Documentation)
+	}
+
 	return nil
 
 }
@@ -249,6 +265,13 @@ func (p Property) IsCustomType() bool {
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
 func (p Property) GoType(typename string, basename string, name string) string {
 
+	if p.Type == "Tag" && p.ItemType == "Tag" {
+		// WORKAROUND: On 2022-06-01, AWS::Rekognition::ModelPackage published a property
+		// called 'Tag' with no ItemType.
+		// This workaround assumes that it should be a tag.
+		return "tags.Tag"
+	}
+
 	if p.ItemType == "Tag" {
 		return "[]tags.Tag"
 	}
@@ -259,6 +282,13 @@ func (p Property) GoType(typename string, basename string, name string) string {
 		// This workaround assumes that it should be a map, containing a list of strings.
 		// See also line 158.
 		return "map[string][]string"
+	}
+
+	if p.Type == "List" && p.ItemType == "List" && p.PrimitiveItemType == "String" {
+		// WORKAROUND: On 2022-06-01, AWS::Rekognition::StreamProcessor published a property
+		// called 'PolygonRegionsOfInterest' which has Type: List, and ItemType: List, with no PrimitiveItemType.
+		// This workaround assumes that it should be a list, containing a list of strings.
+		return "[][]string"
 	}
 
 	if p.IsPolymorphic() {
@@ -285,7 +315,6 @@ func (p Property) GoType(typename string, basename string, name string) string {
 		}
 
 		return "[]" + basename + "_" + p.ItemType
-
 	}
 
 	if p.IsCustomType() {
