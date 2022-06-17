@@ -70,6 +70,11 @@ type Stack struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors
 	StorageConnectors *[]Stack_StorageConnector `json:"StorageConnectors,omitempty"`
 
+	// StreamingExperienceSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-streamingexperiencesettings
+	StreamingExperienceSettings *Stack_StreamingExperienceSettings `json:"StreamingExperienceSettings,omitempty"`
+
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-tags

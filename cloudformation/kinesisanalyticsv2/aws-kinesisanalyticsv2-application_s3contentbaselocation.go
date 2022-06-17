@@ -11,9 +11,9 @@ import (
 type Application_S3ContentBaseLocation struct {
 
 	// BasePath AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html#cfn-kinesisanalyticsv2-application-s3contentbaselocation-basepath
-	BasePath string `json:"BasePath"`
+	BasePath *string `json:"BasePath,omitempty"`
 
 	// BucketARN AWS CloudFormation Property
 	// Required: true

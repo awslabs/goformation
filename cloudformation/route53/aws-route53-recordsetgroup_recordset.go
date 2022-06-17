@@ -15,6 +15,11 @@ type RecordSetGroup_RecordSet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-aliastarget
 	AliasTarget *RecordSetGroup_AliasTarget `json:"AliasTarget,omitempty"`
 
+	// CidrRoutingConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-cidrroutingconfig
+	CidrRoutingConfig *RecordSetGroup_CidrRoutingConfig `json:"CidrRoutingConfig,omitempty"`
+
 	// Failover AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-failover

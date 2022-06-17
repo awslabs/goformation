@@ -25,6 +25,11 @@ type EIP struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-instanceid
 	InstanceId *string `json:"InstanceId,omitempty"`
 
+	// NetworkBorderGroup AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-networkbordergroup
+	NetworkBorderGroup *string `json:"NetworkBorderGroup,omitempty"`
+
 	// PublicIpv4Pool AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-publicipv4pool

@@ -964,6 +964,7 @@ func AllResources() map[string]Resource {
 		"AWS::RoboMaker::RobotApplicationVersion":                     &robomaker.RobotApplicationVersion{},
 		"AWS::RoboMaker::SimulationApplication":                       &robomaker.SimulationApplication{},
 		"AWS::RoboMaker::SimulationApplicationVersion":                &robomaker.SimulationApplicationVersion{},
+		"AWS::Route53::CidrCollection":                                &route53.CidrCollection{},
 		"AWS::Route53::DNSSEC":                                        &route53.DNSSEC{},
 		"AWS::Route53::HealthCheck":                                   &route53.HealthCheck{},
 		"AWS::Route53::HostedZone":                                    &route53.HostedZone{},
@@ -19403,6 +19404,30 @@ func (t *Template) GetRoboMakerSimulationApplicationVersionWithName(name string)
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type robomaker.SimulationApplicationVersion not found", name)
+}
+
+// GetAllRoute53CidrCollectionResources retrieves all route53.CidrCollection items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53CidrCollectionResources() map[string]*route53.CidrCollection {
+	results := map[string]*route53.CidrCollection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53.CidrCollection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53CidrCollectionWithName retrieves all route53.CidrCollection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53CidrCollectionWithName(name string) (*route53.CidrCollection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53.CidrCollection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53.CidrCollection not found", name)
 }
 
 // GetAllRoute53DNSSECResources retrieves all route53.DNSSEC items from an AWS CloudFormation template
