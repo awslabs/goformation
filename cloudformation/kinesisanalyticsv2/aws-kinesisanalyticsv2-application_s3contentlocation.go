@@ -11,14 +11,14 @@ import (
 type Application_S3ContentLocation struct {
 
 	// BucketARN AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-bucketarn
-	BucketARN *string `json:"BucketARN,omitempty"`
+	BucketARN string `json:"BucketARN"`
 
 	// FileKey AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-filekey
-	FileKey *string `json:"FileKey,omitempty"`
+	FileKey string `json:"FileKey"`
 
 	// ObjectVersion AWS CloudFormation Property
 	// Required: false
