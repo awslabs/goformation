@@ -15,6 +15,11 @@ type Flow_SourceConnectorProperties struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
 	Amplitude *Flow_AmplitudeSourceProperties `json:"Amplitude,omitempty"`
 
+	// CustomConnector AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-customconnector
+	CustomConnector *Flow_CustomConnectorSourceProperties `json:"CustomConnector,omitempty"`
+
 	// Datadog AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
