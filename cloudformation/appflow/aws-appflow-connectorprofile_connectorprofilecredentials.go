@@ -15,6 +15,11 @@ type ConnectorProfile_ConnectorProfileCredentials struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
 	Amplitude *ConnectorProfile_AmplitudeConnectorProfileCredentials `json:"Amplitude,omitempty"`
 
+	// CustomConnector AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-customconnector
+	CustomConnector *ConnectorProfile_CustomConnectorProfileCredentials `json:"CustomConnector,omitempty"`
+
 	// Datadog AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog

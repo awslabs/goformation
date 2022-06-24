@@ -15,9 +15,9 @@ import (
 type LaunchTemplate struct {
 
 	// LaunchTemplateData AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-launchtemplatedata
-	LaunchTemplateData *LaunchTemplate_LaunchTemplateData `json:"LaunchTemplateData,omitempty"`
+	LaunchTemplateData *LaunchTemplate_LaunchTemplateData `json:"LaunchTemplateData"`
 
 	// LaunchTemplateName AWS CloudFormation Property
 	// Required: false

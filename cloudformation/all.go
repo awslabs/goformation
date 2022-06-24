@@ -53,6 +53,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/cognito"
 	"github.com/awslabs/goformation/v6/cloudformation/config"
 	"github.com/awslabs/goformation/v6/cloudformation/connect"
+	"github.com/awslabs/goformation/v6/cloudformation/connectcampaigns"
 	"github.com/awslabs/goformation/v6/cloudformation/cur"
 	"github.com/awslabs/goformation/v6/cloudformation/customerprofiles"
 	"github.com/awslabs/goformation/v6/cloudformation/databrew"
@@ -156,6 +157,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/ram"
 	"github.com/awslabs/goformation/v6/cloudformation/rds"
 	"github.com/awslabs/goformation/v6/cloudformation/redshift"
+	"github.com/awslabs/goformation/v6/cloudformation/redshiftserverless"
 	"github.com/awslabs/goformation/v6/cloudformation/refactorspaces"
 	"github.com/awslabs/goformation/v6/cloudformation/rekognition"
 	"github.com/awslabs/goformation/v6/cloudformation/resiliencehub"
@@ -358,6 +360,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudFront::RealtimeLogConfig":                          &cloudfront.RealtimeLogConfig{},
 		"AWS::CloudFront::ResponseHeadersPolicy":                      &cloudfront.ResponseHeadersPolicy{},
 		"AWS::CloudFront::StreamingDistribution":                      &cloudfront.StreamingDistribution{},
+		"AWS::CloudTrail::EventDataStore":                             &cloudtrail.EventDataStore{},
 		"AWS::CloudTrail::Trail":                                      &cloudtrail.Trail{},
 		"AWS::CloudWatch::Alarm":                                      &cloudwatch.Alarm{},
 		"AWS::CloudWatch::AnomalyDetector":                            &cloudwatch.AnomalyDetector{},
@@ -412,6 +415,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::TaskTemplate":                                  &connect.TaskTemplate{},
 		"AWS::Connect::User":                                          &connect.User{},
 		"AWS::Connect::UserHierarchyGroup":                            &connect.UserHierarchyGroup{},
+		"AWS::ConnectCampaigns::Campaign":                             &connectcampaigns.Campaign{},
 		"AWS::CustomerProfiles::Domain":                               &customerprofiles.Domain{},
 		"AWS::CustomerProfiles::Integration":                          &customerprofiles.Integration{},
 		"AWS::CustomerProfiles::ObjectType":                           &customerprofiles.ObjectType{},
@@ -704,6 +708,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoT1Click::Project":                                     &iot1click.Project{},
 		"AWS::IoT::AccountAuditConfiguration":                         &iot.AccountAuditConfiguration{},
 		"AWS::IoT::Authorizer":                                        &iot.Authorizer{},
+		"AWS::IoT::CACertificate":                                     &iot.CACertificate{},
 		"AWS::IoT::Certificate":                                       &iot.Certificate{},
 		"AWS::IoT::CustomMetric":                                      &iot.CustomMetric{},
 		"AWS::IoT::Dimension":                                         &iot.Dimension{},
@@ -948,6 +953,7 @@ func AllResources() map[string]Resource {
 		"AWS::Redshift::EndpointAuthorization":                        &redshift.EndpointAuthorization{},
 		"AWS::Redshift::EventSubscription":                            &redshift.EventSubscription{},
 		"AWS::Redshift::ScheduledAction":                              &redshift.ScheduledAction{},
+		"AWS::RedshiftServerless::Namespace":                          &redshiftserverless.Namespace{},
 		"AWS::RefactorSpaces::Application":                            &refactorspaces.Application{},
 		"AWS::RefactorSpaces::Environment":                            &refactorspaces.Environment{},
 		"AWS::RefactorSpaces::Route":                                  &refactorspaces.Route{},
@@ -4862,6 +4868,30 @@ func (t *Template) GetCloudFrontStreamingDistributionWithName(name string) (*clo
 	return nil, fmt.Errorf("resource %q of type cloudfront.StreamingDistribution not found", name)
 }
 
+// GetAllCloudTrailEventDataStoreResources retrieves all cloudtrail.EventDataStore items from an AWS CloudFormation template
+func (t *Template) GetAllCloudTrailEventDataStoreResources() map[string]*cloudtrail.EventDataStore {
+	results := map[string]*cloudtrail.EventDataStore{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudtrail.EventDataStore:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudTrailEventDataStoreWithName retrieves all cloudtrail.EventDataStore items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudTrailEventDataStoreWithName(name string) (*cloudtrail.EventDataStore, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudtrail.EventDataStore:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudtrail.EventDataStore not found", name)
+}
+
 // GetAllCloudTrailTrailResources retrieves all cloudtrail.Trail items from an AWS CloudFormation template
 func (t *Template) GetAllCloudTrailTrailResources() map[string]*cloudtrail.Trail {
 	results := map[string]*cloudtrail.Trail{}
@@ -6156,6 +6186,30 @@ func (t *Template) GetConnectUserHierarchyGroupWithName(name string) (*connect.U
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.UserHierarchyGroup not found", name)
+}
+
+// GetAllConnectCampaignsCampaignResources retrieves all connectcampaigns.Campaign items from an AWS CloudFormation template
+func (t *Template) GetAllConnectCampaignsCampaignResources() map[string]*connectcampaigns.Campaign {
+	results := map[string]*connectcampaigns.Campaign{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connectcampaigns.Campaign:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectCampaignsCampaignWithName retrieves all connectcampaigns.Campaign items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectCampaignsCampaignWithName(name string) (*connectcampaigns.Campaign, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connectcampaigns.Campaign:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connectcampaigns.Campaign not found", name)
 }
 
 // GetAllCustomerProfilesDomainResources retrieves all customerprofiles.Domain items from an AWS CloudFormation template
@@ -13166,6 +13220,30 @@ func (t *Template) GetIoTAuthorizerWithName(name string) (*iot.Authorizer, error
 	return nil, fmt.Errorf("resource %q of type iot.Authorizer not found", name)
 }
 
+// GetAllIoTCACertificateResources retrieves all iot.CACertificate items from an AWS CloudFormation template
+func (t *Template) GetAllIoTCACertificateResources() map[string]*iot.CACertificate {
+	results := map[string]*iot.CACertificate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.CACertificate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTCACertificateWithName retrieves all iot.CACertificate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTCACertificateWithName(name string) (*iot.CACertificate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.CACertificate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.CACertificate not found", name)
+}
+
 // GetAllIoTCertificateResources retrieves all iot.Certificate items from an AWS CloudFormation template
 func (t *Template) GetAllIoTCertificateResources() map[string]*iot.Certificate {
 	results := map[string]*iot.Certificate{}
@@ -19020,6 +19098,30 @@ func (t *Template) GetRedshiftScheduledActionWithName(name string) (*redshift.Sc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type redshift.ScheduledAction not found", name)
+}
+
+// GetAllRedshiftServerlessNamespaceResources retrieves all redshiftserverless.Namespace items from an AWS CloudFormation template
+func (t *Template) GetAllRedshiftServerlessNamespaceResources() map[string]*redshiftserverless.Namespace {
+	results := map[string]*redshiftserverless.Namespace{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *redshiftserverless.Namespace:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRedshiftServerlessNamespaceWithName retrieves all redshiftserverless.Namespace items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRedshiftServerlessNamespaceWithName(name string) (*redshiftserverless.Namespace, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *redshiftserverless.Namespace:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type redshiftserverless.Namespace not found", name)
 }
 
 // GetAllRefactorSpacesApplicationResources retrieves all refactorspaces.Application items from an AWS CloudFormation template
