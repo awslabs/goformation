@@ -439,6 +439,7 @@ func AllResources() map[string]Resource {
 		"AWS::DataSync::Agent":                                        &datasync.Agent{},
 		"AWS::DataSync::LocationEFS":                                  &datasync.LocationEFS{},
 		"AWS::DataSync::LocationFSxLustre":                            &datasync.LocationFSxLustre{},
+		"AWS::DataSync::LocationFSxONTAP":                             &datasync.LocationFSxONTAP{},
 		"AWS::DataSync::LocationFSxOpenZFS":                           &datasync.LocationFSxOpenZFS{},
 		"AWS::DataSync::LocationFSxWindows":                           &datasync.LocationFSxWindows{},
 		"AWS::DataSync::LocationHDFS":                                 &datasync.LocationHDFS{},
@@ -778,9 +779,13 @@ func AllResources() map[string]Resource {
 		"AWS::KinesisFirehose::DeliveryStream":                        &kinesisfirehose.DeliveryStream{},
 		"AWS::KinesisVideo::SignalingChannel":                         &kinesisvideo.SignalingChannel{},
 		"AWS::KinesisVideo::Stream":                                   &kinesisvideo.Stream{},
+		"AWS::LakeFormation::DataCellsFilter":                         &lakeformation.DataCellsFilter{},
 		"AWS::LakeFormation::DataLakeSettings":                        &lakeformation.DataLakeSettings{},
 		"AWS::LakeFormation::Permissions":                             &lakeformation.Permissions{},
+		"AWS::LakeFormation::PrincipalPermissions":                    &lakeformation.PrincipalPermissions{},
 		"AWS::LakeFormation::Resource":                                &lakeformation.Resource{},
+		"AWS::LakeFormation::Tag":                                     &lakeformation.Tag{},
+		"AWS::LakeFormation::TagAssociation":                          &lakeformation.TagAssociation{},
 		"AWS::Lambda::Alias":                                          &lambda.Alias{},
 		"AWS::Lambda::CodeSigningConfig":                              &lambda.CodeSigningConfig{},
 		"AWS::Lambda::EventInvokeConfig":                              &lambda.EventInvokeConfig{},
@@ -1011,6 +1016,8 @@ func AllResources() map[string]Resource {
 		"AWS::SES::ConfigurationSet":                                  &ses.ConfigurationSet{},
 		"AWS::SES::ConfigurationSetEventDestination":                  &ses.ConfigurationSetEventDestination{},
 		"AWS::SES::ContactList":                                       &ses.ContactList{},
+		"AWS::SES::DedicatedIpPool":                                   &ses.DedicatedIpPool{},
+		"AWS::SES::EmailIdentity":                                     &ses.EmailIdentity{},
 		"AWS::SES::ReceiptFilter":                                     &ses.ReceiptFilter{},
 		"AWS::SES::ReceiptRule":                                       &ses.ReceiptRule{},
 		"AWS::SES::ReceiptRuleSet":                                    &ses.ReceiptRuleSet{},
@@ -6762,6 +6769,30 @@ func (t *Template) GetDataSyncLocationFSxLustreWithName(name string) (*datasync.
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type datasync.LocationFSxLustre not found", name)
+}
+
+// GetAllDataSyncLocationFSxONTAPResources retrieves all datasync.LocationFSxONTAP items from an AWS CloudFormation template
+func (t *Template) GetAllDataSyncLocationFSxONTAPResources() map[string]*datasync.LocationFSxONTAP {
+	results := map[string]*datasync.LocationFSxONTAP{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datasync.LocationFSxONTAP:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataSyncLocationFSxONTAPWithName retrieves all datasync.LocationFSxONTAP items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataSyncLocationFSxONTAPWithName(name string) (*datasync.LocationFSxONTAP, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datasync.LocationFSxONTAP:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datasync.LocationFSxONTAP not found", name)
 }
 
 // GetAllDataSyncLocationFSxOpenZFSResources retrieves all datasync.LocationFSxOpenZFS items from an AWS CloudFormation template
@@ -14900,6 +14931,30 @@ func (t *Template) GetKinesisVideoStreamWithName(name string) (*kinesisvideo.Str
 	return nil, fmt.Errorf("resource %q of type kinesisvideo.Stream not found", name)
 }
 
+// GetAllLakeFormationDataCellsFilterResources retrieves all lakeformation.DataCellsFilter items from an AWS CloudFormation template
+func (t *Template) GetAllLakeFormationDataCellsFilterResources() map[string]*lakeformation.DataCellsFilter {
+	results := map[string]*lakeformation.DataCellsFilter{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lakeformation.DataCellsFilter:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLakeFormationDataCellsFilterWithName retrieves all lakeformation.DataCellsFilter items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLakeFormationDataCellsFilterWithName(name string) (*lakeformation.DataCellsFilter, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lakeformation.DataCellsFilter:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lakeformation.DataCellsFilter not found", name)
+}
+
 // GetAllLakeFormationDataLakeSettingsResources retrieves all lakeformation.DataLakeSettings items from an AWS CloudFormation template
 func (t *Template) GetAllLakeFormationDataLakeSettingsResources() map[string]*lakeformation.DataLakeSettings {
 	results := map[string]*lakeformation.DataLakeSettings{}
@@ -14948,6 +15003,30 @@ func (t *Template) GetLakeFormationPermissionsWithName(name string) (*lakeformat
 	return nil, fmt.Errorf("resource %q of type lakeformation.Permissions not found", name)
 }
 
+// GetAllLakeFormationPrincipalPermissionsResources retrieves all lakeformation.PrincipalPermissions items from an AWS CloudFormation template
+func (t *Template) GetAllLakeFormationPrincipalPermissionsResources() map[string]*lakeformation.PrincipalPermissions {
+	results := map[string]*lakeformation.PrincipalPermissions{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lakeformation.PrincipalPermissions:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLakeFormationPrincipalPermissionsWithName retrieves all lakeformation.PrincipalPermissions items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLakeFormationPrincipalPermissionsWithName(name string) (*lakeformation.PrincipalPermissions, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lakeformation.PrincipalPermissions:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lakeformation.PrincipalPermissions not found", name)
+}
+
 // GetAllLakeFormationResourceResources retrieves all lakeformation.Resource items from an AWS CloudFormation template
 func (t *Template) GetAllLakeFormationResourceResources() map[string]*lakeformation.Resource {
 	results := map[string]*lakeformation.Resource{}
@@ -14970,6 +15049,54 @@ func (t *Template) GetLakeFormationResourceWithName(name string) (*lakeformation
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type lakeformation.Resource not found", name)
+}
+
+// GetAllLakeFormationTagResources retrieves all lakeformation.Tag items from an AWS CloudFormation template
+func (t *Template) GetAllLakeFormationTagResources() map[string]*lakeformation.Tag {
+	results := map[string]*lakeformation.Tag{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lakeformation.Tag:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLakeFormationTagWithName retrieves all lakeformation.Tag items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLakeFormationTagWithName(name string) (*lakeformation.Tag, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lakeformation.Tag:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lakeformation.Tag not found", name)
+}
+
+// GetAllLakeFormationTagAssociationResources retrieves all lakeformation.TagAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllLakeFormationTagAssociationResources() map[string]*lakeformation.TagAssociation {
+	results := map[string]*lakeformation.TagAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *lakeformation.TagAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLakeFormationTagAssociationWithName retrieves all lakeformation.TagAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLakeFormationTagAssociationWithName(name string) (*lakeformation.TagAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *lakeformation.TagAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type lakeformation.TagAssociation not found", name)
 }
 
 // GetAllLambdaAliasResources retrieves all lambda.Alias items from an AWS CloudFormation template
@@ -20490,6 +20617,54 @@ func (t *Template) GetSESContactListWithName(name string) (*ses.ContactList, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ses.ContactList not found", name)
+}
+
+// GetAllSESDedicatedIpPoolResources retrieves all ses.DedicatedIpPool items from an AWS CloudFormation template
+func (t *Template) GetAllSESDedicatedIpPoolResources() map[string]*ses.DedicatedIpPool {
+	results := map[string]*ses.DedicatedIpPool{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.DedicatedIpPool:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESDedicatedIpPoolWithName retrieves all ses.DedicatedIpPool items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESDedicatedIpPoolWithName(name string) (*ses.DedicatedIpPool, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.DedicatedIpPool:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.DedicatedIpPool not found", name)
+}
+
+// GetAllSESEmailIdentityResources retrieves all ses.EmailIdentity items from an AWS CloudFormation template
+func (t *Template) GetAllSESEmailIdentityResources() map[string]*ses.EmailIdentity {
+	results := map[string]*ses.EmailIdentity{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.EmailIdentity:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESEmailIdentityWithName retrieves all ses.EmailIdentity items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESEmailIdentityWithName(name string) (*ses.EmailIdentity, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.EmailIdentity:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.EmailIdentity not found", name)
 }
 
 // GetAllSESReceiptFilterResources retrieves all ses.ReceiptFilter items from an AWS CloudFormation template
