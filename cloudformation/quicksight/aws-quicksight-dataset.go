@@ -35,6 +35,11 @@ type DataSet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
 	DataSetId *string `json:"DataSetId,omitempty"`
 
+	// DataSetUsageConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetusageconfiguration
+	DataSetUsageConfiguration *DataSet_DataSetUsageConfiguration `json:"DataSetUsageConfiguration,omitempty"`
+
 	// FieldFolders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders

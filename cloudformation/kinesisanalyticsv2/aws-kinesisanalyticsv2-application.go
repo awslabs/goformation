@@ -25,6 +25,11 @@ type Application struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
 	ApplicationDescription *string `json:"ApplicationDescription,omitempty"`
 
+	// ApplicationMaintenanceConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmaintenanceconfiguration
+	ApplicationMaintenanceConfiguration *Application_ApplicationMaintenanceConfiguration `json:"ApplicationMaintenanceConfiguration,omitempty"`
+
 	// ApplicationMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmode
@@ -34,6 +39,11 @@ type Application struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationname
 	ApplicationName *string `json:"ApplicationName,omitempty"`
+
+	// RunConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runconfiguration
+	RunConfiguration *Application_RunConfiguration `json:"RunConfiguration,omitempty"`
 
 	// RuntimeEnvironment AWS CloudFormation Property
 	// Required: true
