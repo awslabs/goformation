@@ -163,6 +163,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/resiliencehub"
 	"github.com/awslabs/goformation/v6/cloudformation/resourcegroups"
 	"github.com/awslabs/goformation/v6/cloudformation/robomaker"
+	"github.com/awslabs/goformation/v6/cloudformation/rolesanywhere"
 	"github.com/awslabs/goformation/v6/cloudformation/route53"
 	"github.com/awslabs/goformation/v6/cloudformation/route53recoverycontrol"
 	"github.com/awslabs/goformation/v6/cloudformation/route53recoveryreadiness"
@@ -959,6 +960,7 @@ func AllResources() map[string]Resource {
 		"AWS::Redshift::EventSubscription":                            &redshift.EventSubscription{},
 		"AWS::Redshift::ScheduledAction":                              &redshift.ScheduledAction{},
 		"AWS::RedshiftServerless::Namespace":                          &redshiftserverless.Namespace{},
+		"AWS::RedshiftServerless::Workgroup":                          &redshiftserverless.Workgroup{},
 		"AWS::RefactorSpaces::Application":                            &refactorspaces.Application{},
 		"AWS::RefactorSpaces::Environment":                            &refactorspaces.Environment{},
 		"AWS::RefactorSpaces::Route":                                  &refactorspaces.Route{},
@@ -975,6 +977,8 @@ func AllResources() map[string]Resource {
 		"AWS::RoboMaker::RobotApplicationVersion":                     &robomaker.RobotApplicationVersion{},
 		"AWS::RoboMaker::SimulationApplication":                       &robomaker.SimulationApplication{},
 		"AWS::RoboMaker::SimulationApplicationVersion":                &robomaker.SimulationApplicationVersion{},
+		"AWS::RolesAnywhere::Profile":                                 &rolesanywhere.Profile{},
+		"AWS::RolesAnywhere::TrustAnchor":                             &rolesanywhere.TrustAnchor{},
 		"AWS::Route53::CidrCollection":                                &route53.CidrCollection{},
 		"AWS::Route53::DNSSEC":                                        &route53.DNSSEC{},
 		"AWS::Route53::HealthCheck":                                   &route53.HealthCheck{},
@@ -19251,6 +19255,30 @@ func (t *Template) GetRedshiftServerlessNamespaceWithName(name string) (*redshif
 	return nil, fmt.Errorf("resource %q of type redshiftserverless.Namespace not found", name)
 }
 
+// GetAllRedshiftServerlessWorkgroupResources retrieves all redshiftserverless.Workgroup items from an AWS CloudFormation template
+func (t *Template) GetAllRedshiftServerlessWorkgroupResources() map[string]*redshiftserverless.Workgroup {
+	results := map[string]*redshiftserverless.Workgroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *redshiftserverless.Workgroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRedshiftServerlessWorkgroupWithName retrieves all redshiftserverless.Workgroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRedshiftServerlessWorkgroupWithName(name string) (*redshiftserverless.Workgroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *redshiftserverless.Workgroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type redshiftserverless.Workgroup not found", name)
+}
+
 // GetAllRefactorSpacesApplicationResources retrieves all refactorspaces.Application items from an AWS CloudFormation template
 func (t *Template) GetAllRefactorSpacesApplicationResources() map[string]*refactorspaces.Application {
 	results := map[string]*refactorspaces.Application{}
@@ -19633,6 +19661,54 @@ func (t *Template) GetRoboMakerSimulationApplicationVersionWithName(name string)
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type robomaker.SimulationApplicationVersion not found", name)
+}
+
+// GetAllRolesAnywhereProfileResources retrieves all rolesanywhere.Profile items from an AWS CloudFormation template
+func (t *Template) GetAllRolesAnywhereProfileResources() map[string]*rolesanywhere.Profile {
+	results := map[string]*rolesanywhere.Profile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *rolesanywhere.Profile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRolesAnywhereProfileWithName retrieves all rolesanywhere.Profile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRolesAnywhereProfileWithName(name string) (*rolesanywhere.Profile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *rolesanywhere.Profile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type rolesanywhere.Profile not found", name)
+}
+
+// GetAllRolesAnywhereTrustAnchorResources retrieves all rolesanywhere.TrustAnchor items from an AWS CloudFormation template
+func (t *Template) GetAllRolesAnywhereTrustAnchorResources() map[string]*rolesanywhere.TrustAnchor {
+	results := map[string]*rolesanywhere.TrustAnchor{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *rolesanywhere.TrustAnchor:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRolesAnywhereTrustAnchorWithName retrieves all rolesanywhere.TrustAnchor items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRolesAnywhereTrustAnchorWithName(name string) (*rolesanywhere.TrustAnchor, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *rolesanywhere.TrustAnchor:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type rolesanywhere.TrustAnchor not found", name)
 }
 
 // GetAllRoute53CidrCollectionResources retrieves all route53.CidrCollection items from an AWS CloudFormation template

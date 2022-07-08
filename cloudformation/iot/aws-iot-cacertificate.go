@@ -21,9 +21,14 @@ type CACertificate struct {
 	AutoRegistrationStatus *string `json:"AutoRegistrationStatus,omitempty"`
 
 	// CACertificatePem AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-cacertificatepem
-	CACertificatePem *string `json:"CACertificatePem,omitempty"`
+	CACertificatePem string `json:"CACertificatePem"`
+
+	// CertificateMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-certificatemode
+	CertificateMode *string `json:"CertificateMode,omitempty"`
 
 	// RegistrationConfig AWS CloudFormation Property
 	// Required: false
