@@ -4,6 +4,7 @@ package ssmincidents
 
 import (
 	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/tags"
 )
 
 // ResponsePlan_IncidentTemplate AWS CloudFormation Resource (AWS::SSMIncidents::ResponsePlan.IncidentTemplate)
@@ -19,6 +20,11 @@ type ResponsePlan_IncidentTemplate struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
 	Impact int `json:"Impact"`
+
+	// IncidentTags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-incidenttags
+	IncidentTags *[]tags.Tag `json:"IncidentTags,omitempty"`
 
 	// NotificationTargets AWS CloudFormation Property
 	// Required: false
