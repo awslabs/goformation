@@ -1,5 +1,18 @@
 # GoFormation Versioning Changelog
 
+# [6.6.0](https://github.com/awslabs/goformation/compare/v6.5.4...v6.6.0) (2022-07-12)
+
+
+### Bug Fixes
+
+* **intrinsics:** split function ([286dd4c](https://github.com/awslabs/goformation/commit/286dd4c339fe9c64e31eb14d8eb621fad205fa7a))
+* **intrinsics:** SplitPtr also as string ([86436f5](https://github.com/awslabs/goformation/commit/86436f5474683881db0e8906e8e62ce079e68208))
+
+
+### Features
+
+* **intrinsics:** add intrinsics ptr versions ([ffdc5af](https://github.com/awslabs/goformation/commit/ffdc5af445f9a055831ad1130000a343799f51b1))
+
 ## [6.5.4](https://github.com/awslabs/goformation/compare/v6.5.3...v6.5.4) (2022-07-08)
 
 
