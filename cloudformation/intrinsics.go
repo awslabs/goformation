@@ -196,8 +196,8 @@ func Split(delimiter, source interface{}) string {
 	return encode(fmt.Sprintf(`{ "Fn::Split" : [ %q, %q ] }`, delimiter, source))
 }
 
-func SplitPtr(delimiter, source interface{}) *[]string {
-	return Strings(Split(delimiter, source))
+func SplitPtr(delimiter, source interface{}) *string {
+	return String(Split(delimiter, source))
 }
 
 // Equals compares if two values are equal. Returns true if the two values are equal or false if they aren't.
