@@ -11,9 +11,14 @@ import (
 type Workteam_MemberDefinition struct {
 
 	// CognitoMemberDefinition AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-cognitomemberdefinition
-	CognitoMemberDefinition *Workteam_CognitoMemberDefinition `json:"CognitoMemberDefinition"`
+	CognitoMemberDefinition *Workteam_CognitoMemberDefinition `json:"CognitoMemberDefinition,omitempty"`
+
+	// OidcMemberDefinition AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-oidcmemberdefinition
+	OidcMemberDefinition *Workteam_OidcMemberDefinition `json:"OidcMemberDefinition,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
