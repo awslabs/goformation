@@ -977,6 +977,7 @@ func AllResources() map[string]Resource {
 		"AWS::RoboMaker::RobotApplicationVersion":                     &robomaker.RobotApplicationVersion{},
 		"AWS::RoboMaker::SimulationApplication":                       &robomaker.SimulationApplication{},
 		"AWS::RoboMaker::SimulationApplicationVersion":                &robomaker.SimulationApplicationVersion{},
+		"AWS::RolesAnywhere::CRL":                                     &rolesanywhere.CRL{},
 		"AWS::RolesAnywhere::Profile":                                 &rolesanywhere.Profile{},
 		"AWS::RolesAnywhere::TrustAnchor":                             &rolesanywhere.TrustAnchor{},
 		"AWS::Route53::CidrCollection":                                &route53.CidrCollection{},
@@ -19661,6 +19662,30 @@ func (t *Template) GetRoboMakerSimulationApplicationVersionWithName(name string)
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type robomaker.SimulationApplicationVersion not found", name)
+}
+
+// GetAllRolesAnywhereCRLResources retrieves all rolesanywhere.CRL items from an AWS CloudFormation template
+func (t *Template) GetAllRolesAnywhereCRLResources() map[string]*rolesanywhere.CRL {
+	results := map[string]*rolesanywhere.CRL{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *rolesanywhere.CRL:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRolesAnywhereCRLWithName retrieves all rolesanywhere.CRL items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRolesAnywhereCRLWithName(name string) (*rolesanywhere.CRL, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *rolesanywhere.CRL:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type rolesanywhere.CRL not found", name)
 }
 
 // GetAllRolesAnywhereProfileResources retrieves all rolesanywhere.Profile items from an AWS CloudFormation template

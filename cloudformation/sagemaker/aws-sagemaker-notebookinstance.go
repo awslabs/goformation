@@ -35,6 +35,11 @@ type NotebookInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-directinternetaccess
 	DirectInternetAccess *string `json:"DirectInternetAccess,omitempty"`
 
+	// InstanceMetadataServiceConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-instancemetadataserviceconfiguration
+	InstanceMetadataServiceConfiguration *NotebookInstance_InstanceMetadataServiceConfiguration `json:"InstanceMetadataServiceConfiguration,omitempty"`
+
 	// InstanceType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-instancetype
