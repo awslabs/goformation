@@ -45,6 +45,11 @@ type Experiment struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-randomizationsalt
 	RandomizationSalt *string `json:"RandomizationSalt,omitempty"`
 
+	// RemoveSegment AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-removesegment
+	RemoveSegment *bool `json:"RemoveSegment,omitempty"`
+
 	// RunningStatus AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-runningstatus
@@ -54,6 +59,11 @@ type Experiment struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-samplingrate
 	SamplingRate *int `json:"SamplingRate,omitempty"`
+
+	// Segment AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-segment
+	Segment *string `json:"Segment,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
