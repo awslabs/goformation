@@ -10,10 +10,25 @@ import (
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
 type Function_ScheduleEvent struct {
 
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+	Description *string `json:"Description,omitempty"`
+
+	// Enabled AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+	Enabled *bool `json:"Enabled,omitempty"`
+
 	// Input AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
 	Input *string `json:"Input,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+	Name *string `json:"Name,omitempty"`
 
 	// Schedule AWS CloudFormation Property
 	// Required: true
