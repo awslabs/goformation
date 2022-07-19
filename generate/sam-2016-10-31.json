@@ -1242,6 +1242,24 @@
                     "Required": false,
                     "PrimitiveType": "String",
                     "UpdateType": "Immutable"
+                },
+                "Name": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Description": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Enabled": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
                 }
             }
         },
@@ -1421,7 +1439,7 @@
                 "Version": {
                     "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
                     "PrimitiveType": "String",
-                    "Required": true,
+                    "Required": false,
                     "UpdateType": "Immutable"
                 }
             }
