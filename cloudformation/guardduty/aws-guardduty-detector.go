@@ -8,6 +8,7 @@ import (
 	"fmt"
 
 	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v6/cloudformation/tags"
 )
 
 // Detector AWS CloudFormation Resource (AWS::GuardDuty::Detector)
@@ -28,6 +29,11 @@ type Detector struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
 	FindingPublishingFrequency *string `json:"FindingPublishingFrequency,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-tags
+	Tags *[]tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

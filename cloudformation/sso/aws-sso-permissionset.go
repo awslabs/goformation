@@ -15,6 +15,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
 type PermissionSet struct {
 
+	// CustomerManagedPolicyReferences AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-customermanagedpolicyreferences
+	CustomerManagedPolicyReferences *[]PermissionSet_CustomerManagedPolicyReference `json:"CustomerManagedPolicyReferences,omitempty"`
+
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
@@ -39,6 +44,11 @@ type PermissionSet struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
 	Name string `json:"Name"`
+
+	// PermissionsBoundary AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary
+	PermissionsBoundary *PermissionSet_PermissionsBoundary `json:"PermissionsBoundary,omitempty"`
 
 	// RelayStateType AWS CloudFormation Property
 	// Required: false
