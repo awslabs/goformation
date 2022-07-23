@@ -41,9 +41,9 @@ type Distribution_DistributionConfig struct {
 	CustomOrigin *Distribution_LegacyCustomOrigin `json:"CustomOrigin,omitempty"`
 
 	// DefaultCacheBehavior AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
-	DefaultCacheBehavior *Distribution_DefaultCacheBehavior `json:"DefaultCacheBehavior,omitempty"`
+	DefaultCacheBehavior *Distribution_DefaultCacheBehavior `json:"DefaultCacheBehavior"`
 
 	// DefaultRootObject AWS CloudFormation Property
 	// Required: false

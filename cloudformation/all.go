@@ -606,6 +606,7 @@ func AllResources() map[string]Resource {
 		"AWS::Evidently::Feature":                                     &evidently.Feature{},
 		"AWS::Evidently::Launch":                                      &evidently.Launch{},
 		"AWS::Evidently::Project":                                     &evidently.Project{},
+		"AWS::Evidently::Segment":                                     &evidently.Segment{},
 		"AWS::FIS::ExperimentTemplate":                                &fis.ExperimentTemplate{},
 		"AWS::FMS::NotificationChannel":                               &fms.NotificationChannel{},
 		"AWS::FMS::Policy":                                            &fms.Policy{},
@@ -10758,6 +10759,30 @@ func (t *Template) GetEvidentlyProjectWithName(name string) (*evidently.Project,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type evidently.Project not found", name)
+}
+
+// GetAllEvidentlySegmentResources retrieves all evidently.Segment items from an AWS CloudFormation template
+func (t *Template) GetAllEvidentlySegmentResources() map[string]*evidently.Segment {
+	results := map[string]*evidently.Segment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *evidently.Segment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEvidentlySegmentWithName retrieves all evidently.Segment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEvidentlySegmentWithName(name string) (*evidently.Segment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *evidently.Segment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type evidently.Segment not found", name)
 }
 
 // GetAllFISExperimentTemplateResources retrieves all fis.ExperimentTemplate items from an AWS CloudFormation template

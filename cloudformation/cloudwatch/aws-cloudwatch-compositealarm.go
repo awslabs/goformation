@@ -19,6 +19,21 @@ type CompositeAlarm struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
 	ActionsEnabled *bool `json:"ActionsEnabled,omitempty"`
 
+	// ActionsSuppressor AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionssuppressor
+	ActionsSuppressor *string `json:"ActionsSuppressor,omitempty"`
+
+	// ActionsSuppressorExtensionPeriod AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionssuppressorextensionperiod
+	ActionsSuppressorExtensionPeriod *int `json:"ActionsSuppressorExtensionPeriod,omitempty"`
+
+	// ActionsSuppressorWaitPeriod AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionssuppressorwaitperiod
+	ActionsSuppressorWaitPeriod *int `json:"ActionsSuppressorWaitPeriod,omitempty"`
+
 	// AlarmActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
