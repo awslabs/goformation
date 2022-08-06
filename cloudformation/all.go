@@ -1115,6 +1115,7 @@ func AllResources() map[string]Resource {
 		"AWS::StepFunctions::Activity":                                &stepfunctions.Activity{},
 		"AWS::StepFunctions::StateMachine":                            &stepfunctions.StateMachine{},
 		"AWS::Synthetics::Canary":                                     &synthetics.Canary{},
+		"AWS::Synthetics::Group":                                      &synthetics.Group{},
 		"AWS::Timestream::Database":                                   &timestream.Database{},
 		"AWS::Timestream::ScheduledQuery":                             &timestream.ScheduledQuery{},
 		"AWS::Timestream::Table":                                      &timestream.Table{},
@@ -22975,6 +22976,30 @@ func (t *Template) GetSyntheticsCanaryWithName(name string) (*synthetics.Canary,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type synthetics.Canary not found", name)
+}
+
+// GetAllSyntheticsGroupResources retrieves all synthetics.Group items from an AWS CloudFormation template
+func (t *Template) GetAllSyntheticsGroupResources() map[string]*synthetics.Group {
+	results := map[string]*synthetics.Group{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *synthetics.Group:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSyntheticsGroupWithName retrieves all synthetics.Group items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSyntheticsGroupWithName(name string) (*synthetics.Group, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *synthetics.Group:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type synthetics.Group not found", name)
 }
 
 // GetAllTimestreamDatabaseResources retrieves all timestream.Database items from an AWS CloudFormation template

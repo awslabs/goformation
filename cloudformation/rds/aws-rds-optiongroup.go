@@ -26,9 +26,9 @@ type OptionGroup struct {
 	MajorEngineVersion string `json:"MajorEngineVersion"`
 
 	// OptionConfigurations AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optionconfigurations
-	OptionConfigurations []OptionGroup_OptionConfiguration `json:"OptionConfigurations"`
+	OptionConfigurations *[]OptionGroup_OptionConfiguration `json:"OptionConfigurations,omitempty"`
 
 	// OptionGroupDescription AWS CloudFormation Property
 	// Required: true

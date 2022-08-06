@@ -33,7 +33,7 @@ type CACertificate struct {
 	// RegistrationConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-registrationconfig
-	RegistrationConfig *interface{} `json:"RegistrationConfig,omitempty"`
+	RegistrationConfig *CACertificate_RegistrationConfig `json:"RegistrationConfig,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: true
