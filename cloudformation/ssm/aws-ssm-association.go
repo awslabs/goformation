@@ -161,7 +161,6 @@ func (r *Association) UnmarshalJSON(b []byte) error {
 	dec.DisallowUnknownFields() // Force error if unknown field is found
 
 	if err := dec.Decode(&res); err != nil {
-		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
 
