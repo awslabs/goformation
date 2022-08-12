@@ -67,7 +67,7 @@ type Policy struct {
 	// SecurityServicePolicyData AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
-	SecurityServicePolicyData interface{} `json:"SecurityServicePolicyData"`
+	SecurityServicePolicyData *Policy_SecurityServicePolicyData `json:"SecurityServicePolicyData"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

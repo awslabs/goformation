@@ -835,6 +835,7 @@ func AllResources() map[string]Resource {
 		"AWS::MSK::BatchScramSecret":                                  &msk.BatchScramSecret{},
 		"AWS::MSK::Cluster":                                           &msk.Cluster{},
 		"AWS::MSK::Configuration":                                     &msk.Configuration{},
+		"AWS::MSK::ServerlessCluster":                                 &msk.ServerlessCluster{},
 		"AWS::MWAA::Environment":                                      &mwaa.Environment{},
 		"AWS::Macie::CustomDataIdentifier":                            &macie.CustomDataIdentifier{},
 		"AWS::Macie::FindingsFilter":                                  &macie.FindingsFilter{},
@@ -16256,6 +16257,30 @@ func (t *Template) GetMSKConfigurationWithName(name string) (*msk.Configuration,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type msk.Configuration not found", name)
+}
+
+// GetAllMSKServerlessClusterResources retrieves all msk.ServerlessCluster items from an AWS CloudFormation template
+func (t *Template) GetAllMSKServerlessClusterResources() map[string]*msk.ServerlessCluster {
+	results := map[string]*msk.ServerlessCluster{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *msk.ServerlessCluster:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMSKServerlessClusterWithName retrieves all msk.ServerlessCluster items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMSKServerlessClusterWithName(name string) (*msk.ServerlessCluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *msk.ServerlessCluster:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type msk.ServerlessCluster not found", name)
 }
 
 // GetAllMWAAEnvironmentResources retrieves all mwaa.Environment items from an AWS CloudFormation template
