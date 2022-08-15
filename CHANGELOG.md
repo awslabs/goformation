@@ -1,5 +1,14 @@
 # GoFormation Versioning Changelog
 
+## [6.6.6](https://github.com/awslabs/goformation/compare/v6.6.5...v6.6.6) (2022-08-15)
+
+
+### Bug Fixes
+
+* **generator:** remove unused import ([cf87ba6](https://github.com/awslabs/goformation/commit/cf87ba6f38737d60d15f7ece7384bee3a61a5b7c))
+* **resource.template:** remove print to standard output when JSON unmarshal in a resource fails ([d64f719](https://github.com/awslabs/goformation/commit/d64f7194966f62cf8b7789cd8efaff4aaaaec0c3))
+* **resource.template:** remove print to standard output when JSON unmarshal in a resource fails (output of go generate) ([c039ac4](https://github.com/awslabs/goformation/commit/c039ac4e9de2cb106f61252dbfe68164dbff38da))
+
 ## [6.6.5](https://github.com/awslabs/goformation/compare/v6.6.4...v6.6.5) (2022-08-15)
 
 
