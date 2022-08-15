@@ -5,7 +5,6 @@ package {{.PackageName}}
 {{if not .IsCustomProperty}}
 import (
 	"encoding/json"
-	"fmt"
 	"bytes"
 	{{if .HasTags}}
 	"github.com/awslabs/goformation/v6/cloudformation/tags"{{end}}

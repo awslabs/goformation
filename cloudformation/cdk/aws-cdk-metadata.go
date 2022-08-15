@@ -5,7 +5,6 @@ package cdk
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 
 	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
