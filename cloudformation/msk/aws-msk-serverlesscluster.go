@@ -5,7 +5,6 @@ package msk
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 
 	"github.com/awslabs/goformation/v6/cloudformation/policies"
 )
@@ -96,7 +95,6 @@ func (r *ServerlessCluster) UnmarshalJSON(b []byte) error {
 	dec.DisallowUnknownFields() // Force error if unknown field is found
 
 	if err := dec.Decode(&res); err != nil {
-		fmt.Printf("ERROR: %s\n", err)
 		return err
 	}
 

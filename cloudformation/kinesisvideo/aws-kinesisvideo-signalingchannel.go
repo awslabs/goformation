@@ -5,7 +5,6 @@ package kinesisvideo
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 
 	"github.com/awslabs/goformation/v6/cloudformation/policies"
 	"github.com/awslabs/goformation/v6/cloudformation/tags"
