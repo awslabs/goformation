@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.7.0](https://github.com/awslabs/goformation/compare/v6.6.6...v6.7.0) (2022-08-17)
+
+
+### Features
+
+* **if intrinsics:** generalized solution to support more types ([c66e47b](https://github.com/awslabs/goformation/commit/c66e47bcabe0c26f1dc81d9e671473a0c4fe7ef1))
+
 ## [6.6.6](https://github.com/awslabs/goformation/compare/v6.6.5...v6.6.6) (2022-08-15)
 
 
