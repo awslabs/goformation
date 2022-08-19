@@ -14,9 +14,9 @@ import (
 type EndpointAccess struct {
 
 	// ClusterIdentifier AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-clusteridentifier
-	ClusterIdentifier *string `json:"ClusterIdentifier,omitempty"`
+	ClusterIdentifier string `json:"ClusterIdentifier"`
 
 	// EndpointName AWS CloudFormation Property
 	// Required: true
@@ -29,9 +29,9 @@ type EndpointAccess struct {
 	ResourceOwner *string `json:"ResourceOwner,omitempty"`
 
 	// SubnetGroupName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-subnetgroupname
-	SubnetGroupName *string `json:"SubnetGroupName,omitempty"`
+	SubnetGroupName string `json:"SubnetGroupName"`
 
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: true
