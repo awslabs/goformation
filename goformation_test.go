@@ -491,6 +491,39 @@ var _ = Describe("Goformation", func() {
 
 	})
 
+	Context("with a template that defines an AWS::Serverless::HttpApi with a CorsConfiguration", func() {
+
+		template, err := goformation.Open("test/yaml/aws-serverless-http-api-cors-configuration.yaml")
+		It("should successfully parse the template", func() {
+			Expect(err).To(BeNil())
+			Expect(template).ShouldNot(BeNil())
+		})
+
+		apis := template.GetAllServerlessHttpApiResources()
+
+		It("should have exactly an API", func() {
+			Expect(apis).To(HaveLen(1))
+			Expect(apis).To(HaveKey("HttpApiWithCorsConfiguration"))
+		})
+
+		api1 := apis["HttpApiWithCorsConfiguration"]
+		It("should parse a CorsConfiguration object", func() {
+			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowOrigins).
+				To(Equal(cloudformation.Strings("https://www.example.com")))
+			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowMethods).
+				To(Equal(cloudformation.Strings("GET", "OPTIONS")))
+			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowHeaders).
+				To(Equal(cloudformation.Strings("x-apigateway-header")))
+			Expect(api1.CorsConfiguration.CorsConfigurationObject.ExposeHeaders).
+				To(Equal(cloudformation.Strings("*")))
+			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowCredentials).
+				To(Equal(cloudformation.Bool(true)))
+			Expect(api1.CorsConfiguration.CorsConfigurationObject.MaxAge).
+				To(Equal(cloudformation.Int(300)))
+		})
+
+	})
+
 	Context("with a Serverless template containing different CodeUri formats", func() {
 
 		template, err := goformation.Open("test/yaml/aws-serverless-function-string-or-s3-location.yaml")

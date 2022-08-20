@@ -2291,25 +2291,28 @@
                 "AllowMethods": {
                     "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object",
                     "Required": false,
-                    "PrimitiveType": "String",
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
                     "UpdateType": "Immutable"
                 },
                 "AllowHeaders": {
                     "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object",
                     "Required": false,
-                    "PrimitiveType": "String",
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
                     "UpdateType": "Immutable"
                 },
-                "AllowOrigin": {
+                "AllowOrigins": {
                     "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object",
                     "Required": false,
-                    "PrimitiveType": "String",
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
                     "UpdateType": "Immutable"
                 },
                 "MaxAge": {
                     "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object",
                     "Required": false,
-                    "PrimitiveType": "String",
+                    "PrimitiveType": "Integer",
                     "UpdateType": "Immutable"
                 },
                 "AllowCredentials": {
