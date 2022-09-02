@@ -21,7 +21,7 @@ type InAppTemplate struct {
 	// CustomConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-customconfig
-	CustomConfig *interface{} `json:"CustomConfig,omitempty"`
+	CustomConfig interface{} `json:"CustomConfig,omitempty"`
 
 	// Layout AWS CloudFormation Property
 	// Required: false
@@ -31,7 +31,7 @@ type InAppTemplate struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-tags
-	Tags *interface{} `json:"Tags,omitempty"`
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// TemplateDescription AWS CloudFormation Property
 	// Required: false

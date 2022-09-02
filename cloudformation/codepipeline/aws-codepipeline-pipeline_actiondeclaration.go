@@ -18,7 +18,7 @@ type Pipeline_ActionDeclaration struct {
 	// Configuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-configuration
-	Configuration *interface{} `json:"Configuration,omitempty"`
+	Configuration interface{} `json:"Configuration,omitempty"`
 
 	// InputArtifacts AWS CloudFormation Property
 	// Required: false

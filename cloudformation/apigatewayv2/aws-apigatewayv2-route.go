@@ -51,12 +51,12 @@ type Route struct {
 	// RequestModels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-requestmodels
-	RequestModels *interface{} `json:"RequestModels,omitempty"`
+	RequestModels interface{} `json:"RequestModels,omitempty"`
 
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-requestparameters
-	RequestParameters *interface{} `json:"RequestParameters,omitempty"`
+	RequestParameters interface{} `json:"RequestParameters,omitempty"`
 
 	// RouteKey AWS CloudFormation Property
 	// Required: true

@@ -26,7 +26,7 @@ type AccessPoint struct {
 	// Policy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
-	Policy *interface{} `json:"Policy,omitempty"`
+	Policy interface{} `json:"Policy,omitempty"`
 
 	// VpcConfiguration AWS CloudFormation Property
 	// Required: true

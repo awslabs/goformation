@@ -37,7 +37,7 @@ type Repository struct {
 	// PermissionsPolicyDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
-	PermissionsPolicyDocument *interface{} `json:"PermissionsPolicyDocument,omitempty"`
+	PermissionsPolicyDocument interface{} `json:"PermissionsPolicyDocument,omitempty"`
 
 	// RepositoryName AWS CloudFormation Property
 	// Required: true

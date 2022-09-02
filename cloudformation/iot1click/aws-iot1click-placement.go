@@ -16,12 +16,12 @@ type Placement struct {
 	// AssociatedDevices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-associateddevices
-	AssociatedDevices *interface{} `json:"AssociatedDevices,omitempty"`
+	AssociatedDevices interface{} `json:"AssociatedDevices,omitempty"`
 
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-attributes
-	Attributes *interface{} `json:"Attributes,omitempty"`
+	Attributes interface{} `json:"Attributes,omitempty"`
 
 	// PlacementName AWS CloudFormation Property
 	// Required: false

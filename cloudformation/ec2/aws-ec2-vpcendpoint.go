@@ -16,7 +16,7 @@ type VPCEndpoint struct {
 	// PolicyDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument
-	PolicyDocument *interface{} `json:"PolicyDocument,omitempty"`
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
 
 	// PrivateDnsEnabled AWS CloudFormation Property
 	// Required: false

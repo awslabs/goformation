@@ -13,7 +13,7 @@ type WebACL_JsonMatchPattern struct {
 	// All AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
-	All *interface{} `json:"All,omitempty"`
+	All interface{} `json:"All,omitempty"`
 
 	// IncludedPaths AWS CloudFormation Property
 	// Required: false

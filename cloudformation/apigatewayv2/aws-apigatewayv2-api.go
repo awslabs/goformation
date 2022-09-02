@@ -26,7 +26,7 @@ type Api struct {
 	// Body AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-body
-	Body *interface{} `json:"Body,omitempty"`
+	Body interface{} `json:"Body,omitempty"`
 
 	// BodyS3Location AWS CloudFormation Property
 	// Required: false
@@ -86,7 +86,7 @@ type Api struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-tags
-	Tags *interface{} `json:"Tags,omitempty"`
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// Target AWS CloudFormation Property
 	// Required: false

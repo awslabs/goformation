@@ -52,7 +52,7 @@ type Stack struct {
 	// CustomJson AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-custjson
-	CustomJson *interface{} `json:"CustomJson,omitempty"`
+	CustomJson interface{} `json:"CustomJson,omitempty"`
 
 	// DefaultAvailabilityZone AWS CloudFormation Property
 	// Required: false

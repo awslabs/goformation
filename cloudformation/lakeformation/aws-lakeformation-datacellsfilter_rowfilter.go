@@ -13,7 +13,7 @@ type DataCellsFilter_RowFilter struct {
 	// AllRowsWildcard AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-rowfilter.html#cfn-lakeformation-datacellsfilter-rowfilter-allrowswildcard
-	AllRowsWildcard *interface{} `json:"AllRowsWildcard,omitempty"`
+	AllRowsWildcard interface{} `json:"AllRowsWildcard,omitempty"`
 
 	// FilterExpression AWS CloudFormation Property
 	// Required: false

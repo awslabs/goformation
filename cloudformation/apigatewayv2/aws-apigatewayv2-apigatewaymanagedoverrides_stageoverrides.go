@@ -33,12 +33,12 @@ type ApiGatewayManagedOverrides_StageOverrides struct {
 	// RouteSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-routesettings
-	RouteSettings *interface{} `json:"RouteSettings,omitempty"`
+	RouteSettings interface{} `json:"RouteSettings,omitempty"`
 
 	// StageVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-stagevariables
-	StageVariables *interface{} `json:"StageVariables,omitempty"`
+	StageVariables interface{} `json:"StageVariables,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

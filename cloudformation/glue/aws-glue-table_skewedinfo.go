@@ -18,7 +18,7 @@ type Table_SkewedInfo struct {
 	// SkewedColumnValueLocationMaps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
-	SkewedColumnValueLocationMaps *interface{} `json:"SkewedColumnValueLocationMaps,omitempty"`
+	SkewedColumnValueLocationMaps interface{} `json:"SkewedColumnValueLocationMaps,omitempty"`
 
 	// SkewedColumnValues AWS CloudFormation Property
 	// Required: false

@@ -17,7 +17,7 @@ type PublicRepository struct {
 	// RepositoryCatalogData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositorycatalogdata
-	RepositoryCatalogData *interface{} `json:"RepositoryCatalogData,omitempty"`
+	RepositoryCatalogData interface{} `json:"RepositoryCatalogData,omitempty"`
 
 	// RepositoryName AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type PublicRepository struct {
 	// RepositoryPolicyText AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositorypolicytext
-	RepositoryPolicyText *interface{} `json:"RepositoryPolicyText,omitempty"`
+	RepositoryPolicyText interface{} `json:"RepositoryPolicyText,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

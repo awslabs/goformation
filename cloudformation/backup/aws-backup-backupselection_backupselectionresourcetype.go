@@ -13,7 +13,7 @@ type BackupSelection_BackupSelectionResourceType struct {
 	// Conditions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-conditions
-	Conditions *interface{} `json:"Conditions,omitempty"`
+	Conditions interface{} `json:"Conditions,omitempty"`
 
 	// IamRoleArn AWS CloudFormation Property
 	// Required: true

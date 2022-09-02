@@ -48,7 +48,7 @@ type Partition_StorageDescriptor struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
-	Parameters *interface{} `json:"Parameters,omitempty"`
+	Parameters interface{} `json:"Parameters,omitempty"`
 
 	// SchemaReference AWS CloudFormation Property
 	// Required: false

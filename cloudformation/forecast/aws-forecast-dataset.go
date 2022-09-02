@@ -36,7 +36,7 @@ type Dataset struct {
 	// EncryptionConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-encryptionconfig
-	EncryptionConfig *interface{} `json:"EncryptionConfig,omitempty"`
+	EncryptionConfig interface{} `json:"EncryptionConfig,omitempty"`
 
 	// Schema AWS CloudFormation Property
 	// Required: true

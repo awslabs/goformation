@@ -37,7 +37,7 @@ type Layer struct {
 	// CustomJson AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-customjson
-	CustomJson *interface{} `json:"CustomJson,omitempty"`
+	CustomJson interface{} `json:"CustomJson,omitempty"`
 
 	// CustomRecipes AWS CloudFormation Property
 	// Required: false

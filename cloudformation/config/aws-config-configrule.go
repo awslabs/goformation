@@ -26,7 +26,7 @@ type ConfigRule struct {
 	// InputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-inputparameters
-	InputParameters *interface{} `json:"InputParameters,omitempty"`
+	InputParameters interface{} `json:"InputParameters,omitempty"`
 
 	// MaximumExecutionFrequency AWS CloudFormation Property
 	// Required: false

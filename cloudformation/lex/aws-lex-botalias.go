@@ -52,7 +52,7 @@ type BotAlias struct {
 	// SentimentAnalysisSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-sentimentanalysissettings
-	SentimentAnalysisSettings *interface{} `json:"SentimentAnalysisSettings,omitempty"`
+	SentimentAnalysisSettings interface{} `json:"SentimentAnalysisSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

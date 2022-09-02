@@ -17,7 +17,7 @@ type Domain struct {
 	// AccessPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-accesspolicies
-	AccessPolicies *interface{} `json:"AccessPolicies,omitempty"`
+	AccessPolicies interface{} `json:"AccessPolicies,omitempty"`
 
 	// AdvancedOptions AWS CloudFormation Property
 	// Required: false

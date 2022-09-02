@@ -72,12 +72,12 @@ type Queue struct {
 	// RedriveAllowPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html#cfn-sqs-queue-redriveallowpolicy
-	RedriveAllowPolicy *interface{} `json:"RedriveAllowPolicy,omitempty"`
+	RedriveAllowPolicy interface{} `json:"RedriveAllowPolicy,omitempty"`
 
 	// RedrivePolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html#cfn-sqs-queue-redrivepolicy
-	RedrivePolicy *interface{} `json:"RedrivePolicy,omitempty"`
+	RedrivePolicy interface{} `json:"RedrivePolicy,omitempty"`
 
 	// SqsManagedSseEnabled AWS CloudFormation Property
 	// Required: false

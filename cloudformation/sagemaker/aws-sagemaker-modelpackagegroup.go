@@ -27,7 +27,7 @@ type ModelPackageGroup struct {
 	// ModelPackageGroupPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-	ModelPackageGroupPolicy *interface{} `json:"ModelPackageGroupPolicy,omitempty"`
+	ModelPackageGroupPolicy interface{} `json:"ModelPackageGroupPolicy,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

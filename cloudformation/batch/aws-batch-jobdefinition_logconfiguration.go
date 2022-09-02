@@ -18,7 +18,7 @@ type JobDefinition_LogConfiguration struct {
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-options
-	Options *interface{} `json:"Options,omitempty"`
+	Options interface{} `json:"Options,omitempty"`
 
 	// SecretOptions AWS CloudFormation Property
 	// Required: false

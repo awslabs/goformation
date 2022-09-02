@@ -27,7 +27,7 @@ type CoreNetwork struct {
 	// PolicyDocument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html#cfn-networkmanager-corenetwork-policydocument
-	PolicyDocument *interface{} `json:"PolicyDocument,omitempty"`
+	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

@@ -27,7 +27,7 @@ type RestApi struct {
 	// Body AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body
-	Body *interface{} `json:"Body,omitempty"`
+	Body interface{} `json:"Body,omitempty"`
 
 	// BodyS3Location AWS CloudFormation Property
 	// Required: false
@@ -82,7 +82,7 @@ type RestApi struct {
 	// Policy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
-	Policy *interface{} `json:"Policy,omitempty"`
+	Policy interface{} `json:"Policy,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

@@ -37,12 +37,12 @@ type FeatureGroup struct {
 	// OfflineStoreConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-	OfflineStoreConfig *interface{} `json:"OfflineStoreConfig,omitempty"`
+	OfflineStoreConfig interface{} `json:"OfflineStoreConfig,omitempty"`
 
 	// OnlineStoreConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-	OnlineStoreConfig *interface{} `json:"OnlineStoreConfig,omitempty"`
+	OnlineStoreConfig interface{} `json:"OnlineStoreConfig,omitempty"`
 
 	// RecordIdentifierFeatureName AWS CloudFormation Property
 	// Required: true

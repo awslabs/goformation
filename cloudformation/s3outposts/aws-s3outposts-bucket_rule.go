@@ -28,7 +28,7 @@ type Bucket_Rule struct {
 	// Filter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
-	Filter *interface{} `json:"Filter,omitempty"`
+	Filter interface{} `json:"Filter,omitempty"`
 
 	// Id AWS CloudFormation Property
 	// Required: false

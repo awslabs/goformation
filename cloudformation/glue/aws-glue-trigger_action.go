@@ -13,7 +13,7 @@ type Trigger_Action struct {
 	// Arguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
-	Arguments *interface{} `json:"Arguments,omitempty"`
+	Arguments interface{} `json:"Arguments,omitempty"`
 
 	// CrawlerName AWS CloudFormation Property
 	// Required: false

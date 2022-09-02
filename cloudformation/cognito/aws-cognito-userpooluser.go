@@ -16,7 +16,7 @@ type UserPoolUser struct {
 	// ClientMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-clientmetadata
-	ClientMetadata *interface{} `json:"ClientMetadata,omitempty"`
+	ClientMetadata interface{} `json:"ClientMetadata,omitempty"`
 
 	// DesiredDeliveryMediums AWS CloudFormation Property
 	// Required: false

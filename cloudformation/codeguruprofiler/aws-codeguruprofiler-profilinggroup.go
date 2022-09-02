@@ -17,7 +17,7 @@ type ProfilingGroup struct {
 	// AgentPermissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
-	AgentPermissions *interface{} `json:"AgentPermissions,omitempty"`
+	AgentPermissions interface{} `json:"AgentPermissions,omitempty"`
 
 	// AnomalyDetectionNotificationConfiguration AWS CloudFormation Property
 	// Required: false

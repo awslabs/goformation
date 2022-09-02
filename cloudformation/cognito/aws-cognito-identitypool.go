@@ -26,7 +26,7 @@ type IdentityPool struct {
 	// CognitoEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoevents
-	CognitoEvents *interface{} `json:"CognitoEvents,omitempty"`
+	CognitoEvents interface{} `json:"CognitoEvents,omitempty"`
 
 	// CognitoIdentityProviders AWS CloudFormation Property
 	// Required: false
@@ -66,7 +66,7 @@ type IdentityPool struct {
 	// SupportedLoginProviders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-supportedloginproviders
-	SupportedLoginProviders *interface{} `json:"SupportedLoginProviders,omitempty"`
+	SupportedLoginProviders interface{} `json:"SupportedLoginProviders,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

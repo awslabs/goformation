@@ -71,7 +71,7 @@ type MaintenanceWindowTask struct {
 	// TaskParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskparameters
-	TaskParameters *interface{} `json:"TaskParameters,omitempty"`
+	TaskParameters interface{} `json:"TaskParameters,omitempty"`
 
 	// TaskType AWS CloudFormation Property
 	// Required: true

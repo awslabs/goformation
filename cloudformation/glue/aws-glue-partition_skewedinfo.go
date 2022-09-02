@@ -18,7 +18,7 @@ type Partition_SkewedInfo struct {
 	// SkewedColumnValueLocationMaps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
-	SkewedColumnValueLocationMaps *interface{} `json:"SkewedColumnValueLocationMaps,omitempty"`
+	SkewedColumnValueLocationMaps interface{} `json:"SkewedColumnValueLocationMaps,omitempty"`
 
 	// SkewedColumnValues AWS CloudFormation Property
 	// Required: false

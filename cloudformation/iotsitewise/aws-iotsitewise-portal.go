@@ -17,7 +17,7 @@ type Portal struct {
 	// Alarms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
-	Alarms *interface{} `json:"Alarms,omitempty"`
+	Alarms interface{} `json:"Alarms,omitempty"`
 
 	// NotificationSenderEmail AWS CloudFormation Property
 	// Required: false
