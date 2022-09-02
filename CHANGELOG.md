@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.9.0](https://github.com/awslabs/goformation/compare/v6.8.0...v6.9.0) (2022-09-02)
+
+
+### Features
+
+* **schema:** serverless http api cors configuration ([a90bb03](https://github.com/awslabs/goformation/commit/a90bb03ca3dfe7de1442c2cefe80aea4ea2aa211))
+
 # [6.8.0](https://github.com/awslabs/goformation/compare/v6.7.2...v6.8.0) (2022-09-02)
 
 
