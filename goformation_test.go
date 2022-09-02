@@ -722,7 +722,7 @@ var _ = Describe("Goformation", func() {
 		})
 
 		It("should have the correct value for DefinitionBody", func() {
-			Expect(*api3.DefinitionBody).To(Equal("{\n  \"DefinitionKey\": \"test-definition-value\"\n}\n"))
+			Expect(api3.DefinitionBody).To(Equal("{\n  \"DefinitionKey\": \"test-definition-value\"\n}\n"))
 		})
 
 		api4, err := template.GetServerlessApiWithName("ServerlessApiWithDefinitionBodyAsYAML")
@@ -736,7 +736,7 @@ var _ = Describe("Goformation", func() {
 			expected = map[string]interface{}{
 				"DefinitionKey": "test-definition-value",
 			}
-			Expect(*api4.DefinitionBody).To(Equal(expected))
+			Expect(api4.DefinitionBody).To(Equal(expected))
 		})
 
 		api5, err := template.GetServerlessApiWithName("ServerlessApiWithAccessLogSettingAsYAML")
