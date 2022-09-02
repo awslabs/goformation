@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.8.0](https://github.com/awslabs/goformation/compare/v6.7.2...v6.8.0) (2022-09-02)
+
+
+### Features
+
+* **generator:** remove generation of interface pointers ([315dde3](https://github.com/awslabs/goformation/commit/315dde31de45419c105e889a5bf29b6e4b1f42c0))
+
 ## [6.7.2](https://github.com/awslabs/goformation/compare/v6.7.1...v6.7.2) (2022-09-02)
 
 
