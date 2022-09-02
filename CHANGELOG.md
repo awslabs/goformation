@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.10.0](https://github.com/awslabs/goformation/compare/v6.9.0...v6.10.0) (2022-09-02)
+
+
+### Features
+
+* **sam:** add missing fields to ScheduledEvents and remove required versions from IAM ([33395af](https://github.com/awslabs/goformation/commit/33395afd746f31bfab003f56cf50cd984fc7d3b3))
+
 # [6.9.0](https://github.com/awslabs/goformation/compare/v6.8.0...v6.9.0) (2022-09-02)
 
 
