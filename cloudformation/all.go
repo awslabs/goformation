@@ -189,6 +189,7 @@ import (
 	"github.com/awslabs/goformation/v6/cloudformation/ssmincidents"
 	"github.com/awslabs/goformation/v6/cloudformation/sso"
 	"github.com/awslabs/goformation/v6/cloudformation/stepfunctions"
+	"github.com/awslabs/goformation/v6/cloudformation/supportapp"
 	"github.com/awslabs/goformation/v6/cloudformation/synthetics"
 	"github.com/awslabs/goformation/v6/cloudformation/timestream"
 	"github.com/awslabs/goformation/v6/cloudformation/transfer"
@@ -411,6 +412,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::ContactFlow":                                   &connect.ContactFlow{},
 		"AWS::Connect::ContactFlowModule":                             &connect.ContactFlowModule{},
 		"AWS::Connect::HoursOfOperation":                              &connect.HoursOfOperation{},
+		"AWS::Connect::Instance":                                      &connect.Instance{},
 		"AWS::Connect::PhoneNumber":                                   &connect.PhoneNumber{},
 		"AWS::Connect::QuickConnect":                                  &connect.QuickConnect{},
 		"AWS::Connect::TaskTemplate":                                  &connect.TaskTemplate{},
@@ -1115,6 +1117,8 @@ func AllResources() map[string]Resource {
 		"AWS::Signer::SigningProfile":                                 &signer.SigningProfile{},
 		"AWS::StepFunctions::Activity":                                &stepfunctions.Activity{},
 		"AWS::StepFunctions::StateMachine":                            &stepfunctions.StateMachine{},
+		"AWS::SupportApp::AccountAlias":                               &supportapp.AccountAlias{},
+		"AWS::SupportApp::SlackChannelConfiguration":                  &supportapp.SlackChannelConfiguration{},
 		"AWS::Synthetics::Canary":                                     &synthetics.Canary{},
 		"AWS::Synthetics::Group":                                      &synthetics.Group{},
 		"AWS::Timestream::Database":                                   &timestream.Database{},
@@ -6081,6 +6085,30 @@ func (t *Template) GetConnectHoursOfOperationWithName(name string) (*connect.Hou
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.HoursOfOperation not found", name)
+}
+
+// GetAllConnectInstanceResources retrieves all connect.Instance items from an AWS CloudFormation template
+func (t *Template) GetAllConnectInstanceResources() map[string]*connect.Instance {
+	results := map[string]*connect.Instance{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.Instance:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectInstanceWithName retrieves all connect.Instance items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectInstanceWithName(name string) (*connect.Instance, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.Instance:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.Instance not found", name)
 }
 
 // GetAllConnectPhoneNumberResources retrieves all connect.PhoneNumber items from an AWS CloudFormation template
@@ -22977,6 +23005,54 @@ func (t *Template) GetStepFunctionsStateMachineWithName(name string) (*stepfunct
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type stepfunctions.StateMachine not found", name)
+}
+
+// GetAllSupportAppAccountAliasResources retrieves all supportapp.AccountAlias items from an AWS CloudFormation template
+func (t *Template) GetAllSupportAppAccountAliasResources() map[string]*supportapp.AccountAlias {
+	results := map[string]*supportapp.AccountAlias{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *supportapp.AccountAlias:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSupportAppAccountAliasWithName retrieves all supportapp.AccountAlias items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSupportAppAccountAliasWithName(name string) (*supportapp.AccountAlias, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *supportapp.AccountAlias:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type supportapp.AccountAlias not found", name)
+}
+
+// GetAllSupportAppSlackChannelConfigurationResources retrieves all supportapp.SlackChannelConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllSupportAppSlackChannelConfigurationResources() map[string]*supportapp.SlackChannelConfiguration {
+	results := map[string]*supportapp.SlackChannelConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *supportapp.SlackChannelConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSupportAppSlackChannelConfigurationWithName retrieves all supportapp.SlackChannelConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSupportAppSlackChannelConfigurationWithName(name string) (*supportapp.SlackChannelConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *supportapp.SlackChannelConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type supportapp.SlackChannelConfiguration not found", name)
 }
 
 // GetAllSyntheticsCanaryResources retrieves all synthetics.Canary items from an AWS CloudFormation template

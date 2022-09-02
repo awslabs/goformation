@@ -35,6 +35,11 @@ type ResponseHeadersPolicy_ResponseHeadersPolicyConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-securityheadersconfig
 	SecurityHeadersConfig *ResponseHeadersPolicy_SecurityHeadersConfig `json:"SecurityHeadersConfig,omitempty"`
 
+	// ServerTimingHeadersConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-servertimingheadersconfig
+	ServerTimingHeadersConfig *ResponseHeadersPolicy_ServerTimingHeadersConfig `json:"ServerTimingHeadersConfig,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
