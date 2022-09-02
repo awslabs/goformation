@@ -18,7 +18,7 @@ type Model_ContainerDefinition struct {
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-environment
-	Environment *interface{} `json:"Environment,omitempty"`
+	Environment interface{} `json:"Environment,omitempty"`
 
 	// Image AWS CloudFormation Property
 	// Required: false

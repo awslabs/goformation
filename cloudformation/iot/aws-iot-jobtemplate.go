@@ -17,7 +17,7 @@ type JobTemplate struct {
 	// AbortConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-abortconfig
-	AbortConfig *interface{} `json:"AbortConfig,omitempty"`
+	AbortConfig interface{} `json:"AbortConfig,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: true
@@ -42,12 +42,12 @@ type JobTemplate struct {
 	// JobExecutionsRetryConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobexecutionsretryconfig
-	JobExecutionsRetryConfig *interface{} `json:"JobExecutionsRetryConfig,omitempty"`
+	JobExecutionsRetryConfig interface{} `json:"JobExecutionsRetryConfig,omitempty"`
 
 	// JobExecutionsRolloutConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig
-	JobExecutionsRolloutConfig *interface{} `json:"JobExecutionsRolloutConfig,omitempty"`
+	JobExecutionsRolloutConfig interface{} `json:"JobExecutionsRolloutConfig,omitempty"`
 
 	// JobTemplateId AWS CloudFormation Property
 	// Required: true
@@ -57,7 +57,7 @@ type JobTemplate struct {
 	// PresignedUrlConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-presignedurlconfig
-	PresignedUrlConfig *interface{} `json:"PresignedUrlConfig,omitempty"`
+	PresignedUrlConfig interface{} `json:"PresignedUrlConfig,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -67,7 +67,7 @@ type JobTemplate struct {
 	// TimeoutConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-timeoutconfig
-	TimeoutConfig *interface{} `json:"TimeoutConfig,omitempty"`
+	TimeoutConfig interface{} `json:"TimeoutConfig,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

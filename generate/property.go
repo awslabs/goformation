@@ -261,6 +261,11 @@ func (p Property) IsCustomType() bool {
 	return p.PrimitiveType == "" && p.ItemType == "" && p.PrimitiveItemType == ""
 }
 
+// IsGeneric checks wether a property doesn't match any known type
+func (p Property) IsGeneric() bool {
+	return !p.IsPolymorphic() && !p.IsMap() && !p.IsList() && !p.IsCustomType() && convertTypeToGo(p.PrimitiveType) == "interface{}"
+}
+
 // GoType returns the correct type for this property
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
 func (p Property) GoType(typename string, basename string, name string) string {

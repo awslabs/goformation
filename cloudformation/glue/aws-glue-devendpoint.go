@@ -16,7 +16,7 @@ type DevEndpoint struct {
 	// Arguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-arguments
-	Arguments *interface{} `json:"Arguments,omitempty"`
+	Arguments interface{} `json:"Arguments,omitempty"`
 
 	// EndpointName AWS CloudFormation Property
 	// Required: false
@@ -81,7 +81,7 @@ type DevEndpoint struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-tags
-	Tags *interface{} `json:"Tags,omitempty"`
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// WorkerType AWS CloudFormation Property
 	// Required: false

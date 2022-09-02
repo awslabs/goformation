@@ -16,7 +16,7 @@ type Subscription struct {
 	// DeliveryPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-deliverypolicy
-	DeliveryPolicy *interface{} `json:"DeliveryPolicy,omitempty"`
+	DeliveryPolicy interface{} `json:"DeliveryPolicy,omitempty"`
 
 	// Endpoint AWS CloudFormation Property
 	// Required: false
@@ -26,7 +26,7 @@ type Subscription struct {
 	// FilterPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicy
-	FilterPolicy *interface{} `json:"FilterPolicy,omitempty"`
+	FilterPolicy interface{} `json:"FilterPolicy,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
@@ -41,7 +41,7 @@ type Subscription struct {
 	// RedrivePolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-redrivepolicy
-	RedrivePolicy *interface{} `json:"RedrivePolicy,omitempty"`
+	RedrivePolicy interface{} `json:"RedrivePolicy,omitempty"`
 
 	// Region AWS CloudFormation Property
 	// Required: false

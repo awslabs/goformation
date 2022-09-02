@@ -18,7 +18,7 @@ type Campaign_CampaignInAppMessage struct {
 	// CustomConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-customconfig
-	CustomConfig *interface{} `json:"CustomConfig,omitempty"`
+	CustomConfig interface{} `json:"CustomConfig,omitempty"`
 
 	// Layout AWS CloudFormation Property
 	// Required: false

@@ -53,7 +53,7 @@ type MaintenanceWindowTask_MaintenanceWindowRunCommandParameters struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
-	Parameters *interface{} `json:"Parameters,omitempty"`
+	Parameters interface{} `json:"Parameters,omitempty"`
 
 	// ServiceRoleArn AWS CloudFormation Property
 	// Required: false

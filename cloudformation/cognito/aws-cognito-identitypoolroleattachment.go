@@ -21,12 +21,12 @@ type IdentityPoolRoleAttachment struct {
 	// RoleMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-rolemappings
-	RoleMappings *interface{} `json:"RoleMappings,omitempty"`
+	RoleMappings interface{} `json:"RoleMappings,omitempty"`
 
 	// Roles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-roles
-	Roles *interface{} `json:"Roles,omitempty"`
+	Roles interface{} `json:"Roles,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

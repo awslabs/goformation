@@ -13,7 +13,7 @@ type Skill_Overrides struct {
 	// Manifest AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-overrides.html#cfn-ask-skill-overrides-manifest
-	Manifest *interface{} `json:"Manifest,omitempty"`
+	Manifest interface{} `json:"Manifest,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

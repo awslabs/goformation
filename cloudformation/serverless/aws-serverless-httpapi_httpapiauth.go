@@ -13,7 +13,7 @@ type HttpApi_HttpApiAuth struct {
 	// Authorizers AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-httpapi-httpapiauth.html#sam-httpapi-httpapiauth-defaultauthorizer
-	Authorizers *interface{} `json:"Authorizers,omitempty"`
+	Authorizers interface{} `json:"Authorizers,omitempty"`
 
 	// DefaultAuthorizer AWS CloudFormation Property
 	// Required: false

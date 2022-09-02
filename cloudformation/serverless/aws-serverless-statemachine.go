@@ -16,7 +16,7 @@ type StateMachine struct {
 	// Definition AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Definition *interface{} `json:"Definition,omitempty"`
+	Definition interface{} `json:"Definition,omitempty"`
 
 	// DefinitionSubstitutions AWS CloudFormation Property
 	// Required: false

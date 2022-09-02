@@ -16,7 +16,7 @@ type BackupVault struct {
 	// AccessPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-	AccessPolicy *interface{} `json:"AccessPolicy,omitempty"`
+	AccessPolicy interface{} `json:"AccessPolicy,omitempty"`
 
 	// BackupVaultName AWS CloudFormation Property
 	// Required: true

@@ -56,7 +56,7 @@ type Stage struct {
 	// RouteSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings
-	RouteSettings *interface{} `json:"RouteSettings,omitempty"`
+	RouteSettings interface{} `json:"RouteSettings,omitempty"`
 
 	// StageName AWS CloudFormation Property
 	// Required: true
@@ -66,12 +66,12 @@ type Stage struct {
 	// StageVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables
-	StageVariables *interface{} `json:"StageVariables,omitempty"`
+	StageVariables interface{} `json:"StageVariables,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-tags
-	Tags *interface{} `json:"Tags,omitempty"`
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

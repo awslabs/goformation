@@ -22,12 +22,12 @@ type Table struct {
 	// MagneticStoreWriteProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-magneticstorewriteproperties
-	MagneticStoreWriteProperties *interface{} `json:"MagneticStoreWriteProperties,omitempty"`
+	MagneticStoreWriteProperties interface{} `json:"MagneticStoreWriteProperties,omitempty"`
 
 	// RetentionProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
-	RetentionProperties *interface{} `json:"RetentionProperties,omitempty"`
+	RetentionProperties interface{} `json:"RetentionProperties,omitempty"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false

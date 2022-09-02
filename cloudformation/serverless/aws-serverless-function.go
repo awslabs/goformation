@@ -21,7 +21,7 @@ type Function struct {
 	// AssumeRolePolicyDocument AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-assumerolepolicydocument
-	AssumeRolePolicyDocument *interface{} `json:"AssumeRolePolicyDocument,omitempty"`
+	AssumeRolePolicyDocument interface{} `json:"AssumeRolePolicyDocument,omitempty"`
 
 	// AutoPublishAlias AWS CloudFormation Property
 	// Required: false

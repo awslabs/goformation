@@ -13,7 +13,7 @@ type WebACL_HeaderMatchPattern struct {
 	// All AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headermatchpattern.html#cfn-wafv2-webacl-headermatchpattern-all
-	All *interface{} `json:"All,omitempty"`
+	All interface{} `json:"All,omitempty"`
 
 	// ExcludedHeaders AWS CloudFormation Property
 	// Required: false

@@ -32,7 +32,7 @@ type ParameterGroup struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-parametergroup.html#cfn-memorydb-parametergroup-parameters
-	Parameters *interface{} `json:"Parameters,omitempty"`
+	Parameters interface{} `json:"Parameters,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

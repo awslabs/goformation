@@ -26,7 +26,7 @@ type Archive struct {
 	// EventPattern AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-	EventPattern *interface{} `json:"EventPattern,omitempty"`
+	EventPattern interface{} `json:"EventPattern,omitempty"`
 
 	// RetentionDays AWS CloudFormation Property
 	// Required: false

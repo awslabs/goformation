@@ -17,7 +17,7 @@ type Cluster struct {
 	// AdditionalInfo AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-additionalinfo
-	AdditionalInfo *interface{} `json:"AdditionalInfo,omitempty"`
+	AdditionalInfo interface{} `json:"AdditionalInfo,omitempty"`
 
 	// Applications AWS CloudFormation Property
 	// Required: false

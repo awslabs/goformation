@@ -46,7 +46,7 @@ type Nodegroup struct {
 	// Labels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels
-	Labels *interface{} `json:"Labels,omitempty"`
+	Labels interface{} `json:"Labels,omitempty"`
 
 	// LaunchTemplate AWS CloudFormation Property
 	// Required: false
@@ -86,7 +86,7 @@ type Nodegroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-tags
-	Tags *interface{} `json:"Tags,omitempty"`
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// Taints AWS CloudFormation Property
 	// Required: false

@@ -36,7 +36,7 @@ type EventBusPolicy struct {
 	// Statement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement
-	Statement *interface{} `json:"Statement,omitempty"`
+	Statement interface{} `json:"Statement,omitempty"`
 
 	// StatementId AWS CloudFormation Property
 	// Required: true

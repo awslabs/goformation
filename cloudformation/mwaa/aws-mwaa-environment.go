@@ -16,7 +16,7 @@ type Environment struct {
 	// AirflowConfigurationOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
-	AirflowConfigurationOptions *interface{} `json:"AirflowConfigurationOptions,omitempty"`
+	AirflowConfigurationOptions interface{} `json:"AirflowConfigurationOptions,omitempty"`
 
 	// AirflowVersion AWS CloudFormation Property
 	// Required: false
@@ -101,7 +101,7 @@ type Environment struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
-	Tags *interface{} `json:"Tags,omitempty"`
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// WebserverAccessMode AWS CloudFormation Property
 	// Required: false

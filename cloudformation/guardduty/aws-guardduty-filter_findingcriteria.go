@@ -13,7 +13,7 @@ type Filter_FindingCriteria struct {
 	// Criterion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html#cfn-guardduty-filter-findingcriteria-criterion
-	Criterion *interface{} `json:"Criterion,omitempty"`
+	Criterion interface{} `json:"Criterion,omitempty"`
 
 	// ItemType AWS CloudFormation Property
 	// Required: false

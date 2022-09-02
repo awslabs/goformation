@@ -51,7 +51,7 @@ type Api struct {
 	// DefinitionBody AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	DefinitionBody *interface{} `json:"DefinitionBody,omitempty"`
+	DefinitionBody interface{} `json:"DefinitionBody,omitempty"`
 
 	// DefinitionUri AWS CloudFormation Property
 	// Required: false

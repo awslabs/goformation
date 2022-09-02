@@ -26,7 +26,7 @@ type ParameterGroup struct {
 	// ParameterNameValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html#cfn-dax-parametergroup-parameternamevalues
-	ParameterNameValues *interface{} `json:"ParameterNameValues,omitempty"`
+	ParameterNameValues interface{} `json:"ParameterNameValues,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

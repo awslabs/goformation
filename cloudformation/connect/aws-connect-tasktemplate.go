@@ -22,7 +22,7 @@ type TaskTemplate struct {
 	// Constraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-constraints
-	Constraints *interface{} `json:"Constraints,omitempty"`
+	Constraints interface{} `json:"Constraints,omitempty"`
 
 	// ContactFlowArn AWS CloudFormation Property
 	// Required: false

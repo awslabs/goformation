@@ -48,7 +48,7 @@ type ModelPackage_ModelPackageContainerDefinition struct {
 	// ModelInput AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-modelinput
-	ModelInput *interface{} `json:"ModelInput,omitempty"`
+	ModelInput interface{} `json:"ModelInput,omitempty"`
 
 	// NearestModelName AWS CloudFormation Property
 	// Required: false

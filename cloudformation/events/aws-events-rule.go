@@ -26,7 +26,7 @@ type Rule struct {
 	// EventPattern AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern
-	EventPattern *interface{} `json:"EventPattern,omitempty"`
+	EventPattern interface{} `json:"EventPattern,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

@@ -33,7 +33,7 @@ type Database_DatabaseInput struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
-	Parameters *interface{} `json:"Parameters,omitempty"`
+	Parameters interface{} `json:"Parameters,omitempty"`
 
 	// TargetDatabase AWS CloudFormation Property
 	// Required: false

@@ -13,7 +13,7 @@ type RuleGroup_CookieMatchPattern struct {
 	// All AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookiematchpattern.html#cfn-wafv2-rulegroup-cookiematchpattern-all
-	All *interface{} `json:"All,omitempty"`
+	All interface{} `json:"All,omitempty"`
 
 	// ExcludedCookies AWS CloudFormation Property
 	// Required: false

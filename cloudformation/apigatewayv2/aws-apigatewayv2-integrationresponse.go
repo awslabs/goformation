@@ -36,12 +36,12 @@ type IntegrationResponse struct {
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-responseparameters
-	ResponseParameters *interface{} `json:"ResponseParameters,omitempty"`
+	ResponseParameters interface{} `json:"ResponseParameters,omitempty"`
 
 	// ResponseTemplates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-responsetemplates
-	ResponseTemplates *interface{} `json:"ResponseTemplates,omitempty"`
+	ResponseTemplates interface{} `json:"ResponseTemplates,omitempty"`
 
 	// TemplateSelectionExpression AWS CloudFormation Property
 	// Required: false
