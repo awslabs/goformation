@@ -271,6 +271,9 @@ func (p Property) UsePointer() bool {
 	if p.IsPolymorphic() || p.IsCustomType() {
 		return true
 	}
+	if p.IsList() || p.IsMap() {
+		return false
+	}
 	if !p.Required && !p.IsGeneric() {
 		return true
 	}
