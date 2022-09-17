@@ -19,9 +19,9 @@ type Destination struct {
 	DestinationName string `json:"DestinationName"`
 
 	// DestinationPolicy AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationpolicy
-	DestinationPolicy string `json:"DestinationPolicy"`
+	DestinationPolicy *string `json:"DestinationPolicy,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true

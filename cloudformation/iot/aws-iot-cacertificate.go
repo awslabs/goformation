@@ -34,6 +34,11 @@ type CACertificate struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-registrationconfig
 	RegistrationConfig *CACertificate_RegistrationConfig `json:"RegistrationConfig,omitempty"`
 
+	// RemoveAutoRegistration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-removeautoregistration
+	RemoveAutoRegistration *bool `json:"RemoveAutoRegistration,omitempty"`
+
 	// Status AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-status
