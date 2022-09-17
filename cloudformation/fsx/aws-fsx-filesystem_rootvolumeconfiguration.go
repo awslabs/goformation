@@ -23,7 +23,7 @@ type FileSystem_RootVolumeConfiguration struct {
 	// NfsExports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports
-	NfsExports *[]FileSystem_NfsExports `json:"NfsExports,omitempty"`
+	NfsExports []FileSystem_NfsExports `json:"NfsExports,omitempty"`
 
 	// ReadOnly AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type FileSystem_RootVolumeConfiguration struct {
 	// UserAndGroupQuotas AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas
-	UserAndGroupQuotas *[]FileSystem_UserAndGroupQuotas `json:"UserAndGroupQuotas,omitempty"`
+	UserAndGroupQuotas []FileSystem_UserAndGroupQuotas `json:"UserAndGroupQuotas,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

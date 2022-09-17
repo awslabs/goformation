@@ -13,12 +13,12 @@ type Channel_Output struct {
 	// AudioDescriptionNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-audiodescriptionnames
-	AudioDescriptionNames *[]string `json:"AudioDescriptionNames,omitempty"`
+	AudioDescriptionNames []string `json:"AudioDescriptionNames,omitempty"`
 
 	// CaptionDescriptionNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-captiondescriptionnames
-	CaptionDescriptionNames *[]string `json:"CaptionDescriptionNames,omitempty"`
+	CaptionDescriptionNames []string `json:"CaptionDescriptionNames,omitempty"`
 
 	// OutputName AWS CloudFormation Property
 	// Required: false

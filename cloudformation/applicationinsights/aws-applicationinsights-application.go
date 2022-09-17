@@ -27,12 +27,12 @@ type Application struct {
 	// ComponentMonitoringSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
-	ComponentMonitoringSettings *[]Application_ComponentMonitoringSetting `json:"ComponentMonitoringSettings,omitempty"`
+	ComponentMonitoringSettings []Application_ComponentMonitoringSetting `json:"ComponentMonitoringSettings,omitempty"`
 
 	// CustomComponents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
-	CustomComponents *[]Application_CustomComponent `json:"CustomComponents,omitempty"`
+	CustomComponents []Application_CustomComponent `json:"CustomComponents,omitempty"`
 
 	// GroupingType AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type Application struct {
 	// LogPatternSets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
-	LogPatternSets *[]Application_LogPatternSet `json:"LogPatternSets,omitempty"`
+	LogPatternSets []Application_LogPatternSet `json:"LogPatternSets,omitempty"`
 
 	// OpsCenterEnabled AWS CloudFormation Property
 	// Required: false
@@ -62,7 +62,7 @@ type Application struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -13,7 +13,7 @@ type LaunchTemplate_LaunchTemplateData struct {
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-blockdevicemappings
-	BlockDeviceMappings *[]LaunchTemplate_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
+	BlockDeviceMappings []LaunchTemplate_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
 	// CapacityReservationSpecification AWS CloudFormation Property
 	// Required: false
@@ -48,12 +48,12 @@ type LaunchTemplate_LaunchTemplateData struct {
 	// ElasticGpuSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications
-	ElasticGpuSpecifications *[]LaunchTemplate_ElasticGpuSpecification `json:"ElasticGpuSpecifications,omitempty"`
+	ElasticGpuSpecifications []LaunchTemplate_ElasticGpuSpecification `json:"ElasticGpuSpecifications,omitempty"`
 
 	// ElasticInferenceAccelerators AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
-	ElasticInferenceAccelerators *[]LaunchTemplate_LaunchTemplateElasticInferenceAccelerator `json:"ElasticInferenceAccelerators,omitempty"`
+	ElasticInferenceAccelerators []LaunchTemplate_LaunchTemplateElasticInferenceAccelerator `json:"ElasticInferenceAccelerators,omitempty"`
 
 	// EnclaveOptions AWS CloudFormation Property
 	// Required: false
@@ -108,7 +108,7 @@ type LaunchTemplate_LaunchTemplateData struct {
 	// LicenseSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
-	LicenseSpecifications *[]LaunchTemplate_LicenseSpecification `json:"LicenseSpecifications,omitempty"`
+	LicenseSpecifications []LaunchTemplate_LicenseSpecification `json:"LicenseSpecifications,omitempty"`
 
 	// MaintenanceOptions AWS CloudFormation Property
 	// Required: false
@@ -128,7 +128,7 @@ type LaunchTemplate_LaunchTemplateData struct {
 	// NetworkInterfaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces
-	NetworkInterfaces *[]LaunchTemplate_NetworkInterface `json:"NetworkInterfaces,omitempty"`
+	NetworkInterfaces []LaunchTemplate_NetworkInterface `json:"NetworkInterfaces,omitempty"`
 
 	// Placement AWS CloudFormation Property
 	// Required: false
@@ -148,17 +148,17 @@ type LaunchTemplate_LaunchTemplateData struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroups
-	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
+	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications
-	TagSpecifications *[]LaunchTemplate_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []LaunchTemplate_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// UserData AWS CloudFormation Property
 	// Required: false

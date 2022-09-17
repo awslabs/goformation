@@ -41,7 +41,7 @@ type Nodegroup struct {
 	// InstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
-	InstanceTypes *[]string `json:"InstanceTypes,omitempty"`
+	InstanceTypes []string `json:"InstanceTypes,omitempty"`
 
 	// Labels AWS CloudFormation Property
 	// Required: false
@@ -91,7 +91,7 @@ type Nodegroup struct {
 	// Taints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-taints
-	Taints *[]Nodegroup_Taint `json:"Taints,omitempty"`
+	Taints []Nodegroup_Taint `json:"Taints,omitempty"`
 
 	// UpdateConfig AWS CloudFormation Property
 	// Required: false

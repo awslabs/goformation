@@ -18,7 +18,7 @@ type FileSystem_WindowsConfiguration struct {
 	// Aliases AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-aliases
-	Aliases *[]string `json:"Aliases,omitempty"`
+	Aliases []string `json:"Aliases,omitempty"`
 
 	// AuditLogConfiguration AWS CloudFormation Property
 	// Required: false

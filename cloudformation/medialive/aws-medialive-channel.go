@@ -26,7 +26,7 @@ type Channel struct {
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-destinations
-	Destinations *[]Channel_OutputDestination `json:"Destinations,omitempty"`
+	Destinations []Channel_OutputDestination `json:"Destinations,omitempty"`
 
 	// EncoderSettings AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type Channel struct {
 	// InputAttachments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputattachments
-	InputAttachments *[]Channel_InputAttachment `json:"InputAttachments,omitempty"`
+	InputAttachments []Channel_InputAttachment `json:"InputAttachments,omitempty"`
 
 	// InputSpecification AWS CloudFormation Property
 	// Required: false

@@ -18,7 +18,7 @@ type DeploymentGroup_TargetGroupPairInfo struct {
 	// TargetGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html#cfn-codedeploy-deploymentgroup-targetgrouppairinfo-targetgroups
-	TargetGroups *[]DeploymentGroup_TargetGroupInfo `json:"TargetGroups,omitempty"`
+	TargetGroups []DeploymentGroup_TargetGroupInfo `json:"TargetGroups,omitempty"`
 
 	// TestTrafficRoute AWS CloudFormation Property
 	// Required: false

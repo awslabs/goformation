@@ -13,17 +13,17 @@ type ComponentVersion_LambdaExecutionParameters struct {
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
-	EnvironmentVariables *map[string]string `json:"EnvironmentVariables,omitempty"`
+	EnvironmentVariables map[string]string `json:"EnvironmentVariables,omitempty"`
 
 	// EventSources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
-	EventSources *[]ComponentVersion_LambdaEventSource `json:"EventSources,omitempty"`
+	EventSources []ComponentVersion_LambdaEventSource `json:"EventSources,omitempty"`
 
 	// ExecArgs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
-	ExecArgs *[]string `json:"ExecArgs,omitempty"`
+	ExecArgs []string `json:"ExecArgs,omitempty"`
 
 	// InputPayloadEncodingType AWS CloudFormation Property
 	// Required: false

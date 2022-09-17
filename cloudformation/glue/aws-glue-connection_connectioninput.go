@@ -28,7 +28,7 @@ type Connection_ConnectionInput struct {
 	// MatchCriteria AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
-	MatchCriteria *[]string `json:"MatchCriteria,omitempty"`
+	MatchCriteria []string `json:"MatchCriteria,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

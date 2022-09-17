@@ -18,7 +18,7 @@ type OrganizationConfigRule_OrganizationCustomCodeRuleMetadata struct {
 	// DebugLogDeliveryAccounts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomcoderulemetadata.html#cfn-config-organizationconfigrule-organizationcustomcoderulemetadata-debuglogdeliveryaccounts
-	DebugLogDeliveryAccounts *[]string `json:"DebugLogDeliveryAccounts,omitempty"`
+	DebugLogDeliveryAccounts []string `json:"DebugLogDeliveryAccounts,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type OrganizationConfigRule_OrganizationCustomCodeRuleMetadata struct {
 	// OrganizationConfigRuleTriggerTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomcoderulemetadata.html#cfn-config-organizationconfigrule-organizationcustomcoderulemetadata-organizationconfigruletriggertypes
-	OrganizationConfigRuleTriggerTypes *[]string `json:"OrganizationConfigRuleTriggerTypes,omitempty"`
+	OrganizationConfigRuleTriggerTypes []string `json:"OrganizationConfigRuleTriggerTypes,omitempty"`
 
 	// ResourceIdScope AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type OrganizationConfigRule_OrganizationCustomCodeRuleMetadata struct {
 	// ResourceTypesScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomcoderulemetadata.html#cfn-config-organizationconfigrule-organizationcustomcoderulemetadata-resourcetypesscope
-	ResourceTypesScope *[]string `json:"ResourceTypesScope,omitempty"`
+	ResourceTypesScope []string `json:"ResourceTypesScope,omitempty"`
 
 	// Runtime AWS CloudFormation Property
 	// Required: true

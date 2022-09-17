@@ -22,7 +22,7 @@ type Cluster struct {
 	// Applications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-applications
-	Applications *[]Cluster_Application `json:"Applications,omitempty"`
+	Applications []Cluster_Application `json:"Applications,omitempty"`
 
 	// AutoScalingRole AWS CloudFormation Property
 	// Required: false
@@ -37,12 +37,12 @@ type Cluster struct {
 	// BootstrapActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-bootstrapactions
-	BootstrapActions *[]Cluster_BootstrapActionConfig `json:"BootstrapActions,omitempty"`
+	BootstrapActions []Cluster_BootstrapActionConfig `json:"BootstrapActions,omitempty"`
 
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-configurations
-	Configurations *[]Cluster_Configuration `json:"Configurations,omitempty"`
+	Configurations []Cluster_Configuration `json:"Configurations,omitempty"`
 
 	// CustomAmiId AWS CloudFormation Property
 	// Required: false
@@ -117,12 +117,12 @@ type Cluster struct {
 	// Steps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
-	Steps *[]Cluster_StepConfig `json:"Steps,omitempty"`
+	Steps []Cluster_StepConfig `json:"Steps,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VisibleToAllUsers AWS CloudFormation Property
 	// Required: false

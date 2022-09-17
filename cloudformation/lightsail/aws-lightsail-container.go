@@ -32,7 +32,7 @@ type Container struct {
 	// PublicDomainNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-publicdomainnames
-	PublicDomainNames *[]Container_PublicDomainName `json:"PublicDomainNames,omitempty"`
+	PublicDomainNames []Container_PublicDomainName `json:"PublicDomainNames,omitempty"`
 
 	// Scale AWS CloudFormation Property
 	// Required: true
@@ -47,7 +47,7 @@ type Container struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

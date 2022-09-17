@@ -22,7 +22,7 @@ type User struct {
 	// HomeDirectoryMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-homedirectorymappings
-	HomeDirectoryMappings *[]User_HomeDirectoryMapEntry `json:"HomeDirectoryMappings,omitempty"`
+	HomeDirectoryMappings []User_HomeDirectoryMapEntry `json:"HomeDirectoryMappings,omitempty"`
 
 	// HomeDirectoryType AWS CloudFormation Property
 	// Required: false
@@ -52,12 +52,12 @@ type User struct {
 	// SshPublicKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-sshpublickeys
-	SshPublicKeys *[]User_SshPublicKey `json:"SshPublicKeys,omitempty"`
+	SshPublicKeys []User_SshPublicKey `json:"SshPublicKeys,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UserName AWS CloudFormation Property
 	// Required: true

@@ -17,7 +17,7 @@ type Stack struct {
 	// AccessEndpoints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-accessendpoints
-	AccessEndpoints *[]Stack_AccessEndpoint `json:"AccessEndpoints,omitempty"`
+	AccessEndpoints []Stack_AccessEndpoint `json:"AccessEndpoints,omitempty"`
 
 	// ApplicationSettings AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type Stack struct {
 	// AttributesToDelete AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-attributestodelete
-	AttributesToDelete *[]string `json:"AttributesToDelete,omitempty"`
+	AttributesToDelete []string `json:"AttributesToDelete,omitempty"`
 
 	// DeleteStorageConnectors AWS CloudFormation Property
 	// Required: false
@@ -47,7 +47,7 @@ type Stack struct {
 	// EmbedHostDomains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-embedhostdomains
-	EmbedHostDomains *[]string `json:"EmbedHostDomains,omitempty"`
+	EmbedHostDomains []string `json:"EmbedHostDomains,omitempty"`
 
 	// FeedbackURL AWS CloudFormation Property
 	// Required: false
@@ -67,7 +67,7 @@ type Stack struct {
 	// StorageConnectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors
-	StorageConnectors *[]Stack_StorageConnector `json:"StorageConnectors,omitempty"`
+	StorageConnectors []Stack_StorageConnector `json:"StorageConnectors,omitempty"`
 
 	// StreamingExperienceSettings AWS CloudFormation Property
 	// Required: false
@@ -77,12 +77,12 @@ type Stack struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UserSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-usersettings
-	UserSettings *[]Stack_UserSetting `json:"UserSettings,omitempty"`
+	UserSettings []Stack_UserSetting `json:"UserSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

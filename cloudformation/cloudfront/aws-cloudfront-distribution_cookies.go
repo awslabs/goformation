@@ -18,7 +18,7 @@ type Distribution_Cookies struct {
 	// WhitelistedNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
-	WhitelistedNames *[]string `json:"WhitelistedNames,omitempty"`
+	WhitelistedNames []string `json:"WhitelistedNames,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -13,7 +13,7 @@ type DistributionConfiguration_ContainerDistributionConfiguration struct {
 	// ContainerTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-containertags
-	ContainerTags *[]string `json:"ContainerTags,omitempty"`
+	ContainerTags []string `json:"ContainerTags,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

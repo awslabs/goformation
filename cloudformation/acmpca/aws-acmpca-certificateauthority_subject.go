@@ -23,7 +23,7 @@ type CertificateAuthority_Subject struct {
 	// CustomAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-customattributes
-	CustomAttributes *[]CertificateAuthority_CustomAttribute `json:"CustomAttributes,omitempty"`
+	CustomAttributes []CertificateAuthority_CustomAttribute `json:"CustomAttributes,omitempty"`
 
 	// DistinguishedNameQualifier AWS CloudFormation Property
 	// Required: false

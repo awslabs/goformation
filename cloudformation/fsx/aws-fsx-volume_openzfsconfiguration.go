@@ -23,12 +23,12 @@ type Volume_OpenZFSConfiguration struct {
 	// NfsExports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-nfsexports
-	NfsExports *[]Volume_NfsExports `json:"NfsExports,omitempty"`
+	NfsExports []Volume_NfsExports `json:"NfsExports,omitempty"`
 
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-options
-	Options *[]string `json:"Options,omitempty"`
+	Options []string `json:"Options,omitempty"`
 
 	// OriginSnapshot AWS CloudFormation Property
 	// Required: false
@@ -63,7 +63,7 @@ type Volume_OpenZFSConfiguration struct {
 	// UserAndGroupQuotas AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-userandgroupquotas
-	UserAndGroupQuotas *[]Volume_UserAndGroupQuotas `json:"UserAndGroupQuotas,omitempty"`
+	UserAndGroupQuotas []Volume_UserAndGroupQuotas `json:"UserAndGroupQuotas,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

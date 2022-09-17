@@ -23,7 +23,7 @@ type VirtualNode_ClientPolicyTls struct {
 	// Ports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-ports
-	Ports *[]int `json:"Ports,omitempty"`
+	Ports []int `json:"Ports,omitempty"`
 
 	// Validation AWS CloudFormation Property
 	// Required: true

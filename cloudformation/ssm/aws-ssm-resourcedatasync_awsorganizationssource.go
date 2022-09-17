@@ -18,7 +18,7 @@ type ResourceDataSync_AwsOrganizationsSource struct {
 	// OrganizationalUnits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
-	OrganizationalUnits *[]string `json:"OrganizationalUnits,omitempty"`
+	OrganizationalUnits []string `json:"OrganizationalUnits,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -41,7 +41,7 @@ type ConfigurationProfile struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-tags
-	Tags *[]ConfigurationProfile_Tags `json:"Tags,omitempty"`
+	Tags []ConfigurationProfile_Tags `json:"Tags,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false
@@ -51,7 +51,7 @@ type ConfigurationProfile struct {
 	// Validators AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-validators
-	Validators *[]ConfigurationProfile_Validators `json:"Validators,omitempty"`
+	Validators []ConfigurationProfile_Validators `json:"Validators,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

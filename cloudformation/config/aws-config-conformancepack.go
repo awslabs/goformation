@@ -16,7 +16,7 @@ type ConformancePack struct {
 	// ConformancePackInputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
-	ConformancePackInputParameters *[]ConformancePack_ConformancePackInputParameter `json:"ConformancePackInputParameters,omitempty"`
+	ConformancePackInputParameters []ConformancePack_ConformancePackInputParameter `json:"ConformancePackInputParameters,omitempty"`
 
 	// ConformancePackName AWS CloudFormation Property
 	// Required: true

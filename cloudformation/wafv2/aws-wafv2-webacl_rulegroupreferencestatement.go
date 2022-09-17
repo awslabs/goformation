@@ -18,7 +18,7 @@ type WebACL_RuleGroupReferenceStatement struct {
 	// ExcludedRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
-	ExcludedRules *[]WebACL_ExcludedRule `json:"ExcludedRules,omitempty"`
+	ExcludedRules []WebACL_ExcludedRule `json:"ExcludedRules,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

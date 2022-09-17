@@ -13,7 +13,7 @@ type Route_HttpRetryPolicy struct {
 	// HttpRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-httpretryevents
-	HttpRetryEvents *[]string `json:"HttpRetryEvents,omitempty"`
+	HttpRetryEvents []string `json:"HttpRetryEvents,omitempty"`
 
 	// MaxRetries AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type Route_HttpRetryPolicy struct {
 	// TcpRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-tcpretryevents
-	TcpRetryEvents *[]string `json:"TcpRetryEvents,omitempty"`
+	TcpRetryEvents []string `json:"TcpRetryEvents,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -43,7 +43,7 @@ type Distribution_Origin struct {
 	// OriginCustomHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
-	OriginCustomHeaders *[]Distribution_OriginCustomHeader `json:"OriginCustomHeaders,omitempty"`
+	OriginCustomHeaders []Distribution_OriginCustomHeader `json:"OriginCustomHeaders,omitempty"`
 
 	// OriginPath AWS CloudFormation Property
 	// Required: false

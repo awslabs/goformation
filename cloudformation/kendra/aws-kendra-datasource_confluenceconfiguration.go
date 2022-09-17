@@ -23,12 +23,12 @@ type DataSource_ConfluenceConfiguration struct {
 	// ExclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
-	ExclusionPatterns *[]string `json:"ExclusionPatterns,omitempty"`
+	ExclusionPatterns []string `json:"ExclusionPatterns,omitempty"`
 
 	// InclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
-	InclusionPatterns *[]string `json:"InclusionPatterns,omitempty"`
+	InclusionPatterns []string `json:"InclusionPatterns,omitempty"`
 
 	// PageConfiguration AWS CloudFormation Property
 	// Required: false

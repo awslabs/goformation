@@ -31,7 +31,7 @@ type JobTemplate struct {
 	// HopDestinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-hopdestinations
-	HopDestinations *[]JobTemplate_HopDestination `json:"HopDestinations,omitempty"`
+	HopDestinations []JobTemplate_HopDestination `json:"HopDestinations,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

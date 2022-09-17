@@ -36,7 +36,7 @@ type Fleet struct {
 	// EC2InboundPermissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
-	EC2InboundPermissions *[]Fleet_IpPermission `json:"EC2InboundPermissions,omitempty"`
+	EC2InboundPermissions []Fleet_IpPermission `json:"EC2InboundPermissions,omitempty"`
 
 	// EC2InstanceType AWS CloudFormation Property
 	// Required: false
@@ -56,7 +56,7 @@ type Fleet struct {
 	// Locations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
-	Locations *[]Fleet_LocationConfiguration `json:"Locations,omitempty"`
+	Locations []Fleet_LocationConfiguration `json:"Locations,omitempty"`
 
 	// MaxSize AWS CloudFormation Property
 	// Required: false
@@ -66,7 +66,7 @@ type Fleet struct {
 	// MetricGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
-	MetricGroups *[]string `json:"MetricGroups,omitempty"`
+	MetricGroups []string `json:"MetricGroups,omitempty"`
 
 	// MinSize AWS CloudFormation Property
 	// Required: false

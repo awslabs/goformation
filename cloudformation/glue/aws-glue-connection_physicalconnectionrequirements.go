@@ -18,7 +18,7 @@ type Connection_PhysicalConnectionRequirements struct {
 	// SecurityGroupIdList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
-	SecurityGroupIdList *[]string `json:"SecurityGroupIdList,omitempty"`
+	SecurityGroupIdList []string `json:"SecurityGroupIdList,omitempty"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false

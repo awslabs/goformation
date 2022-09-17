@@ -17,7 +17,7 @@ type DataSource struct {
 	// AlternateDataSourceParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
-	AlternateDataSourceParameters *[]DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
+	AlternateDataSourceParameters []DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
 
 	// AwsAccountId AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type DataSource struct {
 	// Permissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
-	Permissions *[]DataSource_ResourcePermission `json:"Permissions,omitempty"`
+	Permissions []DataSource_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SslProperties AWS CloudFormation Property
 	// Required: false
@@ -62,7 +62,7 @@ type DataSource struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false

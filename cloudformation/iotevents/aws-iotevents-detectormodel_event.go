@@ -13,7 +13,7 @@ type DetectorModel_Event struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions
-	Actions *[]DetectorModel_Action `json:"Actions,omitempty"`
+	Actions []DetectorModel_Action `json:"Actions,omitempty"`
 
 	// Condition AWS CloudFormation Property
 	// Required: false

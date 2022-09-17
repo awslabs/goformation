@@ -13,7 +13,7 @@ type Api_DomainConfiguration struct {
 	// BasePath AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-api-domainconfiguration.html#sam-api-domainconfiguration-basepath
-	BasePath *[]string `json:"BasePath,omitempty"`
+	BasePath []string `json:"BasePath,omitempty"`
 
 	// CertificateArn AWS CloudFormation Property
 	// Required: true

@@ -46,7 +46,7 @@ type EC2Fleet struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-	TagSpecifications *[]EC2Fleet_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []EC2Fleet_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// TargetCapacitySpecification AWS CloudFormation Property
 	// Required: true

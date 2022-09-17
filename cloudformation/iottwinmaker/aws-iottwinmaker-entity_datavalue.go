@@ -33,7 +33,7 @@ type Entity_DataValue struct {
 	// ListValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-datavalue.html#cfn-iottwinmaker-entity-datavalue-listvalue
-	ListValue *[]Entity_DataValue `json:"ListValue,omitempty"`
+	ListValue []Entity_DataValue `json:"ListValue,omitempty"`
 
 	// LongValue AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type Entity_DataValue struct {
 	// MapValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-datavalue.html#cfn-iottwinmaker-entity-datavalue-mapvalue
-	MapValue *map[string]Entity_DataValue `json:"MapValue,omitempty"`
+	MapValue map[string]Entity_DataValue `json:"MapValue,omitempty"`
 
 	// RelationshipValue AWS CloudFormation Property
 	// Required: false

@@ -24,12 +24,12 @@ type ResponsePlan_IncidentTemplate struct {
 	// IncidentTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-incidenttags
-	IncidentTags *[]tags.Tag `json:"IncidentTags,omitempty"`
+	IncidentTags []tags.Tag `json:"IncidentTags,omitempty"`
 
 	// NotificationTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
-	NotificationTargets *[]ResponsePlan_NotificationTargetItem `json:"NotificationTargets,omitempty"`
+	NotificationTargets []ResponsePlan_NotificationTargetItem `json:"NotificationTargets,omitempty"`
 
 	// Summary AWS CloudFormation Property
 	// Required: false

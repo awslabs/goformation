@@ -13,7 +13,7 @@ type Bot_ImageResponseCard struct {
 	// Buttons AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-buttons
-	Buttons *[]Bot_Button `json:"Buttons,omitempty"`
+	Buttons []Bot_Button `json:"Buttons,omitempty"`
 
 	// ImageUrl AWS CloudFormation Property
 	// Required: false

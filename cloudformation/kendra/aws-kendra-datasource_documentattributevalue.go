@@ -23,7 +23,7 @@ type DataSource_DocumentAttributeValue struct {
 	// StringListValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html#cfn-kendra-datasource-documentattributevalue-stringlistvalue
-	StringListValue *[]string `json:"StringListValue,omitempty"`
+	StringListValue []string `json:"StringListValue,omitempty"`
 
 	// StringValue AWS CloudFormation Property
 	// Required: false

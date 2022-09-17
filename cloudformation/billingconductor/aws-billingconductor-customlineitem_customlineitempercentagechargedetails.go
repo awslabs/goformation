@@ -13,7 +13,7 @@ type CustomLineItem_CustomLineItemPercentageChargeDetails struct {
 	// ChildAssociatedResources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html#cfn-billingconductor-customlineitem-customlineitempercentagechargedetails-childassociatedresources
-	ChildAssociatedResources *[]string `json:"ChildAssociatedResources,omitempty"`
+	ChildAssociatedResources []string `json:"ChildAssociatedResources,omitempty"`
 
 	// PercentageValue AWS CloudFormation Property
 	// Required: true

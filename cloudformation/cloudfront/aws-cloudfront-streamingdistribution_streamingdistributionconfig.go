@@ -13,7 +13,7 @@ type StreamingDistribution_StreamingDistributionConfig struct {
 	// Aliases AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases
-	Aliases *[]string `json:"Aliases,omitempty"`
+	Aliases []string `json:"Aliases,omitempty"`
 
 	// Comment AWS CloudFormation Property
 	// Required: true

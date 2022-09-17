@@ -18,7 +18,7 @@ type GatewayRoute_GrpcGatewayRouteMatch struct {
 	// Metadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-metadata
-	Metadata *[]GatewayRoute_GrpcGatewayRouteMetadata `json:"Metadata,omitempty"`
+	Metadata []GatewayRoute_GrpcGatewayRouteMetadata `json:"Metadata,omitempty"`
 
 	// Port AWS CloudFormation Property
 	// Required: false

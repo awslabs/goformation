@@ -27,7 +27,7 @@ type DBInstance struct {
 	// AssociatedRoles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-associatedroles
-	AssociatedRoles *[]DBInstance_DBInstanceRole `json:"AssociatedRoles,omitempty"`
+	AssociatedRoles []DBInstance_DBInstanceRole `json:"AssociatedRoles,omitempty"`
 
 	// AutoMinorVersionUpgrade AWS CloudFormation Property
 	// Required: false
@@ -92,7 +92,7 @@ type DBInstance struct {
 	// DBSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsecuritygroups
-	DBSecurityGroups *[]string `json:"DBSecurityGroups,omitempty"`
+	DBSecurityGroups []string `json:"DBSecurityGroups,omitempty"`
 
 	// DBSnapshotIdentifier AWS CloudFormation Property
 	// Required: false
@@ -127,7 +127,7 @@ type DBInstance struct {
 	// EnableCloudwatchLogsExports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enablecloudwatchlogsexports
-	EnableCloudwatchLogsExports *[]string `json:"EnableCloudwatchLogsExports,omitempty"`
+	EnableCloudwatchLogsExports []string `json:"EnableCloudwatchLogsExports,omitempty"`
 
 	// EnableIAMDatabaseAuthentication AWS CloudFormation Property
 	// Required: false
@@ -232,7 +232,7 @@ type DBInstance struct {
 	// ProcessorFeatures AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-processorfeatures
-	ProcessorFeatures *[]DBInstance_ProcessorFeature `json:"ProcessorFeatures,omitempty"`
+	ProcessorFeatures []DBInstance_ProcessorFeature `json:"ProcessorFeatures,omitempty"`
 
 	// PromotionTier AWS CloudFormation Property
 	// Required: false
@@ -267,7 +267,7 @@ type DBInstance struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Timezone AWS CloudFormation Property
 	// Required: false
@@ -282,7 +282,7 @@ type DBInstance struct {
 	// VPCSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-vpcsecuritygroups
-	VPCSecurityGroups *[]string `json:"VPCSecurityGroups,omitempty"`
+	VPCSecurityGroups []string `json:"VPCSecurityGroups,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

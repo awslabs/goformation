@@ -23,7 +23,7 @@ type Cluster_InstanceGroupConfig struct {
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-configurations
-	Configurations *[]Cluster_Configuration `json:"Configurations,omitempty"`
+	Configurations []Cluster_Configuration `json:"Configurations,omitempty"`
 
 	// CustomAmiId AWS CloudFormation Property
 	// Required: false

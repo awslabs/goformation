@@ -13,7 +13,7 @@ type Channel_HlsGroupSettings struct {
 	// AdMarkers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html#cfn-medialive-channel-hlsgroupsettings-admarkers
-	AdMarkers *[]string `json:"AdMarkers,omitempty"`
+	AdMarkers []string `json:"AdMarkers,omitempty"`
 
 	// BaseUrlContent AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type Channel_HlsGroupSettings struct {
 	// CaptionLanguageMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html#cfn-medialive-channel-hlsgroupsettings-captionlanguagemappings
-	CaptionLanguageMappings *[]Channel_CaptionLanguageMapping `json:"CaptionLanguageMappings,omitempty"`
+	CaptionLanguageMappings []Channel_CaptionLanguageMapping `json:"CaptionLanguageMappings,omitempty"`
 
 	// CaptionLanguageSetting AWS CloudFormation Property
 	// Required: false

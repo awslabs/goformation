@@ -17,7 +17,7 @@ type Model struct {
 	// Containers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers
-	Containers *[]Model_ContainerDefinition `json:"Containers,omitempty"`
+	Containers []Model_ContainerDefinition `json:"Containers,omitempty"`
 
 	// EnableNetworkIsolation AWS CloudFormation Property
 	// Required: false
@@ -47,7 +47,7 @@ type Model struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false

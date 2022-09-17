@@ -13,7 +13,7 @@ type AlarmModel_AlarmEventActions struct {
 	// AlarmActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmeventactions.html#cfn-iotevents-alarmmodel-alarmeventactions-alarmactions
-	AlarmActions *[]AlarmModel_AlarmAction `json:"AlarmActions,omitempty"`
+	AlarmActions []AlarmModel_AlarmAction `json:"AlarmActions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

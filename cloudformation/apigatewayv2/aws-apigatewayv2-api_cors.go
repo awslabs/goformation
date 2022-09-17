@@ -18,22 +18,22 @@ type Api_Cors struct {
 	// AllowHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowheaders
-	AllowHeaders *[]string `json:"AllowHeaders,omitempty"`
+	AllowHeaders []string `json:"AllowHeaders,omitempty"`
 
 	// AllowMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowmethods
-	AllowMethods *[]string `json:"AllowMethods,omitempty"`
+	AllowMethods []string `json:"AllowMethods,omitempty"`
 
 	// AllowOrigins AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-alloworigins
-	AllowOrigins *[]string `json:"AllowOrigins,omitempty"`
+	AllowOrigins []string `json:"AllowOrigins,omitempty"`
 
 	// ExposeHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-exposeheaders
-	ExposeHeaders *[]string `json:"ExposeHeaders,omitempty"`
+	ExposeHeaders []string `json:"ExposeHeaders,omitempty"`
 
 	// MaxAge AWS CloudFormation Property
 	// Required: false

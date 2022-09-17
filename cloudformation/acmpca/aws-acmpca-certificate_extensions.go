@@ -13,17 +13,17 @@ type Certificate_Extensions struct {
 	// CertificatePolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
-	CertificatePolicies *[]Certificate_PolicyInformation `json:"CertificatePolicies,omitempty"`
+	CertificatePolicies []Certificate_PolicyInformation `json:"CertificatePolicies,omitempty"`
 
 	// CustomExtensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-customextensions
-	CustomExtensions *[]Certificate_CustomExtension `json:"CustomExtensions,omitempty"`
+	CustomExtensions []Certificate_CustomExtension `json:"CustomExtensions,omitempty"`
 
 	// ExtendedKeyUsage AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
-	ExtendedKeyUsage *[]Certificate_ExtendedKeyUsage `json:"ExtendedKeyUsage,omitempty"`
+	ExtendedKeyUsage []Certificate_ExtendedKeyUsage `json:"ExtendedKeyUsage,omitempty"`
 
 	// KeyUsage AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type Certificate_Extensions struct {
 	// SubjectAlternativeNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
-	SubjectAlternativeNames *[]Certificate_GeneralName `json:"SubjectAlternativeNames,omitempty"`
+	SubjectAlternativeNames []Certificate_GeneralName `json:"SubjectAlternativeNames,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -18,22 +18,22 @@ type HttpApi_CorsConfigurationObject struct {
 	// AllowHeaders AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	AllowHeaders *[]string `json:"AllowHeaders,omitempty"`
+	AllowHeaders []string `json:"AllowHeaders,omitempty"`
 
 	// AllowMethods AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	AllowMethods *[]string `json:"AllowMethods,omitempty"`
+	AllowMethods []string `json:"AllowMethods,omitempty"`
 
 	// AllowOrigins AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	AllowOrigins *[]string `json:"AllowOrigins,omitempty"`
+	AllowOrigins []string `json:"AllowOrigins,omitempty"`
 
 	// ExposeHeaders AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration-object
-	ExposeHeaders *[]string `json:"ExposeHeaders,omitempty"`
+	ExposeHeaders []string `json:"ExposeHeaders,omitempty"`
 
 	// MaxAge AWS CloudFormation Property
 	// Required: false

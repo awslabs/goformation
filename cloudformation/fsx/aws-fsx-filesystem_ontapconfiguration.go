@@ -48,7 +48,7 @@ type FileSystem_OntapConfiguration struct {
 	// RouteTableIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-routetableids
-	RouteTableIds *[]string `json:"RouteTableIds,omitempty"`
+	RouteTableIds []string `json:"RouteTableIds,omitempty"`
 
 	// ThroughputCapacity AWS CloudFormation Property
 	// Required: false

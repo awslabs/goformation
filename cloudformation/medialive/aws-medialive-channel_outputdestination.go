@@ -18,7 +18,7 @@ type Channel_OutputDestination struct {
 	// MediaPackageSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-mediapackagesettings
-	MediaPackageSettings *[]Channel_MediaPackageOutputDestinationSettings `json:"MediaPackageSettings,omitempty"`
+	MediaPackageSettings []Channel_MediaPackageOutputDestinationSettings `json:"MediaPackageSettings,omitempty"`
 
 	// MultiplexSettings AWS CloudFormation Property
 	// Required: false
@@ -28,7 +28,7 @@ type Channel_OutputDestination struct {
 	// Settings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-settings
-	Settings *[]Channel_OutputDestinationSettings `json:"Settings,omitempty"`
+	Settings []Channel_OutputDestinationSettings `json:"Settings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -17,7 +17,7 @@ type Function struct {
 	// Architectures AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-architectures
-	Architectures *[]string `json:"Architectures,omitempty"`
+	Architectures []string `json:"Architectures,omitempty"`
 
 	// Code AWS CloudFormation Property
 	// Required: true
@@ -52,7 +52,7 @@ type Function struct {
 	// FileSystemConfigs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
-	FileSystemConfigs *[]Function_FileSystemConfig `json:"FileSystemConfigs,omitempty"`
+	FileSystemConfigs []Function_FileSystemConfig `json:"FileSystemConfigs,omitempty"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: false
@@ -77,7 +77,7 @@ type Function struct {
 	// Layers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
-	Layers *[]string `json:"Layers,omitempty"`
+	Layers []string `json:"Layers,omitempty"`
 
 	// MemorySize AWS CloudFormation Property
 	// Required: false
@@ -107,7 +107,7 @@ type Function struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false

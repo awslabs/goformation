@@ -18,12 +18,12 @@ type EndpointConfig_ClarifyInferenceConfig struct {
 	// FeatureHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-featureheaders
-	FeatureHeaders *[]EndpointConfig_ClarifyHeader `json:"FeatureHeaders,omitempty"`
+	FeatureHeaders []EndpointConfig_ClarifyHeader `json:"FeatureHeaders,omitempty"`
 
 	// FeatureTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-featuretypes
-	FeatureTypes *[]EndpointConfig_ClarifyFeatureType `json:"FeatureTypes,omitempty"`
+	FeatureTypes []EndpointConfig_ClarifyFeatureType `json:"FeatureTypes,omitempty"`
 
 	// FeaturesAttribute AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type EndpointConfig_ClarifyInferenceConfig struct {
 	// LabelHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html#cfn-sagemaker-endpointconfig-clarifyinferenceconfig-labelheaders
-	LabelHeaders *[]EndpointConfig_ClarifyHeader `json:"LabelHeaders,omitempty"`
+	LabelHeaders []EndpointConfig_ClarifyHeader `json:"LabelHeaders,omitempty"`
 
 	// LabelIndex AWS CloudFormation Property
 	// Required: false

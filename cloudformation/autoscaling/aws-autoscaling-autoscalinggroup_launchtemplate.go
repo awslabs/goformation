@@ -18,7 +18,7 @@ type AutoScalingGroup_LaunchTemplate struct {
 	// Overrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-mixedinstancespolicy-overrides
-	Overrides *[]AutoScalingGroup_LaunchTemplateOverrides `json:"Overrides,omitempty"`
+	Overrides []AutoScalingGroup_LaunchTemplateOverrides `json:"Overrides,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

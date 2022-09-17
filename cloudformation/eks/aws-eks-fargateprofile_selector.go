@@ -13,7 +13,7 @@ type FargateProfile_Selector struct {
 	// Labels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
-	Labels *[]FargateProfile_Label `json:"Labels,omitempty"`
+	Labels []FargateProfile_Label `json:"Labels,omitempty"`
 
 	// Namespace AWS CloudFormation Property
 	// Required: true

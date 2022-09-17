@@ -13,7 +13,7 @@ type ComponentVersion_LambdaFunctionRecipeSource struct {
 	// ComponentDependencies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
-	ComponentDependencies *map[string]ComponentVersion_ComponentDependencyRequirement `json:"ComponentDependencies,omitempty"`
+	ComponentDependencies map[string]ComponentVersion_ComponentDependencyRequirement `json:"ComponentDependencies,omitempty"`
 
 	// ComponentLambdaParameters AWS CloudFormation Property
 	// Required: false
@@ -28,7 +28,7 @@ type ComponentVersion_LambdaFunctionRecipeSource struct {
 	// ComponentPlatforms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
-	ComponentPlatforms *[]ComponentVersion_ComponentPlatform `json:"ComponentPlatforms,omitempty"`
+	ComponentPlatforms []ComponentVersion_ComponentPlatform `json:"ComponentPlatforms,omitempty"`
 
 	// ComponentVersion AWS CloudFormation Property
 	// Required: false

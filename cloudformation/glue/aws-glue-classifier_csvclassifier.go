@@ -33,7 +33,7 @@ type Classifier_CsvClassifier struct {
 	// Header AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
-	Header *[]string `json:"Header,omitempty"`
+	Header []string `json:"Header,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

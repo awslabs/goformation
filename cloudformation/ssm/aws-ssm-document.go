@@ -17,7 +17,7 @@ type Document struct {
 	// Attachments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
-	Attachments *[]Document_AttachmentsSource `json:"Attachments,omitempty"`
+	Attachments []Document_AttachmentsSource `json:"Attachments,omitempty"`
 
 	// Content AWS CloudFormation Property
 	// Required: true
@@ -42,12 +42,12 @@ type Document struct {
 	// Requires AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
-	Requires *[]Document_DocumentRequires `json:"Requires,omitempty"`
+	Requires []Document_DocumentRequires `json:"Requires,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TargetType AWS CloudFormation Property
 	// Required: false

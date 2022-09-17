@@ -13,7 +13,7 @@ type FileSystem_NfsExports struct {
 	// ClientConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations
-	ClientConfigurations *[]FileSystem_ClientConfigurations `json:"ClientConfigurations,omitempty"`
+	ClientConfigurations []FileSystem_ClientConfigurations `json:"ClientConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

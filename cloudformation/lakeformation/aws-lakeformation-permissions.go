@@ -21,12 +21,12 @@ type Permissions struct {
 	// Permissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-permissions
-	Permissions *[]string `json:"Permissions,omitempty"`
+	Permissions []string `json:"Permissions,omitempty"`
 
 	// PermissionsWithGrantOption AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-permissionswithgrantoption
-	PermissionsWithGrantOption *[]string `json:"PermissionsWithGrantOption,omitempty"`
+	PermissionsWithGrantOption []string `json:"PermissionsWithGrantOption,omitempty"`
 
 	// Resource AWS CloudFormation Property
 	// Required: true

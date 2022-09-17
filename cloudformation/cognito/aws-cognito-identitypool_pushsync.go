@@ -13,7 +13,7 @@ type IdentityPool_PushSync struct {
 	// ApplicationArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-applicationarns
-	ApplicationArns *[]string `json:"ApplicationArns,omitempty"`
+	ApplicationArns []string `json:"ApplicationArns,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: false
