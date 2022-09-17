@@ -59,6 +59,11 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-copytagstosnapshot
 	CopyTagsToSnapshot *bool `json:"CopyTagsToSnapshot,omitempty"`
 
+	// CustomIAMInstanceProfile AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-customiaminstanceprofile
+	CustomIAMInstanceProfile *string `json:"CustomIAMInstanceProfile,omitempty"`
+
 	// DBClusterIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclusteridentifier
@@ -188,6 +193,11 @@ type DBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-multiaz
 	MultiAZ *bool `json:"MultiAZ,omitempty"`
+
+	// NcharCharacterSetName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-ncharcharactersetname
+	NcharCharacterSetName *string `json:"NcharCharacterSetName,omitempty"`
 
 	// OptionGroupName AWS CloudFormation Property
 	// Required: false

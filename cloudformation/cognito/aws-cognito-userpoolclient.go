@@ -38,6 +38,11 @@ type UserPoolClient struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-analyticsconfiguration
 	AnalyticsConfiguration *UserPoolClient_AnalyticsConfiguration `json:"AnalyticsConfiguration,omitempty"`
 
+	// AuthSessionValidity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-authsessionvalidity
+	AuthSessionValidity *int `json:"AuthSessionValidity,omitempty"`
+
 	// CallbackURLs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-callbackurls

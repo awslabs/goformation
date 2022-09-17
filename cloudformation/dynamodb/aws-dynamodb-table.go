@@ -16,7 +16,7 @@ type Table struct {
 
 	// AttributeDefinitions AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedefinitions
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
 	AttributeDefinitions *[]Table_AttributeDefinition `json:"AttributeDefinitions,omitempty"`
 
 	// BillingMode AWS CloudFormation Property
@@ -26,18 +26,13 @@ type Table struct {
 
 	// ContributorInsightsSpecification AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-contributorinsightsspecification
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-contributorinsightsspecification-enabled
 	ContributorInsightsSpecification *Table_ContributorInsightsSpecification `json:"ContributorInsightsSpecification,omitempty"`
 
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-globalsecondaryindexes
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
 	GlobalSecondaryIndexes *[]Table_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
-
-	// ImportSourceSpecification AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-importsourcespecification
-	ImportSourceSpecification *Table_ImportSourceSpecification `json:"ImportSourceSpecification,omitempty"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
@@ -51,7 +46,7 @@ type Table struct {
 
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi
 	LocalSecondaryIndexes *[]Table_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
 
 	// PointInTimeRecoverySpecification AWS CloudFormation Property
