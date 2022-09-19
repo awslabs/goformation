@@ -108,7 +108,7 @@ var _ = Describe("Resource", func() {
 
 				resource := &rds.DBCluster{
 					DatabaseName: cloudformation.String("MyDatabase"),
-					Engine:       cloudformation.String("mysql"),
+					Engine:       "mysql",
 				}
 				resource.AWSCloudFormationCondition = "MyCondition"
 
