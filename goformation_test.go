@@ -929,10 +929,8 @@ var _ = Describe("Goformation", func() {
 		}
 
 		It("should marshal properties correctly", func() {
-			expectedString := `{"Auth":{"ApiKeyRequired":true,"AuthorizationScopes":["scope1","scope2"],"Authorizer":"aws_iam","ResourcePolicy":{"AwsAccountBlacklist":["AwsAccountBlacklistValue"],"AwsAccountWhitelist":["AwsAccountWhitelistValue"],"CustomStatements":[{"Action":"execute-api:*","Effect":"Allow","Resource":"*"}],"IntrinsicVpcBlacklist":["IntrinsicVpcBlacklistValue"],"IntrinsicVpcWhitelist":["IntrinsicVpcWhitelistValue"],"IntrinsicVpceBlacklist":["IntrinsicVpceBlacklistValue"],"IntrinsicVpceWhitelist":["IntrinsicVpceWhitelistValue"],"IpRangeBlacklist":["IpRangeBlacklistValue"],"IpRangeWhitelist":["IpRangeWhitelistValue"],"SorceVpcBlacklist":["SourceVpcBlacklistValue"],"SourceVpcWhitelist":["SourceVpcWhitelistValue"]}},"Method":"MethodValue","Path":"PathValue","RestApiId":"RestApiIdValue"}`
+			expectedString := `{"Auth":{"ApiKeyRequired":true,"AuthorizationScopes":["scope1","scope2"],"Authorizer":"aws_iam","ResourcePolicy":{"AwsAccountBlacklist":["AwsAccountBlacklistValue"],"AwsAccountWhitelist":["AwsAccountWhitelistValue"],"CustomStatements":[{"Action":"execute-api:*","Effect":"Allow","Resource":"*"}],"IntrinsicVpcBlacklist":["IntrinsicVpcBlacklistValue"],"IntrinsicVpcWhitelist":["IntrinsicVpcWhitelistValue"],"IntrinsicVpceBlacklist":["IntrinsicVpceBlacklistValue"],"IntrinsicVpceWhitelist":["IntrinsicVpceWhitelistValue"],"IpRangeBlacklist":["IpRangeBlacklistValue"],"IpRangeWhitelist":["IpRangeWhitelistValue"],"SourceVpcBlacklist":["SourceVpcBlacklistValue"],"SourceVpcWhitelist":["SourceVpcWhitelistValue"]}},"Method":"MethodValue","Path":"PathValue","RestApiId":"RestApiIdValue"}`
 			bytes, err := event.MarshalJSON()
-			fmt.Println(expectedString)
-			fmt.Println(string(bytes))
 			Expect(err).To(BeNil())
 			Expect(string(bytes)).To(Equal(expectedString))
 		})

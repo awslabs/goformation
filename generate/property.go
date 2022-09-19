@@ -268,11 +268,11 @@ func (p Property) IsGeneric() bool {
 
 // ShouldUsePointer checks if a property is a type which should be a pointer
 func (p Property) UsePointer() bool {
-	if p.IsList() || p.IsMap() {
-		return false
-	}
 	if p.IsPolymorphic() || p.IsCustomType() {
 		return true
+	}
+	if p.IsList() || p.IsMap() {
+		return false
 	}
 	if !p.Required && !p.IsGeneric() {
 		return true

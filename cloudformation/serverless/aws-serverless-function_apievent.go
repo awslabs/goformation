@@ -33,7 +33,7 @@ type Function_ApiEvent struct {
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-	RequestParameters Function_RequestParameters `json:"RequestParameters,omitempty"`
+	RequestParameters *Function_RequestParameters `json:"RequestParameters,omitempty"`
 
 	// RestApiId AWS CloudFormation Property
 	// Required: false
