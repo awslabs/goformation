@@ -187,11 +187,11 @@ var _ = Describe("Goformation", func() {
 		It("should correctly parse all of the function API event sources/endpoints", func() {
 
 			Expect(f.Events).ToNot(BeNil())
-			Expect(*f.Events).To(HaveKey("TestApi"))
-			Expect((*f.Events)["TestApi"].Type).To(Equal("Api"))
-			Expect((*f.Events)["TestApi"].Properties.ApiEvent).ToNot(BeNil())
+			Expect(f.Events).To(HaveKey("TestApi"))
+			Expect((f.Events)["TestApi"].Type).To(Equal("Api"))
+			Expect((f.Events)["TestApi"].Properties.ApiEvent).ToNot(BeNil())
 
-			event := (*f.Events)["TestApi"].Properties.ApiEvent
+			event := (f.Events)["TestApi"].Properties.ApiEvent
 			Expect(event.Method).To(Equal("any"))
 			Expect(event.Path).To(Equal("/testing"))
 
@@ -199,11 +199,11 @@ var _ = Describe("Goformation", func() {
 
 		It("should correctly parse all of the function S3 event source", func() {
 			Expect(f.Events).ToNot(BeNil())
-			Expect(*(f.Events)).To(HaveKey("TestS3"))
-			Expect((*f.Events)["TestS3"].Type).To(Equal("S3"))
-			Expect((*f.Events)["TestS3"].Properties.S3Event).ToNot(BeNil())
+			Expect((f.Events)).To(HaveKey("TestS3"))
+			Expect((f.Events)["TestS3"].Type).To(Equal("S3"))
+			Expect((f.Events)["TestS3"].Properties.S3Event).ToNot(BeNil())
 
-			event := (*f.Events)["TestS3"].Properties.S3Event
+			event := (f.Events)["TestS3"].Properties.S3Event
 			Expect(event.Bucket).To(Equal("my-photo-bucket"))
 			Expect(event.Events.String).To(PointTo(Equal("s3:ObjectCreated:*")))
 			Expect(event.Filter.S3Key.Rules).To(HaveLen(1))
@@ -230,13 +230,13 @@ var _ = Describe("Goformation", func() {
 
 		asg := resources["EcsClusterDefaultAutoScalingGroupASGC1A785DB"]
 		It("should have exactly one tag defined", func() {
-			Expect(*asg.Tags).To(HaveLen(1))
+			Expect(asg.Tags).To(HaveLen(1))
 		})
 
 		It("should have the correct tag properties set", func() {
-			Expect((*asg.Tags)[0].PropagateAtLaunch).To(Equal(true))
-			Expect((*asg.Tags)[0].Key).To(Equal("Name"))
-			Expect((*asg.Tags)[0].Value).To(Equal("aws-ecs-integ-ecs/EcsCluster/DefaultAutoScalingGroup"))
+			Expect((asg.Tags)[0].PropagateAtLaunch).To(Equal(true))
+			Expect((asg.Tags)[0].Key).To(Equal("Name"))
+			Expect((asg.Tags)[0].Value).To(Equal("aws-ecs-integ-ecs/EcsCluster/DefaultAutoScalingGroup"))
 		})
 
 	})
@@ -277,7 +277,7 @@ var _ = Describe("Goformation", func() {
 			template.Resources["MySNSTopic"] = &sns.Topic{
 				DisplayName: cloudformation.String("test-sns-topic-display-name"),
 				TopicName:   cloudformation.String("test-sns-topic-name"),
-				Subscription: &[]sns.Topic_Subscription{
+				Subscription: []sns.Topic_Subscription{
 					{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
@@ -304,9 +304,9 @@ var _ = Describe("Goformation", func() {
 			It("should have the correct AWS::SNS::Topic values", func() {
 				Expect(topic.DisplayName).To(Equal(cloudformation.String("test-sns-topic-display-name")))
 				Expect(topic.TopicName).To(Equal(cloudformation.String("test-sns-topic-name")))
-				Expect(*topic.Subscription).To(HaveLen(1))
-				Expect((*topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
-				Expect((*topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
+				Expect(topic.Subscription).To(HaveLen(1))
+				Expect((topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
+				Expect((topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
 			})
 
 			zones := template.GetAllRoute53HostedZoneResources()
@@ -336,7 +336,7 @@ var _ = Describe("Goformation", func() {
 			expected.Resources["MySNSTopic"] = &sns.Topic{
 				DisplayName: cloudformation.String("test-sns-topic-display-name"),
 				TopicName:   cloudformation.String("test-sns-topic-name"),
-				Subscription: &[]sns.Topic_Subscription{
+				Subscription: []sns.Topic_Subscription{
 					{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
@@ -368,9 +368,9 @@ var _ = Describe("Goformation", func() {
 			It("should have the correct AWS::SNS::Topic values", func() {
 				Expect(topic.DisplayName).To(Equal(cloudformation.String("test-sns-topic-display-name")))
 				Expect(topic.TopicName).To(Equal(cloudformation.String("test-sns-topic-name")))
-				Expect(*topic.Subscription).To(HaveLen(1))
-				Expect((*topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
-				Expect((*topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
+				Expect(topic.Subscription).To(HaveLen(1))
+				Expect((topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
+				Expect((topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
 			})
 
 			zones := result.GetAllRoute53HostedZoneResources()
@@ -733,7 +733,7 @@ var _ = Describe("Goformation", func() {
 		})
 
 		It("should have the correct value for Variables", func() {
-			Expect(*api1.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
+			Expect(api1.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
 		})
 
 		api2, err := template.GetServerlessApiWithName("ServerlessApiWithDefinitionUriAsS3Location")
@@ -903,7 +903,7 @@ var _ = Describe("Goformation", func() {
 					AuthorizationScopes: cloudformation.Strings("scope1", "scope2"),
 					Authorizer:          cloudformation.String("aws_iam"),
 					ResourcePolicy: &serverless.Function_AuthResourcePolicy{
-						CustomStatements: &[]interface{}{
+						CustomStatements: []interface{}{
 							map[string]interface{}{
 								"Effect":   "Allow",
 								"Action":   "execute-api:*",
@@ -929,8 +929,10 @@ var _ = Describe("Goformation", func() {
 		}
 
 		It("should marshal properties correctly", func() {
-			expectedString := `{"Auth":{"ApiKeyRequired":true,"AuthorizationScopes":["scope1","scope2"],"Authorizer":"aws_iam","ResourcePolicy":{"AwsAccountBlacklist":["AwsAccountBlacklistValue"],"AwsAccountWhitelist":["AwsAccountWhitelistValue"],"CustomStatements":[{"Action":"execute-api:*","Effect":"Allow","Resource":"*"}],"IntrinsicVpcBlacklist":["IntrinsicVpcBlacklistValue"],"IntrinsicVpcWhitelist":["IntrinsicVpcWhitelistValue"],"IntrinsicVpceBlacklist":["IntrinsicVpceBlacklistValue"],"IntrinsicVpceWhitelist":["IntrinsicVpceWhitelistValue"],"IpRangeBlacklist":["IpRangeBlacklistValue"],"IpRangeWhitelist":["IpRangeWhitelistValue"],"SourceVpcBlacklist":["SourceVpcBlacklistValue"],"SourceVpcWhitelist":["SourceVpcWhitelistValue"]}},"Method":"MethodValue","Path":"PathValue","RestApiId":"RestApiIdValue"}`
+			expectedString := `{"Auth":{"ApiKeyRequired":true,"AuthorizationScopes":["scope1","scope2"],"Authorizer":"aws_iam","ResourcePolicy":{"AwsAccountBlacklist":["AwsAccountBlacklistValue"],"AwsAccountWhitelist":["AwsAccountWhitelistValue"],"CustomStatements":[{"Action":"execute-api:*","Effect":"Allow","Resource":"*"}],"IntrinsicVpcBlacklist":["IntrinsicVpcBlacklistValue"],"IntrinsicVpcWhitelist":["IntrinsicVpcWhitelistValue"],"IntrinsicVpceBlacklist":["IntrinsicVpceBlacklistValue"],"IntrinsicVpceWhitelist":["IntrinsicVpceWhitelistValue"],"IpRangeBlacklist":["IpRangeBlacklistValue"],"IpRangeWhitelist":["IpRangeWhitelistValue"],"SorceVpcBlacklist":["SourceVpcBlacklistValue"],"SourceVpcWhitelist":["SourceVpcWhitelistValue"]}},"Method":"MethodValue","Path":"PathValue","RestApiId":"RestApiIdValue"}`
 			bytes, err := event.MarshalJSON()
+			fmt.Println(expectedString)
+			fmt.Println(string(bytes))
 			Expect(err).To(BeNil())
 			Expect(string(bytes)).To(Equal(expectedString))
 		})
