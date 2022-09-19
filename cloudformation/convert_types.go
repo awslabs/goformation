@@ -8,7 +8,7 @@ func String(v string) *string {
 }
 
 // Strings returns a pointer to a slice of string pointers.
-func Strings(v... string) *[]string {
+func Strings(v ...string) *[]string {
 	slice := make([]string, len(v))
 	for i := 0; i < len(v); i++ {
 		slice[i] = v[i]
