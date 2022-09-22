@@ -13,7 +13,7 @@ type FirewallPolicy_FirewallPolicy struct {
 	// StatefulDefaultActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefuldefaultactions
-	StatefulDefaultActions *[]string `json:"StatefulDefaultActions,omitempty"`
+	StatefulDefaultActions []string `json:"StatefulDefaultActions,omitempty"`
 
 	// StatefulEngineOptions AWS CloudFormation Property
 	// Required: false
@@ -23,12 +23,12 @@ type FirewallPolicy_FirewallPolicy struct {
 	// StatefulRuleGroupReferences AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
-	StatefulRuleGroupReferences *[]FirewallPolicy_StatefulRuleGroupReference `json:"StatefulRuleGroupReferences,omitempty"`
+	StatefulRuleGroupReferences []FirewallPolicy_StatefulRuleGroupReference `json:"StatefulRuleGroupReferences,omitempty"`
 
 	// StatelessCustomActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
-	StatelessCustomActions *[]FirewallPolicy_CustomAction `json:"StatelessCustomActions,omitempty"`
+	StatelessCustomActions []FirewallPolicy_CustomAction `json:"StatelessCustomActions,omitempty"`
 
 	// StatelessDefaultActions AWS CloudFormation Property
 	// Required: true
@@ -43,7 +43,7 @@ type FirewallPolicy_FirewallPolicy struct {
 	// StatelessRuleGroupReferences AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
-	StatelessRuleGroupReferences *[]FirewallPolicy_StatelessRuleGroupReference `json:"StatelessRuleGroupReferences,omitempty"`
+	StatelessRuleGroupReferences []FirewallPolicy_StatelessRuleGroupReference `json:"StatelessRuleGroupReferences,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

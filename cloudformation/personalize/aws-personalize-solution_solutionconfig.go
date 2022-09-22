@@ -13,7 +13,7 @@ type Solution_SolutionConfig struct {
 	// AlgorithmHyperParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html#cfn-personalize-solution-solutionconfig-algorithmhyperparameters
-	AlgorithmHyperParameters *map[string]string `json:"AlgorithmHyperParameters,omitempty"`
+	AlgorithmHyperParameters map[string]string `json:"AlgorithmHyperParameters,omitempty"`
 
 	// AutoMLConfig AWS CloudFormation Property
 	// Required: false
@@ -28,7 +28,7 @@ type Solution_SolutionConfig struct {
 	// FeatureTransformationParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html#cfn-personalize-solution-solutionconfig-featuretransformationparameters
-	FeatureTransformationParameters *map[string]string `json:"FeatureTransformationParameters,omitempty"`
+	FeatureTransformationParameters map[string]string `json:"FeatureTransformationParameters,omitempty"`
 
 	// HpoConfig AWS CloudFormation Property
 	// Required: false

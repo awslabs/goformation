@@ -56,7 +56,7 @@ type DevEndpoint struct {
 	// PublicKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-publickeys
-	PublicKeys *[]string `json:"PublicKeys,omitempty"`
+	PublicKeys []string `json:"PublicKeys,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
@@ -71,7 +71,7 @@ type DevEndpoint struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false

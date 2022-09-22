@@ -13,7 +13,7 @@ type Dataset_QueryAction struct {
 	// Filters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-filters
-	Filters *[]Dataset_Filter `json:"Filters,omitempty"`
+	Filters []Dataset_Filter `json:"Filters,omitempty"`
 
 	// SqlQuery AWS CloudFormation Property
 	// Required: true

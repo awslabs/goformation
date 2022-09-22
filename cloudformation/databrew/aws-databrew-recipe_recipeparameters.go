@@ -353,17 +353,17 @@ type Recipe_RecipeParameters struct {
 	// SecondaryInputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-secondaryinputs
-	SecondaryInputs *[]Recipe_SecondaryInput `json:"SecondaryInputs,omitempty"`
+	SecondaryInputs []Recipe_SecondaryInput `json:"SecondaryInputs,omitempty"`
 
 	// SheetIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetindexes
-	SheetIndexes *[]int `json:"SheetIndexes,omitempty"`
+	SheetIndexes []int `json:"SheetIndexes,omitempty"`
 
 	// SheetNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetnames
-	SheetNames *[]string `json:"SheetNames,omitempty"`
+	SheetNames []string `json:"SheetNames,omitempty"`
 
 	// SourceColumn AWS CloudFormation Property
 	// Required: false

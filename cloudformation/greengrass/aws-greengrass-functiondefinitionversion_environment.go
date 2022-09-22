@@ -23,7 +23,7 @@ type FunctionDefinitionVersion_Environment struct {
 	// ResourceAccessPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-resourceaccesspolicies
-	ResourceAccessPolicies *[]FunctionDefinitionVersion_ResourceAccessPolicy `json:"ResourceAccessPolicies,omitempty"`
+	ResourceAccessPolicies []FunctionDefinitionVersion_ResourceAccessPolicy `json:"ResourceAccessPolicies,omitempty"`
 
 	// Variables AWS CloudFormation Property
 	// Required: false

@@ -43,7 +43,7 @@ type Job_Output struct {
 	// PartitionColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-partitioncolumns
-	PartitionColumns *[]string `json:"PartitionColumns,omitempty"`
+	PartitionColumns []string `json:"PartitionColumns,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

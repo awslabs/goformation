@@ -21,12 +21,12 @@ type Component struct {
 	// Children AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-children
-	Children *[]Component_ComponentChild `json:"Children,omitempty"`
+	Children []Component_ComponentChild `json:"Children,omitempty"`
 
 	// CollectionProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-collectionproperties
-	CollectionProperties *map[string]Component_ComponentDataConfiguration `json:"CollectionProperties,omitempty"`
+	CollectionProperties map[string]Component_ComponentDataConfiguration `json:"CollectionProperties,omitempty"`
 
 	// ComponentType AWS CloudFormation Property
 	// Required: true
@@ -36,7 +36,7 @@ type Component struct {
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-events
-	Events *map[string]Component_ComponentEvent `json:"Events,omitempty"`
+	Events map[string]Component_ComponentEvent `json:"Events,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -66,7 +66,7 @@ type Component struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-tags
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Variants AWS CloudFormation Property
 	// Required: true

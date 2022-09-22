@@ -18,7 +18,7 @@ type SpotFleet_LaunchTemplateConfig struct {
 	// Overrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-overrides
-	Overrides *[]SpotFleet_LaunchTemplateOverrides `json:"Overrides,omitempty"`
+	Overrides []SpotFleet_LaunchTemplateOverrides `json:"Overrides,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

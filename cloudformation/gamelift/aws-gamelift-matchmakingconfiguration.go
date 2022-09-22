@@ -52,7 +52,7 @@ type MatchmakingConfiguration struct {
 	// GameProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gameproperties
-	GameProperties *[]MatchmakingConfiguration_GameProperty `json:"GameProperties,omitempty"`
+	GameProperties []MatchmakingConfiguration_GameProperty `json:"GameProperties,omitempty"`
 
 	// GameSessionData AWS CloudFormation Property
 	// Required: false
@@ -62,7 +62,7 @@ type MatchmakingConfiguration struct {
 	// GameSessionQueueArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gamesessionqueuearns
-	GameSessionQueueArns *[]string `json:"GameSessionQueueArns,omitempty"`
+	GameSessionQueueArns []string `json:"GameSessionQueueArns,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -87,7 +87,7 @@ type MatchmakingConfiguration struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

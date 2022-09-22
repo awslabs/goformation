@@ -23,17 +23,17 @@ type DistributionConfiguration_Distribution struct {
 	// FastLaunchConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-fastlaunchconfigurations
-	FastLaunchConfigurations *[]DistributionConfiguration_FastLaunchConfiguration `json:"FastLaunchConfigurations,omitempty"`
+	FastLaunchConfigurations []DistributionConfiguration_FastLaunchConfiguration `json:"FastLaunchConfigurations,omitempty"`
 
 	// LaunchTemplateConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
-	LaunchTemplateConfigurations *[]DistributionConfiguration_LaunchTemplateConfiguration `json:"LaunchTemplateConfigurations,omitempty"`
+	LaunchTemplateConfigurations []DistributionConfiguration_LaunchTemplateConfiguration `json:"LaunchTemplateConfigurations,omitempty"`
 
 	// LicenseConfigurationArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
-	LicenseConfigurationArns *[]string `json:"LicenseConfigurationArns,omitempty"`
+	LicenseConfigurationArns []string `json:"LicenseConfigurationArns,omitempty"`
 
 	// Region AWS CloudFormation Property
 	// Required: true

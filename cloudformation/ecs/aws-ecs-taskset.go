@@ -31,7 +31,7 @@ type TaskSet struct {
 	// LoadBalancers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-	LoadBalancers *[]TaskSet_LoadBalancer `json:"LoadBalancers,omitempty"`
+	LoadBalancers []TaskSet_LoadBalancer `json:"LoadBalancers,omitempty"`
 
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
@@ -56,7 +56,7 @@ type TaskSet struct {
 	// ServiceRegistries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
-	ServiceRegistries *[]TaskSet_ServiceRegistry `json:"ServiceRegistries,omitempty"`
+	ServiceRegistries []TaskSet_ServiceRegistry `json:"ServiceRegistries,omitempty"`
 
 	// TaskDefinition AWS CloudFormation Property
 	// Required: true

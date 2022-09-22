@@ -28,22 +28,22 @@ type ModelPackage_AdditionalInferenceSpecificationDefinition struct {
 	// SupportedContentTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html#cfn-sagemaker-modelpackage-additionalinferencespecificationdefinition-supportedcontenttypes
-	SupportedContentTypes *[]string `json:"SupportedContentTypes,omitempty"`
+	SupportedContentTypes []string `json:"SupportedContentTypes,omitempty"`
 
 	// SupportedRealtimeInferenceInstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html#cfn-sagemaker-modelpackage-additionalinferencespecificationdefinition-supportedrealtimeinferenceinstancetypes
-	SupportedRealtimeInferenceInstanceTypes *[]string `json:"SupportedRealtimeInferenceInstanceTypes,omitempty"`
+	SupportedRealtimeInferenceInstanceTypes []string `json:"SupportedRealtimeInferenceInstanceTypes,omitempty"`
 
 	// SupportedResponseMIMETypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html#cfn-sagemaker-modelpackage-additionalinferencespecificationdefinition-supportedresponsemimetypes
-	SupportedResponseMIMETypes *[]string `json:"SupportedResponseMIMETypes,omitempty"`
+	SupportedResponseMIMETypes []string `json:"SupportedResponseMIMETypes,omitempty"`
 
 	// SupportedTransformInstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html#cfn-sagemaker-modelpackage-additionalinferencespecificationdefinition-supportedtransforminstancetypes
-	SupportedTransformInstanceTypes *[]string `json:"SupportedTransformInstanceTypes,omitempty"`
+	SupportedTransformInstanceTypes []string `json:"SupportedTransformInstanceTypes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

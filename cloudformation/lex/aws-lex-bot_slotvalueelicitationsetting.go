@@ -23,7 +23,7 @@ type Bot_SlotValueElicitationSetting struct {
 	// SampleUtterances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html#cfn-lex-bot-slotvalueelicitationsetting-sampleutterances
-	SampleUtterances *[]Bot_SampleUtterance `json:"SampleUtterances,omitempty"`
+	SampleUtterances []Bot_SampleUtterance `json:"SampleUtterances,omitempty"`
 
 	// SlotConstraint AWS CloudFormation Property
 	// Required: true

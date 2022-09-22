@@ -18,12 +18,12 @@ type TaskDefinition_LogConfiguration struct {
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-	Options *map[string]string `json:"Options,omitempty"`
+	Options map[string]string `json:"Options,omitempty"`
 
 	// SecretOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
-	SecretOptions *[]TaskDefinition_Secret `json:"SecretOptions,omitempty"`
+	SecretOptions []TaskDefinition_Secret `json:"SecretOptions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

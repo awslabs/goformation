@@ -13,7 +13,7 @@ type EventSourceMapping_Endpoints struct {
 	// KafkaBootstrapServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
-	KafkaBootstrapServers *[]string `json:"KafkaBootstrapServers,omitempty"`
+	KafkaBootstrapServers []string `json:"KafkaBootstrapServers,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

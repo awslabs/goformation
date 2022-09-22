@@ -26,7 +26,7 @@ type LaunchTemplate struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications
-	TagSpecifications *[]LaunchTemplate_LaunchTemplateTagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []LaunchTemplate_LaunchTemplateTagSpecification `json:"TagSpecifications,omitempty"`
 
 	// VersionDescription AWS CloudFormation Property
 	// Required: false

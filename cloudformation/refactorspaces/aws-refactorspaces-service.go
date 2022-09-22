@@ -47,7 +47,7 @@ type Service struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UrlEndpoint AWS CloudFormation Property
 	// Required: false

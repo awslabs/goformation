@@ -13,7 +13,7 @@ type Listener_AuthenticateOidcConfig struct {
 	// AuthenticationRequestExtraParams AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-authenticationrequestextraparams
-	AuthenticationRequestExtraParams *map[string]string `json:"AuthenticationRequestExtraParams,omitempty"`
+	AuthenticationRequestExtraParams map[string]string `json:"AuthenticationRequestExtraParams,omitempty"`
 
 	// AuthorizationEndpoint AWS CloudFormation Property
 	// Required: true

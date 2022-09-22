@@ -26,7 +26,7 @@ type BackupVault struct {
 	// BackupVaultTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-	BackupVaultTags *map[string]string `json:"BackupVaultTags,omitempty"`
+	BackupVaultTags map[string]string `json:"BackupVaultTags,omitempty"`
 
 	// EncryptionKeyArn AWS CloudFormation Property
 	// Required: false

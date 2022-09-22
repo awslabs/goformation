@@ -26,7 +26,7 @@ type InstanceGroupConfig struct {
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-configurations
-	Configurations *[]InstanceGroupConfig_Configuration `json:"Configurations,omitempty"`
+	Configurations []InstanceGroupConfig_Configuration `json:"Configurations,omitempty"`
 
 	// CustomAmiId AWS CloudFormation Property
 	// Required: false

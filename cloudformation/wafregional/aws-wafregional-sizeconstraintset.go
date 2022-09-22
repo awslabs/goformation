@@ -21,7 +21,7 @@ type SizeConstraintSet struct {
 	// SizeConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-sizeconstraints
-	SizeConstraints *[]SizeConstraintSet_SizeConstraint `json:"SizeConstraints,omitempty"`
+	SizeConstraints []SizeConstraintSet_SizeConstraint `json:"SizeConstraints,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

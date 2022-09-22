@@ -47,7 +47,7 @@ type LocationSMB struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// User AWS CloudFormation Property
 	// Required: true

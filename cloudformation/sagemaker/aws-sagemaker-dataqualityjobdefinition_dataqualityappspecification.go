@@ -13,17 +13,17 @@ type DataQualityJobDefinition_DataQualityAppSpecification struct {
 	// ContainerArguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
-	ContainerArguments *[]string `json:"ContainerArguments,omitempty"`
+	ContainerArguments []string `json:"ContainerArguments,omitempty"`
 
 	// ContainerEntrypoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
-	ContainerEntrypoint *[]string `json:"ContainerEntrypoint,omitempty"`
+	ContainerEntrypoint []string `json:"ContainerEntrypoint,omitempty"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-	Environment *map[string]string `json:"Environment,omitempty"`
+	Environment map[string]string `json:"Environment,omitempty"`
 
 	// ImageUri AWS CloudFormation Property
 	// Required: true

@@ -13,7 +13,7 @@ type PrincipalPermissions_ColumnWildcard struct {
 	// ExcludedColumnNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-columnwildcard.html#cfn-lakeformation-principalpermissions-columnwildcard-excludedcolumnnames
-	ExcludedColumnNames *[]string `json:"ExcludedColumnNames,omitempty"`
+	ExcludedColumnNames []string `json:"ExcludedColumnNames,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

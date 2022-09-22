@@ -23,7 +23,7 @@ type TopicRule_HttpAction struct {
 	// Headers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
-	Headers *[]TopicRule_HttpActionHeader `json:"Headers,omitempty"`
+	Headers []TopicRule_HttpActionHeader `json:"Headers,omitempty"`
 
 	// Url AWS CloudFormation Property
 	// Required: true

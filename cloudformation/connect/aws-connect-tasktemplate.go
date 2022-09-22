@@ -32,7 +32,7 @@ type TaskTemplate struct {
 	// Defaults AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-defaults
-	Defaults *[]TaskTemplate_DefaultFieldValue `json:"Defaults,omitempty"`
+	Defaults []TaskTemplate_DefaultFieldValue `json:"Defaults,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type TaskTemplate struct {
 	// Fields AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-fields
-	Fields *[]TaskTemplate_Field `json:"Fields,omitempty"`
+	Fields []TaskTemplate_Field `json:"Fields,omitempty"`
 
 	// InstanceArn AWS CloudFormation Property
 	// Required: true
@@ -62,7 +62,7 @@ type TaskTemplate struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

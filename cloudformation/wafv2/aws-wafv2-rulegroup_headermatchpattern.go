@@ -18,12 +18,12 @@ type RuleGroup_HeaderMatchPattern struct {
 	// ExcludedHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headermatchpattern.html#cfn-wafv2-rulegroup-headermatchpattern-excludedheaders
-	ExcludedHeaders *[]string `json:"ExcludedHeaders,omitempty"`
+	ExcludedHeaders []string `json:"ExcludedHeaders,omitempty"`
 
 	// IncludedHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headermatchpattern.html#cfn-wafv2-rulegroup-headermatchpattern-includedheaders
-	IncludedHeaders *[]string `json:"IncludedHeaders,omitempty"`
+	IncludedHeaders []string `json:"IncludedHeaders,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

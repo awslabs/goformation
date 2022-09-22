@@ -13,7 +13,7 @@ type Route_GrpcRouteMatch struct {
 	// Metadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-metadata
-	Metadata *[]Route_GrpcRouteMetadata `json:"Metadata,omitempty"`
+	Metadata []Route_GrpcRouteMetadata `json:"Metadata,omitempty"`
 
 	// MethodName AWS CloudFormation Property
 	// Required: false

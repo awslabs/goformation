@@ -13,7 +13,7 @@ type Cluster_HadoopJarStepConfig struct {
 	// Args AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-args
-	Args *[]string `json:"Args,omitempty"`
+	Args []string `json:"Args,omitempty"`
 
 	// Jar AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type Cluster_HadoopJarStepConfig struct {
 	// StepProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-stepproperties
-	StepProperties *[]Cluster_KeyValue `json:"StepProperties,omitempty"`
+	StepProperties []Cluster_KeyValue `json:"StepProperties,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

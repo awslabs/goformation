@@ -16,7 +16,7 @@ type LayerVersion struct {
 	// CompatibleRuntimes AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesslayerversion
-	CompatibleRuntimes *[]string `json:"CompatibleRuntimes,omitempty"`
+	CompatibleRuntimes []string `json:"CompatibleRuntimes,omitempty"`
 
 	// ContentUri AWS CloudFormation Property
 	// Required: false

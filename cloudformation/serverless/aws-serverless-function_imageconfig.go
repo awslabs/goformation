@@ -13,12 +13,12 @@ type Function_ImageConfig struct {
 	// Command AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
-	Command *[]string `json:"Command,omitempty"`
+	Command []string `json:"Command,omitempty"`
 
 	// EntryPoint AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
-	EntryPoint *[]string `json:"EntryPoint,omitempty"`
+	EntryPoint []string `json:"EntryPoint,omitempty"`
 
 	// WorkingDirectory AWS CloudFormation Property
 	// Required: false

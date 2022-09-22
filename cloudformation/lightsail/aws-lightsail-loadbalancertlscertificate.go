@@ -16,7 +16,7 @@ type LoadBalancerTlsCertificate struct {
 	// CertificateAlternativeNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html#cfn-lightsail-loadbalancertlscertificate-certificatealternativenames
-	CertificateAlternativeNames *[]string `json:"CertificateAlternativeNames,omitempty"`
+	CertificateAlternativeNames []string `json:"CertificateAlternativeNames,omitempty"`
 
 	// CertificateDomainName AWS CloudFormation Property
 	// Required: true

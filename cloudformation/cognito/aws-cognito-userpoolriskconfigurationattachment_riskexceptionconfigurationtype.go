@@ -13,12 +13,12 @@ type UserPoolRiskConfigurationAttachment_RiskExceptionConfigurationType struct {
 	// BlockedIPRangeList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-blockediprangelist
-	BlockedIPRangeList *[]string `json:"BlockedIPRangeList,omitempty"`
+	BlockedIPRangeList []string `json:"BlockedIPRangeList,omitempty"`
 
 	// SkippedIPRangeList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-skippediprangelist
-	SkippedIPRangeList *[]string `json:"SkippedIPRangeList,omitempty"`
+	SkippedIPRangeList []string `json:"SkippedIPRangeList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

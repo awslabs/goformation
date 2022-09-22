@@ -17,7 +17,7 @@ type Group struct {
 	// Configuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
-	Configuration *[]Group_ConfigurationItem `json:"Configuration,omitempty"`
+	Configuration []Group_ConfigurationItem `json:"Configuration,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -37,12 +37,12 @@ type Group struct {
 	// Resources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
-	Resources *[]string `json:"Resources,omitempty"`
+	Resources []string `json:"Resources,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

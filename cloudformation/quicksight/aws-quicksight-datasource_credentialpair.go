@@ -13,7 +13,7 @@ type DataSource_CredentialPair struct {
 	// AlternateDataSourceParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
-	AlternateDataSourceParameters *[]DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
+	AlternateDataSourceParameters []DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
 
 	// Password AWS CloudFormation Property
 	// Required: true

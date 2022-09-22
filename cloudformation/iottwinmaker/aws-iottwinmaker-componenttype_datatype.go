@@ -13,7 +13,7 @@ type ComponentType_DataType struct {
 	// AllowedValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-allowedvalues
-	AllowedValues *[]ComponentType_DataValue `json:"AllowedValues,omitempty"`
+	AllowedValues []ComponentType_DataValue `json:"AllowedValues,omitempty"`
 
 	// NestedType AWS CloudFormation Property
 	// Required: false

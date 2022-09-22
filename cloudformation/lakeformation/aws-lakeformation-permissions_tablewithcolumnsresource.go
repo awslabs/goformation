@@ -18,7 +18,7 @@ type Permissions_TableWithColumnsResource struct {
 	// ColumnNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
-	ColumnNames *[]string `json:"ColumnNames,omitempty"`
+	ColumnNames []string `json:"ColumnNames,omitempty"`
 
 	// ColumnWildcard AWS CloudFormation Property
 	// Required: false

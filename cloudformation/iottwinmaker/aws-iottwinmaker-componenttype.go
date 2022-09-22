@@ -26,12 +26,12 @@ type ComponentType struct {
 	// ExtendsFrom AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-extendsfrom
-	ExtendsFrom *[]string `json:"ExtendsFrom,omitempty"`
+	ExtendsFrom []string `json:"ExtendsFrom,omitempty"`
 
 	// Functions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-functions
-	Functions *map[string]ComponentType_Function `json:"Functions,omitempty"`
+	Functions map[string]ComponentType_Function `json:"Functions,omitempty"`
 
 	// IsSingleton AWS CloudFormation Property
 	// Required: false
@@ -41,12 +41,12 @@ type ComponentType struct {
 	// PropertyDefinitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-propertydefinitions
-	PropertyDefinitions *map[string]ComponentType_PropertyDefinition `json:"PropertyDefinitions,omitempty"`
+	PropertyDefinitions map[string]ComponentType_PropertyDefinition `json:"PropertyDefinitions,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-tags
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// WorkspaceId AWS CloudFormation Property
 	// Required: true

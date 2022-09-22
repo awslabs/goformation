@@ -18,17 +18,17 @@ type DataSource_OneDriveConfiguration struct {
 	// ExclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
-	ExclusionPatterns *[]string `json:"ExclusionPatterns,omitempty"`
+	ExclusionPatterns []string `json:"ExclusionPatterns,omitempty"`
 
 	// FieldMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
-	FieldMappings *[]DataSource_DataSourceToIndexFieldMapping `json:"FieldMappings,omitempty"`
+	FieldMappings []DataSource_DataSourceToIndexFieldMapping `json:"FieldMappings,omitempty"`
 
 	// InclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
-	InclusionPatterns *[]string `json:"InclusionPatterns,omitempty"`
+	InclusionPatterns []string `json:"InclusionPatterns,omitempty"`
 
 	// OneDriveUsers AWS CloudFormation Property
 	// Required: true

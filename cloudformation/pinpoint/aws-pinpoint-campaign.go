@@ -16,7 +16,7 @@ type Campaign struct {
 	// AdditionalTreatments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-additionaltreatments
-	AdditionalTreatments *[]Campaign_WriteTreatmentResource `json:"AdditionalTreatments,omitempty"`
+	AdditionalTreatments []Campaign_WriteTreatmentResource `json:"AdditionalTreatments,omitempty"`
 
 	// ApplicationId AWS CloudFormation Property
 	// Required: true

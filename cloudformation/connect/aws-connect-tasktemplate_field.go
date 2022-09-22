@@ -23,7 +23,7 @@ type TaskTemplate_Field struct {
 	// SingleSelectOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html#cfn-connect-tasktemplate-field-singleselectoptions
-	SingleSelectOptions *[]string `json:"SingleSelectOptions,omitempty"`
+	SingleSelectOptions []string `json:"SingleSelectOptions,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

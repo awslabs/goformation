@@ -33,7 +33,7 @@ type Entity_Component struct {
 	// Properties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-properties
-	Properties *map[string]Entity_Property `json:"Properties,omitempty"`
+	Properties map[string]Entity_Property `json:"Properties,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false

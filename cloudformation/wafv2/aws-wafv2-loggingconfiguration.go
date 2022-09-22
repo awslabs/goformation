@@ -26,7 +26,7 @@ type LoggingConfiguration struct {
 	// RedactedFields AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
-	RedactedFields *[]LoggingConfiguration_FieldToMatch `json:"RedactedFields,omitempty"`
+	RedactedFields []LoggingConfiguration_FieldToMatch `json:"RedactedFields,omitempty"`
 
 	// ResourceArn AWS CloudFormation Property
 	// Required: true

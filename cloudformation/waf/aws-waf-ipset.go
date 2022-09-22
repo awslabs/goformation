@@ -16,7 +16,7 @@ type IPSet struct {
 	// IPSetDescriptors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html#cfn-waf-ipset-ipsetdescriptors
-	IPSetDescriptors *[]IPSet_IPSetDescriptor `json:"IPSetDescriptors,omitempty"`
+	IPSetDescriptors []IPSet_IPSetDescriptor `json:"IPSetDescriptors,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

@@ -13,7 +13,7 @@ type DeploymentGroup_EC2TagSet struct {
 	// Ec2TagSetList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html#cfn-codedeploy-deploymentgroup-ec2tagset-ec2tagsetlist
-	Ec2TagSetList *[]DeploymentGroup_EC2TagSetListObject `json:"Ec2TagSetList,omitempty"`
+	Ec2TagSetList []DeploymentGroup_EC2TagSetListObject `json:"Ec2TagSetList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

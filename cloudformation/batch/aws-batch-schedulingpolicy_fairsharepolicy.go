@@ -23,7 +23,7 @@ type SchedulingPolicy_FairsharePolicy struct {
 	// ShareDistribution AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-sharedistribution
-	ShareDistribution *[]SchedulingPolicy_ShareAttributes `json:"ShareDistribution,omitempty"`
+	ShareDistribution []SchedulingPolicy_ShareAttributes `json:"ShareDistribution,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

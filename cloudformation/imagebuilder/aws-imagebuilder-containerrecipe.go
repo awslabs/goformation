@@ -71,7 +71,7 @@ type ContainerRecipe struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// TargetRepository AWS CloudFormation Property
 	// Required: true

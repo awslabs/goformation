@@ -43,12 +43,12 @@ type SpotFleet_SpotFleetRequestConfigData struct {
 	// LaunchSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
-	LaunchSpecifications *[]SpotFleet_SpotFleetLaunchSpecification `json:"LaunchSpecifications,omitempty"`
+	LaunchSpecifications []SpotFleet_SpotFleetLaunchSpecification `json:"LaunchSpecifications,omitempty"`
 
 	// LaunchTemplateConfigs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchtemplateconfigs
-	LaunchTemplateConfigs *[]SpotFleet_LaunchTemplateConfig `json:"LaunchTemplateConfigs,omitempty"`
+	LaunchTemplateConfigs []SpotFleet_LaunchTemplateConfig `json:"LaunchTemplateConfigs,omitempty"`
 
 	// LoadBalancersConfig AWS CloudFormation Property
 	// Required: false

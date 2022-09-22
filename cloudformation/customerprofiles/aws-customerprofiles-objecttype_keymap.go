@@ -18,7 +18,7 @@ type ObjectType_KeyMap struct {
 	// ObjectTypeKeyList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
-	ObjectTypeKeyList *[]ObjectType_ObjectTypeKey `json:"ObjectTypeKeyList,omitempty"`
+	ObjectTypeKeyList []ObjectType_ObjectTypeKey `json:"ObjectTypeKeyList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -28,7 +28,7 @@ type ComputeEnvironment_ComputeResources struct {
 	// Ec2Configuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration
-	Ec2Configuration *[]ComputeEnvironment_Ec2ConfigurationObject `json:"Ec2Configuration,omitempty"`
+	Ec2Configuration []ComputeEnvironment_Ec2ConfigurationObject `json:"Ec2Configuration,omitempty"`
 
 	// Ec2KeyPair AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type ComputeEnvironment_ComputeResources struct {
 	// InstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes
-	InstanceTypes *[]string `json:"InstanceTypes,omitempty"`
+	InstanceTypes []string `json:"InstanceTypes,omitempty"`
 
 	// LaunchTemplate AWS CloudFormation Property
 	// Required: false
@@ -73,7 +73,7 @@ type ComputeEnvironment_ComputeResources struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SpotIamFleetRole AWS CloudFormation Property
 	// Required: false
@@ -88,7 +88,7 @@ type ComputeEnvironment_ComputeResources struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-tags
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

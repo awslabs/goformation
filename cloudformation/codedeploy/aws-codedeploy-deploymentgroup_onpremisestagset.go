@@ -13,7 +13,7 @@ type DeploymentGroup_OnPremisesTagSet struct {
 	// OnPremisesTagSetList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagset.html#cfn-codedeploy-deploymentgroup-onpremisestagset-onpremisestagsetlist
-	OnPremisesTagSetList *[]DeploymentGroup_OnPremisesTagSetListObject `json:"OnPremisesTagSetList,omitempty"`
+	OnPremisesTagSetList []DeploymentGroup_OnPremisesTagSetListObject `json:"OnPremisesTagSetList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

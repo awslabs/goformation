@@ -28,17 +28,17 @@ type DataSource_S3DataSourceConfiguration struct {
 	// ExclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
-	ExclusionPatterns *[]string `json:"ExclusionPatterns,omitempty"`
+	ExclusionPatterns []string `json:"ExclusionPatterns,omitempty"`
 
 	// InclusionPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
-	InclusionPatterns *[]string `json:"InclusionPatterns,omitempty"`
+	InclusionPatterns []string `json:"InclusionPatterns,omitempty"`
 
 	// InclusionPrefixes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
-	InclusionPrefixes *[]string `json:"InclusionPrefixes,omitempty"`
+	InclusionPrefixes []string `json:"InclusionPrefixes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

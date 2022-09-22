@@ -23,7 +23,7 @@ type ModelPackage_InferenceSpecification struct {
 	// SupportedRealtimeInferenceInstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedrealtimeinferenceinstancetypes
-	SupportedRealtimeInferenceInstanceTypes *[]string `json:"SupportedRealtimeInferenceInstanceTypes,omitempty"`
+	SupportedRealtimeInferenceInstanceTypes []string `json:"SupportedRealtimeInferenceInstanceTypes,omitempty"`
 
 	// SupportedResponseMIMETypes AWS CloudFormation Property
 	// Required: true
@@ -33,7 +33,7 @@ type ModelPackage_InferenceSpecification struct {
 	// SupportedTransformInstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedtransforminstancetypes
-	SupportedTransformInstanceTypes *[]string `json:"SupportedTransformInstanceTypes,omitempty"`
+	SupportedTransformInstanceTypes []string `json:"SupportedTransformInstanceTypes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -17,12 +17,12 @@ type NotebookInstance struct {
 	// AcceleratorTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-acceleratortypes
-	AcceleratorTypes *[]string `json:"AcceleratorTypes,omitempty"`
+	AcceleratorTypes []string `json:"AcceleratorTypes,omitempty"`
 
 	// AdditionalCodeRepositories AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-additionalcoderepositories
-	AdditionalCodeRepositories *[]string `json:"AdditionalCodeRepositories,omitempty"`
+	AdditionalCodeRepositories []string `json:"AdditionalCodeRepositories,omitempty"`
 
 	// DefaultCodeRepository AWS CloudFormation Property
 	// Required: false
@@ -77,7 +77,7 @@ type NotebookInstance struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false
@@ -87,7 +87,7 @@ type NotebookInstance struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VolumeSizeInGB AWS CloudFormation Property
 	// Required: false

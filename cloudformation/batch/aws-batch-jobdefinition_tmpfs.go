@@ -18,7 +18,7 @@ type JobDefinition_Tmpfs struct {
 	// MountOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-mountoptions
-	MountOptions *[]string `json:"MountOptions,omitempty"`
+	MountOptions []string `json:"MountOptions,omitempty"`
 
 	// Size AWS CloudFormation Property
 	// Required: true

@@ -23,7 +23,7 @@ type CoreNetwork_CoreNetworkEdge struct {
 	// InsideCidrBlocks AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworkedge.html#cfn-networkmanager-corenetwork-corenetworkedge-insidecidrblocks
-	InsideCidrBlocks *[]string `json:"InsideCidrBlocks,omitempty"`
+	InsideCidrBlocks []string `json:"InsideCidrBlocks,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

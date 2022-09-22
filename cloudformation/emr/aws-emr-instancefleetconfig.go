@@ -26,7 +26,7 @@ type InstanceFleetConfig struct {
 	// InstanceTypeConfigs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfigs
-	InstanceTypeConfigs *[]InstanceFleetConfig_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
+	InstanceTypeConfigs []InstanceFleetConfig_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
 
 	// LaunchSpecifications AWS CloudFormation Property
 	// Required: false

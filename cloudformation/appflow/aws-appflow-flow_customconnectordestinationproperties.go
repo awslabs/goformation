@@ -28,7 +28,7 @@ type Flow_CustomConnectorDestinationProperties struct {
 	// IdFieldNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html#cfn-appflow-flow-customconnectordestinationproperties-idfieldnames
-	IdFieldNames *[]string `json:"IdFieldNames,omitempty"`
+	IdFieldNames []string `json:"IdFieldNames,omitempty"`
 
 	// WriteOperationType AWS CloudFormation Property
 	// Required: false

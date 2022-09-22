@@ -18,7 +18,7 @@ type Api_EndpointConfiguration struct {
 	// VpcEndpointIds AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-api-endpointconfiguration.html#sam-api-endpointconfiguration-vpcendpointids
-	VpcEndpointIds *[]string `json:"VpcEndpointIds,omitempty"`
+	VpcEndpointIds []string `json:"VpcEndpointIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

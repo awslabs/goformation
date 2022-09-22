@@ -13,12 +13,12 @@ type Bot_ConversationLogSettings struct {
 	// AudioLogSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conversationlogsettings.html#cfn-lex-bot-conversationlogsettings-audiologsettings
-	AudioLogSettings *[]Bot_AudioLogSetting `json:"AudioLogSettings,omitempty"`
+	AudioLogSettings []Bot_AudioLogSetting `json:"AudioLogSettings,omitempty"`
 
 	// TextLogSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conversationlogsettings.html#cfn-lex-bot-conversationlogsettings-textlogsettings
-	TextLogSettings *[]Bot_TextLogSetting `json:"TextLogSettings,omitempty"`
+	TextLogSettings []Bot_TextLogSetting `json:"TextLogSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

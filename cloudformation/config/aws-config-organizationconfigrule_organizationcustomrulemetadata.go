@@ -43,7 +43,7 @@ type OrganizationConfigRule_OrganizationCustomRuleMetadata struct {
 	// ResourceTypesScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
-	ResourceTypesScope *[]string `json:"ResourceTypesScope,omitempty"`
+	ResourceTypesScope []string `json:"ResourceTypesScope,omitempty"`
 
 	// TagKeyScope AWS CloudFormation Property
 	// Required: false

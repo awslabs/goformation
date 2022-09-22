@@ -31,7 +31,7 @@ type RecordSetGroup struct {
 	// RecordSets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-recordsets
-	RecordSets *[]RecordSetGroup_RecordSet `json:"RecordSets,omitempty"`
+	RecordSets []RecordSetGroup_RecordSet `json:"RecordSets,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

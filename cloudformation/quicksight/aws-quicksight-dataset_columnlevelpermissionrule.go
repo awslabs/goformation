@@ -13,12 +13,12 @@ type DataSet_ColumnLevelPermissionRule struct {
 	// ColumnNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
-	ColumnNames *[]string `json:"ColumnNames,omitempty"`
+	ColumnNames []string `json:"ColumnNames,omitempty"`
 
 	// Principals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
-	Principals *[]string `json:"Principals,omitempty"`
+	Principals []string `json:"Principals,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

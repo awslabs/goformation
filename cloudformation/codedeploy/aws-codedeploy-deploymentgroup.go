@@ -32,7 +32,7 @@ type DeploymentGroup struct {
 	// AutoScalingGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups
-	AutoScalingGroups *[]string `json:"AutoScalingGroups,omitempty"`
+	AutoScalingGroups []string `json:"AutoScalingGroups,omitempty"`
 
 	// BlueGreenDeploymentConfiguration AWS CloudFormation Property
 	// Required: false
@@ -62,12 +62,12 @@ type DeploymentGroup struct {
 	// ECSServices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ecsservices
-	ECSServices *[]DeploymentGroup_ECSService `json:"ECSServices,omitempty"`
+	ECSServices []DeploymentGroup_ECSService `json:"ECSServices,omitempty"`
 
 	// Ec2TagFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters
-	Ec2TagFilters *[]DeploymentGroup_EC2TagFilter `json:"Ec2TagFilters,omitempty"`
+	Ec2TagFilters []DeploymentGroup_EC2TagFilter `json:"Ec2TagFilters,omitempty"`
 
 	// Ec2TagSet AWS CloudFormation Property
 	// Required: false
@@ -82,7 +82,7 @@ type DeploymentGroup struct {
 	// OnPremisesInstanceTagFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
-	OnPremisesInstanceTagFilters *[]DeploymentGroup_TagFilter `json:"OnPremisesInstanceTagFilters,omitempty"`
+	OnPremisesInstanceTagFilters []DeploymentGroup_TagFilter `json:"OnPremisesInstanceTagFilters,omitempty"`
 
 	// OnPremisesTagSet AWS CloudFormation Property
 	// Required: false
@@ -102,12 +102,12 @@ type DeploymentGroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TriggerConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations
-	TriggerConfigurations *[]DeploymentGroup_TriggerConfig `json:"TriggerConfigurations,omitempty"`
+	TriggerConfigurations []DeploymentGroup_TriggerConfig `json:"TriggerConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

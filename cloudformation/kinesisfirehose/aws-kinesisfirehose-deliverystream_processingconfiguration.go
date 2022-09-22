@@ -18,7 +18,7 @@ type DeliveryStream_ProcessingConfiguration struct {
 	// Processors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
-	Processors *[]DeliveryStream_Processor `json:"Processors,omitempty"`
+	Processors []DeliveryStream_Processor `json:"Processors,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
