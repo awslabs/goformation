@@ -13,12 +13,12 @@ type Method_MethodResponse struct {
 	// ResponseModels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
-	ResponseModels *map[string]string `json:"ResponseModels,omitempty"`
+	ResponseModels map[string]string `json:"ResponseModels,omitempty"`
 
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
-	ResponseParameters *map[string]bool `json:"ResponseParameters,omitempty"`
+	ResponseParameters map[string]bool `json:"ResponseParameters,omitempty"`
 
 	// StatusCode AWS CloudFormation Property
 	// Required: true

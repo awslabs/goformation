@@ -22,7 +22,7 @@ type Application struct {
 	// AttributesToDelete AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-application.html#cfn-appstream-application-attributestodelete
-	AttributesToDelete *[]string `json:"AttributesToDelete,omitempty"`
+	AttributesToDelete []string `json:"AttributesToDelete,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -67,7 +67,7 @@ type Application struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-application.html#cfn-appstream-application-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// WorkingDirectory AWS CloudFormation Property
 	// Required: false

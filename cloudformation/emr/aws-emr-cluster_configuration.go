@@ -18,12 +18,12 @@ type Cluster_Configuration struct {
 	// ConfigurationProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html#cfn-elasticmapreduce-cluster-configuration-configurationproperties
-	ConfigurationProperties *map[string]string `json:"ConfigurationProperties,omitempty"`
+	ConfigurationProperties map[string]string `json:"ConfigurationProperties,omitempty"`
 
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html#cfn-elasticmapreduce-cluster-configuration-configurations
-	Configurations *[]Cluster_Configuration `json:"Configurations,omitempty"`
+	Configurations []Cluster_Configuration `json:"Configurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

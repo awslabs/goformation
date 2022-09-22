@@ -56,7 +56,7 @@ type GlobalReplicationGroup struct {
 	// RegionalConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
-	RegionalConfigurations *[]GlobalReplicationGroup_RegionalConfiguration `json:"RegionalConfigurations,omitempty"`
+	RegionalConfigurations []GlobalReplicationGroup_RegionalConfiguration `json:"RegionalConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

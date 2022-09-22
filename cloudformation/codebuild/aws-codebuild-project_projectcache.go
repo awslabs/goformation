@@ -18,7 +18,7 @@ type Project_ProjectCache struct {
 	// Modes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes
-	Modes *[]string `json:"Modes,omitempty"`
+	Modes []string `json:"Modes,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

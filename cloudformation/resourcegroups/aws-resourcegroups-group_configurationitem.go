@@ -13,7 +13,7 @@ type Group_ConfigurationItem struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
-	Parameters *[]Group_ConfigurationParameter `json:"Parameters,omitempty"`
+	Parameters []Group_ConfigurationParameter `json:"Parameters,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false

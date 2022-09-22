@@ -23,7 +23,7 @@ type UsagePlan_ApiStage struct {
 	// Throttle AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
-	Throttle *map[string]UsagePlan_ThrottleSettings `json:"Throttle,omitempty"`
+	Throttle map[string]UsagePlan_ThrottleSettings `json:"Throttle,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

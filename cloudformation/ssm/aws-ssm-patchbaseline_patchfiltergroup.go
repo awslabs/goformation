@@ -13,7 +13,7 @@ type PatchBaseline_PatchFilterGroup struct {
 	// PatchFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
-	PatchFilters *[]PatchBaseline_PatchFilter `json:"PatchFilters,omitempty"`
+	PatchFilters []PatchBaseline_PatchFilter `json:"PatchFilters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

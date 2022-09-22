@@ -13,7 +13,7 @@ type CoreNetwork_CoreNetworkSegment struct {
 	// EdgeLocations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html#cfn-networkmanager-corenetwork-corenetworksegment-edgelocations
-	EdgeLocations *[]string `json:"EdgeLocations,omitempty"`
+	EdgeLocations []string `json:"EdgeLocations,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -23,7 +23,7 @@ type CoreNetwork_CoreNetworkSegment struct {
 	// SharedSegments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html#cfn-networkmanager-corenetwork-corenetworksegment-sharedsegments
-	SharedSegments *[]string `json:"SharedSegments,omitempty"`
+	SharedSegments []string `json:"SharedSegments,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

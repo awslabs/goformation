@@ -31,7 +31,7 @@ type StateMachine struct {
 	// DefinitionSubstitutions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions *map[string]interface{} `json:"DefinitionSubstitutions,omitempty"`
+	DefinitionSubstitutions map[string]interface{} `json:"DefinitionSubstitutions,omitempty"`
 
 	// LoggingConfiguration AWS CloudFormation Property
 	// Required: false
@@ -56,7 +56,7 @@ type StateMachine struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-	Tags *[]StateMachine_TagsEntry `json:"Tags,omitempty"`
+	Tags []StateMachine_TagsEntry `json:"Tags,omitempty"`
 
 	// TracingConfiguration AWS CloudFormation Property
 	// Required: false

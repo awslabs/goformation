@@ -18,7 +18,7 @@ type Cluster_CloudWatchAlarmDefinition struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-dimensions
-	Dimensions *[]Cluster_MetricDimension `json:"Dimensions,omitempty"`
+	Dimensions []Cluster_MetricDimension `json:"Dimensions,omitempty"`
 
 	// EvaluationPeriods AWS CloudFormation Property
 	// Required: false

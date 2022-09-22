@@ -41,7 +41,7 @@ type ScalableTarget struct {
 	// ScheduledActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scheduledactions
-	ScheduledActions *[]ScalableTarget_ScheduledAction `json:"ScheduledActions,omitempty"`
+	ScheduledActions []ScalableTarget_ScheduledAction `json:"ScheduledActions,omitempty"`
 
 	// ServiceNamespace AWS CloudFormation Property
 	// Required: true

@@ -17,7 +17,7 @@ type ResponsePlan struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
-	Actions *[]ResponsePlan_Action `json:"Actions,omitempty"`
+	Actions []ResponsePlan_Action `json:"Actions,omitempty"`
 
 	// ChatChannel AWS CloudFormation Property
 	// Required: false
@@ -32,7 +32,7 @@ type ResponsePlan struct {
 	// Engagements AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
-	Engagements *[]string `json:"Engagements,omitempty"`
+	Engagements []string `json:"Engagements,omitempty"`
 
 	// IncidentTemplate AWS CloudFormation Property
 	// Required: true
@@ -47,7 +47,7 @@ type ResponsePlan struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

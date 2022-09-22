@@ -21,7 +21,7 @@ type BackupPlan struct {
 	// BackupPlanTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags *map[string]string `json:"BackupPlanTags,omitempty"`
+	BackupPlanTags map[string]string `json:"BackupPlanTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

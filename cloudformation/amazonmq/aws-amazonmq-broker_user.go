@@ -18,7 +18,7 @@ type Broker_User struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-groups
-	Groups *[]string `json:"Groups,omitempty"`
+	Groups []string `json:"Groups,omitempty"`
 
 	// Password AWS CloudFormation Property
 	// Required: true

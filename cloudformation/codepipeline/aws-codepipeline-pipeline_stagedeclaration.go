@@ -18,7 +18,7 @@ type Pipeline_StageDeclaration struct {
 	// Blockers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-blockers
-	Blockers *[]Pipeline_BlockerDeclaration `json:"Blockers,omitempty"`
+	Blockers []Pipeline_BlockerDeclaration `json:"Blockers,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

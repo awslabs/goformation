@@ -18,12 +18,12 @@ type RuleGroup_CookieMatchPattern struct {
 	// ExcludedCookies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookiematchpattern.html#cfn-wafv2-rulegroup-cookiematchpattern-excludedcookies
-	ExcludedCookies *[]string `json:"ExcludedCookies,omitempty"`
+	ExcludedCookies []string `json:"ExcludedCookies,omitempty"`
 
 	// IncludedCookies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cookiematchpattern.html#cfn-wafv2-rulegroup-cookiematchpattern-includedcookies
-	IncludedCookies *[]string `json:"IncludedCookies,omitempty"`
+	IncludedCookies []string `json:"IncludedCookies,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -28,7 +28,7 @@ type Service_CodeConfigurationValues struct {
 	// RuntimeEnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
-	RuntimeEnvironmentVariables *[]Service_KeyValuePair `json:"RuntimeEnvironmentVariables,omitempty"`
+	RuntimeEnvironmentVariables []Service_KeyValuePair `json:"RuntimeEnvironmentVariables,omitempty"`
 
 	// StartCommand AWS CloudFormation Property
 	// Required: false

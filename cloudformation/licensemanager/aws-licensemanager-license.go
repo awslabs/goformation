@@ -41,7 +41,7 @@ type License struct {
 	// LicenseMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-	LicenseMetadata *[]License_Metadata `json:"LicenseMetadata,omitempty"`
+	LicenseMetadata []License_Metadata `json:"LicenseMetadata,omitempty"`
 
 	// LicenseName AWS CloudFormation Property
 	// Required: true

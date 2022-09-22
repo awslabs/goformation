@@ -16,7 +16,7 @@ type ExperimentTemplate struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-	Actions *map[string]ExperimentTemplate_ExperimentTemplateAction `json:"Actions,omitempty"`
+	Actions map[string]ExperimentTemplate_ExperimentTemplateAction `json:"Actions,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: true

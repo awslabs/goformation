@@ -13,7 +13,7 @@ type SamplingRule_SamplingRule struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes
-	Attributes *map[string]string `json:"Attributes,omitempty"`
+	Attributes map[string]string `json:"Attributes,omitempty"`
 
 	// FixedRate AWS CloudFormation Property
 	// Required: false

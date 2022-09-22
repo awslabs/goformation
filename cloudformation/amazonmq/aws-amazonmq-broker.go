@@ -81,7 +81,7 @@ type Broker struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
-	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
+	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
 	// StorageType AWS CloudFormation Property
 	// Required: false
@@ -91,12 +91,12 @@ type Broker struct {
 	// SubnetIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
-	SubnetIds *[]string `json:"SubnetIds,omitempty"`
+	SubnetIds []string `json:"SubnetIds,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
-	Tags *[]Broker_TagsEntry `json:"Tags,omitempty"`
+	Tags []Broker_TagsEntry `json:"Tags,omitempty"`
 
 	// Users AWS CloudFormation Property
 	// Required: true

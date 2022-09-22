@@ -23,7 +23,7 @@ type ScheduledQuery_MixedMeasureMapping struct {
 	// MultiMeasureAttributeMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-multimeasureattributemappings
-	MultiMeasureAttributeMappings *[]ScheduledQuery_MultiMeasureAttributeMapping `json:"MultiMeasureAttributeMappings,omitempty"`
+	MultiMeasureAttributeMappings []ScheduledQuery_MultiMeasureAttributeMapping `json:"MultiMeasureAttributeMappings,omitempty"`
 
 	// SourceColumn AWS CloudFormation Property
 	// Required: false

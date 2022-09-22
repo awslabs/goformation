@@ -18,7 +18,7 @@ type Distribution_ForwardedValues struct {
 	// Headers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
-	Headers *[]string `json:"Headers,omitempty"`
+	Headers []string `json:"Headers,omitempty"`
 
 	// QueryString AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type Distribution_ForwardedValues struct {
 	// QueryStringCacheKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
-	QueryStringCacheKeys *[]string `json:"QueryStringCacheKeys,omitempty"`
+	QueryStringCacheKeys []string `json:"QueryStringCacheKeys,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

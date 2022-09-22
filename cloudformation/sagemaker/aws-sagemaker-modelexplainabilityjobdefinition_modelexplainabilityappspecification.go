@@ -18,7 +18,7 @@ type ModelExplainabilityJobDefinition_ModelExplainabilityAppSpecification struct
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-	Environment *map[string]string `json:"Environment,omitempty"`
+	Environment map[string]string `json:"Environment,omitempty"`
 
 	// ImageUri AWS CloudFormation Property
 	// Required: true

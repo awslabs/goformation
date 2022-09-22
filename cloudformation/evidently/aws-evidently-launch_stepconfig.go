@@ -18,7 +18,7 @@ type Launch_StepConfig struct {
 	// SegmentOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html#cfn-evidently-launch-stepconfig-segmentoverrides
-	SegmentOverrides *[]Launch_SegmentOverride `json:"SegmentOverrides,omitempty"`
+	SegmentOverrides []Launch_SegmentOverride `json:"SegmentOverrides,omitempty"`
 
 	// StartTime AWS CloudFormation Property
 	// Required: true

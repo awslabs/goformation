@@ -18,7 +18,7 @@ type ModelBiasJobDefinition_ModelBiasAppSpecification struct {
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-	Environment *map[string]string `json:"Environment,omitempty"`
+	Environment map[string]string `json:"Environment,omitempty"`
 
 	// ImageUri AWS CloudFormation Property
 	// Required: true

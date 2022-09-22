@@ -33,7 +33,7 @@ type Cluster_BrokerNodeGroupInfo struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-securitygroups
-	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
+	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
 	// StorageInfo AWS CloudFormation Property
 	// Required: false

@@ -18,7 +18,7 @@ type InstanceGroupConfig_CloudWatchAlarmDefinition struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition-dimensions
-	Dimensions *[]InstanceGroupConfig_MetricDimension `json:"Dimensions,omitempty"`
+	Dimensions []InstanceGroupConfig_MetricDimension `json:"Dimensions,omitempty"`
 
 	// EvaluationPeriods AWS CloudFormation Property
 	// Required: false

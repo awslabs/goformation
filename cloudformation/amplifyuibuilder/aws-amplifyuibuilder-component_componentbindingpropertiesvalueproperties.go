@@ -38,7 +38,7 @@ type Component_ComponentBindingPropertiesValueProperties struct {
 	// Predicates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalueproperties.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalueproperties-predicates
-	Predicates *[]Component_Predicate `json:"Predicates,omitempty"`
+	Predicates []Component_Predicate `json:"Predicates,omitempty"`
 
 	// UserAttribute AWS CloudFormation Property
 	// Required: false

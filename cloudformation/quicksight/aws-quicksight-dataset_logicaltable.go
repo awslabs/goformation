@@ -18,7 +18,7 @@ type DataSet_LogicalTable struct {
 	// DataTransforms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
-	DataTransforms *[]DataSet_TransformOperation `json:"DataTransforms,omitempty"`
+	DataTransforms []DataSet_TransformOperation `json:"DataTransforms,omitempty"`
 
 	// Source AWS CloudFormation Property
 	// Required: true

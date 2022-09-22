@@ -13,7 +13,7 @@ type DataSource_OneDriveUsers struct {
 	// OneDriveUserList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-	OneDriveUserList *[]string `json:"OneDriveUserList,omitempty"`
+	OneDriveUserList []string `json:"OneDriveUserList,omitempty"`
 
 	// OneDriveUserS3Path AWS CloudFormation Property
 	// Required: false

@@ -23,7 +23,7 @@ type GlobalReplicationGroup_RegionalConfiguration struct {
 	// ReshardingConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
-	ReshardingConfigurations *[]GlobalReplicationGroup_ReshardingConfiguration `json:"ReshardingConfigurations,omitempty"`
+	ReshardingConfigurations []GlobalReplicationGroup_ReshardingConfiguration `json:"ReshardingConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -42,7 +42,7 @@ type Environment struct {
 	// OptionSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-optionsettings
-	OptionSettings *[]Environment_OptionSetting `json:"OptionSettings,omitempty"`
+	OptionSettings []Environment_OptionSetting `json:"OptionSettings,omitempty"`
 
 	// PlatformArn AWS CloudFormation Property
 	// Required: false
@@ -57,7 +57,7 @@ type Environment struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-elasticbeanstalk-environment-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TemplateName AWS CloudFormation Property
 	// Required: false

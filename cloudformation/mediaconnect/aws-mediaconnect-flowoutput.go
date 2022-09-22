@@ -16,7 +16,7 @@ type FlowOutput struct {
 	// CidrAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
-	CidrAllowList *[]string `json:"CidrAllowList,omitempty"`
+	CidrAllowList []string `json:"CidrAllowList,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

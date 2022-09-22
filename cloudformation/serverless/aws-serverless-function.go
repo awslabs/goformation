@@ -16,7 +16,7 @@ type Function struct {
 	// Architectures AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-architectures
-	Architectures *[]string `json:"Architectures,omitempty"`
+	Architectures []string `json:"Architectures,omitempty"`
 
 	// AssumeRolePolicyDocument AWS CloudFormation Property
 	// Required: false
@@ -71,12 +71,12 @@ type Function struct {
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Events *map[string]Function_EventSource `json:"Events,omitempty"`
+	Events map[string]Function_EventSource `json:"Events,omitempty"`
 
 	// FileSystemConfigs AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
-	FileSystemConfigs *[]Function_FileSystemConfig `json:"FileSystemConfigs,omitempty"`
+	FileSystemConfigs []Function_FileSystemConfig `json:"FileSystemConfigs,omitempty"`
 
 	// FunctionName AWS CloudFormation Property
 	// Required: false
@@ -111,7 +111,7 @@ type Function struct {
 	// Layers AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Layers *[]string `json:"Layers,omitempty"`
+	Layers []string `json:"Layers,omitempty"`
 
 	// MemorySize AWS CloudFormation Property
 	// Required: false
@@ -156,7 +156,7 @@ type Function struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false

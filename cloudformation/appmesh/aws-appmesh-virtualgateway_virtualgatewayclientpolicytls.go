@@ -23,7 +23,7 @@ type VirtualGateway_VirtualGatewayClientPolicyTls struct {
 	// Ports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-ports
-	Ports *[]int `json:"Ports,omitempty"`
+	Ports []int `json:"Ports,omitempty"`
 
 	// Validation AWS CloudFormation Property
 	// Required: true

@@ -26,7 +26,7 @@ type DBProxyEndpoint struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
-	Tags *[]DBProxyEndpoint_TagFormat `json:"Tags,omitempty"`
+	Tags []DBProxyEndpoint_TagFormat `json:"Tags,omitempty"`
 
 	// TargetRole AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type DBProxyEndpoint struct {
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
-	VpcSecurityGroupIds *[]string `json:"VpcSecurityGroupIds,omitempty"`
+	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds,omitempty"`
 
 	// VpcSubnetIds AWS CloudFormation Property
 	// Required: true

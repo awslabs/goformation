@@ -18,12 +18,12 @@ type Method_IntegrationResponse struct {
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
-	ResponseParameters *map[string]string `json:"ResponseParameters,omitempty"`
+	ResponseParameters map[string]string `json:"ResponseParameters,omitempty"`
 
 	// ResponseTemplates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates
-	ResponseTemplates *map[string]string `json:"ResponseTemplates,omitempty"`
+	ResponseTemplates map[string]string `json:"ResponseTemplates,omitempty"`
 
 	// SelectionPattern AWS CloudFormation Property
 	// Required: false

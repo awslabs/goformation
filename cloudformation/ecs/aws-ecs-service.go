@@ -17,7 +17,7 @@ type Service struct {
 	// CapacityProviderStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-	CapacityProviderStrategy *[]Service_CapacityProviderStrategyItem `json:"CapacityProviderStrategy,omitempty"`
+	CapacityProviderStrategy []Service_CapacityProviderStrategyItem `json:"CapacityProviderStrategy,omitempty"`
 
 	// Cluster AWS CloudFormation Property
 	// Required: false
@@ -62,7 +62,7 @@ type Service struct {
 	// LoadBalancers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-	LoadBalancers *[]Service_LoadBalancer `json:"LoadBalancers,omitempty"`
+	LoadBalancers []Service_LoadBalancer `json:"LoadBalancers,omitempty"`
 
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
@@ -72,12 +72,12 @@ type Service struct {
 	// PlacementConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-	PlacementConstraints *[]Service_PlacementConstraint `json:"PlacementConstraints,omitempty"`
+	PlacementConstraints []Service_PlacementConstraint `json:"PlacementConstraints,omitempty"`
 
 	// PlacementStrategies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-	PlacementStrategies *[]Service_PlacementStrategy `json:"PlacementStrategies,omitempty"`
+	PlacementStrategies []Service_PlacementStrategy `json:"PlacementStrategies,omitempty"`
 
 	// PlatformVersion AWS CloudFormation Property
 	// Required: false
@@ -107,12 +107,12 @@ type Service struct {
 	// ServiceRegistries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-	ServiceRegistries *[]Service_ServiceRegistry `json:"ServiceRegistries,omitempty"`
+	ServiceRegistries []Service_ServiceRegistry `json:"ServiceRegistries,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TaskDefinition AWS CloudFormation Property
 	// Required: false

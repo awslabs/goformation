@@ -18,7 +18,7 @@ type Application_PropertyGroup struct {
 	// PropertyMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertymap
-	PropertyMap *map[string]string `json:"PropertyMap,omitempty"`
+	PropertyMap map[string]string `json:"PropertyMap,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

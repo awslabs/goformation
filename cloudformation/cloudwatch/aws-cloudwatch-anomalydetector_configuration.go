@@ -13,7 +13,7 @@ type AnomalyDetector_Configuration struct {
 	// ExcludedTimeRanges AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html#cfn-cloudwatch-anomalydetector-configuration-excludedtimeranges
-	ExcludedTimeRanges *[]AnomalyDetector_Range `json:"ExcludedTimeRanges,omitempty"`
+	ExcludedTimeRanges []AnomalyDetector_Range `json:"ExcludedTimeRanges,omitempty"`
 
 	// MetricTimeZone AWS CloudFormation Property
 	// Required: false

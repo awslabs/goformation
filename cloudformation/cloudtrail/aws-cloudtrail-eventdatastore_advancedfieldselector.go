@@ -13,12 +13,12 @@ type EventDataStore_AdvancedFieldSelector struct {
 	// EndsWith AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-endswith
-	EndsWith *[]string `json:"EndsWith,omitempty"`
+	EndsWith []string `json:"EndsWith,omitempty"`
 
 	// Equals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-equals
-	Equals *[]string `json:"Equals,omitempty"`
+	Equals []string `json:"Equals,omitempty"`
 
 	// Field AWS CloudFormation Property
 	// Required: true
@@ -28,22 +28,22 @@ type EventDataStore_AdvancedFieldSelector struct {
 	// NotEndsWith AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notendswith
-	NotEndsWith *[]string `json:"NotEndsWith,omitempty"`
+	NotEndsWith []string `json:"NotEndsWith,omitempty"`
 
 	// NotEquals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notequals
-	NotEquals *[]string `json:"NotEquals,omitempty"`
+	NotEquals []string `json:"NotEquals,omitempty"`
 
 	// NotStartsWith AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-notstartswith
-	NotStartsWith *[]string `json:"NotStartsWith,omitempty"`
+	NotStartsWith []string `json:"NotStartsWith,omitempty"`
 
 	// StartsWith AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-startswith
-	StartsWith *[]string `json:"StartsWith,omitempty"`
+	StartsWith []string `json:"StartsWith,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -26,12 +26,12 @@ type VPCEndpointService struct {
 	// GatewayLoadBalancerArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
-	GatewayLoadBalancerArns *[]string `json:"GatewayLoadBalancerArns,omitempty"`
+	GatewayLoadBalancerArns []string `json:"GatewayLoadBalancerArns,omitempty"`
 
 	// NetworkLoadBalancerArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
-	NetworkLoadBalancerArns *[]string `json:"NetworkLoadBalancerArns,omitempty"`
+	NetworkLoadBalancerArns []string `json:"NetworkLoadBalancerArns,omitempty"`
 
 	// PayerResponsibility AWS CloudFormation Property
 	// Required: false

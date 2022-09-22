@@ -13,7 +13,7 @@ type AnomalyDetector_MetricSet struct {
 	// DimensionList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
-	DimensionList *[]string `json:"DimensionList,omitempty"`
+	DimensionList []string `json:"DimensionList,omitempty"`
 
 	// MetricList AWS CloudFormation Property
 	// Required: true

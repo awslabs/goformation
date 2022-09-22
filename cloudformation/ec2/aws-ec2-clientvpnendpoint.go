@@ -46,12 +46,12 @@ type ClientVpnEndpoint struct {
 	// DnsServers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-dnsservers
-	DnsServers *[]string `json:"DnsServers,omitempty"`
+	DnsServers []string `json:"DnsServers,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SelfServicePortal AWS CloudFormation Property
 	// Required: false
@@ -76,7 +76,7 @@ type ClientVpnEndpoint struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-tagspecifications
-	TagSpecifications *[]ClientVpnEndpoint_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []ClientVpnEndpoint_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// TransportProtocol AWS CloudFormation Property
 	// Required: false

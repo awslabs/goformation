@@ -17,7 +17,7 @@ type BotAlias struct {
 	// BotAliasLocaleSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliaslocalesettings
-	BotAliasLocaleSettings *[]BotAlias_BotAliasLocaleSettingsItem `json:"BotAliasLocaleSettings,omitempty"`
+	BotAliasLocaleSettings []BotAlias_BotAliasLocaleSettingsItem `json:"BotAliasLocaleSettings,omitempty"`
 
 	// BotAliasName AWS CloudFormation Property
 	// Required: true
@@ -27,7 +27,7 @@ type BotAlias struct {
 	// BotAliasTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliastags
-	BotAliasTags *[]tags.Tag `json:"BotAliasTags,omitempty"`
+	BotAliasTags []tags.Tag `json:"BotAliasTags,omitempty"`
 
 	// BotId AWS CloudFormation Property
 	// Required: true

@@ -13,7 +13,7 @@ type Repository_RepositoryTrigger struct {
 	// Branches AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-branches
-	Branches *[]string `json:"Branches,omitempty"`
+	Branches []string `json:"Branches,omitempty"`
 
 	// CustomData AWS CloudFormation Property
 	// Required: false

@@ -13,7 +13,7 @@ type AccessPoint_ObjectLambdaConfiguration struct {
 	// AllowedFeatures AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-	AllowedFeatures *[]string `json:"AllowedFeatures,omitempty"`
+	AllowedFeatures []string `json:"AllowedFeatures,omitempty"`
 
 	// CloudWatchMetricsEnabled AWS CloudFormation Property
 	// Required: false

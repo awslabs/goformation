@@ -18,7 +18,7 @@ type Channel_AutomaticInputFailoverSettings struct {
 	// FailoverConditions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-failoverconditions
-	FailoverConditions *[]Channel_FailoverCondition `json:"FailoverConditions,omitempty"`
+	FailoverConditions []Channel_FailoverCondition `json:"FailoverConditions,omitempty"`
 
 	// InputPreference AWS CloudFormation Property
 	// Required: false

@@ -16,12 +16,12 @@ type ReportDefinition struct {
 	// AdditionalArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-additionalartifacts
-	AdditionalArtifacts *[]string `json:"AdditionalArtifacts,omitempty"`
+	AdditionalArtifacts []string `json:"AdditionalArtifacts,omitempty"`
 
 	// AdditionalSchemaElements AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-additionalschemaelements
-	AdditionalSchemaElements *[]string `json:"AdditionalSchemaElements,omitempty"`
+	AdditionalSchemaElements []string `json:"AdditionalSchemaElements,omitempty"`
 
 	// BillingViewArn AWS CloudFormation Property
 	// Required: false

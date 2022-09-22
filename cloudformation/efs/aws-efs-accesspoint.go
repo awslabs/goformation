@@ -16,7 +16,7 @@ type AccessPoint struct {
 	// AccessPointTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-	AccessPointTags *[]AccessPoint_AccessPointTag `json:"AccessPointTags,omitempty"`
+	AccessPointTags []AccessPoint_AccessPointTag `json:"AccessPointTags,omitempty"`
 
 	// ClientToken AWS CloudFormation Property
 	// Required: false

@@ -16,7 +16,7 @@ type Entity struct {
 	// Components AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-components
-	Components *map[string]Entity_Component `json:"Components,omitempty"`
+	Components map[string]Entity_Component `json:"Components,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -41,7 +41,7 @@ type Entity struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-tags
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// WorkspaceId AWS CloudFormation Property
 	// Required: true

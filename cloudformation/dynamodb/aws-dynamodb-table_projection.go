@@ -13,7 +13,7 @@ type Table_Projection struct {
 	// NonKeyAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
-	NonKeyAttributes *[]string `json:"NonKeyAttributes,omitempty"`
+	NonKeyAttributes []string `json:"NonKeyAttributes,omitempty"`
 
 	// ProjectionType AWS CloudFormation Property
 	// Required: false

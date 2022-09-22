@@ -16,12 +16,12 @@ type Listener struct {
 	// AlpnPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-	AlpnPolicy *[]string `json:"AlpnPolicy,omitempty"`
+	AlpnPolicy []string `json:"AlpnPolicy,omitempty"`
 
 	// Certificates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-	Certificates *[]Listener_Certificate `json:"Certificates,omitempty"`
+	Certificates []Listener_Certificate `json:"Certificates,omitempty"`
 
 	// DefaultActions AWS CloudFormation Property
 	// Required: true

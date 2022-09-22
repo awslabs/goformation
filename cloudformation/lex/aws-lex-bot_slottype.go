@@ -33,7 +33,7 @@ type Bot_SlotType struct {
 	// SlotTypeValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-slottypevalues
-	SlotTypeValues *[]Bot_SlotTypeValue `json:"SlotTypeValues,omitempty"`
+	SlotTypeValues []Bot_SlotTypeValue `json:"SlotTypeValues,omitempty"`
 
 	// ValueSelectionSetting AWS CloudFormation Property
 	// Required: false

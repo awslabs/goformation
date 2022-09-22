@@ -18,7 +18,7 @@ type NetworkInsightsAnalysis_PathComponent struct {
 	// AdditionalDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-additionaldetails
-	AdditionalDetails *[]NetworkInsightsAnalysis_AdditionalDetail `json:"AdditionalDetails,omitempty"`
+	AdditionalDetails []NetworkInsightsAnalysis_AdditionalDetail `json:"AdditionalDetails,omitempty"`
 
 	// Component AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type NetworkInsightsAnalysis_PathComponent struct {
 	// Explanations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-explanations
-	Explanations *[]NetworkInsightsAnalysis_Explanation `json:"Explanations,omitempty"`
+	Explanations []NetworkInsightsAnalysis_Explanation `json:"Explanations,omitempty"`
 
 	// InboundHeader AWS CloudFormation Property
 	// Required: false

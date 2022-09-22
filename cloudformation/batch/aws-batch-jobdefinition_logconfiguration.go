@@ -23,7 +23,7 @@ type JobDefinition_LogConfiguration struct {
 	// SecretOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-secretoptions
-	SecretOptions *[]JobDefinition_Secret `json:"SecretOptions,omitempty"`
+	SecretOptions []JobDefinition_Secret `json:"SecretOptions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -18,7 +18,7 @@ type TaskDefinition_LinuxParameters struct {
 	// Devices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
-	Devices *[]TaskDefinition_Device `json:"Devices,omitempty"`
+	Devices []TaskDefinition_Device `json:"Devices,omitempty"`
 
 	// InitProcessEnabled AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type TaskDefinition_LinuxParameters struct {
 	// Tmpfs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
-	Tmpfs *[]TaskDefinition_Tmpfs `json:"Tmpfs,omitempty"`
+	Tmpfs []TaskDefinition_Tmpfs `json:"Tmpfs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

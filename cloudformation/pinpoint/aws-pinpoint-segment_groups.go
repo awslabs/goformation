@@ -13,12 +13,12 @@ type Segment_Groups struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups.html#cfn-pinpoint-segment-segmentgroups-groups-dimensions
-	Dimensions *[]Segment_SegmentDimensions `json:"Dimensions,omitempty"`
+	Dimensions []Segment_SegmentDimensions `json:"Dimensions,omitempty"`
 
 	// SourceSegments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups.html#cfn-pinpoint-segment-segmentgroups-groups-sourcesegments
-	SourceSegments *[]Segment_SourceSegments `json:"SourceSegments,omitempty"`
+	SourceSegments []Segment_SourceSegments `json:"SourceSegments,omitempty"`
 
 	// SourceType AWS CloudFormation Property
 	// Required: false
