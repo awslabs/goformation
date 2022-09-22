@@ -17,17 +17,17 @@ type SecurityProfile struct {
 	// AdditionalMetricsToRetainV2 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
-	AdditionalMetricsToRetainV2 *[]SecurityProfile_MetricToRetain `json:"AdditionalMetricsToRetainV2,omitempty"`
+	AdditionalMetricsToRetainV2 []SecurityProfile_MetricToRetain `json:"AdditionalMetricsToRetainV2,omitempty"`
 
 	// AlertTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
-	AlertTargets *map[string]SecurityProfile_AlertTarget `json:"AlertTargets,omitempty"`
+	AlertTargets map[string]SecurityProfile_AlertTarget `json:"AlertTargets,omitempty"`
 
 	// Behaviors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
-	Behaviors *[]SecurityProfile_Behavior `json:"Behaviors,omitempty"`
+	Behaviors []SecurityProfile_Behavior `json:"Behaviors,omitempty"`
 
 	// SecurityProfileDescription AWS CloudFormation Property
 	// Required: false
@@ -42,12 +42,12 @@ type SecurityProfile struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TargetArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
-	TargetArns *[]string `json:"TargetArns,omitempty"`
+	TargetArns []string `json:"TargetArns,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

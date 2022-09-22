@@ -26,7 +26,7 @@ type AnomalySubscription struct {
 	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-resourcetags
-	ResourceTags *[]AnomalySubscription_ResourceTag `json:"ResourceTags,omitempty"`
+	ResourceTags []AnomalySubscription_ResourceTag `json:"ResourceTags,omitempty"`
 
 	// Subscribers AWS CloudFormation Property
 	// Required: true

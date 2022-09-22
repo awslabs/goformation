@@ -18,7 +18,7 @@ type OriginEndpoint_CmafPackage struct {
 	// HlsManifests AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
-	HlsManifests *[]OriginEndpoint_HlsManifest `json:"HlsManifests,omitempty"`
+	HlsManifests []OriginEndpoint_HlsManifest `json:"HlsManifests,omitempty"`
 
 	// SegmentDurationSeconds AWS CloudFormation Property
 	// Required: false

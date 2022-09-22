@@ -13,7 +13,7 @@ type StudioComponent_ActiveDirectoryConfiguration struct {
 	// ComputerAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
-	ComputerAttributes *[]StudioComponent_ActiveDirectoryComputerAttribute `json:"ComputerAttributes,omitempty"`
+	ComputerAttributes []StudioComponent_ActiveDirectoryComputerAttribute `json:"ComputerAttributes,omitempty"`
 
 	// DirectoryId AWS CloudFormation Property
 	// Required: false

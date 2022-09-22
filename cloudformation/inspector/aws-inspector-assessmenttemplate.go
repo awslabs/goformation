@@ -37,7 +37,7 @@ type AssessmentTemplate struct {
 	// UserAttributesForFindings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-userattributesforfindings
-	UserAttributesForFindings *[]tags.Tag `json:"UserAttributesForFindings,omitempty"`
+	UserAttributesForFindings []tags.Tag `json:"UserAttributesForFindings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

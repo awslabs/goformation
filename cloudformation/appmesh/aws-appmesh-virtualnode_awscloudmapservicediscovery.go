@@ -13,7 +13,7 @@ type VirtualNode_AwsCloudMapServiceDiscovery struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-attributes
-	Attributes *[]VirtualNode_AwsCloudMapInstanceAttribute `json:"Attributes,omitempty"`
+	Attributes []VirtualNode_AwsCloudMapInstanceAttribute `json:"Attributes,omitempty"`
 
 	// IpPreference AWS CloudFormation Property
 	// Required: false

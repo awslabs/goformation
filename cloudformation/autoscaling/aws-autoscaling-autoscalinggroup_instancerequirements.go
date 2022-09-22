@@ -18,12 +18,12 @@ type AutoScalingGroup_InstanceRequirements struct {
 	// AcceleratorManufacturers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratormanufacturers
-	AcceleratorManufacturers *[]string `json:"AcceleratorManufacturers,omitempty"`
+	AcceleratorManufacturers []string `json:"AcceleratorManufacturers,omitempty"`
 
 	// AcceleratorNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratornames
-	AcceleratorNames *[]string `json:"AcceleratorNames,omitempty"`
+	AcceleratorNames []string `json:"AcceleratorNames,omitempty"`
 
 	// AcceleratorTotalMemoryMiB AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type AutoScalingGroup_InstanceRequirements struct {
 	// AcceleratorTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortypes
-	AcceleratorTypes *[]string `json:"AcceleratorTypes,omitempty"`
+	AcceleratorTypes []string `json:"AcceleratorTypes,omitempty"`
 
 	// BareMetal AWS CloudFormation Property
 	// Required: false
@@ -53,17 +53,17 @@ type AutoScalingGroup_InstanceRequirements struct {
 	// CpuManufacturers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-cpumanufacturers
-	CpuManufacturers *[]string `json:"CpuManufacturers,omitempty"`
+	CpuManufacturers []string `json:"CpuManufacturers,omitempty"`
 
 	// ExcludedInstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-excludedinstancetypes
-	ExcludedInstanceTypes *[]string `json:"ExcludedInstanceTypes,omitempty"`
+	ExcludedInstanceTypes []string `json:"ExcludedInstanceTypes,omitempty"`
 
 	// InstanceGenerations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-instancegenerations
-	InstanceGenerations *[]string `json:"InstanceGenerations,omitempty"`
+	InstanceGenerations []string `json:"InstanceGenerations,omitempty"`
 
 	// LocalStorage AWS CloudFormation Property
 	// Required: false
@@ -73,7 +73,7 @@ type AutoScalingGroup_InstanceRequirements struct {
 	// LocalStorageTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstoragetypes
-	LocalStorageTypes *[]string `json:"LocalStorageTypes,omitempty"`
+	LocalStorageTypes []string `json:"LocalStorageTypes,omitempty"`
 
 	// MemoryGiBPerVCpu AWS CloudFormation Property
 	// Required: false

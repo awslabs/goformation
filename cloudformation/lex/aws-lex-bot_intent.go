@@ -28,7 +28,7 @@ type Bot_Intent struct {
 	// InputContexts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-inputcontexts
-	InputContexts *[]Bot_InputContext `json:"InputContexts,omitempty"`
+	InputContexts []Bot_InputContext `json:"InputContexts,omitempty"`
 
 	// IntentClosingSetting AWS CloudFormation Property
 	// Required: false
@@ -53,7 +53,7 @@ type Bot_Intent struct {
 	// OutputContexts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-outputcontexts
-	OutputContexts *[]Bot_OutputContext `json:"OutputContexts,omitempty"`
+	OutputContexts []Bot_OutputContext `json:"OutputContexts,omitempty"`
 
 	// ParentIntentSignature AWS CloudFormation Property
 	// Required: false
@@ -63,17 +63,17 @@ type Bot_Intent struct {
 	// SampleUtterances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-sampleutterances
-	SampleUtterances *[]Bot_SampleUtterance `json:"SampleUtterances,omitempty"`
+	SampleUtterances []Bot_SampleUtterance `json:"SampleUtterances,omitempty"`
 
 	// SlotPriorities AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-slotpriorities
-	SlotPriorities *[]Bot_SlotPriority `json:"SlotPriorities,omitempty"`
+	SlotPriorities []Bot_SlotPriority `json:"SlotPriorities,omitempty"`
 
 	// Slots AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-slots
-	Slots *[]Bot_Slot `json:"Slots,omitempty"`
+	Slots []Bot_Slot `json:"Slots,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

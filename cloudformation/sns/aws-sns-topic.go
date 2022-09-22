@@ -42,12 +42,12 @@ type Topic struct {
 	// Subscription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-subscription
-	Subscription *[]Topic_Subscription `json:"Subscription,omitempty"`
+	Subscription []Topic_Subscription `json:"Subscription,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TopicName AWS CloudFormation Property
 	// Required: false

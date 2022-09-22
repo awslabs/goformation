@@ -13,12 +13,12 @@ type MonitoringSchedule_MonitoringAppSpecification struct {
 	// ContainerArguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
-	ContainerArguments *[]string `json:"ContainerArguments,omitempty"`
+	ContainerArguments []string `json:"ContainerArguments,omitempty"`
 
 	// ContainerEntrypoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
-	ContainerEntrypoint *[]string `json:"ContainerEntrypoint,omitempty"`
+	ContainerEntrypoint []string `json:"ContainerEntrypoint,omitempty"`
 
 	// ImageUri AWS CloudFormation Property
 	// Required: true

@@ -13,7 +13,7 @@ type Domain_RSessionAppSettings struct {
 	// CustomImages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html#cfn-sagemaker-domain-rsessionappsettings-customimages
-	CustomImages *[]Domain_CustomImage `json:"CustomImages,omitempty"`
+	CustomImages []Domain_CustomImage `json:"CustomImages,omitempty"`
 
 	// DefaultResourceSpec AWS CloudFormation Property
 	// Required: false

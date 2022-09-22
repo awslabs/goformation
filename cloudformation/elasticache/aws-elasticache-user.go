@@ -31,7 +31,7 @@ type User struct {
 	// Passwords AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-	Passwords *[]string `json:"Passwords,omitempty"`
+	Passwords []string `json:"Passwords,omitempty"`
 
 	// UserId AWS CloudFormation Property
 	// Required: true

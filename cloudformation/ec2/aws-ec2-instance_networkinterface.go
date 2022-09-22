@@ -38,7 +38,7 @@ type Instance_NetworkInterface struct {
 	// GroupSet AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-groupset
-	GroupSet *[]string `json:"GroupSet,omitempty"`
+	GroupSet []string `json:"GroupSet,omitempty"`
 
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type Instance_NetworkInterface struct {
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresses
-	Ipv6Addresses *[]Instance_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
+	Ipv6Addresses []Instance_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
 
 	// NetworkInterfaceId AWS CloudFormation Property
 	// Required: false
@@ -63,7 +63,7 @@ type Instance_NetworkInterface struct {
 	// PrivateIpAddresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-privateipaddresses
-	PrivateIpAddresses *[]Instance_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
+	PrivateIpAddresses []Instance_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
 
 	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
 	// Required: false

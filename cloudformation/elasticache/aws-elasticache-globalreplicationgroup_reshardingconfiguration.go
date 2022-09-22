@@ -18,7 +18,7 @@ type GlobalReplicationGroup_ReshardingConfiguration struct {
 	// PreferredAvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
-	PreferredAvailabilityZones *[]string `json:"PreferredAvailabilityZones,omitempty"`
+	PreferredAvailabilityZones []string `json:"PreferredAvailabilityZones,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -13,7 +13,7 @@ type VirtualGateway_LoggingFormat struct {
 	// Json AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-loggingformat.html#cfn-appmesh-virtualgateway-loggingformat-json
-	Json *[]VirtualGateway_JsonFormatRef `json:"Json,omitempty"`
+	Json []VirtualGateway_JsonFormatRef `json:"Json,omitempty"`
 
 	// Text AWS CloudFormation Property
 	// Required: false

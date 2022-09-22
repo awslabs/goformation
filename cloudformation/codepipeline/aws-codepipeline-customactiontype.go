@@ -22,7 +22,7 @@ type CustomActionType struct {
 	// ConfigurationProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-configurationproperties
-	ConfigurationProperties *[]CustomActionType_ConfigurationProperties `json:"ConfigurationProperties,omitempty"`
+	ConfigurationProperties []CustomActionType_ConfigurationProperties `json:"ConfigurationProperties,omitempty"`
 
 	// InputArtifactDetails AWS CloudFormation Property
 	// Required: true
@@ -47,7 +47,7 @@ type CustomActionType struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Version AWS CloudFormation Property
 	// Required: true

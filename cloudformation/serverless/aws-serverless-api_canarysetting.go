@@ -23,7 +23,7 @@ type Api_CanarySetting struct {
 	// StageVariableOverrides AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
-	StageVariableOverrides *map[string]string `json:"StageVariableOverrides,omitempty"`
+	StageVariableOverrides map[string]string `json:"StageVariableOverrides,omitempty"`
 
 	// UseStageCache AWS CloudFormation Property
 	// Required: false

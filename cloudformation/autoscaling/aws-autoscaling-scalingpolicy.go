@@ -61,7 +61,7 @@ type ScalingPolicy struct {
 	// StepAdjustments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-stepadjustments
-	StepAdjustments *[]ScalingPolicy_StepAdjustment `json:"StepAdjustments,omitempty"`
+	StepAdjustments []ScalingPolicy_StepAdjustment `json:"StepAdjustments,omitempty"`
 
 	// TargetTrackingConfiguration AWS CloudFormation Property
 	// Required: false

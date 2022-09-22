@@ -16,7 +16,7 @@ type Grant struct {
 	// AllowedOperations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-	AllowedOperations *[]string `json:"AllowedOperations,omitempty"`
+	AllowedOperations []string `json:"AllowedOperations,omitempty"`
 
 	// GrantName AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type Grant struct {
 	// Principals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-	Principals *[]string `json:"Principals,omitempty"`
+	Principals []string `json:"Principals,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false

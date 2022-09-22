@@ -67,7 +67,7 @@ type Server struct {
 	// Protocols AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocols
-	Protocols *[]Server_Protocol `json:"Protocols,omitempty"`
+	Protocols []Server_Protocol `json:"Protocols,omitempty"`
 
 	// SecurityPolicyName AWS CloudFormation Property
 	// Required: false
@@ -77,7 +77,7 @@ type Server struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// WorkflowDetails AWS CloudFormation Property
 	// Required: false

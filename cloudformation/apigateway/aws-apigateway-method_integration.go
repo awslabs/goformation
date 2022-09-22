@@ -13,7 +13,7 @@ type Method_Integration struct {
 	// CacheKeyParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
-	CacheKeyParameters *[]string `json:"CacheKeyParameters,omitempty"`
+	CacheKeyParameters []string `json:"CacheKeyParameters,omitempty"`
 
 	// CacheNamespace AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type Method_Integration struct {
 	// IntegrationResponses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
-	IntegrationResponses *[]Method_IntegrationResponse `json:"IntegrationResponses,omitempty"`
+	IntegrationResponses []Method_IntegrationResponse `json:"IntegrationResponses,omitempty"`
 
 	// PassthroughBehavior AWS CloudFormation Property
 	// Required: false
@@ -58,12 +58,12 @@ type Method_Integration struct {
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
-	RequestParameters *map[string]string `json:"RequestParameters,omitempty"`
+	RequestParameters map[string]string `json:"RequestParameters,omitempty"`
 
 	// RequestTemplates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
-	RequestTemplates *map[string]string `json:"RequestTemplates,omitempty"`
+	RequestTemplates map[string]string `json:"RequestTemplates,omitempty"`
 
 	// TimeoutInMillis AWS CloudFormation Property
 	// Required: false

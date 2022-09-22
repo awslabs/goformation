@@ -18,7 +18,7 @@ type DeliveryStream_OrcSerDe struct {
 	// BloomFilterColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-bloomfiltercolumns
-	BloomFilterColumns *[]string `json:"BloomFilterColumns,omitempty"`
+	BloomFilterColumns []string `json:"BloomFilterColumns,omitempty"`
 
 	// BloomFilterFalsePositiveProbability AWS CloudFormation Property
 	// Required: false

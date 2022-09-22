@@ -31,7 +31,7 @@ type ConfigurationTemplate struct {
 	// OptionSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-optionsettings
-	OptionSettings *[]ConfigurationTemplate_ConfigurationOptionSetting `json:"OptionSettings,omitempty"`
+	OptionSettings []ConfigurationTemplate_ConfigurationOptionSetting `json:"OptionSettings,omitempty"`
 
 	// PlatformArn AWS CloudFormation Property
 	// Required: false

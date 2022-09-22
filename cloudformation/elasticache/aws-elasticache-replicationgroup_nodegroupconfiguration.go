@@ -23,7 +23,7 @@ type ReplicationGroup_NodeGroupConfiguration struct {
 	// ReplicaAvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
-	ReplicaAvailabilityZones *[]string `json:"ReplicaAvailabilityZones,omitempty"`
+	ReplicaAvailabilityZones []string `json:"ReplicaAvailabilityZones,omitempty"`
 
 	// ReplicaCount AWS CloudFormation Property
 	// Required: false

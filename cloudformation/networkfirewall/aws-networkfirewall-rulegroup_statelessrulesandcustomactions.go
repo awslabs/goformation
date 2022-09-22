@@ -13,7 +13,7 @@ type RuleGroup_StatelessRulesAndCustomActions struct {
 	// CustomActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-	CustomActions *[]RuleGroup_CustomAction `json:"CustomActions,omitempty"`
+	CustomActions []RuleGroup_CustomAction `json:"CustomActions,omitempty"`
 
 	// StatelessRules AWS CloudFormation Property
 	// Required: true

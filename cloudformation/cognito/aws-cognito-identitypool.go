@@ -31,7 +31,7 @@ type IdentityPool struct {
 	// CognitoIdentityProviders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoidentityproviders
-	CognitoIdentityProviders *[]IdentityPool_CognitoIdentityProvider `json:"CognitoIdentityProviders,omitempty"`
+	CognitoIdentityProviders []IdentityPool_CognitoIdentityProvider `json:"CognitoIdentityProviders,omitempty"`
 
 	// CognitoStreams AWS CloudFormation Property
 	// Required: false
@@ -51,7 +51,7 @@ type IdentityPool struct {
 	// OpenIdConnectProviderARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
-	OpenIdConnectProviderARNs *[]string `json:"OpenIdConnectProviderARNs,omitempty"`
+	OpenIdConnectProviderARNs []string `json:"OpenIdConnectProviderARNs,omitempty"`
 
 	// PushSync AWS CloudFormation Property
 	// Required: false
@@ -61,7 +61,7 @@ type IdentityPool struct {
 	// SamlProviderARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-samlproviderarns
-	SamlProviderARNs *[]string `json:"SamlProviderARNs,omitempty"`
+	SamlProviderARNs []string `json:"SamlProviderARNs,omitempty"`
 
 	// SupportedLoginProviders AWS CloudFormation Property
 	// Required: false

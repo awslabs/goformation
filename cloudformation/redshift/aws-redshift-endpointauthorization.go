@@ -31,7 +31,7 @@ type EndpointAuthorization struct {
 	// VpcIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointauthorization.html#cfn-redshift-endpointauthorization-vpcids
-	VpcIds *[]string `json:"VpcIds,omitempty"`
+	VpcIds []string `json:"VpcIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

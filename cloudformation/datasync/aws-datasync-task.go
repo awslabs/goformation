@@ -27,12 +27,12 @@ type Task struct {
 	// Excludes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-	Excludes *[]Task_FilterRule `json:"Excludes,omitempty"`
+	Excludes []Task_FilterRule `json:"Excludes,omitempty"`
 
 	// Includes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-	Includes *[]Task_FilterRule `json:"Includes,omitempty"`
+	Includes []Task_FilterRule `json:"Includes,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -57,7 +57,7 @@ type Task struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

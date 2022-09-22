@@ -13,12 +13,12 @@ type Partition_StorageDescriptor struct {
 	// BucketColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
-	BucketColumns *[]string `json:"BucketColumns,omitempty"`
+	BucketColumns []string `json:"BucketColumns,omitempty"`
 
 	// Columns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns
-	Columns *[]Partition_Column `json:"Columns,omitempty"`
+	Columns []Partition_Column `json:"Columns,omitempty"`
 
 	// Compressed AWS CloudFormation Property
 	// Required: false
@@ -68,7 +68,7 @@ type Partition_StorageDescriptor struct {
 	// SortColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns
-	SortColumns *[]Partition_Order `json:"SortColumns,omitempty"`
+	SortColumns []Partition_Order `json:"SortColumns,omitempty"`
 
 	// StoredAsSubDirectories AWS CloudFormation Property
 	// Required: false

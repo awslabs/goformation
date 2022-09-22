@@ -13,7 +13,7 @@ type Component_ComponentDataConfiguration struct {
 	// Identifiers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-identifiers
-	Identifiers *[]string `json:"Identifiers,omitempty"`
+	Identifiers []string `json:"Identifiers,omitempty"`
 
 	// Model AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type Component_ComponentDataConfiguration struct {
 	// Sort AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-sort
-	Sort *[]Component_SortProperty `json:"Sort,omitempty"`
+	Sort []Component_SortProperty `json:"Sort,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

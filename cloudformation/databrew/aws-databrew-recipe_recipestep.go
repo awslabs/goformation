@@ -18,7 +18,7 @@ type Recipe_RecipeStep struct {
 	// ConditionExpressions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
-	ConditionExpressions *[]Recipe_ConditionExpression `json:"ConditionExpressions,omitempty"`
+	ConditionExpressions []Recipe_ConditionExpression `json:"ConditionExpressions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

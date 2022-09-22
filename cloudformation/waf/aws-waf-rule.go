@@ -26,7 +26,7 @@ type Rule struct {
 	// Predicates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-predicates
-	Predicates *[]Rule_Predicate `json:"Predicates,omitempty"`
+	Predicates []Rule_Predicate `json:"Predicates,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

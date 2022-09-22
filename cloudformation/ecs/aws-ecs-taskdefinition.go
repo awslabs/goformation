@@ -17,7 +17,7 @@ type TaskDefinition struct {
 	// ContainerDefinitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
-	ContainerDefinitions *[]TaskDefinition_ContainerDefinition `json:"ContainerDefinitions,omitempty"`
+	ContainerDefinitions []TaskDefinition_ContainerDefinition `json:"ContainerDefinitions,omitempty"`
 
 	// Cpu AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type TaskDefinition struct {
 	// InferenceAccelerators AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
-	InferenceAccelerators *[]TaskDefinition_InferenceAccelerator `json:"InferenceAccelerators,omitempty"`
+	InferenceAccelerators []TaskDefinition_InferenceAccelerator `json:"InferenceAccelerators,omitempty"`
 
 	// IpcMode AWS CloudFormation Property
 	// Required: false
@@ -67,7 +67,7 @@ type TaskDefinition struct {
 	// PlacementConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
-	PlacementConstraints *[]TaskDefinition_TaskDefinitionPlacementConstraint `json:"PlacementConstraints,omitempty"`
+	PlacementConstraints []TaskDefinition_TaskDefinitionPlacementConstraint `json:"PlacementConstraints,omitempty"`
 
 	// ProxyConfiguration AWS CloudFormation Property
 	// Required: false
@@ -77,7 +77,7 @@ type TaskDefinition struct {
 	// RequiresCompatibilities AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
-	RequiresCompatibilities *[]string `json:"RequiresCompatibilities,omitempty"`
+	RequiresCompatibilities []string `json:"RequiresCompatibilities,omitempty"`
 
 	// RuntimePlatform AWS CloudFormation Property
 	// Required: false
@@ -87,7 +87,7 @@ type TaskDefinition struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TaskRoleArn AWS CloudFormation Property
 	// Required: false
@@ -97,7 +97,7 @@ type TaskDefinition struct {
 	// Volumes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
-	Volumes *[]TaskDefinition_Volume `json:"Volumes,omitempty"`
+	Volumes []TaskDefinition_Volume `json:"Volumes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

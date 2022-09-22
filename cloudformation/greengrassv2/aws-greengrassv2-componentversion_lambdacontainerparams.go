@@ -13,7 +13,7 @@ type ComponentVersion_LambdaContainerParams struct {
 	// Devices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
-	Devices *[]ComponentVersion_LambdaDeviceMount `json:"Devices,omitempty"`
+	Devices []ComponentVersion_LambdaDeviceMount `json:"Devices,omitempty"`
 
 	// MemorySizeInKB AWS CloudFormation Property
 	// Required: false
@@ -28,7 +28,7 @@ type ComponentVersion_LambdaContainerParams struct {
 	// Volumes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
-	Volumes *[]ComponentVersion_LambdaVolumeMount `json:"Volumes,omitempty"`
+	Volumes []ComponentVersion_LambdaVolumeMount `json:"Volumes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -13,7 +13,7 @@ type ScalingPlan_CustomizedLoadMetricSpecification struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-dimensions
-	Dimensions *[]ScalingPlan_MetricDimension `json:"Dimensions,omitempty"`
+	Dimensions []ScalingPlan_MetricDimension `json:"Dimensions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true

@@ -13,7 +13,7 @@ type TaskDefinition_HealthCheck struct {
 	// Command AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
-	Command *[]string `json:"Command,omitempty"`
+	Command []string `json:"Command,omitempty"`
 
 	// Interval AWS CloudFormation Property
 	// Required: false

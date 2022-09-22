@@ -13,7 +13,7 @@ type DistributionConfiguration_AmiDistributionConfiguration struct {
 	// AmiTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-amidistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-amidistributionconfiguration-amitags
-	AmiTags *map[string]string `json:"AmiTags,omitempty"`
+	AmiTags map[string]string `json:"AmiTags,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type DistributionConfiguration_AmiDistributionConfiguration struct {
 	// TargetAccountIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-amidistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-amidistributionconfiguration-targetaccountids
-	TargetAccountIds *[]string `json:"TargetAccountIds,omitempty"`
+	TargetAccountIds []string `json:"TargetAccountIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

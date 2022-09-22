@@ -24,7 +24,7 @@ type LifecyclePolicy_Schedule struct {
 	// CrossRegionCopyRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-crossregioncopyrules
-	CrossRegionCopyRules *[]LifecyclePolicy_CrossRegionCopyRule `json:"CrossRegionCopyRules,omitempty"`
+	CrossRegionCopyRules []LifecyclePolicy_CrossRegionCopyRule `json:"CrossRegionCopyRules,omitempty"`
 
 	// DeprecateRule AWS CloudFormation Property
 	// Required: false
@@ -49,17 +49,17 @@ type LifecyclePolicy_Schedule struct {
 	// ShareRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
-	ShareRules *[]LifecyclePolicy_ShareRule `json:"ShareRules,omitempty"`
+	ShareRules []LifecyclePolicy_ShareRule `json:"ShareRules,omitempty"`
 
 	// TagsToAdd AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
-	TagsToAdd *[]tags.Tag `json:"TagsToAdd,omitempty"`
+	TagsToAdd []tags.Tag `json:"TagsToAdd,omitempty"`
 
 	// VariableTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
-	VariableTags *[]tags.Tag `json:"VariableTags,omitempty"`
+	VariableTags []tags.Tag `json:"VariableTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

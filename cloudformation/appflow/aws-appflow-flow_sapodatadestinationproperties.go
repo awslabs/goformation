@@ -18,7 +18,7 @@ type Flow_SAPODataDestinationProperties struct {
 	// IdFieldNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-idfieldnames
-	IdFieldNames *[]string `json:"IdFieldNames,omitempty"`
+	IdFieldNames []string `json:"IdFieldNames,omitempty"`
 
 	// ObjectPath AWS CloudFormation Property
 	// Required: true

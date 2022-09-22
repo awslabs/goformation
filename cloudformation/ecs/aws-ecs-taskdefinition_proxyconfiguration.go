@@ -18,7 +18,7 @@ type TaskDefinition_ProxyConfiguration struct {
 	// ProxyConfigurationProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
-	ProxyConfigurationProperties *[]TaskDefinition_KeyValuePair `json:"ProxyConfigurationProperties,omitempty"`
+	ProxyConfigurationProperties []TaskDefinition_KeyValuePair `json:"ProxyConfigurationProperties,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false

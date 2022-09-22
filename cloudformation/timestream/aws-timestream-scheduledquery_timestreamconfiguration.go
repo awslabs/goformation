@@ -28,7 +28,7 @@ type ScheduledQuery_TimestreamConfiguration struct {
 	// MixedMeasureMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-mixedmeasuremappings
-	MixedMeasureMappings *[]ScheduledQuery_MixedMeasureMapping `json:"MixedMeasureMappings,omitempty"`
+	MixedMeasureMappings []ScheduledQuery_MixedMeasureMapping `json:"MixedMeasureMappings,omitempty"`
 
 	// MultiMeasureMappings AWS CloudFormation Property
 	// Required: false

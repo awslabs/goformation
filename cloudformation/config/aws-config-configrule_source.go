@@ -23,7 +23,7 @@ type ConfigRule_Source struct {
 	// SourceDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
-	SourceDetails *[]ConfigRule_SourceDetail `json:"SourceDetails,omitempty"`
+	SourceDetails []ConfigRule_SourceDetail `json:"SourceDetails,omitempty"`
 
 	// SourceIdentifier AWS CloudFormation Property
 	// Required: false

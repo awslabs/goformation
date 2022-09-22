@@ -21,7 +21,7 @@ type BatchScramSecret struct {
 	// SecretArnList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html#cfn-msk-batchscramsecret-secretarnlist
-	SecretArnList *[]string `json:"SecretArnList,omitempty"`
+	SecretArnList []string `json:"SecretArnList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

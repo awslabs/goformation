@@ -33,7 +33,7 @@ type IdentityProviderConfig_OidcIdentityProviderConfig struct {
 	// RequiredClaims AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-requiredclaims
-	RequiredClaims *[]IdentityProviderConfig_RequiredClaim `json:"RequiredClaims,omitempty"`
+	RequiredClaims []IdentityProviderConfig_RequiredClaim `json:"RequiredClaims,omitempty"`
 
 	// UsernameClaim AWS CloudFormation Property
 	// Required: false

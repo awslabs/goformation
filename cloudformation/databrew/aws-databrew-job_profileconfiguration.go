@@ -13,7 +13,7 @@ type Job_ProfileConfiguration struct {
 	// ColumnStatisticsConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
-	ColumnStatisticsConfigurations *[]Job_ColumnStatisticsConfiguration `json:"ColumnStatisticsConfigurations,omitempty"`
+	ColumnStatisticsConfigurations []Job_ColumnStatisticsConfiguration `json:"ColumnStatisticsConfigurations,omitempty"`
 
 	// DatasetStatisticsConfiguration AWS CloudFormation Property
 	// Required: false
@@ -28,7 +28,7 @@ type Job_ProfileConfiguration struct {
 	// ProfileColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
-	ProfileColumns *[]Job_ColumnSelector `json:"ProfileColumns,omitempty"`
+	ProfileColumns []Job_ColumnSelector `json:"ProfileColumns,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

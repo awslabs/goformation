@@ -18,7 +18,7 @@ type JobDefinition_RetryStrategy struct {
 	// EvaluateOnExit AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
-	EvaluateOnExit *[]JobDefinition_EvaluateOnExit `json:"EvaluateOnExit,omitempty"`
+	EvaluateOnExit []JobDefinition_EvaluateOnExit `json:"EvaluateOnExit,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

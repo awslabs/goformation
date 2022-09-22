@@ -13,7 +13,7 @@ type ReceiptRule_Rule struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-actions
-	Actions *[]ReceiptRule_Action `json:"Actions,omitempty"`
+	Actions []ReceiptRule_Action `json:"Actions,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
@@ -28,7 +28,7 @@ type ReceiptRule_Rule struct {
 	// Recipients AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-recipients
-	Recipients *[]string `json:"Recipients,omitempty"`
+	Recipients []string `json:"Recipients,omitempty"`
 
 	// ScanEnabled AWS CloudFormation Property
 	// Required: false

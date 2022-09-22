@@ -18,7 +18,7 @@ type Crawler_JdbcTarget struct {
 	// Exclusions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
-	Exclusions *[]string `json:"Exclusions,omitempty"`
+	Exclusions []string `json:"Exclusions,omitempty"`
 
 	// Path AWS CloudFormation Property
 	// Required: false

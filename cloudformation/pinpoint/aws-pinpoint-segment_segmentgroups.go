@@ -13,7 +13,7 @@ type Segment_SegmentGroups struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html#cfn-pinpoint-segment-segmentgroups-groups
-	Groups *[]Segment_Groups `json:"Groups,omitempty"`
+	Groups []Segment_Groups `json:"Groups,omitempty"`
 
 	// Include AWS CloudFormation Property
 	// Required: false

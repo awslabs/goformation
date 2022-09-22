@@ -13,7 +13,7 @@ type JobDefinition_LinuxParameters struct {
 	// Devices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-devices
-	Devices *[]JobDefinition_Device `json:"Devices,omitempty"`
+	Devices []JobDefinition_Device `json:"Devices,omitempty"`
 
 	// InitProcessEnabled AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type JobDefinition_LinuxParameters struct {
 	// Tmpfs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-tmpfs
-	Tmpfs *[]JobDefinition_Tmpfs `json:"Tmpfs,omitempty"`
+	Tmpfs []JobDefinition_Tmpfs `json:"Tmpfs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
