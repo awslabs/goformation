@@ -509,13 +509,13 @@ var _ = Describe("Goformation", func() {
 		api1 := apis["HttpApiWithCorsConfiguration"]
 		It("should parse a CorsConfiguration object", func() {
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowOrigins).
-				To(Equal(cloudformation.Strings("https://www.example.com")))
+				To(Equal([]string{"https://www.example.com"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowMethods).
-				To(Equal(cloudformation.Strings("GET", "OPTIONS")))
+				To(Equal([]string{"GET", "OPTIONS"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowHeaders).
-				To(Equal(cloudformation.Strings("x-apigateway-header")))
+				To(Equal([]string{"x-apigateway-header"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.ExposeHeaders).
-				To(Equal(cloudformation.Strings("*")))
+				To(Equal([]string{"*"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowCredentials).
 				To(Equal(cloudformation.Bool(true)))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.MaxAge).
@@ -900,7 +900,7 @@ var _ = Describe("Goformation", func() {
 			ApiEvent: &serverless.Function_ApiEvent{
 				Auth: &serverless.Function_Auth{
 					ApiKeyRequired:      cloudformation.Bool(true),
-					AuthorizationScopes: cloudformation.Strings("scope1", "scope2"),
+					AuthorizationScopes: []string{"scope1", "scope2"},
 					Authorizer:          cloudformation.String("aws_iam"),
 					ResourcePolicy: &serverless.Function_AuthResourcePolicy{
 						CustomStatements: []interface{}{
@@ -910,16 +910,16 @@ var _ = Describe("Goformation", func() {
 								"Resource": "*",
 							},
 						},
-						AwsAccountBlacklist:    cloudformation.Strings("AwsAccountBlacklistValue"),
-						AwsAccountWhitelist:    cloudformation.Strings("AwsAccountWhitelistValue"),
-						IntrinsicVpcBlacklist:  cloudformation.Strings("IntrinsicVpcBlacklistValue"),
-						IntrinsicVpcWhitelist:  cloudformation.Strings("IntrinsicVpcWhitelistValue"),
-						IntrinsicVpceBlacklist: cloudformation.Strings("IntrinsicVpceBlacklistValue"),
-						IntrinsicVpceWhitelist: cloudformation.Strings("IntrinsicVpceWhitelistValue"),
-						IpRangeBlacklist:       cloudformation.Strings("IpRangeBlacklistValue"),
-						IpRangeWhitelist:       cloudformation.Strings("IpRangeWhitelistValue"),
-						SourceVpcBlacklist:     cloudformation.Strings("SourceVpcBlacklistValue"),
-						SourceVpcWhitelist:     cloudformation.Strings("SourceVpcWhitelistValue"),
+						AwsAccountBlacklist:    []string{"AwsAccountBlacklistValue"},
+						AwsAccountWhitelist:    []string{"AwsAccountWhitelistValue"},
+						IntrinsicVpcBlacklist:  []string{"IntrinsicVpcBlacklistValue"},
+						IntrinsicVpcWhitelist:  []string{"IntrinsicVpcWhitelistValue"},
+						IntrinsicVpceBlacklist: []string{"IntrinsicVpceBlacklistValue"},
+						IntrinsicVpceWhitelist: []string{"IntrinsicVpceWhitelistValue"},
+						IpRangeBlacklist:       []string{"IpRangeBlacklistValue"},
+						IpRangeWhitelist:       []string{"IpRangeWhitelistValue"},
+						SourceVpcBlacklist:     []string{"SourceVpcBlacklistValue"},
+						SourceVpcWhitelist:     []string{"SourceVpcWhitelistValue"},
 					},
 				},
 				Method:    "MethodValue",
@@ -1490,7 +1490,7 @@ var _ = Describe("Goformation", func() {
 				String: &transform,
 			}
 			template.Resources["TestFunction"] = &serverless.Function{
-				Architectures: cloudformation.Strings("arm64"),
+				Architectures: []string{"arm64"},
 				ImageUri:      cloudformation.String("image:latest-arm64"),
 			}
 

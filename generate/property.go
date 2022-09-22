@@ -266,7 +266,7 @@ func (p Property) IsGeneric() bool {
 	return !p.IsPolymorphic() && !p.IsMap() && !p.IsList() && !p.IsCustomType() && convertTypeToGo(p.PrimitiveType) == "interface{}"
 }
 
-// ShouldUsePointer checks if a property is a type which should be a pointer
+// UsePointer checks if a property is a type which should be a pointer
 func (p Property) UsePointer() bool {
 	if p.IsPolymorphic() || p.IsCustomType() {
 		return true
