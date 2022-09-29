@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.11.0-beta.1](https://github.com/awslabs/goformation/compare/v6.10.0...v6.11.0-beta.1) (2022-09-29)
+
+
+### Features
+
+* **generate:** Exclude Map and List from pointer ([d0e6abf](https://github.com/awslabs/goformation/commit/d0e6abf85fb3085e9b2cfc88609df49673bcea55))
+
 # [6.10.0](https://github.com/awslabs/goformation/compare/v6.9.0...v6.10.0) (2022-09-02)
 
 
