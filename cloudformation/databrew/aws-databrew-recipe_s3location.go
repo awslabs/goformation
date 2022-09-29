@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Recipe_S3Location AWS CloudFormation Resource (AWS::DataBrew::Recipe.S3Location)

@@ -3,7 +3,7 @@
 package groundstation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Config_S3RecordingConfig AWS CloudFormation Resource (AWS::GroundStation::Config.S3RecordingConfig)

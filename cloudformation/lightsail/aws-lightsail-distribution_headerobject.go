@@ -3,7 +3,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Distribution_HeaderObject AWS CloudFormation Resource (AWS::Lightsail::Distribution.HeaderObject)

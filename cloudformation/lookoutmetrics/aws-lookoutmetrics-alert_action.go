@@ -3,7 +3,7 @@
 package lookoutmetrics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Alert_Action AWS CloudFormation Resource (AWS::LookoutMetrics::Alert.Action)

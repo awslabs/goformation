@@ -3,7 +3,7 @@
 package aps
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Workspace_LoggingConfiguration AWS CloudFormation Resource (AWS::APS::Workspace.LoggingConfiguration)

@@ -3,7 +3,7 @@
 package dms
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Endpoint_IbmDb2Settings AWS CloudFormation Resource (AWS::DMS::Endpoint.IbmDb2Settings)

@@ -3,7 +3,7 @@
 package emrserverless
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Application_AutoStartConfiguration AWS CloudFormation Resource (AWS::EMRServerless::Application.AutoStartConfiguration)

@@ -3,7 +3,7 @@
 package apprunner
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ObservabilityConfiguration_TraceConfiguration AWS CloudFormation Resource (AWS::AppRunner::ObservabilityConfiguration.TraceConfiguration)

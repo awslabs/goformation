@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EC2Fleet_AcceleratorCountRequest AWS CloudFormation Resource (AWS::EC2::EC2Fleet.AcceleratorCountRequest)

@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Campaign AWS CloudFormation Resource (AWS::ConnectCampaigns::Campaign)
@@ -22,7 +22,7 @@ type Campaign struct {
 	// DialerConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html#cfn-connectcampaigns-campaign-dialerconfig
-	DialerConfig interface{} `json:"DialerConfig"`
+	DialerConfig *Campaign_DialerConfig `json:"DialerConfig"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

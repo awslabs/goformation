@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CapacityReservationFleet_InstanceTypeSpecification AWS CloudFormation Resource (AWS::EC2::CapacityReservationFleet.InstanceTypeSpecification)

@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Table AWS CloudFormation Resource (AWS::DynamoDB::Table)
@@ -16,7 +16,7 @@ type Table struct {
 
 	// AttributeDefinitions AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedefinitions
 	AttributeDefinitions []Table_AttributeDefinition `json:"AttributeDefinitions,omitempty"`
 
 	// BillingMode AWS CloudFormation Property
@@ -26,13 +26,18 @@ type Table struct {
 
 	// ContributorInsightsSpecification AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-contributorinsightsspecification-enabled
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-contributorinsightsspecification
 	ContributorInsightsSpecification *Table_ContributorInsightsSpecification `json:"ContributorInsightsSpecification,omitempty"`
 
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-globalsecondaryindexes
 	GlobalSecondaryIndexes []Table_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
+
+	// ImportSourceSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-importsourcespecification
+	ImportSourceSpecification *Table_ImportSourceSpecification `json:"ImportSourceSpecification,omitempty"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
@@ -46,7 +51,7 @@ type Table struct {
 
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes
 	LocalSecondaryIndexes []Table_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
 
 	// PointInTimeRecoverySpecification AWS CloudFormation Property

@@ -3,8 +3,8 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // LaunchTemplate_LaunchTemplateTagSpecification AWS CloudFormation Resource (AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification)

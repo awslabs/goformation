@@ -3,7 +3,7 @@
 package mediaconnect
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Flow_Source AWS CloudFormation Resource (AWS::MediaConnect::Flow.Source)

@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Classifier_CsvClassifier AWS CloudFormation Resource (AWS::Glue::Classifier.CsvClassifier)

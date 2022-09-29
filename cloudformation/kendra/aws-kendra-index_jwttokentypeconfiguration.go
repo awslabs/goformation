@@ -3,7 +3,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Index_JwtTokenTypeConfiguration AWS CloudFormation Resource (AWS::Kendra::Index.JwtTokenTypeConfiguration)

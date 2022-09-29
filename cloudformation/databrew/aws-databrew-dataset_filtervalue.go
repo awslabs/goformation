@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Dataset_FilterValue AWS CloudFormation Resource (AWS::DataBrew::Dataset.FilterValue)

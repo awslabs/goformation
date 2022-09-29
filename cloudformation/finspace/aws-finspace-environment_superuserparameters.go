@@ -3,7 +3,7 @@
 package finspace
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Environment_SuperuserParameters AWS CloudFormation Resource (AWS::FinSpace::Environment.SuperuserParameters)

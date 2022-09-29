@@ -3,7 +3,7 @@
 package voiceid
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Domain_ServerSideEncryptionConfiguration AWS CloudFormation Resource (AWS::VoiceID::Domain.ServerSideEncryptionConfiguration)

@@ -3,7 +3,7 @@
 package iotwireless
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // FuotaTask_LoRaWAN AWS CloudFormation Resource (AWS::IoTWireless::FuotaTask.LoRaWAN)

@@ -3,7 +3,7 @@
 package rds
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DBCluster_ScalingConfiguration AWS CloudFormation Resource (AWS::RDS::DBCluster.ScalingConfiguration)

@@ -3,7 +3,7 @@
 package cloudtrail
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EventDataStore_AdvancedEventSelector AWS CloudFormation Resource (AWS::CloudTrail::EventDataStore.AdvancedEventSelector)

@@ -3,7 +3,7 @@
 package amplifyuibuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Component_ComponentEvents AWS CloudFormation Resource (AWS::AmplifyUIBuilder::Component.ComponentEvents)

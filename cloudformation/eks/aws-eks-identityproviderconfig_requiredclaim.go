@@ -3,7 +3,7 @@
 package eks
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // IdentityProviderConfig_RequiredClaim AWS CloudFormation Resource (AWS::EKS::IdentityProviderConfig.RequiredClaim)

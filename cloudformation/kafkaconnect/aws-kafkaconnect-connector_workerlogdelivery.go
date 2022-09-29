@@ -3,7 +3,7 @@
 package kafkaconnect
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Connector_WorkerLogDelivery AWS CloudFormation Resource (AWS::KafkaConnect::Connector.WorkerLogDelivery)

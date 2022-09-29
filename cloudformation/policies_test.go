@@ -3,9 +3,9 @@ package cloudformation_test
 import (
 	"github.com/sanathkr/yaml"
 
-	"github.com/awslabs/goformation/v6/cloudformation"
-	"github.com/awslabs/goformation/v6/cloudformation/autoscaling"
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation"
+	"github.com/awslabs/goformation/v7/cloudformation/autoscaling"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

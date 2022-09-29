@@ -3,7 +3,7 @@
 package msk
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ServerlessCluster_VpcConfig AWS CloudFormation Resource (AWS::MSK::ServerlessCluster.VpcConfig)

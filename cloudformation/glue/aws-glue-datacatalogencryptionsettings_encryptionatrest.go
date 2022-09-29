@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataCatalogEncryptionSettings_EncryptionAtRest AWS CloudFormation Resource (AWS::Glue::DataCatalogEncryptionSettings.EncryptionAtRest)

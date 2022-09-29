@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Mesh_MeshSpec AWS CloudFormation Resource (AWS::AppMesh::Mesh.MeshSpec)

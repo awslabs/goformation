@@ -4,8 +4,8 @@ package cloudformation
 
 import (
 	"fmt"{{range $resource := .Resources}}
-    {{if not $resource.Global}}"github.com/awslabs/goformation/v6/cloudformation/{{$resource.PackageName}}"{{end}}{{end}}
-	"github.com/awslabs/goformation/v6/cloudformation/global"
+    {{if not $resource.Global}}"github.com/awslabs/goformation/v7/cloudformation/{{$resource.PackageName}}"{{end}}{{end}}
+	"github.com/awslabs/goformation/v7/cloudformation/global"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources

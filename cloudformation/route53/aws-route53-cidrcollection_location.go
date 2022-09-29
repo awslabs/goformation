@@ -3,7 +3,7 @@
 package route53
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CidrCollection_Location AWS CloudFormation Resource (AWS::Route53::CidrCollection.Location)

@@ -3,7 +3,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TopicRule_SqsAction AWS CloudFormation Resource (AWS::IoT::TopicRule.SqsAction)

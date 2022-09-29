@@ -8,7 +8,7 @@ import (
 	"io"
 	"sort"
 
-	"github.com/awslabs/goformation/v6/cloudformation/utils"
+	"github.com/awslabs/goformation/v7/cloudformation/utils"
 )
 
 // HttpApi_CorsConfiguration is a helper struct that can hold either a Boolean or CorsConfigurationObject value

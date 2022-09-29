@@ -3,7 +3,7 @@
 package m2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Environment_HighAvailabilityConfig AWS CloudFormation Resource (AWS::M2::Environment.HighAvailabilityConfig)

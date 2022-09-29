@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_H265FilterSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.H265FilterSettings)

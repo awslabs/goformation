@@ -3,7 +3,7 @@
 package dynamodb
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Table_Csv AWS CloudFormation Resource (AWS::DynamoDB::Table.Csv)
@@ -18,7 +18,7 @@ type Table_Csv struct {
 	// HeaderList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-headerlist
-	HeaderList *[]string `json:"HeaderList,omitempty"`
+	HeaderList []string `json:"HeaderList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

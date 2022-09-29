@@ -3,7 +3,7 @@
 package iotevents
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DetectorModel_AssetPropertyTimestamp AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.AssetPropertyTimestamp)

@@ -7,13 +7,13 @@ import (
 	"encoding/json"
 	"bytes"
 	{{if .HasTags}}
-	"github.com/awslabs/goformation/v6/cloudformation/tags"{{end}}
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"{{end}}
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 {{else}}
 import ({{if .HasTags}}
-	"github.com/awslabs/goformation/v6/cloudformation/tags"{{end}}
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"{{end}}
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 {{end}}
 

@@ -3,7 +3,7 @@
 package budgets
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Budget_BudgetData AWS CloudFormation Resource (AWS::Budgets::Budget.BudgetData)

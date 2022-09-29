@@ -3,7 +3,7 @@
 package backup
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // BackupPlan_AdvancedBackupSettingResourceType AWS CloudFormation Resource (AWS::Backup::BackupPlan.AdvancedBackupSettingResourceType)

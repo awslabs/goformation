@@ -3,7 +3,7 @@
 package globalaccelerator
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Listener_PortRange AWS CloudFormation Resource (AWS::GlobalAccelerator::Listener.PortRange)

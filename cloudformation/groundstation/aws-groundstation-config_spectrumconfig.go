@@ -3,7 +3,7 @@
 package groundstation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Config_SpectrumConfig AWS CloudFormation Resource (AWS::GroundStation::Config.SpectrumConfig)

@@ -3,7 +3,7 @@
 package apigatewayv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DomainName_MutualTlsAuthentication AWS CloudFormation Resource (AWS::ApiGatewayV2::DomainName.MutualTlsAuthentication)

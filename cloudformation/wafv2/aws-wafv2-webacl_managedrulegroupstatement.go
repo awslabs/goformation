@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WebACL_ManagedRuleGroupStatement AWS CloudFormation Resource (AWS::WAFv2::WebACL.ManagedRuleGroupStatement)

@@ -3,7 +3,7 @@
 package opensearchservice
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Domain_NodeToNodeEncryptionOptions AWS CloudFormation Resource (AWS::OpenSearchService::Domain.NodeToNodeEncryptionOptions)

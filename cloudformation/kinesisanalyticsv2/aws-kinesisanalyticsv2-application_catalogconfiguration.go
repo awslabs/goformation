@@ -3,7 +3,7 @@
 package kinesisanalyticsv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Application_CatalogConfiguration AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.CatalogConfiguration)

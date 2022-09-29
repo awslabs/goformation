@@ -3,7 +3,7 @@
 package ask
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Skill_Overrides AWS CloudFormation Resource (Alexa::ASK::Skill.Overrides)

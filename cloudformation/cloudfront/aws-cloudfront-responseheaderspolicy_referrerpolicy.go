@@ -3,7 +3,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ResponseHeadersPolicy_ReferrerPolicy AWS CloudFormation Resource (AWS::CloudFront::ResponseHeadersPolicy.ReferrerPolicy)

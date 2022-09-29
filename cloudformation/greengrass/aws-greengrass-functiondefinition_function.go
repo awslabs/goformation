@@ -3,7 +3,7 @@
 package greengrass
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // FunctionDefinition_Function AWS CloudFormation Resource (AWS::Greengrass::FunctionDefinition.Function)

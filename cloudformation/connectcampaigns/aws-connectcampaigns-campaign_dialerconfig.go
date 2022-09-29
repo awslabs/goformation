@@ -3,12 +3,22 @@
 package connectcampaigns
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Campaign_DialerConfig AWS CloudFormation Resource (AWS::ConnectCampaigns::Campaign.DialerConfig)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html
 type Campaign_DialerConfig struct {
+
+	// PredictiveDialerConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-predictivedialerconfig
+	PredictiveDialerConfig *Campaign_PredictiveDialerConfig `json:"PredictiveDialerConfig,omitempty"`
+
+	// ProgressiveDialerConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-progressivedialerconfig
+	ProgressiveDialerConfig *Campaign_ProgressiveDialerConfig `json:"ProgressiveDialerConfig,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

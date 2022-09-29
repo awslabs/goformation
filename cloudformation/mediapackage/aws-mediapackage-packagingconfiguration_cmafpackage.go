@@ -3,7 +3,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // PackagingConfiguration_CmafPackage AWS CloudFormation Resource (AWS::MediaPackage::PackagingConfiguration.CmafPackage)

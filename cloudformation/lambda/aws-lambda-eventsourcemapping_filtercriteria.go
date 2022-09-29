@@ -3,7 +3,7 @@
 package lambda
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EventSourceMapping_FilterCriteria AWS CloudFormation Resource (AWS::Lambda::EventSourceMapping.FilterCriteria)

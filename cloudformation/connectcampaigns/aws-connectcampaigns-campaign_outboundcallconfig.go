@@ -3,7 +3,7 @@
 package connectcampaigns
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Campaign_OutboundCallConfig AWS CloudFormation Resource (AWS::ConnectCampaigns::Campaign.OutboundCallConfig)

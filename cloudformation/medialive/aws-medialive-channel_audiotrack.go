@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_AudioTrack AWS CloudFormation Resource (AWS::MediaLive::Channel.AudioTrack)

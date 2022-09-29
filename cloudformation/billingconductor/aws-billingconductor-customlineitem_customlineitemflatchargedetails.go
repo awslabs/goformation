@@ -3,7 +3,7 @@
 package billingconductor
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CustomLineItem_CustomLineItemFlatChargeDetails AWS CloudFormation Resource (AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails)

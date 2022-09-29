@@ -3,7 +3,7 @@
 package dynamodb
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Table_InputFormatOptions AWS CloudFormation Resource (AWS::DynamoDB::Table.InputFormatOptions)

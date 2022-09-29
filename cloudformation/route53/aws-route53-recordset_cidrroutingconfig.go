@@ -3,7 +3,7 @@
 package route53
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RecordSet_CidrRoutingConfig AWS CloudFormation Resource (AWS::Route53::RecordSet.CidrRoutingConfig)

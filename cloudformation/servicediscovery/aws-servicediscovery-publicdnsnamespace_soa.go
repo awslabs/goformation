@@ -3,7 +3,7 @@
 package servicediscovery
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // PublicDnsNamespace_SOA AWS CloudFormation Resource (AWS::ServiceDiscovery::PublicDnsNamespace.SOA)

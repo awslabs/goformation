@@ -3,7 +3,7 @@
 package amplify
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Branch_EnvironmentVariable AWS CloudFormation Resource (AWS::Amplify::Branch.EnvironmentVariable)

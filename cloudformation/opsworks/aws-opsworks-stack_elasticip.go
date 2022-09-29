@@ -3,7 +3,7 @@
 package opsworks
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Stack_ElasticIp AWS CloudFormation Resource (AWS::OpsWorks::Stack.ElasticIp)

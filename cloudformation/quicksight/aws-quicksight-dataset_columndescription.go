@@ -3,7 +3,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSet_ColumnDescription AWS CloudFormation Resource (AWS::QuickSight::DataSet.ColumnDescription)

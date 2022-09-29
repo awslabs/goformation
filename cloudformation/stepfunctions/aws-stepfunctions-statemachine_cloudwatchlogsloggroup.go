@@ -3,7 +3,7 @@
 package stepfunctions
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StateMachine_CloudWatchLogsLogGroup AWS CloudFormation Resource (AWS::StepFunctions::StateMachine.CloudWatchLogsLogGroup)

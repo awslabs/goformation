@@ -3,7 +3,7 @@
 package elasticache
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // GlobalReplicationGroup_RegionalConfiguration AWS CloudFormation Resource (AWS::ElastiCache::GlobalReplicationGroup.RegionalConfiguration)

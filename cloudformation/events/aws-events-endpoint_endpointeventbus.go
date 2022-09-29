@@ -3,7 +3,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Endpoint_EndpointEventBus AWS CloudFormation Resource (AWS::Events::Endpoint.EndpointEventBus)

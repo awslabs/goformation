@@ -3,7 +3,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_ServiceManagedS3 AWS CloudFormation Resource (AWS::IoTAnalytics::Channel.ServiceManagedS3)

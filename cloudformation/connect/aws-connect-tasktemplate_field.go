@@ -3,7 +3,7 @@
 package connect
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TaskTemplate_Field AWS CloudFormation Resource (AWS::Connect::TaskTemplate.Field)
