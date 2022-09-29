@@ -3,7 +3,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Dashboard_Parameters AWS CloudFormation Resource (AWS::QuickSight::Dashboard.Parameters)

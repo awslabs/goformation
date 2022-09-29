@@ -3,7 +3,7 @@
 package datasync
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LocationEFS_Ec2Config AWS CloudFormation Resource (AWS::DataSync::LocationEFS.Ec2Config)

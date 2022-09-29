@@ -3,7 +3,7 @@
 package ssmincidents
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ResponsePlan_ChatChannel AWS CloudFormation Resource (AWS::SSMIncidents::ResponsePlan.ChatChannel)

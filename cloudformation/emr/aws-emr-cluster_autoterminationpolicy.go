@@ -3,7 +3,7 @@
 package emr
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Cluster_AutoTerminationPolicy AWS CloudFormation Resource (AWS::EMR::Cluster.AutoTerminationPolicy)

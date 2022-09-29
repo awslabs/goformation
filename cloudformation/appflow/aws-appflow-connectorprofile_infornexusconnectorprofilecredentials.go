@@ -3,7 +3,7 @@
 package appflow
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConnectorProfile_InforNexusConnectorProfileCredentials AWS CloudFormation Resource (AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileCredentials)

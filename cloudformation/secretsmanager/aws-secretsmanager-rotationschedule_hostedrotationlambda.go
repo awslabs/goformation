@@ -3,7 +3,7 @@
 package secretsmanager
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RotationSchedule_HostedRotationLambda AWS CloudFormation Resource (AWS::SecretsManager::RotationSchedule.HostedRotationLambda)

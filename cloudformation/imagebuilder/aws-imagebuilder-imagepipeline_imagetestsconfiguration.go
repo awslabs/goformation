@@ -3,7 +3,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ImagePipeline_ImageTestsConfiguration AWS CloudFormation Resource (AWS::ImageBuilder::ImagePipeline.ImageTestsConfiguration)

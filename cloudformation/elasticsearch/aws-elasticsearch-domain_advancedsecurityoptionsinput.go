@@ -3,7 +3,7 @@
 package elasticsearch
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Domain_AdvancedSecurityOptionsInput AWS CloudFormation Resource (AWS::Elasticsearch::Domain.AdvancedSecurityOptionsInput)

@@ -3,7 +3,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Dataset_DeltaTimeSessionWindowConfiguration AWS CloudFormation Resource (AWS::IoTAnalytics::Dataset.DeltaTimeSessionWindowConfiguration)

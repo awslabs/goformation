@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Trigger_NotificationProperty AWS CloudFormation Resource (AWS::Glue::Trigger.NotificationProperty)

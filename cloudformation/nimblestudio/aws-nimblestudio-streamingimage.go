@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StreamingImage AWS CloudFormation Resource (AWS::NimbleStudio::StreamingImage)

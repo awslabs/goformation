@@ -3,7 +3,7 @@
 package kinesis
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Stream_StreamModeDetails AWS CloudFormation Resource (AWS::Kinesis::Stream.StreamModeDetails)

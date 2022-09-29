@@ -3,7 +3,7 @@
 package batch
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SchedulingPolicy_FairsharePolicy AWS CloudFormation Resource (AWS::Batch::SchedulingPolicy.FairsharePolicy)

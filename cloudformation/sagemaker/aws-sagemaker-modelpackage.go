@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // ModelPackage AWS CloudFormation Resource (AWS::SageMaker::ModelPackage)
@@ -47,7 +47,7 @@ type ModelPackage struct {
 	// CreatedBy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-createdby
-	CreatedBy interface{} `json:"CreatedBy,omitempty"`
+	CreatedBy *ModelPackage_UserContext `json:"CreatedBy,omitempty"`
 
 	// CustomerMetadataProperties AWS CloudFormation Property
 	// Required: false
@@ -77,7 +77,7 @@ type ModelPackage struct {
 	// LastModifiedBy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-lastmodifiedby
-	LastModifiedBy interface{} `json:"LastModifiedBy,omitempty"`
+	LastModifiedBy *ModelPackage_UserContext `json:"LastModifiedBy,omitempty"`
 
 	// LastModifiedTime AWS CloudFormation Property
 	// Required: false

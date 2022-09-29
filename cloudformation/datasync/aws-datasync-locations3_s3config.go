@@ -3,7 +3,7 @@
 package datasync
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LocationS3_S3Config AWS CloudFormation Resource (AWS::DataSync::LocationS3.S3Config)

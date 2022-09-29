@@ -3,7 +3,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Instance_MonthlyTransfer AWS CloudFormation Resource (AWS::Lightsail::Instance.MonthlyTransfer)

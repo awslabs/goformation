@@ -3,7 +3,7 @@
 package resiliencehub
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // App_ResourceMapping AWS CloudFormation Resource (AWS::ResilienceHub::App.ResourceMapping)

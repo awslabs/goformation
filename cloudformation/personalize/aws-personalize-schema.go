@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Schema AWS CloudFormation Resource (AWS::Personalize::Schema)

@@ -3,7 +3,7 @@
 package lakeformation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TagAssociation_CatalogResource AWS CloudFormation Resource (AWS::LakeFormation::TagAssociation.CatalogResource)

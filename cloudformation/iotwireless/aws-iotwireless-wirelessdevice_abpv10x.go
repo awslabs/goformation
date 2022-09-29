@@ -3,7 +3,7 @@
 package iotwireless
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WirelessDevice_AbpV10x AWS CloudFormation Resource (AWS::IoTWireless::WirelessDevice.AbpV10x)

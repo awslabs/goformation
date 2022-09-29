@@ -8,7 +8,7 @@ import (
 	"io"
 	"sort"
 
-	"github.com/awslabs/goformation/v6/cloudformation/utils"
+	"github.com/awslabs/goformation/v7/cloudformation/utils"
 )
 
 // StateMachine_Policies is a helper struct that can hold either a String, String, IAMPolicyDocument, SAMPolicyTemplate, or IAMPolicyDocument value

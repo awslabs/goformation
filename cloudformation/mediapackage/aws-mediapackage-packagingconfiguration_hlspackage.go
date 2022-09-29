@@ -3,7 +3,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // PackagingConfiguration_HlsPackage AWS CloudFormation Resource (AWS::MediaPackage::PackagingConfiguration.HlsPackage)

@@ -3,7 +3,7 @@
 package timestream
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ScheduledQuery_MultiMeasureAttributeMapping AWS CloudFormation Resource (AWS::Timestream::ScheduledQuery.MultiMeasureAttributeMapping)

@@ -3,7 +3,7 @@
 package kinesisfirehose
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeliveryStream_S3DestinationConfiguration AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration)

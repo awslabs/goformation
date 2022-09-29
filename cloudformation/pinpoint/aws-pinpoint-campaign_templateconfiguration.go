@@ -3,7 +3,7 @@
 package pinpoint
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Campaign_TemplateConfiguration AWS CloudFormation Resource (AWS::Pinpoint::Campaign.TemplateConfiguration)

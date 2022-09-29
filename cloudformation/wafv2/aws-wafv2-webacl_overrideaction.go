@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WebACL_OverrideAction AWS CloudFormation Resource (AWS::WAFv2::WebACL.OverrideAction)

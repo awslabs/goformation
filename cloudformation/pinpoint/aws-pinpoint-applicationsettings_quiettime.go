@@ -3,7 +3,7 @@
 package pinpoint
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ApplicationSettings_QuietTime AWS CloudFormation Resource (AWS::Pinpoint::ApplicationSettings.QuietTime)

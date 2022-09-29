@@ -3,7 +3,7 @@
 package refactorspaces
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Route_DefaultRouteInput AWS CloudFormation Resource (AWS::RefactorSpaces::Route.DefaultRouteInput)

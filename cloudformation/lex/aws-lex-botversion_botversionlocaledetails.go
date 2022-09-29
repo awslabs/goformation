@@ -3,7 +3,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // BotVersion_BotVersionLocaleDetails AWS CloudFormation Resource (AWS::Lex::BotVersion.BotVersionLocaleDetails)

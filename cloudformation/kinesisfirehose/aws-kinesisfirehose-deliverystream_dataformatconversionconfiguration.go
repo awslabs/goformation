@@ -3,7 +3,7 @@
 package kinesisfirehose
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeliveryStream_DataFormatConversionConfiguration AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration)

@@ -3,7 +3,7 @@
 package dms
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Endpoint_DocDbSettings AWS CloudFormation Resource (AWS::DMS::Endpoint.DocDbSettings)

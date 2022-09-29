@@ -3,7 +3,7 @@
 package appintegrations
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EventIntegration_Metadata AWS CloudFormation Resource (AWS::AppIntegrations::EventIntegration.Metadata)

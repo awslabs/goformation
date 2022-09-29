@@ -3,7 +3,7 @@
 package waf
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Rule_Predicate AWS CloudFormation Resource (AWS::WAF::Rule.Predicate)

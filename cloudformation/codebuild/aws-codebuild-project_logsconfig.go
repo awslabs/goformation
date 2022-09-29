@@ -3,7 +3,7 @@
 package codebuild
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Project_LogsConfig AWS CloudFormation Resource (AWS::CodeBuild::Project.LogsConfig)

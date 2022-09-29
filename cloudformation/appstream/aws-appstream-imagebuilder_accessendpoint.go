@@ -3,7 +3,7 @@
 package appstream
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ImageBuilder_AccessEndpoint AWS CloudFormation Resource (AWS::AppStream::ImageBuilder.AccessEndpoint)

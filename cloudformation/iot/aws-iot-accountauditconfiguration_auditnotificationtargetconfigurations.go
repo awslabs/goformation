@@ -3,7 +3,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AccountAuditConfiguration_AuditNotificationTargetConfigurations AWS CloudFormation Resource (AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations)

@@ -3,7 +3,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSource_PrestoParameters AWS CloudFormation Resource (AWS::QuickSight::DataSource.PrestoParameters)

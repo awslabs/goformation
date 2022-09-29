@@ -3,7 +3,7 @@
 package servicediscovery
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Service_DnsRecord AWS CloudFormation Resource (AWS::ServiceDiscovery::Service.DnsRecord)

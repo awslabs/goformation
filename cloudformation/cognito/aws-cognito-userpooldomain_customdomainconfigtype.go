@@ -3,7 +3,7 @@
 package cognito
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // UserPoolDomain_CustomDomainConfigType AWS CloudFormation Resource (AWS::Cognito::UserPoolDomain.CustomDomainConfigType)

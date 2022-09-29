@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Workflow AWS CloudFormation Resource (AWS::Glue::Workflow)
@@ -22,6 +22,11 @@ type Workflow struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html#cfn-glue-workflow-description
 	Description *string `json:"Description,omitempty"`
+
+	// MaxConcurrentRuns AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html#cfn-glue-workflow-maxconcurrentruns
+	MaxConcurrentRuns *int `json:"MaxConcurrentRuns,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

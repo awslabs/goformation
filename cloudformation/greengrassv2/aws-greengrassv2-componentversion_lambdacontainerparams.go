@@ -3,7 +3,7 @@
 package greengrassv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ComponentVersion_LambdaContainerParams AWS CloudFormation Resource (AWS::GreengrassV2::ComponentVersion.LambdaContainerParams)

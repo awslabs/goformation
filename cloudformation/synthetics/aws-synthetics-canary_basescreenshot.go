@@ -3,7 +3,7 @@
 package synthetics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Canary_BaseScreenshot AWS CloudFormation Resource (AWS::Synthetics::Canary.BaseScreenshot)

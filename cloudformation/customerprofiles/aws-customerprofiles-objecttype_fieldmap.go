@@ -3,7 +3,7 @@
 package customerprofiles
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ObjectType_FieldMap AWS CloudFormation Resource (AWS::CustomerProfiles::ObjectType.FieldMap)

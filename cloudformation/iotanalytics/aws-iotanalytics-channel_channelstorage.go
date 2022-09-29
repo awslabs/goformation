@@ -3,7 +3,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_ChannelStorage AWS CloudFormation Resource (AWS::IoTAnalytics::Channel.ChannelStorage)

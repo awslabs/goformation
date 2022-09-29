@@ -3,7 +3,7 @@
 package lakeformation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Permissions_DataLakePrincipal AWS CloudFormation Resource (AWS::LakeFormation::Permissions.DataLakePrincipal)

@@ -3,7 +3,7 @@
 package apigateway
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Method_Integration AWS CloudFormation Resource (AWS::ApiGateway::Method.Integration)

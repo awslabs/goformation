@@ -3,7 +3,7 @@
 package apprunner
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Service_EncryptionConfiguration AWS CloudFormation Resource (AWS::AppRunner::Service.EncryptionConfiguration)

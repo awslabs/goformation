@@ -3,7 +3,7 @@
 package iotsitewise
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AssetModel_AssetModelHierarchy AWS CloudFormation Resource (AWS::IoTSiteWise::AssetModel.AssetModelHierarchy)

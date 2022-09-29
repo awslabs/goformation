@@ -3,7 +3,7 @@
 package msk
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Cluster_Scram AWS CloudFormation Resource (AWS::MSK::Cluster.Scram)

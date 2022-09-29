@@ -3,7 +3,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ModelBiasJobDefinition_VpcConfig AWS CloudFormation Resource (AWS::SageMaker::ModelBiasJobDefinition.VpcConfig)

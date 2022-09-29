@@ -3,7 +3,7 @@
 package eventschemas
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Registry_TagsEntry AWS CloudFormation Resource (AWS::EventSchemas::Registry.TagsEntry)

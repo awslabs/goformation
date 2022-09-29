@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // IdentityProviderConfig AWS CloudFormation Resource (AWS::EKS::IdentityProviderConfig)

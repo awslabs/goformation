@@ -3,7 +3,7 @@
 package mediatailor
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // PlaybackConfiguration_CdnConfiguration AWS CloudFormation Resource (AWS::MediaTailor::PlaybackConfiguration.CdnConfiguration)

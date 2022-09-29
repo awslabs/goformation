@@ -3,7 +3,7 @@
 package resourcegroups
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Group_ConfigurationParameter AWS CloudFormation Resource (AWS::ResourceGroups::Group.ConfigurationParameter)

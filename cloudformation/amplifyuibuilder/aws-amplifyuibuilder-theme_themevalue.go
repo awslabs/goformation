@@ -3,7 +3,7 @@
 package amplifyuibuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Theme_ThemeValue AWS CloudFormation Resource (AWS::AmplifyUIBuilder::Theme.ThemeValue)

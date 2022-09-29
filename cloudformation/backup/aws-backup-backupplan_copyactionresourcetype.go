@@ -3,7 +3,7 @@
 package backup
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // BackupPlan_CopyActionResourceType AWS CloudFormation Resource (AWS::Backup::BackupPlan.CopyActionResourceType)

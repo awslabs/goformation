@@ -3,7 +3,7 @@
 package fsx
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Volume_TieringPolicy AWS CloudFormation Resource (AWS::FSx::Volume.TieringPolicy)

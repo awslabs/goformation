@@ -3,7 +3,7 @@
 package devopsguru
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // NotificationChannel_NotificationChannelConfig AWS CloudFormation Resource (AWS::DevOpsGuru::NotificationChannel.NotificationChannelConfig)

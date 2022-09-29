@@ -3,7 +3,7 @@
 package nimblestudio
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StudioComponent_ActiveDirectoryComputerAttribute AWS CloudFormation Resource (AWS::NimbleStudio::StudioComponent.ActiveDirectoryComputerAttribute)

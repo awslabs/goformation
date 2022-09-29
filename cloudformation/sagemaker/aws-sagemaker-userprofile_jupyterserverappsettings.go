@@ -3,7 +3,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // UserProfile_JupyterServerAppSettings AWS CloudFormation Resource (AWS::SageMaker::UserProfile.JupyterServerAppSettings)

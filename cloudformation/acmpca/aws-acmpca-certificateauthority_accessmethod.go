@@ -3,7 +3,7 @@
 package acmpca
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CertificateAuthority_AccessMethod AWS CloudFormation Resource (AWS::ACMPCA::CertificateAuthority.AccessMethod)

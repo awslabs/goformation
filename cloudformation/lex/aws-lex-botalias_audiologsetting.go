@@ -3,7 +3,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // BotAlias_AudioLogSetting AWS CloudFormation Resource (AWS::Lex::BotAlias.AudioLogSetting)

@@ -3,7 +3,7 @@
 package datasync
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LocationFSxONTAP_Protocol AWS CloudFormation Resource (AWS::DataSync::LocationFSxONTAP.Protocol)

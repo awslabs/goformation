@@ -3,7 +3,7 @@
 package groundstation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataflowEndpointGroup_SecurityDetails AWS CloudFormation Resource (AWS::GroundStation::DataflowEndpointGroup.SecurityDetails)

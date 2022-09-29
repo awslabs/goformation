@@ -3,7 +3,7 @@
 package sns
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Topic_Subscription AWS CloudFormation Resource (AWS::SNS::Topic.Subscription)
