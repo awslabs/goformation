@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // VirtualGateway_LoggingFormat AWS CloudFormation Resource (AWS::AppMesh::VirtualGateway.LoggingFormat)
@@ -13,7 +13,7 @@ type VirtualGateway_LoggingFormat struct {
 	// Json AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-loggingformat.html#cfn-appmesh-virtualgateway-loggingformat-json
-	Json *[]VirtualGateway_JsonFormatRef `json:"Json,omitempty"`
+	Json []VirtualGateway_JsonFormatRef `json:"Json,omitempty"`
 
 	// Text AWS CloudFormation Property
 	// Required: false

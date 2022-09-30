@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // GlobalTable AWS CloudFormation Resource (AWS::DynamoDB::GlobalTable)
@@ -26,7 +26,7 @@ type GlobalTable struct {
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-	GlobalSecondaryIndexes *[]GlobalTable_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
+	GlobalSecondaryIndexes []GlobalTable_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
 
 	// KeySchema AWS CloudFormation Property
 	// Required: true
@@ -36,7 +36,7 @@ type GlobalTable struct {
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-	LocalSecondaryIndexes *[]GlobalTable_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
+	LocalSecondaryIndexes []GlobalTable_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
 
 	// Replicas AWS CloudFormation Property
 	// Required: true

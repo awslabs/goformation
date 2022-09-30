@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // GatewayRoute_HttpGatewayRouteMatch AWS CloudFormation Resource (AWS::AppMesh::GatewayRoute.HttpGatewayRouteMatch)
@@ -13,7 +13,7 @@ type GatewayRoute_HttpGatewayRouteMatch struct {
 	// Headers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-headers
-	Headers *[]GatewayRoute_HttpGatewayRouteHeader `json:"Headers,omitempty"`
+	Headers []GatewayRoute_HttpGatewayRouteHeader `json:"Headers,omitempty"`
 
 	// Hostname AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type GatewayRoute_HttpGatewayRouteMatch struct {
 	// QueryParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-queryparameters
-	QueryParameters *[]GatewayRoute_QueryParameter `json:"QueryParameters,omitempty"`
+	QueryParameters []GatewayRoute_QueryParameter `json:"QueryParameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

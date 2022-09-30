@@ -3,12 +3,17 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Bot_VoiceSettings AWS CloudFormation Resource (AWS::Lex::Bot.VoiceSettings)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html
 type Bot_VoiceSettings struct {
+
+	// Engine AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html#cfn-lex-bot-voicesettings-engine
+	Engine *string `json:"Engine,omitempty"`
 
 	// VoiceId AWS CloudFormation Property
 	// Required: true

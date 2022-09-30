@@ -3,7 +3,7 @@
 package emr
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Cluster_InstanceFleetConfig AWS CloudFormation Resource (AWS::EMR::Cluster.InstanceFleetConfig)
@@ -13,7 +13,7 @@ type Cluster_InstanceFleetConfig struct {
 	// InstanceTypeConfigs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-instancetypeconfigs
-	InstanceTypeConfigs *[]Cluster_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
+	InstanceTypeConfigs []Cluster_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
 
 	// LaunchSpecifications AWS CloudFormation Property
 	// Required: false

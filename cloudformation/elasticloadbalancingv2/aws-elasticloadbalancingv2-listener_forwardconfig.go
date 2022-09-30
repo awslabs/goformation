@@ -3,7 +3,7 @@
 package elasticloadbalancingv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Listener_ForwardConfig AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::Listener.ForwardConfig)
@@ -18,7 +18,7 @@ type Listener_ForwardConfig struct {
 	// TargetGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
-	TargetGroups *[]Listener_TargetGroupTuple `json:"TargetGroups,omitempty"`
+	TargetGroups []Listener_TargetGroupTuple `json:"TargetGroups,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

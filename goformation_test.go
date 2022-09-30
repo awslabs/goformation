@@ -6,17 +6,17 @@ import (
 
 	"github.com/sanathkr/yaml"
 
-	"github.com/awslabs/goformation/v6"
-	"github.com/awslabs/goformation/v6/cloudformation"
-	"github.com/awslabs/goformation/v6/cloudformation/ec2"
-	"github.com/awslabs/goformation/v6/cloudformation/global"
-	"github.com/awslabs/goformation/v6/cloudformation/lambda"
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/route53"
-	"github.com/awslabs/goformation/v6/cloudformation/s3"
-	"github.com/awslabs/goformation/v6/cloudformation/serverless"
-	"github.com/awslabs/goformation/v6/cloudformation/sns"
-	"github.com/awslabs/goformation/v6/intrinsics"
+	"github.com/awslabs/goformation/v7"
+	"github.com/awslabs/goformation/v7/cloudformation"
+	"github.com/awslabs/goformation/v7/cloudformation/ec2"
+	"github.com/awslabs/goformation/v7/cloudformation/global"
+	"github.com/awslabs/goformation/v7/cloudformation/lambda"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/route53"
+	"github.com/awslabs/goformation/v7/cloudformation/s3"
+	"github.com/awslabs/goformation/v7/cloudformation/serverless"
+	"github.com/awslabs/goformation/v7/cloudformation/sns"
+	"github.com/awslabs/goformation/v7/intrinsics"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
@@ -187,11 +187,11 @@ var _ = Describe("Goformation", func() {
 		It("should correctly parse all of the function API event sources/endpoints", func() {
 
 			Expect(f.Events).ToNot(BeNil())
-			Expect(*f.Events).To(HaveKey("TestApi"))
-			Expect((*f.Events)["TestApi"].Type).To(Equal("Api"))
-			Expect((*f.Events)["TestApi"].Properties.ApiEvent).ToNot(BeNil())
+			Expect(f.Events).To(HaveKey("TestApi"))
+			Expect((f.Events)["TestApi"].Type).To(Equal("Api"))
+			Expect((f.Events)["TestApi"].Properties.ApiEvent).ToNot(BeNil())
 
-			event := (*f.Events)["TestApi"].Properties.ApiEvent
+			event := (f.Events)["TestApi"].Properties.ApiEvent
 			Expect(event.Method).To(Equal("any"))
 			Expect(event.Path).To(Equal("/testing"))
 
@@ -199,11 +199,11 @@ var _ = Describe("Goformation", func() {
 
 		It("should correctly parse all of the function S3 event source", func() {
 			Expect(f.Events).ToNot(BeNil())
-			Expect(*(f.Events)).To(HaveKey("TestS3"))
-			Expect((*f.Events)["TestS3"].Type).To(Equal("S3"))
-			Expect((*f.Events)["TestS3"].Properties.S3Event).ToNot(BeNil())
+			Expect((f.Events)).To(HaveKey("TestS3"))
+			Expect((f.Events)["TestS3"].Type).To(Equal("S3"))
+			Expect((f.Events)["TestS3"].Properties.S3Event).ToNot(BeNil())
 
-			event := (*f.Events)["TestS3"].Properties.S3Event
+			event := (f.Events)["TestS3"].Properties.S3Event
 			Expect(event.Bucket).To(Equal("my-photo-bucket"))
 			Expect(event.Events.String).To(PointTo(Equal("s3:ObjectCreated:*")))
 			Expect(event.Filter.S3Key.Rules).To(HaveLen(1))
@@ -230,13 +230,13 @@ var _ = Describe("Goformation", func() {
 
 		asg := resources["EcsClusterDefaultAutoScalingGroupASGC1A785DB"]
 		It("should have exactly one tag defined", func() {
-			Expect(*asg.Tags).To(HaveLen(1))
+			Expect(asg.Tags).To(HaveLen(1))
 		})
 
 		It("should have the correct tag properties set", func() {
-			Expect((*asg.Tags)[0].PropagateAtLaunch).To(Equal(true))
-			Expect((*asg.Tags)[0].Key).To(Equal("Name"))
-			Expect((*asg.Tags)[0].Value).To(Equal("aws-ecs-integ-ecs/EcsCluster/DefaultAutoScalingGroup"))
+			Expect((asg.Tags)[0].PropagateAtLaunch).To(Equal(true))
+			Expect((asg.Tags)[0].Key).To(Equal("Name"))
+			Expect((asg.Tags)[0].Value).To(Equal("aws-ecs-integ-ecs/EcsCluster/DefaultAutoScalingGroup"))
 		})
 
 	})
@@ -277,7 +277,7 @@ var _ = Describe("Goformation", func() {
 			template.Resources["MySNSTopic"] = &sns.Topic{
 				DisplayName: cloudformation.String("test-sns-topic-display-name"),
 				TopicName:   cloudformation.String("test-sns-topic-name"),
-				Subscription: &[]sns.Topic_Subscription{
+				Subscription: []sns.Topic_Subscription{
 					{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
@@ -304,9 +304,9 @@ var _ = Describe("Goformation", func() {
 			It("should have the correct AWS::SNS::Topic values", func() {
 				Expect(topic.DisplayName).To(Equal(cloudformation.String("test-sns-topic-display-name")))
 				Expect(topic.TopicName).To(Equal(cloudformation.String("test-sns-topic-name")))
-				Expect(*topic.Subscription).To(HaveLen(1))
-				Expect((*topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
-				Expect((*topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
+				Expect(topic.Subscription).To(HaveLen(1))
+				Expect((topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
+				Expect((topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
 			})
 
 			zones := template.GetAllRoute53HostedZoneResources()
@@ -336,7 +336,7 @@ var _ = Describe("Goformation", func() {
 			expected.Resources["MySNSTopic"] = &sns.Topic{
 				DisplayName: cloudformation.String("test-sns-topic-display-name"),
 				TopicName:   cloudformation.String("test-sns-topic-name"),
-				Subscription: &[]sns.Topic_Subscription{
+				Subscription: []sns.Topic_Subscription{
 					{
 						Endpoint: "test-sns-topic-subscription-endpoint",
 						Protocol: "test-sns-topic-subscription-protocol",
@@ -368,9 +368,9 @@ var _ = Describe("Goformation", func() {
 			It("should have the correct AWS::SNS::Topic values", func() {
 				Expect(topic.DisplayName).To(Equal(cloudformation.String("test-sns-topic-display-name")))
 				Expect(topic.TopicName).To(Equal(cloudformation.String("test-sns-topic-name")))
-				Expect(*topic.Subscription).To(HaveLen(1))
-				Expect((*topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
-				Expect((*topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
+				Expect(topic.Subscription).To(HaveLen(1))
+				Expect((topic.Subscription)[0].Endpoint).To(Equal("test-sns-topic-subscription-endpoint"))
+				Expect((topic.Subscription)[0].Protocol).To(Equal("test-sns-topic-subscription-protocol"))
 			})
 
 			zones := result.GetAllRoute53HostedZoneResources()
@@ -509,13 +509,13 @@ var _ = Describe("Goformation", func() {
 		api1 := apis["HttpApiWithCorsConfiguration"]
 		It("should parse a CorsConfiguration object", func() {
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowOrigins).
-				To(Equal(cloudformation.Strings("https://www.example.com")))
+				To(Equal([]string{"https://www.example.com"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowMethods).
-				To(Equal(cloudformation.Strings("GET", "OPTIONS")))
+				To(Equal([]string{"GET", "OPTIONS"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowHeaders).
-				To(Equal(cloudformation.Strings("x-apigateway-header")))
+				To(Equal([]string{"x-apigateway-header"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.ExposeHeaders).
-				To(Equal(cloudformation.Strings("*")))
+				To(Equal([]string{"*"}))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.AllowCredentials).
 				To(Equal(cloudformation.Bool(true)))
 			Expect(api1.CorsConfiguration.CorsConfigurationObject.MaxAge).
@@ -733,7 +733,7 @@ var _ = Describe("Goformation", func() {
 		})
 
 		It("should have the correct value for Variables", func() {
-			Expect(*api1.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
+			Expect(api1.Variables).To(HaveKeyWithValue("NAME", "VALUE"))
 		})
 
 		api2, err := template.GetServerlessApiWithName("ServerlessApiWithDefinitionUriAsS3Location")
@@ -900,26 +900,26 @@ var _ = Describe("Goformation", func() {
 			ApiEvent: &serverless.Function_ApiEvent{
 				Auth: &serverless.Function_Auth{
 					ApiKeyRequired:      cloudformation.Bool(true),
-					AuthorizationScopes: cloudformation.Strings("scope1", "scope2"),
+					AuthorizationScopes: []string{"scope1", "scope2"},
 					Authorizer:          cloudformation.String("aws_iam"),
 					ResourcePolicy: &serverless.Function_AuthResourcePolicy{
-						CustomStatements: &[]interface{}{
+						CustomStatements: []interface{}{
 							map[string]interface{}{
 								"Effect":   "Allow",
 								"Action":   "execute-api:*",
 								"Resource": "*",
 							},
 						},
-						AwsAccountBlacklist:    cloudformation.Strings("AwsAccountBlacklistValue"),
-						AwsAccountWhitelist:    cloudformation.Strings("AwsAccountWhitelistValue"),
-						IntrinsicVpcBlacklist:  cloudformation.Strings("IntrinsicVpcBlacklistValue"),
-						IntrinsicVpcWhitelist:  cloudformation.Strings("IntrinsicVpcWhitelistValue"),
-						IntrinsicVpceBlacklist: cloudformation.Strings("IntrinsicVpceBlacklistValue"),
-						IntrinsicVpceWhitelist: cloudformation.Strings("IntrinsicVpceWhitelistValue"),
-						IpRangeBlacklist:       cloudformation.Strings("IpRangeBlacklistValue"),
-						IpRangeWhitelist:       cloudformation.Strings("IpRangeWhitelistValue"),
-						SourceVpcBlacklist:     cloudformation.Strings("SourceVpcBlacklistValue"),
-						SourceVpcWhitelist:     cloudformation.Strings("SourceVpcWhitelistValue"),
+						AwsAccountBlacklist:    []string{"AwsAccountBlacklistValue"},
+						AwsAccountWhitelist:    []string{"AwsAccountWhitelistValue"},
+						IntrinsicVpcBlacklist:  []string{"IntrinsicVpcBlacklistValue"},
+						IntrinsicVpcWhitelist:  []string{"IntrinsicVpcWhitelistValue"},
+						IntrinsicVpceBlacklist: []string{"IntrinsicVpceBlacklistValue"},
+						IntrinsicVpceWhitelist: []string{"IntrinsicVpceWhitelistValue"},
+						IpRangeBlacklist:       []string{"IpRangeBlacklistValue"},
+						IpRangeWhitelist:       []string{"IpRangeWhitelistValue"},
+						SourceVpcBlacklist:     []string{"SourceVpcBlacklistValue"},
+						SourceVpcWhitelist:     []string{"SourceVpcWhitelistValue"},
 					},
 				},
 				Method:    "MethodValue",
@@ -1490,7 +1490,7 @@ var _ = Describe("Goformation", func() {
 				String: &transform,
 			}
 			template.Resources["TestFunction"] = &serverless.Function{
-				Architectures: cloudformation.Strings("arm64"),
+				Architectures: []string{"arm64"},
 				ImageUri:      cloudformation.String("image:latest-arm64"),
 			}
 

@@ -3,7 +3,7 @@
 package acmpca
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CertificateAuthority_CsrExtensions AWS CloudFormation Resource (AWS::ACMPCA::CertificateAuthority.CsrExtensions)
@@ -18,7 +18,7 @@ type CertificateAuthority_CsrExtensions struct {
 	// SubjectInformationAccess AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
-	SubjectInformationAccess *[]CertificateAuthority_AccessDescription `json:"SubjectInformationAccess,omitempty"`
+	SubjectInformationAccess []CertificateAuthority_AccessDescription `json:"SubjectInformationAccess,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

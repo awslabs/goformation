@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WebACL_HeaderMatchPattern AWS CloudFormation Resource (AWS::WAFv2::WebACL.HeaderMatchPattern)
@@ -18,12 +18,12 @@ type WebACL_HeaderMatchPattern struct {
 	// ExcludedHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headermatchpattern.html#cfn-wafv2-webacl-headermatchpattern-excludedheaders
-	ExcludedHeaders *[]string `json:"ExcludedHeaders,omitempty"`
+	ExcludedHeaders []string `json:"ExcludedHeaders,omitempty"`
 
 	// IncludedHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headermatchpattern.html#cfn-wafv2-webacl-headermatchpattern-includedheaders
-	IncludedHeaders *[]string `json:"IncludedHeaders,omitempty"`
+	IncludedHeaders []string `json:"IncludedHeaders,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

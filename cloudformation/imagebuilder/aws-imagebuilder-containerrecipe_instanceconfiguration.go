@@ -3,7 +3,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ContainerRecipe_InstanceConfiguration AWS CloudFormation Resource (AWS::ImageBuilder::ContainerRecipe.InstanceConfiguration)
@@ -13,7 +13,7 @@ type ContainerRecipe_InstanceConfiguration struct {
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
-	BlockDeviceMappings *[]ContainerRecipe_InstanceBlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
+	BlockDeviceMappings []ContainerRecipe_InstanceBlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
 	// Image AWS CloudFormation Property
 	// Required: false

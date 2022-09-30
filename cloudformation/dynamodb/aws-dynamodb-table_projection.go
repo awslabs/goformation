@@ -3,7 +3,7 @@
 package dynamodb
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Table_Projection AWS CloudFormation Resource (AWS::DynamoDB::Table.Projection)
@@ -13,7 +13,7 @@ type Table_Projection struct {
 	// NonKeyAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-projection.html#cfn-dynamodb-table-projection-nonkeyattributes
-	NonKeyAttributes *[]string `json:"NonKeyAttributes,omitempty"`
+	NonKeyAttributes []string `json:"NonKeyAttributes,omitempty"`
 
 	// ProjectionType AWS CloudFormation Property
 	// Required: false

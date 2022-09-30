@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // MLTransform_InputRecordTables AWS CloudFormation Resource (AWS::Glue::MLTransform.InputRecordTables)
@@ -13,7 +13,7 @@ type MLTransform_InputRecordTables struct {
 	// GlueTables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
-	GlueTables *[]MLTransform_GlueTables `json:"GlueTables,omitempty"`
+	GlueTables []MLTransform_GlueTables `json:"GlueTables,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

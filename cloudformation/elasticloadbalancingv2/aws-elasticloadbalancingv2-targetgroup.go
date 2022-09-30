@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // TargetGroup AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::TargetGroup)
@@ -82,12 +82,12 @@ type TargetGroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TargetGroupAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes
-	TargetGroupAttributes *[]TargetGroup_TargetGroupAttribute `json:"TargetGroupAttributes,omitempty"`
+	TargetGroupAttributes []TargetGroup_TargetGroupAttribute `json:"TargetGroupAttributes,omitempty"`
 
 	// TargetType AWS CloudFormation Property
 	// Required: false
@@ -97,7 +97,7 @@ type TargetGroup struct {
 	// Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targets
-	Targets *[]TargetGroup_TargetDescription `json:"Targets,omitempty"`
+	Targets []TargetGroup_TargetDescription `json:"Targets,omitempty"`
 
 	// UnhealthyThresholdCount AWS CloudFormation Property
 	// Required: false

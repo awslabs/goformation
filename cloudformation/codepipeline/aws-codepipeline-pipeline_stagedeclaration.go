@@ -3,7 +3,7 @@
 package codepipeline
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Pipeline_StageDeclaration AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.StageDeclaration)
@@ -18,7 +18,7 @@ type Pipeline_StageDeclaration struct {
 	// Blockers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-blockers
-	Blockers *[]Pipeline_BlockerDeclaration `json:"Blockers,omitempty"`
+	Blockers []Pipeline_BlockerDeclaration `json:"Blockers,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

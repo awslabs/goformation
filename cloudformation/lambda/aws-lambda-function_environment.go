@@ -3,7 +3,7 @@
 package lambda
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Function_Environment AWS CloudFormation Resource (AWS::Lambda::Function.Environment)
@@ -13,7 +13,7 @@ type Function_Environment struct {
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
-	Variables *map[string]string `json:"Variables,omitempty"`
+	Variables map[string]string `json:"Variables,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -266,6 +266,20 @@ func (p Property) IsGeneric() bool {
 	return !p.IsPolymorphic() && !p.IsMap() && !p.IsList() && !p.IsCustomType() && convertTypeToGo(p.PrimitiveType) == "interface{}"
 }
 
+// UsePointer checks if a property is a type which should be a pointer
+func (p Property) UsePointer() bool {
+	if p.IsPolymorphic() || p.IsCustomType() {
+		return true
+	}
+	if p.IsList() || p.IsMap() {
+		return false
+	}
+	if !p.Required && !p.IsGeneric() {
+		return true
+	}
+	return false
+}
+
 // GoType returns the correct type for this property
 // within a Go struct. For example, []string or map[string]AWSLambdaFunction_VpcConfig
 func (p Property) GoType(typename string, basename string, name string) string {

@@ -3,7 +3,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Rule_AwsVpcConfiguration AWS CloudFormation Resource (AWS::Events::Rule.AwsVpcConfiguration)
@@ -18,7 +18,7 @@ type Rule_AwsVpcConfiguration struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-securitygroups
-	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
+	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
 	// Subnets AWS CloudFormation Property
 	// Required: true

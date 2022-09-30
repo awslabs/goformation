@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LayerVersion AWS CloudFormation Resource (AWS::Lambda::LayerVersion)
@@ -16,12 +16,12 @@ type LayerVersion struct {
 	// CompatibleArchitectures AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-compatiblearchitectures
-	CompatibleArchitectures *[]string `json:"CompatibleArchitectures,omitempty"`
+	CompatibleArchitectures []string `json:"CompatibleArchitectures,omitempty"`
 
 	// CompatibleRuntimes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-compatibleruntimes
-	CompatibleRuntimes *[]string `json:"CompatibleRuntimes,omitempty"`
+	CompatibleRuntimes []string `json:"CompatibleRuntimes,omitempty"`
 
 	// Content AWS CloudFormation Property
 	// Required: true

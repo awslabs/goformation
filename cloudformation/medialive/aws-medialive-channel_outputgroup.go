@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_OutputGroup AWS CloudFormation Resource (AWS::MediaLive::Channel.OutputGroup)
@@ -23,7 +23,7 @@ type Channel_OutputGroup struct {
 	// Outputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html#cfn-medialive-channel-outputgroup-outputs
-	Outputs *[]Channel_Output `json:"Outputs,omitempty"`
+	Outputs []Channel_Output `json:"Outputs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

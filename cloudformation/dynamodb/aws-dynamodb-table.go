@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Table AWS CloudFormation Resource (AWS::DynamoDB::Table)
@@ -17,7 +17,7 @@ type Table struct {
 	// AttributeDefinitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedefinitions
-	AttributeDefinitions *[]Table_AttributeDefinition `json:"AttributeDefinitions,omitempty"`
+	AttributeDefinitions []Table_AttributeDefinition `json:"AttributeDefinitions,omitempty"`
 
 	// BillingMode AWS CloudFormation Property
 	// Required: false
@@ -32,7 +32,7 @@ type Table struct {
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-globalsecondaryindexes
-	GlobalSecondaryIndexes *[]Table_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
+	GlobalSecondaryIndexes []Table_GlobalSecondaryIndex `json:"GlobalSecondaryIndexes,omitempty"`
 
 	// ImportSourceSpecification AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type Table struct {
 	// LocalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes
-	LocalSecondaryIndexes *[]Table_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
+	LocalSecondaryIndexes []Table_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
 
 	// PointInTimeRecoverySpecification AWS CloudFormation Property
 	// Required: false
@@ -87,7 +87,7 @@ type Table struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TimeToLiveSpecification AWS CloudFormation Property
 	// Required: false

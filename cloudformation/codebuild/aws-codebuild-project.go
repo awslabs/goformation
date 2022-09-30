@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Project AWS CloudFormation Resource (AWS::CodeBuild::Project)
@@ -57,7 +57,7 @@ type Project struct {
 	// FileSystemLocations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-filesystemlocations
-	FileSystemLocations *[]Project_ProjectFileSystemLocation `json:"FileSystemLocations,omitempty"`
+	FileSystemLocations []Project_ProjectFileSystemLocation `json:"FileSystemLocations,omitempty"`
 
 	// LogsConfig AWS CloudFormation Property
 	// Required: false
@@ -82,17 +82,17 @@ type Project struct {
 	// SecondaryArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
-	SecondaryArtifacts *[]Project_Artifacts `json:"SecondaryArtifacts,omitempty"`
+	SecondaryArtifacts []Project_Artifacts `json:"SecondaryArtifacts,omitempty"`
 
 	// SecondarySourceVersions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysourceversions
-	SecondarySourceVersions *[]Project_ProjectSourceVersion `json:"SecondarySourceVersions,omitempty"`
+	SecondarySourceVersions []Project_ProjectSourceVersion `json:"SecondarySourceVersions,omitempty"`
 
 	// SecondarySources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysources
-	SecondarySources *[]Project_Source `json:"SecondarySources,omitempty"`
+	SecondarySources []Project_Source `json:"SecondarySources,omitempty"`
 
 	// ServiceRole AWS CloudFormation Property
 	// Required: true
@@ -112,7 +112,7 @@ type Project struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TimeoutInMinutes AWS CloudFormation Property
 	// Required: false

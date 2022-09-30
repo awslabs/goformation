@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Pipeline AWS CloudFormation Resource (AWS::DataPipeline::Pipeline)
@@ -36,17 +36,17 @@ type Pipeline struct {
 	// ParameterValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
-	ParameterValues *[]Pipeline_ParameterValue `json:"ParameterValues,omitempty"`
+	ParameterValues []Pipeline_ParameterValue `json:"ParameterValues,omitempty"`
 
 	// PipelineObjects AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects
-	PipelineObjects *[]Pipeline_PipelineObject `json:"PipelineObjects,omitempty"`
+	PipelineObjects []Pipeline_PipelineObject `json:"PipelineObjects,omitempty"`
 
 	// PipelineTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags
-	PipelineTags *[]Pipeline_PipelineTag `json:"PipelineTags,omitempty"`
+	PipelineTags []Pipeline_PipelineTag `json:"PipelineTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

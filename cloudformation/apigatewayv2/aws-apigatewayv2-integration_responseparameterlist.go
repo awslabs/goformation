@@ -3,7 +3,7 @@
 package apigatewayv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Integration_ResponseParameterList AWS CloudFormation Resource (AWS::ApiGatewayV2::Integration.ResponseParameterList)
@@ -13,7 +13,7 @@ type Integration_ResponseParameterList struct {
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameterlist.html#cfn-apigatewayv2-integration-responseparameterlist-responseparameters
-	ResponseParameters *[]Integration_ResponseParameter `json:"ResponseParameters,omitempty"`
+	ResponseParameters []Integration_ResponseParameter `json:"ResponseParameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Configuration AWS CloudFormation Resource (AWS::MSK::Configuration)
@@ -21,7 +21,7 @@ type Configuration struct {
 	// KafkaVersionsList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-kafkaversionslist
-	KafkaVersionsList *[]string `json:"KafkaVersionsList,omitempty"`
+	KafkaVersionsList []string `json:"KafkaVersionsList,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

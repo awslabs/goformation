@@ -3,7 +3,7 @@
 package codebuild
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Project_BatchRestrictions AWS CloudFormation Resource (AWS::CodeBuild::Project.BatchRestrictions)
@@ -13,7 +13,7 @@ type Project_BatchRestrictions struct {
 	// ComputeTypesAllowed AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed
-	ComputeTypesAllowed *[]string `json:"ComputeTypesAllowed,omitempty"`
+	ComputeTypesAllowed []string `json:"ComputeTypesAllowed,omitempty"`
 
 	// MaximumBuildsAllowed AWS CloudFormation Property
 	// Required: false

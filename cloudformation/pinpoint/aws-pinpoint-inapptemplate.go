@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // InAppTemplate AWS CloudFormation Resource (AWS::Pinpoint::InAppTemplate)
@@ -16,7 +16,7 @@ type InAppTemplate struct {
 	// Content AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-content
-	Content *[]InAppTemplate_InAppMessageContent `json:"Content,omitempty"`
+	Content []InAppTemplate_InAppMessageContent `json:"Content,omitempty"`
 
 	// CustomConfig AWS CloudFormation Property
 	// Required: false

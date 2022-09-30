@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Table_TableInput AWS CloudFormation Resource (AWS::Glue::Table.TableInput)
@@ -33,7 +33,7 @@ type Table_TableInput struct {
 	// PartitionKeys AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
-	PartitionKeys *[]Table_Column `json:"PartitionKeys,omitempty"`
+	PartitionKeys []Table_Column `json:"PartitionKeys,omitempty"`
 
 	// Retention AWS CloudFormation Property
 	// Required: false

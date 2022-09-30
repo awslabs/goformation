@@ -3,7 +3,7 @@
 package ssm
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // MaintenanceWindowTask_NotificationConfig AWS CloudFormation Resource (AWS::SSM::MaintenanceWindowTask.NotificationConfig)
@@ -18,7 +18,7 @@ type MaintenanceWindowTask_NotificationConfig struct {
 	// NotificationEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
-	NotificationEvents *[]string `json:"NotificationEvents,omitempty"`
+	NotificationEvents []string `json:"NotificationEvents,omitempty"`
 
 	// NotificationType AWS CloudFormation Property
 	// Required: false

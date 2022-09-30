@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Dataset_PathOptions AWS CloudFormation Resource (AWS::DataBrew::Dataset.PathOptions)
@@ -23,7 +23,7 @@ type Dataset_PathOptions struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
-	Parameters *[]Dataset_PathParameter `json:"Parameters,omitempty"`
+	Parameters []Dataset_PathParameter `json:"Parameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

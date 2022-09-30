@@ -3,7 +3,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Distribution_OriginGroups AWS CloudFormation Resource (AWS::CloudFront::Distribution.OriginGroups)
@@ -13,7 +13,7 @@ type Distribution_OriginGroups struct {
 	// Items AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
-	Items *[]Distribution_OriginGroup `json:"Items,omitempty"`
+	Items []Distribution_OriginGroup `json:"Items,omitempty"`
 
 	// Quantity AWS CloudFormation Property
 	// Required: true

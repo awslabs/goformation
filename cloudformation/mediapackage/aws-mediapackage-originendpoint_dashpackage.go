@@ -3,7 +3,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // OriginEndpoint_DashPackage AWS CloudFormation Resource (AWS::MediaPackage::OriginEndpoint.DashPackage)
@@ -13,7 +13,7 @@ type OriginEndpoint_DashPackage struct {
 	// AdTriggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
-	AdTriggers *[]string `json:"AdTriggers,omitempty"`
+	AdTriggers []string `json:"AdTriggers,omitempty"`
 
 	// AdsOnDeliveryRestrictions AWS CloudFormation Property
 	// Required: false
@@ -53,7 +53,7 @@ type OriginEndpoint_DashPackage struct {
 	// PeriodTriggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
-	PeriodTriggers *[]string `json:"PeriodTriggers,omitempty"`
+	PeriodTriggers []string `json:"PeriodTriggers,omitempty"`
 
 	// Profile AWS CloudFormation Property
 	// Required: false

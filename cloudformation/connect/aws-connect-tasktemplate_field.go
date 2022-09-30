@@ -3,7 +3,7 @@
 package connect
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TaskTemplate_Field AWS CloudFormation Resource (AWS::Connect::TaskTemplate.Field)
@@ -23,7 +23,7 @@ type TaskTemplate_Field struct {
 	// SingleSelectOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html#cfn-connect-tasktemplate-field-singleselectoptions
-	SingleSelectOptions *[]string `json:"SingleSelectOptions,omitempty"`
+	SingleSelectOptions []string `json:"SingleSelectOptions,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

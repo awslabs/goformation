@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Job_ColumnStatisticsConfiguration AWS CloudFormation Resource (AWS::DataBrew::Job.ColumnStatisticsConfiguration)
@@ -13,7 +13,7 @@ type Job_ColumnStatisticsConfiguration struct {
 	// Selectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
-	Selectors *[]Job_ColumnSelector `json:"Selectors,omitempty"`
+	Selectors []Job_ColumnSelector `json:"Selectors,omitempty"`
 
 	// Statistics AWS CloudFormation Property
 	// Required: true

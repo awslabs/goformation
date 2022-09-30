@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // GraphQLApi AWS CloudFormation Resource (AWS::AppSync::GraphQLApi)
@@ -17,7 +17,7 @@ type GraphQLApi struct {
 	// AdditionalAuthenticationProviders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
-	AdditionalAuthenticationProviders *[]GraphQLApi_AdditionalAuthenticationProvider `json:"AdditionalAuthenticationProviders,omitempty"`
+	AdditionalAuthenticationProviders []GraphQLApi_AdditionalAuthenticationProvider `json:"AdditionalAuthenticationProviders,omitempty"`
 
 	// AuthenticationType AWS CloudFormation Property
 	// Required: true
@@ -47,7 +47,7 @@ type GraphQLApi struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UserPoolConfig AWS CloudFormation Property
 	// Required: false

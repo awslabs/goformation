@@ -3,7 +3,7 @@
 package appconfig
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Environment_Monitors AWS CloudFormation Resource (AWS::AppConfig::Environment.Monitors)

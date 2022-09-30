@@ -3,7 +3,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSource_WebCrawlerAuthenticationConfiguration AWS CloudFormation Resource (AWS::Kendra::DataSource.WebCrawlerAuthenticationConfiguration)
@@ -13,7 +13,7 @@ type DataSource_WebCrawlerAuthenticationConfiguration struct {
 	// BasicAuthentication AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html#cfn-kendra-datasource-webcrawlerauthenticationconfiguration-basicauthentication
-	BasicAuthentication *[]DataSource_WebCrawlerBasicAuthentication `json:"BasicAuthentication,omitempty"`
+	BasicAuthentication []DataSource_WebCrawlerBasicAuthentication `json:"BasicAuthentication,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

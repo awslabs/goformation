@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // FirewallRuleGroup AWS CloudFormation Resource (AWS::Route53Resolver::FirewallRuleGroup)
@@ -17,7 +17,7 @@ type FirewallRuleGroup struct {
 	// FirewallRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
-	FirewallRules *[]FirewallRuleGroup_FirewallRule `json:"FirewallRules,omitempty"`
+	FirewallRules []FirewallRuleGroup_FirewallRule `json:"FirewallRules,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type FirewallRuleGroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

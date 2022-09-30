@@ -3,7 +3,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Distribution_CacheBehavior AWS CloudFormation Resource (AWS::CloudFront::Distribution.CacheBehavior)
@@ -13,7 +13,7 @@ type Distribution_CacheBehavior struct {
 	// AllowedMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
-	AllowedMethods *[]string `json:"AllowedMethods,omitempty"`
+	AllowedMethods []string `json:"AllowedMethods,omitempty"`
 
 	// CachePolicyId AWS CloudFormation Property
 	// Required: false
@@ -23,7 +23,7 @@ type Distribution_CacheBehavior struct {
 	// CachedMethods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
-	CachedMethods *[]string `json:"CachedMethods,omitempty"`
+	CachedMethods []string `json:"CachedMethods,omitempty"`
 
 	// Compress AWS CloudFormation Property
 	// Required: false
@@ -48,12 +48,12 @@ type Distribution_CacheBehavior struct {
 	// FunctionAssociations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-functionassociations
-	FunctionAssociations *[]Distribution_FunctionAssociation `json:"FunctionAssociations,omitempty"`
+	FunctionAssociations []Distribution_FunctionAssociation `json:"FunctionAssociations,omitempty"`
 
 	// LambdaFunctionAssociations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
-	LambdaFunctionAssociations *[]Distribution_LambdaFunctionAssociation `json:"LambdaFunctionAssociations,omitempty"`
+	LambdaFunctionAssociations []Distribution_LambdaFunctionAssociation `json:"LambdaFunctionAssociations,omitempty"`
 
 	// MaxTTL AWS CloudFormation Property
 	// Required: false
@@ -98,12 +98,12 @@ type Distribution_CacheBehavior struct {
 	// TrustedKeyGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
-	TrustedKeyGroups *[]string `json:"TrustedKeyGroups,omitempty"`
+	TrustedKeyGroups []string `json:"TrustedKeyGroups,omitempty"`
 
 	// TrustedSigners AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
-	TrustedSigners *[]string `json:"TrustedSigners,omitempty"`
+	TrustedSigners []string `json:"TrustedSigners,omitempty"`
 
 	// ViewerProtocolPolicy AWS CloudFormation Property
 	// Required: true

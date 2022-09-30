@@ -3,7 +3,7 @@
 package appflow
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Flow_Task AWS CloudFormation Resource (AWS::AppFlow::Flow.Task)
@@ -28,7 +28,7 @@ type Flow_Task struct {
 	// TaskProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
-	TaskProperties *[]Flow_TaskPropertiesObject `json:"TaskProperties,omitempty"`
+	TaskProperties []Flow_TaskPropertiesObject `json:"TaskProperties,omitempty"`
 
 	// TaskType AWS CloudFormation Property
 	// Required: true

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataLakeSettings AWS CloudFormation Resource (AWS::LakeFormation::DataLakeSettings)
@@ -21,7 +21,7 @@ type DataLakeSettings struct {
 	// TrustedResourceOwners AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
-	TrustedResourceOwners *[]string `json:"TrustedResourceOwners,omitempty"`
+	TrustedResourceOwners []string `json:"TrustedResourceOwners,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

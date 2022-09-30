@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EventSourceMapping AWS CloudFormation Resource (AWS::Lambda::EventSourceMapping)
@@ -56,7 +56,7 @@ type EventSourceMapping struct {
 	// FunctionResponseTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
-	FunctionResponseTypes *[]string `json:"FunctionResponseTypes,omitempty"`
+	FunctionResponseTypes []string `json:"FunctionResponseTypes,omitempty"`
 
 	// MaximumBatchingWindowInSeconds AWS CloudFormation Property
 	// Required: false
@@ -81,7 +81,7 @@ type EventSourceMapping struct {
 	// Queues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
-	Queues *[]string `json:"Queues,omitempty"`
+	Queues []string `json:"Queues,omitempty"`
 
 	// SelfManagedEventSource AWS CloudFormation Property
 	// Required: false
@@ -96,7 +96,7 @@ type EventSourceMapping struct {
 	// SourceAccessConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
-	SourceAccessConfigurations *[]EventSourceMapping_SourceAccessConfiguration `json:"SourceAccessConfigurations,omitempty"`
+	SourceAccessConfigurations []EventSourceMapping_SourceAccessConfiguration `json:"SourceAccessConfigurations,omitempty"`
 
 	// StartingPosition AWS CloudFormation Property
 	// Required: false
@@ -111,7 +111,7 @@ type EventSourceMapping struct {
 	// Topics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
-	Topics *[]string `json:"Topics,omitempty"`
+	Topics []string `json:"Topics,omitempty"`
 
 	// TumblingWindowInSeconds AWS CloudFormation Property
 	// Required: false

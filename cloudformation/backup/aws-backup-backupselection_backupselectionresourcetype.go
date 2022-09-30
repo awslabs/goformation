@@ -3,7 +3,7 @@
 package backup
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // BackupSelection_BackupSelectionResourceType AWS CloudFormation Resource (AWS::Backup::BackupSelection.BackupSelectionResourceType)
@@ -23,17 +23,17 @@ type BackupSelection_BackupSelectionResourceType struct {
 	// ListOfTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
-	ListOfTags *[]BackupSelection_ConditionResourceType `json:"ListOfTags,omitempty"`
+	ListOfTags []BackupSelection_ConditionResourceType `json:"ListOfTags,omitempty"`
 
 	// NotResources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-notresources
-	NotResources *[]string `json:"NotResources,omitempty"`
+	NotResources []string `json:"NotResources,omitempty"`
 
 	// Resources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
-	Resources *[]string `json:"Resources,omitempty"`
+	Resources []string `json:"Resources,omitempty"`
 
 	// SelectionName AWS CloudFormation Property
 	// Required: true

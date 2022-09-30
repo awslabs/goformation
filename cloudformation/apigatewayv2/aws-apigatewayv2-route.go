@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Route AWS CloudFormation Resource (AWS::ApiGatewayV2::Route)
@@ -26,7 +26,7 @@ type Route struct {
 	// AuthorizationScopes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-authorizationscopes
-	AuthorizationScopes *[]string `json:"AuthorizationScopes,omitempty"`
+	AuthorizationScopes []string `json:"AuthorizationScopes,omitempty"`
 
 	// AuthorizationType AWS CloudFormation Property
 	// Required: false

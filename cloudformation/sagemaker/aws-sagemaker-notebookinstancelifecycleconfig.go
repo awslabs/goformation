@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // NotebookInstanceLifecycleConfig AWS CloudFormation Resource (AWS::SageMaker::NotebookInstanceLifecycleConfig)
@@ -21,12 +21,12 @@ type NotebookInstanceLifecycleConfig struct {
 	// OnCreate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-oncreate
-	OnCreate *[]NotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHook `json:"OnCreate,omitempty"`
+	OnCreate []NotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHook `json:"OnCreate,omitempty"`
 
 	// OnStart AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-onstart
-	OnStart *[]NotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHook `json:"OnStart,omitempty"`
+	OnStart []NotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHook `json:"OnStart,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

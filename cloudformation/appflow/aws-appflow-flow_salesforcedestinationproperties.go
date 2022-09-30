@@ -3,7 +3,7 @@
 package appflow
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Flow_SalesforceDestinationProperties AWS CloudFormation Resource (AWS::AppFlow::Flow.SalesforceDestinationProperties)
@@ -18,7 +18,7 @@ type Flow_SalesforceDestinationProperties struct {
 	// IdFieldNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
-	IdFieldNames *[]string `json:"IdFieldNames,omitempty"`
+	IdFieldNames []string `json:"IdFieldNames,omitempty"`
 
 	// Object AWS CloudFormation Property
 	// Required: true

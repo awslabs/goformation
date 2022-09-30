@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Ruleset_Rule AWS CloudFormation Resource (AWS::DataBrew::Ruleset.Rule)
@@ -18,7 +18,7 @@ type Ruleset_Rule struct {
 	// ColumnSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html#cfn-databrew-ruleset-rule-columnselectors
-	ColumnSelectors *[]Ruleset_ColumnSelector `json:"ColumnSelectors,omitempty"`
+	ColumnSelectors []Ruleset_ColumnSelector `json:"ColumnSelectors,omitempty"`
 
 	// Disabled AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type Ruleset_Rule struct {
 	// SubstitutionMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html#cfn-databrew-ruleset-rule-substitutionmap
-	SubstitutionMap *[]Ruleset_SubstitutionValue `json:"SubstitutionMap,omitempty"`
+	SubstitutionMap []Ruleset_SubstitutionValue `json:"SubstitutionMap,omitempty"`
 
 	// Threshold AWS CloudFormation Property
 	// Required: false

@@ -3,7 +3,7 @@
 package appintegrations
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EventIntegration_EventIntegrationAssociation AWS CloudFormation Resource (AWS::AppIntegrations::EventIntegration.EventIntegrationAssociation)
@@ -13,7 +13,7 @@ type EventIntegration_EventIntegrationAssociation struct {
 	// ClientAssociationMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
-	ClientAssociationMetadata *[]EventIntegration_Metadata `json:"ClientAssociationMetadata,omitempty"`
+	ClientAssociationMetadata []EventIntegration_Metadata `json:"ClientAssociationMetadata,omitempty"`
 
 	// ClientId AWS CloudFormation Property
 	// Required: false

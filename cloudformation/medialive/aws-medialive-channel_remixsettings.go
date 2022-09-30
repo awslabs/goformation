@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_RemixSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.RemixSettings)
@@ -13,7 +13,7 @@ type Channel_RemixSettings struct {
 	// ChannelMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html#cfn-medialive-channel-remixsettings-channelmappings
-	ChannelMappings *[]Channel_AudioChannelMapping `json:"ChannelMappings,omitempty"`
+	ChannelMappings []Channel_AudioChannelMapping `json:"ChannelMappings,omitempty"`
 
 	// ChannelsIn AWS CloudFormation Property
 	// Required: false

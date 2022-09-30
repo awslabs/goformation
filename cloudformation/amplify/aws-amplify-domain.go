@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Domain AWS CloudFormation Resource (AWS::Amplify::Domain)
@@ -21,7 +21,7 @@ type Domain struct {
 	// AutoSubDomainCreationPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-	AutoSubDomainCreationPatterns *[]string `json:"AutoSubDomainCreationPatterns,omitempty"`
+	AutoSubDomainCreationPatterns []string `json:"AutoSubDomainCreationPatterns,omitempty"`
 
 	// AutoSubDomainIAMRole AWS CloudFormation Property
 	// Required: false

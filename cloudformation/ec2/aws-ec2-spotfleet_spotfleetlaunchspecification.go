@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SpotFleet_SpotFleetLaunchSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.SpotFleetLaunchSpecification)
@@ -13,7 +13,7 @@ type SpotFleet_SpotFleetLaunchSpecification struct {
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
-	BlockDeviceMappings *[]SpotFleet_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
+	BlockDeviceMappings []SpotFleet_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
 	// EbsOptimized AWS CloudFormation Property
 	// Required: false
@@ -58,7 +58,7 @@ type SpotFleet_SpotFleetLaunchSpecification struct {
 	// NetworkInterfaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
-	NetworkInterfaces *[]SpotFleet_InstanceNetworkInterfaceSpecification `json:"NetworkInterfaces,omitempty"`
+	NetworkInterfaces []SpotFleet_InstanceNetworkInterfaceSpecification `json:"NetworkInterfaces,omitempty"`
 
 	// Placement AWS CloudFormation Property
 	// Required: false
@@ -73,7 +73,7 @@ type SpotFleet_SpotFleetLaunchSpecification struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
-	SecurityGroups *[]SpotFleet_GroupIdentifier `json:"SecurityGroups,omitempty"`
+	SecurityGroups []SpotFleet_GroupIdentifier `json:"SecurityGroups,omitempty"`
 
 	// SpotPrice AWS CloudFormation Property
 	// Required: false
@@ -88,7 +88,7 @@ type SpotFleet_SpotFleetLaunchSpecification struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
-	TagSpecifications *[]SpotFleet_SpotFleetTagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []SpotFleet_SpotFleetTagSpecification `json:"TagSpecifications,omitempty"`
 
 	// UserData AWS CloudFormation Property
 	// Required: false

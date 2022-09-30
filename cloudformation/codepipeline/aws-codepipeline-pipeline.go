@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Pipeline AWS CloudFormation Resource (AWS::CodePipeline::Pipeline)
@@ -22,12 +22,12 @@ type Pipeline struct {
 	// ArtifactStores AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstores
-	ArtifactStores *[]Pipeline_ArtifactStoreMap `json:"ArtifactStores,omitempty"`
+	ArtifactStores []Pipeline_ArtifactStoreMap `json:"ArtifactStores,omitempty"`
 
 	// DisableInboundStageTransitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-disableinboundstagetransitions
-	DisableInboundStageTransitions *[]Pipeline_StageTransition `json:"DisableInboundStageTransitions,omitempty"`
+	DisableInboundStageTransitions []Pipeline_StageTransition `json:"DisableInboundStageTransitions,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type Pipeline struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package synthetics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Canary_RunConfig AWS CloudFormation Resource (AWS::Synthetics::Canary.RunConfig)
@@ -18,7 +18,7 @@ type Canary_RunConfig struct {
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
-	EnvironmentVariables *map[string]string `json:"EnvironmentVariables,omitempty"`
+	EnvironmentVariables map[string]string `json:"EnvironmentVariables,omitempty"`
 
 	// MemoryInMB AWS CloudFormation Property
 	// Required: false

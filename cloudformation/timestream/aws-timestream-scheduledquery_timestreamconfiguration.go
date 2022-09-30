@@ -3,7 +3,7 @@
 package timestream
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ScheduledQuery_TimestreamConfiguration AWS CloudFormation Resource (AWS::Timestream::ScheduledQuery.TimestreamConfiguration)
@@ -28,7 +28,7 @@ type ScheduledQuery_TimestreamConfiguration struct {
 	// MixedMeasureMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html#cfn-timestream-scheduledquery-timestreamconfiguration-mixedmeasuremappings
-	MixedMeasureMappings *[]ScheduledQuery_MixedMeasureMapping `json:"MixedMeasureMappings,omitempty"`
+	MixedMeasureMappings []ScheduledQuery_MixedMeasureMapping `json:"MixedMeasureMappings,omitempty"`
 
 	// MultiMeasureMappings AWS CloudFormation Property
 	// Required: false

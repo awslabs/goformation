@@ -3,7 +3,7 @@
 package ecr
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Repository_EncryptionConfiguration AWS CloudFormation Resource (AWS::ECR::Repository.EncryptionConfiguration)

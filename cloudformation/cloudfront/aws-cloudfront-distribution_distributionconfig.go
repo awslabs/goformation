@@ -3,7 +3,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Distribution_DistributionConfig AWS CloudFormation Resource (AWS::CloudFront::Distribution.DistributionConfig)
@@ -13,17 +13,17 @@ type Distribution_DistributionConfig struct {
 	// Aliases AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
-	Aliases *[]string `json:"Aliases,omitempty"`
+	Aliases []string `json:"Aliases,omitempty"`
 
 	// CNAMEs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
-	CNAMEs *[]string `json:"CNAMEs,omitempty"`
+	CNAMEs []string `json:"CNAMEs,omitempty"`
 
 	// CacheBehaviors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
-	CacheBehaviors *[]Distribution_CacheBehavior `json:"CacheBehaviors,omitempty"`
+	CacheBehaviors []Distribution_CacheBehavior `json:"CacheBehaviors,omitempty"`
 
 	// Comment AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type Distribution_DistributionConfig struct {
 	// CustomErrorResponses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
-	CustomErrorResponses *[]Distribution_CustomErrorResponse `json:"CustomErrorResponses,omitempty"`
+	CustomErrorResponses []Distribution_CustomErrorResponse `json:"CustomErrorResponses,omitempty"`
 
 	// CustomOrigin AWS CloudFormation Property
 	// Required: false
@@ -78,7 +78,7 @@ type Distribution_DistributionConfig struct {
 	// Origins AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
-	Origins *[]Distribution_Origin `json:"Origins,omitempty"`
+	Origins []Distribution_Origin `json:"Origins,omitempty"`
 
 	// PriceClass AWS CloudFormation Property
 	// Required: false

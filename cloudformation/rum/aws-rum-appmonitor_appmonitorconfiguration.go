@@ -3,7 +3,7 @@
 package rum
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AppMonitor_AppMonitorConfiguration AWS CloudFormation Resource (AWS::RUM::AppMonitor.AppMonitorConfiguration)
@@ -23,12 +23,12 @@ type AppMonitor_AppMonitorConfiguration struct {
 	// ExcludedPages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-excludedpages
-	ExcludedPages *[]string `json:"ExcludedPages,omitempty"`
+	ExcludedPages []string `json:"ExcludedPages,omitempty"`
 
 	// FavoritePages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-favoritepages
-	FavoritePages *[]string `json:"FavoritePages,omitempty"`
+	FavoritePages []string `json:"FavoritePages,omitempty"`
 
 	// GuestRoleArn AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type AppMonitor_AppMonitorConfiguration struct {
 	// IncludedPages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-includedpages
-	IncludedPages *[]string `json:"IncludedPages,omitempty"`
+	IncludedPages []string `json:"IncludedPages,omitempty"`
 
 	// SessionSampleRate AWS CloudFormation Property
 	// Required: false
@@ -53,7 +53,7 @@ type AppMonitor_AppMonitorConfiguration struct {
 	// Telemetries AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-telemetries
-	Telemetries *[]string `json:"Telemetries,omitempty"`
+	Telemetries []string `json:"Telemetries,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

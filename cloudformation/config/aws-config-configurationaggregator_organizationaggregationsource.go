@@ -3,7 +3,7 @@
 package config
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConfigurationAggregator_OrganizationAggregationSource AWS CloudFormation Resource (AWS::Config::ConfigurationAggregator.OrganizationAggregationSource)
@@ -18,7 +18,7 @@ type ConfigurationAggregator_OrganizationAggregationSource struct {
 	// AwsRegions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
-	AwsRegions *[]string `json:"AwsRegions,omitempty"`
+	AwsRegions []string `json:"AwsRegions,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true

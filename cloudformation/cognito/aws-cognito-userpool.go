@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // UserPool AWS CloudFormation Resource (AWS::Cognito::UserPool)
@@ -26,12 +26,12 @@ type UserPool struct {
 	// AliasAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-aliasattributes
-	AliasAttributes *[]string `json:"AliasAttributes,omitempty"`
+	AliasAttributes []string `json:"AliasAttributes,omitempty"`
 
 	// AutoVerifiedAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-autoverifiedattributes
-	AutoVerifiedAttributes *[]string `json:"AutoVerifiedAttributes,omitempty"`
+	AutoVerifiedAttributes []string `json:"AutoVerifiedAttributes,omitempty"`
 
 	// DeviceConfiguration AWS CloudFormation Property
 	// Required: false
@@ -56,7 +56,7 @@ type UserPool struct {
 	// EnabledMfas AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-enabledmfas
-	EnabledMfas *[]string `json:"EnabledMfas,omitempty"`
+	EnabledMfas []string `json:"EnabledMfas,omitempty"`
 
 	// LambdaConfig AWS CloudFormation Property
 	// Required: false
@@ -76,7 +76,7 @@ type UserPool struct {
 	// Schema AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-schema
-	Schema *[]UserPool_SchemaAttribute `json:"Schema,omitempty"`
+	Schema []UserPool_SchemaAttribute `json:"Schema,omitempty"`
 
 	// SmsAuthenticationMessage AWS CloudFormation Property
 	// Required: false
@@ -116,7 +116,7 @@ type UserPool struct {
 	// UsernameAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameattributes
-	UsernameAttributes *[]string `json:"UsernameAttributes,omitempty"`
+	UsernameAttributes []string `json:"UsernameAttributes,omitempty"`
 
 	// UsernameConfiguration AWS CloudFormation Property
 	// Required: false

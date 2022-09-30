@@ -3,7 +3,7 @@
 package synthetics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Canary_BaseScreenshot AWS CloudFormation Resource (AWS::Synthetics::Canary.BaseScreenshot)
@@ -13,7 +13,7 @@ type Canary_BaseScreenshot struct {
 	// IgnoreCoordinates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
-	IgnoreCoordinates *[]string `json:"IgnoreCoordinates,omitempty"`
+	IgnoreCoordinates []string `json:"IgnoreCoordinates,omitempty"`
 
 	// ScreenshotName AWS CloudFormation Property
 	// Required: true

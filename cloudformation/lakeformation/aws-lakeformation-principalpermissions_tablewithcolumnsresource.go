@@ -3,7 +3,7 @@
 package lakeformation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // PrincipalPermissions_TableWithColumnsResource AWS CloudFormation Resource (AWS::LakeFormation::PrincipalPermissions.TableWithColumnsResource)
@@ -18,7 +18,7 @@ type PrincipalPermissions_TableWithColumnsResource struct {
 	// ColumnNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tablewithcolumnsresource.html#cfn-lakeformation-principalpermissions-tablewithcolumnsresource-columnnames
-	ColumnNames *[]string `json:"ColumnNames,omitempty"`
+	ColumnNames []string `json:"ColumnNames,omitempty"`
 
 	// ColumnWildcard AWS CloudFormation Property
 	// Required: false

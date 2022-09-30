@@ -3,7 +3,7 @@
 package fsx
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // FileSystem_OpenZFSConfiguration AWS CloudFormation Resource (AWS::FSx::FileSystem.OpenZFSConfiguration)
@@ -43,7 +43,7 @@ type FileSystem_OpenZFSConfiguration struct {
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-options
-	Options *[]string `json:"Options,omitempty"`
+	Options []string `json:"Options,omitempty"`
 
 	// RootVolumeConfiguration AWS CloudFormation Property
 	// Required: false

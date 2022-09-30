@@ -3,7 +3,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Datastore_DatastorePartitions AWS CloudFormation Resource (AWS::IoTAnalytics::Datastore.DatastorePartitions)
@@ -13,7 +13,7 @@ type Datastore_DatastorePartitions struct {
 	// Partitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html#cfn-iotanalytics-datastore-datastorepartitions-partitions
-	Partitions *[]Datastore_DatastorePartition `json:"Partitions,omitempty"`
+	Partitions []Datastore_DatastorePartition `json:"Partitions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

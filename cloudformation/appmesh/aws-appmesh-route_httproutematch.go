@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Route_HttpRouteMatch AWS CloudFormation Resource (AWS::AppMesh::Route.HttpRouteMatch)
@@ -13,7 +13,7 @@ type Route_HttpRouteMatch struct {
 	// Headers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-headers
-	Headers *[]Route_HttpRouteHeader `json:"Headers,omitempty"`
+	Headers []Route_HttpRouteHeader `json:"Headers,omitempty"`
 
 	// Method AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type Route_HttpRouteMatch struct {
 	// QueryParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-queryparameters
-	QueryParameters *[]Route_QueryParameter `json:"QueryParameters,omitempty"`
+	QueryParameters []Route_QueryParameter `json:"QueryParameters,omitempty"`
 
 	// Scheme AWS CloudFormation Property
 	// Required: false

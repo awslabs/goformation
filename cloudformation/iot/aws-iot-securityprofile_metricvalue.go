@@ -3,7 +3,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SecurityProfile_MetricValue AWS CloudFormation Resource (AWS::IoT::SecurityProfile.MetricValue)
@@ -13,7 +13,7 @@ type SecurityProfile_MetricValue struct {
 	// Cidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
-	Cidrs *[]string `json:"Cidrs,omitempty"`
+	Cidrs []string `json:"Cidrs,omitempty"`
 
 	// Count AWS CloudFormation Property
 	// Required: false
@@ -28,17 +28,17 @@ type SecurityProfile_MetricValue struct {
 	// Numbers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
-	Numbers *[]float64 `json:"Numbers,omitempty"`
+	Numbers []float64 `json:"Numbers,omitempty"`
 
 	// Ports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
-	Ports *[]int `json:"Ports,omitempty"`
+	Ports []int `json:"Ports,omitempty"`
 
 	// Strings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
-	Strings *[]string `json:"Strings,omitempty"`
+	Strings []string `json:"Strings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package codedeploy
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeploymentGroup_TriggerConfig AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.TriggerConfig)
@@ -13,7 +13,7 @@ type DeploymentGroup_TriggerConfig struct {
 	// TriggerEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggerevents
-	TriggerEvents *[]string `json:"TriggerEvents,omitempty"`
+	TriggerEvents []string `json:"TriggerEvents,omitempty"`
 
 	// TriggerName AWS CloudFormation Property
 	// Required: false

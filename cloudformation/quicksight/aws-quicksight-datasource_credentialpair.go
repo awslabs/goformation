@@ -3,7 +3,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSource_CredentialPair AWS CloudFormation Resource (AWS::QuickSight::DataSource.CredentialPair)
@@ -13,7 +13,7 @@ type DataSource_CredentialPair struct {
 	// AlternateDataSourceParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
-	AlternateDataSourceParameters *[]DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
+	AlternateDataSourceParameters []DataSource_DataSourceParameters `json:"AlternateDataSourceParameters,omitempty"`
 
 	// Password AWS CloudFormation Property
 	// Required: true

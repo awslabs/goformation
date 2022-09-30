@@ -3,7 +3,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Connection_AuthParameters AWS CloudFormation Resource (AWS::Events::Connection.AuthParameters)

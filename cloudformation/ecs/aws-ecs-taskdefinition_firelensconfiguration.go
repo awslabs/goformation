@@ -3,7 +3,7 @@
 package ecs
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TaskDefinition_FirelensConfiguration AWS CloudFormation Resource (AWS::ECS::TaskDefinition.FirelensConfiguration)
@@ -13,7 +13,7 @@ type TaskDefinition_FirelensConfiguration struct {
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
-	Options *map[string]string `json:"Options,omitempty"`
+	Options map[string]string `json:"Options,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: false

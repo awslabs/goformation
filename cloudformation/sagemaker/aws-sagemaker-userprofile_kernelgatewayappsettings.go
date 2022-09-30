@@ -3,7 +3,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // UserProfile_KernelGatewayAppSettings AWS CloudFormation Resource (AWS::SageMaker::UserProfile.KernelGatewayAppSettings)
@@ -13,7 +13,7 @@ type UserProfile_KernelGatewayAppSettings struct {
 	// CustomImages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
-	CustomImages *[]UserProfile_CustomImage `json:"CustomImages,omitempty"`
+	CustomImages []UserProfile_CustomImage `json:"CustomImages,omitempty"`
 
 	// DefaultResourceSpec AWS CloudFormation Property
 	// Required: false

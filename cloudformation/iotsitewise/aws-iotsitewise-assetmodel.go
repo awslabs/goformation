@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // AssetModel AWS CloudFormation Resource (AWS::IoTSiteWise::AssetModel)
@@ -17,7 +17,7 @@ type AssetModel struct {
 	// AssetModelCompositeModels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
-	AssetModelCompositeModels *[]AssetModel_AssetModelCompositeModel `json:"AssetModelCompositeModels,omitempty"`
+	AssetModelCompositeModels []AssetModel_AssetModelCompositeModel `json:"AssetModelCompositeModels,omitempty"`
 
 	// AssetModelDescription AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type AssetModel struct {
 	// AssetModelHierarchies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
-	AssetModelHierarchies *[]AssetModel_AssetModelHierarchy `json:"AssetModelHierarchies,omitempty"`
+	AssetModelHierarchies []AssetModel_AssetModelHierarchy `json:"AssetModelHierarchies,omitempty"`
 
 	// AssetModelName AWS CloudFormation Property
 	// Required: true
@@ -37,12 +37,12 @@ type AssetModel struct {
 	// AssetModelProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
-	AssetModelProperties *[]AssetModel_AssetModelProperty `json:"AssetModelProperties,omitempty"`
+	AssetModelProperties []AssetModel_AssetModelProperty `json:"AssetModelProperties,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package kinesisanalyticsv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Application_EnvironmentProperties AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.EnvironmentProperties)
@@ -13,7 +13,7 @@ type Application_EnvironmentProperties struct {
 	// PropertyGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html#cfn-kinesisanalyticsv2-application-environmentproperties-propertygroups
-	PropertyGroups *[]Application_PropertyGroup `json:"PropertyGroups,omitempty"`
+	PropertyGroups []Application_PropertyGroup `json:"PropertyGroups,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package ecr
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ReplicationConfiguration_ReplicationRule AWS CloudFormation Resource (AWS::ECR::ReplicationConfiguration.ReplicationRule)
@@ -18,7 +18,7 @@ type ReplicationConfiguration_ReplicationRule struct {
 	// RepositoryFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-repositoryfilters
-	RepositoryFilters *[]ReplicationConfiguration_RepositoryFilter `json:"RepositoryFilters,omitempty"`
+	RepositoryFilters []ReplicationConfiguration_RepositoryFilter `json:"RepositoryFilters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

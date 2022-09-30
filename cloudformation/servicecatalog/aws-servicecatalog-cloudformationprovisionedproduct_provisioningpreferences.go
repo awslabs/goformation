@@ -3,7 +3,7 @@
 package servicecatalog
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CloudFormationProvisionedProduct_ProvisioningPreferences AWS CloudFormation Resource (AWS::ServiceCatalog::CloudFormationProvisionedProduct.ProvisioningPreferences)
@@ -13,7 +13,7 @@ type CloudFormationProvisionedProduct_ProvisioningPreferences struct {
 	// StackSetAccounts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
-	StackSetAccounts *[]string `json:"StackSetAccounts,omitempty"`
+	StackSetAccounts []string `json:"StackSetAccounts,omitempty"`
 
 	// StackSetFailureToleranceCount AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type CloudFormationProvisionedProduct_ProvisioningPreferences struct {
 	// StackSetRegions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
-	StackSetRegions *[]string `json:"StackSetRegions,omitempty"`
+	StackSetRegions []string `json:"StackSetRegions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

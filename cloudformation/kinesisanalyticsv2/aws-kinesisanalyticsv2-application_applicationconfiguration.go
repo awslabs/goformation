@@ -3,7 +3,7 @@
 package kinesisanalyticsv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Application_ApplicationConfiguration AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::Application.ApplicationConfiguration)
@@ -38,7 +38,7 @@ type Application_ApplicationConfiguration struct {
 	// VpcConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-vpcconfigurations
-	VpcConfigurations *[]Application_VpcConfiguration `json:"VpcConfigurations,omitempty"`
+	VpcConfigurations []Application_VpcConfiguration `json:"VpcConfigurations,omitempty"`
 
 	// ZeppelinApplicationConfiguration AWS CloudFormation Property
 	// Required: false

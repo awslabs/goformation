@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_AvailBlanking AWS CloudFormation Resource (AWS::MediaLive::Channel.AvailBlanking)

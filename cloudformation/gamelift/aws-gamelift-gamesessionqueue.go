@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // GameSessionQueue AWS CloudFormation Resource (AWS::GameLift::GameSessionQueue)
@@ -22,7 +22,7 @@ type GameSessionQueue struct {
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-destinations
-	Destinations *[]GameSessionQueue_Destination `json:"Destinations,omitempty"`
+	Destinations []GameSessionQueue_Destination `json:"Destinations,omitempty"`
 
 	// FilterConfiguration AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type GameSessionQueue struct {
 	// PlayerLatencyPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-playerlatencypolicies
-	PlayerLatencyPolicies *[]GameSessionQueue_PlayerLatencyPolicy `json:"PlayerLatencyPolicies,omitempty"`
+	PlayerLatencyPolicies []GameSessionQueue_PlayerLatencyPolicy `json:"PlayerLatencyPolicies,omitempty"`
 
 	// PriorityConfiguration AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type GameSessionQueue struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TimeoutInSeconds AWS CloudFormation Property
 	// Required: false

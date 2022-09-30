@@ -3,7 +3,7 @@
 package appflow
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Flow_ZendeskDestinationProperties AWS CloudFormation Resource (AWS::AppFlow::Flow.ZendeskDestinationProperties)
@@ -18,7 +18,7 @@ type Flow_ZendeskDestinationProperties struct {
 	// IdFieldNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
-	IdFieldNames *[]string `json:"IdFieldNames,omitempty"`
+	IdFieldNames []string `json:"IdFieldNames,omitempty"`
 
 	// Object AWS CloudFormation Property
 	// Required: true

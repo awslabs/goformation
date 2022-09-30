@@ -3,7 +3,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Rule_SageMakerPipelineParameters AWS CloudFormation Resource (AWS::Events::Rule.SageMakerPipelineParameters)
@@ -13,7 +13,7 @@ type Rule_SageMakerPipelineParameters struct {
 	// PipelineParameterList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html#cfn-events-rule-sagemakerpipelineparameters-pipelineparameterlist
-	PipelineParameterList *[]Rule_SageMakerPipelineParameter `json:"PipelineParameterList,omitempty"`
+	PipelineParameterList []Rule_SageMakerPipelineParameter `json:"PipelineParameterList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

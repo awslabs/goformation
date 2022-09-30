@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SpotFleet_InstanceNetworkInterfaceSpecification AWS CloudFormation Resource (AWS::EC2::SpotFleet.InstanceNetworkInterfaceSpecification)
@@ -33,7 +33,7 @@ type SpotFleet_InstanceNetworkInterfaceSpecification struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
-	Groups *[]string `json:"Groups,omitempty"`
+	Groups []string `json:"Groups,omitempty"`
 
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type SpotFleet_InstanceNetworkInterfaceSpecification struct {
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
-	Ipv6Addresses *[]SpotFleet_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
+	Ipv6Addresses []SpotFleet_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
 
 	// NetworkInterfaceId AWS CloudFormation Property
 	// Required: false
@@ -53,7 +53,7 @@ type SpotFleet_InstanceNetworkInterfaceSpecification struct {
 	// PrivateIpAddresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
-	PrivateIpAddresses *[]SpotFleet_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
+	PrivateIpAddresses []SpotFleet_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
 
 	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
 	// Required: false

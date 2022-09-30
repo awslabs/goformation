@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Trail AWS CloudFormation Resource (AWS::CloudTrail::Trail)
@@ -32,7 +32,7 @@ type Trail struct {
 	// EventSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-eventselectors
-	EventSelectors *[]Trail_EventSelector `json:"EventSelectors,omitempty"`
+	EventSelectors []Trail_EventSelector `json:"EventSelectors,omitempty"`
 
 	// IncludeGlobalServiceEvents AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type Trail struct {
 	// InsightSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-insightselectors
-	InsightSelectors *[]Trail_InsightSelector `json:"InsightSelectors,omitempty"`
+	InsightSelectors []Trail_InsightSelector `json:"InsightSelectors,omitempty"`
 
 	// IsLogging AWS CloudFormation Property
 	// Required: true
@@ -82,7 +82,7 @@ type Trail struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TrailName AWS CloudFormation Property
 	// Required: false

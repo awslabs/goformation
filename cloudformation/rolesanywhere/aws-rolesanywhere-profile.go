@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Profile AWS CloudFormation Resource (AWS::RolesAnywhere::Profile)
@@ -27,7 +27,7 @@ type Profile struct {
 	// ManagedPolicyArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-managedpolicyarns
-	ManagedPolicyArns *[]string `json:"ManagedPolicyArns,omitempty"`
+	ManagedPolicyArns []string `json:"ManagedPolicyArns,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type Profile struct {
 	// RoleArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-rolearns
-	RoleArns *[]string `json:"RoleArns,omitempty"`
+	RoleArns []string `json:"RoleArns,omitempty"`
 
 	// SessionPolicy AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type Profile struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

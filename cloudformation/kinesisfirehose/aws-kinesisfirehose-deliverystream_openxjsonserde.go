@@ -3,7 +3,7 @@
 package kinesisfirehose
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeliveryStream_OpenXJsonSerDe AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.OpenXJsonSerDe)
@@ -18,7 +18,7 @@ type DeliveryStream_OpenXJsonSerDe struct {
 	// ColumnToJsonKeyMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings
-	ColumnToJsonKeyMappings *map[string]string `json:"ColumnToJsonKeyMappings,omitempty"`
+	ColumnToJsonKeyMappings map[string]string `json:"ColumnToJsonKeyMappings,omitempty"`
 
 	// ConvertDotsInJsonKeysToUnderscores AWS CloudFormation Property
 	// Required: false

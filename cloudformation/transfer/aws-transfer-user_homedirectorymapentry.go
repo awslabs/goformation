@@ -3,7 +3,7 @@
 package transfer
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // User_HomeDirectoryMapEntry AWS CloudFormation Resource (AWS::Transfer::User.HomeDirectoryMapEntry)

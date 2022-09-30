@@ -3,7 +3,7 @@
 package cloudformation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StackSet_StackInstances AWS CloudFormation Resource (AWS::CloudFormation::StackSet.StackInstances)
@@ -18,7 +18,7 @@ type StackSet_StackInstances struct {
 	// ParameterOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
-	ParameterOverrides *[]StackSet_Parameter `json:"ParameterOverrides,omitempty"`
+	ParameterOverrides []StackSet_Parameter `json:"ParameterOverrides,omitempty"`
 
 	// Regions AWS CloudFormation Property
 	// Required: true

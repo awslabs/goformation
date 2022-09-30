@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RuleGroup_Rule AWS CloudFormation Resource (AWS::WAFv2::RuleGroup.Rule)
@@ -33,7 +33,7 @@ type RuleGroup_Rule struct {
 	// RuleLabels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
-	RuleLabels *[]RuleGroup_Label `json:"RuleLabels,omitempty"`
+	RuleLabels []RuleGroup_Label `json:"RuleLabels,omitempty"`
 
 	// Statement AWS CloudFormation Property
 	// Required: true

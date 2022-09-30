@@ -3,7 +3,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Bot_SlotType AWS CloudFormation Resource (AWS::Lex::Bot.SlotType)
@@ -33,7 +33,7 @@ type Bot_SlotType struct {
 	// SlotTypeValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-slottypevalues
-	SlotTypeValues *[]Bot_SlotTypeValue `json:"SlotTypeValues,omitempty"`
+	SlotTypeValues []Bot_SlotTypeValue `json:"SlotTypeValues,omitempty"`
 
 	// ValueSelectionSetting AWS CloudFormation Property
 	// Required: false

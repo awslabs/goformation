@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Policy AWS CloudFormation Resource (AWS::FMS::Policy)
@@ -46,7 +46,7 @@ type Policy struct {
 	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-	ResourceTags *[]Policy_ResourceTag `json:"ResourceTags,omitempty"`
+	ResourceTags []Policy_ResourceTag `json:"ResourceTags,omitempty"`
 
 	// ResourceType AWS CloudFormation Property
 	// Required: true
@@ -56,7 +56,7 @@ type Policy struct {
 	// ResourceTypeList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-	ResourceTypeList *[]string `json:"ResourceTypeList,omitempty"`
+	ResourceTypeList []string `json:"ResourceTypeList,omitempty"`
 
 	// ResourcesCleanUp AWS CloudFormation Property
 	// Required: false
@@ -71,7 +71,7 @@ type Policy struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-	Tags *[]Policy_PolicyTag `json:"Tags,omitempty"`
+	Tags []Policy_PolicyTag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

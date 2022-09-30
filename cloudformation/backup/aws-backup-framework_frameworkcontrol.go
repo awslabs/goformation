@@ -3,7 +3,7 @@
 package backup
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Framework_FrameworkControl AWS CloudFormation Resource (AWS::Backup::Framework.FrameworkControl)
@@ -13,7 +13,7 @@ type Framework_FrameworkControl struct {
 	// ControlInputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlinputparameters
-	ControlInputParameters *[]Framework_ControlInputParameter `json:"ControlInputParameters,omitempty"`
+	ControlInputParameters []Framework_ControlInputParameter `json:"ControlInputParameters,omitempty"`
 
 	// ControlName AWS CloudFormation Property
 	// Required: true

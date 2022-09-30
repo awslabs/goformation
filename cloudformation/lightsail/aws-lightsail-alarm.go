@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Alarm AWS CloudFormation Resource (AWS::Lightsail::Alarm)
@@ -26,7 +26,7 @@ type Alarm struct {
 	// ContactProtocols AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-contactprotocols
-	ContactProtocols *[]string `json:"ContactProtocols,omitempty"`
+	ContactProtocols []string `json:"ContactProtocols,omitempty"`
 
 	// DatapointsToAlarm AWS CloudFormation Property
 	// Required: false
@@ -56,7 +56,7 @@ type Alarm struct {
 	// NotificationTriggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html#cfn-lightsail-alarm-notificationtriggers
-	NotificationTriggers *[]string `json:"NotificationTriggers,omitempty"`
+	NotificationTriggers []string `json:"NotificationTriggers,omitempty"`
 
 	// Threshold AWS CloudFormation Property
 	// Required: true

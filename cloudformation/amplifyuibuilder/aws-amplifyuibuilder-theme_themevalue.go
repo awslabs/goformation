@@ -3,7 +3,7 @@
 package amplifyuibuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Theme_ThemeValue AWS CloudFormation Resource (AWS::AmplifyUIBuilder::Theme.ThemeValue)
@@ -13,7 +13,7 @@ type Theme_ThemeValue struct {
 	// Children AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalue.html#cfn-amplifyuibuilder-theme-themevalue-children
-	Children *[]Theme_ThemeValues `json:"Children,omitempty"`
+	Children []Theme_ThemeValues `json:"Children,omitempty"`
 
 	// Value AWS CloudFormation Property
 	// Required: false

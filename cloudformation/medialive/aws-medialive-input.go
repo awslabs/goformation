@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Input AWS CloudFormation Resource (AWS::MediaLive::Input)
@@ -16,22 +16,22 @@ type Input struct {
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-destinations
-	Destinations *[]Input_InputDestinationRequest `json:"Destinations,omitempty"`
+	Destinations []Input_InputDestinationRequest `json:"Destinations,omitempty"`
 
 	// InputDevices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
-	InputDevices *[]Input_InputDeviceSettings `json:"InputDevices,omitempty"`
+	InputDevices []Input_InputDeviceSettings `json:"InputDevices,omitempty"`
 
 	// InputSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
-	InputSecurityGroups *[]string `json:"InputSecurityGroups,omitempty"`
+	InputSecurityGroups []string `json:"InputSecurityGroups,omitempty"`
 
 	// MediaConnectFlows AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-mediaconnectflows
-	MediaConnectFlows *[]Input_MediaConnectFlowRequest `json:"MediaConnectFlows,omitempty"`
+	MediaConnectFlows []Input_MediaConnectFlowRequest `json:"MediaConnectFlows,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type Input struct {
 	// Sources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources
-	Sources *[]Input_InputSourceRequest `json:"Sources,omitempty"`
+	Sources []Input_InputSourceRequest `json:"Sources,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

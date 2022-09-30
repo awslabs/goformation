@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // JobDefinition AWS CloudFormation Resource (AWS::Batch::JobDefinition)
@@ -36,7 +36,7 @@ type JobDefinition struct {
 	// PlatformCapabilities AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
-	PlatformCapabilities *[]string `json:"PlatformCapabilities,omitempty"`
+	PlatformCapabilities []string `json:"PlatformCapabilities,omitempty"`
 
 	// PropagateTags AWS CloudFormation Property
 	// Required: false

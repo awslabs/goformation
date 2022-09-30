@@ -3,7 +3,7 @@
 package codebuild
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Project_VpcConfig AWS CloudFormation Resource (AWS::CodeBuild::Project.VpcConfig)
@@ -13,12 +13,12 @@ type Project_VpcConfig struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// Subnets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-subnets
-	Subnets *[]string `json:"Subnets,omitempty"`
+	Subnets []string `json:"Subnets,omitempty"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: false

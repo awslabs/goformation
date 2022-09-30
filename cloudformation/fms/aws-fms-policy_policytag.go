@@ -3,7 +3,7 @@
 package fms
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Policy_PolicyTag AWS CloudFormation Resource (AWS::FMS::Policy.PolicyTag)

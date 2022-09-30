@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Budget AWS CloudFormation Resource (AWS::Budgets::Budget)
@@ -21,7 +21,7 @@ type Budget struct {
 	// NotificationsWithSubscribers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-notificationswithsubscribers
-	NotificationsWithSubscribers *[]Budget_NotificationWithSubscribers `json:"NotificationsWithSubscribers,omitempty"`
+	NotificationsWithSubscribers []Budget_NotificationWithSubscribers `json:"NotificationsWithSubscribers,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

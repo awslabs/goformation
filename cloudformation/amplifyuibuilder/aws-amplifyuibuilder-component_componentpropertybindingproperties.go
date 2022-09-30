@@ -3,7 +3,7 @@
 package amplifyuibuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Component_ComponentPropertyBindingProperties AWS CloudFormation Resource (AWS::AmplifyUIBuilder::Component.ComponentPropertyBindingProperties)

@@ -3,7 +3,7 @@
 package mediastore
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Container_MetricPolicy AWS CloudFormation Resource (AWS::MediaStore::Container.MetricPolicy)
@@ -18,7 +18,7 @@ type Container_MetricPolicy struct {
 	// MetricPolicyRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-metricpolicyrules
-	MetricPolicyRules *[]Container_MetricPolicyRule `json:"MetricPolicyRules,omitempty"`
+	MetricPolicyRules []Container_MetricPolicyRule `json:"MetricPolicyRules,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

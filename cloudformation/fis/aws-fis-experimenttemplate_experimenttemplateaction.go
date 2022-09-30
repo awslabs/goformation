@@ -3,7 +3,7 @@
 package fis
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ExperimentTemplate_ExperimentTemplateAction AWS CloudFormation Resource (AWS::FIS::ExperimentTemplate.ExperimentTemplateAction)
@@ -23,17 +23,17 @@ type ExperimentTemplate_ExperimentTemplateAction struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
-	Parameters *map[string]string `json:"Parameters,omitempty"`
+	Parameters map[string]string `json:"Parameters,omitempty"`
 
 	// StartAfter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
-	StartAfter *[]string `json:"StartAfter,omitempty"`
+	StartAfter []string `json:"StartAfter,omitempty"`
 
 	// Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
-	Targets *map[string]string `json:"Targets,omitempty"`
+	Targets map[string]string `json:"Targets,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

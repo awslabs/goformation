@@ -3,7 +3,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DistributionConfiguration_ContainerDistributionConfiguration AWS CloudFormation Resource (AWS::ImageBuilder::DistributionConfiguration.ContainerDistributionConfiguration)
@@ -13,7 +13,7 @@ type DistributionConfiguration_ContainerDistributionConfiguration struct {
 	// ContainerTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-containertags
-	ContainerTags *[]string `json:"ContainerTags,omitempty"`
+	ContainerTags []string `json:"ContainerTags,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

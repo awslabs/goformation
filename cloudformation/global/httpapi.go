@@ -3,7 +3,7 @@
 package global
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/serverless"
+	"github.com/awslabs/goformation/v7/cloudformation/serverless"
 )
 
 // HttpApi AWS CloudFormation Resource (HttpApi)

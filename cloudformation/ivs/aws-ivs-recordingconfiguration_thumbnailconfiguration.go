@@ -3,7 +3,7 @@
 package ivs
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RecordingConfiguration_ThumbnailConfiguration AWS CloudFormation Resource (AWS::IVS::RecordingConfiguration.ThumbnailConfiguration)

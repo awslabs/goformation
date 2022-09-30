@@ -3,7 +3,7 @@
 package serverless
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Function_AuthResourcePolicy AWS CloudFormation Resource (AWS::Serverless::Function.AuthResourcePolicy)
@@ -13,57 +13,57 @@ type Function_AuthResourcePolicy struct {
 	// AwsAccountBlacklist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	AwsAccountBlacklist *[]string `json:"AwsAccountBlacklist,omitempty"`
+	AwsAccountBlacklist []string `json:"AwsAccountBlacklist,omitempty"`
 
 	// AwsAccountWhitelist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	AwsAccountWhitelist *[]string `json:"AwsAccountWhitelist,omitempty"`
+	AwsAccountWhitelist []string `json:"AwsAccountWhitelist,omitempty"`
 
 	// CustomStatements AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	CustomStatements *[]interface{} `json:"CustomStatements,omitempty"`
+	CustomStatements []interface{} `json:"CustomStatements,omitempty"`
 
 	// IntrinsicVpcBlacklist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	IntrinsicVpcBlacklist *[]string `json:"IntrinsicVpcBlacklist,omitempty"`
+	IntrinsicVpcBlacklist []string `json:"IntrinsicVpcBlacklist,omitempty"`
 
 	// IntrinsicVpcWhitelist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	IntrinsicVpcWhitelist *[]string `json:"IntrinsicVpcWhitelist,omitempty"`
+	IntrinsicVpcWhitelist []string `json:"IntrinsicVpcWhitelist,omitempty"`
 
 	// IntrinsicVpceBlacklist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	IntrinsicVpceBlacklist *[]string `json:"IntrinsicVpceBlacklist,omitempty"`
+	IntrinsicVpceBlacklist []string `json:"IntrinsicVpceBlacklist,omitempty"`
 
 	// IntrinsicVpceWhitelist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	IntrinsicVpceWhitelist *[]string `json:"IntrinsicVpceWhitelist,omitempty"`
+	IntrinsicVpceWhitelist []string `json:"IntrinsicVpceWhitelist,omitempty"`
 
 	// IpRangeBlacklist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	IpRangeBlacklist *[]string `json:"IpRangeBlacklist,omitempty"`
+	IpRangeBlacklist []string `json:"IpRangeBlacklist,omitempty"`
 
 	// IpRangeWhitelist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	IpRangeWhitelist *[]string `json:"IpRangeWhitelist,omitempty"`
+	IpRangeWhitelist []string `json:"IpRangeWhitelist,omitempty"`
 
 	// SourceVpcBlacklist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	SourceVpcBlacklist *[]string `json:"SourceVpcBlacklist,omitempty"`
+	SourceVpcBlacklist []string `json:"SourceVpcBlacklist,omitempty"`
 
 	// SourceVpcWhitelist AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	SourceVpcWhitelist *[]string `json:"SourceVpcWhitelist,omitempty"`
+	SourceVpcWhitelist []string `json:"SourceVpcWhitelist,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

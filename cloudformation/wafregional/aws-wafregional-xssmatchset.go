@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // XssMatchSet AWS CloudFormation Resource (AWS::WAFRegional::XssMatchSet)
@@ -21,7 +21,7 @@ type XssMatchSet struct {
 	// XssMatchTuples AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples
-	XssMatchTuples *[]XssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
+	XssMatchTuples []XssMatchSet_XssMatchTuple `json:"XssMatchTuples,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

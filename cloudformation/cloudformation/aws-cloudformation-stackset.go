@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // StackSet AWS CloudFormation Resource (AWS::CloudFormation::StackSet)
@@ -32,7 +32,7 @@ type StackSet struct {
 	// Capabilities AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
-	Capabilities *[]string `json:"Capabilities,omitempty"`
+	Capabilities []string `json:"Capabilities,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -57,7 +57,7 @@ type StackSet struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
-	Parameters *[]StackSet_Parameter `json:"Parameters,omitempty"`
+	Parameters []StackSet_Parameter `json:"Parameters,omitempty"`
 
 	// PermissionModel AWS CloudFormation Property
 	// Required: true
@@ -67,7 +67,7 @@ type StackSet struct {
 	// StackInstancesGroup AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
-	StackInstancesGroup *[]StackSet_StackInstances `json:"StackInstancesGroup,omitempty"`
+	StackInstancesGroup []StackSet_StackInstances `json:"StackInstancesGroup,omitempty"`
 
 	// StackSetName AWS CloudFormation Property
 	// Required: true
@@ -77,7 +77,7 @@ type StackSet struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TemplateBody AWS CloudFormation Property
 	// Required: false

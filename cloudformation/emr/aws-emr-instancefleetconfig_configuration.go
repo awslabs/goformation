@@ -3,7 +3,7 @@
 package emr
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // InstanceFleetConfig_Configuration AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig.Configuration)
@@ -18,12 +18,12 @@ type InstanceFleetConfig_Configuration struct {
 	// ConfigurationProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html#cfn-elasticmapreduce-instancefleetconfig-configuration-configurationproperties
-	ConfigurationProperties *map[string]string `json:"ConfigurationProperties,omitempty"`
+	ConfigurationProperties map[string]string `json:"ConfigurationProperties,omitempty"`
 
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html#cfn-elasticmapreduce-instancefleetconfig-configuration-configurations
-	Configurations *[]InstanceFleetConfig_Configuration `json:"Configurations,omitempty"`
+	Configurations []InstanceFleetConfig_Configuration `json:"Configurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // InfrastructureConfiguration AWS CloudFormation Resource (AWS::ImageBuilder::InfrastructureConfiguration)
@@ -31,7 +31,7 @@ type InfrastructureConfiguration struct {
 	// InstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
-	InstanceTypes *[]string `json:"InstanceTypes,omitempty"`
+	InstanceTypes []string `json:"InstanceTypes,omitempty"`
 
 	// KeyPair AWS CloudFormation Property
 	// Required: false
@@ -51,12 +51,12 @@ type InfrastructureConfiguration struct {
 	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
-	ResourceTags *map[string]string `json:"ResourceTags,omitempty"`
+	ResourceTags map[string]string `json:"ResourceTags,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SnsTopicArn AWS CloudFormation Property
 	// Required: false
@@ -71,7 +71,7 @@ type InfrastructureConfiguration struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// TerminateInstanceOnFailure AWS CloudFormation Property
 	// Required: false

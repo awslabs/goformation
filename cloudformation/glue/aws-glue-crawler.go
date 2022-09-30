@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Crawler AWS CloudFormation Resource (AWS::Glue::Crawler)
@@ -16,7 +16,7 @@ type Crawler struct {
 	// Classifiers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers
-	Classifiers *[]string `json:"Classifiers,omitempty"`
+	Classifiers []string `json:"Classifiers,omitempty"`
 
 	// Configuration AWS CloudFormation Property
 	// Required: false

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LoggingConfiguration AWS CloudFormation Resource (AWS::WAFv2::LoggingConfiguration)
@@ -26,7 +26,7 @@ type LoggingConfiguration struct {
 	// RedactedFields AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
-	RedactedFields *[]LoggingConfiguration_FieldToMatch `json:"RedactedFields,omitempty"`
+	RedactedFields []LoggingConfiguration_FieldToMatch `json:"RedactedFields,omitempty"`
 
 	// ResourceArn AWS CloudFormation Property
 	// Required: true

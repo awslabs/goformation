@@ -3,7 +3,7 @@
 package transfer
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // User_PosixProfile AWS CloudFormation Resource (AWS::Transfer::User.PosixProfile)
@@ -18,7 +18,7 @@ type User_PosixProfile struct {
 	// SecondaryGids AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-secondarygids
-	SecondaryGids *[]float64 `json:"SecondaryGids,omitempty"`
+	SecondaryGids []float64 `json:"SecondaryGids,omitempty"`
 
 	// Uid AWS CloudFormation Property
 	// Required: true

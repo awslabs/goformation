@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SlackChannelConfiguration AWS CloudFormation Resource (AWS::Chatbot::SlackChannelConfiguration)
@@ -21,7 +21,7 @@ type SlackChannelConfiguration struct {
 	// GuardrailPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-guardrailpolicies
-	GuardrailPolicies *[]string `json:"GuardrailPolicies,omitempty"`
+	GuardrailPolicies []string `json:"GuardrailPolicies,omitempty"`
 
 	// IamRoleArn AWS CloudFormation Property
 	// Required: true
@@ -46,7 +46,7 @@ type SlackChannelConfiguration struct {
 	// SnsTopicArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
-	SnsTopicArns *[]string `json:"SnsTopicArns,omitempty"`
+	SnsTopicArns []string `json:"SnsTopicArns,omitempty"`
 
 	// UserRoleRequired AWS CloudFormation Property
 	// Required: false

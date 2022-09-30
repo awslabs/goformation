@@ -3,7 +3,7 @@
 package serverless
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Function_Auth AWS CloudFormation Resource (AWS::Serverless::Function.Auth)
@@ -18,7 +18,7 @@ type Function_Auth struct {
 	// AuthorizationScopes AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#function-auth-object
-	AuthorizationScopes *[]string `json:"AuthorizationScopes,omitempty"`
+	AuthorizationScopes []string `json:"AuthorizationScopes,omitempty"`
 
 	// Authorizer AWS CloudFormation Property
 	// Required: false

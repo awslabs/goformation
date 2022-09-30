@@ -3,7 +3,7 @@
 package guardduty
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Filter_Condition AWS CloudFormation Resource (AWS::GuardDuty::Filter.Condition)
@@ -13,12 +13,12 @@ type Filter_Condition struct {
 	// Eq AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-eq
-	Eq *[]string `json:"Eq,omitempty"`
+	Eq []string `json:"Eq,omitempty"`
 
 	// Equals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-equals
-	Equals *[]string `json:"Equals,omitempty"`
+	Equals []string `json:"Equals,omitempty"`
 
 	// GreaterThan AWS CloudFormation Property
 	// Required: false
@@ -63,12 +63,12 @@ type Filter_Condition struct {
 	// Neq AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-neq
-	Neq *[]string `json:"Neq,omitempty"`
+	Neq []string `json:"Neq,omitempty"`
 
 	// NotEquals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-notequals
-	NotEquals *[]string `json:"NotEquals,omitempty"`
+	NotEquals []string `json:"NotEquals,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

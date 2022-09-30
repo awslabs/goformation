@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Method AWS CloudFormation Resource (AWS::ApiGateway::Method)
@@ -21,7 +21,7 @@ type Method struct {
 	// AuthorizationScopes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationscopes
-	AuthorizationScopes *[]string `json:"AuthorizationScopes,omitempty"`
+	AuthorizationScopes []string `json:"AuthorizationScopes,omitempty"`
 
 	// AuthorizationType AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type Method struct {
 	// MethodResponses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-methodresponses
-	MethodResponses *[]Method_MethodResponse `json:"MethodResponses,omitempty"`
+	MethodResponses []Method_MethodResponse `json:"MethodResponses,omitempty"`
 
 	// OperationName AWS CloudFormation Property
 	// Required: false
@@ -56,12 +56,12 @@ type Method struct {
 	// RequestModels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels
-	RequestModels *map[string]string `json:"RequestModels,omitempty"`
+	RequestModels map[string]string `json:"RequestModels,omitempty"`
 
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters
-	RequestParameters *map[string]bool `json:"RequestParameters,omitempty"`
+	RequestParameters map[string]bool `json:"RequestParameters,omitempty"`
 
 	// RequestValidatorId AWS CloudFormation Property
 	// Required: false

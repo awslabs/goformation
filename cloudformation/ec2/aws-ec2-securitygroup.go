@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // SecurityGroup AWS CloudFormation Resource (AWS::EC2::SecurityGroup)
@@ -27,17 +27,17 @@ type SecurityGroup struct {
 	// SecurityGroupEgress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupegress
-	SecurityGroupEgress *[]SecurityGroup_Egress `json:"SecurityGroupEgress,omitempty"`
+	SecurityGroupEgress []SecurityGroup_Egress `json:"SecurityGroupEgress,omitempty"`
 
 	// SecurityGroupIngress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupingress
-	SecurityGroupIngress *[]SecurityGroup_Ingress `json:"SecurityGroupIngress,omitempty"`
+	SecurityGroupIngress []SecurityGroup_Ingress `json:"SecurityGroupIngress,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: false

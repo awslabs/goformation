@@ -3,7 +3,7 @@
 package auditmanager
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Assessment_Delegation AWS CloudFormation Resource (AWS::AuditManager::Assessment.Delegation)

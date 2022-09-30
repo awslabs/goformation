@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CapacityReservation AWS CloudFormation Resource (AWS::EC2::CapacityReservation)
@@ -71,7 +71,7 @@ type CapacityReservation struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-tagspecifications
-	TagSpecifications *[]CapacityReservation_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []CapacityReservation_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// Tenancy AWS CloudFormation Property
 	// Required: false

@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_AutomaticInputFailoverSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.AutomaticInputFailoverSettings)
@@ -18,7 +18,7 @@ type Channel_AutomaticInputFailoverSettings struct {
 	// FailoverConditions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html#cfn-medialive-channel-automaticinputfailoversettings-failoverconditions
-	FailoverConditions *[]Channel_FailoverCondition `json:"FailoverConditions,omitempty"`
+	FailoverConditions []Channel_FailoverCondition `json:"FailoverConditions,omitempty"`
 
 	// InputPreference AWS CloudFormation Property
 	// Required: false

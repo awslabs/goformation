@@ -3,7 +3,7 @@
 package ssmincidents
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ResponsePlan_ChatChannel AWS CloudFormation Resource (AWS::SSMIncidents::ResponsePlan.ChatChannel)
@@ -13,7 +13,7 @@ type ResponsePlan_ChatChannel struct {
 	// ChatbotSns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
-	ChatbotSns *[]string `json:"ChatbotSns,omitempty"`
+	ChatbotSns []string `json:"ChatbotSns,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

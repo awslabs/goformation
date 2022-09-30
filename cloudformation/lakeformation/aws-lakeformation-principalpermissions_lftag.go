@@ -3,7 +3,7 @@
 package lakeformation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // PrincipalPermissions_LFTag AWS CloudFormation Resource (AWS::LakeFormation::PrincipalPermissions.LFTag)
@@ -18,7 +18,7 @@ type PrincipalPermissions_LFTag struct {
 	// TagValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html#cfn-lakeformation-principalpermissions-lftag-tagvalues
-	TagValues *[]string `json:"TagValues,omitempty"`
+	TagValues []string `json:"TagValues,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package rds
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // OptionGroup_OptionConfiguration AWS CloudFormation Resource (AWS::RDS::OptionGroup.OptionConfiguration)
@@ -13,7 +13,7 @@ type OptionGroup_OptionConfiguration struct {
 	// DBSecurityGroupMemberships AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-dbsecuritygroupmemberships
-	DBSecurityGroupMemberships *[]string `json:"DBSecurityGroupMemberships,omitempty"`
+	DBSecurityGroupMemberships []string `json:"DBSecurityGroupMemberships,omitempty"`
 
 	// OptionName AWS CloudFormation Property
 	// Required: true
@@ -23,7 +23,7 @@ type OptionGroup_OptionConfiguration struct {
 	// OptionSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionsettings
-	OptionSettings *[]OptionGroup_OptionSetting `json:"OptionSettings,omitempty"`
+	OptionSettings []OptionGroup_OptionSetting `json:"OptionSettings,omitempty"`
 
 	// OptionVersion AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type OptionGroup_OptionConfiguration struct {
 	// VpcSecurityGroupMemberships AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-vpcsecuritygroupmemberships
-	VpcSecurityGroupMemberships *[]string `json:"VpcSecurityGroupMemberships,omitempty"`
+	VpcSecurityGroupMemberships []string `json:"VpcSecurityGroupMemberships,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

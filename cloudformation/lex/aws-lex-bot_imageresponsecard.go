@@ -3,7 +3,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Bot_ImageResponseCard AWS CloudFormation Resource (AWS::Lex::Bot.ImageResponseCard)
@@ -13,7 +13,7 @@ type Bot_ImageResponseCard struct {
 	// Buttons AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-buttons
-	Buttons *[]Bot_Button `json:"Buttons,omitempty"`
+	Buttons []Bot_Button `json:"Buttons,omitempty"`
 
 	// ImageUrl AWS CloudFormation Property
 	// Required: false

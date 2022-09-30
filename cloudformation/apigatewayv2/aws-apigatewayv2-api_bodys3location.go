@@ -3,7 +3,7 @@
 package apigatewayv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Api_BodyS3Location AWS CloudFormation Resource (AWS::ApiGatewayV2::Api.BodyS3Location)

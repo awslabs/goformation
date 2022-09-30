@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Endpoint AWS CloudFormation Resource (AWS::SageMaker::Endpoint)
@@ -32,7 +32,7 @@ type Endpoint struct {
 	// ExcludeRetainedVariantProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-excluderetainedvariantproperties
-	ExcludeRetainedVariantProperties *[]Endpoint_VariantProperty `json:"ExcludeRetainedVariantProperties,omitempty"`
+	ExcludeRetainedVariantProperties []Endpoint_VariantProperty `json:"ExcludeRetainedVariantProperties,omitempty"`
 
 	// RetainAllVariantProperties AWS CloudFormation Property
 	// Required: false
@@ -47,7 +47,7 @@ type Endpoint struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,8 +3,8 @@
 package dynamodb
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // GlobalTable_ReplicaSpecification AWS CloudFormation Resource (AWS::DynamoDB::GlobalTable.ReplicaSpecification)
@@ -19,7 +19,7 @@ type GlobalTable_ReplicaSpecification struct {
 	// GlobalSecondaryIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
-	GlobalSecondaryIndexes *[]GlobalTable_ReplicaGlobalSecondaryIndexSpecification `json:"GlobalSecondaryIndexes,omitempty"`
+	GlobalSecondaryIndexes []GlobalTable_ReplicaGlobalSecondaryIndexSpecification `json:"GlobalSecondaryIndexes,omitempty"`
 
 	// PointInTimeRecoverySpecification AWS CloudFormation Property
 	// Required: false
@@ -49,7 +49,7 @@ type GlobalTable_ReplicaSpecification struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

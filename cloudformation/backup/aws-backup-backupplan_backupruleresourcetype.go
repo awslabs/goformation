@@ -3,7 +3,7 @@
 package backup
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // BackupPlan_BackupRuleResourceType AWS CloudFormation Resource (AWS::Backup::BackupPlan.BackupRuleResourceType)
@@ -18,7 +18,7 @@ type BackupPlan_BackupRuleResourceType struct {
 	// CopyActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
-	CopyActions *[]BackupPlan_CopyActionResourceType `json:"CopyActions,omitempty"`
+	CopyActions []BackupPlan_CopyActionResourceType `json:"CopyActions,omitempty"`
 
 	// EnableContinuousBackup AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type BackupPlan_BackupRuleResourceType struct {
 	// RecoveryPointTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-	RecoveryPointTags *map[string]string `json:"RecoveryPointTags,omitempty"`
+	RecoveryPointTags map[string]string `json:"RecoveryPointTags,omitempty"`
 
 	// RuleName AWS CloudFormation Property
 	// Required: true

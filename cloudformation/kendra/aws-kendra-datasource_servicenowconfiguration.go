@@ -3,7 +3,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSource_ServiceNowConfiguration AWS CloudFormation Resource (AWS::Kendra::DataSource.ServiceNowConfiguration)

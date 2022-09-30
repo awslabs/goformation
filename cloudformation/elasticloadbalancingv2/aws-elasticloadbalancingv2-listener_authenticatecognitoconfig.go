@@ -3,7 +3,7 @@
 package elasticloadbalancingv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Listener_AuthenticateCognitoConfig AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::Listener.AuthenticateCognitoConfig)
@@ -13,7 +13,7 @@ type Listener_AuthenticateCognitoConfig struct {
 	// AuthenticationRequestExtraParams AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-authenticationrequestextraparams
-	AuthenticationRequestExtraParams *map[string]string `json:"AuthenticationRequestExtraParams,omitempty"`
+	AuthenticationRequestExtraParams map[string]string `json:"AuthenticationRequestExtraParams,omitempty"`
 
 	// OnUnauthenticatedRequest AWS CloudFormation Property
 	// Required: false

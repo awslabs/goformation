@@ -3,7 +3,7 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Rule_HttpParameters AWS CloudFormation Resource (AWS::Events::Rule.HttpParameters)
@@ -13,17 +13,17 @@ type Rule_HttpParameters struct {
 	// HeaderParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-headerparameters
-	HeaderParameters *map[string]string `json:"HeaderParameters,omitempty"`
+	HeaderParameters map[string]string `json:"HeaderParameters,omitempty"`
 
 	// PathParameterValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-pathparametervalues
-	PathParameterValues *[]string `json:"PathParameterValues,omitempty"`
+	PathParameterValues []string `json:"PathParameterValues,omitempty"`
 
 	// QueryStringParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html#cfn-events-rule-httpparameters-querystringparameters
-	QueryStringParameters *map[string]string `json:"QueryStringParameters,omitempty"`
+	QueryStringParameters map[string]string `json:"QueryStringParameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

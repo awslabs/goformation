@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Dataset_ExcelOptions AWS CloudFormation Resource (AWS::DataBrew::Dataset.ExcelOptions)
@@ -18,12 +18,12 @@ type Dataset_ExcelOptions struct {
 	// SheetIndexes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
-	SheetIndexes *[]int `json:"SheetIndexes,omitempty"`
+	SheetIndexes []int `json:"SheetIndexes,omitempty"`
 
 	// SheetNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
-	SheetNames *[]string `json:"SheetNames,omitempty"`
+	SheetNames []string `json:"SheetNames,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

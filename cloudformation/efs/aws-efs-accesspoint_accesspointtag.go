@@ -3,7 +3,7 @@
 package efs
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AccessPoint_AccessPointTag AWS CloudFormation Resource (AWS::EFS::AccessPoint.AccessPointTag)

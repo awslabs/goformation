@@ -3,8 +3,8 @@
 package dlm
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // LifecyclePolicy_Parameters AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.Parameters)
@@ -19,7 +19,7 @@ type LifecyclePolicy_Parameters struct {
 	// ExcludeDataVolumeTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludedatavolumetags
-	ExcludeDataVolumeTags *[]tags.Tag `json:"ExcludeDataVolumeTags,omitempty"`
+	ExcludeDataVolumeTags []tags.Tag `json:"ExcludeDataVolumeTags,omitempty"`
 
 	// NoReboot AWS CloudFormation Property
 	// Required: false

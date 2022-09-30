@@ -3,7 +3,7 @@
 package ecs
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TaskDefinition_Tmpfs AWS CloudFormation Resource (AWS::ECS::TaskDefinition.Tmpfs)
@@ -18,7 +18,7 @@ type TaskDefinition_Tmpfs struct {
 	// MountOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
-	MountOptions *[]string `json:"MountOptions,omitempty"`
+	MountOptions []string `json:"MountOptions,omitempty"`
 
 	// Size AWS CloudFormation Property
 	// Required: true

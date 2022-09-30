@@ -3,7 +3,7 @@
 package iottwinmaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ComponentType_Function AWS CloudFormation Resource (AWS::IoTTwinMaker::ComponentType.Function)
@@ -18,7 +18,7 @@ type ComponentType_Function struct {
 	// RequiredProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-requiredproperties
-	RequiredProperties *[]string `json:"RequiredProperties,omitempty"`
+	RequiredProperties []string `json:"RequiredProperties,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: false

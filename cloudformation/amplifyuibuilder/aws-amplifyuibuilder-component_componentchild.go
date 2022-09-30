@@ -3,7 +3,7 @@
 package amplifyuibuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Component_ComponentChild AWS CloudFormation Resource (AWS::AmplifyUIBuilder::Component.ComponentChild)
@@ -13,7 +13,7 @@ type Component_ComponentChild struct {
 	// Children AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-children
-	Children *[]Component_ComponentChild `json:"Children,omitempty"`
+	Children []Component_ComponentChild `json:"Children,omitempty"`
 
 	// ComponentType AWS CloudFormation Property
 	// Required: true

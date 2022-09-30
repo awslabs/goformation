@@ -3,7 +3,7 @@
 package elasticloadbalancingv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ListenerRule_PathPatternConfig AWS CloudFormation Resource (AWS::ElasticLoadBalancingV2::ListenerRule.PathPatternConfig)
@@ -13,7 +13,7 @@ type ListenerRule_PathPatternConfig struct {
 	// Values AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-values
-	Values *[]string `json:"Values,omitempty"`
+	Values []string `json:"Values,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

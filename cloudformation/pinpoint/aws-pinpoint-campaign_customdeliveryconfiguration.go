@@ -3,7 +3,7 @@
 package pinpoint
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Campaign_CustomDeliveryConfiguration AWS CloudFormation Resource (AWS::Pinpoint::Campaign.CustomDeliveryConfiguration)
@@ -18,7 +18,7 @@ type Campaign_CustomDeliveryConfiguration struct {
 	// EndpointTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-customdeliveryconfiguration.html#cfn-pinpoint-campaign-customdeliveryconfiguration-endpointtypes
-	EndpointTypes *[]string `json:"EndpointTypes,omitempty"`
+	EndpointTypes []string `json:"EndpointTypes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

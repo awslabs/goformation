@@ -3,7 +3,7 @@
 package route53recoverycontrol
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SafetyRule_RuleConfig AWS CloudFormation Resource (AWS::Route53RecoveryControl::SafetyRule.RuleConfig)

@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LaunchTemplate_NetworkInterface AWS CloudFormation Resource (AWS::EC2::LaunchTemplate.NetworkInterface)
@@ -38,7 +38,7 @@ type LaunchTemplate_NetworkInterface struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups
-	Groups *[]string `json:"Groups,omitempty"`
+	Groups []string `json:"Groups,omitempty"`
 
 	// InterfaceType AWS CloudFormation Property
 	// Required: false
@@ -53,7 +53,7 @@ type LaunchTemplate_NetworkInterface struct {
 	// Ipv4Prefixes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv4prefixes
-	Ipv4Prefixes *[]LaunchTemplate_Ipv4PrefixSpecification `json:"Ipv4Prefixes,omitempty"`
+	Ipv4Prefixes []LaunchTemplate_Ipv4PrefixSpecification `json:"Ipv4Prefixes,omitempty"`
 
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
@@ -63,7 +63,7 @@ type LaunchTemplate_NetworkInterface struct {
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
-	Ipv6Addresses *[]LaunchTemplate_Ipv6Add `json:"Ipv6Addresses,omitempty"`
+	Ipv6Addresses []LaunchTemplate_Ipv6Add `json:"Ipv6Addresses,omitempty"`
 
 	// Ipv6PrefixCount AWS CloudFormation Property
 	// Required: false
@@ -73,7 +73,7 @@ type LaunchTemplate_NetworkInterface struct {
 	// Ipv6Prefixes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6prefixes
-	Ipv6Prefixes *[]LaunchTemplate_Ipv6PrefixSpecification `json:"Ipv6Prefixes,omitempty"`
+	Ipv6Prefixes []LaunchTemplate_Ipv6PrefixSpecification `json:"Ipv6Prefixes,omitempty"`
 
 	// NetworkCardIndex AWS CloudFormation Property
 	// Required: false
@@ -93,7 +93,7 @@ type LaunchTemplate_NetworkInterface struct {
 	// PrivateIpAddresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddresses
-	PrivateIpAddresses *[]LaunchTemplate_PrivateIpAdd `json:"PrivateIpAddresses,omitempty"`
+	PrivateIpAddresses []LaunchTemplate_PrivateIpAdd `json:"PrivateIpAddresses,omitempty"`
 
 	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
 	// Required: false

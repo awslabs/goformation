@@ -3,7 +3,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Distribution_QueryStringObject AWS CloudFormation Resource (AWS::Lightsail::Distribution.QueryStringObject)
@@ -18,7 +18,7 @@ type Distribution_QueryStringObject struct {
 	// QueryStringsAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html#cfn-lightsail-distribution-querystringobject-querystringsallowlist
-	QueryStringsAllowList *[]string `json:"QueryStringsAllowList,omitempty"`
+	QueryStringsAllowList []string `json:"QueryStringsAllowList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

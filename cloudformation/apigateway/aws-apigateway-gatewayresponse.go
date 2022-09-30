@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // GatewayResponse AWS CloudFormation Resource (AWS::ApiGateway::GatewayResponse)
@@ -16,12 +16,12 @@ type GatewayResponse struct {
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html#cfn-apigateway-gatewayresponse-responseparameters
-	ResponseParameters *map[string]string `json:"ResponseParameters,omitempty"`
+	ResponseParameters map[string]string `json:"ResponseParameters,omitempty"`
 
 	// ResponseTemplates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html#cfn-apigateway-gatewayresponse-responsetemplates
-	ResponseTemplates *map[string]string `json:"ResponseTemplates,omitempty"`
+	ResponseTemplates map[string]string `json:"ResponseTemplates,omitempty"`
 
 	// ResponseType AWS CloudFormation Property
 	// Required: true

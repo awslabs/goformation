@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // FileSystem AWS CloudFormation Resource (AWS::EFS::FileSystem)
@@ -41,7 +41,7 @@ type FileSystem struct {
 	// FileSystemTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-	FileSystemTags *[]FileSystem_ElasticFileSystemTag `json:"FileSystemTags,omitempty"`
+	FileSystemTags []FileSystem_ElasticFileSystemTag `json:"FileSystemTags,omitempty"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
@@ -51,7 +51,7 @@ type FileSystem struct {
 	// LifecyclePolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-	LifecyclePolicies *[]FileSystem_LifecyclePolicy `json:"LifecyclePolicies,omitempty"`
+	LifecyclePolicies []FileSystem_LifecyclePolicy `json:"LifecyclePolicies,omitempty"`
 
 	// PerformanceMode AWS CloudFormation Property
 	// Required: false

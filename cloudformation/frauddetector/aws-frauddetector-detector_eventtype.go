@@ -3,8 +3,8 @@
 package frauddetector
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Detector_EventType AWS CloudFormation Resource (AWS::FraudDetector::Detector.EventType)
@@ -29,12 +29,12 @@ type Detector_EventType struct {
 	// EntityTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
-	EntityTypes *[]Detector_EntityType `json:"EntityTypes,omitempty"`
+	EntityTypes []Detector_EntityType `json:"EntityTypes,omitempty"`
 
 	// EventVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
-	EventVariables *[]Detector_EventVariable `json:"EventVariables,omitempty"`
+	EventVariables []Detector_EventVariable `json:"EventVariables,omitempty"`
 
 	// Inline AWS CloudFormation Property
 	// Required: false
@@ -44,7 +44,7 @@ type Detector_EventType struct {
 	// Labels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
-	Labels *[]Detector_Label `json:"Labels,omitempty"`
+	Labels []Detector_Label `json:"Labels,omitempty"`
 
 	// LastUpdatedTime AWS CloudFormation Property
 	// Required: false
@@ -59,7 +59,7 @@ type Detector_EventType struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

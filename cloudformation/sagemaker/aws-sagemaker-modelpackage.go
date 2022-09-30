@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // ModelPackage AWS CloudFormation Resource (AWS::SageMaker::ModelPackage)
@@ -22,12 +22,12 @@ type ModelPackage struct {
 	// AdditionalInferenceSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecifications
-	AdditionalInferenceSpecifications *[]ModelPackage_AdditionalInferenceSpecificationDefinition `json:"AdditionalInferenceSpecifications,omitempty"`
+	AdditionalInferenceSpecifications []ModelPackage_AdditionalInferenceSpecificationDefinition `json:"AdditionalInferenceSpecifications,omitempty"`
 
 	// AdditionalInferenceSpecificationsToAdd AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-additionalinferencespecificationstoadd
-	AdditionalInferenceSpecificationsToAdd *[]ModelPackage_AdditionalInferenceSpecificationDefinition `json:"AdditionalInferenceSpecificationsToAdd,omitempty"`
+	AdditionalInferenceSpecificationsToAdd []ModelPackage_AdditionalInferenceSpecificationDefinition `json:"AdditionalInferenceSpecificationsToAdd,omitempty"`
 
 	// ApprovalDescription AWS CloudFormation Property
 	// Required: false
@@ -47,12 +47,12 @@ type ModelPackage struct {
 	// CreatedBy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-createdby
-	CreatedBy interface{} `json:"CreatedBy,omitempty"`
+	CreatedBy *ModelPackage_UserContext `json:"CreatedBy,omitempty"`
 
 	// CustomerMetadataProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-customermetadataproperties
-	CustomerMetadataProperties *map[string]string `json:"CustomerMetadataProperties,omitempty"`
+	CustomerMetadataProperties map[string]string `json:"CustomerMetadataProperties,omitempty"`
 
 	// Domain AWS CloudFormation Property
 	// Required: false
@@ -67,7 +67,7 @@ type ModelPackage struct {
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-environment
-	Environment *map[string]string `json:"Environment,omitempty"`
+	Environment map[string]string `json:"Environment,omitempty"`
 
 	// InferenceSpecification AWS CloudFormation Property
 	// Required: false
@@ -77,7 +77,7 @@ type ModelPackage struct {
 	// LastModifiedBy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-lastmodifiedby
-	LastModifiedBy interface{} `json:"LastModifiedBy,omitempty"`
+	LastModifiedBy *ModelPackage_UserContext `json:"LastModifiedBy,omitempty"`
 
 	// LastModifiedTime AWS CloudFormation Property
 	// Required: false
@@ -147,7 +147,7 @@ type ModelPackage struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Task AWS CloudFormation Property
 	// Required: false

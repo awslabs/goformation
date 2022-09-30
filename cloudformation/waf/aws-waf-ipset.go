@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // IPSet AWS CloudFormation Resource (AWS::WAF::IPSet)
@@ -16,7 +16,7 @@ type IPSet struct {
 	// IPSetDescriptors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html#cfn-waf-ipset-ipsetdescriptors
-	IPSetDescriptors *[]IPSet_IPSetDescriptor `json:"IPSetDescriptors,omitempty"`
+	IPSetDescriptors []IPSet_IPSetDescriptor `json:"IPSetDescriptors,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

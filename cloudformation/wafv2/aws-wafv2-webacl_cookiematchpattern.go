@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WebACL_CookieMatchPattern AWS CloudFormation Resource (AWS::WAFv2::WebACL.CookieMatchPattern)
@@ -18,12 +18,12 @@ type WebACL_CookieMatchPattern struct {
 	// ExcludedCookies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookiematchpattern.html#cfn-wafv2-webacl-cookiematchpattern-excludedcookies
-	ExcludedCookies *[]string `json:"ExcludedCookies,omitempty"`
+	ExcludedCookies []string `json:"ExcludedCookies,omitempty"`
 
 	// IncludedCookies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookiematchpattern.html#cfn-wafv2-webacl-cookiematchpattern-includedcookies
-	IncludedCookies *[]string `json:"IncludedCookies,omitempty"`
+	IncludedCookies []string `json:"IncludedCookies,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // LoadBalancer AWS CloudFormation Resource (AWS::Lightsail::LoadBalancer)
@@ -17,7 +17,7 @@ type LoadBalancer struct {
 	// AttachedInstances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-attachedinstances
-	AttachedInstances *[]string `json:"AttachedInstances,omitempty"`
+	AttachedInstances []string `json:"AttachedInstances,omitempty"`
 
 	// HealthCheckPath AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type LoadBalancer struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html#cfn-lightsail-loadbalancer-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TlsPolicyName AWS CloudFormation Property
 	// Required: false

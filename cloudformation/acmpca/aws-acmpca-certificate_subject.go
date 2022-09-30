@@ -3,7 +3,7 @@
 package acmpca
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Certificate_Subject AWS CloudFormation Resource (AWS::ACMPCA::Certificate.Subject)
@@ -23,7 +23,7 @@ type Certificate_Subject struct {
 	// CustomAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-customattributes
-	CustomAttributes *[]Certificate_CustomAttribute `json:"CustomAttributes,omitempty"`
+	CustomAttributes []Certificate_CustomAttribute `json:"CustomAttributes,omitempty"`
 
 	// DistinguishedNameQualifier AWS CloudFormation Property
 	// Required: false

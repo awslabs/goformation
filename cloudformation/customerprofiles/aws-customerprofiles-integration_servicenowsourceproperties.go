@@ -3,7 +3,7 @@
 package customerprofiles
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Integration_ServiceNowSourceProperties AWS CloudFormation Resource (AWS::CustomerProfiles::Integration.ServiceNowSourceProperties)

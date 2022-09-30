@@ -3,7 +3,7 @@
 package dlm
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LifecyclePolicy_FastRestoreRule AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.FastRestoreRule)
@@ -13,7 +13,7 @@ type LifecyclePolicy_FastRestoreRule struct {
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-availabilityzones
-	AvailabilityZones *[]string `json:"AvailabilityZones,omitempty"`
+	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
 
 	// Count AWS CloudFormation Property
 	// Required: false

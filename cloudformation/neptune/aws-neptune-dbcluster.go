@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // DBCluster AWS CloudFormation Resource (AWS::Neptune::DBCluster)
@@ -17,12 +17,12 @@ type DBCluster struct {
 	// AssociatedRoles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
-	AssociatedRoles *[]DBCluster_DBClusterRole `json:"AssociatedRoles,omitempty"`
+	AssociatedRoles []DBCluster_DBClusterRole `json:"AssociatedRoles,omitempty"`
 
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
-	AvailabilityZones *[]string `json:"AvailabilityZones,omitempty"`
+	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
 
 	// BackupRetentionPeriod AWS CloudFormation Property
 	// Required: false
@@ -52,7 +52,7 @@ type DBCluster struct {
 	// EnableCloudwatchLogsExports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-enablecloudwatchlogsexports
-	EnableCloudwatchLogsExports *[]string `json:"EnableCloudwatchLogsExports,omitempty"`
+	EnableCloudwatchLogsExports []string `json:"EnableCloudwatchLogsExports,omitempty"`
 
 	// EngineVersion AWS CloudFormation Property
 	// Required: false
@@ -112,7 +112,7 @@ type DBCluster struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UseLatestRestorableTime AWS CloudFormation Property
 	// Required: false
@@ -122,7 +122,7 @@ type DBCluster struct {
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-vpcsecuritygroupids
-	VpcSecurityGroupIds *[]string `json:"VpcSecurityGroupIds,omitempty"`
+	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package iottwinmaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ComponentType_PropertyDefinition AWS CloudFormation Resource (AWS::IoTTwinMaker::ComponentType.PropertyDefinition)
@@ -13,7 +13,7 @@ type ComponentType_PropertyDefinition struct {
 	// Configurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-configurations
-	Configurations *map[string]string `json:"Configurations,omitempty"`
+	Configurations map[string]string `json:"Configurations,omitempty"`
 
 	// DataType AWS CloudFormation Property
 	// Required: false

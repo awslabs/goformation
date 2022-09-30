@@ -3,7 +3,7 @@
 package eks
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Nodegroup_RemoteAccess AWS CloudFormation Resource (AWS::EKS::Nodegroup.RemoteAccess)
@@ -18,7 +18,7 @@ type Nodegroup_RemoteAccess struct {
 	// SourceSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html#cfn-eks-nodegroup-remoteaccess-sourcesecuritygroups
-	SourceSecurityGroups *[]string `json:"SourceSecurityGroups,omitempty"`
+	SourceSecurityGroups []string `json:"SourceSecurityGroups,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

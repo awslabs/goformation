@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // VirtualNode_SubjectAlternativeNameMatchers AWS CloudFormation Resource (AWS::AppMesh::VirtualNode.SubjectAlternativeNameMatchers)
@@ -13,7 +13,7 @@ type VirtualNode_SubjectAlternativeNameMatchers struct {
 	// Exact AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenamematchers.html#cfn-appmesh-virtualnode-subjectalternativenamematchers-exact
-	Exact *[]string `json:"Exact,omitempty"`
+	Exact []string `json:"Exact,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

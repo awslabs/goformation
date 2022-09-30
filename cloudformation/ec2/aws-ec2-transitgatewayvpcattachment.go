@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // TransitGatewayVpcAttachment AWS CloudFormation Resource (AWS::EC2::TransitGatewayVpcAttachment)
@@ -17,7 +17,7 @@ type TransitGatewayVpcAttachment struct {
 	// AddSubnetIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-addsubnetids
-	AddSubnetIds *[]string `json:"AddSubnetIds,omitempty"`
+	AddSubnetIds []string `json:"AddSubnetIds,omitempty"`
 
 	// Options AWS CloudFormation Property
 	// Required: false
@@ -27,7 +27,7 @@ type TransitGatewayVpcAttachment struct {
 	// RemoveSubnetIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-removesubnetids
-	RemoveSubnetIds *[]string `json:"RemoveSubnetIds,omitempty"`
+	RemoveSubnetIds []string `json:"RemoveSubnetIds,omitempty"`
 
 	// SubnetIds AWS CloudFormation Property
 	// Required: true
@@ -37,7 +37,7 @@ type TransitGatewayVpcAttachment struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TransitGatewayId AWS CloudFormation Property
 	// Required: true

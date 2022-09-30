@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // GeoMatchSet AWS CloudFormation Resource (AWS::WAFRegional::GeoMatchSet)
@@ -16,7 +16,7 @@ type GeoMatchSet struct {
 	// GeoMatchConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html#cfn-wafregional-geomatchset-geomatchconstraints
-	GeoMatchConstraints *[]GeoMatchSet_GeoMatchConstraint `json:"GeoMatchConstraints,omitempty"`
+	GeoMatchConstraints []GeoMatchSet_GeoMatchConstraint `json:"GeoMatchConstraints,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

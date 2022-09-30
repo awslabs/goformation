@@ -3,7 +3,7 @@
 package eks
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Cluster_ClusterLogging AWS CloudFormation Resource (AWS::EKS::Cluster.ClusterLogging)
@@ -13,7 +13,7 @@ type Cluster_ClusterLogging struct {
 	// EnabledTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html#cfn-eks-cluster-clusterlogging-enabledtypes
-	EnabledTypes *[]Cluster_LoggingTypeConfig `json:"EnabledTypes,omitempty"`
+	EnabledTypes []Cluster_LoggingTypeConfig `json:"EnabledTypes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

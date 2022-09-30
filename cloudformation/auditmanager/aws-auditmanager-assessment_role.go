@@ -3,7 +3,7 @@
 package auditmanager
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Assessment_Role AWS CloudFormation Resource (AWS::AuditManager::Assessment.Role)

@@ -3,7 +3,7 @@
 package apprunner
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Service_ImageConfiguration AWS CloudFormation Resource (AWS::AppRunner::Service.ImageConfiguration)
@@ -18,7 +18,7 @@ type Service_ImageConfiguration struct {
 	// RuntimeEnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
-	RuntimeEnvironmentVariables *[]Service_KeyValuePair `json:"RuntimeEnvironmentVariables,omitempty"`
+	RuntimeEnvironmentVariables []Service_KeyValuePair `json:"RuntimeEnvironmentVariables,omitempty"`
 
 	// StartCommand AWS CloudFormation Property
 	// Required: false

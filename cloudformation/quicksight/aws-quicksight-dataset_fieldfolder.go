@@ -3,7 +3,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSet_FieldFolder AWS CloudFormation Resource (AWS::QuickSight::DataSet.FieldFolder)
@@ -13,7 +13,7 @@ type DataSet_FieldFolder struct {
 	// Columns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
-	Columns *[]string `json:"Columns,omitempty"`
+	Columns []string `json:"Columns,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

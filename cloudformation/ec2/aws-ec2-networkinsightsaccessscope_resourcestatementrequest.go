@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // NetworkInsightsAccessScope_ResourceStatementRequest AWS CloudFormation Resource (AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest)
@@ -13,12 +13,12 @@ type NetworkInsightsAccessScope_ResourceStatementRequest struct {
 	// ResourceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resourcetypes
-	ResourceTypes *[]string `json:"ResourceTypes,omitempty"`
+	ResourceTypes []string `json:"ResourceTypes,omitempty"`
 
 	// Resources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resources
-	Resources *[]string `json:"Resources,omitempty"`
+	Resources []string `json:"Resources,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

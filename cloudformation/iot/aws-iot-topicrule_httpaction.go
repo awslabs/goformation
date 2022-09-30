@@ -3,7 +3,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TopicRule_HttpAction AWS CloudFormation Resource (AWS::IoT::TopicRule.HttpAction)
@@ -23,7 +23,7 @@ type TopicRule_HttpAction struct {
 	// Headers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
-	Headers *[]TopicRule_HttpActionHeader `json:"Headers,omitempty"`
+	Headers []TopicRule_HttpActionHeader `json:"Headers,omitempty"`
 
 	// Url AWS CloudFormation Property
 	// Required: true

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AnomalyDetector AWS CloudFormation Resource (AWS::CloudWatch::AnomalyDetector)
@@ -21,7 +21,7 @@ type AnomalyDetector struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-dimensions
-	Dimensions *[]AnomalyDetector_Dimension `json:"Dimensions,omitempty"`
+	Dimensions []AnomalyDetector_Dimension `json:"Dimensions,omitempty"`
 
 	// MetricMathAnomalyDetector AWS CloudFormation Property
 	// Required: false

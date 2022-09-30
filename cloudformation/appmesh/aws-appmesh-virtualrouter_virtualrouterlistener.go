@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // VirtualRouter_VirtualRouterListener AWS CloudFormation Resource (AWS::AppMesh::VirtualRouter.VirtualRouterListener)

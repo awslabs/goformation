@@ -3,7 +3,7 @@
 package iottwinmaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Entity_Component AWS CloudFormation Resource (AWS::IoTTwinMaker::Entity.Component)
@@ -33,7 +33,7 @@ type Entity_Component struct {
 	// Properties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-properties
-	Properties *map[string]Entity_Property `json:"Properties,omitempty"`
+	Properties map[string]Entity_Property `json:"Properties,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false

@@ -3,7 +3,7 @@
 package config
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConfigRule_Source AWS CloudFormation Resource (AWS::Config::ConfigRule.Source)
@@ -23,7 +23,7 @@ type ConfigRule_Source struct {
 	// SourceDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
-	SourceDetails *[]ConfigRule_SourceDetail `json:"SourceDetails,omitempty"`
+	SourceDetails []ConfigRule_SourceDetail `json:"SourceDetails,omitempty"`
 
 	// SourceIdentifier AWS CloudFormation Property
 	// Required: false

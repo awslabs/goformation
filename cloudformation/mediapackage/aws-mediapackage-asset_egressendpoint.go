@@ -3,7 +3,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Asset_EgressEndpoint AWS CloudFormation Resource (AWS::MediaPackage::Asset.EgressEndpoint)

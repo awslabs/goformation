@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_EncoderSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.EncoderSettings)
@@ -13,7 +13,7 @@ type Channel_EncoderSettings struct {
 	// AudioDescriptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-audiodescriptions
-	AudioDescriptions *[]Channel_AudioDescription `json:"AudioDescriptions,omitempty"`
+	AudioDescriptions []Channel_AudioDescription `json:"AudioDescriptions,omitempty"`
 
 	// AvailBlanking AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type Channel_EncoderSettings struct {
 	// CaptionDescriptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-captiondescriptions
-	CaptionDescriptions *[]Channel_CaptionDescription `json:"CaptionDescriptions,omitempty"`
+	CaptionDescriptions []Channel_CaptionDescription `json:"CaptionDescriptions,omitempty"`
 
 	// FeatureActivations AWS CloudFormation Property
 	// Required: false
@@ -58,7 +58,7 @@ type Channel_EncoderSettings struct {
 	// OutputGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-outputgroups
-	OutputGroups *[]Channel_OutputGroup `json:"OutputGroups,omitempty"`
+	OutputGroups []Channel_OutputGroup `json:"OutputGroups,omitempty"`
 
 	// TimecodeConfig AWS CloudFormation Property
 	// Required: false
@@ -68,7 +68,7 @@ type Channel_EncoderSettings struct {
 	// VideoDescriptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-videodescriptions
-	VideoDescriptions *[]Channel_VideoDescription `json:"VideoDescriptions,omitempty"`
+	VideoDescriptions []Channel_VideoDescription `json:"VideoDescriptions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

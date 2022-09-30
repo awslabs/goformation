@@ -3,7 +3,7 @@
 package ce
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AnomalySubscription_Subscriber AWS CloudFormation Resource (AWS::CE::AnomalySubscription.Subscriber)

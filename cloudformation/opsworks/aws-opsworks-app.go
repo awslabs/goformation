@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // App AWS CloudFormation Resource (AWS::OpsWorks::App)
@@ -21,12 +21,12 @@ type App struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-attributes
-	Attributes *map[string]string `json:"Attributes,omitempty"`
+	Attributes map[string]string `json:"Attributes,omitempty"`
 
 	// DataSources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-datasources
-	DataSources *[]App_DataSource `json:"DataSources,omitempty"`
+	DataSources []App_DataSource `json:"DataSources,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type App struct {
 	// Domains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-domains
-	Domains *[]string `json:"Domains,omitempty"`
+	Domains []string `json:"Domains,omitempty"`
 
 	// EnableSsl AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type App struct {
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-environment
-	Environment *[]App_EnvironmentVariable `json:"Environment,omitempty"`
+	Environment []App_EnvironmentVariable `json:"Environment,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

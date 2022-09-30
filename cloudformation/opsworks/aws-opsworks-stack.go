@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Stack AWS CloudFormation Resource (AWS::OpsWorks::Stack)
@@ -22,7 +22,7 @@ type Stack struct {
 	// Attributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-attributes
-	Attributes *map[string]string `json:"Attributes,omitempty"`
+	Attributes map[string]string `json:"Attributes,omitempty"`
 
 	// ChefConfiguration AWS CloudFormation Property
 	// Required: false
@@ -32,7 +32,7 @@ type Stack struct {
 	// CloneAppIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-cloneappids
-	CloneAppIds *[]string `json:"CloneAppIds,omitempty"`
+	CloneAppIds []string `json:"CloneAppIds,omitempty"`
 
 	// ClonePermissions AWS CloudFormation Property
 	// Required: false
@@ -92,7 +92,7 @@ type Stack struct {
 	// ElasticIps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-elasticips
-	ElasticIps *[]Stack_ElasticIp `json:"ElasticIps,omitempty"`
+	ElasticIps []Stack_ElasticIp `json:"ElasticIps,omitempty"`
 
 	// HostnameTheme AWS CloudFormation Property
 	// Required: false
@@ -107,7 +107,7 @@ type Stack struct {
 	// RdsDbInstances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-rdsdbinstances
-	RdsDbInstances *[]Stack_RdsDbInstance `json:"RdsDbInstances,omitempty"`
+	RdsDbInstances []Stack_RdsDbInstance `json:"RdsDbInstances,omitempty"`
 
 	// ServiceRoleArn AWS CloudFormation Property
 	// Required: true
@@ -122,7 +122,7 @@ type Stack struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UseCustomCookbooks AWS CloudFormation Property
 	// Required: false

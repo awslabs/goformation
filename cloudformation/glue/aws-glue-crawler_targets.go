@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Crawler_Targets AWS CloudFormation Resource (AWS::Glue::Crawler.Targets)
@@ -13,27 +13,27 @@ type Crawler_Targets struct {
 	// CatalogTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
-	CatalogTargets *[]Crawler_CatalogTarget `json:"CatalogTargets,omitempty"`
+	CatalogTargets []Crawler_CatalogTarget `json:"CatalogTargets,omitempty"`
 
 	// DynamoDBTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
-	DynamoDBTargets *[]Crawler_DynamoDBTarget `json:"DynamoDBTargets,omitempty"`
+	DynamoDBTargets []Crawler_DynamoDBTarget `json:"DynamoDBTargets,omitempty"`
 
 	// JdbcTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
-	JdbcTargets *[]Crawler_JdbcTarget `json:"JdbcTargets,omitempty"`
+	JdbcTargets []Crawler_JdbcTarget `json:"JdbcTargets,omitempty"`
 
 	// MongoDBTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-mongodbtargets
-	MongoDBTargets *[]Crawler_MongoDBTarget `json:"MongoDBTargets,omitempty"`
+	MongoDBTargets []Crawler_MongoDBTarget `json:"MongoDBTargets,omitempty"`
 
 	// S3Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
-	S3Targets *[]Crawler_S3Target `json:"S3Targets,omitempty"`
+	S3Targets []Crawler_S3Target `json:"S3Targets,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

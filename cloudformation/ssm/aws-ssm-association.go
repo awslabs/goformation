@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Association AWS CloudFormation Resource (AWS::SSM::Association)
@@ -31,7 +31,7 @@ type Association struct {
 	// CalendarNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-	CalendarNames *[]string `json:"CalendarNames,omitempty"`
+	CalendarNames []string `json:"CalendarNames,omitempty"`
 
 	// ComplianceSeverity AWS CloudFormation Property
 	// Required: false
@@ -71,7 +71,7 @@ type Association struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters *map[string]interface{} `json:"Parameters,omitempty"`
+	Parameters map[string]interface{} `json:"Parameters,omitempty"`
 
 	// ScheduleExpression AWS CloudFormation Property
 	// Required: false
@@ -91,7 +91,7 @@ type Association struct {
 	// Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-	Targets *[]Association_Target `json:"Targets,omitempty"`
+	Targets []Association_Target `json:"Targets,omitempty"`
 
 	// WaitForSuccessTimeoutSeconds AWS CloudFormation Property
 	// Required: false

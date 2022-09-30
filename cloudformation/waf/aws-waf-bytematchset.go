@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ByteMatchSet AWS CloudFormation Resource (AWS::WAF::ByteMatchSet)
@@ -16,7 +16,7 @@ type ByteMatchSet struct {
 	// ByteMatchTuples AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html#cfn-waf-bytematchset-bytematchtuples
-	ByteMatchTuples *[]ByteMatchSet_ByteMatchTuple `json:"ByteMatchTuples,omitempty"`
+	ByteMatchTuples []ByteMatchSet_ByteMatchTuple `json:"ByteMatchTuples,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

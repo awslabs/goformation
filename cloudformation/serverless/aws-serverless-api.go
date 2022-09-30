@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Api AWS CloudFormation Resource (AWS::Serverless::Api)
@@ -26,7 +26,7 @@ type Api struct {
 	// BinaryMediaTypes AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	BinaryMediaTypes *[]string `json:"BinaryMediaTypes,omitempty"`
+	BinaryMediaTypes []string `json:"BinaryMediaTypes,omitempty"`
 
 	// CacheClusterEnabled AWS CloudFormation Property
 	// Required: false
@@ -76,12 +76,12 @@ type Api struct {
 	// GatewayResponses AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-gatewayresponses
-	GatewayResponses *map[string]string `json:"GatewayResponses,omitempty"`
+	GatewayResponses map[string]string `json:"GatewayResponses,omitempty"`
 
 	// MethodSettings AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	MethodSettings *[]interface{} `json:"MethodSettings,omitempty"`
+	MethodSettings []interface{} `json:"MethodSettings,omitempty"`
 
 	// MinimumCompressionSize AWS CloudFormation Property
 	// Required: false
@@ -91,7 +91,7 @@ type Api struct {
 	// Models AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-models
-	Models *map[string]string `json:"Models,omitempty"`
+	Models map[string]string `json:"Models,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -111,7 +111,7 @@ type Api struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesshttpapi
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// TracingEnabled AWS CloudFormation Property
 	// Required: false
@@ -121,7 +121,7 @@ type Api struct {
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
-	Variables *map[string]string `json:"Variables,omitempty"`
+	Variables map[string]string `json:"Variables,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

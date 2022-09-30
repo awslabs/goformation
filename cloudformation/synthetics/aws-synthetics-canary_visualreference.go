@@ -3,7 +3,7 @@
 package synthetics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Canary_VisualReference AWS CloudFormation Resource (AWS::Synthetics::Canary.VisualReference)
@@ -18,7 +18,7 @@ type Canary_VisualReference struct {
 	// BaseScreenshots AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
-	BaseScreenshots *[]Canary_BaseScreenshot `json:"BaseScreenshots,omitempty"`
+	BaseScreenshots []Canary_BaseScreenshot `json:"BaseScreenshots,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package location
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Map_MapConfiguration AWS CloudFormation Resource (AWS::Location::Map.MapConfiguration)

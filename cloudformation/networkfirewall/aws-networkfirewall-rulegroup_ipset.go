@@ -3,7 +3,7 @@
 package networkfirewall
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RuleGroup_IPSet AWS CloudFormation Resource (AWS::NetworkFirewall::RuleGroup.IPSet)
@@ -13,7 +13,7 @@ type RuleGroup_IPSet struct {
 	// Definition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
-	Definition *[]string `json:"Definition,omitempty"`
+	Definition []string `json:"Definition,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

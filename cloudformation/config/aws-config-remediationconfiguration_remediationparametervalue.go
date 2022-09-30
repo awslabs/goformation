@@ -3,7 +3,7 @@
 package config
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RemediationConfiguration_RemediationParameterValue AWS CloudFormation Resource (AWS::Config::RemediationConfiguration.RemediationParameterValue)

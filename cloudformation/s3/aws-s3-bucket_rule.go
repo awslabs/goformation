@@ -3,7 +3,7 @@
 package s3
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Bucket_Rule AWS CloudFormation Resource (AWS::S3::Bucket.Rule)
@@ -53,7 +53,7 @@ type Bucket_Rule struct {
 	// NoncurrentVersionTransitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransitions
-	NoncurrentVersionTransitions *[]Bucket_NoncurrentVersionTransition `json:"NoncurrentVersionTransitions,omitempty"`
+	NoncurrentVersionTransitions []Bucket_NoncurrentVersionTransition `json:"NoncurrentVersionTransitions,omitempty"`
 
 	// ObjectSizeGreaterThan AWS CloudFormation Property
 	// Required: false
@@ -78,7 +78,7 @@ type Bucket_Rule struct {
 	// TagFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-tagfilters
-	TagFilters *[]Bucket_TagFilter `json:"TagFilters,omitempty"`
+	TagFilters []Bucket_TagFilter `json:"TagFilters,omitempty"`
 
 	// Transition AWS CloudFormation Property
 	// Required: false
@@ -88,7 +88,7 @@ type Bucket_Rule struct {
 	// Transitions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transitions
-	Transitions *[]Bucket_Transition `json:"Transitions,omitempty"`
+	Transitions []Bucket_Transition `json:"Transitions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SizeConstraintSet AWS CloudFormation Resource (AWS::WAFRegional::SizeConstraintSet)
@@ -21,7 +21,7 @@ type SizeConstraintSet struct {
 	// SizeConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-sizeconstraints
-	SizeConstraints *[]SizeConstraintSet_SizeConstraint `json:"SizeConstraints,omitempty"`
+	SizeConstraints []SizeConstraintSet_SizeConstraint `json:"SizeConstraints,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

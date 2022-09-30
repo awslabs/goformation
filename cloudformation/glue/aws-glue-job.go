@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Job AWS CloudFormation Resource (AWS::Glue::Job)
@@ -38,6 +38,11 @@ type Job struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-description
 	Description *string `json:"Description,omitempty"`
 
+	// ExecutionClass AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-executionclass
+	ExecutionClass *string `json:"ExecutionClass,omitempty"`
+
 	// ExecutionProperty AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-executionproperty
@@ -67,6 +72,11 @@ type Job struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-name
 	Name *string `json:"Name,omitempty"`
+
+	// NonOverridableArguments AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-nonoverridablearguments
+	NonOverridableArguments interface{} `json:"NonOverridableArguments,omitempty"`
 
 	// NotificationProperty AWS CloudFormation Property
 	// Required: false

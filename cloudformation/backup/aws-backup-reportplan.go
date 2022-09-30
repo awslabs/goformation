@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // ReportPlan AWS CloudFormation Resource (AWS::Backup::ReportPlan)
@@ -32,7 +32,7 @@ type ReportPlan struct {
 	// ReportPlanTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportplantags
-	ReportPlanTags *[]tags.Tag `json:"ReportPlanTags,omitempty"`
+	ReportPlanTags []tags.Tag `json:"ReportPlanTags,omitempty"`
 
 	// ReportSetting AWS CloudFormation Property
 	// Required: true

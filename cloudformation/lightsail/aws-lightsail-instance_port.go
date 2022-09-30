@@ -3,7 +3,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Instance_Port AWS CloudFormation Resource (AWS::Lightsail::Instance.Port)
@@ -28,12 +28,12 @@ type Instance_Port struct {
 	// CidrListAliases AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-cidrlistaliases
-	CidrListAliases *[]string `json:"CidrListAliases,omitempty"`
+	CidrListAliases []string `json:"CidrListAliases,omitempty"`
 
 	// Cidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-cidrs
-	Cidrs *[]string `json:"Cidrs,omitempty"`
+	Cidrs []string `json:"Cidrs,omitempty"`
 
 	// CommonName AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type Instance_Port struct {
 	// Ipv6Cidrs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-ipv6cidrs
-	Ipv6Cidrs *[]string `json:"Ipv6Cidrs,omitempty"`
+	Ipv6Cidrs []string `json:"Ipv6Cidrs,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: false

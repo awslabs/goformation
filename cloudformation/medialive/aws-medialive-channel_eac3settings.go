@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_Eac3Settings AWS CloudFormation Resource (AWS::MediaLive::Channel.Eac3Settings)

@@ -3,7 +3,7 @@
 package gamelift
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Fleet_RuntimeConfiguration AWS CloudFormation Resource (AWS::GameLift::Fleet.RuntimeConfiguration)
@@ -23,7 +23,7 @@ type Fleet_RuntimeConfiguration struct {
 	// ServerProcesses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
-	ServerProcesses *[]Fleet_ServerProcess `json:"ServerProcesses,omitempty"`
+	ServerProcesses []Fleet_ServerProcess `json:"ServerProcesses,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Job_StatisticsConfiguration AWS CloudFormation Resource (AWS::DataBrew::Job.StatisticsConfiguration)
@@ -13,12 +13,12 @@ type Job_StatisticsConfiguration struct {
 	// IncludedStatistics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
-	IncludedStatistics *[]string `json:"IncludedStatistics,omitempty"`
+	IncludedStatistics []string `json:"IncludedStatistics,omitempty"`
 
 	// Overrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
-	Overrides *[]Job_StatisticOverride `json:"Overrides,omitempty"`
+	Overrides []Job_StatisticOverride `json:"Overrides,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

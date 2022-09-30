@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // FlowOutput AWS CloudFormation Resource (AWS::MediaConnect::FlowOutput)
@@ -16,7 +16,7 @@ type FlowOutput struct {
 	// CidrAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
-	CidrAllowList *[]string `json:"CidrAllowList,omitempty"`
+	CidrAllowList []string `json:"CidrAllowList,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

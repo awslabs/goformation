@@ -3,7 +3,7 @@
 package devopsguru
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ResourceCollection_CloudFormationCollectionFilter AWS CloudFormation Resource (AWS::DevOpsGuru::ResourceCollection.CloudFormationCollectionFilter)
@@ -13,7 +13,7 @@ type ResourceCollection_CloudFormationCollectionFilter struct {
 	// StackNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
-	StackNames *[]string `json:"StackNames,omitempty"`
+	StackNames []string `json:"StackNames,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

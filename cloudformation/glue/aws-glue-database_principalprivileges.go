@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Database_PrincipalPrivileges AWS CloudFormation Resource (AWS::Glue::Database.PrincipalPrivileges)
@@ -13,7 +13,7 @@ type Database_PrincipalPrivileges struct {
 	// Permissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
-	Permissions *[]string `json:"Permissions,omitempty"`
+	Permissions []string `json:"Permissions,omitempty"`
 
 	// Principal AWS CloudFormation Property
 	// Required: false

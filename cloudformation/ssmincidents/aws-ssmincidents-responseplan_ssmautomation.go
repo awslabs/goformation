@@ -3,7 +3,7 @@
 package ssmincidents
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ResponsePlan_SsmAutomation AWS CloudFormation Resource (AWS::SSMIncidents::ResponsePlan.SsmAutomation)
@@ -23,12 +23,12 @@ type ResponsePlan_SsmAutomation struct {
 	// DynamicParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-dynamicparameters
-	DynamicParameters *[]ResponsePlan_DynamicSsmParameter `json:"DynamicParameters,omitempty"`
+	DynamicParameters []ResponsePlan_DynamicSsmParameter `json:"DynamicParameters,omitempty"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
-	Parameters *[]ResponsePlan_SsmParameter `json:"Parameters,omitempty"`
+	Parameters []ResponsePlan_SsmParameter `json:"Parameters,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true

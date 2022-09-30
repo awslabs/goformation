@@ -3,7 +3,7 @@
 package iotevents
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DetectorModel_TransitionEvent AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.TransitionEvent)
@@ -13,7 +13,7 @@ type DetectorModel_TransitionEvent struct {
 	// Actions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
-	Actions *[]DetectorModel_Action `json:"Actions,omitempty"`
+	Actions []DetectorModel_Action `json:"Actions,omitempty"`
 
 	// Condition AWS CloudFormation Property
 	// Required: true

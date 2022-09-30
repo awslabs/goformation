@@ -3,7 +3,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Datastore_SchemaDefinition AWS CloudFormation Resource (AWS::IoTAnalytics::Datastore.SchemaDefinition)
@@ -13,7 +13,7 @@ type Datastore_SchemaDefinition struct {
 	// Columns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html#cfn-iotanalytics-datastore-schemadefinition-columns
-	Columns *[]Datastore_Column `json:"Columns,omitempty"`
+	Columns []Datastore_Column `json:"Columns,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

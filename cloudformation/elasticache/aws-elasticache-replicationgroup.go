@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // ReplicationGroup AWS CloudFormation Resource (AWS::ElastiCache::ReplicationGroup)
@@ -47,7 +47,7 @@ type ReplicationGroup struct {
 	// CacheSecurityGroupNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesecuritygroupnames
-	CacheSecurityGroupNames *[]string `json:"CacheSecurityGroupNames,omitempty"`
+	CacheSecurityGroupNames []string `json:"CacheSecurityGroupNames,omitempty"`
 
 	// CacheSubnetGroupName AWS CloudFormation Property
 	// Required: false
@@ -82,7 +82,7 @@ type ReplicationGroup struct {
 	// LogDeliveryConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-logdeliveryconfigurations
-	LogDeliveryConfigurations *[]ReplicationGroup_LogDeliveryConfigurationRequest `json:"LogDeliveryConfigurations,omitempty"`
+	LogDeliveryConfigurations []ReplicationGroup_LogDeliveryConfigurationRequest `json:"LogDeliveryConfigurations,omitempty"`
 
 	// MultiAZEnabled AWS CloudFormation Property
 	// Required: false
@@ -92,7 +92,7 @@ type ReplicationGroup struct {
 	// NodeGroupConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-nodegroupconfiguration
-	NodeGroupConfiguration *[]ReplicationGroup_NodeGroupConfiguration `json:"NodeGroupConfiguration,omitempty"`
+	NodeGroupConfiguration []ReplicationGroup_NodeGroupConfiguration `json:"NodeGroupConfiguration,omitempty"`
 
 	// NotificationTopicArn AWS CloudFormation Property
 	// Required: false
@@ -117,7 +117,7 @@ type ReplicationGroup struct {
 	// PreferredCacheClusterAZs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredcacheclusterazs
-	PreferredCacheClusterAZs *[]string `json:"PreferredCacheClusterAZs,omitempty"`
+	PreferredCacheClusterAZs []string `json:"PreferredCacheClusterAZs,omitempty"`
 
 	// PreferredMaintenanceWindow AWS CloudFormation Property
 	// Required: false
@@ -147,12 +147,12 @@ type ReplicationGroup struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SnapshotArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotarns
-	SnapshotArns *[]string `json:"SnapshotArns,omitempty"`
+	SnapshotArns []string `json:"SnapshotArns,omitempty"`
 
 	// SnapshotName AWS CloudFormation Property
 	// Required: false
@@ -177,7 +177,7 @@ type ReplicationGroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TransitEncryptionEnabled AWS CloudFormation Property
 	// Required: false
@@ -187,7 +187,7 @@ type ReplicationGroup struct {
 	// UserGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-usergroupids
-	UserGroupIds *[]string `json:"UserGroupIds,omitempty"`
+	UserGroupIds []string `json:"UserGroupIds,omitempty"`
 
 	// AWSCloudFormationUpdatePolicy represents a CloudFormation UpdatePolicy
 	AWSCloudFormationUpdatePolicy *policies.UpdatePolicy `json:"-"`

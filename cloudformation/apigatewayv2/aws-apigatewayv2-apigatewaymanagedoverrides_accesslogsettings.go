@@ -3,7 +3,7 @@
 package apigatewayv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ApiGatewayManagedOverrides_AccessLogSettings AWS CloudFormation Resource (AWS::ApiGatewayV2::ApiGatewayManagedOverrides.AccessLogSettings)

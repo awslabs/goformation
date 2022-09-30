@@ -3,7 +3,7 @@
 package codebuild
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Project_ProjectTriggers AWS CloudFormation Resource (AWS::CodeBuild::Project.ProjectTriggers)
@@ -18,7 +18,7 @@ type Project_ProjectTriggers struct {
 	// FilterGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
-	FilterGroups *[]Project_FilterGroup `json:"FilterGroups,omitempty"`
+	FilterGroups []Project_FilterGroup `json:"FilterGroups,omitempty"`
 
 	// Webhook AWS CloudFormation Property
 	// Required: false

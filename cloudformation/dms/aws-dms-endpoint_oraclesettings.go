@@ -3,7 +3,7 @@
 package dms
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Endpoint_OracleSettings AWS CloudFormation Resource (AWS::DMS::Endpoint.OracleSettings)
@@ -78,7 +78,7 @@ type Endpoint_OracleSettings struct {
 	// ExtraArchivedLogDestIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html#cfn-dms-endpoint-oraclesettings-extraarchivedlogdestids
-	ExtraArchivedLogDestIds *[]int `json:"ExtraArchivedLogDestIds,omitempty"`
+	ExtraArchivedLogDestIds []int `json:"ExtraArchivedLogDestIds,omitempty"`
 
 	// FailTasksOnLobTruncation AWS CloudFormation Property
 	// Required: false

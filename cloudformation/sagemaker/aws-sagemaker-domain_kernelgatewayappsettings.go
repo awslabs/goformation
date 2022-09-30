@@ -3,7 +3,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Domain_KernelGatewayAppSettings AWS CloudFormation Resource (AWS::SageMaker::Domain.KernelGatewayAppSettings)
@@ -13,7 +13,7 @@ type Domain_KernelGatewayAppSettings struct {
 	// CustomImages AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
-	CustomImages *[]Domain_CustomImage `json:"CustomImages,omitempty"`
+	CustomImages []Domain_CustomImage `json:"CustomImages,omitempty"`
 
 	// DefaultResourceSpec AWS CloudFormation Property
 	// Required: false

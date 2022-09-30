@@ -3,7 +3,7 @@
 package batch
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // SchedulingPolicy_FairsharePolicy AWS CloudFormation Resource (AWS::Batch::SchedulingPolicy.FairsharePolicy)
@@ -23,7 +23,7 @@ type SchedulingPolicy_FairsharePolicy struct {
 	// ShareDistribution AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-sharedistribution
-	ShareDistribution *[]SchedulingPolicy_ShareAttributes `json:"ShareDistribution,omitempty"`
+	ShareDistribution []SchedulingPolicy_ShareAttributes `json:"ShareDistribution,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

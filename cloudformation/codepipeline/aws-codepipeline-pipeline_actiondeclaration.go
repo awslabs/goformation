@@ -3,7 +3,7 @@
 package codepipeline
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Pipeline_ActionDeclaration AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.ActionDeclaration)
@@ -23,7 +23,7 @@ type Pipeline_ActionDeclaration struct {
 	// InputArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-inputartifacts
-	InputArtifacts *[]Pipeline_InputArtifact `json:"InputArtifacts,omitempty"`
+	InputArtifacts []Pipeline_InputArtifact `json:"InputArtifacts,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -38,7 +38,7 @@ type Pipeline_ActionDeclaration struct {
 	// OutputArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts
-	OutputArtifacts *[]Pipeline_OutputArtifact `json:"OutputArtifacts,omitempty"`
+	OutputArtifacts []Pipeline_OutputArtifact `json:"OutputArtifacts,omitempty"`
 
 	// Region AWS CloudFormation Property
 	// Required: false

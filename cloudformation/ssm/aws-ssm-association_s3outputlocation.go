@@ -3,7 +3,7 @@
 package ssm
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Association_S3OutputLocation AWS CloudFormation Resource (AWS::SSM::Association.S3OutputLocation)

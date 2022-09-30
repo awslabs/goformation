@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Table_StorageDescriptor AWS CloudFormation Resource (AWS::Glue::Table.StorageDescriptor)
@@ -13,12 +13,12 @@ type Table_StorageDescriptor struct {
 	// BucketColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns
-	BucketColumns *[]string `json:"BucketColumns,omitempty"`
+	BucketColumns []string `json:"BucketColumns,omitempty"`
 
 	// Columns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns
-	Columns *[]Table_Column `json:"Columns,omitempty"`
+	Columns []Table_Column `json:"Columns,omitempty"`
 
 	// Compressed AWS CloudFormation Property
 	// Required: false
@@ -68,7 +68,7 @@ type Table_StorageDescriptor struct {
 	// SortColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns
-	SortColumns *[]Table_Order `json:"SortColumns,omitempty"`
+	SortColumns []Table_Order `json:"SortColumns,omitempty"`
 
 	// StoredAsSubDirectories AWS CloudFormation Property
 	// Required: false

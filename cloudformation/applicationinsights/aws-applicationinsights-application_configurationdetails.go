@@ -3,7 +3,7 @@
 package applicationinsights
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Application_ConfigurationDetails AWS CloudFormation Resource (AWS::ApplicationInsights::Application.ConfigurationDetails)
@@ -13,12 +13,12 @@ type Application_ConfigurationDetails struct {
 	// AlarmMetrics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
-	AlarmMetrics *[]Application_AlarmMetric `json:"AlarmMetrics,omitempty"`
+	AlarmMetrics []Application_AlarmMetric `json:"AlarmMetrics,omitempty"`
 
 	// Alarms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
-	Alarms *[]Application_Alarm `json:"Alarms,omitempty"`
+	Alarms []Application_Alarm `json:"Alarms,omitempty"`
 
 	// HAClusterPrometheusExporter AWS CloudFormation Property
 	// Required: false
@@ -38,12 +38,12 @@ type Application_ConfigurationDetails struct {
 	// Logs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
-	Logs *[]Application_Log `json:"Logs,omitempty"`
+	Logs []Application_Log `json:"Logs,omitempty"`
 
 	// WindowsEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
-	WindowsEvents *[]Application_WindowsEvent `json:"WindowsEvents,omitempty"`
+	WindowsEvents []Application_WindowsEvent `json:"WindowsEvents,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

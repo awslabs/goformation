@@ -3,7 +3,7 @@
 package dlm
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LifecyclePolicy_EncryptionConfiguration AWS CloudFormation Resource (AWS::DLM::LifecyclePolicy.EncryptionConfiguration)

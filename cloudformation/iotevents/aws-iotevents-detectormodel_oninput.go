@@ -3,7 +3,7 @@
 package iotevents
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DetectorModel_OnInput AWS CloudFormation Resource (AWS::IoTEvents::DetectorModel.OnInput)
@@ -13,12 +13,12 @@ type DetectorModel_OnInput struct {
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
-	Events *[]DetectorModel_Event `json:"Events,omitempty"`
+	Events []DetectorModel_Event `json:"Events,omitempty"`
 
 	// TransitionEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
-	TransitionEvents *[]DetectorModel_TransitionEvent `json:"TransitionEvents,omitempty"`
+	TransitionEvents []DetectorModel_TransitionEvent `json:"TransitionEvents,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package databrew
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Job_CsvOutputOptions AWS CloudFormation Resource (AWS::DataBrew::Job.CsvOutputOptions)

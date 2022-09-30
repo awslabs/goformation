@@ -3,7 +3,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Domain_RStudioServerProDomainSettings AWS CloudFormation Resource (AWS::SageMaker::Domain.RStudioServerProDomainSettings)

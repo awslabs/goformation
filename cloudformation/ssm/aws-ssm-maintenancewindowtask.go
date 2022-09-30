@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // MaintenanceWindowTask AWS CloudFormation Resource (AWS::SSM::MaintenanceWindowTask)
@@ -56,7 +56,7 @@ type MaintenanceWindowTask struct {
 	// Targets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-targets
-	Targets *[]MaintenanceWindowTask_Target `json:"Targets,omitempty"`
+	Targets []MaintenanceWindowTask_Target `json:"Targets,omitempty"`
 
 	// TaskArn AWS CloudFormation Property
 	// Required: true

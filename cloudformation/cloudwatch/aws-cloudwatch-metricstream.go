@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // MetricStream AWS CloudFormation Resource (AWS::CloudWatch::MetricStream)
@@ -17,7 +17,7 @@ type MetricStream struct {
 	// ExcludeFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
-	ExcludeFilters *[]MetricStream_MetricStreamFilter `json:"ExcludeFilters,omitempty"`
+	ExcludeFilters []MetricStream_MetricStreamFilter `json:"ExcludeFilters,omitempty"`
 
 	// FirehoseArn AWS CloudFormation Property
 	// Required: true
@@ -27,7 +27,7 @@ type MetricStream struct {
 	// IncludeFilters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
-	IncludeFilters *[]MetricStream_MetricStreamFilter `json:"IncludeFilters,omitempty"`
+	IncludeFilters []MetricStream_MetricStreamFilter `json:"IncludeFilters,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -47,12 +47,12 @@ type MetricStream struct {
 	// StatisticsConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-statisticsconfigurations
-	StatisticsConfigurations *[]MetricStream_MetricStreamStatisticsConfiguration `json:"StatisticsConfigurations,omitempty"`
+	StatisticsConfigurations []MetricStream_MetricStreamStatisticsConfiguration `json:"StatisticsConfigurations,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

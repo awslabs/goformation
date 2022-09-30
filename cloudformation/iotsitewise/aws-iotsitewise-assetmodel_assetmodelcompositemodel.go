@@ -3,7 +3,7 @@
 package iotsitewise
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AssetModel_AssetModelCompositeModel AWS CloudFormation Resource (AWS::IoTSiteWise::AssetModel.AssetModelCompositeModel)
@@ -13,7 +13,7 @@ type AssetModel_AssetModelCompositeModel struct {
 	// CompositeModelProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
-	CompositeModelProperties *[]AssetModel_AssetModelProperty `json:"CompositeModelProperties,omitempty"`
+	CompositeModelProperties []AssetModel_AssetModelProperty `json:"CompositeModelProperties,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

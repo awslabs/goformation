@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // UserPoolUser AWS CloudFormation Resource (AWS::Cognito::UserPoolUser)
@@ -21,7 +21,7 @@ type UserPoolUser struct {
 	// DesiredDeliveryMediums AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-desireddeliverymediums
-	DesiredDeliveryMediums *[]string `json:"DesiredDeliveryMediums,omitempty"`
+	DesiredDeliveryMediums []string `json:"DesiredDeliveryMediums,omitempty"`
 
 	// ForceAliasCreation AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type UserPoolUser struct {
 	// UserAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userattributes
-	UserAttributes *[]UserPoolUser_AttributeType `json:"UserAttributes,omitempty"`
+	UserAttributes []UserPoolUser_AttributeType `json:"UserAttributes,omitempty"`
 
 	// UserPoolId AWS CloudFormation Property
 	// Required: true
@@ -51,7 +51,7 @@ type UserPoolUser struct {
 	// ValidationData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-validationdata
-	ValidationData *[]UserPoolUser_AttributeType `json:"ValidationData,omitempty"`
+	ValidationData []UserPoolUser_AttributeType `json:"ValidationData,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

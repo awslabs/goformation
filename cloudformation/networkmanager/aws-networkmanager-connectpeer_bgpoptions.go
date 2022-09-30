@@ -3,7 +3,7 @@
 package networkmanager
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConnectPeer_BgpOptions AWS CloudFormation Resource (AWS::NetworkManager::ConnectPeer.BgpOptions)

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // UserPoolIdentityProvider AWS CloudFormation Resource (AWS::Cognito::UserPoolIdentityProvider)
@@ -21,7 +21,7 @@ type UserPoolIdentityProvider struct {
 	// IdpIdentifiers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers
-	IdpIdentifiers *[]string `json:"IdpIdentifiers,omitempty"`
+	IdpIdentifiers []string `json:"IdpIdentifiers,omitempty"`
 
 	// ProviderDetails AWS CloudFormation Property
 	// Required: false

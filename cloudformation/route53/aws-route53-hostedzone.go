@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // HostedZone AWS CloudFormation Resource (AWS::Route53::HostedZone)
@@ -21,7 +21,7 @@ type HostedZone struct {
 	// HostedZoneTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-	HostedZoneTags *[]HostedZone_HostedZoneTag `json:"HostedZoneTags,omitempty"`
+	HostedZoneTags []HostedZone_HostedZoneTag `json:"HostedZoneTags,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -36,7 +36,7 @@ type HostedZone struct {
 	// VPCs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-	VPCs *[]HostedZone_VPC `json:"VPCs,omitempty"`
+	VPCs []HostedZone_VPC `json:"VPCs,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

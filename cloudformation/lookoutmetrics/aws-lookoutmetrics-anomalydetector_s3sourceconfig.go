@@ -3,7 +3,7 @@
 package lookoutmetrics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AnomalyDetector_S3SourceConfig AWS CloudFormation Resource (AWS::LookoutMetrics::AnomalyDetector.S3SourceConfig)
@@ -18,7 +18,7 @@ type AnomalyDetector_S3SourceConfig struct {
 	// HistoricalDataPathList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
-	HistoricalDataPathList *[]string `json:"HistoricalDataPathList,omitempty"`
+	HistoricalDataPathList []string `json:"HistoricalDataPathList,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type AnomalyDetector_S3SourceConfig struct {
 	// TemplatedPathList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
-	TemplatedPathList *[]string `json:"TemplatedPathList,omitempty"`
+	TemplatedPathList []string `json:"TemplatedPathList,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

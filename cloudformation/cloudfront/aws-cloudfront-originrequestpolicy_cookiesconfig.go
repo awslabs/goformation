@@ -3,7 +3,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // OriginRequestPolicy_CookiesConfig AWS CloudFormation Resource (AWS::CloudFront::OriginRequestPolicy.CookiesConfig)
@@ -18,7 +18,7 @@ type OriginRequestPolicy_CookiesConfig struct {
 	// Cookies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
-	Cookies *[]string `json:"Cookies,omitempty"`
+	Cookies []string `json:"Cookies,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

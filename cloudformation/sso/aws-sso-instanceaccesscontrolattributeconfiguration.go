@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // InstanceAccessControlAttributeConfiguration AWS CloudFormation Resource (AWS::SSO::InstanceAccessControlAttributeConfiguration)
@@ -16,7 +16,7 @@ type InstanceAccessControlAttributeConfiguration struct {
 	// AccessControlAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-	AccessControlAttributes *[]InstanceAccessControlAttributeConfiguration_AccessControlAttribute `json:"AccessControlAttributes,omitempty"`
+	AccessControlAttributes []InstanceAccessControlAttributeConfiguration_AccessControlAttribute `json:"AccessControlAttributes,omitempty"`
 
 	// InstanceArn AWS CloudFormation Property
 	// Required: true

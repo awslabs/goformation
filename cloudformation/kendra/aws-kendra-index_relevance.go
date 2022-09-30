@@ -3,7 +3,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Index_Relevance AWS CloudFormation Resource (AWS::Kendra::Index.Relevance)
@@ -33,7 +33,7 @@ type Index_Relevance struct {
 	// ValueImportanceItems AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
-	ValueImportanceItems *[]Index_ValueImportanceItem `json:"ValueImportanceItems,omitempty"`
+	ValueImportanceItems []Index_ValueImportanceItem `json:"ValueImportanceItems,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package emr
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Cluster_JobFlowInstancesConfig AWS CloudFormation Resource (AWS::EMR::Cluster.JobFlowInstancesConfig)
@@ -13,12 +13,12 @@ type Cluster_JobFlowInstancesConfig struct {
 	// AdditionalMasterSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-additionalmastersecuritygroups
-	AdditionalMasterSecurityGroups *[]string `json:"AdditionalMasterSecurityGroups,omitempty"`
+	AdditionalMasterSecurityGroups []string `json:"AdditionalMasterSecurityGroups,omitempty"`
 
 	// AdditionalSlaveSecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-additionalslavesecuritygroups
-	AdditionalSlaveSecurityGroups *[]string `json:"AdditionalSlaveSecurityGroups,omitempty"`
+	AdditionalSlaveSecurityGroups []string `json:"AdditionalSlaveSecurityGroups,omitempty"`
 
 	// CoreInstanceFleet AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type Cluster_JobFlowInstancesConfig struct {
 	// Ec2SubnetIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-ec2subnetids
-	Ec2SubnetIds *[]string `json:"Ec2SubnetIds,omitempty"`
+	Ec2SubnetIds []string `json:"Ec2SubnetIds,omitempty"`
 
 	// EmrManagedMasterSecurityGroup AWS CloudFormation Property
 	// Required: false
@@ -88,12 +88,12 @@ type Cluster_JobFlowInstancesConfig struct {
 	// TaskInstanceFleets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-taskinstancefleets
-	TaskInstanceFleets *[]Cluster_InstanceFleetConfig `json:"TaskInstanceFleets,omitempty"`
+	TaskInstanceFleets []Cluster_InstanceFleetConfig `json:"TaskInstanceFleets,omitempty"`
 
 	// TaskInstanceGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-taskinstancegroups
-	TaskInstanceGroups *[]Cluster_InstanceGroupConfig `json:"TaskInstanceGroups,omitempty"`
+	TaskInstanceGroups []Cluster_InstanceGroupConfig `json:"TaskInstanceGroups,omitempty"`
 
 	// TerminationProtected AWS CloudFormation Property
 	// Required: false

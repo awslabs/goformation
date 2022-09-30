@@ -3,7 +3,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Bot_MessageGroup AWS CloudFormation Resource (AWS::Lex::Bot.MessageGroup)
@@ -18,7 +18,7 @@ type Bot_MessageGroup struct {
 	// Variations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html#cfn-lex-bot-messagegroup-variations
-	Variations *[]Bot_Message `json:"Variations,omitempty"`
+	Variations []Bot_Message `json:"Variations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

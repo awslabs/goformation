@@ -3,7 +3,7 @@
 package codedeploy
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeploymentGroup_AlarmConfiguration AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.AlarmConfiguration)
@@ -13,7 +13,7 @@ type DeploymentGroup_AlarmConfiguration struct {
 	// Alarms AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html#cfn-codedeploy-deploymentgroup-alarmconfiguration-alarms
-	Alarms *[]DeploymentGroup_Alarm `json:"Alarms,omitempty"`
+	Alarms []DeploymentGroup_Alarm `json:"Alarms,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false

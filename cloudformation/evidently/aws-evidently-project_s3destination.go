@@ -3,7 +3,7 @@
 package evidently
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Project_S3Destination AWS CloudFormation Resource (AWS::Evidently::Project.S3Destination)

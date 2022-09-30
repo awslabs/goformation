@@ -3,7 +3,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // OriginRequestPolicy_QueryStringsConfig AWS CloudFormation Resource (AWS::CloudFront::OriginRequestPolicy.QueryStringsConfig)
@@ -18,7 +18,7 @@ type OriginRequestPolicy_QueryStringsConfig struct {
 	// QueryStrings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
-	QueryStrings *[]string `json:"QueryStrings,omitempty"`
+	QueryStrings []string `json:"QueryStrings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

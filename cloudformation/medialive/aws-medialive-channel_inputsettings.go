@@ -3,7 +3,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Channel_InputSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.InputSettings)
@@ -13,12 +13,12 @@ type Channel_InputSettings struct {
 	// AudioSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-audioselectors
-	AudioSelectors *[]Channel_AudioSelector `json:"AudioSelectors,omitempty"`
+	AudioSelectors []Channel_AudioSelector `json:"AudioSelectors,omitempty"`
 
 	// CaptionSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-captionselectors
-	CaptionSelectors *[]Channel_CaptionSelector `json:"CaptionSelectors,omitempty"`
+	CaptionSelectors []Channel_CaptionSelector `json:"CaptionSelectors,omitempty"`
 
 	// DeblockFilter AWS CloudFormation Property
 	// Required: false

@@ -3,7 +3,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Bot_TestBotAliasSettings AWS CloudFormation Resource (AWS::Lex::Bot.TestBotAliasSettings)
@@ -13,7 +13,7 @@ type Bot_TestBotAliasSettings struct {
 	// BotAliasLocaleSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-botaliaslocalesettings
-	BotAliasLocaleSettings *[]Bot_BotAliasLocaleSettingsItem `json:"BotAliasLocaleSettings,omitempty"`
+	BotAliasLocaleSettings []Bot_BotAliasLocaleSettingsItem `json:"BotAliasLocaleSettings,omitempty"`
 
 	// ConversationLogSettings AWS CloudFormation Property
 	// Required: false

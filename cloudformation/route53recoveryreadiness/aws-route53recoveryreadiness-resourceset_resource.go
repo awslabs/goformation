@@ -3,7 +3,7 @@
 package route53recoveryreadiness
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ResourceSet_Resource AWS CloudFormation Resource (AWS::Route53RecoveryReadiness::ResourceSet.Resource)
@@ -23,7 +23,7 @@ type ResourceSet_Resource struct {
 	// ReadinessScopes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
-	ReadinessScopes *[]string `json:"ReadinessScopes,omitempty"`
+	ReadinessScopes []string `json:"ReadinessScopes,omitempty"`
 
 	// ResourceArn AWS CloudFormation Property
 	// Required: false

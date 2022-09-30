@@ -3,7 +3,7 @@
 package elasticloadbalancing
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // LoadBalancer_Listeners AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer.Listeners)
@@ -28,7 +28,7 @@ type LoadBalancer_Listeners struct {
 	// PolicyNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames
-	PolicyNames *[]string `json:"PolicyNames,omitempty"`
+	PolicyNames []string `json:"PolicyNames,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true

@@ -3,7 +3,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSource_SalesforceKnowledgeArticleConfiguration AWS CloudFormation Resource (AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration)
@@ -13,7 +13,7 @@ type DataSource_SalesforceKnowledgeArticleConfiguration struct {
 	// CustomKnowledgeArticleTypeConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-	CustomKnowledgeArticleTypeConfigurations *[]DataSource_SalesforceCustomKnowledgeArticleTypeConfiguration `json:"CustomKnowledgeArticleTypeConfigurations,omitempty"`
+	CustomKnowledgeArticleTypeConfigurations []DataSource_SalesforceCustomKnowledgeArticleTypeConfiguration `json:"CustomKnowledgeArticleTypeConfigurations,omitempty"`
 
 	// IncludedStates AWS CloudFormation Property
 	// Required: true

@@ -3,7 +3,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Template_TemplateSourceEntity AWS CloudFormation Resource (AWS::QuickSight::Template.TemplateSourceEntity)

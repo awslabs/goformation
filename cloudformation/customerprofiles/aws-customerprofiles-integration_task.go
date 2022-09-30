@@ -3,7 +3,7 @@
 package customerprofiles
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Integration_Task AWS CloudFormation Resource (AWS::CustomerProfiles::Integration.Task)
@@ -28,7 +28,7 @@ type Integration_Task struct {
 	// TaskProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
-	TaskProperties *[]Integration_TaskPropertiesMap `json:"TaskProperties,omitempty"`
+	TaskProperties []Integration_TaskPropertiesMap `json:"TaskProperties,omitempty"`
 
 	// TaskType AWS CloudFormation Property
 	// Required: true

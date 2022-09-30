@@ -3,7 +3,7 @@
 package stepfunctions
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StateMachine_LoggingConfiguration AWS CloudFormation Resource (AWS::StepFunctions::StateMachine.LoggingConfiguration)
@@ -13,7 +13,7 @@ type StateMachine_LoggingConfiguration struct {
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
-	Destinations *[]StateMachine_LogDestination `json:"Destinations,omitempty"`
+	Destinations []StateMachine_LogDestination `json:"Destinations,omitempty"`
 
 	// IncludeExecutionData AWS CloudFormation Property
 	// Required: false

@@ -3,8 +3,8 @@
 package apigateway
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Deployment_StageDescription AWS CloudFormation Resource (AWS::ApiGateway::Deployment.StageDescription)
@@ -74,7 +74,7 @@ type Deployment_StageDescription struct {
 	// MethodSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
-	MethodSettings *[]Deployment_MethodSetting `json:"MethodSettings,omitempty"`
+	MethodSettings []Deployment_MethodSetting `json:"MethodSettings,omitempty"`
 
 	// MetricsEnabled AWS CloudFormation Property
 	// Required: false
@@ -84,7 +84,7 @@ type Deployment_StageDescription struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// ThrottlingBurstLimit AWS CloudFormation Property
 	// Required: false
@@ -104,7 +104,7 @@ type Deployment_StageDescription struct {
 	// Variables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
-	Variables *map[string]string `json:"Variables,omitempty"`
+	Variables map[string]string `json:"Variables,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

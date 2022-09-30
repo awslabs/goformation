@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // InputSecurityGroup AWS CloudFormation Resource (AWS::MediaLive::InputSecurityGroup)
@@ -21,7 +21,7 @@ type InputSecurityGroup struct {
 	// WhitelistRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html#cfn-medialive-inputsecuritygroup-whitelistrules
-	WhitelistRules *[]InputSecurityGroup_InputWhitelistRuleCidr `json:"WhitelistRules,omitempty"`
+	WhitelistRules []InputSecurityGroup_InputWhitelistRuleCidr `json:"WhitelistRules,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

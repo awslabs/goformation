@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Cluster AWS CloudFormation Resource (AWS::EKS::Cluster)
@@ -17,7 +17,7 @@ type Cluster struct {
 	// EncryptionConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
-	EncryptionConfig *[]Cluster_EncryptionConfig `json:"EncryptionConfig,omitempty"`
+	EncryptionConfig []Cluster_EncryptionConfig `json:"EncryptionConfig,omitempty"`
 
 	// KubernetesNetworkConfig AWS CloudFormation Property
 	// Required: false
@@ -34,6 +34,11 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
 	Name *string `json:"Name,omitempty"`
 
+	// OutpostConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig
+	OutpostConfig *Cluster_OutpostConfig `json:"OutpostConfig,omitempty"`
+
 	// ResourcesVpcConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
@@ -47,7 +52,7 @@ type Cluster struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Version AWS CloudFormation Property
 	// Required: false

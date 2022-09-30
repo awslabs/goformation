@@ -1,6 +1,6 @@
 package tags
 
-import "github.com/awslabs/goformation/v6/cloudformation/policies"
+import "github.com/awslabs/goformation/v7/cloudformation/policies"
 
 // Tag AWS CloudFormation Resource (Tag)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html

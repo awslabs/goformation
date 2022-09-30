@@ -3,7 +3,7 @@
 package cloudfront
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StreamingDistribution_TrustedSigners AWS CloudFormation Resource (AWS::CloudFront::StreamingDistribution.TrustedSigners)
@@ -13,7 +13,7 @@ type StreamingDistribution_TrustedSigners struct {
 	// AwsAccountNumbers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers
-	AwsAccountNumbers *[]string `json:"AwsAccountNumbers,omitempty"`
+	AwsAccountNumbers []string `json:"AwsAccountNumbers,omitempty"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: true

@@ -3,7 +3,7 @@
 package appflow
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Flow_DynatraceSourceProperties AWS CloudFormation Resource (AWS::AppFlow::Flow.DynatraceSourceProperties)

@@ -3,7 +3,7 @@
 package lakeformation
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataCellsFilter_ColumnWildcard AWS CloudFormation Resource (AWS::LakeFormation::DataCellsFilter.ColumnWildcard)
@@ -13,7 +13,7 @@ type DataCellsFilter_ColumnWildcard struct {
 	// ExcludedColumnNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-columnwildcard.html#cfn-lakeformation-datacellsfilter-columnwildcard-excludedcolumnnames
-	ExcludedColumnNames *[]string `json:"ExcludedColumnNames,omitempty"`
+	ExcludedColumnNames []string `json:"ExcludedColumnNames,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

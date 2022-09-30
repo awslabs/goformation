@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Dataset AWS CloudFormation Resource (AWS::IoTAnalytics::Dataset)
@@ -22,7 +22,7 @@ type Dataset struct {
 	// ContentDeliveryRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-contentdeliveryrules
-	ContentDeliveryRules *[]Dataset_DatasetContentDeliveryRule `json:"ContentDeliveryRules,omitempty"`
+	ContentDeliveryRules []Dataset_DatasetContentDeliveryRule `json:"ContentDeliveryRules,omitempty"`
 
 	// DatasetName AWS CloudFormation Property
 	// Required: false
@@ -32,7 +32,7 @@ type Dataset struct {
 	// LateDataRules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-latedatarules
-	LateDataRules *[]Dataset_LateDataRule `json:"LateDataRules,omitempty"`
+	LateDataRules []Dataset_LateDataRule `json:"LateDataRules,omitempty"`
 
 	// RetentionPeriod AWS CloudFormation Property
 	// Required: false
@@ -42,12 +42,12 @@ type Dataset struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Triggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers
-	Triggers *[]Dataset_Trigger `json:"Triggers,omitempty"`
+	Triggers []Dataset_Trigger `json:"Triggers,omitempty"`
 
 	// VersioningConfiguration AWS CloudFormation Property
 	// Required: false

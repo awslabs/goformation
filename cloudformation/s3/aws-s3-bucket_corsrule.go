@@ -3,7 +3,7 @@
 package s3
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Bucket_CorsRule AWS CloudFormation Resource (AWS::S3::Bucket.CorsRule)
@@ -13,7 +13,7 @@ type Bucket_CorsRule struct {
 	// AllowedHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedheaders
-	AllowedHeaders *[]string `json:"AllowedHeaders,omitempty"`
+	AllowedHeaders []string `json:"AllowedHeaders,omitempty"`
 
 	// AllowedMethods AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type Bucket_CorsRule struct {
 	// ExposedHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-exposedheaders
-	ExposedHeaders *[]string `json:"ExposedHeaders,omitempty"`
+	ExposedHeaders []string `json:"ExposedHeaders,omitempty"`
 
 	// Id AWS CloudFormation Property
 	// Required: false

@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // VirtualNode_LoggingFormat AWS CloudFormation Resource (AWS::AppMesh::VirtualNode.LoggingFormat)
@@ -13,7 +13,7 @@ type VirtualNode_LoggingFormat struct {
 	// Json AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html#cfn-appmesh-virtualnode-loggingformat-json
-	Json *[]VirtualNode_JsonFormatRef `json:"Json,omitempty"`
+	Json []VirtualNode_JsonFormatRef `json:"Json,omitempty"`
 
 	// Text AWS CloudFormation Property
 	// Required: false

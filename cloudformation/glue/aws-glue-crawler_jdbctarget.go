@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Crawler_JdbcTarget AWS CloudFormation Resource (AWS::Glue::Crawler.JdbcTarget)
@@ -18,7 +18,7 @@ type Crawler_JdbcTarget struct {
 	// Exclusions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
-	Exclusions *[]string `json:"Exclusions,omitempty"`
+	Exclusions []string `json:"Exclusions,omitempty"`
 
 	// Path AWS CloudFormation Property
 	// Required: false

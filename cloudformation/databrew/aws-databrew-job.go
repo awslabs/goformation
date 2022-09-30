@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Job AWS CloudFormation Resource (AWS::DataBrew::Job)
@@ -17,12 +17,12 @@ type Job struct {
 	// DataCatalogOutputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
-	DataCatalogOutputs *[]Job_DataCatalogOutput `json:"DataCatalogOutputs,omitempty"`
+	DataCatalogOutputs []Job_DataCatalogOutput `json:"DataCatalogOutputs,omitempty"`
 
 	// DatabaseOutputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
-	DatabaseOutputs *[]Job_DatabaseOutput `json:"DatabaseOutputs,omitempty"`
+	DatabaseOutputs []Job_DatabaseOutput `json:"DatabaseOutputs,omitempty"`
 
 	// DatasetName AWS CloudFormation Property
 	// Required: false
@@ -72,7 +72,7 @@ type Job struct {
 	// Outputs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
-	Outputs *[]Job_Output `json:"Outputs,omitempty"`
+	Outputs []Job_Output `json:"Outputs,omitempty"`
 
 	// ProfileConfiguration AWS CloudFormation Property
 	// Required: false
@@ -97,7 +97,7 @@ type Job struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false
@@ -112,7 +112,7 @@ type Job struct {
 	// ValidationConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-validationconfigurations
-	ValidationConfigurations *[]Job_ValidationConfiguration `json:"ValidationConfigurations,omitempty"`
+	ValidationConfigurations []Job_ValidationConfiguration `json:"ValidationConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

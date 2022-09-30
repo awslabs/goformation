@@ -3,7 +3,7 @@
 package lightsail
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Distribution_HeaderObject AWS CloudFormation Resource (AWS::Lightsail::Distribution.HeaderObject)
@@ -13,7 +13,7 @@ type Distribution_HeaderObject struct {
 	// HeadersAllowList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html#cfn-lightsail-distribution-headerobject-headersallowlist
-	HeadersAllowList *[]string `json:"HeadersAllowList,omitempty"`
+	HeadersAllowList []string `json:"HeadersAllowList,omitempty"`
 
 	// Option AWS CloudFormation Property
 	// Required: false

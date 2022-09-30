@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // InstanceFleetConfig AWS CloudFormation Resource (AWS::EMR::InstanceFleetConfig)
@@ -26,7 +26,7 @@ type InstanceFleetConfig struct {
 	// InstanceTypeConfigs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfigs
-	InstanceTypeConfigs *[]InstanceFleetConfig_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
+	InstanceTypeConfigs []InstanceFleetConfig_InstanceTypeConfig `json:"InstanceTypeConfigs,omitempty"`
 
 	// LaunchSpecifications AWS CloudFormation Property
 	// Required: false

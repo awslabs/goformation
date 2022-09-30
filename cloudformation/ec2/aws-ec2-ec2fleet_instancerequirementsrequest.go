@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EC2Fleet_InstanceRequirementsRequest AWS CloudFormation Resource (AWS::EC2::EC2Fleet.InstanceRequirementsRequest)
@@ -18,12 +18,12 @@ type EC2Fleet_InstanceRequirementsRequest struct {
 	// AcceleratorManufacturers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratormanufacturers
-	AcceleratorManufacturers *[]string `json:"AcceleratorManufacturers,omitempty"`
+	AcceleratorManufacturers []string `json:"AcceleratorManufacturers,omitempty"`
 
 	// AcceleratorNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratornames
-	AcceleratorNames *[]string `json:"AcceleratorNames,omitempty"`
+	AcceleratorNames []string `json:"AcceleratorNames,omitempty"`
 
 	// AcceleratorTotalMemoryMiB AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type EC2Fleet_InstanceRequirementsRequest struct {
 	// AcceleratorTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratortypes
-	AcceleratorTypes *[]string `json:"AcceleratorTypes,omitempty"`
+	AcceleratorTypes []string `json:"AcceleratorTypes,omitempty"`
 
 	// BareMetal AWS CloudFormation Property
 	// Required: false
@@ -53,17 +53,17 @@ type EC2Fleet_InstanceRequirementsRequest struct {
 	// CpuManufacturers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-cpumanufacturers
-	CpuManufacturers *[]string `json:"CpuManufacturers,omitempty"`
+	CpuManufacturers []string `json:"CpuManufacturers,omitempty"`
 
 	// ExcludedInstanceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-excludedinstancetypes
-	ExcludedInstanceTypes *[]string `json:"ExcludedInstanceTypes,omitempty"`
+	ExcludedInstanceTypes []string `json:"ExcludedInstanceTypes,omitempty"`
 
 	// InstanceGenerations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-instancegenerations
-	InstanceGenerations *[]string `json:"InstanceGenerations,omitempty"`
+	InstanceGenerations []string `json:"InstanceGenerations,omitempty"`
 
 	// LocalStorage AWS CloudFormation Property
 	// Required: false
@@ -73,7 +73,7 @@ type EC2Fleet_InstanceRequirementsRequest struct {
 	// LocalStorageTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-localstoragetypes
-	LocalStorageTypes *[]string `json:"LocalStorageTypes,omitempty"`
+	LocalStorageTypes []string `json:"LocalStorageTypes,omitempty"`
 
 	// MemoryGiBPerVCpu AWS CloudFormation Property
 	// Required: false

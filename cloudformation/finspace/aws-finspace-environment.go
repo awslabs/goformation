@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Environment AWS CloudFormation Resource (AWS::FinSpace::Environment)
@@ -16,7 +16,7 @@ type Environment struct {
 	// DataBundles AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-databundles
-	DataBundles *[]string `json:"DataBundles,omitempty"`
+	DataBundles []string `json:"DataBundles,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

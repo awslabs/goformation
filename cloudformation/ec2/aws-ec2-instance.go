@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Instance AWS CloudFormation Resource (AWS::EC2::Instance)
@@ -32,7 +32,7 @@ type Instance struct {
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings
-	BlockDeviceMappings *[]Instance_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
+	BlockDeviceMappings []Instance_BlockDeviceMapping `json:"BlockDeviceMappings,omitempty"`
 
 	// CpuOptions AWS CloudFormation Property
 	// Required: false
@@ -57,12 +57,12 @@ type Instance struct {
 	// ElasticGpuSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications
-	ElasticGpuSpecifications *[]Instance_ElasticGpuSpecification `json:"ElasticGpuSpecifications,omitempty"`
+	ElasticGpuSpecifications []Instance_ElasticGpuSpecification `json:"ElasticGpuSpecifications,omitempty"`
 
 	// ElasticInferenceAccelerators AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
-	ElasticInferenceAccelerators *[]Instance_ElasticInferenceAccelerator `json:"ElasticInferenceAccelerators,omitempty"`
+	ElasticInferenceAccelerators []Instance_ElasticInferenceAccelerator `json:"ElasticInferenceAccelerators,omitempty"`
 
 	// EnclaveOptions AWS CloudFormation Property
 	// Required: false
@@ -112,7 +112,7 @@ type Instance struct {
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresses
-	Ipv6Addresses *[]Instance_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
+	Ipv6Addresses []Instance_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
 
 	// KernelId AWS CloudFormation Property
 	// Required: false
@@ -132,7 +132,7 @@ type Instance struct {
 	// LicenseSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-licensespecifications
-	LicenseSpecifications *[]Instance_LicenseSpecification `json:"LicenseSpecifications,omitempty"`
+	LicenseSpecifications []Instance_LicenseSpecification `json:"LicenseSpecifications,omitempty"`
 
 	// Monitoring AWS CloudFormation Property
 	// Required: false
@@ -142,7 +142,7 @@ type Instance struct {
 	// NetworkInterfaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-networkinterfaces
-	NetworkInterfaces *[]Instance_NetworkInterface `json:"NetworkInterfaces,omitempty"`
+	NetworkInterfaces []Instance_NetworkInterface `json:"NetworkInterfaces,omitempty"`
 
 	// PlacementGroupName AWS CloudFormation Property
 	// Required: false
@@ -172,12 +172,12 @@ type Instance struct {
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids
-	SecurityGroupIds *[]string `json:"SecurityGroupIds,omitempty"`
+	SecurityGroupIds []string `json:"SecurityGroupIds,omitempty"`
 
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroups
-	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
+	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
 	// SourceDestCheck AWS CloudFormation Property
 	// Required: false
@@ -187,7 +187,7 @@ type Instance struct {
 	// SsmAssociations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ssmassociations
-	SsmAssociations *[]Instance_SsmAssociation `json:"SsmAssociations,omitempty"`
+	SsmAssociations []Instance_SsmAssociation `json:"SsmAssociations,omitempty"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false
@@ -197,7 +197,7 @@ type Instance struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// Tenancy AWS CloudFormation Property
 	// Required: false
@@ -212,7 +212,7 @@ type Instance struct {
 	// Volumes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-volumes
-	Volumes *[]Instance_Volume `json:"Volumes,omitempty"`
+	Volumes []Instance_Volume `json:"Volumes,omitempty"`
 
 	// AWSCloudFormationCreationPolicy represents a CloudFormation CreationPolicy
 	AWSCloudFormationCreationPolicy *policies.CreationPolicy `json:"-"`

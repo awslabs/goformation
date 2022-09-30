@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WebACL_Rule AWS CloudFormation Resource (AWS::WAFv2::WebACL.Rule)
@@ -38,7 +38,7 @@ type WebACL_Rule struct {
 	// RuleLabels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
-	RuleLabels *[]WebACL_Label `json:"RuleLabels,omitempty"`
+	RuleLabels []WebACL_Label `json:"RuleLabels,omitempty"`
 
 	// Statement AWS CloudFormation Property
 	// Required: true

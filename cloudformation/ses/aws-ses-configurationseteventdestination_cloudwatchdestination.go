@@ -3,7 +3,7 @@
 package ses
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConfigurationSetEventDestination_CloudWatchDestination AWS CloudFormation Resource (AWS::SES::ConfigurationSetEventDestination.CloudWatchDestination)
@@ -13,7 +13,7 @@ type ConfigurationSetEventDestination_CloudWatchDestination struct {
 	// DimensionConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html#cfn-ses-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations
-	DimensionConfigurations *[]ConfigurationSetEventDestination_DimensionConfiguration `json:"DimensionConfigurations,omitempty"`
+	DimensionConfigurations []ConfigurationSetEventDestination_DimensionConfiguration `json:"DimensionConfigurations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

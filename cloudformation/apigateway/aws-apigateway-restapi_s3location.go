@@ -3,7 +3,7 @@
 package apigateway
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RestApi_S3Location AWS CloudFormation Resource (AWS::ApiGateway::RestApi.S3Location)

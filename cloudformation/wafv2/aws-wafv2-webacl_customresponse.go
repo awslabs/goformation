@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WebACL_CustomResponse AWS CloudFormation Resource (AWS::WAFv2::WebACL.CustomResponse)
@@ -23,7 +23,7 @@ type WebACL_CustomResponse struct {
 	// ResponseHeaders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
-	ResponseHeaders *[]WebACL_CustomHTTPHeader `json:"ResponseHeaders,omitempty"`
+	ResponseHeaders []WebACL_CustomHTTPHeader `json:"ResponseHeaders,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

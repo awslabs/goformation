@@ -3,7 +3,7 @@
 package cloudwatch
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Alarm_Metric AWS CloudFormation Resource (AWS::CloudWatch::Alarm.Metric)
@@ -13,7 +13,7 @@ type Alarm_Metric struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-dimensions
-	Dimensions *[]Alarm_Dimension `json:"Dimensions,omitempty"`
+	Dimensions []Alarm_Dimension `json:"Dimensions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: false

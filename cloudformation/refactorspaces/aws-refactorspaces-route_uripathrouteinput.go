@@ -3,7 +3,7 @@
 package refactorspaces
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Route_UriPathRouteInput AWS CloudFormation Resource (AWS::RefactorSpaces::Route.UriPathRouteInput)
@@ -23,7 +23,7 @@ type Route_UriPathRouteInput struct {
 	// Methods AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html#cfn-refactorspaces-route-uripathrouteinput-methods
-	Methods *[]string `json:"Methods,omitempty"`
+	Methods []string `json:"Methods,omitempty"`
 
 	// SourcePath AWS CloudFormation Property
 	// Required: false

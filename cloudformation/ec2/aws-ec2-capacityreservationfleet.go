@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CapacityReservationFleet AWS CloudFormation Resource (AWS::EC2::CapacityReservationFleet)
@@ -31,7 +31,7 @@ type CapacityReservationFleet struct {
 	// InstanceTypeSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-instancetypespecifications
-	InstanceTypeSpecifications *[]CapacityReservationFleet_InstanceTypeSpecification `json:"InstanceTypeSpecifications,omitempty"`
+	InstanceTypeSpecifications []CapacityReservationFleet_InstanceTypeSpecification `json:"InstanceTypeSpecifications,omitempty"`
 
 	// NoRemoveEndDate AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type CapacityReservationFleet struct {
 	// TagSpecifications AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-tagspecifications
-	TagSpecifications *[]CapacityReservationFleet_TagSpecification `json:"TagSpecifications,omitempty"`
+	TagSpecifications []CapacityReservationFleet_TagSpecification `json:"TagSpecifications,omitempty"`
 
 	// Tenancy AWS CloudFormation Property
 	// Required: false

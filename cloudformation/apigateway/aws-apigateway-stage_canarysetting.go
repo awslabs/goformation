@@ -3,7 +3,7 @@
 package apigateway
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Stage_CanarySetting AWS CloudFormation Resource (AWS::ApiGateway::Stage.CanarySetting)
@@ -23,7 +23,7 @@ type Stage_CanarySetting struct {
 	// StageVariableOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
-	StageVariableOverrides *map[string]string `json:"StageVariableOverrides,omitempty"`
+	StageVariableOverrides map[string]string `json:"StageVariableOverrides,omitempty"`
 
 	// UseStageCache AWS CloudFormation Property
 	// Required: false

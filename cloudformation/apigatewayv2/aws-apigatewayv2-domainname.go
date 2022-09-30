@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DomainName AWS CloudFormation Resource (AWS::ApiGatewayV2::DomainName)
@@ -21,7 +21,7 @@ type DomainName struct {
 	// DomainNameConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations
-	DomainNameConfigurations *[]DomainName_DomainNameConfiguration `json:"DomainNameConfigurations,omitempty"`
+	DomainNameConfigurations []DomainName_DomainNameConfiguration `json:"DomainNameConfigurations,omitempty"`
 
 	// MutualTlsAuthentication AWS CloudFormation Property
 	// Required: false

@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // LoadBalancer AWS CloudFormation Resource (AWS::ElasticLoadBalancing::LoadBalancer)
@@ -22,12 +22,12 @@ type LoadBalancer struct {
 	// AppCookieStickinessPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-appcookiestickinesspolicy
-	AppCookieStickinessPolicy *[]LoadBalancer_AppCookieStickinessPolicy `json:"AppCookieStickinessPolicy,omitempty"`
+	AppCookieStickinessPolicy []LoadBalancer_AppCookieStickinessPolicy `json:"AppCookieStickinessPolicy,omitempty"`
 
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-availabilityzones
-	AvailabilityZones *[]string `json:"AvailabilityZones,omitempty"`
+	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
 
 	// ConnectionDrainingPolicy AWS CloudFormation Property
 	// Required: false
@@ -52,12 +52,12 @@ type LoadBalancer struct {
 	// Instances AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-instances
-	Instances *[]string `json:"Instances,omitempty"`
+	Instances []string `json:"Instances,omitempty"`
 
 	// LBCookieStickinessPolicy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-lbcookiestickinesspolicy
-	LBCookieStickinessPolicy *[]LoadBalancer_LBCookieStickinessPolicy `json:"LBCookieStickinessPolicy,omitempty"`
+	LBCookieStickinessPolicy []LoadBalancer_LBCookieStickinessPolicy `json:"LBCookieStickinessPolicy,omitempty"`
 
 	// Listeners AWS CloudFormation Property
 	// Required: true
@@ -72,7 +72,7 @@ type LoadBalancer struct {
 	// Policies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-policies
-	Policies *[]LoadBalancer_Policies `json:"Policies,omitempty"`
+	Policies []LoadBalancer_Policies `json:"Policies,omitempty"`
 
 	// Scheme AWS CloudFormation Property
 	// Required: false
@@ -82,17 +82,17 @@ type LoadBalancer struct {
 	// SecurityGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-securitygroups
-	SecurityGroups *[]string `json:"SecurityGroups,omitempty"`
+	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 
 	// Subnets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-subnets
-	Subnets *[]string `json:"Subnets,omitempty"`
+	Subnets []string `json:"Subnets,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-elasticloadbalancing-loadbalancer-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

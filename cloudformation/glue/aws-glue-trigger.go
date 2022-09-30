@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Trigger AWS CloudFormation Resource (AWS::Glue::Trigger)
@@ -22,6 +22,11 @@ type Trigger struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description
 	Description *string `json:"Description,omitempty"`
+
+	// EventBatchingCondition AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-eventbatchingcondition
+	EventBatchingCondition *Trigger_EventBatchingCondition `json:"EventBatchingCondition,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

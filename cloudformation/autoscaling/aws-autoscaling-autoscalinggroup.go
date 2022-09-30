@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AutoScalingGroup AWS CloudFormation Resource (AWS::AutoScaling::AutoScalingGroup)
@@ -21,7 +21,7 @@ type AutoScalingGroup struct {
 	// AvailabilityZones AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
-	AvailabilityZones *[]string `json:"AvailabilityZones,omitempty"`
+	AvailabilityZones []string `json:"AvailabilityZones,omitempty"`
 
 	// CapacityRebalance AWS CloudFormation Property
 	// Required: false
@@ -81,12 +81,12 @@ type AutoScalingGroup struct {
 	// LifecycleHookSpecificationList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist
-	LifecycleHookSpecificationList *[]AutoScalingGroup_LifecycleHookSpecification `json:"LifecycleHookSpecificationList,omitempty"`
+	LifecycleHookSpecificationList []AutoScalingGroup_LifecycleHookSpecification `json:"LifecycleHookSpecificationList,omitempty"`
 
 	// LoadBalancerNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
-	LoadBalancerNames *[]string `json:"LoadBalancerNames,omitempty"`
+	LoadBalancerNames []string `json:"LoadBalancerNames,omitempty"`
 
 	// MaxInstanceLifetime AWS CloudFormation Property
 	// Required: false
@@ -101,7 +101,7 @@ type AutoScalingGroup struct {
 	// MetricsCollection AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-metricscollection
-	MetricsCollection *[]AutoScalingGroup_MetricsCollection `json:"MetricsCollection,omitempty"`
+	MetricsCollection []AutoScalingGroup_MetricsCollection `json:"MetricsCollection,omitempty"`
 
 	// MinSize AWS CloudFormation Property
 	// Required: true
@@ -121,7 +121,7 @@ type AutoScalingGroup struct {
 	// NotificationConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
-	NotificationConfigurations *[]AutoScalingGroup_NotificationConfiguration `json:"NotificationConfigurations,omitempty"`
+	NotificationConfigurations []AutoScalingGroup_NotificationConfiguration `json:"NotificationConfigurations,omitempty"`
 
 	// PlacementGroup AWS CloudFormation Property
 	// Required: false
@@ -136,22 +136,22 @@ type AutoScalingGroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-	Tags *[]AutoScalingGroup_TagProperty `json:"Tags,omitempty"`
+	Tags []AutoScalingGroup_TagProperty `json:"Tags,omitempty"`
 
 	// TargetGroupARNs AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
-	TargetGroupARNs *[]string `json:"TargetGroupARNs,omitempty"`
+	TargetGroupARNs []string `json:"TargetGroupARNs,omitempty"`
 
 	// TerminationPolicies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-termpolicy
-	TerminationPolicies *[]string `json:"TerminationPolicies,omitempty"`
+	TerminationPolicies []string `json:"TerminationPolicies,omitempty"`
 
 	// VPCZoneIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
-	VPCZoneIdentifier *[]string `json:"VPCZoneIdentifier,omitempty"`
+	VPCZoneIdentifier []string `json:"VPCZoneIdentifier,omitempty"`
 
 	// AWSCloudFormationUpdatePolicy represents a CloudFormation UpdatePolicy
 	AWSCloudFormationUpdatePolicy *policies.UpdatePolicy `json:"-"`

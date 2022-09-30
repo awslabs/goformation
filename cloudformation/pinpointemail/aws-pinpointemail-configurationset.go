@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConfigurationSet AWS CloudFormation Resource (AWS::PinpointEmail::ConfigurationSet)
@@ -36,7 +36,7 @@ type ConfigurationSet struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-tags
-	Tags *[]ConfigurationSet_Tags `json:"Tags,omitempty"`
+	Tags []ConfigurationSet_Tags `json:"Tags,omitempty"`
 
 	// TrackingOptions AWS CloudFormation Property
 	// Required: false

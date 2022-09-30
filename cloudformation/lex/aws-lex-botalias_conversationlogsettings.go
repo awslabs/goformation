@@ -3,7 +3,7 @@
 package lex
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // BotAlias_ConversationLogSettings AWS CloudFormation Resource (AWS::Lex::BotAlias.ConversationLogSettings)
@@ -13,12 +13,12 @@ type BotAlias_ConversationLogSettings struct {
 	// AudioLogSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-audiologsettings
-	AudioLogSettings *[]BotAlias_AudioLogSetting `json:"AudioLogSettings,omitempty"`
+	AudioLogSettings []BotAlias_AudioLogSetting `json:"AudioLogSettings,omitempty"`
 
 	// TextLogSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-textlogsettings
-	TextLogSettings *[]BotAlias_TextLogSetting `json:"TextLogSettings,omitempty"`
+	TextLogSettings []BotAlias_TextLogSetting `json:"TextLogSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

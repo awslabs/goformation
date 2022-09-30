@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CidrCollection AWS CloudFormation Resource (AWS::Route53::CidrCollection)
@@ -16,7 +16,7 @@ type CidrCollection struct {
 	// Locations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html#cfn-route53-cidrcollection-locations
-	Locations *[]CidrCollection_Location `json:"Locations,omitempty"`
+	Locations []CidrCollection_Location `json:"Locations,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

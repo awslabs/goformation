@@ -3,7 +3,7 @@
 package iotanalytics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Dataset_QueryAction AWS CloudFormation Resource (AWS::IoTAnalytics::Dataset.QueryAction)
@@ -13,7 +13,7 @@ type Dataset_QueryAction struct {
 	// Filters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-filters
-	Filters *[]Dataset_Filter `json:"Filters,omitempty"`
+	Filters []Dataset_Filter `json:"Filters,omitempty"`
 
 	// SqlQuery AWS CloudFormation Property
 	// Required: true

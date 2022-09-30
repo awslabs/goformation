@@ -3,7 +3,7 @@
 package lookoutmetrics
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AnomalyDetector_CsvFormatDescriptor AWS CloudFormation Resource (AWS::LookoutMetrics::AnomalyDetector.CsvFormatDescriptor)
@@ -33,7 +33,7 @@ type AnomalyDetector_CsvFormatDescriptor struct {
 	// HeaderList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-headerlist
-	HeaderList *[]string `json:"HeaderList,omitempty"`
+	HeaderList []string `json:"HeaderList,omitempty"`
 
 	// QuoteSymbol AWS CloudFormation Property
 	// Required: false

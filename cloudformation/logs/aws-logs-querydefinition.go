@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // QueryDefinition AWS CloudFormation Resource (AWS::Logs::QueryDefinition)
@@ -16,7 +16,7 @@ type QueryDefinition struct {
 	// LogGroupNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
-	LogGroupNames *[]string `json:"LogGroupNames,omitempty"`
+	LogGroupNames []string `json:"LogGroupNames,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

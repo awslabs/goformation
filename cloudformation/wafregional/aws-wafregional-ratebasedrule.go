@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RateBasedRule AWS CloudFormation Resource (AWS::WAFRegional::RateBasedRule)
@@ -16,7 +16,7 @@ type RateBasedRule struct {
 	// MatchPredicates AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-matchpredicates
-	MatchPredicates *[]RateBasedRule_Predicate `json:"MatchPredicates,omitempty"`
+	MatchPredicates []RateBasedRule_Predicate `json:"MatchPredicates,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true

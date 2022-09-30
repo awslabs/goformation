@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // VPCEndpointServicePermissions AWS CloudFormation Resource (AWS::EC2::VPCEndpointServicePermissions)
@@ -16,7 +16,7 @@ type VPCEndpointServicePermissions struct {
 	// AllowedPrincipals AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-allowedprincipals
-	AllowedPrincipals *[]string `json:"AllowedPrincipals,omitempty"`
+	AllowedPrincipals []string `json:"AllowedPrincipals,omitempty"`
 
 	// ServiceId AWS CloudFormation Property
 	// Required: true

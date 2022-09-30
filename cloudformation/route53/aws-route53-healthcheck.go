@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // HealthCheck AWS CloudFormation Resource (AWS::Route53::HealthCheck)
@@ -21,7 +21,7 @@ type HealthCheck struct {
 	// HealthCheckTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-	HealthCheckTags *[]HealthCheck_HealthCheckTag `json:"HealthCheckTags,omitempty"`
+	HealthCheckTags []HealthCheck_HealthCheckTag `json:"HealthCheckTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

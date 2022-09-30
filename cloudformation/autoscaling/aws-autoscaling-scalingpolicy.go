@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ScalingPolicy AWS CloudFormation Resource (AWS::AutoScaling::ScalingPolicy)
@@ -61,7 +61,7 @@ type ScalingPolicy struct {
 	// StepAdjustments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-stepadjustments
-	StepAdjustments *[]ScalingPolicy_StepAdjustment `json:"StepAdjustments,omitempty"`
+	StepAdjustments []ScalingPolicy_StepAdjustment `json:"StepAdjustments,omitempty"`
 
 	// TargetTrackingConfiguration AWS CloudFormation Property
 	// Required: false

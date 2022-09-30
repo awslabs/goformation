@@ -3,7 +3,7 @@
 package batch
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // JobDefinition_Device AWS CloudFormation Resource (AWS::Batch::JobDefinition.Device)
@@ -23,7 +23,7 @@ type JobDefinition_Device struct {
 	// Permissions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-device.html#cfn-batch-jobdefinition-device-permissions
-	Permissions *[]string `json:"Permissions,omitempty"`
+	Permissions []string `json:"Permissions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

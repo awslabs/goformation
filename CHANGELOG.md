@@ -1,5 +1,16 @@
 # GoFormation Versioning Changelog
 
+# [7.0.0-beta.1](https://github.com/awslabs/goformation/compare/v6.10.0...v7.0.0-beta.1) (2022-09-29)
+
+
+* feat(generate)!: Exclude Map and List from pointer ([aec3913](https://github.com/awslabs/goformation/commit/aec39137ec286627cc72cc106d9e4bc53e1fd16b))
+
+
+### BREAKING CHANGES
+
+* Goformation no longer generates pointer types for
+Lists, Maps and interface{} types.
+
 # [6.10.0](https://github.com/awslabs/goformation/compare/v6.9.0...v6.10.0) (2022-09-02)
 
 

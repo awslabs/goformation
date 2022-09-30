@@ -3,8 +3,8 @@
 package events
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Rule_EcsParameters AWS CloudFormation Resource (AWS::Events::Rule.EcsParameters)
@@ -14,7 +14,7 @@ type Rule_EcsParameters struct {
 	// CapacityProviderStrategy AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-capacityproviderstrategy
-	CapacityProviderStrategy *[]Rule_CapacityProviderStrategyItem `json:"CapacityProviderStrategy,omitempty"`
+	CapacityProviderStrategy []Rule_CapacityProviderStrategyItem `json:"CapacityProviderStrategy,omitempty"`
 
 	// EnableECSManagedTags AWS CloudFormation Property
 	// Required: false
@@ -44,12 +44,12 @@ type Rule_EcsParameters struct {
 	// PlacementConstraints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-placementconstraints
-	PlacementConstraints *[]Rule_PlacementConstraint `json:"PlacementConstraints,omitempty"`
+	PlacementConstraints []Rule_PlacementConstraint `json:"PlacementConstraints,omitempty"`
 
 	// PlacementStrategies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-placementstrategies
-	PlacementStrategies *[]Rule_PlacementStrategy `json:"PlacementStrategies,omitempty"`
+	PlacementStrategies []Rule_PlacementStrategy `json:"PlacementStrategies,omitempty"`
 
 	// PlatformVersion AWS CloudFormation Property
 	// Required: false
@@ -69,7 +69,7 @@ type Rule_EcsParameters struct {
 	// TagList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-taglist
-	TagList *[]tags.Tag `json:"TagList,omitempty"`
+	TagList []tags.Tag `json:"TagList,omitempty"`
 
 	// TaskCount AWS CloudFormation Property
 	// Required: false

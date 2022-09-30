@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StateMachine AWS CloudFormation Resource (AWS::Serverless::StateMachine)
@@ -21,7 +21,7 @@ type StateMachine struct {
 	// DefinitionSubstitutions AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	DefinitionSubstitutions *map[string]string `json:"DefinitionSubstitutions,omitempty"`
+	DefinitionSubstitutions map[string]string `json:"DefinitionSubstitutions,omitempty"`
 
 	// DefinitionUri AWS CloudFormation Property
 	// Required: false
@@ -31,7 +31,7 @@ type StateMachine struct {
 	// Events AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Events *map[string]StateMachine_EventSource `json:"Events,omitempty"`
+	Events map[string]StateMachine_EventSource `json:"Events,omitempty"`
 
 	// Logging AWS CloudFormation Property
 	// Required: false
@@ -61,7 +61,7 @@ type StateMachine struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
-	Tags *map[string]string `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Tracing AWS CloudFormation Property
 	// Required: false

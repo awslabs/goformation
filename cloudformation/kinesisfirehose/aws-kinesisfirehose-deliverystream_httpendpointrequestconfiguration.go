@@ -3,7 +3,7 @@
 package kinesisfirehose
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeliveryStream_HttpEndpointRequestConfiguration AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.HttpEndpointRequestConfiguration)
@@ -13,7 +13,7 @@ type DeliveryStream_HttpEndpointRequestConfiguration struct {
 	// CommonAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
-	CommonAttributes *[]DeliveryStream_HttpEndpointCommonAttribute `json:"CommonAttributes,omitempty"`
+	CommonAttributes []DeliveryStream_HttpEndpointCommonAttribute `json:"CommonAttributes,omitempty"`
 
 	// ContentEncoding AWS CloudFormation Property
 	// Required: false

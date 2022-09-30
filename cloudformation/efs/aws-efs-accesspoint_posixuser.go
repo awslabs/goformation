@@ -3,7 +3,7 @@
 package efs
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AccessPoint_PosixUser AWS CloudFormation Resource (AWS::EFS::AccessPoint.PosixUser)
@@ -18,7 +18,7 @@ type AccessPoint_PosixUser struct {
 	// SecondaryGids AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
-	SecondaryGids *[]string `json:"SecondaryGids,omitempty"`
+	SecondaryGids []string `json:"SecondaryGids,omitempty"`
 
 	// Uid AWS CloudFormation Property
 	// Required: true

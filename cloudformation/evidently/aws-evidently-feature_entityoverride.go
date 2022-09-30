@@ -3,7 +3,7 @@
 package evidently
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Feature_EntityOverride AWS CloudFormation Resource (AWS::Evidently::Feature.EntityOverride)

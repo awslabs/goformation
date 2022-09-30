@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // EventDataStore AWS CloudFormation Resource (AWS::CloudTrail::EventDataStore)
@@ -17,7 +17,7 @@ type EventDataStore struct {
 	// AdvancedEventSelectors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-advancedeventselectors
-	AdvancedEventSelectors *[]EventDataStore_AdvancedEventSelector `json:"AdvancedEventSelectors,omitempty"`
+	AdvancedEventSelectors []EventDataStore_AdvancedEventSelector `json:"AdvancedEventSelectors,omitempty"`
 
 	// MultiRegionEnabled AWS CloudFormation Property
 	// Required: false
@@ -42,7 +42,7 @@ type EventDataStore struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TerminationProtectionEnabled AWS CloudFormation Property
 	// Required: false

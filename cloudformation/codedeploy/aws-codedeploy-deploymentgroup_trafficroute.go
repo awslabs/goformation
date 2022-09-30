@@ -3,7 +3,7 @@
 package codedeploy
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeploymentGroup_TrafficRoute AWS CloudFormation Resource (AWS::CodeDeploy::DeploymentGroup.TrafficRoute)
@@ -13,7 +13,7 @@ type DeploymentGroup_TrafficRoute struct {
 	// ListenerArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-trafficroute.html#cfn-codedeploy-deploymentgroup-trafficroute-listenerarns
-	ListenerArns *[]string `json:"ListenerArns,omitempty"`
+	ListenerArns []string `json:"ListenerArns,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

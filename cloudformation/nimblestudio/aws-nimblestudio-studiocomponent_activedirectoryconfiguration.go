@@ -3,7 +3,7 @@
 package nimblestudio
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // StudioComponent_ActiveDirectoryConfiguration AWS CloudFormation Resource (AWS::NimbleStudio::StudioComponent.ActiveDirectoryConfiguration)
@@ -13,7 +13,7 @@ type StudioComponent_ActiveDirectoryConfiguration struct {
 	// ComputerAttributes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
-	ComputerAttributes *[]StudioComponent_ActiveDirectoryComputerAttribute `json:"ComputerAttributes,omitempty"`
+	ComputerAttributes []StudioComponent_ActiveDirectoryComputerAttribute `json:"ComputerAttributes,omitempty"`
 
 	// DirectoryId AWS CloudFormation Property
 	// Required: false

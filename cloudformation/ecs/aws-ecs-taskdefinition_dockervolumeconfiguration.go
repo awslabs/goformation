@@ -3,7 +3,7 @@
 package ecs
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TaskDefinition_DockerVolumeConfiguration AWS CloudFormation Resource (AWS::ECS::TaskDefinition.DockerVolumeConfiguration)
@@ -23,12 +23,12 @@ type TaskDefinition_DockerVolumeConfiguration struct {
 	// DriverOpts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
-	DriverOpts *map[string]string `json:"DriverOpts,omitempty"`
+	DriverOpts map[string]string `json:"DriverOpts,omitempty"`
 
 	// Labels AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
-	Labels *map[string]string `json:"Labels,omitempty"`
+	Labels map[string]string `json:"Labels,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: false

@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Bot AWS CloudFormation Resource (AWS::Lex::Bot)
@@ -27,12 +27,12 @@ type Bot struct {
 	// BotLocales AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botlocales
-	BotLocales *[]Bot_BotLocale `json:"BotLocales,omitempty"`
+	BotLocales []Bot_BotLocale `json:"BotLocales,omitempty"`
 
 	// BotTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-bottags
-	BotTags *[]tags.Tag `json:"BotTags,omitempty"`
+	BotTags []tags.Tag `json:"BotTags,omitempty"`
 
 	// DataPrivacy AWS CloudFormation Property
 	// Required: true
@@ -67,7 +67,7 @@ type Bot struct {
 	// TestBotAliasTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliastags
-	TestBotAliasTags *[]tags.Tag `json:"TestBotAliasTags,omitempty"`
+	TestBotAliasTags []tags.Tag `json:"TestBotAliasTags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -3,7 +3,7 @@
 package fis
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ExperimentTemplate_ExperimentTemplateTarget AWS CloudFormation Resource (AWS::FIS::ExperimentTemplate.ExperimentTemplateTarget)
@@ -13,22 +13,22 @@ type ExperimentTemplate_ExperimentTemplateTarget struct {
 	// Filters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-	Filters *[]ExperimentTemplate_ExperimentTemplateTargetFilter `json:"Filters,omitempty"`
+	Filters []ExperimentTemplate_ExperimentTemplateTargetFilter `json:"Filters,omitempty"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-parameters
-	Parameters *map[string]string `json:"Parameters,omitempty"`
+	Parameters map[string]string `json:"Parameters,omitempty"`
 
 	// ResourceArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-	ResourceArns *[]string `json:"ResourceArns,omitempty"`
+	ResourceArns []string `json:"ResourceArns,omitempty"`
 
 	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-	ResourceTags *map[string]string `json:"ResourceTags,omitempty"`
+	ResourceTags map[string]string `json:"ResourceTags,omitempty"`
 
 	// ResourceType AWS CloudFormation Property
 	// Required: true

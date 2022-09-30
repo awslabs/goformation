@@ -3,7 +3,7 @@
 package quicksight
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Dashboard_Parameters AWS CloudFormation Resource (AWS::QuickSight::Dashboard.Parameters)
@@ -13,22 +13,22 @@ type Dashboard_Parameters struct {
 	// DateTimeParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
-	DateTimeParameters *[]Dashboard_DateTimeParameter `json:"DateTimeParameters,omitempty"`
+	DateTimeParameters []Dashboard_DateTimeParameter `json:"DateTimeParameters,omitempty"`
 
 	// DecimalParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
-	DecimalParameters *[]Dashboard_DecimalParameter `json:"DecimalParameters,omitempty"`
+	DecimalParameters []Dashboard_DecimalParameter `json:"DecimalParameters,omitempty"`
 
 	// IntegerParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
-	IntegerParameters *[]Dashboard_IntegerParameter `json:"IntegerParameters,omitempty"`
+	IntegerParameters []Dashboard_IntegerParameter `json:"IntegerParameters,omitempty"`
 
 	// StringParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
-	StringParameters *[]Dashboard_StringParameter `json:"StringParameters,omitempty"`
+	StringParameters []Dashboard_StringParameter `json:"StringParameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

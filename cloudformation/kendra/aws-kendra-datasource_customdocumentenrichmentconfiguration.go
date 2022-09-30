@@ -3,7 +3,7 @@
 package kendra
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DataSource_CustomDocumentEnrichmentConfiguration AWS CloudFormation Resource (AWS::Kendra::DataSource.CustomDocumentEnrichmentConfiguration)
@@ -13,7 +13,7 @@ type DataSource_CustomDocumentEnrichmentConfiguration struct {
 	// InlineConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration-inlineconfigurations
-	InlineConfigurations *[]DataSource_InlineCustomDocumentEnrichmentConfiguration `json:"InlineConfigurations,omitempty"`
+	InlineConfigurations []DataSource_InlineCustomDocumentEnrichmentConfiguration `json:"InlineConfigurations,omitempty"`
 
 	// PostExtractionHookConfiguration AWS CloudFormation Property
 	// Required: false

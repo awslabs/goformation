@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RuleGroup_GeoMatchStatement AWS CloudFormation Resource (AWS::WAFv2::RuleGroup.GeoMatchStatement)
@@ -13,7 +13,7 @@ type RuleGroup_GeoMatchStatement struct {
 	// CountryCodes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-	CountryCodes *[]string `json:"CountryCodes,omitempty"`
+	CountryCodes []string `json:"CountryCodes,omitempty"`
 
 	// ForwardedIPConfig AWS CloudFormation Property
 	// Required: false

@@ -3,7 +3,7 @@
 package amplify
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // App_AutoBranchCreationConfig AWS CloudFormation Resource (AWS::Amplify::App.AutoBranchCreationConfig)
@@ -13,7 +13,7 @@ type App_AutoBranchCreationConfig struct {
 	// AutoBranchCreationPatterns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
-	AutoBranchCreationPatterns *[]string `json:"AutoBranchCreationPatterns,omitempty"`
+	AutoBranchCreationPatterns []string `json:"AutoBranchCreationPatterns,omitempty"`
 
 	// BasicAuthConfig AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type App_AutoBranchCreationConfig struct {
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
-	EnvironmentVariables *[]App_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
+	EnvironmentVariables []App_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
 
 	// PullRequestEnvironmentName AWS CloudFormation Property
 	// Required: false

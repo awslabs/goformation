@@ -3,7 +3,7 @@
 package wafv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // WebACL_JsonMatchPattern AWS CloudFormation Resource (AWS::WAFv2::WebACL.JsonMatchPattern)
@@ -18,7 +18,7 @@ type WebACL_JsonMatchPattern struct {
 	// IncludedPaths AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
-	IncludedPaths *[]string `json:"IncludedPaths,omitempty"`
+	IncludedPaths []string `json:"IncludedPaths,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

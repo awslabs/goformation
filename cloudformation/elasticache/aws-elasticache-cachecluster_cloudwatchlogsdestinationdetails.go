@@ -3,7 +3,7 @@
 package elasticache
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // CacheCluster_CloudWatchLogsDestinationDetails AWS CloudFormation Resource (AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails)

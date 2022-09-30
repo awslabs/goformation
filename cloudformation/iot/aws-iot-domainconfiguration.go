@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // DomainConfiguration AWS CloudFormation Resource (AWS::IoT::DomainConfiguration)
@@ -37,7 +37,7 @@ type DomainConfiguration struct {
 	// ServerCertificateArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
-	ServerCertificateArns *[]string `json:"ServerCertificateArns,omitempty"`
+	ServerCertificateArns []string `json:"ServerCertificateArns,omitempty"`
 
 	// ServiceType AWS CloudFormation Property
 	// Required: false
@@ -47,7 +47,7 @@ type DomainConfiguration struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// ValidationCertificateArn AWS CloudFormation Property
 	// Required: false

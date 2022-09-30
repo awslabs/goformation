@@ -3,7 +3,7 @@
 package networkfirewall
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // RuleGroup_RuleOption AWS CloudFormation Resource (AWS::NetworkFirewall::RuleGroup.RuleOption)
@@ -18,7 +18,7 @@ type RuleGroup_RuleOption struct {
 	// Settings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html#cfn-networkfirewall-rulegroup-ruleoption-settings
-	Settings *[]string `json:"Settings,omitempty"`
+	Settings []string `json:"Settings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

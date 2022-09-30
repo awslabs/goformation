@@ -3,7 +3,7 @@
 package codebuild
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Project_Environment AWS CloudFormation Resource (AWS::CodeBuild::Project.Environment)
@@ -23,7 +23,7 @@ type Project_Environment struct {
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-environmentvariables
-	EnvironmentVariables *[]Project_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
+	EnvironmentVariables []Project_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
 
 	// Image AWS CloudFormation Property
 	// Required: true

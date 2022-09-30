@@ -3,7 +3,7 @@
 package route53recoverycontrol
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Cluster_ClusterEndpoint AWS CloudFormation Resource (AWS::Route53RecoveryControl::Cluster.ClusterEndpoint)

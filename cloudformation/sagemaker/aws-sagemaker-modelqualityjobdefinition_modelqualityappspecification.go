@@ -3,7 +3,7 @@
 package sagemaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ModelQualityJobDefinition_ModelQualityAppSpecification AWS CloudFormation Resource (AWS::SageMaker::ModelQualityJobDefinition.ModelQualityAppSpecification)
@@ -13,17 +13,17 @@ type ModelQualityJobDefinition_ModelQualityAppSpecification struct {
 	// ContainerArguments AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
-	ContainerArguments *[]string `json:"ContainerArguments,omitempty"`
+	ContainerArguments []string `json:"ContainerArguments,omitempty"`
 
 	// ContainerEntrypoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
-	ContainerEntrypoint *[]string `json:"ContainerEntrypoint,omitempty"`
+	ContainerEntrypoint []string `json:"ContainerEntrypoint,omitempty"`
 
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-	Environment *map[string]string `json:"Environment,omitempty"`
+	Environment map[string]string `json:"Environment,omitempty"`
 
 	// ImageUri AWS CloudFormation Property
 	// Required: true

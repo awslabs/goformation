@@ -3,7 +3,7 @@
 package evidently
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Launch_SegmentOverride AWS CloudFormation Resource (AWS::Evidently::Launch.SegmentOverride)

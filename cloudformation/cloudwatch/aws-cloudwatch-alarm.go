@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Alarm AWS CloudFormation Resource (AWS::CloudWatch::Alarm)
@@ -21,7 +21,7 @@ type Alarm struct {
 	// AlarmActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-alarmactions
-	AlarmActions *[]string `json:"AlarmActions,omitempty"`
+	AlarmActions []string `json:"AlarmActions,omitempty"`
 
 	// AlarmDescription AWS CloudFormation Property
 	// Required: false
@@ -46,7 +46,7 @@ type Alarm struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-dimension
-	Dimensions *[]Alarm_Dimension `json:"Dimensions,omitempty"`
+	Dimensions []Alarm_Dimension `json:"Dimensions,omitempty"`
 
 	// EvaluateLowSampleCountPercentile AWS CloudFormation Property
 	// Required: false
@@ -66,7 +66,7 @@ type Alarm struct {
 	// InsufficientDataActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-insufficientdataactions
-	InsufficientDataActions *[]string `json:"InsufficientDataActions,omitempty"`
+	InsufficientDataActions []string `json:"InsufficientDataActions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: false
@@ -76,7 +76,7 @@ type Alarm struct {
 	// Metrics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarm-metrics
-	Metrics *[]Alarm_MetricDataQuery `json:"Metrics,omitempty"`
+	Metrics []Alarm_MetricDataQuery `json:"Metrics,omitempty"`
 
 	// Namespace AWS CloudFormation Property
 	// Required: false
@@ -86,7 +86,7 @@ type Alarm struct {
 	// OKActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-okactions
-	OKActions *[]string `json:"OKActions,omitempty"`
+	OKActions []string `json:"OKActions,omitempty"`
 
 	// Period AWS CloudFormation Property
 	// Required: false

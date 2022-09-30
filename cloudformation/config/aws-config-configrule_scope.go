@@ -3,7 +3,7 @@
 package config
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConfigRule_Scope AWS CloudFormation Resource (AWS::Config::ConfigRule.Scope)
@@ -18,7 +18,7 @@ type ConfigRule_Scope struct {
 	// ComplianceResourceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
-	ComplianceResourceTypes *[]string `json:"ComplianceResourceTypes,omitempty"`
+	ComplianceResourceTypes []string `json:"ComplianceResourceTypes,omitempty"`
 
 	// TagKey AWS CloudFormation Property
 	// Required: false

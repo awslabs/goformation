@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // ImageBuilder AWS CloudFormation Resource (AWS::AppStream::ImageBuilder)
@@ -17,7 +17,7 @@ type ImageBuilder struct {
 	// AccessEndpoints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-accessendpoints
-	AccessEndpoints *[]ImageBuilder_AccessEndpoint `json:"AccessEndpoints,omitempty"`
+	AccessEndpoints []ImageBuilder_AccessEndpoint `json:"AccessEndpoints,omitempty"`
 
 	// AppstreamAgentVersion AWS CloudFormation Property
 	// Required: false
@@ -72,7 +72,7 @@ type ImageBuilder struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VpcConfig AWS CloudFormation Property
 	// Required: false

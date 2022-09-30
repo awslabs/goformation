@@ -3,7 +3,7 @@
 package kinesisanalyticsv2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ApplicationOutput_Output AWS CloudFormation Resource (AWS::KinesisAnalyticsV2::ApplicationOutput.Output)

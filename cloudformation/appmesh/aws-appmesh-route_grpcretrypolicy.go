@@ -3,7 +3,7 @@
 package appmesh
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Route_GrpcRetryPolicy AWS CloudFormation Resource (AWS::AppMesh::Route.GrpcRetryPolicy)
@@ -13,12 +13,12 @@ type Route_GrpcRetryPolicy struct {
 	// GrpcRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-grpcretryevents
-	GrpcRetryEvents *[]string `json:"GrpcRetryEvents,omitempty"`
+	GrpcRetryEvents []string `json:"GrpcRetryEvents,omitempty"`
 
 	// HttpRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-httpretryevents
-	HttpRetryEvents *[]string `json:"HttpRetryEvents,omitempty"`
+	HttpRetryEvents []string `json:"HttpRetryEvents,omitempty"`
 
 	// MaxRetries AWS CloudFormation Property
 	// Required: true
@@ -33,7 +33,7 @@ type Route_GrpcRetryPolicy struct {
 	// TcpRetryEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-tcpretryevents
-	TcpRetryEvents *[]string `json:"TcpRetryEvents,omitempty"`
+	TcpRetryEvents []string `json:"TcpRetryEvents,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

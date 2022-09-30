@@ -3,7 +3,7 @@
 package iottwinmaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ComponentType_Relationship AWS CloudFormation Resource (AWS::IoTTwinMaker::ComponentType.Relationship)

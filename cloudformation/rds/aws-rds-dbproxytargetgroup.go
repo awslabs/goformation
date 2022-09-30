@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DBProxyTargetGroup AWS CloudFormation Resource (AWS::RDS::DBProxyTargetGroup)
@@ -21,12 +21,12 @@ type DBProxyTargetGroup struct {
 	// DBClusterIdentifiers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
-	DBClusterIdentifiers *[]string `json:"DBClusterIdentifiers,omitempty"`
+	DBClusterIdentifiers []string `json:"DBClusterIdentifiers,omitempty"`
 
 	// DBInstanceIdentifiers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
-	DBInstanceIdentifiers *[]string `json:"DBInstanceIdentifiers,omitempty"`
+	DBInstanceIdentifiers []string `json:"DBInstanceIdentifiers,omitempty"`
 
 	// DBProxyName AWS CloudFormation Property
 	// Required: true

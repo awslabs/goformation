@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // OrganizationConformancePack AWS CloudFormation Resource (AWS::Config::OrganizationConformancePack)
@@ -16,7 +16,7 @@ type OrganizationConformancePack struct {
 	// ConformancePackInputParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
-	ConformancePackInputParameters *[]OrganizationConformancePack_ConformancePackInputParameter `json:"ConformancePackInputParameters,omitempty"`
+	ConformancePackInputParameters []OrganizationConformancePack_ConformancePackInputParameter `json:"ConformancePackInputParameters,omitempty"`
 
 	// DeliveryS3Bucket AWS CloudFormation Property
 	// Required: false
@@ -31,7 +31,7 @@ type OrganizationConformancePack struct {
 	// ExcludedAccounts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
-	ExcludedAccounts *[]string `json:"ExcludedAccounts,omitempty"`
+	ExcludedAccounts []string `json:"ExcludedAccounts,omitempty"`
 
 	// OrganizationConformancePackName AWS CloudFormation Property
 	// Required: true

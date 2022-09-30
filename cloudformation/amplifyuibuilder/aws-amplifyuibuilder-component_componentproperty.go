@@ -3,7 +3,7 @@
 package amplifyuibuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Component_ComponentProperty AWS CloudFormation Resource (AWS::AmplifyUIBuilder::Component.ComponentProperty)
@@ -33,7 +33,7 @@ type Component_ComponentProperty struct {
 	// Concat AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentproperty.html#cfn-amplifyuibuilder-component-componentproperty-concat
-	Concat *[]Component_ComponentProperty `json:"Concat,omitempty"`
+	Concat []Component_ComponentProperty `json:"Concat,omitempty"`
 
 	// Condition AWS CloudFormation Property
 	// Required: false

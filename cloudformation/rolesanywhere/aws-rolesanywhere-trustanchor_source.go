@@ -3,7 +3,7 @@
 package rolesanywhere
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TrustAnchor_Source AWS CloudFormation Resource (AWS::RolesAnywhere::TrustAnchor.Source)
@@ -13,7 +13,7 @@ type TrustAnchor_Source struct {
 	// SourceData AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html#cfn-rolesanywhere-trustanchor-source-sourcedata
-	SourceData interface{} `json:"SourceData,omitempty"`
+	SourceData *TrustAnchor_SourceData `json:"SourceData,omitempty"`
 
 	// SourceType AWS CloudFormation Property
 	// Required: false

@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Partition_SkewedInfo AWS CloudFormation Resource (AWS::Glue::Partition.SkewedInfo)
@@ -13,7 +13,7 @@ type Partition_SkewedInfo struct {
 	// SkewedColumnNames AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
-	SkewedColumnNames *[]string `json:"SkewedColumnNames,omitempty"`
+	SkewedColumnNames []string `json:"SkewedColumnNames,omitempty"`
 
 	// SkewedColumnValueLocationMaps AWS CloudFormation Property
 	// Required: false
@@ -23,7 +23,7 @@ type Partition_SkewedInfo struct {
 	// SkewedColumnValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
-	SkewedColumnValues *[]string `json:"SkewedColumnValues,omitempty"`
+	SkewedColumnValues []string `json:"SkewedColumnValues,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

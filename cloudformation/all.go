@@ -4,204 +4,208 @@ package cloudformation
 
 import (
 	"fmt"
-	"github.com/awslabs/goformation/v6/cloudformation/accessanalyzer"
-	"github.com/awslabs/goformation/v6/cloudformation/acmpca"
-	"github.com/awslabs/goformation/v6/cloudformation/amazonmq"
-	"github.com/awslabs/goformation/v6/cloudformation/amplify"
-	"github.com/awslabs/goformation/v6/cloudformation/amplifyuibuilder"
-	"github.com/awslabs/goformation/v6/cloudformation/apigateway"
-	"github.com/awslabs/goformation/v6/cloudformation/apigatewayv2"
-	"github.com/awslabs/goformation/v6/cloudformation/appconfig"
-	"github.com/awslabs/goformation/v6/cloudformation/appflow"
-	"github.com/awslabs/goformation/v6/cloudformation/appintegrations"
-	"github.com/awslabs/goformation/v6/cloudformation/applicationautoscaling"
-	"github.com/awslabs/goformation/v6/cloudformation/applicationinsights"
-	"github.com/awslabs/goformation/v6/cloudformation/appmesh"
-	"github.com/awslabs/goformation/v6/cloudformation/apprunner"
-	"github.com/awslabs/goformation/v6/cloudformation/appstream"
-	"github.com/awslabs/goformation/v6/cloudformation/appsync"
-	"github.com/awslabs/goformation/v6/cloudformation/aps"
-	"github.com/awslabs/goformation/v6/cloudformation/ask"
-	"github.com/awslabs/goformation/v6/cloudformation/athena"
-	"github.com/awslabs/goformation/v6/cloudformation/auditmanager"
-	"github.com/awslabs/goformation/v6/cloudformation/autoscaling"
-	"github.com/awslabs/goformation/v6/cloudformation/autoscalingplans"
-	"github.com/awslabs/goformation/v6/cloudformation/backup"
-	"github.com/awslabs/goformation/v6/cloudformation/batch"
-	"github.com/awslabs/goformation/v6/cloudformation/billingconductor"
-	"github.com/awslabs/goformation/v6/cloudformation/budgets"
-	"github.com/awslabs/goformation/v6/cloudformation/cassandra"
-	"github.com/awslabs/goformation/v6/cloudformation/cdk"
-	"github.com/awslabs/goformation/v6/cloudformation/ce"
-	"github.com/awslabs/goformation/v6/cloudformation/certificatemanager"
-	"github.com/awslabs/goformation/v6/cloudformation/chatbot"
-	"github.com/awslabs/goformation/v6/cloudformation/cloud9"
-	"github.com/awslabs/goformation/v6/cloudformation/cloudformation"
-	"github.com/awslabs/goformation/v6/cloudformation/cloudfront"
-	"github.com/awslabs/goformation/v6/cloudformation/cloudtrail"
-	"github.com/awslabs/goformation/v6/cloudformation/cloudwatch"
-	"github.com/awslabs/goformation/v6/cloudformation/codeartifact"
-	"github.com/awslabs/goformation/v6/cloudformation/codebuild"
-	"github.com/awslabs/goformation/v6/cloudformation/codecommit"
-	"github.com/awslabs/goformation/v6/cloudformation/codedeploy"
-	"github.com/awslabs/goformation/v6/cloudformation/codeguruprofiler"
-	"github.com/awslabs/goformation/v6/cloudformation/codegurureviewer"
-	"github.com/awslabs/goformation/v6/cloudformation/codepipeline"
-	"github.com/awslabs/goformation/v6/cloudformation/codestar"
-	"github.com/awslabs/goformation/v6/cloudformation/codestarconnections"
-	"github.com/awslabs/goformation/v6/cloudformation/codestarnotifications"
-	"github.com/awslabs/goformation/v6/cloudformation/cognito"
-	"github.com/awslabs/goformation/v6/cloudformation/config"
-	"github.com/awslabs/goformation/v6/cloudformation/connect"
-	"github.com/awslabs/goformation/v6/cloudformation/connectcampaigns"
-	"github.com/awslabs/goformation/v6/cloudformation/cur"
-	"github.com/awslabs/goformation/v6/cloudformation/customerprofiles"
-	"github.com/awslabs/goformation/v6/cloudformation/databrew"
-	"github.com/awslabs/goformation/v6/cloudformation/datapipeline"
-	"github.com/awslabs/goformation/v6/cloudformation/datasync"
-	"github.com/awslabs/goformation/v6/cloudformation/dax"
-	"github.com/awslabs/goformation/v6/cloudformation/detective"
-	"github.com/awslabs/goformation/v6/cloudformation/devopsguru"
-	"github.com/awslabs/goformation/v6/cloudformation/directoryservice"
-	"github.com/awslabs/goformation/v6/cloudformation/dlm"
-	"github.com/awslabs/goformation/v6/cloudformation/dms"
-	"github.com/awslabs/goformation/v6/cloudformation/docdb"
-	"github.com/awslabs/goformation/v6/cloudformation/dynamodb"
-	"github.com/awslabs/goformation/v6/cloudformation/ec2"
-	"github.com/awslabs/goformation/v6/cloudformation/ecr"
-	"github.com/awslabs/goformation/v6/cloudformation/ecs"
-	"github.com/awslabs/goformation/v6/cloudformation/efs"
-	"github.com/awslabs/goformation/v6/cloudformation/eks"
-	"github.com/awslabs/goformation/v6/cloudformation/elasticache"
-	"github.com/awslabs/goformation/v6/cloudformation/elasticbeanstalk"
-	"github.com/awslabs/goformation/v6/cloudformation/elasticloadbalancing"
-	"github.com/awslabs/goformation/v6/cloudformation/elasticloadbalancingv2"
-	"github.com/awslabs/goformation/v6/cloudformation/elasticsearch"
-	"github.com/awslabs/goformation/v6/cloudformation/emr"
-	"github.com/awslabs/goformation/v6/cloudformation/emrcontainers"
-	"github.com/awslabs/goformation/v6/cloudformation/emrserverless"
-	"github.com/awslabs/goformation/v6/cloudformation/events"
-	"github.com/awslabs/goformation/v6/cloudformation/eventschemas"
-	"github.com/awslabs/goformation/v6/cloudformation/evidently"
-	"github.com/awslabs/goformation/v6/cloudformation/finspace"
-	"github.com/awslabs/goformation/v6/cloudformation/fis"
-	"github.com/awslabs/goformation/v6/cloudformation/fms"
-	"github.com/awslabs/goformation/v6/cloudformation/forecast"
-	"github.com/awslabs/goformation/v6/cloudformation/frauddetector"
-	"github.com/awslabs/goformation/v6/cloudformation/fsx"
-	"github.com/awslabs/goformation/v6/cloudformation/gamelift"
-	"github.com/awslabs/goformation/v6/cloudformation/globalaccelerator"
-	"github.com/awslabs/goformation/v6/cloudformation/glue"
-	"github.com/awslabs/goformation/v6/cloudformation/greengrass"
-	"github.com/awslabs/goformation/v6/cloudformation/greengrassv2"
-	"github.com/awslabs/goformation/v6/cloudformation/groundstation"
-	"github.com/awslabs/goformation/v6/cloudformation/guardduty"
-	"github.com/awslabs/goformation/v6/cloudformation/healthlake"
-	"github.com/awslabs/goformation/v6/cloudformation/iam"
-	"github.com/awslabs/goformation/v6/cloudformation/imagebuilder"
-	"github.com/awslabs/goformation/v6/cloudformation/inspector"
-	"github.com/awslabs/goformation/v6/cloudformation/inspectorv2"
-	"github.com/awslabs/goformation/v6/cloudformation/iot"
-	"github.com/awslabs/goformation/v6/cloudformation/iot1click"
-	"github.com/awslabs/goformation/v6/cloudformation/iotanalytics"
-	"github.com/awslabs/goformation/v6/cloudformation/iotcoredeviceadvisor"
-	"github.com/awslabs/goformation/v6/cloudformation/iotevents"
-	"github.com/awslabs/goformation/v6/cloudformation/iotfleethub"
-	"github.com/awslabs/goformation/v6/cloudformation/iotsitewise"
-	"github.com/awslabs/goformation/v6/cloudformation/iotthingsgraph"
-	"github.com/awslabs/goformation/v6/cloudformation/iottwinmaker"
-	"github.com/awslabs/goformation/v6/cloudformation/iotwireless"
-	"github.com/awslabs/goformation/v6/cloudformation/ivs"
-	"github.com/awslabs/goformation/v6/cloudformation/kafkaconnect"
-	"github.com/awslabs/goformation/v6/cloudformation/kendra"
-	"github.com/awslabs/goformation/v6/cloudformation/kinesis"
-	"github.com/awslabs/goformation/v6/cloudformation/kinesisanalytics"
-	"github.com/awslabs/goformation/v6/cloudformation/kinesisanalyticsv2"
-	"github.com/awslabs/goformation/v6/cloudformation/kinesisfirehose"
-	"github.com/awslabs/goformation/v6/cloudformation/kinesisvideo"
-	"github.com/awslabs/goformation/v6/cloudformation/kms"
-	"github.com/awslabs/goformation/v6/cloudformation/lakeformation"
-	"github.com/awslabs/goformation/v6/cloudformation/lambda"
-	"github.com/awslabs/goformation/v6/cloudformation/lex"
-	"github.com/awslabs/goformation/v6/cloudformation/licensemanager"
-	"github.com/awslabs/goformation/v6/cloudformation/lightsail"
-	"github.com/awslabs/goformation/v6/cloudformation/location"
-	"github.com/awslabs/goformation/v6/cloudformation/logs"
-	"github.com/awslabs/goformation/v6/cloudformation/lookoutequipment"
-	"github.com/awslabs/goformation/v6/cloudformation/lookoutmetrics"
-	"github.com/awslabs/goformation/v6/cloudformation/lookoutvision"
-	"github.com/awslabs/goformation/v6/cloudformation/macie"
-	"github.com/awslabs/goformation/v6/cloudformation/managedblockchain"
-	"github.com/awslabs/goformation/v6/cloudformation/mediaconnect"
-	"github.com/awslabs/goformation/v6/cloudformation/mediaconvert"
-	"github.com/awslabs/goformation/v6/cloudformation/medialive"
-	"github.com/awslabs/goformation/v6/cloudformation/mediapackage"
-	"github.com/awslabs/goformation/v6/cloudformation/mediastore"
-	"github.com/awslabs/goformation/v6/cloudformation/mediatailor"
-	"github.com/awslabs/goformation/v6/cloudformation/memorydb"
-	"github.com/awslabs/goformation/v6/cloudformation/msk"
-	"github.com/awslabs/goformation/v6/cloudformation/mwaa"
-	"github.com/awslabs/goformation/v6/cloudformation/neptune"
-	"github.com/awslabs/goformation/v6/cloudformation/networkfirewall"
-	"github.com/awslabs/goformation/v6/cloudformation/networkmanager"
-	"github.com/awslabs/goformation/v6/cloudformation/nimblestudio"
-	"github.com/awslabs/goformation/v6/cloudformation/opensearchservice"
-	"github.com/awslabs/goformation/v6/cloudformation/opsworks"
-	"github.com/awslabs/goformation/v6/cloudformation/opsworkscm"
-	"github.com/awslabs/goformation/v6/cloudformation/panorama"
-	"github.com/awslabs/goformation/v6/cloudformation/personalize"
-	"github.com/awslabs/goformation/v6/cloudformation/pinpoint"
-	"github.com/awslabs/goformation/v6/cloudformation/pinpointemail"
-	"github.com/awslabs/goformation/v6/cloudformation/qldb"
-	"github.com/awslabs/goformation/v6/cloudformation/quicksight"
-	"github.com/awslabs/goformation/v6/cloudformation/ram"
-	"github.com/awslabs/goformation/v6/cloudformation/rds"
-	"github.com/awslabs/goformation/v6/cloudformation/redshift"
-	"github.com/awslabs/goformation/v6/cloudformation/redshiftserverless"
-	"github.com/awslabs/goformation/v6/cloudformation/refactorspaces"
-	"github.com/awslabs/goformation/v6/cloudformation/rekognition"
-	"github.com/awslabs/goformation/v6/cloudformation/resiliencehub"
-	"github.com/awslabs/goformation/v6/cloudformation/resourcegroups"
-	"github.com/awslabs/goformation/v6/cloudformation/robomaker"
-	"github.com/awslabs/goformation/v6/cloudformation/rolesanywhere"
-	"github.com/awslabs/goformation/v6/cloudformation/route53"
-	"github.com/awslabs/goformation/v6/cloudformation/route53recoverycontrol"
-	"github.com/awslabs/goformation/v6/cloudformation/route53recoveryreadiness"
-	"github.com/awslabs/goformation/v6/cloudformation/route53resolver"
-	"github.com/awslabs/goformation/v6/cloudformation/rum"
-	"github.com/awslabs/goformation/v6/cloudformation/s3"
-	"github.com/awslabs/goformation/v6/cloudformation/s3objectlambda"
-	"github.com/awslabs/goformation/v6/cloudformation/s3outposts"
-	"github.com/awslabs/goformation/v6/cloudformation/sagemaker"
-	"github.com/awslabs/goformation/v6/cloudformation/sdb"
-	"github.com/awslabs/goformation/v6/cloudformation/secretsmanager"
-	"github.com/awslabs/goformation/v6/cloudformation/securityhub"
-	"github.com/awslabs/goformation/v6/cloudformation/serverless"
-	"github.com/awslabs/goformation/v6/cloudformation/servicecatalog"
-	"github.com/awslabs/goformation/v6/cloudformation/servicecatalogappregistry"
-	"github.com/awslabs/goformation/v6/cloudformation/servicediscovery"
-	"github.com/awslabs/goformation/v6/cloudformation/ses"
-	"github.com/awslabs/goformation/v6/cloudformation/signer"
-	"github.com/awslabs/goformation/v6/cloudformation/sns"
-	"github.com/awslabs/goformation/v6/cloudformation/sqs"
-	"github.com/awslabs/goformation/v6/cloudformation/ssm"
-	"github.com/awslabs/goformation/v6/cloudformation/ssmcontacts"
-	"github.com/awslabs/goformation/v6/cloudformation/ssmincidents"
-	"github.com/awslabs/goformation/v6/cloudformation/sso"
-	"github.com/awslabs/goformation/v6/cloudformation/stepfunctions"
-	"github.com/awslabs/goformation/v6/cloudformation/supportapp"
-	"github.com/awslabs/goformation/v6/cloudformation/synthetics"
-	"github.com/awslabs/goformation/v6/cloudformation/timestream"
-	"github.com/awslabs/goformation/v6/cloudformation/transfer"
-	"github.com/awslabs/goformation/v6/cloudformation/voiceid"
-	"github.com/awslabs/goformation/v6/cloudformation/waf"
-	"github.com/awslabs/goformation/v6/cloudformation/wafregional"
-	"github.com/awslabs/goformation/v6/cloudformation/wafv2"
-	"github.com/awslabs/goformation/v6/cloudformation/wisdom"
-	"github.com/awslabs/goformation/v6/cloudformation/workspaces"
-	"github.com/awslabs/goformation/v6/cloudformation/xray"
+	"github.com/awslabs/goformation/v7/cloudformation/accessanalyzer"
+	"github.com/awslabs/goformation/v7/cloudformation/acmpca"
+	"github.com/awslabs/goformation/v7/cloudformation/amazonmq"
+	"github.com/awslabs/goformation/v7/cloudformation/amplify"
+	"github.com/awslabs/goformation/v7/cloudformation/amplifyuibuilder"
+	"github.com/awslabs/goformation/v7/cloudformation/apigateway"
+	"github.com/awslabs/goformation/v7/cloudformation/apigatewayv2"
+	"github.com/awslabs/goformation/v7/cloudformation/appconfig"
+	"github.com/awslabs/goformation/v7/cloudformation/appflow"
+	"github.com/awslabs/goformation/v7/cloudformation/appintegrations"
+	"github.com/awslabs/goformation/v7/cloudformation/applicationautoscaling"
+	"github.com/awslabs/goformation/v7/cloudformation/applicationinsights"
+	"github.com/awslabs/goformation/v7/cloudformation/appmesh"
+	"github.com/awslabs/goformation/v7/cloudformation/apprunner"
+	"github.com/awslabs/goformation/v7/cloudformation/appstream"
+	"github.com/awslabs/goformation/v7/cloudformation/appsync"
+	"github.com/awslabs/goformation/v7/cloudformation/aps"
+	"github.com/awslabs/goformation/v7/cloudformation/ask"
+	"github.com/awslabs/goformation/v7/cloudformation/athena"
+	"github.com/awslabs/goformation/v7/cloudformation/auditmanager"
+	"github.com/awslabs/goformation/v7/cloudformation/autoscaling"
+	"github.com/awslabs/goformation/v7/cloudformation/autoscalingplans"
+	"github.com/awslabs/goformation/v7/cloudformation/backup"
+	"github.com/awslabs/goformation/v7/cloudformation/batch"
+	"github.com/awslabs/goformation/v7/cloudformation/billingconductor"
+	"github.com/awslabs/goformation/v7/cloudformation/budgets"
+	"github.com/awslabs/goformation/v7/cloudformation/cassandra"
+	"github.com/awslabs/goformation/v7/cloudformation/cdk"
+	"github.com/awslabs/goformation/v7/cloudformation/ce"
+	"github.com/awslabs/goformation/v7/cloudformation/certificatemanager"
+	"github.com/awslabs/goformation/v7/cloudformation/chatbot"
+	"github.com/awslabs/goformation/v7/cloudformation/cloud9"
+	"github.com/awslabs/goformation/v7/cloudformation/cloudformation"
+	"github.com/awslabs/goformation/v7/cloudformation/cloudfront"
+	"github.com/awslabs/goformation/v7/cloudformation/cloudtrail"
+	"github.com/awslabs/goformation/v7/cloudformation/cloudwatch"
+	"github.com/awslabs/goformation/v7/cloudformation/codeartifact"
+	"github.com/awslabs/goformation/v7/cloudformation/codebuild"
+	"github.com/awslabs/goformation/v7/cloudformation/codecommit"
+	"github.com/awslabs/goformation/v7/cloudformation/codedeploy"
+	"github.com/awslabs/goformation/v7/cloudformation/codeguruprofiler"
+	"github.com/awslabs/goformation/v7/cloudformation/codegurureviewer"
+	"github.com/awslabs/goformation/v7/cloudformation/codepipeline"
+	"github.com/awslabs/goformation/v7/cloudformation/codestar"
+	"github.com/awslabs/goformation/v7/cloudformation/codestarconnections"
+	"github.com/awslabs/goformation/v7/cloudformation/codestarnotifications"
+	"github.com/awslabs/goformation/v7/cloudformation/cognito"
+	"github.com/awslabs/goformation/v7/cloudformation/config"
+	"github.com/awslabs/goformation/v7/cloudformation/connect"
+	"github.com/awslabs/goformation/v7/cloudformation/connectcampaigns"
+	"github.com/awslabs/goformation/v7/cloudformation/controltower"
+	"github.com/awslabs/goformation/v7/cloudformation/cur"
+	"github.com/awslabs/goformation/v7/cloudformation/customerprofiles"
+	"github.com/awslabs/goformation/v7/cloudformation/databrew"
+	"github.com/awslabs/goformation/v7/cloudformation/datapipeline"
+	"github.com/awslabs/goformation/v7/cloudformation/datasync"
+	"github.com/awslabs/goformation/v7/cloudformation/dax"
+	"github.com/awslabs/goformation/v7/cloudformation/detective"
+	"github.com/awslabs/goformation/v7/cloudformation/devopsguru"
+	"github.com/awslabs/goformation/v7/cloudformation/directoryservice"
+	"github.com/awslabs/goformation/v7/cloudformation/dlm"
+	"github.com/awslabs/goformation/v7/cloudformation/dms"
+	"github.com/awslabs/goformation/v7/cloudformation/docdb"
+	"github.com/awslabs/goformation/v7/cloudformation/dynamodb"
+	"github.com/awslabs/goformation/v7/cloudformation/ec2"
+	"github.com/awslabs/goformation/v7/cloudformation/ecr"
+	"github.com/awslabs/goformation/v7/cloudformation/ecs"
+	"github.com/awslabs/goformation/v7/cloudformation/efs"
+	"github.com/awslabs/goformation/v7/cloudformation/eks"
+	"github.com/awslabs/goformation/v7/cloudformation/elasticache"
+	"github.com/awslabs/goformation/v7/cloudformation/elasticbeanstalk"
+	"github.com/awslabs/goformation/v7/cloudformation/elasticloadbalancing"
+	"github.com/awslabs/goformation/v7/cloudformation/elasticloadbalancingv2"
+	"github.com/awslabs/goformation/v7/cloudformation/elasticsearch"
+	"github.com/awslabs/goformation/v7/cloudformation/emr"
+	"github.com/awslabs/goformation/v7/cloudformation/emrcontainers"
+	"github.com/awslabs/goformation/v7/cloudformation/emrserverless"
+	"github.com/awslabs/goformation/v7/cloudformation/events"
+	"github.com/awslabs/goformation/v7/cloudformation/eventschemas"
+	"github.com/awslabs/goformation/v7/cloudformation/evidently"
+	"github.com/awslabs/goformation/v7/cloudformation/finspace"
+	"github.com/awslabs/goformation/v7/cloudformation/fis"
+	"github.com/awslabs/goformation/v7/cloudformation/fms"
+	"github.com/awslabs/goformation/v7/cloudformation/forecast"
+	"github.com/awslabs/goformation/v7/cloudformation/frauddetector"
+	"github.com/awslabs/goformation/v7/cloudformation/fsx"
+	"github.com/awslabs/goformation/v7/cloudformation/gamelift"
+	"github.com/awslabs/goformation/v7/cloudformation/globalaccelerator"
+	"github.com/awslabs/goformation/v7/cloudformation/glue"
+	"github.com/awslabs/goformation/v7/cloudformation/greengrass"
+	"github.com/awslabs/goformation/v7/cloudformation/greengrassv2"
+	"github.com/awslabs/goformation/v7/cloudformation/groundstation"
+	"github.com/awslabs/goformation/v7/cloudformation/guardduty"
+	"github.com/awslabs/goformation/v7/cloudformation/healthlake"
+	"github.com/awslabs/goformation/v7/cloudformation/iam"
+	"github.com/awslabs/goformation/v7/cloudformation/identitystore"
+	"github.com/awslabs/goformation/v7/cloudformation/imagebuilder"
+	"github.com/awslabs/goformation/v7/cloudformation/inspector"
+	"github.com/awslabs/goformation/v7/cloudformation/inspectorv2"
+	"github.com/awslabs/goformation/v7/cloudformation/iot"
+	"github.com/awslabs/goformation/v7/cloudformation/iot1click"
+	"github.com/awslabs/goformation/v7/cloudformation/iotanalytics"
+	"github.com/awslabs/goformation/v7/cloudformation/iotcoredeviceadvisor"
+	"github.com/awslabs/goformation/v7/cloudformation/iotevents"
+	"github.com/awslabs/goformation/v7/cloudformation/iotfleethub"
+	"github.com/awslabs/goformation/v7/cloudformation/iotfleetwise"
+	"github.com/awslabs/goformation/v7/cloudformation/iotsitewise"
+	"github.com/awslabs/goformation/v7/cloudformation/iotthingsgraph"
+	"github.com/awslabs/goformation/v7/cloudformation/iottwinmaker"
+	"github.com/awslabs/goformation/v7/cloudformation/iotwireless"
+	"github.com/awslabs/goformation/v7/cloudformation/ivs"
+	"github.com/awslabs/goformation/v7/cloudformation/kafkaconnect"
+	"github.com/awslabs/goformation/v7/cloudformation/kendra"
+	"github.com/awslabs/goformation/v7/cloudformation/kinesis"
+	"github.com/awslabs/goformation/v7/cloudformation/kinesisanalytics"
+	"github.com/awslabs/goformation/v7/cloudformation/kinesisanalyticsv2"
+	"github.com/awslabs/goformation/v7/cloudformation/kinesisfirehose"
+	"github.com/awslabs/goformation/v7/cloudformation/kinesisvideo"
+	"github.com/awslabs/goformation/v7/cloudformation/kms"
+	"github.com/awslabs/goformation/v7/cloudformation/lakeformation"
+	"github.com/awslabs/goformation/v7/cloudformation/lambda"
+	"github.com/awslabs/goformation/v7/cloudformation/lex"
+	"github.com/awslabs/goformation/v7/cloudformation/licensemanager"
+	"github.com/awslabs/goformation/v7/cloudformation/lightsail"
+	"github.com/awslabs/goformation/v7/cloudformation/location"
+	"github.com/awslabs/goformation/v7/cloudformation/logs"
+	"github.com/awslabs/goformation/v7/cloudformation/lookoutequipment"
+	"github.com/awslabs/goformation/v7/cloudformation/lookoutmetrics"
+	"github.com/awslabs/goformation/v7/cloudformation/lookoutvision"
+	"github.com/awslabs/goformation/v7/cloudformation/m2"
+	"github.com/awslabs/goformation/v7/cloudformation/macie"
+	"github.com/awslabs/goformation/v7/cloudformation/managedblockchain"
+	"github.com/awslabs/goformation/v7/cloudformation/mediaconnect"
+	"github.com/awslabs/goformation/v7/cloudformation/mediaconvert"
+	"github.com/awslabs/goformation/v7/cloudformation/medialive"
+	"github.com/awslabs/goformation/v7/cloudformation/mediapackage"
+	"github.com/awslabs/goformation/v7/cloudformation/mediastore"
+	"github.com/awslabs/goformation/v7/cloudformation/mediatailor"
+	"github.com/awslabs/goformation/v7/cloudformation/memorydb"
+	"github.com/awslabs/goformation/v7/cloudformation/msk"
+	"github.com/awslabs/goformation/v7/cloudformation/mwaa"
+	"github.com/awslabs/goformation/v7/cloudformation/neptune"
+	"github.com/awslabs/goformation/v7/cloudformation/networkfirewall"
+	"github.com/awslabs/goformation/v7/cloudformation/networkmanager"
+	"github.com/awslabs/goformation/v7/cloudformation/nimblestudio"
+	"github.com/awslabs/goformation/v7/cloudformation/opensearchservice"
+	"github.com/awslabs/goformation/v7/cloudformation/opsworks"
+	"github.com/awslabs/goformation/v7/cloudformation/opsworkscm"
+	"github.com/awslabs/goformation/v7/cloudformation/panorama"
+	"github.com/awslabs/goformation/v7/cloudformation/personalize"
+	"github.com/awslabs/goformation/v7/cloudformation/pinpoint"
+	"github.com/awslabs/goformation/v7/cloudformation/pinpointemail"
+	"github.com/awslabs/goformation/v7/cloudformation/qldb"
+	"github.com/awslabs/goformation/v7/cloudformation/quicksight"
+	"github.com/awslabs/goformation/v7/cloudformation/ram"
+	"github.com/awslabs/goformation/v7/cloudformation/rds"
+	"github.com/awslabs/goformation/v7/cloudformation/redshift"
+	"github.com/awslabs/goformation/v7/cloudformation/redshiftserverless"
+	"github.com/awslabs/goformation/v7/cloudformation/refactorspaces"
+	"github.com/awslabs/goformation/v7/cloudformation/rekognition"
+	"github.com/awslabs/goformation/v7/cloudformation/resiliencehub"
+	"github.com/awslabs/goformation/v7/cloudformation/resourcegroups"
+	"github.com/awslabs/goformation/v7/cloudformation/robomaker"
+	"github.com/awslabs/goformation/v7/cloudformation/rolesanywhere"
+	"github.com/awslabs/goformation/v7/cloudformation/route53"
+	"github.com/awslabs/goformation/v7/cloudformation/route53recoverycontrol"
+	"github.com/awslabs/goformation/v7/cloudformation/route53recoveryreadiness"
+	"github.com/awslabs/goformation/v7/cloudformation/route53resolver"
+	"github.com/awslabs/goformation/v7/cloudformation/rum"
+	"github.com/awslabs/goformation/v7/cloudformation/s3"
+	"github.com/awslabs/goformation/v7/cloudformation/s3objectlambda"
+	"github.com/awslabs/goformation/v7/cloudformation/s3outposts"
+	"github.com/awslabs/goformation/v7/cloudformation/sagemaker"
+	"github.com/awslabs/goformation/v7/cloudformation/sdb"
+	"github.com/awslabs/goformation/v7/cloudformation/secretsmanager"
+	"github.com/awslabs/goformation/v7/cloudformation/securityhub"
+	"github.com/awslabs/goformation/v7/cloudformation/serverless"
+	"github.com/awslabs/goformation/v7/cloudformation/servicecatalog"
+	"github.com/awslabs/goformation/v7/cloudformation/servicecatalogappregistry"
+	"github.com/awslabs/goformation/v7/cloudformation/servicediscovery"
+	"github.com/awslabs/goformation/v7/cloudformation/ses"
+	"github.com/awslabs/goformation/v7/cloudformation/signer"
+	"github.com/awslabs/goformation/v7/cloudformation/sns"
+	"github.com/awslabs/goformation/v7/cloudformation/sqs"
+	"github.com/awslabs/goformation/v7/cloudformation/ssm"
+	"github.com/awslabs/goformation/v7/cloudformation/ssmcontacts"
+	"github.com/awslabs/goformation/v7/cloudformation/ssmincidents"
+	"github.com/awslabs/goformation/v7/cloudformation/sso"
+	"github.com/awslabs/goformation/v7/cloudformation/stepfunctions"
+	"github.com/awslabs/goformation/v7/cloudformation/supportapp"
+	"github.com/awslabs/goformation/v7/cloudformation/synthetics"
+	"github.com/awslabs/goformation/v7/cloudformation/timestream"
+	"github.com/awslabs/goformation/v7/cloudformation/transfer"
+	"github.com/awslabs/goformation/v7/cloudformation/voiceid"
+	"github.com/awslabs/goformation/v7/cloudformation/waf"
+	"github.com/awslabs/goformation/v7/cloudformation/wafregional"
+	"github.com/awslabs/goformation/v7/cloudformation/wafv2"
+	"github.com/awslabs/goformation/v7/cloudformation/wisdom"
+	"github.com/awslabs/goformation/v7/cloudformation/workspaces"
+	"github.com/awslabs/goformation/v7/cloudformation/xray"
 
-	"github.com/awslabs/goformation/v6/cloudformation/global"
+	"github.com/awslabs/goformation/v7/cloudformation/global"
 )
 
 // AllResources fetches an iterable map all CloudFormation and SAM resources
@@ -357,6 +361,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudFront::Distribution":                               &cloudfront.Distribution{},
 		"AWS::CloudFront::Function":                                   &cloudfront.Function{},
 		"AWS::CloudFront::KeyGroup":                                   &cloudfront.KeyGroup{},
+		"AWS::CloudFront::OriginAccessControl":                        &cloudfront.OriginAccessControl{},
 		"AWS::CloudFront::OriginRequestPolicy":                        &cloudfront.OriginRequestPolicy{},
 		"AWS::CloudFront::PublicKey":                                  &cloudfront.PublicKey{},
 		"AWS::CloudFront::RealtimeLogConfig":                          &cloudfront.RealtimeLogConfig{},
@@ -413,12 +418,14 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::ContactFlowModule":                             &connect.ContactFlowModule{},
 		"AWS::Connect::HoursOfOperation":                              &connect.HoursOfOperation{},
 		"AWS::Connect::Instance":                                      &connect.Instance{},
+		"AWS::Connect::InstanceStorageConfig":                         &connect.InstanceStorageConfig{},
 		"AWS::Connect::PhoneNumber":                                   &connect.PhoneNumber{},
 		"AWS::Connect::QuickConnect":                                  &connect.QuickConnect{},
 		"AWS::Connect::TaskTemplate":                                  &connect.TaskTemplate{},
 		"AWS::Connect::User":                                          &connect.User{},
 		"AWS::Connect::UserHierarchyGroup":                            &connect.UserHierarchyGroup{},
 		"AWS::ConnectCampaigns::Campaign":                             &connectcampaigns.Campaign{},
+		"AWS::ControlTower::EnabledControl":                           &controltower.EnabledControl{},
 		"AWS::CustomerProfiles::Domain":                               &customerprofiles.Domain{},
 		"AWS::CustomerProfiles::Integration":                          &customerprofiles.Integration{},
 		"AWS::CustomerProfiles::ObjectType":                           &customerprofiles.ObjectType{},
@@ -697,6 +704,8 @@ func AllResources() map[string]Resource {
 		"AWS::IVS::PlaybackKeyPair":                                   &ivs.PlaybackKeyPair{},
 		"AWS::IVS::RecordingConfiguration":                            &ivs.RecordingConfiguration{},
 		"AWS::IVS::StreamKey":                                         &ivs.StreamKey{},
+		"AWS::IdentityStore::Group":                                   &identitystore.Group{},
+		"AWS::IdentityStore::GroupMembership":                         &identitystore.GroupMembership{},
 		"AWS::ImageBuilder::Component":                                &imagebuilder.Component{},
 		"AWS::ImageBuilder::ContainerRecipe":                          &imagebuilder.ContainerRecipe{},
 		"AWS::ImageBuilder::DistributionConfiguration":                &imagebuilder.DistributionConfiguration{},
@@ -742,6 +751,12 @@ func AllResources() map[string]Resource {
 		"AWS::IoTEvents::DetectorModel":                               &iotevents.DetectorModel{},
 		"AWS::IoTEvents::Input":                                       &iotevents.Input{},
 		"AWS::IoTFleetHub::Application":                               &iotfleethub.Application{},
+		"AWS::IoTFleetWise::Campaign":                                 &iotfleetwise.Campaign{},
+		"AWS::IoTFleetWise::DecoderManifest":                          &iotfleetwise.DecoderManifest{},
+		"AWS::IoTFleetWise::Fleet":                                    &iotfleetwise.Fleet{},
+		"AWS::IoTFleetWise::ModelManifest":                            &iotfleetwise.ModelManifest{},
+		"AWS::IoTFleetWise::SignalCatalog":                            &iotfleetwise.SignalCatalog{},
+		"AWS::IoTFleetWise::Vehicle":                                  &iotfleetwise.Vehicle{},
 		"AWS::IoTSiteWise::AccessPolicy":                              &iotsitewise.AccessPolicy{},
 		"AWS::IoTSiteWise::Asset":                                     &iotsitewise.Asset{},
 		"AWS::IoTSiteWise::AssetModel":                                &iotsitewise.AssetModel{},
@@ -834,11 +849,13 @@ func AllResources() map[string]Resource {
 		"AWS::LookoutMetrics::Alert":                                  &lookoutmetrics.Alert{},
 		"AWS::LookoutMetrics::AnomalyDetector":                        &lookoutmetrics.AnomalyDetector{},
 		"AWS::LookoutVision::Project":                                 &lookoutvision.Project{},
+		"AWS::M2::Environment":                                        &m2.Environment{},
 		"AWS::MSK::BatchScramSecret":                                  &msk.BatchScramSecret{},
 		"AWS::MSK::Cluster":                                           &msk.Cluster{},
 		"AWS::MSK::Configuration":                                     &msk.Configuration{},
 		"AWS::MSK::ServerlessCluster":                                 &msk.ServerlessCluster{},
 		"AWS::MWAA::Environment":                                      &mwaa.Environment{},
+		"AWS::Macie::AllowList":                                       &macie.AllowList{},
 		"AWS::Macie::CustomDataIdentifier":                            &macie.CustomDataIdentifier{},
 		"AWS::Macie::FindingsFilter":                                  &macie.FindingsFilter{},
 		"AWS::Macie::Session":                                         &macie.Session{},
@@ -4767,6 +4784,30 @@ func (t *Template) GetCloudFrontKeyGroupWithName(name string) (*cloudfront.KeyGr
 	return nil, fmt.Errorf("resource %q of type cloudfront.KeyGroup not found", name)
 }
 
+// GetAllCloudFrontOriginAccessControlResources retrieves all cloudfront.OriginAccessControl items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFrontOriginAccessControlResources() map[string]*cloudfront.OriginAccessControl {
+	results := map[string]*cloudfront.OriginAccessControl{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudfront.OriginAccessControl:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFrontOriginAccessControlWithName retrieves all cloudfront.OriginAccessControl items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFrontOriginAccessControlWithName(name string) (*cloudfront.OriginAccessControl, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudfront.OriginAccessControl:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudfront.OriginAccessControl not found", name)
+}
+
 // GetAllCloudFrontOriginRequestPolicyResources retrieves all cloudfront.OriginRequestPolicy items from an AWS CloudFormation template
 func (t *Template) GetAllCloudFrontOriginRequestPolicyResources() map[string]*cloudfront.OriginRequestPolicy {
 	results := map[string]*cloudfront.OriginRequestPolicy{}
@@ -6111,6 +6152,30 @@ func (t *Template) GetConnectInstanceWithName(name string) (*connect.Instance, e
 	return nil, fmt.Errorf("resource %q of type connect.Instance not found", name)
 }
 
+// GetAllConnectInstanceStorageConfigResources retrieves all connect.InstanceStorageConfig items from an AWS CloudFormation template
+func (t *Template) GetAllConnectInstanceStorageConfigResources() map[string]*connect.InstanceStorageConfig {
+	results := map[string]*connect.InstanceStorageConfig{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.InstanceStorageConfig:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectInstanceStorageConfigWithName retrieves all connect.InstanceStorageConfig items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectInstanceStorageConfigWithName(name string) (*connect.InstanceStorageConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.InstanceStorageConfig:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.InstanceStorageConfig not found", name)
+}
+
 // GetAllConnectPhoneNumberResources retrieves all connect.PhoneNumber items from an AWS CloudFormation template
 func (t *Template) GetAllConnectPhoneNumberResources() map[string]*connect.PhoneNumber {
 	results := map[string]*connect.PhoneNumber{}
@@ -6253,6 +6318,30 @@ func (t *Template) GetConnectCampaignsCampaignWithName(name string) (*connectcam
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connectcampaigns.Campaign not found", name)
+}
+
+// GetAllControlTowerEnabledControlResources retrieves all controltower.EnabledControl items from an AWS CloudFormation template
+func (t *Template) GetAllControlTowerEnabledControlResources() map[string]*controltower.EnabledControl {
+	results := map[string]*controltower.EnabledControl{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *controltower.EnabledControl:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetControlTowerEnabledControlWithName retrieves all controltower.EnabledControl items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetControlTowerEnabledControlWithName(name string) (*controltower.EnabledControl, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *controltower.EnabledControl:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type controltower.EnabledControl not found", name)
 }
 
 // GetAllCustomerProfilesDomainResources retrieves all customerprofiles.Domain items from an AWS CloudFormation template
@@ -12927,6 +13016,54 @@ func (t *Template) GetIVSStreamKeyWithName(name string) (*ivs.StreamKey, error) 
 	return nil, fmt.Errorf("resource %q of type ivs.StreamKey not found", name)
 }
 
+// GetAllIdentityStoreGroupResources retrieves all identitystore.Group items from an AWS CloudFormation template
+func (t *Template) GetAllIdentityStoreGroupResources() map[string]*identitystore.Group {
+	results := map[string]*identitystore.Group{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *identitystore.Group:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIdentityStoreGroupWithName retrieves all identitystore.Group items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIdentityStoreGroupWithName(name string) (*identitystore.Group, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *identitystore.Group:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type identitystore.Group not found", name)
+}
+
+// GetAllIdentityStoreGroupMembershipResources retrieves all identitystore.GroupMembership items from an AWS CloudFormation template
+func (t *Template) GetAllIdentityStoreGroupMembershipResources() map[string]*identitystore.GroupMembership {
+	results := map[string]*identitystore.GroupMembership{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *identitystore.GroupMembership:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIdentityStoreGroupMembershipWithName retrieves all identitystore.GroupMembership items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIdentityStoreGroupMembershipWithName(name string) (*identitystore.GroupMembership, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *identitystore.GroupMembership:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type identitystore.GroupMembership not found", name)
+}
+
 // GetAllImageBuilderComponentResources retrieves all imagebuilder.Component items from an AWS CloudFormation template
 func (t *Template) GetAllImageBuilderComponentResources() map[string]*imagebuilder.Component {
 	results := map[string]*imagebuilder.Component{}
@@ -14005,6 +14142,150 @@ func (t *Template) GetIoTFleetHubApplicationWithName(name string) (*iotfleethub.
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iotfleethub.Application not found", name)
+}
+
+// GetAllIoTFleetWiseCampaignResources retrieves all iotfleetwise.Campaign items from an AWS CloudFormation template
+func (t *Template) GetAllIoTFleetWiseCampaignResources() map[string]*iotfleetwise.Campaign {
+	results := map[string]*iotfleetwise.Campaign{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.Campaign:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTFleetWiseCampaignWithName retrieves all iotfleetwise.Campaign items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTFleetWiseCampaignWithName(name string) (*iotfleetwise.Campaign, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.Campaign:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotfleetwise.Campaign not found", name)
+}
+
+// GetAllIoTFleetWiseDecoderManifestResources retrieves all iotfleetwise.DecoderManifest items from an AWS CloudFormation template
+func (t *Template) GetAllIoTFleetWiseDecoderManifestResources() map[string]*iotfleetwise.DecoderManifest {
+	results := map[string]*iotfleetwise.DecoderManifest{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.DecoderManifest:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTFleetWiseDecoderManifestWithName retrieves all iotfleetwise.DecoderManifest items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTFleetWiseDecoderManifestWithName(name string) (*iotfleetwise.DecoderManifest, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.DecoderManifest:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotfleetwise.DecoderManifest not found", name)
+}
+
+// GetAllIoTFleetWiseFleetResources retrieves all iotfleetwise.Fleet items from an AWS CloudFormation template
+func (t *Template) GetAllIoTFleetWiseFleetResources() map[string]*iotfleetwise.Fleet {
+	results := map[string]*iotfleetwise.Fleet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.Fleet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTFleetWiseFleetWithName retrieves all iotfleetwise.Fleet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTFleetWiseFleetWithName(name string) (*iotfleetwise.Fleet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.Fleet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotfleetwise.Fleet not found", name)
+}
+
+// GetAllIoTFleetWiseModelManifestResources retrieves all iotfleetwise.ModelManifest items from an AWS CloudFormation template
+func (t *Template) GetAllIoTFleetWiseModelManifestResources() map[string]*iotfleetwise.ModelManifest {
+	results := map[string]*iotfleetwise.ModelManifest{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.ModelManifest:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTFleetWiseModelManifestWithName retrieves all iotfleetwise.ModelManifest items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTFleetWiseModelManifestWithName(name string) (*iotfleetwise.ModelManifest, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.ModelManifest:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotfleetwise.ModelManifest not found", name)
+}
+
+// GetAllIoTFleetWiseSignalCatalogResources retrieves all iotfleetwise.SignalCatalog items from an AWS CloudFormation template
+func (t *Template) GetAllIoTFleetWiseSignalCatalogResources() map[string]*iotfleetwise.SignalCatalog {
+	results := map[string]*iotfleetwise.SignalCatalog{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.SignalCatalog:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTFleetWiseSignalCatalogWithName retrieves all iotfleetwise.SignalCatalog items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTFleetWiseSignalCatalogWithName(name string) (*iotfleetwise.SignalCatalog, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.SignalCatalog:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotfleetwise.SignalCatalog not found", name)
+}
+
+// GetAllIoTFleetWiseVehicleResources retrieves all iotfleetwise.Vehicle items from an AWS CloudFormation template
+func (t *Template) GetAllIoTFleetWiseVehicleResources() map[string]*iotfleetwise.Vehicle {
+	results := map[string]*iotfleetwise.Vehicle{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.Vehicle:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTFleetWiseVehicleWithName retrieves all iotfleetwise.Vehicle items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTFleetWiseVehicleWithName(name string) (*iotfleetwise.Vehicle, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotfleetwise.Vehicle:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotfleetwise.Vehicle not found", name)
 }
 
 // GetAllIoTSiteWiseAccessPolicyResources retrieves all iotsitewise.AccessPolicy items from an AWS CloudFormation template
@@ -16215,6 +16496,30 @@ func (t *Template) GetLookoutVisionProjectWithName(name string) (*lookoutvision.
 	return nil, fmt.Errorf("resource %q of type lookoutvision.Project not found", name)
 }
 
+// GetAllM2EnvironmentResources retrieves all m2.Environment items from an AWS CloudFormation template
+func (t *Template) GetAllM2EnvironmentResources() map[string]*m2.Environment {
+	results := map[string]*m2.Environment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *m2.Environment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetM2EnvironmentWithName retrieves all m2.Environment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetM2EnvironmentWithName(name string) (*m2.Environment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *m2.Environment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type m2.Environment not found", name)
+}
+
 // GetAllMSKBatchScramSecretResources retrieves all msk.BatchScramSecret items from an AWS CloudFormation template
 func (t *Template) GetAllMSKBatchScramSecretResources() map[string]*msk.BatchScramSecret {
 	results := map[string]*msk.BatchScramSecret{}
@@ -16333,6 +16638,30 @@ func (t *Template) GetMWAAEnvironmentWithName(name string) (*mwaa.Environment, e
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type mwaa.Environment not found", name)
+}
+
+// GetAllMacieAllowListResources retrieves all macie.AllowList items from an AWS CloudFormation template
+func (t *Template) GetAllMacieAllowListResources() map[string]*macie.AllowList {
+	results := map[string]*macie.AllowList{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *macie.AllowList:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMacieAllowListWithName retrieves all macie.AllowList items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMacieAllowListWithName(name string) (*macie.AllowList, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *macie.AllowList:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type macie.AllowList not found", name)
 }
 
 // GetAllMacieCustomDataIdentifierResources retrieves all macie.CustomDataIdentifier items from an AWS CloudFormation template

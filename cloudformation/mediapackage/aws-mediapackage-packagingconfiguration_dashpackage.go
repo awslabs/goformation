@@ -3,7 +3,7 @@
 package mediapackage
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // PackagingConfiguration_DashPackage AWS CloudFormation Resource (AWS::MediaPackage::PackagingConfiguration.DashPackage)
@@ -28,7 +28,7 @@ type PackagingConfiguration_DashPackage struct {
 	// PeriodTriggers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
-	PeriodTriggers *[]string `json:"PeriodTriggers,omitempty"`
+	PeriodTriggers []string `json:"PeriodTriggers,omitempty"`
 
 	// SegmentDurationSeconds AWS CloudFormation Property
 	// Required: false

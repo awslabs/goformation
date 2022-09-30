@@ -3,7 +3,7 @@
 package config
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // OrganizationConfigRule_OrganizationManagedRuleMetadata AWS CloudFormation Resource (AWS::Config::OrganizationConfigRule.OrganizationManagedRuleMetadata)
@@ -33,7 +33,7 @@ type OrganizationConfigRule_OrganizationManagedRuleMetadata struct {
 	// ResourceTypesScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope
-	ResourceTypesScope *[]string `json:"ResourceTypesScope,omitempty"`
+	ResourceTypesScope []string `json:"ResourceTypesScope,omitempty"`
 
 	// RuleIdentifier AWS CloudFormation Property
 	// Required: true

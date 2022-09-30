@@ -3,7 +3,7 @@
 package cloudwatch
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // AnomalyDetector_Metric AWS CloudFormation Resource (AWS::CloudWatch::AnomalyDetector.Metric)
@@ -13,7 +13,7 @@ type AnomalyDetector_Metric struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html#cfn-cloudwatch-anomalydetector-metric-dimensions
-	Dimensions *[]AnomalyDetector_Dimension `json:"Dimensions,omitempty"`
+	Dimensions []AnomalyDetector_Dimension `json:"Dimensions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true

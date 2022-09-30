@@ -3,7 +3,7 @@
 package imagebuilder
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DistributionConfiguration_LaunchPermissionConfiguration AWS CloudFormation Resource (AWS::ImageBuilder::DistributionConfiguration.LaunchPermissionConfiguration)
@@ -13,22 +13,22 @@ type DistributionConfiguration_LaunchPermissionConfiguration struct {
 	// OrganizationArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-organizationarns
-	OrganizationArns *[]string `json:"OrganizationArns,omitempty"`
+	OrganizationArns []string `json:"OrganizationArns,omitempty"`
 
 	// OrganizationalUnitArns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-organizationalunitarns
-	OrganizationalUnitArns *[]string `json:"OrganizationalUnitArns,omitempty"`
+	OrganizationalUnitArns []string `json:"OrganizationalUnitArns,omitempty"`
 
 	// UserGroups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-usergroups
-	UserGroups *[]string `json:"UserGroups,omitempty"`
+	UserGroups []string `json:"UserGroups,omitempty"`
 
 	// UserIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-userids
-	UserIds *[]string `json:"UserIds,omitempty"`
+	UserIds []string `json:"UserIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

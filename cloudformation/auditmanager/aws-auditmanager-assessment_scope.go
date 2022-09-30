@@ -3,7 +3,7 @@
 package auditmanager
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Assessment_Scope AWS CloudFormation Resource (AWS::AuditManager::Assessment.Scope)
@@ -13,12 +13,12 @@ type Assessment_Scope struct {
 	// AwsAccounts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-	AwsAccounts *[]Assessment_AWSAccount `json:"AwsAccounts,omitempty"`
+	AwsAccounts []Assessment_AWSAccount `json:"AwsAccounts,omitempty"`
 
 	// AwsServices AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
-	AwsServices *[]Assessment_AWSService `json:"AwsServices,omitempty"`
+	AwsServices []Assessment_AWSService `json:"AwsServices,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

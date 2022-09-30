@@ -3,7 +3,7 @@
 package appstream
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Stack_StorageConnector AWS CloudFormation Resource (AWS::AppStream::Stack.StorageConnector)
@@ -18,7 +18,7 @@ type Stack_StorageConnector struct {
 	// Domains AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-domains
-	Domains *[]string `json:"Domains,omitempty"`
+	Domains []string `json:"Domains,omitempty"`
 
 	// ResourceIdentifier AWS CloudFormation Property
 	// Required: false

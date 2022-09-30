@@ -3,7 +3,7 @@
 package fsx
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // FileSystem_SelfManagedActiveDirectoryConfiguration AWS CloudFormation Resource (AWS::FSx::FileSystem.SelfManagedActiveDirectoryConfiguration)
@@ -13,7 +13,7 @@ type FileSystem_SelfManagedActiveDirectoryConfiguration struct {
 	// DnsIps AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration-dnsips
-	DnsIps *[]string `json:"DnsIps,omitempty"`
+	DnsIps []string `json:"DnsIps,omitempty"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: false

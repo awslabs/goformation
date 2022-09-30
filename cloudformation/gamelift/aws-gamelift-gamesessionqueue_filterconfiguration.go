@@ -3,7 +3,7 @@
 package gamelift
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // GameSessionQueue_FilterConfiguration AWS CloudFormation Resource (AWS::GameLift::GameSessionQueue.FilterConfiguration)
@@ -13,7 +13,7 @@ type GameSessionQueue_FilterConfiguration struct {
 	// AllowedLocations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-filterconfiguration.html#cfn-gamelift-gamesessionqueue-filterconfiguration-allowedlocations
-	AllowedLocations *[]string `json:"AllowedLocations,omitempty"`
+	AllowedLocations []string `json:"AllowedLocations,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

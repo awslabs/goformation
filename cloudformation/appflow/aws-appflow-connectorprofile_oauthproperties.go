@@ -3,7 +3,7 @@
 package appflow
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ConnectorProfile_OAuthProperties AWS CloudFormation Resource (AWS::AppFlow::ConnectorProfile.OAuthProperties)
@@ -18,7 +18,7 @@ type ConnectorProfile_OAuthProperties struct {
 	// OAuthScopes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-oauthscopes
-	OAuthScopes *[]string `json:"OAuthScopes,omitempty"`
+	OAuthScopes []string `json:"OAuthScopes,omitempty"`
 
 	// TokenUrl AWS CloudFormation Property
 	// Required: false

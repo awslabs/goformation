@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // NetworkInterface AWS CloudFormation Resource (AWS::EC2::NetworkInterface)
@@ -22,7 +22,7 @@ type NetworkInterface struct {
 	// GroupSet AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-groupset
-	GroupSet *[]string `json:"GroupSet,omitempty"`
+	GroupSet []string `json:"GroupSet,omitempty"`
 
 	// InterfaceType AWS CloudFormation Property
 	// Required: false
@@ -37,7 +37,7 @@ type NetworkInterface struct {
 	// Ipv6Addresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6addresses
-	Ipv6Addresses *[]NetworkInterface_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
+	Ipv6Addresses []NetworkInterface_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
 
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: false
@@ -47,7 +47,7 @@ type NetworkInterface struct {
 	// PrivateIpAddresses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-privateipaddresses
-	PrivateIpAddresses *[]NetworkInterface_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
+	PrivateIpAddresses []NetworkInterface_PrivateIpAddressSpecification `json:"PrivateIpAddresses,omitempty"`
 
 	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
 	// Required: false
@@ -67,7 +67,7 @@ type NetworkInterface struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

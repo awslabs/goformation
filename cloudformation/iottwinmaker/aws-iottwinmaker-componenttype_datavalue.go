@@ -3,7 +3,7 @@
 package iottwinmaker
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ComponentType_DataValue AWS CloudFormation Resource (AWS::IoTTwinMaker::ComponentType.DataValue)
@@ -33,7 +33,7 @@ type ComponentType_DataValue struct {
 	// ListValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-listvalue
-	ListValue *[]ComponentType_DataValue `json:"ListValue,omitempty"`
+	ListValue []ComponentType_DataValue `json:"ListValue,omitempty"`
 
 	// LongValue AWS CloudFormation Property
 	// Required: false
@@ -43,7 +43,7 @@ type ComponentType_DataValue struct {
 	// MapValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-mapvalue
-	MapValue *map[string]ComponentType_DataValue `json:"MapValue,omitempty"`
+	MapValue map[string]ComponentType_DataValue `json:"MapValue,omitempty"`
 
 	// RelationshipValue AWS CloudFormation Property
 	// Required: false

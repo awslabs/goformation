@@ -3,7 +3,7 @@
 package ecs
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // TaskDefinition_EphemeralStorage AWS CloudFormation Resource (AWS::ECS::TaskDefinition.EphemeralStorage)

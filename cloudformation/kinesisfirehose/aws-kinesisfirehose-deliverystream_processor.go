@@ -3,7 +3,7 @@
 package kinesisfirehose
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // DeliveryStream_Processor AWS CloudFormation Resource (AWS::KinesisFirehose::DeliveryStream.Processor)
@@ -13,7 +13,7 @@ type DeliveryStream_Processor struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
-	Parameters *[]DeliveryStream_ProcessorParameter `json:"Parameters,omitempty"`
+	Parameters []DeliveryStream_ProcessorParameter `json:"Parameters,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

@@ -3,7 +3,7 @@
 package pinpoint
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Segment_SegmentGroups AWS CloudFormation Resource (AWS::Pinpoint::Segment.SegmentGroups)
@@ -13,7 +13,7 @@ type Segment_SegmentGroups struct {
 	// Groups AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html#cfn-pinpoint-segment-segmentgroups-groups
-	Groups *[]Segment_Groups `json:"Groups,omitempty"`
+	Groups []Segment_Groups `json:"Groups,omitempty"`
 
 	// Include AWS CloudFormation Property
 	// Required: false

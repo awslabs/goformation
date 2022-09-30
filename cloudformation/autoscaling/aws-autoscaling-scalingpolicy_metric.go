@@ -3,7 +3,7 @@
 package autoscaling
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // ScalingPolicy_Metric AWS CloudFormation Resource (AWS::AutoScaling::ScalingPolicy.Metric)
@@ -13,7 +13,7 @@ type ScalingPolicy_Metric struct {
 	// Dimensions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html#cfn-autoscaling-scalingpolicy-metric-dimensions
-	Dimensions *[]ScalingPolicy_MetricDimension `json:"Dimensions,omitempty"`
+	Dimensions []ScalingPolicy_MetricDimension `json:"Dimensions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true

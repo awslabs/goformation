@@ -3,7 +3,7 @@
 package glue
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Connection_PhysicalConnectionRequirements AWS CloudFormation Resource (AWS::Glue::Connection.PhysicalConnectionRequirements)
@@ -18,7 +18,7 @@ type Connection_PhysicalConnectionRequirements struct {
 	// SecurityGroupIdList AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
-	SecurityGroupIdList *[]string `json:"SecurityGroupIdList,omitempty"`
+	SecurityGroupIdList []string `json:"SecurityGroupIdList,omitempty"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: false

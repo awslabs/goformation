@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // Instance_SsmAssociation AWS CloudFormation Resource (AWS::EC2::Instance.SsmAssociation)
@@ -13,7 +13,7 @@ type Instance_SsmAssociation struct {
 	// AssociationParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-associationparameters
-	AssociationParameters *[]Instance_AssociationParameter `json:"AssociationParameters,omitempty"`
+	AssociationParameters []Instance_AssociationParameter `json:"AssociationParameters,omitempty"`
 
 	// DocumentName AWS CloudFormation Property
 	// Required: true

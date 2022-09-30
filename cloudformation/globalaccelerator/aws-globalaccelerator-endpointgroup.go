@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // EndpointGroup AWS CloudFormation Resource (AWS::GlobalAccelerator::EndpointGroup)
@@ -16,7 +16,7 @@ type EndpointGroup struct {
 	// EndpointConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
-	EndpointConfigurations *[]EndpointGroup_EndpointConfiguration `json:"EndpointConfigurations,omitempty"`
+	EndpointConfigurations []EndpointGroup_EndpointConfiguration `json:"EndpointConfigurations,omitempty"`
 
 	// EndpointGroupRegion AWS CloudFormation Property
 	// Required: true
@@ -51,7 +51,7 @@ type EndpointGroup struct {
 	// PortOverrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-	PortOverrides *[]EndpointGroup_PortOverride `json:"PortOverrides,omitempty"`
+	PortOverrides []EndpointGroup_PortOverride `json:"PortOverrides,omitempty"`
 
 	// ThresholdCount AWS CloudFormation Property
 	// Required: false

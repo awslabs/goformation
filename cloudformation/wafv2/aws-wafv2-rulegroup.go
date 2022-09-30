@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
-	"github.com/awslabs/goformation/v6/cloudformation/tags"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // RuleGroup AWS CloudFormation Resource (AWS::WAFv2::RuleGroup)
@@ -22,7 +22,7 @@ type RuleGroup struct {
 	// CustomResponseBodies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-	CustomResponseBodies *map[string]RuleGroup_CustomResponseBody `json:"CustomResponseBodies,omitempty"`
+	CustomResponseBodies map[string]RuleGroup_CustomResponseBody `json:"CustomResponseBodies,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -37,7 +37,7 @@ type RuleGroup struct {
 	// Rules AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-	Rules *[]RuleGroup_Rule `json:"Rules,omitempty"`
+	Rules []RuleGroup_Rule `json:"Rules,omitempty"`
 
 	// Scope AWS CloudFormation Property
 	// Required: true
@@ -47,7 +47,7 @@ type RuleGroup struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-	Tags *[]tags.Tag `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
 	// Required: true

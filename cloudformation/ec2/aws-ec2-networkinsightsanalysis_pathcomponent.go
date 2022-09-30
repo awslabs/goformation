@@ -3,7 +3,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v6/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
 // NetworkInsightsAnalysis_PathComponent AWS CloudFormation Resource (AWS::EC2::NetworkInsightsAnalysis.PathComponent)
@@ -18,7 +18,7 @@ type NetworkInsightsAnalysis_PathComponent struct {
 	// AdditionalDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-additionaldetails
-	AdditionalDetails *[]NetworkInsightsAnalysis_AdditionalDetail `json:"AdditionalDetails,omitempty"`
+	AdditionalDetails []NetworkInsightsAnalysis_AdditionalDetail `json:"AdditionalDetails,omitempty"`
 
 	// Component AWS CloudFormation Property
 	// Required: false
@@ -38,7 +38,7 @@ type NetworkInsightsAnalysis_PathComponent struct {
 	// Explanations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-explanations
-	Explanations *[]NetworkInsightsAnalysis_Explanation `json:"Explanations,omitempty"`
+	Explanations []NetworkInsightsAnalysis_Explanation `json:"Explanations,omitempty"`
 
 	// InboundHeader AWS CloudFormation Property
 	// Required: false
