@@ -1,5 +1,15 @@
 # GoFormation Versioning Changelog
 
+# [7.0.0](https://github.com/awslabs/goformation/compare/v6.11.0...v7.0.0) (2022-09-30)
+
+
+* feat!: bump release to v7 ([a30de92](https://github.com/awslabs/goformation/commit/a30de9219e65b2b2f56df225eb687abd23aaa49c))
+
+
+### BREAKING CHANGES
+
+* Pointers are not used for Lists, Maps and interface{} members.
+
 # [6.11.0](https://github.com/awslabs/goformation/compare/v6.10.0...v6.11.0) (2022-09-30)
 
 
