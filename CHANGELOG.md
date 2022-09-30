@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [6.11.0](https://github.com/awslabs/goformation/compare/v6.10.0...v6.11.0) (2022-09-30)
+
+
+### Features
+
+* Release v7 ([#499](https://github.com/awslabs/goformation/issues/499)) ([28c3768](https://github.com/awslabs/goformation/commit/28c37685fdeabd5ec3745413601eabfb1d480f67))
+
 # [7.0.0-beta.1](https://github.com/awslabs/goformation/compare/v6.10.0...v7.0.0-beta.1) (2022-09-29)
 
 
