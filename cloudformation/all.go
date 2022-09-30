@@ -361,6 +361,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudFront::Distribution":                               &cloudfront.Distribution{},
 		"AWS::CloudFront::Function":                                   &cloudfront.Function{},
 		"AWS::CloudFront::KeyGroup":                                   &cloudfront.KeyGroup{},
+		"AWS::CloudFront::MonitoringSubscription":                     &cloudfront.MonitoringSubscription{},
 		"AWS::CloudFront::OriginAccessControl":                        &cloudfront.OriginAccessControl{},
 		"AWS::CloudFront::OriginRequestPolicy":                        &cloudfront.OriginRequestPolicy{},
 		"AWS::CloudFront::PublicKey":                                  &cloudfront.PublicKey{},
@@ -849,6 +850,7 @@ func AllResources() map[string]Resource {
 		"AWS::LookoutMetrics::Alert":                                  &lookoutmetrics.Alert{},
 		"AWS::LookoutMetrics::AnomalyDetector":                        &lookoutmetrics.AnomalyDetector{},
 		"AWS::LookoutVision::Project":                                 &lookoutvision.Project{},
+		"AWS::M2::Application":                                        &m2.Application{},
 		"AWS::M2::Environment":                                        &m2.Environment{},
 		"AWS::MSK::BatchScramSecret":                                  &msk.BatchScramSecret{},
 		"AWS::MSK::Cluster":                                           &msk.Cluster{},
@@ -4782,6 +4784,30 @@ func (t *Template) GetCloudFrontKeyGroupWithName(name string) (*cloudfront.KeyGr
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cloudfront.KeyGroup not found", name)
+}
+
+// GetAllCloudFrontMonitoringSubscriptionResources retrieves all cloudfront.MonitoringSubscription items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFrontMonitoringSubscriptionResources() map[string]*cloudfront.MonitoringSubscription {
+	results := map[string]*cloudfront.MonitoringSubscription{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudfront.MonitoringSubscription:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFrontMonitoringSubscriptionWithName retrieves all cloudfront.MonitoringSubscription items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFrontMonitoringSubscriptionWithName(name string) (*cloudfront.MonitoringSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudfront.MonitoringSubscription:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudfront.MonitoringSubscription not found", name)
 }
 
 // GetAllCloudFrontOriginAccessControlResources retrieves all cloudfront.OriginAccessControl items from an AWS CloudFormation template
@@ -16494,6 +16520,30 @@ func (t *Template) GetLookoutVisionProjectWithName(name string) (*lookoutvision.
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type lookoutvision.Project not found", name)
+}
+
+// GetAllM2ApplicationResources retrieves all m2.Application items from an AWS CloudFormation template
+func (t *Template) GetAllM2ApplicationResources() map[string]*m2.Application {
+	results := map[string]*m2.Application{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *m2.Application:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetM2ApplicationWithName retrieves all m2.Application items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetM2ApplicationWithName(name string) (*m2.Application, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *m2.Application:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type m2.Application not found", name)
 }
 
 // GetAllM2EnvironmentResources retrieves all m2.Environment items from an AWS CloudFormation template
