@@ -16,7 +16,7 @@ type Application struct {
 	// Definition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html#cfn-m2-application-definition
-	Definition interface{} `json:"Definition"`
+	Definition *Application_Definition `json:"Definition"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

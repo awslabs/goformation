@@ -678,6 +678,7 @@ func AllResources() map[string]Resource {
 		"AWS::Greengrass::SubscriptionDefinition":                     &greengrass.SubscriptionDefinition{},
 		"AWS::Greengrass::SubscriptionDefinitionVersion":              &greengrass.SubscriptionDefinitionVersion{},
 		"AWS::GreengrassV2::ComponentVersion":                         &greengrassv2.ComponentVersion{},
+		"AWS::GreengrassV2::Deployment":                               &greengrassv2.Deployment{},
 		"AWS::GroundStation::Config":                                  &groundstation.Config{},
 		"AWS::GroundStation::DataflowEndpointGroup":                   &groundstation.DataflowEndpointGroup{},
 		"AWS::GroundStation::MissionProfile":                          &groundstation.MissionProfile{},
@@ -1143,6 +1144,10 @@ func AllResources() map[string]Resource {
 		"AWS::Timestream::Database":                                   &timestream.Database{},
 		"AWS::Timestream::ScheduledQuery":                             &timestream.ScheduledQuery{},
 		"AWS::Timestream::Table":                                      &timestream.Table{},
+		"AWS::Transfer::Agreement":                                    &transfer.Agreement{},
+		"AWS::Transfer::Certificate":                                  &transfer.Certificate{},
+		"AWS::Transfer::Connector":                                    &transfer.Connector{},
+		"AWS::Transfer::Profile":                                      &transfer.Profile{},
 		"AWS::Transfer::Server":                                       &transfer.Server{},
 		"AWS::Transfer::User":                                         &transfer.User{},
 		"AWS::Transfer::Workflow":                                     &transfer.Workflow{},
@@ -12394,6 +12399,30 @@ func (t *Template) GetGreengrassV2ComponentVersionWithName(name string) (*greeng
 	return nil, fmt.Errorf("resource %q of type greengrassv2.ComponentVersion not found", name)
 }
 
+// GetAllGreengrassV2DeploymentResources retrieves all greengrassv2.Deployment items from an AWS CloudFormation template
+func (t *Template) GetAllGreengrassV2DeploymentResources() map[string]*greengrassv2.Deployment {
+	results := map[string]*greengrassv2.Deployment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *greengrassv2.Deployment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGreengrassV2DeploymentWithName retrieves all greengrassv2.Deployment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGreengrassV2DeploymentWithName(name string) (*greengrassv2.Deployment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *greengrassv2.Deployment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type greengrassv2.Deployment not found", name)
+}
+
 // GetAllGroundStationConfigResources retrieves all groundstation.Config items from an AWS CloudFormation template
 func (t *Template) GetAllGroundStationConfigResources() map[string]*groundstation.Config {
 	results := map[string]*groundstation.Config{}
@@ -23552,6 +23581,102 @@ func (t *Template) GetTimestreamTableWithName(name string) (*timestream.Table, e
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type timestream.Table not found", name)
+}
+
+// GetAllTransferAgreementResources retrieves all transfer.Agreement items from an AWS CloudFormation template
+func (t *Template) GetAllTransferAgreementResources() map[string]*transfer.Agreement {
+	results := map[string]*transfer.Agreement{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *transfer.Agreement:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetTransferAgreementWithName retrieves all transfer.Agreement items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetTransferAgreementWithName(name string) (*transfer.Agreement, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *transfer.Agreement:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type transfer.Agreement not found", name)
+}
+
+// GetAllTransferCertificateResources retrieves all transfer.Certificate items from an AWS CloudFormation template
+func (t *Template) GetAllTransferCertificateResources() map[string]*transfer.Certificate {
+	results := map[string]*transfer.Certificate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *transfer.Certificate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetTransferCertificateWithName retrieves all transfer.Certificate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetTransferCertificateWithName(name string) (*transfer.Certificate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *transfer.Certificate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type transfer.Certificate not found", name)
+}
+
+// GetAllTransferConnectorResources retrieves all transfer.Connector items from an AWS CloudFormation template
+func (t *Template) GetAllTransferConnectorResources() map[string]*transfer.Connector {
+	results := map[string]*transfer.Connector{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *transfer.Connector:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetTransferConnectorWithName retrieves all transfer.Connector items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetTransferConnectorWithName(name string) (*transfer.Connector, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *transfer.Connector:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type transfer.Connector not found", name)
+}
+
+// GetAllTransferProfileResources retrieves all transfer.Profile items from an AWS CloudFormation template
+func (t *Template) GetAllTransferProfileResources() map[string]*transfer.Profile {
+	results := map[string]*transfer.Profile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *transfer.Profile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetTransferProfileWithName retrieves all transfer.Profile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetTransferProfileWithName(name string) (*transfer.Profile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *transfer.Profile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type transfer.Profile not found", name)
 }
 
 // GetAllTransferServerResources retrieves all transfer.Server items from an AWS CloudFormation template

@@ -14,19 +14,19 @@ import (
 type GroupMembership struct {
 
 	// GroupId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-groupid
-	GroupId *string `json:"GroupId,omitempty"`
+	GroupId string `json:"GroupId"`
 
 	// IdentityStoreId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-identitystoreid
-	IdentityStoreId *string `json:"IdentityStoreId,omitempty"`
+	IdentityStoreId string `json:"IdentityStoreId"`
 
 	// MemberId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-memberid
-	MemberId interface{} `json:"MemberId,omitempty"`
+	MemberId interface{} `json:"MemberId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

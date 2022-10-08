@@ -15,9 +15,9 @@ import (
 type Cell struct {
 
 	// CellName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
-	CellName string `json:"CellName"`
+	CellName *string `json:"CellName,omitempty"`
 
 	// Cells AWS CloudFormation Property
 	// Required: false
