@@ -15,9 +15,9 @@ import (
 type ReadinessCheck struct {
 
 	// ReadinessCheckName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
-	ReadinessCheckName string `json:"ReadinessCheckName"`
+	ReadinessCheckName *string `json:"ReadinessCheckName,omitempty"`
 
 	// ResourceSetName AWS CloudFormation Property
 	// Required: false

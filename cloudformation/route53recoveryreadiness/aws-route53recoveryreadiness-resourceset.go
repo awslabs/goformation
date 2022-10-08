@@ -15,9 +15,9 @@ import (
 type ResourceSet struct {
 
 	// ResourceSetName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resourcesetname
-	ResourceSetName string `json:"ResourceSetName"`
+	ResourceSetName *string `json:"ResourceSetName,omitempty"`
 
 	// ResourceSetType AWS CloudFormation Property
 	// Required: true

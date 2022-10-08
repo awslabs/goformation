@@ -19,14 +19,14 @@ type Group struct {
 	Description *string `json:"Description,omitempty"`
 
 	// DisplayName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-displayname
-	DisplayName *string `json:"DisplayName,omitempty"`
+	DisplayName string `json:"DisplayName"`
 
 	// IdentityStoreId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-identitystoreid
-	IdentityStoreId *string `json:"IdentityStoreId,omitempty"`
+	IdentityStoreId string `json:"IdentityStoreId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

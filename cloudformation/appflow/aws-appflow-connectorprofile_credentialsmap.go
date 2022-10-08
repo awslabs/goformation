@@ -7,7 +7,7 @@ import (
 )
 
 // ConnectorProfile_CredentialsMap AWS CloudFormation Resource (AWS::AppFlow::ConnectorProfile.CredentialsMap)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-credentialsmap.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customauthcredentials.html#cfn-appflow-connectorprofile-customauthcredentials-credentialsmap
 type ConnectorProfile_CredentialsMap struct {
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

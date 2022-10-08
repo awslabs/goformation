@@ -20,9 +20,9 @@ type RecoveryGroup struct {
 	Cells []string `json:"Cells,omitempty"`
 
 	// RecoveryGroupName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
-	RecoveryGroupName string `json:"RecoveryGroupName"`
+	RecoveryGroupName *string `json:"RecoveryGroupName,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
