@@ -84,6 +84,16 @@ type DBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection
 	DeletionProtection *bool `json:"DeletionProtection,omitempty"`
 
+	// Domain AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-domain
+	Domain *string `json:"Domain,omitempty"`
+
+	// DomainIAMRoleName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-domainiamrolename
+	DomainIAMRoleName *string `json:"DomainIAMRoleName,omitempty"`
+
 	// EnableCloudwatchLogsExports AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
@@ -148,6 +158,11 @@ type DBCluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-monitoringrolearn
 	MonitoringRoleArn *string `json:"MonitoringRoleArn,omitempty"`
+
+	// NetworkType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-networktype
+	NetworkType *string `json:"NetworkType,omitempty"`
 
 	// PerformanceInsightsEnabled AWS CloudFormation Property
 	// Required: false

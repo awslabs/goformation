@@ -33,10 +33,20 @@ type EndpointAccess struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-subnetgroupname
 	SubnetGroupName string `json:"SubnetGroupName"`
 
+	// VpcEndpoint AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-vpcendpoint
+	VpcEndpoint interface{} `json:"VpcEndpoint,omitempty"`
+
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-vpcsecuritygroupids
 	VpcSecurityGroupIds []string `json:"VpcSecurityGroupIds"`
+
+	// VpcSecurityGroups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-vpcsecuritygroups
+	VpcSecurityGroups []EndpointAccess_VpcSecurityGroup `json:"VpcSecurityGroups,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
