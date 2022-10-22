@@ -30,6 +30,11 @@ type Bot_PromptSpecification struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-messageselectionstrategy
 	MessageSelectionStrategy *string `json:"MessageSelectionStrategy,omitempty"`
 
+	// PromptAttemptsSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-promptattemptsspecification
+	PromptAttemptsSpecification map[string]Bot_PromptAttemptSpecification `json:"PromptAttemptsSpecification,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

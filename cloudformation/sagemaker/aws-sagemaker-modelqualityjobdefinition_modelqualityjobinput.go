@@ -10,10 +10,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
 type ModelQualityJobDefinition_ModelQualityJobInput struct {
 
+	// BatchTransformInput AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-batchtransforminput
+	BatchTransformInput *ModelQualityJobDefinition_BatchTransformInput `json:"BatchTransformInput,omitempty"`
+
 	// EndpointInput AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-	EndpointInput *ModelQualityJobDefinition_EndpointInput `json:"EndpointInput"`
+	EndpointInput *ModelQualityJobDefinition_EndpointInput `json:"EndpointInput,omitempty"`
 
 	// GroundTruthS3Input AWS CloudFormation Property
 	// Required: true

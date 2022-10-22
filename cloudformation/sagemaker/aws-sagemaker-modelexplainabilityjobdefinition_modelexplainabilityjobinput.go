@@ -10,10 +10,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
 type ModelExplainabilityJobDefinition_ModelExplainabilityJobInput struct {
 
+	// BatchTransformInput AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-batchtransforminput
+	BatchTransformInput *ModelExplainabilityJobDefinition_BatchTransformInput `json:"BatchTransformInput,omitempty"`
+
 	// EndpointInput AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
-	EndpointInput *ModelExplainabilityJobDefinition_EndpointInput `json:"EndpointInput"`
+	EndpointInput *ModelExplainabilityJobDefinition_EndpointInput `json:"EndpointInput,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -26,7 +26,7 @@ type GroupMembership struct {
 	// MemberId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-memberid
-	MemberId interface{} `json:"MemberId"`
+	MemberId *GroupMembership_MemberId `json:"MemberId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

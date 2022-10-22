@@ -29,9 +29,9 @@ type Pipeline struct {
 	Name string `json:"Name"`
 
 	// ParameterObjects AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
-	ParameterObjects []Pipeline_ParameterObject `json:"ParameterObjects"`
+	ParameterObjects []Pipeline_ParameterObject `json:"ParameterObjects,omitempty"`
 
 	// ParameterValues AWS CloudFormation Property
 	// Required: false
