@@ -620,6 +620,7 @@ func AllResources() map[string]Resource {
 		"AWS::FIS::ExperimentTemplate":                                &fis.ExperimentTemplate{},
 		"AWS::FMS::NotificationChannel":                               &fms.NotificationChannel{},
 		"AWS::FMS::Policy":                                            &fms.Policy{},
+		"AWS::FSx::DataRepositoryAssociation":                         &fsx.DataRepositoryAssociation{},
 		"AWS::FSx::FileSystem":                                        &fsx.FileSystem{},
 		"AWS::FSx::Snapshot":                                          &fsx.Snapshot{},
 		"AWS::FSx::StorageVirtualMachine":                             &fsx.StorageVirtualMachine{},
@@ -11005,6 +11006,30 @@ func (t *Template) GetFMSPolicyWithName(name string) (*fms.Policy, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type fms.Policy not found", name)
+}
+
+// GetAllFSxDataRepositoryAssociationResources retrieves all fsx.DataRepositoryAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllFSxDataRepositoryAssociationResources() map[string]*fsx.DataRepositoryAssociation {
+	results := map[string]*fsx.DataRepositoryAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *fsx.DataRepositoryAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFSxDataRepositoryAssociationWithName retrieves all fsx.DataRepositoryAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFSxDataRepositoryAssociationWithName(name string) (*fsx.DataRepositoryAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *fsx.DataRepositoryAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type fsx.DataRepositoryAssociation not found", name)
 }
 
 // GetAllFSxFileSystemResources retrieves all fsx.FileSystem items from an AWS CloudFormation template

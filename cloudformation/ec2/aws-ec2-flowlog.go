@@ -65,9 +65,9 @@ type FlowLog struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TrafficType AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
-	TrafficType string `json:"TrafficType"`
+	TrafficType *string `json:"TrafficType,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
