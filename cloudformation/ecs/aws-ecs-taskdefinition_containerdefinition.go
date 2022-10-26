@@ -91,9 +91,9 @@ type TaskDefinition_ContainerDefinition struct {
 	Hostname *string `json:"Hostname,omitempty"`
 
 	// Image AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
-	Image *string `json:"Image,omitempty"`
+	Image string `json:"Image"`
 
 	// Interactive AWS CloudFormation Property
 	// Required: false
@@ -131,9 +131,9 @@ type TaskDefinition_ContainerDefinition struct {
 	MountPoints []TaskDefinition_MountPoint `json:"MountPoints,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// PortMappings AWS CloudFormation Property
 	// Required: false
