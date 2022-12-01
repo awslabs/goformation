@@ -11,9 +11,14 @@ import (
 type Service_NetworkConfiguration struct {
 
 	// EgressConfiguration AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-egressconfiguration
-	EgressConfiguration *Service_EgressConfiguration `json:"EgressConfiguration"`
+	EgressConfiguration *Service_EgressConfiguration `json:"EgressConfiguration,omitempty"`
+
+	// IngressConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ingressconfiguration
+	IngressConfiguration *Service_IngressConfiguration `json:"IngressConfiguration,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

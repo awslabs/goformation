@@ -13,7 +13,7 @@ type ConnectorProfile_CustomAuthCredentials struct {
 	// CredentialsMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customauthcredentials.html#cfn-appflow-connectorprofile-customauthcredentials-credentialsmap
-	CredentialsMap *ConnectorProfile_CredentialsMap `json:"CredentialsMap,omitempty"`
+	CredentialsMap interface{} `json:"CredentialsMap,omitempty"`
 
 	// CustomAuthenticationType AWS CloudFormation Property
 	// Required: true

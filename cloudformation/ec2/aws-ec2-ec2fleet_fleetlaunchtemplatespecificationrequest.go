@@ -21,9 +21,9 @@ type EC2Fleet_FleetLaunchTemplateSpecificationRequest struct {
 	LaunchTemplateName *string `json:"LaunchTemplateName,omitempty"`
 
 	// Version AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-version
-	Version *string `json:"Version,omitempty"`
+	Version string `json:"Version"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

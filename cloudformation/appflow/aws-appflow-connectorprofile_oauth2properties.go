@@ -23,7 +23,7 @@ type ConnectorProfile_OAuth2Properties struct {
 	// TokenUrlCustomProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurlcustomproperties
-	TokenUrlCustomProperties *ConnectorProfile_TokenUrlCustomProperties `json:"TokenUrlCustomProperties,omitempty"`
+	TokenUrlCustomProperties interface{} `json:"TokenUrlCustomProperties,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

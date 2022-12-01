@@ -39,6 +39,11 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
 	DefaultCapacityProviderStrategy []Cluster_CapacityProviderStrategyItem `json:"DefaultCapacityProviderStrategy,omitempty"`
 
+	// ServiceConnectDefaults AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-serviceconnectdefaults
+	ServiceConnectDefaults *Cluster_ServiceConnectDefaults `json:"ServiceConnectDefaults,omitempty"`
+
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags

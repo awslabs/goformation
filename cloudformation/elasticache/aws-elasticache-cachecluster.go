@@ -59,10 +59,20 @@ type CacheCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-engineversion
 	EngineVersion *string `json:"EngineVersion,omitempty"`
 
+	// IpDiscovery AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-ipdiscovery
+	IpDiscovery *string `json:"IpDiscovery,omitempty"`
+
 	// LogDeliveryConfigurations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-logdeliveryconfigurations
 	LogDeliveryConfigurations []CacheCluster_LogDeliveryConfigurationRequest `json:"LogDeliveryConfigurations,omitempty"`
+
+	// NetworkType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-networktype
+	NetworkType *string `json:"NetworkType,omitempty"`
 
 	// NotificationTopicArn AWS CloudFormation Property
 	// Required: false

@@ -44,9 +44,9 @@ type CompositeAlarm struct {
 	AlarmDescription *string `json:"AlarmDescription,omitempty"`
 
 	// AlarmName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
-	AlarmName string `json:"AlarmName"`
+	AlarmName *string `json:"AlarmName,omitempty"`
 
 	// AlarmRule AWS CloudFormation Property
 	// Required: true
