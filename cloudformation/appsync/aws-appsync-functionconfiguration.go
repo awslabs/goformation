@@ -18,6 +18,16 @@ type FunctionConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-apiid
 	ApiId string `json:"ApiId"`
 
+	// Code AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-code
+	Code *string `json:"Code,omitempty"`
+
+	// CodeS3Location AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-codes3location
+	CodeS3Location *string `json:"CodeS3Location,omitempty"`
+
 	// DataSourceName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-datasourcename
@@ -29,9 +39,9 @@ type FunctionConfiguration struct {
 	Description *string `json:"Description,omitempty"`
 
 	// FunctionVersion AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-functionversion
-	FunctionVersion string `json:"FunctionVersion"`
+	FunctionVersion *string `json:"FunctionVersion,omitempty"`
 
 	// MaxBatchSize AWS CloudFormation Property
 	// Required: false
@@ -62,6 +72,11 @@ type FunctionConfiguration struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplates3location
 	ResponseMappingTemplateS3Location *string `json:"ResponseMappingTemplateS3Location,omitempty"`
+
+	// Runtime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-runtime
+	Runtime *FunctionConfiguration_AppSyncRuntime `json:"Runtime,omitempty"`
 
 	// SyncConfig AWS CloudFormation Property
 	// Required: false

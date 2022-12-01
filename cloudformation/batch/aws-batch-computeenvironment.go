@@ -23,6 +23,11 @@ type ComputeEnvironment struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeresources
 	ComputeResources *ComputeEnvironment_ComputeResources `json:"ComputeResources,omitempty"`
 
+	// EksConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-eksconfiguration
+	EksConfiguration *ComputeEnvironment_EksConfiguration `json:"EksConfiguration,omitempty"`
+
 	// ReplaceComputeEnvironment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-replacecomputeenvironment

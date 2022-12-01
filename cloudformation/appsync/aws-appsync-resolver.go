@@ -23,6 +23,16 @@ type Resolver struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-cachingconfig
 	CachingConfig *Resolver_CachingConfig `json:"CachingConfig,omitempty"`
 
+	// Code AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-code
+	Code *string `json:"Code,omitempty"`
+
+	// CodeS3Location AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-codes3location
+	CodeS3Location *string `json:"CodeS3Location,omitempty"`
+
 	// DataSourceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-datasourcename
@@ -67,6 +77,11 @@ type Resolver struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-responsemappingtemplates3location
 	ResponseMappingTemplateS3Location *string `json:"ResponseMappingTemplateS3Location,omitempty"`
+
+	// Runtime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-runtime
+	Runtime *Resolver_AppSyncRuntime `json:"Runtime,omitempty"`
 
 	// SyncConfig AWS CloudFormation Property
 	// Required: false

@@ -15,10 +15,25 @@ type StorageLens_AccountLevel struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
 	ActivityMetrics *StorageLens_ActivityMetrics `json:"ActivityMetrics,omitempty"`
 
+	// AdvancedCostOptimizationMetrics AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advancedcostoptimizationmetrics
+	AdvancedCostOptimizationMetrics *StorageLens_AdvancedCostOptimizationMetrics `json:"AdvancedCostOptimizationMetrics,omitempty"`
+
+	// AdvancedDataProtectionMetrics AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advanceddataprotectionmetrics
+	AdvancedDataProtectionMetrics *StorageLens_AdvancedDataProtectionMetrics `json:"AdvancedDataProtectionMetrics,omitempty"`
+
 	// BucketLevel AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
 	BucketLevel *StorageLens_BucketLevel `json:"BucketLevel"`
+
+	// DetailedStatusCodesMetrics AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-detailedstatuscodesmetrics
+	DetailedStatusCodesMetrics *StorageLens_DetailedStatusCodesMetrics `json:"DetailedStatusCodesMetrics,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

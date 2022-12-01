@@ -45,6 +45,11 @@ type AccountAuditConfiguration_AuditCheckConfigurations struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
 	DeviceCertificateSharedCheck *AccountAuditConfiguration_AuditCheckConfiguration `json:"DeviceCertificateSharedCheck,omitempty"`
 
+	// IntermediateCaRevokedForActiveDeviceCertificatesCheck AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-intermediatecarevokedforactivedevicecertificatescheck
+	IntermediateCaRevokedForActiveDeviceCertificatesCheck *AccountAuditConfiguration_AuditCheckConfiguration `json:"IntermediateCaRevokedForActiveDeviceCertificatesCheck,omitempty"`
+
 	// IotPolicyOverlyPermissiveCheck AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck

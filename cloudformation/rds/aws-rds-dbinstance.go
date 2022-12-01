@@ -249,6 +249,11 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-publiclyaccessible
 	PubliclyAccessible *bool `json:"PubliclyAccessible,omitempty"`
 
+	// ReplicaMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-replicamode
+	ReplicaMode *string `json:"ReplicaMode,omitempty"`
+
 	// SourceDBInstanceIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier
@@ -263,6 +268,11 @@ type DBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storageencrypted
 	StorageEncrypted *bool `json:"StorageEncrypted,omitempty"`
+
+	// StorageThroughput AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagethroughput
+	StorageThroughput *int `json:"StorageThroughput,omitempty"`
 
 	// StorageType AWS CloudFormation Property
 	// Required: false

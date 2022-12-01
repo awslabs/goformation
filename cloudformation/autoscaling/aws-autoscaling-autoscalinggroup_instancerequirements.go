@@ -35,6 +35,11 @@ type AutoScalingGroup_InstanceRequirements struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortypes
 	AcceleratorTypes []string `json:"AcceleratorTypes,omitempty"`
 
+	// AllowedInstanceTypes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-allowedinstancetypes
+	AllowedInstanceTypes []string `json:"AllowedInstanceTypes,omitempty"`
+
 	// BareMetal AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baremetal
@@ -84,6 +89,11 @@ type AutoScalingGroup_InstanceRequirements struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
 	MemoryMiB *AutoScalingGroup_MemoryMiBRequest `json:"MemoryMiB,omitempty"`
+
+	// NetworkBandwidthGbps AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkbandwidthgbps
+	NetworkBandwidthGbps *AutoScalingGroup_NetworkBandwidthGbpsRequest `json:"NetworkBandwidthGbps,omitempty"`
 
 	// NetworkInterfaceCount AWS CloudFormation Property
 	// Required: false
