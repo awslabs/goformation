@@ -202,6 +202,38 @@ func (p *Property) UnmarshalJSON(data []byte) error {
 		fmt.Printf("Warning: auto-fixing property that is marked as tag but has no tag ItemType for %s\n", p.Documentation)
 	}
 
+	if p.Type == "CustomProperties" && p.ItemType == "" {
+		p.PrimitiveType = "Json"
+		p.Type = ""
+		// WORKAROUND: On 2022-11-01, AWS::AppFlow::Flow published a property called 'CustomProperties' with no definition of the type.
+		// This workaround assumes that it should be a map, but we have no idea what it should really be.
+		fmt.Printf("Warning: auto-fixing property that has no definition for %s\n", p.Documentation)
+	}
+
+	if p.Type == "CredentialsMap" && p.ItemType == "" {
+		p.PrimitiveType = "Json"
+		p.Type = ""
+		// WORKAROUND: On 2022-11-01, AWS::AppFlow::ConnectorProfile published a property called 'CredentialsMap' with no definition of the type.
+		// This workaround assumes that it should be a map, but we have no idea what it should really be.
+		fmt.Printf("Warning: auto-fixing property that has no definition for %s\n", p.Documentation)
+	}
+
+	if p.Type == "TokenUrlCustomProperties" && p.ItemType == "" {
+		p.PrimitiveType = "Json"
+		p.Type = ""
+		// WORKAROUND: On 2022-11-01, AWS::AppFlow::ConnectorProfile published a property called 'TokenUrlCustomProperties' with no definition of the type.
+		// This workaround assumes that it should be a map, but we have no idea what it should really be.
+		fmt.Printf("Warning: auto-fixing property that has no definition for %s\n", p.Documentation)
+	}
+
+	if p.Type == "ProfileProperties" && p.ItemType == "" {
+		p.PrimitiveType = "Json"
+		p.Type = ""
+		// WORKAROUND: On 2022-11-01, AWS::AppFlow::ConnectorProfile published a property called 'ProfileProperties' with no definition of the type.
+		// This workaround assumes that it should be a map, but we have no idea what it should really be.
+		fmt.Printf("Warning: auto-fixing property that has no definition for %s\n", p.Documentation)
+	}
+
 	return nil
 
 }
