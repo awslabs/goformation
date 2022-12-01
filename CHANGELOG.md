@@ -1,5 +1,13 @@
 # GoFormation Versioning Changelog
 
+## [7.0.6](https://github.com/awslabs/goformation/compare/v7.0.5...v7.0.6) (2022-12-01)
+
+
+### Bug Fixes
+
+* generation of AppFlow properties without type ([bfcd40f](https://github.com/awslabs/goformation/commit/bfcd40f16b3f395de2e02c483a15ddb52f550f8f))
+* **schema:** CloudFormation Updates ([#524](https://github.com/awslabs/goformation/issues/524)) ([4fbffa5](https://github.com/awslabs/goformation/commit/4fbffa57d7591e5ae9b6ea08551f90727facc92a))
+
 ## [7.0.5](https://github.com/awslabs/goformation/compare/v7.0.4...v7.0.5) (2022-10-26)
 
 
