@@ -11,9 +11,9 @@ import (
 type ConnectorProfile_ConnectorProfileConfig struct {
 
 	// ConnectorProfileCredentials AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
-	ConnectorProfileCredentials *ConnectorProfile_ConnectorProfileCredentials `json:"ConnectorProfileCredentials"`
+	ConnectorProfileCredentials *ConnectorProfile_ConnectorProfileCredentials `json:"ConnectorProfileCredentials,omitempty"`
 
 	// ConnectorProfileProperties AWS CloudFormation Property
 	// Required: false

@@ -14,6 +14,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 type DeliveryStream struct {
 
+	// AmazonOpenSearchServerlessDestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration
+	AmazonOpenSearchServerlessDestinationConfiguration *DeliveryStream_AmazonOpenSearchServerlessDestinationConfiguration `json:"AmazonOpenSearchServerlessDestinationConfiguration,omitempty"`
+
 	// AmazonopensearchserviceDestinationConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration

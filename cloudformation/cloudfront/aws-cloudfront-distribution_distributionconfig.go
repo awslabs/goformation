@@ -30,6 +30,11 @@ type Distribution_DistributionConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
 	Comment *string `json:"Comment,omitempty"`
 
+	// ContinuousDeploymentPolicyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-continuousdeploymentpolicyid
+	ContinuousDeploymentPolicyId *string `json:"ContinuousDeploymentPolicyId,omitempty"`
+
 	// CustomErrorResponses AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
@@ -94,6 +99,11 @@ type Distribution_DistributionConfig struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
 	S3Origin *Distribution_LegacyS3Origin `json:"S3Origin,omitempty"`
+
+	// Staging AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-staging
+	Staging *bool `json:"Staging,omitempty"`
 
 	// ViewerCertificate AWS CloudFormation Property
 	// Required: false

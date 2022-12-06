@@ -13,6 +13,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
 type Fleet struct {
 
+	// AnywhereConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
+	AnywhereConfiguration interface{} `json:"AnywhereConfiguration,omitempty"`
+
 	// BuildId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
@@ -22,6 +27,11 @@ type Fleet struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
 	CertificateConfiguration *Fleet_CertificateConfiguration `json:"CertificateConfiguration,omitempty"`
+
+	// ComputeType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-computetype
+	ComputeType *string `json:"ComputeType,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -74,9 +84,9 @@ type Fleet struct {
 	MinSize *int `json:"MinSize,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// NewGameSessionProtectionPolicy AWS CloudFormation Property
 	// Required: false
