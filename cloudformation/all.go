@@ -149,6 +149,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/networkfirewall"
 	"github.com/awslabs/goformation/v7/cloudformation/networkmanager"
 	"github.com/awslabs/goformation/v7/cloudformation/nimblestudio"
+	"github.com/awslabs/goformation/v7/cloudformation/oam"
 	"github.com/awslabs/goformation/v7/cloudformation/opensearchservice"
 	"github.com/awslabs/goformation/v7/cloudformation/opsworks"
 	"github.com/awslabs/goformation/v7/cloudformation/opsworkscm"
@@ -157,6 +158,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/personalize"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpoint"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpointemail"
+	"github.com/awslabs/goformation/v7/cloudformation/pipes"
 	"github.com/awslabs/goformation/v7/cloudformation/qldb"
 	"github.com/awslabs/goformation/v7/cloudformation/quicksight"
 	"github.com/awslabs/goformation/v7/cloudformation/ram"
@@ -363,6 +365,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudFormation::WaitConditionHandle":                    &cloudformation.WaitConditionHandle{},
 		"AWS::CloudFront::CachePolicy":                                &cloudfront.CachePolicy{},
 		"AWS::CloudFront::CloudFrontOriginAccessIdentity":             &cloudfront.CloudFrontOriginAccessIdentity{},
+		"AWS::CloudFront::ContinuousDeploymentPolicy":                 &cloudfront.ContinuousDeploymentPolicy{},
 		"AWS::CloudFront::Distribution":                               &cloudfront.Distribution{},
 		"AWS::CloudFront::Function":                                   &cloudfront.Function{},
 		"AWS::CloudFront::KeyGroup":                                   &cloudfront.KeyGroup{},
@@ -644,6 +647,7 @@ func AllResources() map[string]Resource {
 		"AWS::GameLift::Fleet":                                        &gamelift.Fleet{},
 		"AWS::GameLift::GameServerGroup":                              &gamelift.GameServerGroup{},
 		"AWS::GameLift::GameSessionQueue":                             &gamelift.GameSessionQueue{},
+		"AWS::GameLift::Location":                                     &gamelift.Location{},
 		"AWS::GameLift::MatchmakingConfiguration":                     &gamelift.MatchmakingConfiguration{},
 		"AWS::GameLift::MatchmakingRuleSet":                           &gamelift.MatchmakingRuleSet{},
 		"AWS::GameLift::Script":                                       &gamelift.Script{},
@@ -918,6 +922,8 @@ func AllResources() map[string]Resource {
 		"AWS::NimbleStudio::StreamingImage":                           &nimblestudio.StreamingImage{},
 		"AWS::NimbleStudio::Studio":                                   &nimblestudio.Studio{},
 		"AWS::NimbleStudio::StudioComponent":                          &nimblestudio.StudioComponent{},
+		"AWS::Oam::Link":                                              &oam.Link{},
+		"AWS::Oam::Sink":                                              &oam.Sink{},
 		"AWS::OpenSearchService::Domain":                              &opensearchservice.Domain{},
 		"AWS::OpsWorks::App":                                          &opsworks.App{},
 		"AWS::OpsWorks::ElasticLoadBalancerAttachment":                &opsworks.ElasticLoadBalancerAttachment{},
@@ -960,6 +966,7 @@ func AllResources() map[string]Resource {
 		"AWS::PinpointEmail::ConfigurationSetEventDestination":        &pinpointemail.ConfigurationSetEventDestination{},
 		"AWS::PinpointEmail::DedicatedIpPool":                         &pinpointemail.DedicatedIpPool{},
 		"AWS::PinpointEmail::Identity":                                &pinpointemail.Identity{},
+		"AWS::Pipes::Pipe":                                            &pipes.Pipe{},
 		"AWS::QLDB::Ledger":                                           &qldb.Ledger{},
 		"AWS::QLDB::Stream":                                           &qldb.Stream{},
 		"AWS::QuickSight::Analysis":                                   &quicksight.Analysis{},
@@ -4783,6 +4790,30 @@ func (t *Template) GetCloudFrontCloudFrontOriginAccessIdentityWithName(name stri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cloudfront.CloudFrontOriginAccessIdentity not found", name)
+}
+
+// GetAllCloudFrontContinuousDeploymentPolicyResources retrieves all cloudfront.ContinuousDeploymentPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFrontContinuousDeploymentPolicyResources() map[string]*cloudfront.ContinuousDeploymentPolicy {
+	results := map[string]*cloudfront.ContinuousDeploymentPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudfront.ContinuousDeploymentPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFrontContinuousDeploymentPolicyWithName retrieves all cloudfront.ContinuousDeploymentPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFrontContinuousDeploymentPolicyWithName(name string) (*cloudfront.ContinuousDeploymentPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudfront.ContinuousDeploymentPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudfront.ContinuousDeploymentPolicy not found", name)
 }
 
 // GetAllCloudFrontDistributionResources retrieves all cloudfront.Distribution items from an AWS CloudFormation template
@@ -11529,6 +11560,30 @@ func (t *Template) GetGameLiftGameSessionQueueWithName(name string) (*gamelift.G
 	return nil, fmt.Errorf("resource %q of type gamelift.GameSessionQueue not found", name)
 }
 
+// GetAllGameLiftLocationResources retrieves all gamelift.Location items from an AWS CloudFormation template
+func (t *Template) GetAllGameLiftLocationResources() map[string]*gamelift.Location {
+	results := map[string]*gamelift.Location{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *gamelift.Location:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGameLiftLocationWithName retrieves all gamelift.Location items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGameLiftLocationWithName(name string) (*gamelift.Location, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *gamelift.Location:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type gamelift.Location not found", name)
+}
+
 // GetAllGameLiftMatchmakingConfigurationResources retrieves all gamelift.MatchmakingConfiguration items from an AWS CloudFormation template
 func (t *Template) GetAllGameLiftMatchmakingConfigurationResources() map[string]*gamelift.MatchmakingConfiguration {
 	results := map[string]*gamelift.MatchmakingConfiguration{}
@@ -18105,6 +18160,54 @@ func (t *Template) GetNimbleStudioStudioComponentWithName(name string) (*nimbles
 	return nil, fmt.Errorf("resource %q of type nimblestudio.StudioComponent not found", name)
 }
 
+// GetAllOamLinkResources retrieves all oam.Link items from an AWS CloudFormation template
+func (t *Template) GetAllOamLinkResources() map[string]*oam.Link {
+	results := map[string]*oam.Link{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *oam.Link:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOamLinkWithName retrieves all oam.Link items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOamLinkWithName(name string) (*oam.Link, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *oam.Link:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type oam.Link not found", name)
+}
+
+// GetAllOamSinkResources retrieves all oam.Sink items from an AWS CloudFormation template
+func (t *Template) GetAllOamSinkResources() map[string]*oam.Sink {
+	results := map[string]*oam.Sink{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *oam.Sink:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOamSinkWithName retrieves all oam.Sink items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOamSinkWithName(name string) (*oam.Sink, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *oam.Sink:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type oam.Sink not found", name)
+}
+
 // GetAllOpenSearchServiceDomainResources retrieves all opensearchservice.Domain items from an AWS CloudFormation template
 func (t *Template) GetAllOpenSearchServiceDomainResources() map[string]*opensearchservice.Domain {
 	results := map[string]*opensearchservice.Domain{}
@@ -19111,6 +19214,30 @@ func (t *Template) GetPinpointEmailIdentityWithName(name string) (*pinpointemail
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type pinpointemail.Identity not found", name)
+}
+
+// GetAllPipesPipeResources retrieves all pipes.Pipe items from an AWS CloudFormation template
+func (t *Template) GetAllPipesPipeResources() map[string]*pipes.Pipe {
+	results := map[string]*pipes.Pipe{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pipes.Pipe:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPipesPipeWithName retrieves all pipes.Pipe items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPipesPipeWithName(name string) (*pipes.Pipe, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pipes.Pipe:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pipes.Pipe not found", name)
 }
 
 // GetAllQLDBLedgerResources retrieves all qldb.Ledger items from an AWS CloudFormation template
