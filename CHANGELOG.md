@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.1.0](https://github.com/awslabs/goformation/compare/v7.0.7...v7.1.0) (2022-12-20)
+
+
+### Features
+
+* remove go1.16 and add go1.19 support ([#529](https://github.com/awslabs/goformation/issues/529)) ([583451d](https://github.com/awslabs/goformation/commit/583451d6377ec3e35a59b2eeb6b9685021f7e70c))
+
 ## [7.0.7](https://github.com/awslabs/goformation/compare/v7.0.6...v7.0.7) (2022-12-06)
 
 
