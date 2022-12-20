@@ -17,7 +17,7 @@ type ReportPlan struct {
 	// ReportDeliveryChannel AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportdeliverychannel
-	ReportDeliveryChannel interface{} `json:"ReportDeliveryChannel"`
+	ReportDeliveryChannel *ReportPlan_ReportDeliveryChannel `json:"ReportDeliveryChannel"`
 
 	// ReportPlanDescription AWS CloudFormation Property
 	// Required: false
@@ -37,7 +37,7 @@ type ReportPlan struct {
 	// ReportSetting AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportsetting
-	ReportSetting interface{} `json:"ReportSetting"`
+	ReportSetting *ReportPlan_ReportSetting `json:"ReportSetting"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

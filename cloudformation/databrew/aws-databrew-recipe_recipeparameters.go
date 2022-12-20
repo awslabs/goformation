@@ -158,7 +158,7 @@ type Recipe_RecipeParameters struct {
 	// Input AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-input
-	Input interface{} `json:"Input,omitempty"`
+	Input *Recipe_Input `json:"Input,omitempty"`
 
 	// Interval AWS CloudFormation Property
 	// Required: false

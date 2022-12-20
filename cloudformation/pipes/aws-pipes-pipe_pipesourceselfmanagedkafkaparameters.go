@@ -28,7 +28,7 @@ type Pipe_PipeSourceSelfManagedKafkaParameters struct {
 	// Credentials AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-credentials
-	Credentials interface{} `json:"Credentials,omitempty"`
+	Credentials *Pipe_SelfManagedKafkaAccessConfigurationCredentials `json:"Credentials,omitempty"`
 
 	// MaximumBatchingWindowInSeconds AWS CloudFormation Property
 	// Required: false

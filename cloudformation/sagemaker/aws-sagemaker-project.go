@@ -27,7 +27,7 @@ type Project struct {
 	// ServiceCatalogProvisioningDetails AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
-	ServiceCatalogProvisioningDetails interface{} `json:"ServiceCatalogProvisioningDetails"`
+	ServiceCatalogProvisioningDetails *Project_ServiceCatalogProvisioningDetails `json:"ServiceCatalogProvisioningDetails"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

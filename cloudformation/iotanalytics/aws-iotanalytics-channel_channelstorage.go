@@ -18,7 +18,7 @@ type Channel_ChannelStorage struct {
 	// ServiceManagedS3 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html#cfn-iotanalytics-channel-channelstorage-servicemanageds3
-	ServiceManagedS3 *Channel_ServiceManagedS3 `json:"ServiceManagedS3,omitempty"`
+	ServiceManagedS3 interface{} `json:"ServiceManagedS3,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -25,9 +25,9 @@ type PricingRule struct {
 	Description *string `json:"Description,omitempty"`
 
 	// ModifierPercentage AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html#cfn-billingconductor-pricingrule-modifierpercentage
-	ModifierPercentage float64 `json:"ModifierPercentage"`
+	ModifierPercentage *float64 `json:"ModifierPercentage,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -48,6 +48,11 @@ type PricingRule struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html#cfn-billingconductor-pricingrule-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// Tiering AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html#cfn-billingconductor-pricingrule-tiering
+	Tiering *PricingRule_Tiering `json:"Tiering,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

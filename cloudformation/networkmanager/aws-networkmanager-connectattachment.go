@@ -15,19 +15,19 @@ import (
 type ConnectAttachment struct {
 
 	// CoreNetworkId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-corenetworkid
-	CoreNetworkId *string `json:"CoreNetworkId,omitempty"`
+	CoreNetworkId string `json:"CoreNetworkId"`
 
 	// EdgeLocation AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-edgelocation
-	EdgeLocation *string `json:"EdgeLocation,omitempty"`
+	EdgeLocation string `json:"EdgeLocation"`
 
 	// Options AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-options
-	Options *ConnectAttachment_ConnectAttachmentOptions `json:"Options,omitempty"`
+	Options *ConnectAttachment_ConnectAttachmentOptions `json:"Options"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -35,9 +35,9 @@ type ConnectAttachment struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TransportAttachmentId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-transportattachmentid
-	TransportAttachmentId *string `json:"TransportAttachmentId,omitempty"`
+	TransportAttachmentId string `json:"TransportAttachmentId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

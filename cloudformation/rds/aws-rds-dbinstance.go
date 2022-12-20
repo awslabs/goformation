@@ -69,6 +69,11 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclusteridentifier
 	DBClusterIdentifier *string `json:"DBClusterIdentifier,omitempty"`
 
+	// DBClusterSnapshotIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclustersnapshotidentifier
+	DBClusterSnapshotIdentifier *string `json:"DBClusterSnapshotIdentifier,omitempty"`
+
 	// DBInstanceClass AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbinstanceclass
@@ -138,6 +143,11 @@ type DBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enableperformanceinsights
 	EnablePerformanceInsights *bool `json:"EnablePerformanceInsights,omitempty"`
+
+	// Endpoint AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-endpoint
+	Endpoint *DBInstance_Endpoint `json:"Endpoint,omitempty"`
 
 	// Engine AWS CloudFormation Property
 	// Required: false
@@ -254,10 +264,25 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-replicamode
 	ReplicaMode *string `json:"ReplicaMode,omitempty"`
 
+	// RestoreTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-restoretime
+	RestoreTime *string `json:"RestoreTime,omitempty"`
+
+	// SourceDBInstanceAutomatedBackupsArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceautomatedbackupsarn
+	SourceDBInstanceAutomatedBackupsArn *string `json:"SourceDBInstanceAutomatedBackupsArn,omitempty"`
+
 	// SourceDBInstanceIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier
 	SourceDBInstanceIdentifier *string `json:"SourceDBInstanceIdentifier,omitempty"`
+
+	// SourceDbiResourceId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbiresourceid
+	SourceDbiResourceId *string `json:"SourceDbiResourceId,omitempty"`
 
 	// SourceRegion AWS CloudFormation Property
 	// Required: false
@@ -293,6 +318,11 @@ type DBInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-usedefaultprocessorfeatures
 	UseDefaultProcessorFeatures *bool `json:"UseDefaultProcessorFeatures,omitempty"`
+
+	// UseLatestRestorableTime AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-uselatestrestorabletime
+	UseLatestRestorableTime *bool `json:"UseLatestRestorableTime,omitempty"`
 
 	// VPCSecurityGroups AWS CloudFormation Property
 	// Required: false

@@ -18,7 +18,7 @@ type ConnectorProfile_SAPODataConnectorProfileCredentials struct {
 	// OAuthCredentials AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html#cfn-appflow-connectorprofile-sapodataconnectorprofilecredentials-oauthcredentials
-	OAuthCredentials interface{} `json:"OAuthCredentials,omitempty"`
+	OAuthCredentials *ConnectorProfile_OAuthCredentials `json:"OAuthCredentials,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

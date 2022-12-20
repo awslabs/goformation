@@ -16,7 +16,7 @@ type ResourcePolicy struct {
 	// Policy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-resourcepolicy.html#cfn-lex-resourcepolicy-policy
-	Policy *ResourcePolicy_Policy `json:"Policy"`
+	Policy interface{} `json:"Policy"`
 
 	// ResourceArn AWS CloudFormation Property
 	// Required: true

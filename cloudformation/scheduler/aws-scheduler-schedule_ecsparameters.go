@@ -68,7 +68,7 @@ type Schedule_EcsParameters struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-ecsparameters.html#cfn-scheduler-schedule-ecsparameters-tags
-	Tags []Schedule_TagMap `json:"Tags,omitempty"`
+	Tags interface{} `json:"Tags,omitempty"`
 
 	// TaskCount AWS CloudFormation Property
 	// Required: false

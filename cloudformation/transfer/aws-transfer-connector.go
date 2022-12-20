@@ -22,7 +22,7 @@ type Connector struct {
 	// As2Config AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-as2config
-	As2Config interface{} `json:"As2Config"`
+	As2Config *Connector_As2Config `json:"As2Config"`
 
 	// LoggingRole AWS CloudFormation Property
 	// Required: false

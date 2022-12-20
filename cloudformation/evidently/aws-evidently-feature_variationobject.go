@@ -31,9 +31,9 @@ type Feature_VariationObject struct {
 	StringValue *string `json:"StringValue,omitempty"`
 
 	// VariationName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html#cfn-evidently-feature-variationobject-variationname
-	VariationName *string `json:"VariationName,omitempty"`
+	VariationName string `json:"VariationName"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

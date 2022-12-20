@@ -28,7 +28,7 @@ type PrincipalPermissions_TableResource struct {
 	// TableWildcard AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html#cfn-lakeformation-principalpermissions-tableresource-tablewildcard
-	TableWildcard *PrincipalPermissions_TableWildcard `json:"TableWildcard,omitempty"`
+	TableWildcard interface{} `json:"TableWildcard,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -16,7 +16,7 @@ type HealthCheck struct {
 	// HealthCheckConfig AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-	HealthCheckConfig interface{} `json:"HealthCheckConfig"`
+	HealthCheckConfig *HealthCheck_HealthCheckConfig `json:"HealthCheckConfig"`
 
 	// HealthCheckTags AWS CloudFormation Property
 	// Required: false

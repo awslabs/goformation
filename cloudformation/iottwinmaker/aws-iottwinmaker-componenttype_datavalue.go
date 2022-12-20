@@ -48,7 +48,7 @@ type ComponentType_DataValue struct {
 	// RelationshipValue AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-relationshipvalue
-	RelationshipValue interface{} `json:"RelationshipValue,omitempty"`
+	RelationshipValue *ComponentType_RelationshipValue `json:"RelationshipValue,omitempty"`
 
 	// StringValue AWS CloudFormation Property
 	// Required: false

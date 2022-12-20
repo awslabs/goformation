@@ -62,7 +62,7 @@ type StreamProcessor struct {
 	// PolygonRegionsOfInterest AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-polygonregionsofinterest
-	PolygonRegionsOfInterest []StreamProcessor_Polygon `json:"PolygonRegionsOfInterest,omitempty"`
+	PolygonRegionsOfInterest interface{} `json:"PolygonRegionsOfInterest,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true

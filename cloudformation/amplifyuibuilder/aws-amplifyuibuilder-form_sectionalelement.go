@@ -23,7 +23,7 @@ type Form_SectionalElement struct {
 	// Position AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-sectionalelement.html#cfn-amplifyuibuilder-form-sectionalelement-position
-	Position interface{} `json:"Position,omitempty"`
+	Position *Form_FieldPosition `json:"Position,omitempty"`
 
 	// Text AWS CloudFormation Property
 	// Required: false

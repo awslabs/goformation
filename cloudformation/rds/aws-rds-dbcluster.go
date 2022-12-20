@@ -74,6 +74,11 @@ type DBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname
 	DBSubnetGroupName *string `json:"DBSubnetGroupName,omitempty"`
 
+	// DBSystemId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsystemid
+	DBSystemId *string `json:"DBSystemId,omitempty"`
+
 	// DatabaseName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
@@ -110,9 +115,9 @@ type DBCluster struct {
 	EnableIAMDatabaseAuthentication *bool `json:"EnableIAMDatabaseAuthentication,omitempty"`
 
 	// Engine AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
-	Engine string `json:"Engine"`
+	Engine *string `json:"Engine,omitempty"`
 
 	// EngineMode AWS CloudFormation Property
 	// Required: false

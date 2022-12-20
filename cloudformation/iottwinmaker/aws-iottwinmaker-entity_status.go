@@ -13,7 +13,7 @@ type Entity_Status struct {
 	// Error AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html#cfn-iottwinmaker-entity-status-error
-	Error interface{} `json:"Error,omitempty"`
+	Error *Entity_Error `json:"Error,omitempty"`
 
 	// State AWS CloudFormation Property
 	// Required: false

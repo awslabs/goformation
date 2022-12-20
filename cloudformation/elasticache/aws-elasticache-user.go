@@ -21,7 +21,7 @@ type User struct {
 	// AuthenticationMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-authenticationmode
-	AuthenticationMode interface{} `json:"AuthenticationMode,omitempty"`
+	AuthenticationMode *User_AuthenticationMode `json:"AuthenticationMode,omitempty"`
 
 	// Engine AWS CloudFormation Property
 	// Required: true

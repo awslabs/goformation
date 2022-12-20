@@ -38,7 +38,7 @@ type Pipe_PipeTargetBatchJobParameters struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-parameters
-	Parameters *Pipe_BatchParametersMap `json:"Parameters,omitempty"`
+	Parameters map[string]string `json:"Parameters,omitempty"`
 
 	// RetryStrategy AWS CloudFormation Property
 	// Required: false

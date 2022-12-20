@@ -13,7 +13,7 @@ type Datastore_FileFormatConfiguration struct {
 	// JsonConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-jsonconfiguration
-	JsonConfiguration *Datastore_JsonConfiguration `json:"JsonConfiguration,omitempty"`
+	JsonConfiguration interface{} `json:"JsonConfiguration,omitempty"`
 
 	// ParquetConfiguration AWS CloudFormation Property
 	// Required: false

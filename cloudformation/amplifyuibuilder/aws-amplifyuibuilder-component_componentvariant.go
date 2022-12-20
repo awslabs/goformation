@@ -13,12 +13,12 @@ type Component_ComponentVariant struct {
 	// Overrides AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html#cfn-amplifyuibuilder-component-componentvariant-overrides
-	Overrides *Component_ComponentOverrides `json:"Overrides,omitempty"`
+	Overrides interface{} `json:"Overrides,omitempty"`
 
 	// VariantValues AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html#cfn-amplifyuibuilder-component-componentvariant-variantvalues
-	VariantValues *Component_ComponentVariantValues `json:"VariantValues,omitempty"`
+	VariantValues map[string]string `json:"VariantValues,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

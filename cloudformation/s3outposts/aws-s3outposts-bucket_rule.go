@@ -28,7 +28,7 @@ type Bucket_Rule struct {
 	// Filter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
-	Filter interface{} `json:"Filter,omitempty"`
+	Filter *Bucket_Filter `json:"Filter,omitempty"`
 
 	// Id AWS CloudFormation Property
 	// Required: false
@@ -36,9 +36,9 @@ type Bucket_Rule struct {
 	Id *string `json:"Id,omitempty"`
 
 	// Status AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
-	Status *string `json:"Status,omitempty"`
+	Status string `json:"Status"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

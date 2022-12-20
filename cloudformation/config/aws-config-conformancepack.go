@@ -46,7 +46,7 @@ type ConformancePack struct {
 	// TemplateSSMDocumentDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatessmdocumentdetails
-	TemplateSSMDocumentDetails interface{} `json:"TemplateSSMDocumentDetails,omitempty"`
+	TemplateSSMDocumentDetails *ConformancePack_TemplateSSMDocumentDetails `json:"TemplateSSMDocumentDetails,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

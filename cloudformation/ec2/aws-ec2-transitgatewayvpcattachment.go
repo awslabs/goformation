@@ -22,7 +22,7 @@ type TransitGatewayVpcAttachment struct {
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-options
-	Options interface{} `json:"Options,omitempty"`
+	Options *TransitGatewayVpcAttachment_Options `json:"Options,omitempty"`
 
 	// RemoveSubnetIds AWS CloudFormation Property
 	// Required: false

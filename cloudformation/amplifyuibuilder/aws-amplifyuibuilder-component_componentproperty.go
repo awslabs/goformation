@@ -18,7 +18,7 @@ type Component_ComponentProperty struct {
 	// Bindings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentproperty.html#cfn-amplifyuibuilder-component-componentproperty-bindings
-	Bindings *Component_FormBindings `json:"Bindings,omitempty"`
+	Bindings map[string]Component_FormBindingElement `json:"Bindings,omitempty"`
 
 	// CollectionBindingProperties AWS CloudFormation Property
 	// Required: false

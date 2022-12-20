@@ -17,7 +17,7 @@ type TransitGatewayAttachment struct {
 	// Options AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-options
-	Options interface{} `json:"Options,omitempty"`
+	Options *TransitGatewayAttachment_Options `json:"Options,omitempty"`
 
 	// SubnetIds AWS CloudFormation Property
 	// Required: true

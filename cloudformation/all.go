@@ -67,6 +67,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/dlm"
 	"github.com/awslabs/goformation/v7/cloudformation/dms"
 	"github.com/awslabs/goformation/v7/cloudformation/docdb"
+	"github.com/awslabs/goformation/v7/cloudformation/docdbelastic"
 	"github.com/awslabs/goformation/v7/cloudformation/dynamodb"
 	"github.com/awslabs/goformation/v7/cloudformation/ec2"
 	"github.com/awslabs/goformation/v7/cloudformation/ecr"
@@ -93,6 +94,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/gamelift"
 	"github.com/awslabs/goformation/v7/cloudformation/globalaccelerator"
 	"github.com/awslabs/goformation/v7/cloudformation/glue"
+	"github.com/awslabs/goformation/v7/cloudformation/grafana"
 	"github.com/awslabs/goformation/v7/cloudformation/greengrass"
 	"github.com/awslabs/goformation/v7/cloudformation/greengrassv2"
 	"github.com/awslabs/goformation/v7/cloudformation/groundstation"
@@ -150,6 +152,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/networkmanager"
 	"github.com/awslabs/goformation/v7/cloudformation/nimblestudio"
 	"github.com/awslabs/goformation/v7/cloudformation/oam"
+	"github.com/awslabs/goformation/v7/cloudformation/opensearchserverless"
 	"github.com/awslabs/goformation/v7/cloudformation/opensearchservice"
 	"github.com/awslabs/goformation/v7/cloudformation/opsworks"
 	"github.com/awslabs/goformation/v7/cloudformation/opsworkscm"
@@ -270,6 +273,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppConfig::DeploymentStrategy":                          &appconfig.DeploymentStrategy{},
 		"AWS::AppConfig::Environment":                                 &appconfig.Environment{},
 		"AWS::AppConfig::HostedConfigurationVersion":                  &appconfig.HostedConfigurationVersion{},
+		"AWS::AppFlow::Connector":                                     &appflow.Connector{},
 		"AWS::AppFlow::ConnectorProfile":                              &appflow.ConnectorProfile{},
 		"AWS::AppFlow::Flow":                                          &appflow.Flow{},
 		"AWS::AppIntegrations::DataIntegration":                       &appintegrations.DataIntegration{},
@@ -430,6 +434,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::InstanceStorageConfig":                         &connect.InstanceStorageConfig{},
 		"AWS::Connect::PhoneNumber":                                   &connect.PhoneNumber{},
 		"AWS::Connect::QuickConnect":                                  &connect.QuickConnect{},
+		"AWS::Connect::Rule":                                          &connect.Rule{},
 		"AWS::Connect::TaskTemplate":                                  &connect.TaskTemplate{},
 		"AWS::Connect::User":                                          &connect.User{},
 		"AWS::Connect::UserHierarchyGroup":                            &connect.UserHierarchyGroup{},
@@ -477,6 +482,7 @@ func AllResources() map[string]Resource {
 		"AWS::DocDB::DBClusterParameterGroup":                         &docdb.DBClusterParameterGroup{},
 		"AWS::DocDB::DBInstance":                                      &docdb.DBInstance{},
 		"AWS::DocDB::DBSubnetGroup":                                   &docdb.DBSubnetGroup{},
+		"AWS::DocDBElastic::Cluster":                                  &docdbelastic.Cluster{},
 		"AWS::DynamoDB::GlobalTable":                                  &dynamodb.GlobalTable{},
 		"AWS::DynamoDB::Table":                                        &dynamodb.Table{},
 		"AWS::EC2::CapacityReservation":                               &ec2.CapacityReservation{},
@@ -516,6 +522,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::NetworkInterface":                                  &ec2.NetworkInterface{},
 		"AWS::EC2::NetworkInterfaceAttachment":                        &ec2.NetworkInterfaceAttachment{},
 		"AWS::EC2::NetworkInterfacePermission":                        &ec2.NetworkInterfacePermission{},
+		"AWS::EC2::NetworkPerformanceMetricSubscription":              &ec2.NetworkPerformanceMetricSubscription{},
 		"AWS::EC2::PlacementGroup":                                    &ec2.PlacementGroup{},
 		"AWS::EC2::PrefixList":                                        &ec2.PrefixList{},
 		"AWS::EC2::Route":                                             &ec2.Route{},
@@ -671,6 +678,7 @@ func AllResources() map[string]Resource {
 		"AWS::Glue::Table":                                            &glue.Table{},
 		"AWS::Glue::Trigger":                                          &glue.Trigger{},
 		"AWS::Glue::Workflow":                                         &glue.Workflow{},
+		"AWS::Grafana::Workspace":                                     &grafana.Workspace{},
 		"AWS::Greengrass::ConnectorDefinition":                        &greengrass.ConnectorDefinition{},
 		"AWS::Greengrass::ConnectorDefinitionVersion":                 &greengrass.ConnectorDefinitionVersion{},
 		"AWS::Greengrass::CoreDefinition":                             &greengrass.CoreDefinition{},
@@ -780,6 +788,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoTTwinMaker::ComponentType":                            &iottwinmaker.ComponentType{},
 		"AWS::IoTTwinMaker::Entity":                                   &iottwinmaker.Entity{},
 		"AWS::IoTTwinMaker::Scene":                                    &iottwinmaker.Scene{},
+		"AWS::IoTTwinMaker::SyncJob":                                  &iottwinmaker.SyncJob{},
 		"AWS::IoTTwinMaker::Workspace":                                &iottwinmaker.Workspace{},
 		"AWS::IoTWireless::Destination":                               &iotwireless.Destination{},
 		"AWS::IoTWireless::DeviceProfile":                             &iotwireless.DeviceProfile{},
@@ -924,6 +933,11 @@ func AllResources() map[string]Resource {
 		"AWS::NimbleStudio::StudioComponent":                          &nimblestudio.StudioComponent{},
 		"AWS::Oam::Link":                                              &oam.Link{},
 		"AWS::Oam::Sink":                                              &oam.Sink{},
+		"AWS::OpenSearchServerless::AccessPolicy":                     &opensearchserverless.AccessPolicy{},
+		"AWS::OpenSearchServerless::Collection":                       &opensearchserverless.Collection{},
+		"AWS::OpenSearchServerless::SecurityConfig":                   &opensearchserverless.SecurityConfig{},
+		"AWS::OpenSearchServerless::SecurityPolicy":                   &opensearchserverless.SecurityPolicy{},
+		"AWS::OpenSearchServerless::VpcEndpoint":                      &opensearchserverless.VpcEndpoint{},
 		"AWS::OpenSearchService::Domain":                              &opensearchservice.Domain{},
 		"AWS::OpsWorks::App":                                          &opsworks.App{},
 		"AWS::OpsWorks::ElasticLoadBalancerAttachment":                &opsworks.ElasticLoadBalancerAttachment{},
@@ -2510,6 +2524,30 @@ func (t *Template) GetAppConfigHostedConfigurationVersionWithName(name string) (
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type appconfig.HostedConfigurationVersion not found", name)
+}
+
+// GetAllAppFlowConnectorResources retrieves all appflow.Connector items from an AWS CloudFormation template
+func (t *Template) GetAllAppFlowConnectorResources() map[string]*appflow.Connector {
+	results := map[string]*appflow.Connector{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appflow.Connector:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppFlowConnectorWithName retrieves all appflow.Connector items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppFlowConnectorWithName(name string) (*appflow.Connector, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appflow.Connector:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appflow.Connector not found", name)
 }
 
 // GetAllAppFlowConnectorProfileResources retrieves all appflow.ConnectorProfile items from an AWS CloudFormation template
@@ -6352,6 +6390,30 @@ func (t *Template) GetConnectQuickConnectWithName(name string) (*connect.QuickCo
 	return nil, fmt.Errorf("resource %q of type connect.QuickConnect not found", name)
 }
 
+// GetAllConnectRuleResources retrieves all connect.Rule items from an AWS CloudFormation template
+func (t *Template) GetAllConnectRuleResources() map[string]*connect.Rule {
+	results := map[string]*connect.Rule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.Rule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectRuleWithName retrieves all connect.Rule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectRuleWithName(name string) (*connect.Rule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.Rule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.Rule not found", name)
+}
+
 // GetAllConnectTaskTemplateResources retrieves all connect.TaskTemplate items from an AWS CloudFormation template
 func (t *Template) GetAllConnectTaskTemplateResources() map[string]*connect.TaskTemplate {
 	results := map[string]*connect.TaskTemplate{}
@@ -7480,6 +7542,30 @@ func (t *Template) GetDocDBDBSubnetGroupWithName(name string) (*docdb.DBSubnetGr
 	return nil, fmt.Errorf("resource %q of type docdb.DBSubnetGroup not found", name)
 }
 
+// GetAllDocDBElasticClusterResources retrieves all docdbelastic.Cluster items from an AWS CloudFormation template
+func (t *Template) GetAllDocDBElasticClusterResources() map[string]*docdbelastic.Cluster {
+	results := map[string]*docdbelastic.Cluster{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *docdbelastic.Cluster:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDocDBElasticClusterWithName retrieves all docdbelastic.Cluster items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDocDBElasticClusterWithName(name string) (*docdbelastic.Cluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *docdbelastic.Cluster:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type docdbelastic.Cluster not found", name)
+}
+
 // GetAllDynamoDBGlobalTableResources retrieves all dynamodb.GlobalTable items from an AWS CloudFormation template
 func (t *Template) GetAllDynamoDBGlobalTableResources() map[string]*dynamodb.GlobalTable {
 	results := map[string]*dynamodb.GlobalTable{}
@@ -8414,6 +8500,30 @@ func (t *Template) GetEC2NetworkInterfacePermissionWithName(name string) (*ec2.N
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.NetworkInterfacePermission not found", name)
+}
+
+// GetAllEC2NetworkPerformanceMetricSubscriptionResources retrieves all ec2.NetworkPerformanceMetricSubscription items from an AWS CloudFormation template
+func (t *Template) GetAllEC2NetworkPerformanceMetricSubscriptionResources() map[string]*ec2.NetworkPerformanceMetricSubscription {
+	results := map[string]*ec2.NetworkPerformanceMetricSubscription{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.NetworkPerformanceMetricSubscription:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2NetworkPerformanceMetricSubscriptionWithName retrieves all ec2.NetworkPerformanceMetricSubscription items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2NetworkPerformanceMetricSubscriptionWithName(name string) (*ec2.NetworkPerformanceMetricSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.NetworkPerformanceMetricSubscription:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.NetworkPerformanceMetricSubscription not found", name)
 }
 
 // GetAllEC2PlacementGroupResources retrieves all ec2.PlacementGroup items from an AWS CloudFormation template
@@ -12136,6 +12246,30 @@ func (t *Template) GetGlueWorkflowWithName(name string) (*glue.Workflow, error) 
 	return nil, fmt.Errorf("resource %q of type glue.Workflow not found", name)
 }
 
+// GetAllGrafanaWorkspaceResources retrieves all grafana.Workspace items from an AWS CloudFormation template
+func (t *Template) GetAllGrafanaWorkspaceResources() map[string]*grafana.Workspace {
+	results := map[string]*grafana.Workspace{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *grafana.Workspace:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGrafanaWorkspaceWithName retrieves all grafana.Workspace items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGrafanaWorkspaceWithName(name string) (*grafana.Workspace, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *grafana.Workspace:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type grafana.Workspace not found", name)
+}
+
 // GetAllGreengrassConnectorDefinitionResources retrieves all greengrass.ConnectorDefinition items from an AWS CloudFormation template
 func (t *Template) GetAllGreengrassConnectorDefinitionResources() map[string]*greengrass.ConnectorDefinition {
 	results := map[string]*greengrass.ConnectorDefinition{}
@@ -14750,6 +14884,30 @@ func (t *Template) GetIoTTwinMakerSceneWithName(name string) (*iottwinmaker.Scen
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iottwinmaker.Scene not found", name)
+}
+
+// GetAllIoTTwinMakerSyncJobResources retrieves all iottwinmaker.SyncJob items from an AWS CloudFormation template
+func (t *Template) GetAllIoTTwinMakerSyncJobResources() map[string]*iottwinmaker.SyncJob {
+	results := map[string]*iottwinmaker.SyncJob{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.SyncJob:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTTwinMakerSyncJobWithName retrieves all iottwinmaker.SyncJob items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTTwinMakerSyncJobWithName(name string) (*iottwinmaker.SyncJob, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iottwinmaker.SyncJob:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iottwinmaker.SyncJob not found", name)
 }
 
 // GetAllIoTTwinMakerWorkspaceResources retrieves all iottwinmaker.Workspace items from an AWS CloudFormation template
@@ -18206,6 +18364,126 @@ func (t *Template) GetOamSinkWithName(name string) (*oam.Sink, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type oam.Sink not found", name)
+}
+
+// GetAllOpenSearchServerlessAccessPolicyResources retrieves all opensearchserverless.AccessPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllOpenSearchServerlessAccessPolicyResources() map[string]*opensearchserverless.AccessPolicy {
+	results := map[string]*opensearchserverless.AccessPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.AccessPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOpenSearchServerlessAccessPolicyWithName retrieves all opensearchserverless.AccessPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOpenSearchServerlessAccessPolicyWithName(name string) (*opensearchserverless.AccessPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.AccessPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type opensearchserverless.AccessPolicy not found", name)
+}
+
+// GetAllOpenSearchServerlessCollectionResources retrieves all opensearchserverless.Collection items from an AWS CloudFormation template
+func (t *Template) GetAllOpenSearchServerlessCollectionResources() map[string]*opensearchserverless.Collection {
+	results := map[string]*opensearchserverless.Collection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.Collection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOpenSearchServerlessCollectionWithName retrieves all opensearchserverless.Collection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOpenSearchServerlessCollectionWithName(name string) (*opensearchserverless.Collection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.Collection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type opensearchserverless.Collection not found", name)
+}
+
+// GetAllOpenSearchServerlessSecurityConfigResources retrieves all opensearchserverless.SecurityConfig items from an AWS CloudFormation template
+func (t *Template) GetAllOpenSearchServerlessSecurityConfigResources() map[string]*opensearchserverless.SecurityConfig {
+	results := map[string]*opensearchserverless.SecurityConfig{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.SecurityConfig:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOpenSearchServerlessSecurityConfigWithName retrieves all opensearchserverless.SecurityConfig items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOpenSearchServerlessSecurityConfigWithName(name string) (*opensearchserverless.SecurityConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.SecurityConfig:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type opensearchserverless.SecurityConfig not found", name)
+}
+
+// GetAllOpenSearchServerlessSecurityPolicyResources retrieves all opensearchserverless.SecurityPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllOpenSearchServerlessSecurityPolicyResources() map[string]*opensearchserverless.SecurityPolicy {
+	results := map[string]*opensearchserverless.SecurityPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.SecurityPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOpenSearchServerlessSecurityPolicyWithName retrieves all opensearchserverless.SecurityPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOpenSearchServerlessSecurityPolicyWithName(name string) (*opensearchserverless.SecurityPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.SecurityPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type opensearchserverless.SecurityPolicy not found", name)
+}
+
+// GetAllOpenSearchServerlessVpcEndpointResources retrieves all opensearchserverless.VpcEndpoint items from an AWS CloudFormation template
+func (t *Template) GetAllOpenSearchServerlessVpcEndpointResources() map[string]*opensearchserverless.VpcEndpoint {
+	results := map[string]*opensearchserverless.VpcEndpoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.VpcEndpoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOpenSearchServerlessVpcEndpointWithName retrieves all opensearchserverless.VpcEndpoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOpenSearchServerlessVpcEndpointWithName(name string) (*opensearchserverless.VpcEndpoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *opensearchserverless.VpcEndpoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type opensearchserverless.VpcEndpoint not found", name)
 }
 
 // GetAllOpenSearchServiceDomainResources retrieves all opensearchservice.Domain items from an AWS CloudFormation template

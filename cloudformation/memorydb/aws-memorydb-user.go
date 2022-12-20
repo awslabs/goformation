@@ -22,7 +22,7 @@ type User struct {
 	// AuthenticationMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html#cfn-memorydb-user-authenticationmode
-	AuthenticationMode interface{} `json:"AuthenticationMode"`
+	AuthenticationMode *User_AuthenticationMode `json:"AuthenticationMode"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

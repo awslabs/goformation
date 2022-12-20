@@ -19,6 +19,11 @@ type WebACL struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-captchaconfig
 	CaptchaConfig *WebACL_CaptchaConfig `json:"CaptchaConfig,omitempty"`
 
+	// ChallengeConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-challengeconfig
+	ChallengeConfig *WebACL_ChallengeConfig `json:"ChallengeConfig,omitempty"`
+
 	// CustomResponseBodies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
@@ -53,6 +58,11 @@ type WebACL struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// TokenDomains AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tokendomains
+	TokenDomains []string `json:"TokenDomains,omitempty"`
 
 	// VisibilityConfig AWS CloudFormation Property
 	// Required: true

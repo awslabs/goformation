@@ -17,7 +17,7 @@ type SuiteDefinition struct {
 	// SuiteDefinitionConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
-	SuiteDefinitionConfiguration interface{} `json:"SuiteDefinitionConfiguration"`
+	SuiteDefinitionConfiguration *SuiteDefinition_SuiteDefinitionConfiguration `json:"SuiteDefinitionConfiguration"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

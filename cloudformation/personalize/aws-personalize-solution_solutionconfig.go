@@ -18,7 +18,7 @@ type Solution_SolutionConfig struct {
 	// AutoMLConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html#cfn-personalize-solution-solutionconfig-automlconfig
-	AutoMLConfig interface{} `json:"AutoMLConfig,omitempty"`
+	AutoMLConfig *Solution_AutoMLConfig `json:"AutoMLConfig,omitempty"`
 
 	// EventValueThreshold AWS CloudFormation Property
 	// Required: false
@@ -33,7 +33,7 @@ type Solution_SolutionConfig struct {
 	// HpoConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html#cfn-personalize-solution-solutionconfig-hpoconfig
-	HpoConfig interface{} `json:"HpoConfig,omitempty"`
+	HpoConfig *Solution_HpoConfig `json:"HpoConfig,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

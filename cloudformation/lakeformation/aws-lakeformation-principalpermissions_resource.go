@@ -13,7 +13,7 @@ type PrincipalPermissions_Resource struct {
 	// Catalog AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-catalog
-	Catalog *PrincipalPermissions_CatalogResource `json:"Catalog,omitempty"`
+	Catalog interface{} `json:"Catalog,omitempty"`
 
 	// DataCellsFilter AWS CloudFormation Property
 	// Required: false

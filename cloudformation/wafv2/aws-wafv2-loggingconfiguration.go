@@ -21,7 +21,7 @@ type LoggingConfiguration struct {
 	// LoggingFilter AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
-	LoggingFilter interface{} `json:"LoggingFilter,omitempty"`
+	LoggingFilter *LoggingConfiguration_LoggingFilter `json:"LoggingFilter,omitempty"`
 
 	// RedactedFields AWS CloudFormation Property
 	// Required: false

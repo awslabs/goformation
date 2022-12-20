@@ -17,12 +17,12 @@ type Pipeline struct {
 	// ParallelismConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-parallelismconfiguration
-	ParallelismConfiguration interface{} `json:"ParallelismConfiguration,omitempty"`
+	ParallelismConfiguration *Pipeline_ParallelismConfiguration `json:"ParallelismConfiguration,omitempty"`
 
 	// PipelineDefinition AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
-	PipelineDefinition interface{} `json:"PipelineDefinition"`
+	PipelineDefinition *Pipeline_PipelineDefinition `json:"PipelineDefinition"`
 
 	// PipelineDescription AWS CloudFormation Property
 	// Required: false

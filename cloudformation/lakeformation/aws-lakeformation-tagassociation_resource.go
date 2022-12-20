@@ -13,7 +13,7 @@ type TagAssociation_Resource struct {
 	// Catalog AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-catalog
-	Catalog *TagAssociation_CatalogResource `json:"Catalog,omitempty"`
+	Catalog interface{} `json:"Catalog,omitempty"`
 
 	// Database AWS CloudFormation Property
 	// Required: false

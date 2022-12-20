@@ -18,7 +18,7 @@ type ModelPackage_ModelPackageContainerDefinition struct {
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-environment
-	Environment *ModelPackage_Environment `json:"Environment,omitempty"`
+	Environment map[string]string `json:"Environment,omitempty"`
 
 	// Framework AWS CloudFormation Property
 	// Required: false
@@ -48,7 +48,7 @@ type ModelPackage_ModelPackageContainerDefinition struct {
 	// ModelInput AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-modelinput
-	ModelInput interface{} `json:"ModelInput,omitempty"`
+	ModelInput *ModelPackage_ModelInput `json:"ModelInput,omitempty"`
 
 	// NearestModelName AWS CloudFormation Property
 	// Required: false

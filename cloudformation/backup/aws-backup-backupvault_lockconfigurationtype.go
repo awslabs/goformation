@@ -13,17 +13,17 @@ type BackupVault_LockConfigurationType struct {
 	// ChangeableForDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-changeablefordays
-	ChangeableForDays *float64 `json:"ChangeableForDays,omitempty"`
+	ChangeableForDays *int `json:"ChangeableForDays,omitempty"`
 
 	// MaxRetentionDays AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-maxretentiondays
-	MaxRetentionDays *float64 `json:"MaxRetentionDays,omitempty"`
+	MaxRetentionDays *int `json:"MaxRetentionDays,omitempty"`
 
 	// MinRetentionDays AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-minretentiondays
-	MinRetentionDays float64 `json:"MinRetentionDays"`
+	MinRetentionDays int `json:"MinRetentionDays"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

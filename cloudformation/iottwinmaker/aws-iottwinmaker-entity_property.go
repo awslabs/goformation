@@ -13,7 +13,7 @@ type Entity_Property struct {
 	// Definition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html#cfn-iottwinmaker-entity-property-definition
-	Definition interface{} `json:"Definition,omitempty"`
+	Definition *Entity_Definition `json:"Definition,omitempty"`
 
 	// Value AWS CloudFormation Property
 	// Required: false

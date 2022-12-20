@@ -13,7 +13,7 @@ type LoggingConfiguration_FieldToMatch struct {
 	// JsonBody AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
-	JsonBody interface{} `json:"JsonBody,omitempty"`
+	JsonBody *LoggingConfiguration_JsonBody `json:"JsonBody,omitempty"`
 
 	// Method AWS CloudFormation Property
 	// Required: false
@@ -28,7 +28,7 @@ type LoggingConfiguration_FieldToMatch struct {
 	// SingleHeader AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
-	SingleHeader interface{} `json:"SingleHeader,omitempty"`
+	SingleHeader *LoggingConfiguration_SingleHeader `json:"SingleHeader,omitempty"`
 
 	// UriPath AWS CloudFormation Property
 	// Required: false

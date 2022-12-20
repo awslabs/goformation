@@ -13,7 +13,7 @@ type Dataset_DatasetImportJob struct {
 	// DataSource AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasource
-	DataSource interface{} `json:"DataSource,omitempty"`
+	DataSource *Dataset_DataSource `json:"DataSource,omitempty"`
 
 	// DatasetArn AWS CloudFormation Property
 	// Required: false

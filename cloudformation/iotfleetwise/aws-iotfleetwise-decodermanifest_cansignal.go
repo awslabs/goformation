@@ -13,27 +13,27 @@ type DecoderManifest_CanSignal struct {
 	// Factor AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-factor
-	Factor interface{} `json:"Factor"`
+	Factor string `json:"Factor"`
 
 	// IsBigEndian AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-isbigendian
-	IsBigEndian interface{} `json:"IsBigEndian"`
+	IsBigEndian string `json:"IsBigEndian"`
 
 	// IsSigned AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-issigned
-	IsSigned interface{} `json:"IsSigned"`
+	IsSigned string `json:"IsSigned"`
 
 	// Length AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-length
-	Length interface{} `json:"Length"`
+	Length string `json:"Length"`
 
 	// MessageId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-messageid
-	MessageId interface{} `json:"MessageId"`
+	MessageId string `json:"MessageId"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -43,12 +43,12 @@ type DecoderManifest_CanSignal struct {
 	// Offset AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-offset
-	Offset interface{} `json:"Offset"`
+	Offset string `json:"Offset"`
 
 	// StartBit AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-startbit
-	StartBit interface{} `json:"StartBit"`
+	StartBit string `json:"StartBit"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

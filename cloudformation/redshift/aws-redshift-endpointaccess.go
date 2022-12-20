@@ -36,7 +36,7 @@ type EndpointAccess struct {
 	// VpcEndpoint AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-vpcendpoint
-	VpcEndpoint interface{} `json:"VpcEndpoint,omitempty"`
+	VpcEndpoint *EndpointAccess_VpcEndpoint `json:"VpcEndpoint,omitempty"`
 
 	// VpcSecurityGroupIds AWS CloudFormation Property
 	// Required: true

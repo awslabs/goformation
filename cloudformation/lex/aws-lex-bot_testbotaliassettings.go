@@ -28,7 +28,7 @@ type Bot_TestBotAliasSettings struct {
 	// SentimentAnalysisSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-sentimentanalysissettings
-	SentimentAnalysisSettings interface{} `json:"SentimentAnalysisSettings,omitempty"`
+	SentimentAnalysisSettings *Bot_SentimentAnalysisSettings `json:"SentimentAnalysisSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

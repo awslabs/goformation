@@ -18,7 +18,7 @@ type Component_ActionParameters struct {
 	// Fields AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-fields
-	Fields *Component_ComponentProperties `json:"Fields,omitempty"`
+	Fields map[string]Component_ComponentProperty `json:"Fields,omitempty"`
 
 	// Global AWS CloudFormation Property
 	// Required: false

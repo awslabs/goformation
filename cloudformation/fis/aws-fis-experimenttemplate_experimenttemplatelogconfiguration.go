@@ -13,7 +13,7 @@ type ExperimentTemplate_ExperimentTemplateLogConfiguration struct {
 	// CloudWatchLogsConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html#cfn-fis-experimenttemplate-experimenttemplatelogconfiguration-cloudwatchlogsconfiguration
-	CloudWatchLogsConfiguration interface{} `json:"CloudWatchLogsConfiguration,omitempty"`
+	CloudWatchLogsConfiguration *ExperimentTemplate_CloudWatchLogsConfiguration `json:"CloudWatchLogsConfiguration,omitempty"`
 
 	// LogSchemaVersion AWS CloudFormation Property
 	// Required: true
@@ -23,7 +23,7 @@ type ExperimentTemplate_ExperimentTemplateLogConfiguration struct {
 	// S3Configuration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html#cfn-fis-experimenttemplate-experimenttemplatelogconfiguration-s3configuration
-	S3Configuration interface{} `json:"S3Configuration,omitempty"`
+	S3Configuration *ExperimentTemplate_S3Configuration `json:"S3Configuration,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

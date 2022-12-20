@@ -23,7 +23,7 @@ type Framework_FrameworkControl struct {
 	// ControlScope AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlscope
-	ControlScope interface{} `json:"ControlScope,omitempty"`
+	ControlScope *Framework_ControlScope `json:"ControlScope,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

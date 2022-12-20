@@ -13,7 +13,7 @@ type FindingsFilter_FindingCriteria struct {
 	// Criterion AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
-	Criterion *FindingsFilter_Criterion `json:"Criterion,omitempty"`
+	Criterion map[string]FindingsFilter_CriterionAdditionalProperties `json:"Criterion,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

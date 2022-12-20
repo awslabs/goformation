@@ -13,7 +13,7 @@ type Pipe_PipeEnrichmentHttpParameters struct {
 	// HeaderParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html#cfn-pipes-pipe-pipeenrichmenthttpparameters-headerparameters
-	HeaderParameters *Pipe_HeaderParametersMap `json:"HeaderParameters,omitempty"`
+	HeaderParameters map[string]string `json:"HeaderParameters,omitempty"`
 
 	// PathParameterValues AWS CloudFormation Property
 	// Required: false
@@ -23,7 +23,7 @@ type Pipe_PipeEnrichmentHttpParameters struct {
 	// QueryStringParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html#cfn-pipes-pipe-pipeenrichmenthttpparameters-querystringparameters
-	QueryStringParameters *Pipe_QueryStringParametersMap `json:"QueryStringParameters,omitempty"`
+	QueryStringParameters map[string]string `json:"QueryStringParameters,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

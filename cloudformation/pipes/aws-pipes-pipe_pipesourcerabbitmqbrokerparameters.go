@@ -18,7 +18,7 @@ type Pipe_PipeSourceRabbitMQBrokerParameters struct {
 	// Credentials AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html#cfn-pipes-pipe-pipesourcerabbitmqbrokerparameters-credentials
-	Credentials interface{} `json:"Credentials"`
+	Credentials *Pipe_MQBrokerAccessCredentials `json:"Credentials"`
 
 	// MaximumBatchingWindowInSeconds AWS CloudFormation Property
 	// Required: false

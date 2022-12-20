@@ -28,7 +28,7 @@ type Form_FieldConfig struct {
 	// Position AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-position
-	Position interface{} `json:"Position,omitempty"`
+	Position *Form_FieldPosition `json:"Position,omitempty"`
 
 	// Validations AWS CloudFormation Property
 	// Required: false

@@ -46,7 +46,7 @@ type Component struct {
 	// Overrides AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-overrides
-	Overrides map[string]Component_ComponentOverridesValue `json:"Overrides"`
+	Overrides interface{} `json:"Overrides"`
 
 	// Properties AWS CloudFormation Property
 	// Required: true

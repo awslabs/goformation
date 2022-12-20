@@ -13,7 +13,7 @@ type Job_StatisticOverride struct {
 	// Parameters AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
-	Parameters *Job_ParameterMap `json:"Parameters"`
+	Parameters map[string]string `json:"Parameters"`
 
 	// Statistic AWS CloudFormation Property
 	// Required: true

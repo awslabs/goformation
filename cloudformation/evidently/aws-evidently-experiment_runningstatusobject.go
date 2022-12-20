@@ -26,9 +26,9 @@ type Experiment_RunningStatusObject struct {
 	Reason *string `json:"Reason,omitempty"`
 
 	// Status AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html#cfn-evidently-experiment-runningstatusobject-status
-	Status *string `json:"Status,omitempty"`
+	Status string `json:"Status"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

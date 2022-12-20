@@ -37,7 +37,7 @@ type Bot struct {
 	// DataPrivacy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-dataprivacy
-	DataPrivacy interface{} `json:"DataPrivacy"`
+	DataPrivacy *Bot_DataPrivacy `json:"DataPrivacy"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

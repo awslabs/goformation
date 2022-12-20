@@ -23,7 +23,7 @@ type Datastore_DatastoreStorage struct {
 	// ServiceManagedS3 AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-servicemanageds3
-	ServiceManagedS3 *Datastore_ServiceManagedS3 `json:"ServiceManagedS3,omitempty"`
+	ServiceManagedS3 interface{} `json:"ServiceManagedS3,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

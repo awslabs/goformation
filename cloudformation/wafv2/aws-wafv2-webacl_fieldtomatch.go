@@ -48,12 +48,12 @@ type WebACL_FieldToMatch struct {
 	// SingleHeader AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
-	SingleHeader interface{} `json:"SingleHeader,omitempty"`
+	SingleHeader *WebACL_SingleHeader `json:"SingleHeader,omitempty"`
 
 	// SingleQueryArgument AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
-	SingleQueryArgument interface{} `json:"SingleQueryArgument,omitempty"`
+	SingleQueryArgument *WebACL_SingleQueryArgument `json:"SingleQueryArgument,omitempty"`
 
 	// UriPath AWS CloudFormation Property
 	// Required: false

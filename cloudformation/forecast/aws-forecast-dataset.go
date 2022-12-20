@@ -36,17 +36,17 @@ type Dataset struct {
 	// EncryptionConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-encryptionconfig
-	EncryptionConfig interface{} `json:"EncryptionConfig,omitempty"`
+	EncryptionConfig *Dataset_EncryptionConfig `json:"EncryptionConfig,omitempty"`
 
 	// Schema AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-schema
-	Schema interface{} `json:"Schema"`
+	Schema *Dataset_Schema `json:"Schema"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#cfn-forecast-dataset-tags
-	Tags []interface{} `json:"Tags,omitempty"`
+	Tags []Dataset_TagsItems `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -13,12 +13,12 @@ type DecoderManifest_ObdInterface struct {
 	// DtcRequestIntervalSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html#cfn-iotfleetwise-decodermanifest-obdinterface-dtcrequestintervalseconds
-	DtcRequestIntervalSeconds interface{} `json:"DtcRequestIntervalSeconds,omitempty"`
+	DtcRequestIntervalSeconds *string `json:"DtcRequestIntervalSeconds,omitempty"`
 
 	// HasTransmissionEcu AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html#cfn-iotfleetwise-decodermanifest-obdinterface-hastransmissionecu
-	HasTransmissionEcu interface{} `json:"HasTransmissionEcu,omitempty"`
+	HasTransmissionEcu *string `json:"HasTransmissionEcu,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -33,17 +33,17 @@ type DecoderManifest_ObdInterface struct {
 	// PidRequestIntervalSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html#cfn-iotfleetwise-decodermanifest-obdinterface-pidrequestintervalseconds
-	PidRequestIntervalSeconds interface{} `json:"PidRequestIntervalSeconds,omitempty"`
+	PidRequestIntervalSeconds *string `json:"PidRequestIntervalSeconds,omitempty"`
 
 	// RequestMessageId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html#cfn-iotfleetwise-decodermanifest-obdinterface-requestmessageid
-	RequestMessageId interface{} `json:"RequestMessageId"`
+	RequestMessageId string `json:"RequestMessageId"`
 
 	// UseExtendedIds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html#cfn-iotfleetwise-decodermanifest-obdinterface-useextendedids
-	UseExtendedIds interface{} `json:"UseExtendedIds,omitempty"`
+	UseExtendedIds *string `json:"UseExtendedIds,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

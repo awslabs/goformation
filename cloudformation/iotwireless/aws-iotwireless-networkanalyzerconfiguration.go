@@ -32,7 +32,7 @@ type NetworkAnalyzerConfiguration struct {
 	// TraceContent AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-networkanalyzerconfiguration.html#cfn-iotwireless-networkanalyzerconfiguration-tracecontent
-	TraceContent interface{} `json:"TraceContent,omitempty"`
+	TraceContent *NetworkAnalyzerConfiguration_TraceContent `json:"TraceContent,omitempty"`
 
 	// WirelessDevices AWS CloudFormation Property
 	// Required: false

@@ -22,12 +22,12 @@ type InferenceScheduler struct {
 	// DataInputConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-datainputconfiguration
-	DataInputConfiguration interface{} `json:"DataInputConfiguration"`
+	DataInputConfiguration *InferenceScheduler_DataInputConfiguration `json:"DataInputConfiguration"`
 
 	// DataOutputConfiguration AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-dataoutputconfiguration
-	DataOutputConfiguration interface{} `json:"DataOutputConfiguration"`
+	DataOutputConfiguration *InferenceScheduler_DataOutputConfiguration `json:"DataOutputConfiguration"`
 
 	// DataUploadFrequency AWS CloudFormation Property
 	// Required: true

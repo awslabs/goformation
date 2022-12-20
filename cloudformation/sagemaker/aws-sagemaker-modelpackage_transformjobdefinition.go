@@ -18,7 +18,7 @@ type ModelPackage_TransformJobDefinition struct {
 	// Environment AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-environment
-	Environment *ModelPackage_Environment `json:"Environment,omitempty"`
+	Environment map[string]string `json:"Environment,omitempty"`
 
 	// MaxConcurrentTransforms AWS CloudFormation Property
 	// Required: false

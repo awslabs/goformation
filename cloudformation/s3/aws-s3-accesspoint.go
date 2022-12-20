@@ -36,7 +36,7 @@ type AccessPoint struct {
 	// PolicyStatus AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-	PolicyStatus interface{} `json:"PolicyStatus,omitempty"`
+	PolicyStatus *AccessPoint_PolicyStatus `json:"PolicyStatus,omitempty"`
 
 	// PublicAccessBlockConfiguration AWS CloudFormation Property
 	// Required: false

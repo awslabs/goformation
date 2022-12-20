@@ -14,10 +14,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
 type RuleGroup struct {
 
+	// AvailableLabels AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-availablelabels
+	AvailableLabels []RuleGroup_LabelSummary `json:"AvailableLabels,omitempty"`
+
 	// Capacity AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
 	Capacity int `json:"Capacity"`
+
+	// ConsumedLabels AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-consumedlabels
+	ConsumedLabels []RuleGroup_LabelSummary `json:"ConsumedLabels,omitempty"`
 
 	// CustomResponseBodies AWS CloudFormation Property
 	// Required: false

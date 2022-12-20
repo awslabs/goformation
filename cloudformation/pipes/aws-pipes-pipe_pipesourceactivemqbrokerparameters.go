@@ -18,7 +18,7 @@ type Pipe_PipeSourceActiveMQBrokerParameters struct {
 	// Credentials AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html#cfn-pipes-pipe-pipesourceactivemqbrokerparameters-credentials
-	Credentials interface{} `json:"Credentials"`
+	Credentials *Pipe_MQBrokerAccessCredentials `json:"Credentials"`
 
 	// MaximumBatchingWindowInSeconds AWS CloudFormation Property
 	// Required: false

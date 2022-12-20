@@ -49,10 +49,20 @@ type Instance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-keypairname
 	KeyPairName *string `json:"KeyPairName,omitempty"`
 
+	// Location AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-location
+	Location *Instance_Location `json:"Location,omitempty"`
+
 	// Networking AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-networking
 	Networking *Instance_Networking `json:"Networking,omitempty"`
+
+	// State AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#cfn-lightsail-instance-state
+	State *Instance_State `json:"State,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

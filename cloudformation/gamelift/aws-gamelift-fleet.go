@@ -16,7 +16,7 @@ type Fleet struct {
 	// AnywhereConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
-	AnywhereConfiguration interface{} `json:"AnywhereConfiguration,omitempty"`
+	AnywhereConfiguration *Fleet_AnywhereConfiguration `json:"AnywhereConfiguration,omitempty"`
 
 	// BuildId AWS CloudFormation Property
 	// Required: false

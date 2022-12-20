@@ -15,9 +15,9 @@ import (
 type VpcAttachment struct {
 
 	// CoreNetworkId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-corenetworkid
-	CoreNetworkId *string `json:"CoreNetworkId,omitempty"`
+	CoreNetworkId string `json:"CoreNetworkId"`
 
 	// Options AWS CloudFormation Property
 	// Required: false
@@ -25,9 +25,9 @@ type VpcAttachment struct {
 	Options *VpcAttachment_VpcOptions `json:"Options,omitempty"`
 
 	// SubnetArns AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-subnetarns
-	SubnetArns []string `json:"SubnetArns,omitempty"`
+	SubnetArns []string `json:"SubnetArns"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -35,9 +35,9 @@ type VpcAttachment struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VpcArn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-vpcarn
-	VpcArn *string `json:"VpcArn,omitempty"`
+	VpcArn string `json:"VpcArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

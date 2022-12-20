@@ -13,7 +13,7 @@ type Flow_CustomConnectorSourceProperties struct {
 	// CustomProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-customproperties
-	CustomProperties interface{} `json:"CustomProperties,omitempty"`
+	CustomProperties map[string]string `json:"CustomProperties,omitempty"`
 
 	// EntityName AWS CloudFormation Property
 	// Required: true

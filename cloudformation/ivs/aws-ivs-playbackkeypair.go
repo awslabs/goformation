@@ -20,9 +20,9 @@ type PlaybackKeyPair struct {
 	Name *string `json:"Name,omitempty"`
 
 	// PublicKeyMaterial AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
-	PublicKeyMaterial string `json:"PublicKeyMaterial"`
+	PublicKeyMaterial *string `json:"PublicKeyMaterial,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

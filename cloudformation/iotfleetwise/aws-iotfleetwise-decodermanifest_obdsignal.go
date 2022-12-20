@@ -13,47 +13,47 @@ type DecoderManifest_ObdSignal struct {
 	// BitMaskLength AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-bitmasklength
-	BitMaskLength interface{} `json:"BitMaskLength,omitempty"`
+	BitMaskLength *string `json:"BitMaskLength,omitempty"`
 
 	// BitRightShift AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-bitrightshift
-	BitRightShift interface{} `json:"BitRightShift,omitempty"`
+	BitRightShift *string `json:"BitRightShift,omitempty"`
 
 	// ByteLength AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-bytelength
-	ByteLength interface{} `json:"ByteLength"`
+	ByteLength string `json:"ByteLength"`
 
 	// Offset AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-offset
-	Offset interface{} `json:"Offset"`
+	Offset string `json:"Offset"`
 
 	// Pid AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-pid
-	Pid interface{} `json:"Pid"`
+	Pid string `json:"Pid"`
 
 	// PidResponseLength AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-pidresponselength
-	PidResponseLength interface{} `json:"PidResponseLength"`
+	PidResponseLength string `json:"PidResponseLength"`
 
 	// Scaling AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-scaling
-	Scaling interface{} `json:"Scaling"`
+	Scaling string `json:"Scaling"`
 
 	// ServiceMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-servicemode
-	ServiceMode interface{} `json:"ServiceMode"`
+	ServiceMode string `json:"ServiceMode"`
 
 	// StartByte AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-startbyte
-	StartByte interface{} `json:"StartByte"`
+	StartByte string `json:"StartByte"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

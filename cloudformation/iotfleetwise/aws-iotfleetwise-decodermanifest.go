@@ -32,12 +32,12 @@ type DecoderManifest struct {
 	// NetworkInterfaces AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-networkinterfaces
-	NetworkInterfaces []interface{} `json:"NetworkInterfaces,omitempty"`
+	NetworkInterfaces []DecoderManifest_NetworkInterfacesItems `json:"NetworkInterfaces,omitempty"`
 
 	// SignalDecoders AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-signaldecoders
-	SignalDecoders []interface{} `json:"SignalDecoders,omitempty"`
+	SignalDecoders []DecoderManifest_SignalDecodersItems `json:"SignalDecoders,omitempty"`
 
 	// Status AWS CloudFormation Property
 	// Required: false
