@@ -16,9 +16,9 @@ type Launch_MetricDefinitionObject struct {
 	EntityIdKey string `json:"EntityIdKey"`
 
 	// EventPattern AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html#cfn-evidently-launch-metricdefinitionobject-eventpattern
-	EventPattern string `json:"EventPattern"`
+	EventPattern *string `json:"EventPattern,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true

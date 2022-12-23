@@ -26,7 +26,7 @@ type Build struct {
 	// StorageLocation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
-	StorageLocation *Build_S3Location `json:"StorageLocation,omitempty"`
+	StorageLocation *Build_StorageLocation `json:"StorageLocation,omitempty"`
 
 	// Version AWS CloudFormation Property
 	// Required: false
