@@ -19,14 +19,14 @@ type Function struct {
 	AutoPublish *bool `json:"AutoPublish,omitempty"`
 
 	// FunctionCode AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-	FunctionCode *string `json:"FunctionCode,omitempty"`
+	FunctionCode string `json:"FunctionCode"`
 
 	// FunctionConfig AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-	FunctionConfig *Function_FunctionConfig `json:"FunctionConfig,omitempty"`
+	FunctionConfig *Function_FunctionConfig `json:"FunctionConfig"`
 
 	// FunctionMetadata AWS CloudFormation Property
 	// Required: false

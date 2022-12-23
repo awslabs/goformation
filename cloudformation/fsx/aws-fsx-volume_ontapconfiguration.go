@@ -10,10 +10,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html
 type Volume_OntapConfiguration struct {
 
+	// CopyTagsToBackups AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-copytagstobackups
+	CopyTagsToBackups *string `json:"CopyTagsToBackups,omitempty"`
+
 	// JunctionPath AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-junctionpath
-	JunctionPath string `json:"JunctionPath"`
+	JunctionPath *string `json:"JunctionPath,omitempty"`
+
+	// OntapVolumeType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-ontapvolumetype
+	OntapVolumeType *string `json:"OntapVolumeType,omitempty"`
 
 	// SecurityStyle AWS CloudFormation Property
 	// Required: false
@@ -25,10 +35,15 @@ type Volume_OntapConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinmegabytes
 	SizeInMegabytes string `json:"SizeInMegabytes"`
 
+	// SnapshotPolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-snapshotpolicy
+	SnapshotPolicy *string `json:"SnapshotPolicy,omitempty"`
+
 	// StorageEfficiencyEnabled AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-storageefficiencyenabled
-	StorageEfficiencyEnabled string `json:"StorageEfficiencyEnabled"`
+	StorageEfficiencyEnabled *string `json:"StorageEfficiencyEnabled,omitempty"`
 
 	// StorageVirtualMachineId AWS CloudFormation Property
 	// Required: true

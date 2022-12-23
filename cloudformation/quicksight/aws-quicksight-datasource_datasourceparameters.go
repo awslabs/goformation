@@ -35,6 +35,11 @@ type DataSource_DataSourceParameters struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
 	AuroraPostgreSqlParameters *DataSource_AuroraPostgreSqlParameters `json:"AuroraPostgreSqlParameters,omitempty"`
 
+	// DatabricksParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-databricksparameters
+	DatabricksParameters *DataSource_DatabricksParameters `json:"DatabricksParameters,omitempty"`
+
 	// MariaDbParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters

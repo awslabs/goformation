@@ -21,9 +21,9 @@ type Experiment_MetricGoalObject struct {
 	EntityIdKey string `json:"EntityIdKey"`
 
 	// EventPattern AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-metricgoalobject.html#cfn-evidently-experiment-metricgoalobject-eventpattern
-	EventPattern string `json:"EventPattern"`
+	EventPattern *string `json:"EventPattern,omitempty"`
 
 	// MetricName AWS CloudFormation Property
 	// Required: true

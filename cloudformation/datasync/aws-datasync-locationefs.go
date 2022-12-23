@@ -25,9 +25,9 @@ type LocationEFS struct {
 	Ec2Config *LocationEFS_Ec2Config `json:"Ec2Config"`
 
 	// EfsFilesystemArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
-	EfsFilesystemArn string `json:"EfsFilesystemArn"`
+	EfsFilesystemArn *string `json:"EfsFilesystemArn,omitempty"`
 
 	// FileSystemAccessRoleArn AWS CloudFormation Property
 	// Required: false

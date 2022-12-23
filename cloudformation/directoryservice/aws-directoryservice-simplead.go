@@ -34,9 +34,9 @@ type SimpleAD struct {
 	Name string `json:"Name"`
 
 	// Password AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-password
-	Password string `json:"Password"`
+	Password *string `json:"Password,omitempty"`
 
 	// ShortName AWS CloudFormation Property
 	// Required: false
