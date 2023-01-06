@@ -19,11 +19,6 @@ type PartnerAccount struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-accountlinked
 	AccountLinked *bool `json:"AccountLinked,omitempty"`
 
-	// Fingerprint AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-fingerprint
-	Fingerprint *string `json:"Fingerprint,omitempty"`
-
 	// PartnerAccountId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partneraccountid
@@ -38,6 +33,11 @@ type PartnerAccount struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalk
 	Sidewalk *PartnerAccount_SidewalkAccountInfo `json:"Sidewalk,omitempty"`
+
+	// SidewalkResponse AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkresponse
+	SidewalkResponse *PartnerAccount_SidewalkAccountInfoWithFingerprint `json:"SidewalkResponse,omitempty"`
 
 	// SidewalkUpdate AWS CloudFormation Property
 	// Required: false
