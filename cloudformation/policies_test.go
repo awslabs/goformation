@@ -1,7 +1,7 @@
 package cloudformation_test
 
 import (
-	"github.com/sanathkr/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/awslabs/goformation/v7/cloudformation"
 	"github.com/awslabs/goformation/v7/cloudformation/autoscaling"
@@ -47,9 +47,9 @@ var _ = Describe("Goformation", func() {
 				},
 				Expected: map[string]interface{}{
 					"AutoScalingRollingUpdate": map[string]interface{}{
-						"MaxBatchSize":                  float64(10),
-						"MinInstancesInService":         float64(11),
-						"MinSuccessfulInstancesPercent": float64(12),
+						"MaxBatchSize":                  10,
+						"MinInstancesInService":         11,
+						"MinSuccessfulInstancesPercent": 12,
 						"PauseTime":                     "test-pause-time",
 						"SuspendProcesses":              []interface{}{"test-suspend1", "test-suspend2"},
 						"WaitOnResourceSignals":         true,
@@ -146,10 +146,10 @@ var _ = Describe("Goformation", func() {
 				},
 				Expected: map[string]interface{}{
 					"AutoScalingCreationPolicy": map[string]interface{}{
-						"MinSuccessfulInstancesPercent": float64(10),
+						"MinSuccessfulInstancesPercent": 10,
 					},
 					"ResourceSignal": map[string]interface{}{
-						"Count":   float64(11),
+						"Count":   11,
 						"Timeout": "test-timeout",
 					},
 				},

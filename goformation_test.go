@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/sanathkr/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/awslabs/goformation/v7"
 	"github.com/awslabs/goformation/v7/cloudformation"
@@ -98,19 +98,19 @@ func Example_to_yaml() {
 	}
 
 	// Output:
-	// AWSTemplateFormatVersion: 2010-09-09
+	// AWSTemplateFormatVersion: "2010-09-09"
 	// Resources:
-	//   MyTopic:
-	//     Properties:
-	//       TopicName: my-topic-1575143970
-	//     Type: AWS::SNS::Topic
-	//   MyTopicSubscription:
-	//     Properties:
-	//       Endpoint: some.email@example.com
-	//       Protocol: email
-	//       TopicArn:
-	//         Ref: MyTopic
-	//     Type: AWS::SNS::Subscription
+	//     MyTopic:
+	//         Properties:
+	//             TopicName: my-topic-1575143970
+	//         Type: AWS::SNS::Topic
+	//     MyTopicSubscription:
+	//         Properties:
+	//             Endpoint: some.email@example.com
+	//             Protocol: email
+	//             TopicArn:
+	//                 Ref: MyTopic
+	//         Type: AWS::SNS::Subscription
 
 }
 

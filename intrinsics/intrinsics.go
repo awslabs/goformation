@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	yamlwrapper "github.com/sanathkr/yaml"
+	"gopkg.in/yaml.v3"
 )
 
 // IntrinsicHandler is a function that applies an intrinsic function and returns
@@ -61,13 +61,21 @@ func ProcessYAML(input []byte, options *ProcessorOptions) ([]byte, error) {
 	// Convert short form intrinsic functions (e.g. !Sub) to long form
 	registerTagMarshallers()
 
-	data, err := yamlwrapper.YAMLToJSON(input)
+	// Convert YAML to an object
+	var yamlObj interface{}
+	err := yaml.Unmarshal(input, &customTagProcessor{
+		target: &yamlObj,
+	})
 	if err != nil {
 		return nil, fmt.Errorf("invalid YAML template: %s", err)
 	}
 
-	return ProcessJSON(data, options)
+	data, err := json.Marshal(yamlObj)
+	if err != nil {
+		return nil, err
+	}
 
+	return ProcessJSON(data, options)
 }
 
 // ProcessJSON recursively searches through a byte array of JSON data for all
