@@ -1,9 +1,8 @@
 package intrinsics
 
 import (
-	"reflect"
-
-	yaml "github.com/sanathkr/go-yaml"
+	yaml "gopkg.in/yaml.v3"
+	"strings"
 )
 
 var allTags = []string{
@@ -12,36 +11,91 @@ var allTags = []string{
 	"Equals", "Cidr", "And", "If", "Not", "Or",
 }
 
-type tagUnmarshalerType struct {
+var tagResolvers = make(map[string]func(*yaml.Node) (*yaml.Node, error))
+
+type fragment struct {
+	content *yaml.Node
 }
 
-func (t *tagUnmarshalerType) UnmarshalYAMLTag(tag string, fieldValue reflect.Value) reflect.Value {
+func (f *fragment) UnmarshalYAML(value *yaml.Node) error {
+	var err error
+	f.content, err = resolveTags(value)
+	return err
+}
 
-	prefix := "Fn::"
-	if tag == "Ref" || tag == "Condition" {
-		prefix = ""
+type customTagProcessor struct {
+	target interface{}
+}
+
+func (i *customTagProcessor) UnmarshalYAML(value *yaml.Node) error {
+	resolved, err := resolveTags(value)
+	if err != nil {
+		return err
 	}
 
-	tag = prefix + tag
-
-	output := reflect.ValueOf(make(map[interface{}]interface{}))
-	key := reflect.ValueOf(tag)
-
-	output.SetMapIndex(key, fieldValue)
-
-	return output
+	return resolved.Decode(i.target)
 }
 
-var tagUnmarshaller = &tagUnmarshalerType{}
+func addTagResolver(tag string, resolver func(*yaml.Node) (*yaml.Node, error)) {
+	tagResolvers[tag] = resolver
+}
+
+func resolveTags(node *yaml.Node) (*yaml.Node, error) {
+	for tag, fn := range tagResolvers {
+		if node.Tag == tag {
+			return fn(node)
+		}
+	}
+
+	if node.Kind == yaml.SequenceNode || node.Kind == yaml.MappingNode {
+		var err error
+		for i := range node.Content {
+			node.Content[i], err = resolveTags(node.Content[i])
+			if err != nil {
+				return nil, err
+			}
+		}
+	}
+
+	return node, nil
+}
 
 func registerTagMarshallers() {
 	for _, tag := range allTags {
-		yaml.RegisterTagUnmarshaler("!"+tag, tagUnmarshaller)
-	}
-}
+		addTagResolver("!"+tag, func(tag string) func(node *yaml.Node) (*yaml.Node, error) {
+			return func(node *yaml.Node) (*yaml.Node, error) {
+				prefix := "Fn::"
+				if tag == "Ref" || tag == "Condition" || strings.HasPrefix(tag, prefix) {
+					prefix = ""
+				}
 
-func unregisterTagMarshallers() {
-	for _, tag := range allTags {
-		yaml.UnRegisterTagUnmarshaler("!" + tag)
+				tag = prefix + tag
+
+				output := &yaml.Node{
+					Kind:  yaml.MappingNode,
+					Tag:   "!!map",
+					Value: "",
+					Content: []*yaml.Node{
+						{Kind: yaml.ScalarNode, Tag: "!!str", Value: tag},
+					},
+				}
+
+				if len(node.Content) == 0 {
+					output.Content = append(output.Content, &yaml.Node{
+						Kind:  yaml.ScalarNode,
+						Tag:   "!!str",
+						Value: node.Value,
+					})
+				} else {
+					output.Content = append(output.Content, &yaml.Node{
+						Kind:    yaml.SequenceNode,
+						Tag:     "!!seq",
+						Content: node.Content,
+					})
+				}
+
+				return output, nil
+			}
+		}(tag))
 	}
 }
