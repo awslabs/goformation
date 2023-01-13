@@ -1,5 +1,17 @@
 # GoFormation Versioning Changelog
 
+# [7.2.0](https://github.com/awslabs/goformation/compare/v7.1.3...v7.2.0) (2023-01-13)
+
+
+### Bug Fixes
+
+* **ci:** bump semantic-release-action ([510f9c6](https://github.com/awslabs/goformation/commit/510f9c6e5ef243f3179ba4568b7365b3366c5c5d))
+
+
+### Features
+
+* switch go-yaml implementation to most recent version ([#535](https://github.com/awslabs/goformation/issues/535)) ([0ca6ce2](https://github.com/awslabs/goformation/commit/0ca6ce24fa93544b7fa52054bef2fa4e4f82bad2))
+
 ## [7.1.3](https://github.com/awslabs/goformation/compare/v7.1.2...v7.1.3) (2023-01-06)
 
 
