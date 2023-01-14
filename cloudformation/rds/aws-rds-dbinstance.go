@@ -174,10 +174,20 @@ type DBInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-licensemodel
 	LicenseModel *string `json:"LicenseModel,omitempty"`
 
+	// ManageMasterUserPassword AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-managemasteruserpassword
+	ManageMasterUserPassword *bool `json:"ManageMasterUserPassword,omitempty"`
+
 	// MasterUserPassword AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masteruserpassword
 	MasterUserPassword *string `json:"MasterUserPassword,omitempty"`
+
+	// MasterUserSecret AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masterusersecret
+	MasterUserSecret *DBInstance_MasterUserSecret `json:"MasterUserSecret,omitempty"`
 
 	// MasterUsername AWS CloudFormation Property
 	// Required: false

@@ -30,19 +30,19 @@ type LocationSMB struct {
 	MountOptions *LocationSMB_MountOptions `json:"MountOptions,omitempty"`
 
 	// Password AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
-	Password string `json:"Password"`
+	Password *string `json:"Password,omitempty"`
 
 	// ServerHostname AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
-	ServerHostname string `json:"ServerHostname"`
+	ServerHostname *string `json:"ServerHostname,omitempty"`
 
 	// Subdirectory AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory
-	Subdirectory string `json:"Subdirectory"`
+	Subdirectory *string `json:"Subdirectory,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

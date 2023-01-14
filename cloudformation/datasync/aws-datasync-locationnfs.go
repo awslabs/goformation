@@ -25,14 +25,14 @@ type LocationNFS struct {
 	OnPremConfig *LocationNFS_OnPremConfig `json:"OnPremConfig"`
 
 	// ServerHostname AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
-	ServerHostname string `json:"ServerHostname"`
+	ServerHostname *string `json:"ServerHostname,omitempty"`
 
 	// Subdirectory AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
-	Subdirectory string `json:"Subdirectory"`
+	Subdirectory *string `json:"Subdirectory,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

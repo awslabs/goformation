@@ -39,6 +39,11 @@ type JobTemplate struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobarn
 	JobArn *string `json:"JobArn,omitempty"`
 
+	// JobExecutionsRetryConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobexecutionsretryconfig
+	JobExecutionsRetryConfig *JobTemplate_JobExecutionsRetryConfig `json:"JobExecutionsRetryConfig,omitempty"`
+
 	// JobExecutionsRolloutConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig

@@ -25,9 +25,9 @@ type LocationObjectStorage struct {
 	AgentArns []string `json:"AgentArns"`
 
 	// BucketName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
-	BucketName string `json:"BucketName"`
+	BucketName *string `json:"BucketName,omitempty"`
 
 	// SecretKey AWS CloudFormation Property
 	// Required: false
@@ -35,9 +35,9 @@ type LocationObjectStorage struct {
 	SecretKey *string `json:"SecretKey,omitempty"`
 
 	// ServerHostname AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
-	ServerHostname string `json:"ServerHostname"`
+	ServerHostname *string `json:"ServerHostname,omitempty"`
 
 	// ServerPort AWS CloudFormation Property
 	// Required: false

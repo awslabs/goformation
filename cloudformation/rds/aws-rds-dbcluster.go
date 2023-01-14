@@ -144,10 +144,20 @@ type DBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
 	KmsKeyId *string `json:"KmsKeyId,omitempty"`
 
+	// ManageMasterUserPassword AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-managemasteruserpassword
+	ManageMasterUserPassword *bool `json:"ManageMasterUserPassword,omitempty"`
+
 	// MasterUserPassword AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword
 	MasterUserPassword *string `json:"MasterUserPassword,omitempty"`
+
+	// MasterUserSecret AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusersecret
+	MasterUserSecret *DBCluster_MasterUserSecret `json:"MasterUserSecret,omitempty"`
 
 	// MasterUsername AWS CloudFormation Property
 	// Required: false
