@@ -33,6 +33,11 @@ type DataSource struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig
 	ElasticsearchConfig *DataSource_ElasticsearchConfig `json:"ElasticsearchConfig,omitempty"`
 
+	// EventBridgeConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-eventbridgeconfig
+	EventBridgeConfig *DataSource_EventBridgeConfig `json:"EventBridgeConfig,omitempty"`
+
 	// HttpConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig

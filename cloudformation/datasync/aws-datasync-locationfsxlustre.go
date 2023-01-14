@@ -15,9 +15,9 @@ import (
 type LocationFSxLustre struct {
 
 	// FsxFilesystemArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-fsxfilesystemarn
-	FsxFilesystemArn string `json:"FsxFilesystemArn"`
+	FsxFilesystemArn *string `json:"FsxFilesystemArn,omitempty"`
 
 	// SecurityGroupArns AWS CloudFormation Property
 	// Required: true

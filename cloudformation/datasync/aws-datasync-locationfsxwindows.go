@@ -20,14 +20,14 @@ type LocationFSxWindows struct {
 	Domain *string `json:"Domain,omitempty"`
 
 	// FsxFilesystemArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
-	FsxFilesystemArn string `json:"FsxFilesystemArn"`
+	FsxFilesystemArn *string `json:"FsxFilesystemArn,omitempty"`
 
 	// Password AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
-	Password string `json:"Password"`
+	Password *string `json:"Password,omitempty"`
 
 	// SecurityGroupArns AWS CloudFormation Property
 	// Required: true
