@@ -417,6 +417,12 @@
                     "Required": false,
                     "Type": "DomainConfiguration",
                     "UpdateType": "Immutable"
+                },
+                "DisableExecuteApiEndpoint": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-disableexecuteapiendpoint",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
                 }
             }
         },
