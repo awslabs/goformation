@@ -931,6 +931,13 @@
                     "Required": false,
                     "PrimitiveType": "Boolean",
                     "UpdateType": "Immutable"
+                },
+                "FunctionResponseTypes": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#kinesis",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
                 }
             }
         },
