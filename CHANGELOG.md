@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [7.2.3](https://github.com/awslabs/goformation/compare/v7.2.2...v7.2.3) (2023-01-18)
+
+
+### Bug Fixes
+
+* **schema:** add FunctionResponseTypes property for kinesis events ([#539](https://github.com/awslabs/goformation/issues/539)) ([3cff1ff](https://github.com/awslabs/goformation/commit/3cff1fffe990b282ad7a2cab17792e33a110571d))
+
 ## [7.2.2](https://github.com/awslabs/goformation/compare/v7.2.1...v7.2.2) (2023-01-18)
 
 
