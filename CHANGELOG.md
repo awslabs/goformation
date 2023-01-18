@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [7.2.2](https://github.com/awslabs/goformation/compare/v7.2.1...v7.2.2) (2023-01-18)
+
+
+### Bug Fixes
+
+* **schema:** add DisableExecuteApiEndpoint to Serverless API ([#538](https://github.com/awslabs/goformation/issues/538)) ([1ff11e8](https://github.com/awslabs/goformation/commit/1ff11e8fc9da67c6f3ba2118b30bb0d637e3b9af))
+
 ## [7.2.1](https://github.com/awslabs/goformation/compare/v7.2.0...v7.2.1) (2023-01-14)
 
 
