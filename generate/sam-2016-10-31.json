@@ -1131,6 +1131,24 @@
                 }
             }
         },
+        "AWS::Serverless::Function.HttpApiFunctionAuth": {
+            "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-httpapifunctionauth.html",
+            "Properties": {
+                "AuthorizationScopes": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-httpapifunctionauth.html",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Authorizer": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-httpapifunctionauth.html",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
         "AWS::Serverless::Function.RequestModel": {
             "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-requestmodel.html",
             "Properties": {
