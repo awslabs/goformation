@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [7.2.5](https://github.com/awslabs/goformation/compare/v7.2.4...v7.2.5) (2023-01-20)
+
+
+### Bug Fixes
+
+* **schema:** add HttpApi, HttpApiFunctionAuth, RouteSettings ([#541](https://github.com/awslabs/goformation/issues/541)) ([78913ea](https://github.com/awslabs/goformation/commit/78913ea841dca3ecda1a3391e047694a015cc481))
+
 ## [7.2.4](https://github.com/awslabs/goformation/compare/v7.2.3...v7.2.4) (2023-01-20)
 
 
