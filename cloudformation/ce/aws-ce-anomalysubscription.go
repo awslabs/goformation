@@ -39,9 +39,14 @@ type AnomalySubscription struct {
 	SubscriptionName string `json:"SubscriptionName"`
 
 	// Threshold AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-threshold
-	Threshold float64 `json:"Threshold"`
+	Threshold *float64 `json:"Threshold,omitempty"`
+
+	// ThresholdExpression AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-thresholdexpression
+	ThresholdExpression *string `json:"ThresholdExpression,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -13,7 +13,7 @@ type Workflow_CopyStepDetails struct {
 	// DestinationFileLocation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-destinationfilelocation
-	DestinationFileLocation *Workflow_InputFileLocation `json:"DestinationFileLocation,omitempty"`
+	DestinationFileLocation *Workflow_S3FileLocation `json:"DestinationFileLocation,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false

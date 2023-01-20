@@ -34,6 +34,11 @@ type Addon struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-configurationvalues
 	ConfigurationValues *string `json:"ConfigurationValues,omitempty"`
 
+	// PreserveOnDelete AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-preserveondelete
+	PreserveOnDelete *bool `json:"PreserveOnDelete,omitempty"`
+
 	// ResolveConflicts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
