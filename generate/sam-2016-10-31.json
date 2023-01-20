@@ -856,7 +856,8 @@
                         "CloudWatchLogsEvent",
                         "IoTRuleEvent",
                         "AlexaSkillEvent",
-                        "EventBridgeRuleEvent"
+                        "EventBridgeRuleEvent",
+                        "HttpApiEvent"
                     ],
                     "UpdateType": "Immutable"
                 }
@@ -1079,6 +1080,106 @@
                         "RequestParameter"
                     ],
                     "InclusiveItemPattern": true,
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.HttpApiFunctionAuth": {
+            "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-httpapifunctionauth.html",
+            "Properties": {
+                "AuthorizationScopes": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-httpapifunctionauth.html",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Authorizer": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-httpapifunctionauth.html",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.HttpApiEvent": {
+            "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#httpapi",
+            "Properties": {
+                "Path": {
+                    "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#httpapi",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Method": {
+                    "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#httpapi",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "ApiId": {
+                    "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#httpapi",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "Auth": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-httpapi.html",
+                    "Required": false,
+                    "Type": "HttpApiFunctionAuth",
+                    "UpdateType": "Immutable"
+                },
+                "TimeoutInMillis": {
+                    "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#httpapi",
+                    "Required": false,
+                    "PrimitiveType": "Integer",
+                    "UpdateType": "Immutable"
+                },
+                "PayloadFormatVersion": {
+                    "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#httpapi",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "RouteSettings": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings",
+                    "Required": false,
+                    "Type": "RouteSettings",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.RouteSettings": {
+            "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html",
+            "Properties": {
+                "DataTraceEnabled": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-datatraceenabled",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                },
+                "DetailedMetricsEnabled": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-detailedmetricsenabled",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                },
+                "LoggingLevel": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-logginglevel",
+                    "Required": false,
+                    "PrimitiveType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "ThrottlingBurstLimit": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-throttlingburstlimit",
+                    "Required": false,
+                    "PrimitiveType": "Integer",
+                    "UpdateType": "Immutable"
+                },
+                "ThrottlingRateLimit": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-throttlingratelimit",
+                    "Required": false,
+                    "PrimitiveType": "Double",
                     "UpdateType": "Immutable"
                 }
             }
