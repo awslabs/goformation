@@ -119,6 +119,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/ivs"
 	"github.com/awslabs/goformation/v7/cloudformation/kafkaconnect"
 	"github.com/awslabs/goformation/v7/cloudformation/kendra"
+	"github.com/awslabs/goformation/v7/cloudformation/kendraranking"
 	"github.com/awslabs/goformation/v7/cloudformation/kinesis"
 	"github.com/awslabs/goformation/v7/cloudformation/kinesisanalytics"
 	"github.com/awslabs/goformation/v7/cloudformation/kinesisanalyticsv2"
@@ -807,6 +808,7 @@ func AllResources() map[string]Resource {
 		"AWS::Kendra::DataSource":                                     &kendra.DataSource{},
 		"AWS::Kendra::Faq":                                            &kendra.Faq{},
 		"AWS::Kendra::Index":                                          &kendra.Index{},
+		"AWS::KendraRanking::ExecutionPlan":                           &kendraranking.ExecutionPlan{},
 		"AWS::Kinesis::Stream":                                        &kinesis.Stream{},
 		"AWS::Kinesis::StreamConsumer":                                &kinesis.StreamConsumer{},
 		"AWS::KinesisAnalytics::Application":                          &kinesisanalytics.Application{},
@@ -15340,6 +15342,30 @@ func (t *Template) GetKendraIndexWithName(name string) (*kendra.Index, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type kendra.Index not found", name)
+}
+
+// GetAllKendraRankingExecutionPlanResources retrieves all kendraranking.ExecutionPlan items from an AWS CloudFormation template
+func (t *Template) GetAllKendraRankingExecutionPlanResources() map[string]*kendraranking.ExecutionPlan {
+	results := map[string]*kendraranking.ExecutionPlan{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *kendraranking.ExecutionPlan:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetKendraRankingExecutionPlanWithName retrieves all kendraranking.ExecutionPlan items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetKendraRankingExecutionPlanWithName(name string) (*kendraranking.ExecutionPlan, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *kendraranking.ExecutionPlan:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type kendraranking.ExecutionPlan not found", name)
 }
 
 // GetAllKinesisStreamResources retrieves all kinesis.Stream items from an AWS CloudFormation template

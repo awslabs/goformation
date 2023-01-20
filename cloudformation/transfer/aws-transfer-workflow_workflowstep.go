@@ -20,6 +20,11 @@ type Workflow_WorkflowStep struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-customstepdetails
 	CustomStepDetails *Workflow_CustomStepDetails `json:"CustomStepDetails,omitempty"`
 
+	// DecryptStepDetails AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-decryptstepdetails
+	DecryptStepDetails *Workflow_DecryptStepDetails `json:"DecryptStepDetails,omitempty"`
+
 	// DeleteStepDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-deletestepdetails

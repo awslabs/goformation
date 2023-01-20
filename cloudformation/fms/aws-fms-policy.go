@@ -33,6 +33,11 @@ type Policy struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
 	IncludeMap *Policy_IEMap `json:"IncludeMap,omitempty"`
 
+	// PolicyDescription AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policydescription
+	PolicyDescription *string `json:"PolicyDescription,omitempty"`
+
 	// PolicyName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
@@ -43,15 +48,20 @@ type Policy struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
 	RemediationEnabled bool `json:"RemediationEnabled"`
 
+	// ResourceSetIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcesetids
+	ResourceSetIds []string `json:"ResourceSetIds,omitempty"`
+
 	// ResourceTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
 	ResourceTags []Policy_ResourceTag `json:"ResourceTags,omitempty"`
 
 	// ResourceType AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-	ResourceType string `json:"ResourceType"`
+	ResourceType *string `json:"ResourceType,omitempty"`
 
 	// ResourceTypeList AWS CloudFormation Property
 	// Required: false
