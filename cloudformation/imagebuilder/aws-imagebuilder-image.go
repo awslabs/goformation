@@ -33,6 +33,11 @@ type Image struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	ImageRecipeArn *string `json:"ImageRecipeArn,omitempty"`
 
+	// ImageScanningConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagescanningconfiguration
+	ImageScanningConfiguration *Image_ImageScanningConfiguration `json:"ImageScanningConfiguration,omitempty"`
+
 	// ImageTestsConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration

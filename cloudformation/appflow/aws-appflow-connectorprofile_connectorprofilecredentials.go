@@ -45,6 +45,11 @@ type ConnectorProfile_ConnectorProfileCredentials struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
 	Marketo *ConnectorProfile_MarketoConnectorProfileCredentials `json:"Marketo,omitempty"`
 
+	// Pardot AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-pardot
+	Pardot *ConnectorProfile_PardotConnectorProfileCredentials `json:"Pardot,omitempty"`
+
 	// Redshift AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift

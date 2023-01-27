@@ -25,6 +25,11 @@ type Bot_Intent struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-fulfillmentcodehook
 	FulfillmentCodeHook *Bot_FulfillmentCodeHookSetting `json:"FulfillmentCodeHook,omitempty"`
 
+	// InitialResponseSetting AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-initialresponsesetting
+	InitialResponseSetting *Bot_InitialResponseSetting `json:"InitialResponseSetting,omitempty"`
+
 	// InputContexts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-inputcontexts

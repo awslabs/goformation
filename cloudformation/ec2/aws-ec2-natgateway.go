@@ -24,10 +24,30 @@ type NatGateway struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-connectivitytype
 	ConnectivityType *string `json:"ConnectivityType,omitempty"`
 
+	// MaxDrainDurationSeconds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-maxdraindurationseconds
+	MaxDrainDurationSeconds *int `json:"MaxDrainDurationSeconds,omitempty"`
+
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-privateipaddress
 	PrivateIpAddress *string `json:"PrivateIpAddress,omitempty"`
+
+	// SecondaryAllocationIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryallocationids
+	SecondaryAllocationIds []string `json:"SecondaryAllocationIds,omitempty"`
+
+	// SecondaryPrivateIpAddressCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryprivateipaddresscount
+	SecondaryPrivateIpAddressCount *int `json:"SecondaryPrivateIpAddressCount,omitempty"`
+
+	// SecondaryPrivateIpAddresses AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryprivateipaddresses
+	SecondaryPrivateIpAddresses []string `json:"SecondaryPrivateIpAddresses,omitempty"`
 
 	// SubnetId AWS CloudFormation Property
 	// Required: true
