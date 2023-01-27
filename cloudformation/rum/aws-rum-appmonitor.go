@@ -19,6 +19,11 @@ type AppMonitor struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-appmonitorconfiguration
 	AppMonitorConfiguration *AppMonitor_AppMonitorConfiguration `json:"AppMonitorConfiguration,omitempty"`
 
+	// CustomEvents AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-customevents
+	CustomEvents *AppMonitor_CustomEvents `json:"CustomEvents,omitempty"`
+
 	// CwLogEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-cwlogenabled

@@ -428,14 +428,17 @@ func AllResources() map[string]Resource {
 		"AWS::Config::OrganizationConformancePack":                    &config.OrganizationConformancePack{},
 		"AWS::Config::RemediationConfiguration":                       &config.RemediationConfiguration{},
 		"AWS::Config::StoredQuery":                                    &config.StoredQuery{},
+		"AWS::Connect::ApprovedOrigin":                                &connect.ApprovedOrigin{},
 		"AWS::Connect::ContactFlow":                                   &connect.ContactFlow{},
 		"AWS::Connect::ContactFlowModule":                             &connect.ContactFlowModule{},
 		"AWS::Connect::HoursOfOperation":                              &connect.HoursOfOperation{},
 		"AWS::Connect::Instance":                                      &connect.Instance{},
 		"AWS::Connect::InstanceStorageConfig":                         &connect.InstanceStorageConfig{},
+		"AWS::Connect::IntegrationAssociation":                        &connect.IntegrationAssociation{},
 		"AWS::Connect::PhoneNumber":                                   &connect.PhoneNumber{},
 		"AWS::Connect::QuickConnect":                                  &connect.QuickConnect{},
 		"AWS::Connect::Rule":                                          &connect.Rule{},
+		"AWS::Connect::SecurityKey":                                   &connect.SecurityKey{},
 		"AWS::Connect::TaskTemplate":                                  &connect.TaskTemplate{},
 		"AWS::Connect::User":                                          &connect.User{},
 		"AWS::Connect::UserHierarchyGroup":                            &connect.UserHierarchyGroup{},
@@ -6224,6 +6227,30 @@ func (t *Template) GetConfigStoredQueryWithName(name string) (*config.StoredQuer
 	return nil, fmt.Errorf("resource %q of type config.StoredQuery not found", name)
 }
 
+// GetAllConnectApprovedOriginResources retrieves all connect.ApprovedOrigin items from an AWS CloudFormation template
+func (t *Template) GetAllConnectApprovedOriginResources() map[string]*connect.ApprovedOrigin {
+	results := map[string]*connect.ApprovedOrigin{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.ApprovedOrigin:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectApprovedOriginWithName retrieves all connect.ApprovedOrigin items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectApprovedOriginWithName(name string) (*connect.ApprovedOrigin, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.ApprovedOrigin:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.ApprovedOrigin not found", name)
+}
+
 // GetAllConnectContactFlowResources retrieves all connect.ContactFlow items from an AWS CloudFormation template
 func (t *Template) GetAllConnectContactFlowResources() map[string]*connect.ContactFlow {
 	results := map[string]*connect.ContactFlow{}
@@ -6344,6 +6371,30 @@ func (t *Template) GetConnectInstanceStorageConfigWithName(name string) (*connec
 	return nil, fmt.Errorf("resource %q of type connect.InstanceStorageConfig not found", name)
 }
 
+// GetAllConnectIntegrationAssociationResources retrieves all connect.IntegrationAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllConnectIntegrationAssociationResources() map[string]*connect.IntegrationAssociation {
+	results := map[string]*connect.IntegrationAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.IntegrationAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectIntegrationAssociationWithName retrieves all connect.IntegrationAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectIntegrationAssociationWithName(name string) (*connect.IntegrationAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.IntegrationAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.IntegrationAssociation not found", name)
+}
+
 // GetAllConnectPhoneNumberResources retrieves all connect.PhoneNumber items from an AWS CloudFormation template
 func (t *Template) GetAllConnectPhoneNumberResources() map[string]*connect.PhoneNumber {
 	results := map[string]*connect.PhoneNumber{}
@@ -6414,6 +6465,30 @@ func (t *Template) GetConnectRuleWithName(name string) (*connect.Rule, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.Rule not found", name)
+}
+
+// GetAllConnectSecurityKeyResources retrieves all connect.SecurityKey items from an AWS CloudFormation template
+func (t *Template) GetAllConnectSecurityKeyResources() map[string]*connect.SecurityKey {
+	results := map[string]*connect.SecurityKey{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.SecurityKey:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectSecurityKeyWithName retrieves all connect.SecurityKey items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectSecurityKeyWithName(name string) (*connect.SecurityKey, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.SecurityKey:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.SecurityKey not found", name)
 }
 
 // GetAllConnectTaskTemplateResources retrieves all connect.TaskTemplate items from an AWS CloudFormation template

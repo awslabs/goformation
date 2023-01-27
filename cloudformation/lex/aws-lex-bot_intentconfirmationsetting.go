@@ -10,10 +10,60 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html
 type Bot_IntentConfirmationSetting struct {
 
+	// CodeHook AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-codehook
+	CodeHook *Bot_DialogCodeHookInvocationSetting `json:"CodeHook,omitempty"`
+
+	// ConfirmationConditional AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-confirmationconditional
+	ConfirmationConditional *Bot_ConditionalSpecification `json:"ConfirmationConditional,omitempty"`
+
+	// ConfirmationNextStep AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-confirmationnextstep
+	ConfirmationNextStep *Bot_DialogState `json:"ConfirmationNextStep,omitempty"`
+
+	// ConfirmationResponse AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-confirmationresponse
+	ConfirmationResponse *Bot_ResponseSpecification `json:"ConfirmationResponse,omitempty"`
+
+	// DeclinationConditional AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-declinationconditional
+	DeclinationConditional *Bot_ConditionalSpecification `json:"DeclinationConditional,omitempty"`
+
+	// DeclinationNextStep AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-declinationnextstep
+	DeclinationNextStep *Bot_DialogState `json:"DeclinationNextStep,omitempty"`
+
 	// DeclinationResponse AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-declinationresponse
-	DeclinationResponse *Bot_ResponseSpecification `json:"DeclinationResponse"`
+	DeclinationResponse *Bot_ResponseSpecification `json:"DeclinationResponse,omitempty"`
+
+	// ElicitationCodeHook AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-elicitationcodehook
+	ElicitationCodeHook *Bot_ElicitationCodeHookInvocationSetting `json:"ElicitationCodeHook,omitempty"`
+
+	// FailureConditional AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-failureconditional
+	FailureConditional *Bot_ConditionalSpecification `json:"FailureConditional,omitempty"`
+
+	// FailureNextStep AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-failurenextstep
+	FailureNextStep *Bot_DialogState `json:"FailureNextStep,omitempty"`
+
+	// FailureResponse AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-failureresponse
+	FailureResponse *Bot_ResponseSpecification `json:"FailureResponse,omitempty"`
 
 	// IsActive AWS CloudFormation Property
 	// Required: false

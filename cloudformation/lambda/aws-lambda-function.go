@@ -104,6 +104,11 @@ type Function struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
 	Runtime *string `json:"Runtime,omitempty"`
 
+	// RuntimeManagementConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtimemanagementconfig
+	RuntimeManagementConfig *Function_RuntimeManagementConfig `json:"RuntimeManagementConfig,omitempty"`
+
 	// SnapStart AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-snapstart

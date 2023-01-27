@@ -10,15 +10,45 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html
 type Bot_PostFulfillmentStatusSpecification struct {
 
+	// FailureConditional AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failureconditional
+	FailureConditional *Bot_ConditionalSpecification `json:"FailureConditional,omitempty"`
+
+	// FailureNextStep AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failurenextstep
+	FailureNextStep *Bot_DialogState `json:"FailureNextStep,omitempty"`
+
 	// FailureResponse AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failureresponse
 	FailureResponse *Bot_ResponseSpecification `json:"FailureResponse,omitempty"`
 
+	// SuccessConditional AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successconditional
+	SuccessConditional *Bot_ConditionalSpecification `json:"SuccessConditional,omitempty"`
+
+	// SuccessNextStep AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successnextstep
+	SuccessNextStep *Bot_DialogState `json:"SuccessNextStep,omitempty"`
+
 	// SuccessResponse AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successresponse
 	SuccessResponse *Bot_ResponseSpecification `json:"SuccessResponse,omitempty"`
+
+	// TimeoutConditional AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutconditional
+	TimeoutConditional *Bot_ConditionalSpecification `json:"TimeoutConditional,omitempty"`
+
+	// TimeoutNextStep AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutnextstep
+	TimeoutNextStep *Bot_DialogState `json:"TimeoutNextStep,omitempty"`
 
 	// TimeoutResponse AWS CloudFormation Property
 	// Required: false
