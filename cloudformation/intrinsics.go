@@ -72,17 +72,16 @@ func str3Wrap(fn func(interface{}, interface{}, interface{}) string) intrinsics.
 	}
 }
 
-func str3optional4Wrap(fn func(interface{}, interface{}, interface{}, interface{}) string) intrinsics.IntrinsicHandler {
+func str3Optional4Wrap(fn func(interface{}, interface{}, interface{}, interface{}) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
 		if arr, ok := input.([]interface{}); ok {
-			if len(arr) == 3 {
+			switch len(arr) {
+			case 3:
 				return fn(arr[0], arr[1], arr[2], nil)
-			} else if len(arr) == 4 {
+			case 4:
 				return fn(arr[0], arr[1], arr[2], arr[3])
-
-			} else {
-				return nil
 			}
+			return nil
 		}
 		return nil
 	}
@@ -123,7 +122,7 @@ var EncoderIntrinsics = map[string]intrinsics.IntrinsicHandler{
 	"Fn::If":          str3Wrap(If),
 	"Fn::Not":         strAWrap(Not),
 	"Fn::Or":          strAWrap(Or),
-	"Fn::FindInMap":   str3optional4Wrap(FindInMap),
+	"Fn::FindInMap":   str3Optional4Wrap(FindInMap),
 	"Fn::GetAtt":      strSplit2Wrap(GetAtt),
 	"Fn::GetAZs":      strWrap(GetAZs),
 	"Fn::ImportValue": strWrap(ImportValue),
