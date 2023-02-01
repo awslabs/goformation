@@ -25,24 +25,24 @@ type Template struct {
 }
 
 type Parameter struct {
-	Type                  string        `json:"Type"`
-	Description           string        `json:"Description,omitempty"`
-	Default               interface{}   `json:"Default,omitempty"`
-	AllowedPattern        string        `json:"AllowedPattern,omitempty"`
-	AllowedValues         []interface{} `json:"AllowedValues,omitempty"`
-	ConstraintDescription string        `json:"ConstraintDescription,omitempty"`
-	MaxLength             int           `json:"MaxLength,omitempty"`
-	MinLength             int           `json:"MinLength,omitempty"`
-	MaxValue              float64       `json:"MaxValue,omitempty"`
-	MinValue              float64       `json:"MinValue,omitempty"`
-	NoEcho                bool          `json:"NoEcho,omitempty"`
+	Type                  string         `json:"Type"`
+	Description           *string        `json:"Description,omitempty"`
+	Default               *interface{}   `json:"Default,omitempty"`
+	AllowedPattern        *string        `json:"AllowedPattern,omitempty"`
+	AllowedValues         *[]interface{} `json:"AllowedValues,omitempty"`
+	ConstraintDescription *string        `json:"ConstraintDescription,omitempty"`
+	MaxLength             *int           `json:"MaxLength,omitempty"`
+	MinLength             *int           `json:"MinLength,omitempty"`
+	MaxValue              *float64       `json:"MaxValue,omitempty"`
+	MinValue              *float64       `json:"MinValue,omitempty"`
+	NoEcho                *bool          `json:"NoEcho,omitempty"`
 }
 
 type Output struct {
 	Value       interface{} `json:"Value"`
-	Description string      `json:"Description,omitempty"`
+	Description *string     `json:"Description,omitempty"`
 	Export      *Export     `json:"Export,omitempty"`
-	Condition   string      `json:"Condition,omitempty"`
+	Condition   *string     `json:"Condition,omitempty"`
 }
 
 type Export struct {
