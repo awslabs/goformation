@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.3.0](https://github.com/awslabs/goformation/compare/v7.2.6...v7.3.0) (2023-02-01)
+
+
+### Features
+
+* **sam:** serverless api model type fix ([#515](https://github.com/awslabs/goformation/issues/515)) ([43e87d9](https://github.com/awslabs/goformation/commit/43e87d928be8b1de98049e3a67989ef5b6ec3576))
+
 ## [7.2.6](https://github.com/awslabs/goformation/compare/v7.2.5...v7.2.6) (2023-01-27)
 
 
