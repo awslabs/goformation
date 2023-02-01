@@ -88,7 +88,7 @@ type Api struct {
 	// Models AWS CloudFormation Property
 	// Required: false
 	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-models
-	Models *map[string]string `json:"Models,omitempty"`
+	Models *map[string]interface{} `json:"Models,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
