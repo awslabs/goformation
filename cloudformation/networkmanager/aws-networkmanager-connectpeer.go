@@ -20,9 +20,9 @@ type ConnectPeer struct {
 	BgpOptions *ConnectPeer_BgpOptions `json:"BgpOptions,omitempty"`
 
 	// ConnectAttachmentId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-connectattachmentid
-	ConnectAttachmentId *string `json:"ConnectAttachmentId,omitempty"`
+	ConnectAttachmentId string `json:"ConnectAttachmentId"`
 
 	// CoreNetworkAddress AWS CloudFormation Property
 	// Required: false
@@ -30,14 +30,14 @@ type ConnectPeer struct {
 	CoreNetworkAddress *string `json:"CoreNetworkAddress,omitempty"`
 
 	// InsideCidrBlocks AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-insidecidrblocks
-	InsideCidrBlocks []string `json:"InsideCidrBlocks,omitempty"`
+	InsideCidrBlocks []string `json:"InsideCidrBlocks"`
 
 	// PeerAddress AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-peeraddress
-	PeerAddress *string `json:"PeerAddress,omitempty"`
+	PeerAddress string `json:"PeerAddress"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

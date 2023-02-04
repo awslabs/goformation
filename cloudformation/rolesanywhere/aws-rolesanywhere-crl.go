@@ -15,9 +15,9 @@ import (
 type CRL struct {
 
 	// CrlData AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html#cfn-rolesanywhere-crl-crldata
-	CrlData *string `json:"CrlData,omitempty"`
+	CrlData string `json:"CrlData"`
 
 	// Enabled AWS CloudFormation Property
 	// Required: false
@@ -25,9 +25,9 @@ type CRL struct {
 	Enabled *bool `json:"Enabled,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html#cfn-rolesanywhere-crl-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

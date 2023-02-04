@@ -15,9 +15,9 @@ import (
 type SiteToSiteVpnAttachment struct {
 
 	// CoreNetworkId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-corenetworkid
-	CoreNetworkId *string `json:"CoreNetworkId,omitempty"`
+	CoreNetworkId string `json:"CoreNetworkId"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -25,9 +25,9 @@ type SiteToSiteVpnAttachment struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VpnConnectionArn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-vpnconnectionarn
-	VpnConnectionArn *string `json:"VpnConnectionArn,omitempty"`
+	VpnConnectionArn string `json:"VpnConnectionArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -20,14 +20,14 @@ type TrustAnchor struct {
 	Enabled *bool `json:"Enabled,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Source AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-source
-	Source *TrustAnchor_Source `json:"Source,omitempty"`
+	Source *TrustAnchor_Source `json:"Source"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
