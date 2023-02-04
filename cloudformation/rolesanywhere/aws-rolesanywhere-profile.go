@@ -30,9 +30,9 @@ type Profile struct {
 	ManagedPolicyArns []string `json:"ManagedPolicyArns,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RequireInstanceProperties AWS CloudFormation Property
 	// Required: false
@@ -40,9 +40,9 @@ type Profile struct {
 	RequireInstanceProperties *bool `json:"RequireInstanceProperties,omitempty"`
 
 	// RoleArns AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-rolearns
-	RoleArns []string `json:"RoleArns,omitempty"`
+	RoleArns []string `json:"RoleArns"`
 
 	// SessionPolicy AWS CloudFormation Property
 	// Required: false

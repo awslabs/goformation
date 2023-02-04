@@ -69,6 +69,11 @@ type IPAMPool struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-provisionedcidrs
 	ProvisionedCidrs []IPAMPool_ProvisionedCidr `json:"ProvisionedCidrs,omitempty"`
 
+	// PublicIpSource AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-publicipsource
+	PublicIpSource *string `json:"PublicIpSource,omitempty"`
+
 	// PubliclyAdvertisable AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-publiclyadvertisable
