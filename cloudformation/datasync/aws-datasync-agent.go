@@ -15,9 +15,9 @@ import (
 type Agent struct {
 
 	// ActivationKey AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
-	ActivationKey string `json:"ActivationKey"`
+	ActivationKey *string `json:"ActivationKey,omitempty"`
 
 	// AgentName AWS CloudFormation Property
 	// Required: false

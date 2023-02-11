@@ -15,9 +15,9 @@ import (
 type LocationFSxONTAP struct {
 
 	// Protocol AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-protocol
-	Protocol *LocationFSxONTAP_Protocol `json:"Protocol"`
+	Protocol *LocationFSxONTAP_Protocol `json:"Protocol,omitempty"`
 
 	// SecurityGroupArns AWS CloudFormation Property
 	// Required: true

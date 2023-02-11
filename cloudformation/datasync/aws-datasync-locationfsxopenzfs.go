@@ -15,9 +15,9 @@ import (
 type LocationFSxOpenZFS struct {
 
 	// FsxFilesystemArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-fsxfilesystemarn
-	FsxFilesystemArn string `json:"FsxFilesystemArn"`
+	FsxFilesystemArn *string `json:"FsxFilesystemArn,omitempty"`
 
 	// Protocol AWS CloudFormation Property
 	// Required: true
