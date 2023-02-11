@@ -14,9 +14,9 @@ import (
 type Link struct {
 
 	// LabelTemplate AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-labeltemplate
-	LabelTemplate string `json:"LabelTemplate"`
+	LabelTemplate *string `json:"LabelTemplate,omitempty"`
 
 	// ResourceTypes AWS CloudFormation Property
 	// Required: true

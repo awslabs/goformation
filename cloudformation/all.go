@@ -937,6 +937,7 @@ func AllResources() map[string]Resource {
 		"AWS::NetworkManager::LinkAssociation":                        &networkmanager.LinkAssociation{},
 		"AWS::NetworkManager::Site":                                   &networkmanager.Site{},
 		"AWS::NetworkManager::SiteToSiteVpnAttachment":                &networkmanager.SiteToSiteVpnAttachment{},
+		"AWS::NetworkManager::TransitGatewayPeering":                  &networkmanager.TransitGatewayPeering{},
 		"AWS::NetworkManager::TransitGatewayRegistration":             &networkmanager.TransitGatewayRegistration{},
 		"AWS::NetworkManager::VpcAttachment":                          &networkmanager.VpcAttachment{},
 		"AWS::NimbleStudio::LaunchProfile":                            &nimblestudio.LaunchProfile{},
@@ -1148,6 +1149,7 @@ func AllResources() map[string]Resource {
 		"AWS::SageMaker::NotebookInstanceLifecycleConfig":             &sagemaker.NotebookInstanceLifecycleConfig{},
 		"AWS::SageMaker::Pipeline":                                    &sagemaker.Pipeline{},
 		"AWS::SageMaker::Project":                                     &sagemaker.Project{},
+		"AWS::SageMaker::Space":                                       &sagemaker.Space{},
 		"AWS::SageMaker::UserProfile":                                 &sagemaker.UserProfile{},
 		"AWS::SageMaker::Workteam":                                    &sagemaker.Workteam{},
 		"AWS::Scheduler::Schedule":                                    &scheduler.Schedule{},
@@ -18410,6 +18412,30 @@ func (t *Template) GetNetworkManagerSiteToSiteVpnAttachmentWithName(name string)
 	return nil, fmt.Errorf("resource %q of type networkmanager.SiteToSiteVpnAttachment not found", name)
 }
 
+// GetAllNetworkManagerTransitGatewayPeeringResources retrieves all networkmanager.TransitGatewayPeering items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkManagerTransitGatewayPeeringResources() map[string]*networkmanager.TransitGatewayPeering {
+	results := map[string]*networkmanager.TransitGatewayPeering{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkmanager.TransitGatewayPeering:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkManagerTransitGatewayPeeringWithName retrieves all networkmanager.TransitGatewayPeering items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkManagerTransitGatewayPeeringWithName(name string) (*networkmanager.TransitGatewayPeering, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkmanager.TransitGatewayPeering:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkmanager.TransitGatewayPeering not found", name)
+}
+
 // GetAllNetworkManagerTransitGatewayRegistrationResources retrieves all networkmanager.TransitGatewayRegistration items from an AWS CloudFormation template
 func (t *Template) GetAllNetworkManagerTransitGatewayRegistrationResources() map[string]*networkmanager.TransitGatewayRegistration {
 	results := map[string]*networkmanager.TransitGatewayRegistration{}
@@ -23472,6 +23498,30 @@ func (t *Template) GetSageMakerProjectWithName(name string) (*sagemaker.Project,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type sagemaker.Project not found", name)
+}
+
+// GetAllSageMakerSpaceResources retrieves all sagemaker.Space items from an AWS CloudFormation template
+func (t *Template) GetAllSageMakerSpaceResources() map[string]*sagemaker.Space {
+	results := map[string]*sagemaker.Space{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sagemaker.Space:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSageMakerSpaceWithName retrieves all sagemaker.Space items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSageMakerSpaceWithName(name string) (*sagemaker.Space, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sagemaker.Space:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sagemaker.Space not found", name)
 }
 
 // GetAllSageMakerUserProfileResources retrieves all sagemaker.UserProfile items from an AWS CloudFormation template

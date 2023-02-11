@@ -15,9 +15,9 @@ import (
 type LocationS3 struct {
 
 	// S3BucketArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
-	S3BucketArn string `json:"S3BucketArn"`
+	S3BucketArn *string `json:"S3BucketArn,omitempty"`
 
 	// S3Config AWS CloudFormation Property
 	// Required: true
