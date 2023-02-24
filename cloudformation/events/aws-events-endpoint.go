@@ -24,9 +24,9 @@ type Endpoint struct {
 	EventBuses []Endpoint_EndpointEventBus `json:"EventBuses"`
 
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-name
-	Name string `json:"Name"`
+	Name *string `json:"Name,omitempty"`
 
 	// ReplicationConfig AWS CloudFormation Property
 	// Required: false
