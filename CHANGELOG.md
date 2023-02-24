@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [7.3.4](https://github.com/awslabs/goformation/compare/v7.3.3...v7.3.4) (2023-02-24)
+
+
+### Bug Fixes
+
+* **schema:** CloudFormation Updates ([#562](https://github.com/awslabs/goformation/issues/562)) ([307cd37](https://github.com/awslabs/goformation/commit/307cd37a01f40c5334ddea2be7f1204e6f0c76f3))
+
 ## [7.3.3](https://github.com/awslabs/goformation/compare/v7.3.2...v7.3.3) (2023-02-17)
 
 
