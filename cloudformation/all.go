@@ -105,6 +105,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/imagebuilder"
 	"github.com/awslabs/goformation/v7/cloudformation/inspector"
 	"github.com/awslabs/goformation/v7/cloudformation/inspectorv2"
+	"github.com/awslabs/goformation/v7/cloudformation/internetmonitor"
 	"github.com/awslabs/goformation/v7/cloudformation/iot"
 	"github.com/awslabs/goformation/v7/cloudformation/iot1click"
 	"github.com/awslabs/goformation/v7/cloudformation/iotanalytics"
@@ -752,6 +753,7 @@ func AllResources() map[string]Resource {
 		"AWS::Inspector::AssessmentTemplate":                               &inspector.AssessmentTemplate{},
 		"AWS::Inspector::ResourceGroup":                                    &inspector.ResourceGroup{},
 		"AWS::InspectorV2::Filter":                                         &inspectorv2.Filter{},
+		"AWS::InternetMonitor::Monitor":                                    &internetmonitor.Monitor{},
 		"AWS::IoT1Click::Device":                                           &iot1click.Device{},
 		"AWS::IoT1Click::Placement":                                        &iot1click.Placement{},
 		"AWS::IoT1Click::Project":                                          &iot1click.Project{},
@@ -943,6 +945,7 @@ func AllResources() map[string]Resource {
 		"AWS::NetworkManager::SiteToSiteVpnAttachment":                     &networkmanager.SiteToSiteVpnAttachment{},
 		"AWS::NetworkManager::TransitGatewayPeering":                       &networkmanager.TransitGatewayPeering{},
 		"AWS::NetworkManager::TransitGatewayRegistration":                  &networkmanager.TransitGatewayRegistration{},
+		"AWS::NetworkManager::TransitGatewayRouteTableAttachment":          &networkmanager.TransitGatewayRouteTableAttachment{},
 		"AWS::NetworkManager::VpcAttachment":                               &networkmanager.VpcAttachment{},
 		"AWS::NimbleStudio::LaunchProfile":                                 &nimblestudio.LaunchProfile{},
 		"AWS::NimbleStudio::StreamingImage":                                &nimblestudio.StreamingImage{},
@@ -13954,6 +13957,30 @@ func (t *Template) GetInspectorV2FilterWithName(name string) (*inspectorv2.Filte
 	return nil, fmt.Errorf("resource %q of type inspectorv2.Filter not found", name)
 }
 
+// GetAllInternetMonitorMonitorResources retrieves all internetmonitor.Monitor items from an AWS CloudFormation template
+func (t *Template) GetAllInternetMonitorMonitorResources() map[string]*internetmonitor.Monitor {
+	results := map[string]*internetmonitor.Monitor{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *internetmonitor.Monitor:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetInternetMonitorMonitorWithName retrieves all internetmonitor.Monitor items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetInternetMonitorMonitorWithName(name string) (*internetmonitor.Monitor, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *internetmonitor.Monitor:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type internetmonitor.Monitor not found", name)
+}
+
 // GetAllIoT1ClickDeviceResources retrieves all iot1click.Device items from an AWS CloudFormation template
 func (t *Template) GetAllIoT1ClickDeviceResources() map[string]*iot1click.Device {
 	results := map[string]*iot1click.Device{}
@@ -18536,6 +18563,30 @@ func (t *Template) GetNetworkManagerTransitGatewayRegistrationWithName(name stri
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type networkmanager.TransitGatewayRegistration not found", name)
+}
+
+// GetAllNetworkManagerTransitGatewayRouteTableAttachmentResources retrieves all networkmanager.TransitGatewayRouteTableAttachment items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkManagerTransitGatewayRouteTableAttachmentResources() map[string]*networkmanager.TransitGatewayRouteTableAttachment {
+	results := map[string]*networkmanager.TransitGatewayRouteTableAttachment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkmanager.TransitGatewayRouteTableAttachment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkManagerTransitGatewayRouteTableAttachmentWithName retrieves all networkmanager.TransitGatewayRouteTableAttachment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkManagerTransitGatewayRouteTableAttachmentWithName(name string) (*networkmanager.TransitGatewayRouteTableAttachment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkmanager.TransitGatewayRouteTableAttachment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkmanager.TransitGatewayRouteTableAttachment not found", name)
 }
 
 // GetAllNetworkManagerVpcAttachmentResources retrieves all networkmanager.VpcAttachment items from an AWS CloudFormation template
