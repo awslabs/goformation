@@ -33,6 +33,11 @@ type EventSourceMapping struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
 	DestinationConfig *EventSourceMapping_DestinationConfig `json:"DestinationConfig,omitempty"`
 
+	// DocumentDBEventSourceConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-documentdbeventsourceconfig
+	DocumentDBEventSourceConfig *EventSourceMapping_DocumentDBEventSourceConfig `json:"DocumentDBEventSourceConfig,omitempty"`
+
 	// Enabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
