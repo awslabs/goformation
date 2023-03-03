@@ -118,6 +118,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/iottwinmaker"
 	"github.com/awslabs/goformation/v7/cloudformation/iotwireless"
 	"github.com/awslabs/goformation/v7/cloudformation/ivs"
+	"github.com/awslabs/goformation/v7/cloudformation/ivschat"
 	"github.com/awslabs/goformation/v7/cloudformation/kafkaconnect"
 	"github.com/awslabs/goformation/v7/cloudformation/kendra"
 	"github.com/awslabs/goformation/v7/cloudformation/kendraranking"
@@ -740,6 +741,8 @@ func AllResources() map[string]Resource {
 		"AWS::IVS::PlaybackKeyPair":                                        &ivs.PlaybackKeyPair{},
 		"AWS::IVS::RecordingConfiguration":                                 &ivs.RecordingConfiguration{},
 		"AWS::IVS::StreamKey":                                              &ivs.StreamKey{},
+		"AWS::IVSChat::LoggingConfiguration":                               &ivschat.LoggingConfiguration{},
+		"AWS::IVSChat::Room":                                               &ivschat.Room{},
 		"AWS::IdentityStore::Group":                                        &identitystore.Group{},
 		"AWS::IdentityStore::GroupMembership":                              &identitystore.GroupMembership{},
 		"AWS::ImageBuilder::Component":                                     &imagebuilder.Component{},
@@ -899,6 +902,7 @@ func AllResources() map[string]Resource {
 		"AWS::Macie::CustomDataIdentifier":                                 &macie.CustomDataIdentifier{},
 		"AWS::Macie::FindingsFilter":                                       &macie.FindingsFilter{},
 		"AWS::Macie::Session":                                              &macie.Session{},
+		"AWS::ManagedBlockchain::Accessor":                                 &managedblockchain.Accessor{},
 		"AWS::ManagedBlockchain::Member":                                   &managedblockchain.Member{},
 		"AWS::ManagedBlockchain::Node":                                     &managedblockchain.Node{},
 		"AWS::MediaConnect::Flow":                                          &mediaconnect.Flow{},
@@ -13645,6 +13649,54 @@ func (t *Template) GetIVSStreamKeyWithName(name string) (*ivs.StreamKey, error) 
 	return nil, fmt.Errorf("resource %q of type ivs.StreamKey not found", name)
 }
 
+// GetAllIVSChatLoggingConfigurationResources retrieves all ivschat.LoggingConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllIVSChatLoggingConfigurationResources() map[string]*ivschat.LoggingConfiguration {
+	results := map[string]*ivschat.LoggingConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ivschat.LoggingConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIVSChatLoggingConfigurationWithName retrieves all ivschat.LoggingConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIVSChatLoggingConfigurationWithName(name string) (*ivschat.LoggingConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ivschat.LoggingConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ivschat.LoggingConfiguration not found", name)
+}
+
+// GetAllIVSChatRoomResources retrieves all ivschat.Room items from an AWS CloudFormation template
+func (t *Template) GetAllIVSChatRoomResources() map[string]*ivschat.Room {
+	results := map[string]*ivschat.Room{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ivschat.Room:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIVSChatRoomWithName retrieves all ivschat.Room items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIVSChatRoomWithName(name string) (*ivschat.Room, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ivschat.Room:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ivschat.Room not found", name)
+}
+
 // GetAllIdentityStoreGroupResources retrieves all identitystore.Group items from an AWS CloudFormation template
 func (t *Template) GetAllIdentityStoreGroupResources() map[string]*identitystore.Group {
 	results := map[string]*identitystore.Group{}
@@ -17459,6 +17511,30 @@ func (t *Template) GetMacieSessionWithName(name string) (*macie.Session, error) 
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type macie.Session not found", name)
+}
+
+// GetAllManagedBlockchainAccessorResources retrieves all managedblockchain.Accessor items from an AWS CloudFormation template
+func (t *Template) GetAllManagedBlockchainAccessorResources() map[string]*managedblockchain.Accessor {
+	results := map[string]*managedblockchain.Accessor{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *managedblockchain.Accessor:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetManagedBlockchainAccessorWithName retrieves all managedblockchain.Accessor items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetManagedBlockchainAccessorWithName(name string) (*managedblockchain.Accessor, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *managedblockchain.Accessor:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type managedblockchain.Accessor not found", name)
 }
 
 // GetAllManagedBlockchainMemberResources retrieves all managedblockchain.Member items from an AWS CloudFormation template
