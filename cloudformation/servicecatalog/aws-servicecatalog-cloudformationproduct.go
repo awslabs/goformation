@@ -40,14 +40,19 @@ type CloudFormationProduct struct {
 	Owner string `json:"Owner"`
 
 	// ProvisioningArtifactParameters AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactparameters
-	ProvisioningArtifactParameters []CloudFormationProduct_ProvisioningArtifactProperties `json:"ProvisioningArtifactParameters"`
+	ProvisioningArtifactParameters []CloudFormationProduct_ProvisioningArtifactProperties `json:"ProvisioningArtifactParameters,omitempty"`
 
 	// ReplaceProvisioningArtifacts AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-replaceprovisioningartifacts
 	ReplaceProvisioningArtifacts *bool `json:"ReplaceProvisioningArtifacts,omitempty"`
+
+	// SourceConnection AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-sourceconnection
+	SourceConnection *CloudFormationProduct_SourceConnection `json:"SourceConnection,omitempty"`
 
 	// SupportDescription AWS CloudFormation Property
 	// Required: false
