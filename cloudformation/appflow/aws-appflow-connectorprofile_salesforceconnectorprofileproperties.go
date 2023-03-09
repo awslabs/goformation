@@ -20,6 +20,11 @@ type ConnectorProfile_SalesforceConnectorProfileProperties struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
 	isSandboxEnvironment *bool `json:"isSandboxEnvironment,omitempty"`
 
+	// usePrivateLinkForMetadataAndAuthorization AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-useprivatelinkformetadataandauthorization
+	usePrivateLinkForMetadataAndAuthorization *bool `json:"usePrivateLinkForMetadataAndAuthorization,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
