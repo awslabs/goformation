@@ -17,7 +17,7 @@ type Policy struct {
 	// Content AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-policy.html#cfn-organizations-policy-content
-	Content string `json:"Content"`
+	Content interface{} `json:"Content"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
