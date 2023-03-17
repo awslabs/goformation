@@ -10,10 +10,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
 type WorkGroup_ResultConfiguration struct {
 
+	// AclConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-aclconfiguration
+	AclConfiguration *WorkGroup_AclConfiguration `json:"AclConfiguration,omitempty"`
+
 	// EncryptionConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
 	EncryptionConfiguration *WorkGroup_EncryptionConfiguration `json:"EncryptionConfiguration,omitempty"`
+
+	// ExpectedBucketOwner AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-expectedbucketowner
+	ExpectedBucketOwner *string `json:"ExpectedBucketOwner,omitempty"`
 
 	// OutputLocation AWS CloudFormation Property
 	// Required: false

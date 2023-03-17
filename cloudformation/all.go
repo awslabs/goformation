@@ -51,6 +51,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/codestarconnections"
 	"github.com/awslabs/goformation/v7/cloudformation/codestarnotifications"
 	"github.com/awslabs/goformation/v7/cloudformation/cognito"
+	"github.com/awslabs/goformation/v7/cloudformation/comprehend"
 	"github.com/awslabs/goformation/v7/cloudformation/config"
 	"github.com/awslabs/goformation/v7/cloudformation/connect"
 	"github.com/awslabs/goformation/v7/cloudformation/connectcampaigns"
@@ -212,6 +213,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/timestream"
 	"github.com/awslabs/goformation/v7/cloudformation/transfer"
 	"github.com/awslabs/goformation/v7/cloudformation/voiceid"
+	"github.com/awslabs/goformation/v7/cloudformation/vpclattice"
 	"github.com/awslabs/goformation/v7/cloudformation/waf"
 	"github.com/awslabs/goformation/v7/cloudformation/wafregional"
 	"github.com/awslabs/goformation/v7/cloudformation/wafv2"
@@ -355,6 +357,7 @@ func AllResources() map[string]Resource {
 		"AWS::Cassandra::Table":                                            &cassandra.Table{},
 		"AWS::CertificateManager::Account":                                 &certificatemanager.Account{},
 		"AWS::CertificateManager::Certificate":                             &certificatemanager.Certificate{},
+		"AWS::Chatbot::MicrosoftTeamsChannelConfiguration":                 &chatbot.MicrosoftTeamsChannelConfiguration{},
 		"AWS::Chatbot::SlackChannelConfiguration":                          &chatbot.SlackChannelConfiguration{},
 		"AWS::Cloud9::EnvironmentEC2":                                      &cloud9.EnvironmentEC2{},
 		"AWS::CloudFormation::CustomResource":                              &cloudformation.CustomResource{},
@@ -425,6 +428,7 @@ func AllResources() map[string]Resource {
 		"AWS::Cognito::UserPoolUICustomizationAttachment":                  &cognito.UserPoolUICustomizationAttachment{},
 		"AWS::Cognito::UserPoolUser":                                       &cognito.UserPoolUser{},
 		"AWS::Cognito::UserPoolUserToGroupAttachment":                      &cognito.UserPoolUserToGroupAttachment{},
+		"AWS::Comprehend::Flywheel":                                        &comprehend.Flywheel{},
 		"AWS::Config::AggregationAuthorization":                            &config.AggregationAuthorization{},
 		"AWS::Config::ConfigRule":                                          &config.ConfigRule{},
 		"AWS::Config::ConfigurationAggregator":                             &config.ConfigurationAggregator{},
@@ -1149,6 +1153,7 @@ func AllResources() map[string]Resource {
 		"AWS::SageMaker::FeatureGroup":                                     &sagemaker.FeatureGroup{},
 		"AWS::SageMaker::Image":                                            &sagemaker.Image{},
 		"AWS::SageMaker::ImageVersion":                                     &sagemaker.ImageVersion{},
+		"AWS::SageMaker::InferenceExperiment":                              &sagemaker.InferenceExperiment{},
 		"AWS::SageMaker::Model":                                            &sagemaker.Model{},
 		"AWS::SageMaker::ModelBiasJobDefinition":                           &sagemaker.ModelBiasJobDefinition{},
 		"AWS::SageMaker::ModelCard":                                        &sagemaker.ModelCard{},
@@ -1225,6 +1230,16 @@ func AllResources() map[string]Resource {
 		"AWS::Transfer::User":                                              &transfer.User{},
 		"AWS::Transfer::Workflow":                                          &transfer.Workflow{},
 		"AWS::VoiceID::Domain":                                             &voiceid.Domain{},
+		"AWS::VpcLattice::AccessLogSubscription":                           &vpclattice.AccessLogSubscription{},
+		"AWS::VpcLattice::AuthPolicy":                                      &vpclattice.AuthPolicy{},
+		"AWS::VpcLattice::Listener":                                        &vpclattice.Listener{},
+		"AWS::VpcLattice::ResourcePolicy":                                  &vpclattice.ResourcePolicy{},
+		"AWS::VpcLattice::Rule":                                            &vpclattice.Rule{},
+		"AWS::VpcLattice::Service":                                         &vpclattice.Service{},
+		"AWS::VpcLattice::ServiceNetwork":                                  &vpclattice.ServiceNetwork{},
+		"AWS::VpcLattice::ServiceNetworkServiceAssociation":                &vpclattice.ServiceNetworkServiceAssociation{},
+		"AWS::VpcLattice::ServiceNetworkVpcAssociation":                    &vpclattice.ServiceNetworkVpcAssociation{},
+		"AWS::VpcLattice::TargetGroup":                                     &vpclattice.TargetGroup{},
 		"AWS::WAF::ByteMatchSet":                                           &waf.ByteMatchSet{},
 		"AWS::WAF::IPSet":                                                  &waf.IPSet{},
 		"AWS::WAF::Rule":                                                   &waf.Rule{},
@@ -4385,6 +4400,30 @@ func (t *Template) GetCertificateManagerCertificateWithName(name string) (*certi
 	return nil, fmt.Errorf("resource %q of type certificatemanager.Certificate not found", name)
 }
 
+// GetAllChatbotMicrosoftTeamsChannelConfigurationResources retrieves all chatbot.MicrosoftTeamsChannelConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllChatbotMicrosoftTeamsChannelConfigurationResources() map[string]*chatbot.MicrosoftTeamsChannelConfiguration {
+	results := map[string]*chatbot.MicrosoftTeamsChannelConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *chatbot.MicrosoftTeamsChannelConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetChatbotMicrosoftTeamsChannelConfigurationWithName retrieves all chatbot.MicrosoftTeamsChannelConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetChatbotMicrosoftTeamsChannelConfigurationWithName(name string) (*chatbot.MicrosoftTeamsChannelConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *chatbot.MicrosoftTeamsChannelConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type chatbot.MicrosoftTeamsChannelConfiguration not found", name)
+}
+
 // GetAllChatbotSlackChannelConfigurationResources retrieves all chatbot.SlackChannelConfiguration items from an AWS CloudFormation template
 func (t *Template) GetAllChatbotSlackChannelConfigurationResources() map[string]*chatbot.SlackChannelConfiguration {
 	results := map[string]*chatbot.SlackChannelConfiguration{}
@@ -6063,6 +6102,30 @@ func (t *Template) GetCognitoUserPoolUserToGroupAttachmentWithName(name string) 
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cognito.UserPoolUserToGroupAttachment not found", name)
+}
+
+// GetAllComprehendFlywheelResources retrieves all comprehend.Flywheel items from an AWS CloudFormation template
+func (t *Template) GetAllComprehendFlywheelResources() map[string]*comprehend.Flywheel {
+	results := map[string]*comprehend.Flywheel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *comprehend.Flywheel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetComprehendFlywheelWithName retrieves all comprehend.Flywheel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetComprehendFlywheelWithName(name string) (*comprehend.Flywheel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *comprehend.Flywheel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type comprehend.Flywheel not found", name)
 }
 
 // GetAllConfigAggregationAuthorizationResources retrieves all config.AggregationAuthorization items from an AWS CloudFormation template
@@ -23441,6 +23504,30 @@ func (t *Template) GetSageMakerImageVersionWithName(name string) (*sagemaker.Ima
 	return nil, fmt.Errorf("resource %q of type sagemaker.ImageVersion not found", name)
 }
 
+// GetAllSageMakerInferenceExperimentResources retrieves all sagemaker.InferenceExperiment items from an AWS CloudFormation template
+func (t *Template) GetAllSageMakerInferenceExperimentResources() map[string]*sagemaker.InferenceExperiment {
+	results := map[string]*sagemaker.InferenceExperiment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sagemaker.InferenceExperiment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSageMakerInferenceExperimentWithName retrieves all sagemaker.InferenceExperiment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSageMakerInferenceExperimentWithName(name string) (*sagemaker.InferenceExperiment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sagemaker.InferenceExperiment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sagemaker.InferenceExperiment not found", name)
+}
+
 // GetAllSageMakerModelResources retrieves all sagemaker.Model items from an AWS CloudFormation template
 func (t *Template) GetAllSageMakerModelResources() map[string]*sagemaker.Model {
 	results := map[string]*sagemaker.Model{}
@@ -25263,6 +25350,246 @@ func (t *Template) GetVoiceIDDomainWithName(name string) (*voiceid.Domain, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type voiceid.Domain not found", name)
+}
+
+// GetAllVpcLatticeAccessLogSubscriptionResources retrieves all vpclattice.AccessLogSubscription items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeAccessLogSubscriptionResources() map[string]*vpclattice.AccessLogSubscription {
+	results := map[string]*vpclattice.AccessLogSubscription{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.AccessLogSubscription:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeAccessLogSubscriptionWithName retrieves all vpclattice.AccessLogSubscription items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeAccessLogSubscriptionWithName(name string) (*vpclattice.AccessLogSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.AccessLogSubscription:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.AccessLogSubscription not found", name)
+}
+
+// GetAllVpcLatticeAuthPolicyResources retrieves all vpclattice.AuthPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeAuthPolicyResources() map[string]*vpclattice.AuthPolicy {
+	results := map[string]*vpclattice.AuthPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.AuthPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeAuthPolicyWithName retrieves all vpclattice.AuthPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeAuthPolicyWithName(name string) (*vpclattice.AuthPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.AuthPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.AuthPolicy not found", name)
+}
+
+// GetAllVpcLatticeListenerResources retrieves all vpclattice.Listener items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeListenerResources() map[string]*vpclattice.Listener {
+	results := map[string]*vpclattice.Listener{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.Listener:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeListenerWithName retrieves all vpclattice.Listener items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeListenerWithName(name string) (*vpclattice.Listener, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.Listener:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.Listener not found", name)
+}
+
+// GetAllVpcLatticeResourcePolicyResources retrieves all vpclattice.ResourcePolicy items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeResourcePolicyResources() map[string]*vpclattice.ResourcePolicy {
+	results := map[string]*vpclattice.ResourcePolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.ResourcePolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeResourcePolicyWithName retrieves all vpclattice.ResourcePolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeResourcePolicyWithName(name string) (*vpclattice.ResourcePolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.ResourcePolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.ResourcePolicy not found", name)
+}
+
+// GetAllVpcLatticeRuleResources retrieves all vpclattice.Rule items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeRuleResources() map[string]*vpclattice.Rule {
+	results := map[string]*vpclattice.Rule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.Rule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeRuleWithName retrieves all vpclattice.Rule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeRuleWithName(name string) (*vpclattice.Rule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.Rule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.Rule not found", name)
+}
+
+// GetAllVpcLatticeServiceResources retrieves all vpclattice.Service items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeServiceResources() map[string]*vpclattice.Service {
+	results := map[string]*vpclattice.Service{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.Service:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeServiceWithName retrieves all vpclattice.Service items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeServiceWithName(name string) (*vpclattice.Service, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.Service:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.Service not found", name)
+}
+
+// GetAllVpcLatticeServiceNetworkResources retrieves all vpclattice.ServiceNetwork items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeServiceNetworkResources() map[string]*vpclattice.ServiceNetwork {
+	results := map[string]*vpclattice.ServiceNetwork{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.ServiceNetwork:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeServiceNetworkWithName retrieves all vpclattice.ServiceNetwork items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeServiceNetworkWithName(name string) (*vpclattice.ServiceNetwork, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.ServiceNetwork:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.ServiceNetwork not found", name)
+}
+
+// GetAllVpcLatticeServiceNetworkServiceAssociationResources retrieves all vpclattice.ServiceNetworkServiceAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeServiceNetworkServiceAssociationResources() map[string]*vpclattice.ServiceNetworkServiceAssociation {
+	results := map[string]*vpclattice.ServiceNetworkServiceAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.ServiceNetworkServiceAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeServiceNetworkServiceAssociationWithName retrieves all vpclattice.ServiceNetworkServiceAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeServiceNetworkServiceAssociationWithName(name string) (*vpclattice.ServiceNetworkServiceAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.ServiceNetworkServiceAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.ServiceNetworkServiceAssociation not found", name)
+}
+
+// GetAllVpcLatticeServiceNetworkVpcAssociationResources retrieves all vpclattice.ServiceNetworkVpcAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeServiceNetworkVpcAssociationResources() map[string]*vpclattice.ServiceNetworkVpcAssociation {
+	results := map[string]*vpclattice.ServiceNetworkVpcAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.ServiceNetworkVpcAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeServiceNetworkVpcAssociationWithName retrieves all vpclattice.ServiceNetworkVpcAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeServiceNetworkVpcAssociationWithName(name string) (*vpclattice.ServiceNetworkVpcAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.ServiceNetworkVpcAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.ServiceNetworkVpcAssociation not found", name)
+}
+
+// GetAllVpcLatticeTargetGroupResources retrieves all vpclattice.TargetGroup items from an AWS CloudFormation template
+func (t *Template) GetAllVpcLatticeTargetGroupResources() map[string]*vpclattice.TargetGroup {
+	results := map[string]*vpclattice.TargetGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *vpclattice.TargetGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVpcLatticeTargetGroupWithName retrieves all vpclattice.TargetGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVpcLatticeTargetGroupWithName(name string) (*vpclattice.TargetGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *vpclattice.TargetGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type vpclattice.TargetGroup not found", name)
 }
 
 // GetAllWAFByteMatchSetResources retrieves all waf.ByteMatchSet items from an AWS CloudFormation template

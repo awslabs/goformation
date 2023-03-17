@@ -24,9 +24,9 @@ type Contact struct {
 	DisplayName string `json:"DisplayName"`
 
 	// Plan AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
-	Plan []Contact_Stage `json:"Plan"`
+	Plan []Contact_Stage `json:"Plan,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true
