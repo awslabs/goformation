@@ -19,6 +19,11 @@ type Table struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
 	BillingMode *Table_BillingMode `json:"BillingMode,omitempty"`
 
+	// ClientSideTimestampsEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clientsidetimestampsenabled
+	ClientSideTimestampsEnabled *bool `json:"ClientSideTimestampsEnabled,omitempty"`
+
 	// ClusteringKeyColumns AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns

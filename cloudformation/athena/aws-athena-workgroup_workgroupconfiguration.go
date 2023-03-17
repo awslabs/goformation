@@ -10,10 +10,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
 type WorkGroup_WorkGroupConfiguration struct {
 
+	// AdditionalConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-additionalconfiguration
+	AdditionalConfiguration *string `json:"AdditionalConfiguration,omitempty"`
+
 	// BytesScannedCutoffPerQuery AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
 	BytesScannedCutoffPerQuery *int `json:"BytesScannedCutoffPerQuery,omitempty"`
+
+	// CustomerContentEncryptionConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-customercontentencryptionconfiguration
+	CustomerContentEncryptionConfiguration *WorkGroup_CustomerContentEncryptionConfiguration `json:"CustomerContentEncryptionConfiguration,omitempty"`
 
 	// EnforceWorkGroupConfiguration AWS CloudFormation Property
 	// Required: false
@@ -24,6 +34,11 @@ type WorkGroup_WorkGroupConfiguration struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
 	EngineVersion *WorkGroup_EngineVersion `json:"EngineVersion,omitempty"`
+
+	// ExecutionRole AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-executionrole
+	ExecutionRole *string `json:"ExecutionRole,omitempty"`
 
 	// PublishCloudWatchMetricsEnabled AWS CloudFormation Property
 	// Required: false
