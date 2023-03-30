@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.4.0](https://github.com/awslabs/goformation/compare/v7.3.8...v7.4.0) (2023-03-30)
+
+
+### Features
+
+* **intrinsics:** support for nested intrinsics ([#571](https://github.com/awslabs/goformation/issues/571)) ([5e9e9c4](https://github.com/awslabs/goformation/commit/5e9e9c401f2690b7d3394e7b73c0637d97ba0677))
+
 ## [7.3.8](https://github.com/awslabs/goformation/compare/v7.3.7...v7.3.8) (2023-03-17)
 
 
