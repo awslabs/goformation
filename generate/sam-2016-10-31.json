@@ -857,7 +857,8 @@
                         "IoTRuleEvent",
                         "AlexaSkillEvent",
                         "EventBridgeRuleEvent",
-                        "HttpApiEvent"
+                        "HttpApiEvent",
+                        "CognitoEvent"
                     ],
                     "UpdateType": "Immutable"
                 }
@@ -1149,6 +1150,27 @@
                 }
             }
         },
+        "AWS::Serverless::Function.CognitoEvent": {
+             "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cognito",
+             "Properties": {
+                 "UserPool": {
+                     "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cognito",
+                     "Required": true,
+                     "PrimitiveType": "String",
+                     "UpdateType": "Immutable"
+                 },
+                 "Trigger": {
+                     "Documentation": "https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#cognito",
+                     "Required": true,
+                     "PrimitiveTypes": [
+                         "String"
+                     ],
+                     "PrimitiveItemTypes": [
+                         "String"
+                     ]
+                 }
+             }
+         },
         "AWS::Serverless::Function.RouteSettings": {
             "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html",
             "Properties": {

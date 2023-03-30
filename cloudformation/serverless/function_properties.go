@@ -11,7 +11,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/utils"
 )
 
-// Function_Properties is a helper struct that can hold either a S3Event, SNSEvent, SQSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, CloudWatchLogsEvent, IoTRuleEvent, AlexaSkillEvent, EventBridgeRuleEvent, or HttpApiEvent value
+// Function_Properties is a helper struct that can hold either a S3Event, SNSEvent, SQSEvent, KinesisEvent, DynamoDBEvent, ApiEvent, ScheduleEvent, CloudWatchEventEvent, CloudWatchLogsEvent, IoTRuleEvent, AlexaSkillEvent, EventBridgeRuleEvent, HttpApiEvent, or CognitoEvent value
 type Function_Properties struct {
 	S3Event              *Function_S3Event
 	SNSEvent             *Function_SNSEvent
@@ -26,6 +26,7 @@ type Function_Properties struct {
 	AlexaSkillEvent      *Function_AlexaSkillEvent
 	EventBridgeRuleEvent *Function_EventBridgeRuleEvent
 	HttpApiEvent         *Function_HttpApiEvent
+	CognitoEvent         *Function_CognitoEvent
 }
 
 func (r Function_Properties) value() interface{} {
@@ -81,6 +82,10 @@ func (r Function_Properties) value() interface{} {
 
 	if r.HttpApiEvent != nil {
 		ret = append(ret, *r.HttpApiEvent)
+	}
+
+	if r.CognitoEvent != nil {
+		ret = append(ret, *r.CognitoEvent)
 	}
 
 	sort.Sort(utils.ByJSONLength(ret)) // Heuristic to select best attribute
@@ -176,6 +181,11 @@ func (r *Function_Properties) UnmarshalJSON(b []byte) error {
 
 		if err := decoder.Decode(&r.HttpApiEvent); err != nil {
 			r.HttpApiEvent = nil
+		}
+		reader.Seek(0, io.SeekStart)
+
+		if err := decoder.Decode(&r.CognitoEvent); err != nil {
+			r.CognitoEvent = nil
 		}
 		reader.Seek(0, io.SeekStart)
 
