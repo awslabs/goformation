@@ -20,9 +20,9 @@ type Monitor struct {
 	MaxCityNetworksToMonitor *int `json:"MaxCityNetworksToMonitor,omitempty"`
 
 	// MonitorName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-monitorname
-	MonitorName *string `json:"MonitorName,omitempty"`
+	MonitorName string `json:"MonitorName"`
 
 	// Resources AWS CloudFormation Property
 	// Required: false

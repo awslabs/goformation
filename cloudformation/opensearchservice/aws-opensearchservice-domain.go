@@ -74,10 +74,20 @@ type Domain struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-nodetonodeencryptionoptions
 	NodeToNodeEncryptionOptions *Domain_NodeToNodeEncryptionOptions `json:"NodeToNodeEncryptionOptions,omitempty"`
 
+	// OffPeakWindowOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-offpeakwindowoptions
+	OffPeakWindowOptions *Domain_OffPeakWindowOptions `json:"OffPeakWindowOptions,omitempty"`
+
 	// SnapshotOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-snapshotoptions
 	SnapshotOptions *Domain_SnapshotOptions `json:"SnapshotOptions,omitempty"`
+
+	// SoftwareUpdateOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-softwareupdateoptions
+	SoftwareUpdateOptions *Domain_SoftwareUpdateOptions `json:"SoftwareUpdateOptions,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

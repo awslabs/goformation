@@ -24,15 +24,15 @@ type Analysis struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
 	AwsAccountId string `json:"AwsAccountId"`
 
-	// Errors AWS CloudFormation Property
+	// Definition AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
-	Errors []Analysis_AnalysisError `json:"Errors,omitempty"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-definition
+	Definition *Analysis_AnalysisDefinition `json:"Definition,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
@@ -45,9 +45,14 @@ type Analysis struct {
 	Permissions []Analysis_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-	SourceEntity *Analysis_AnalysisSourceEntity `json:"SourceEntity"`
+	SourceEntity *Analysis_AnalysisSourceEntity `json:"SourceEntity,omitempty"`
+
+	// Status AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-status
+	Status *string `json:"Status,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

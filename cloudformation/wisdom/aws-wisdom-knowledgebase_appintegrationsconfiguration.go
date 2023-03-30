@@ -16,9 +16,9 @@ type KnowledgeBase_AppIntegrationsConfiguration struct {
 	AppIntegrationArn string `json:"AppIntegrationArn"`
 
 	// ObjectFields AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html#cfn-wisdom-knowledgebase-appintegrationsconfiguration-objectfields
-	ObjectFields []string `json:"ObjectFields"`
+	ObjectFields []string `json:"ObjectFields,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

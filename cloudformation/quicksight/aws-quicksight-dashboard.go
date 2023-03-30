@@ -29,10 +29,15 @@ type Dashboard struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
 	DashboardPublishOptions *Dashboard_DashboardPublishOptions `json:"DashboardPublishOptions,omitempty"`
 
-	// Name AWS CloudFormation Property
+	// Definition AWS CloudFormation Property
 	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-definition
+	Definition *Dashboard_DashboardVersionDefinition `json:"Definition,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Parameters AWS CloudFormation Property
 	// Required: false
@@ -45,9 +50,9 @@ type Dashboard struct {
 	Permissions []Dashboard_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
-	SourceEntity *Dashboard_DashboardSourceEntity `json:"SourceEntity"`
+	SourceEntity *Dashboard_DashboardSourceEntity `json:"SourceEntity,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

@@ -19,6 +19,11 @@ type Template struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
 	AwsAccountId string `json:"AwsAccountId"`
 
+	// Definition AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-definition
+	Definition *Template_TemplateVersionDefinition `json:"Definition,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
@@ -30,9 +35,9 @@ type Template struct {
 	Permissions []Template_ResourcePermission `json:"Permissions,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-	SourceEntity *Template_TemplateSourceEntity `json:"SourceEntity"`
+	SourceEntity *Template_TemplateSourceEntity `json:"SourceEntity,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

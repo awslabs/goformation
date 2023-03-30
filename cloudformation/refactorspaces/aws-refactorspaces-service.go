@@ -25,9 +25,9 @@ type Service struct {
 	Description *string `json:"Description,omitempty"`
 
 	// EndpointType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-endpointtype
-	EndpointType *string `json:"EndpointType,omitempty"`
+	EndpointType string `json:"EndpointType"`
 
 	// EnvironmentIdentifier AWS CloudFormation Property
 	// Required: true
@@ -40,9 +40,9 @@ type Service struct {
 	LambdaEndpoint *Service_LambdaEndpointInput `json:"LambdaEndpoint,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

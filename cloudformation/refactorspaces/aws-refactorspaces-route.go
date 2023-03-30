@@ -30,9 +30,9 @@ type Route struct {
 	EnvironmentIdentifier string `json:"EnvironmentIdentifier"`
 
 	// RouteType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-routetype
-	RouteType *string `json:"RouteType,omitempty"`
+	RouteType string `json:"RouteType"`
 
 	// ServiceIdentifier AWS CloudFormation Property
 	// Required: true
