@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.5.0](https://github.com/awslabs/goformation/compare/v7.4.1...v7.5.0) (2023-03-30)
+
+
+### Features
+
+* **go:** bump to go1.18 minimum ([#579](https://github.com/awslabs/goformation/issues/579)) ([9c453fa](https://github.com/awslabs/goformation/commit/9c453fa052700a77071961a9e731e4ae59e7ad9d))
+
 ## [7.4.1](https://github.com/awslabs/goformation/compare/v7.4.0...v7.4.1) (2023-03-30)
 
 
