@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.6.0](https://github.com/awslabs/goformation/compare/v7.5.0...v7.6.0) (2023-03-30)
+
+
+### Features
+
+* **sam:** add SAM CognitoEvent EventSource ([#570](https://github.com/awslabs/goformation/issues/570)) ([701fb3d](https://github.com/awslabs/goformation/commit/701fb3d6621d1e738af9eea0c906020d9e0c190e))
+
 # [7.5.0](https://github.com/awslabs/goformation/compare/v7.4.1...v7.5.0) (2023-03-30)
 
 
