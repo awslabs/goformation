@@ -80,9 +80,31 @@ var _ = Describe("Goformation", func() {
 				Expected: `{"Description":{"Fn::Join":["a",["b","c"]]}}`,
 			},
 			{
+				Name:     "Join Nested",
+				Input:    `Description:
+  Fn::Join:
+  - ''
+  - - !Sub '${AWS::Region}'
+    - Fn::If:
+      - 'A'
+      - 'A1'
+      - !ImportValue 'B'`,
+				Expected: `{"Description":{"Fn::Join":["",[{"Fn::Sub":"${AWS::Region}"},{"Fn::If":["A","A1",{"Fn::ImportValue":"B"}]}]]}}`,
+			},
+			{
 				Name:     "Select",
 				Input:    `Description: !Select [a, [b, c]]`,
 				Expected: `{"Description":{"Fn::Select":["a",["b","c"]]}}`,
+			},
+			{
+				Name:     "Select Nested",
+				Input:    `Description:
+  Fn::Select:
+    - 2
+    - Fn::Split:
+      - '/'
+      - !GetAtt: 'site.url'`,
+				Expected: `{"Description":{"Fn::Select":[2,{"Fn::Split":["/","site.url"]}]}}`,
 			},
 			{
 				Name:     "And",
