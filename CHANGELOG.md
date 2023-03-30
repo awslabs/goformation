@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.7.0](https://github.com/awslabs/goformation/compare/v7.6.0...v7.7.0) (2023-03-30)
+
+
+### Features
+
+* **template:** support optional parameters ([#548](https://github.com/awslabs/goformation/issues/548)) ([3344301](https://github.com/awslabs/goformation/commit/3344301f7140503c719a301de36c02c1ec823e85))
+
 # [7.6.0](https://github.com/awslabs/goformation/compare/v7.5.0...v7.6.0) (2023-03-30)
 
 
