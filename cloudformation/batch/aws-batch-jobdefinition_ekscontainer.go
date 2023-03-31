@@ -43,12 +43,12 @@ type JobDefinition_EksContainer struct {
 	// Resources AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-resources
-	Resources *JobDefinition_Resources `json:"Resources,omitempty"`
+	Resources *JobDefinition_EksContainerResourceRequirements `json:"Resources,omitempty"`
 
 	// SecurityContext AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-securitycontext
-	SecurityContext *JobDefinition_SecurityContext `json:"SecurityContext,omitempty"`
+	SecurityContext *JobDefinition_EksContainerSecurityContext `json:"SecurityContext,omitempty"`
 
 	// VolumeMounts AWS CloudFormation Property
 	// Required: false

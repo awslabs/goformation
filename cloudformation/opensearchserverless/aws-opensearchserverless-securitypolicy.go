@@ -19,9 +19,9 @@ type SecurityPolicy struct {
 	Description *string `json:"Description,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securitypolicy.html#cfn-opensearchserverless-securitypolicy-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Policy AWS CloudFormation Property
 	// Required: true
@@ -29,9 +29,9 @@ type SecurityPolicy struct {
 	Policy string `json:"Policy"`
 
 	// Type AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securitypolicy.html#cfn-opensearchserverless-securitypolicy-type
-	Type *string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
