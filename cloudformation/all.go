@@ -489,6 +489,7 @@ func AllResources() map[string]Resource {
 		"AWS::DataSync::Task":                                              &datasync.Task{},
 		"AWS::Detective::Graph":                                            &detective.Graph{},
 		"AWS::Detective::MemberInvitation":                                 &detective.MemberInvitation{},
+		"AWS::DevOpsGuru::LogAnomalyDetectionIntegration":                  &devopsguru.LogAnomalyDetectionIntegration{},
 		"AWS::DevOpsGuru::NotificationChannel":                             &devopsguru.NotificationChannel{},
 		"AWS::DevOpsGuru::ResourceCollection":                              &devopsguru.ResourceCollection{},
 		"AWS::DirectoryService::MicrosoftAD":                               &directoryservice.MicrosoftAD{},
@@ -7566,6 +7567,30 @@ func (t *Template) GetDetectiveMemberInvitationWithName(name string) (*detective
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type detective.MemberInvitation not found", name)
+}
+
+// GetAllDevOpsGuruLogAnomalyDetectionIntegrationResources retrieves all devopsguru.LogAnomalyDetectionIntegration items from an AWS CloudFormation template
+func (t *Template) GetAllDevOpsGuruLogAnomalyDetectionIntegrationResources() map[string]*devopsguru.LogAnomalyDetectionIntegration {
+	results := map[string]*devopsguru.LogAnomalyDetectionIntegration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *devopsguru.LogAnomalyDetectionIntegration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDevOpsGuruLogAnomalyDetectionIntegrationWithName retrieves all devopsguru.LogAnomalyDetectionIntegration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDevOpsGuruLogAnomalyDetectionIntegrationWithName(name string) (*devopsguru.LogAnomalyDetectionIntegration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *devopsguru.LogAnomalyDetectionIntegration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type devopsguru.LogAnomalyDetectionIntegration not found", name)
 }
 
 // GetAllDevOpsGuruNotificationChannelResources retrieves all devopsguru.NotificationChannel items from an AWS CloudFormation template

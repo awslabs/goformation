@@ -13,12 +13,12 @@ type JobDefinition_EksVolume struct {
 	// EmptyDir AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-emptydir
-	EmptyDir *JobDefinition_EmptyDir `json:"EmptyDir,omitempty"`
+	EmptyDir *JobDefinition_EksEmptyDir `json:"EmptyDir,omitempty"`
 
 	// HostPath AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-hostpath
-	HostPath *JobDefinition_HostPath `json:"HostPath,omitempty"`
+	HostPath *JobDefinition_EksHostPath `json:"HostPath,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -28,7 +28,7 @@ type JobDefinition_EksVolume struct {
 	// Secret AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-secret
-	Secret *JobDefinition_Secret `json:"Secret,omitempty"`
+	Secret *JobDefinition_EksSecret `json:"Secret,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
