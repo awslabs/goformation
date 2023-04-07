@@ -14,14 +14,14 @@ import (
 type Workspace struct {
 
 	// AccountAccessType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-accountaccesstype
-	AccountAccessType *string `json:"AccountAccessType,omitempty"`
+	AccountAccessType string `json:"AccountAccessType"`
 
 	// AuthenticationProviders AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-authenticationproviders
-	AuthenticationProviders []string `json:"AuthenticationProviders,omitempty"`
+	AuthenticationProviders []string `json:"AuthenticationProviders"`
 
 	// ClientToken AWS CloudFormation Property
 	// Required: false
@@ -59,9 +59,9 @@ type Workspace struct {
 	OrganizationalUnits []string `json:"OrganizationalUnits,omitempty"`
 
 	// PermissionType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-permissiontype
-	PermissionType *string `json:"PermissionType,omitempty"`
+	PermissionType string `json:"PermissionType"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: false
