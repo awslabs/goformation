@@ -824,6 +824,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoTWireless::ServiceProfile":                                 &iotwireless.ServiceProfile{},
 		"AWS::IoTWireless::TaskDefinition":                                 &iotwireless.TaskDefinition{},
 		"AWS::IoTWireless::WirelessDevice":                                 &iotwireless.WirelessDevice{},
+		"AWS::IoTWireless::WirelessDeviceImportTask":                       &iotwireless.WirelessDeviceImportTask{},
 		"AWS::IoTWireless::WirelessGateway":                                &iotwireless.WirelessGateway{},
 		"AWS::KMS::Alias":                                                  &kms.Alias{},
 		"AWS::KMS::Key":                                                    &kms.Key{},
@@ -1137,6 +1138,8 @@ func AllResources() map[string]Resource {
 		"AWS::SSM::ResourcePolicy":                                         &ssm.ResourcePolicy{},
 		"AWS::SSMContacts::Contact":                                        &ssmcontacts.Contact{},
 		"AWS::SSMContacts::ContactChannel":                                 &ssmcontacts.ContactChannel{},
+		"AWS::SSMContacts::Plan":                                           &ssmcontacts.Plan{},
+		"AWS::SSMContacts::Rotation":                                       &ssmcontacts.Rotation{},
 		"AWS::SSMIncidents::ReplicationSet":                                &ssmincidents.ReplicationSet{},
 		"AWS::SSMIncidents::ResponsePlan":                                  &ssmincidents.ResponsePlan{},
 		"AWS::SSO::Assignment":                                             &sso.Assignment{},
@@ -15609,6 +15612,30 @@ func (t *Template) GetIoTWirelessWirelessDeviceWithName(name string) (*iotwirele
 	return nil, fmt.Errorf("resource %q of type iotwireless.WirelessDevice not found", name)
 }
 
+// GetAllIoTWirelessWirelessDeviceImportTaskResources retrieves all iotwireless.WirelessDeviceImportTask items from an AWS CloudFormation template
+func (t *Template) GetAllIoTWirelessWirelessDeviceImportTaskResources() map[string]*iotwireless.WirelessDeviceImportTask {
+	results := map[string]*iotwireless.WirelessDeviceImportTask{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iotwireless.WirelessDeviceImportTask:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTWirelessWirelessDeviceImportTaskWithName retrieves all iotwireless.WirelessDeviceImportTask items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTWirelessWirelessDeviceImportTaskWithName(name string) (*iotwireless.WirelessDeviceImportTask, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iotwireless.WirelessDeviceImportTask:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iotwireless.WirelessDeviceImportTask not found", name)
+}
+
 // GetAllIoTWirelessWirelessGatewayResources retrieves all iotwireless.WirelessGateway items from an AWS CloudFormation template
 func (t *Template) GetAllIoTWirelessWirelessGatewayResources() map[string]*iotwireless.WirelessGateway {
 	results := map[string]*iotwireless.WirelessGateway{}
@@ -23119,6 +23146,54 @@ func (t *Template) GetSSMContactsContactChannelWithName(name string) (*ssmcontac
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ssmcontacts.ContactChannel not found", name)
+}
+
+// GetAllSSMContactsPlanResources retrieves all ssmcontacts.Plan items from an AWS CloudFormation template
+func (t *Template) GetAllSSMContactsPlanResources() map[string]*ssmcontacts.Plan {
+	results := map[string]*ssmcontacts.Plan{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ssmcontacts.Plan:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSSMContactsPlanWithName retrieves all ssmcontacts.Plan items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSSMContactsPlanWithName(name string) (*ssmcontacts.Plan, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ssmcontacts.Plan:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ssmcontacts.Plan not found", name)
+}
+
+// GetAllSSMContactsRotationResources retrieves all ssmcontacts.Rotation items from an AWS CloudFormation template
+func (t *Template) GetAllSSMContactsRotationResources() map[string]*ssmcontacts.Rotation {
+	results := map[string]*ssmcontacts.Rotation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ssmcontacts.Rotation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSSMContactsRotationWithName retrieves all ssmcontacts.Rotation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSSMContactsRotationWithName(name string) (*ssmcontacts.Rotation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ssmcontacts.Rotation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ssmcontacts.Rotation not found", name)
 }
 
 // GetAllSSMIncidentsReplicationSetResources retrieves all ssmincidents.ReplicationSet items from an AWS CloudFormation template
