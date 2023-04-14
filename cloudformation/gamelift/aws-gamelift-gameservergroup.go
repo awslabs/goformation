@@ -45,9 +45,9 @@ type GameServerGroup struct {
 	InstanceDefinitions []GameServerGroup_InstanceDefinition `json:"InstanceDefinitions"`
 
 	// LaunchTemplate AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
-	LaunchTemplate *GameServerGroup_LaunchTemplate `json:"LaunchTemplate"`
+	LaunchTemplate *GameServerGroup_LaunchTemplate `json:"LaunchTemplate,omitempty"`
 
 	// MaxSize AWS CloudFormation Property
 	// Required: false

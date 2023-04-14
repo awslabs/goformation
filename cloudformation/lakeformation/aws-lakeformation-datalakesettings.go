@@ -18,6 +18,36 @@ type DataLakeSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-admins
 	Admins *DataLakeSettings_Admins `json:"Admins,omitempty"`
 
+	// AllowExternalDataFiltering AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-allowexternaldatafiltering
+	AllowExternalDataFiltering *bool `json:"AllowExternalDataFiltering,omitempty"`
+
+	// AuthorizedSessionTagValueList AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-authorizedsessiontagvaluelist
+	AuthorizedSessionTagValueList []string `json:"AuthorizedSessionTagValueList,omitempty"`
+
+	// CreateDatabaseDefaultPermissions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-createdatabasedefaultpermissions
+	CreateDatabaseDefaultPermissions *DataLakeSettings_CreateDatabaseDefaultPermissions `json:"CreateDatabaseDefaultPermissions,omitempty"`
+
+	// CreateTableDefaultPermissions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-createtabledefaultpermissions
+	CreateTableDefaultPermissions *DataLakeSettings_CreateTableDefaultPermissions `json:"CreateTableDefaultPermissions,omitempty"`
+
+	// ExternalDataFilteringAllowList AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-externaldatafilteringallowlist
+	ExternalDataFilteringAllowList *DataLakeSettings_ExternalDataFilteringAllowList `json:"ExternalDataFilteringAllowList,omitempty"`
+
+	// Parameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-parameters
+	Parameters interface{} `json:"Parameters,omitempty"`
+
 	// TrustedResourceOwners AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
