@@ -15,6 +15,11 @@ type Crawler_Targets struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
 	CatalogTargets []Crawler_CatalogTarget `json:"CatalogTargets,omitempty"`
 
+	// DeltaTargets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-deltatargets
+	DeltaTargets []Crawler_DeltaTarget `json:"DeltaTargets,omitempty"`
+
 	// DynamoDBTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets

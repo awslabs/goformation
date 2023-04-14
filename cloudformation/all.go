@@ -280,6 +280,8 @@ func AllResources() map[string]Resource {
 		"AWS::AppConfig::Deployment":                                       &appconfig.Deployment{},
 		"AWS::AppConfig::DeploymentStrategy":                               &appconfig.DeploymentStrategy{},
 		"AWS::AppConfig::Environment":                                      &appconfig.Environment{},
+		"AWS::AppConfig::Extension":                                        &appconfig.Extension{},
+		"AWS::AppConfig::ExtensionAssociation":                             &appconfig.ExtensionAssociation{},
 		"AWS::AppConfig::HostedConfigurationVersion":                       &appconfig.HostedConfigurationVersion{},
 		"AWS::AppFlow::Connector":                                          &appflow.Connector{},
 		"AWS::AppFlow::ConnectorProfile":                                   &appflow.ConnectorProfile{},
@@ -1024,6 +1026,7 @@ func AllResources() map[string]Resource {
 		"AWS::QuickSight::Dashboard":                                       &quicksight.Dashboard{},
 		"AWS::QuickSight::DataSet":                                         &quicksight.DataSet{},
 		"AWS::QuickSight::DataSource":                                      &quicksight.DataSource{},
+		"AWS::QuickSight::RefreshSchedule":                                 &quicksight.RefreshSchedule{},
 		"AWS::QuickSight::Template":                                        &quicksight.Template{},
 		"AWS::QuickSight::Theme":                                           &quicksight.Theme{},
 		"AWS::RAM::ResourceShare":                                          &ram.ResourceShare{},
@@ -2554,6 +2557,54 @@ func (t *Template) GetAppConfigEnvironmentWithName(name string) (*appconfig.Envi
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type appconfig.Environment not found", name)
+}
+
+// GetAllAppConfigExtensionResources retrieves all appconfig.Extension items from an AWS CloudFormation template
+func (t *Template) GetAllAppConfigExtensionResources() map[string]*appconfig.Extension {
+	results := map[string]*appconfig.Extension{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appconfig.Extension:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppConfigExtensionWithName retrieves all appconfig.Extension items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppConfigExtensionWithName(name string) (*appconfig.Extension, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appconfig.Extension:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appconfig.Extension not found", name)
+}
+
+// GetAllAppConfigExtensionAssociationResources retrieves all appconfig.ExtensionAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllAppConfigExtensionAssociationResources() map[string]*appconfig.ExtensionAssociation {
+	results := map[string]*appconfig.ExtensionAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appconfig.ExtensionAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppConfigExtensionAssociationWithName retrieves all appconfig.ExtensionAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppConfigExtensionAssociationWithName(name string) (*appconfig.ExtensionAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appconfig.ExtensionAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appconfig.ExtensionAssociation not found", name)
 }
 
 // GetAllAppConfigHostedConfigurationVersionResources retrieves all appconfig.HostedConfigurationVersion items from an AWS CloudFormation template
@@ -20410,6 +20461,30 @@ func (t *Template) GetQuickSightDataSourceWithName(name string) (*quicksight.Dat
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type quicksight.DataSource not found", name)
+}
+
+// GetAllQuickSightRefreshScheduleResources retrieves all quicksight.RefreshSchedule items from an AWS CloudFormation template
+func (t *Template) GetAllQuickSightRefreshScheduleResources() map[string]*quicksight.RefreshSchedule {
+	results := map[string]*quicksight.RefreshSchedule{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *quicksight.RefreshSchedule:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQuickSightRefreshScheduleWithName retrieves all quicksight.RefreshSchedule items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQuickSightRefreshScheduleWithName(name string) (*quicksight.RefreshSchedule, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *quicksight.RefreshSchedule:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type quicksight.RefreshSchedule not found", name)
 }
 
 // GetAllQuickSightTemplateResources retrieves all quicksight.Template items from an AWS CloudFormation template
