@@ -671,6 +671,7 @@ func AllResources() map[string]Resource {
 		"AWS::FraudDetector::EntityType":                                   &frauddetector.EntityType{},
 		"AWS::FraudDetector::EventType":                                    &frauddetector.EventType{},
 		"AWS::FraudDetector::Label":                                        &frauddetector.Label{},
+		"AWS::FraudDetector::List":                                         &frauddetector.List{},
 		"AWS::FraudDetector::Outcome":                                      &frauddetector.Outcome{},
 		"AWS::FraudDetector::Variable":                                     &frauddetector.Variable{},
 		"AWS::GameLift::Alias":                                             &gamelift.Alias{},
@@ -1029,6 +1030,7 @@ func AllResources() map[string]Resource {
 		"AWS::QuickSight::RefreshSchedule":                                 &quicksight.RefreshSchedule{},
 		"AWS::QuickSight::Template":                                        &quicksight.Template{},
 		"AWS::QuickSight::Theme":                                           &quicksight.Theme{},
+		"AWS::RAM::Permission":                                             &ram.Permission{},
 		"AWS::RAM::ResourceShare":                                          &ram.ResourceShare{},
 		"AWS::RDS::DBCluster":                                              &rds.DBCluster{},
 		"AWS::RDS::DBClusterParameterGroup":                                &rds.DBClusterParameterGroup{},
@@ -11943,6 +11945,30 @@ func (t *Template) GetFraudDetectorLabelWithName(name string) (*frauddetector.La
 	return nil, fmt.Errorf("resource %q of type frauddetector.Label not found", name)
 }
 
+// GetAllFraudDetectorListResources retrieves all frauddetector.List items from an AWS CloudFormation template
+func (t *Template) GetAllFraudDetectorListResources() map[string]*frauddetector.List {
+	results := map[string]*frauddetector.List{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *frauddetector.List:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFraudDetectorListWithName retrieves all frauddetector.List items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFraudDetectorListWithName(name string) (*frauddetector.List, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *frauddetector.List:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type frauddetector.List not found", name)
+}
+
 // GetAllFraudDetectorOutcomeResources retrieves all frauddetector.Outcome items from an AWS CloudFormation template
 func (t *Template) GetAllFraudDetectorOutcomeResources() map[string]*frauddetector.Outcome {
 	results := map[string]*frauddetector.Outcome{}
@@ -20533,6 +20559,30 @@ func (t *Template) GetQuickSightThemeWithName(name string) (*quicksight.Theme, e
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type quicksight.Theme not found", name)
+}
+
+// GetAllRAMPermissionResources retrieves all ram.Permission items from an AWS CloudFormation template
+func (t *Template) GetAllRAMPermissionResources() map[string]*ram.Permission {
+	results := map[string]*ram.Permission{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ram.Permission:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRAMPermissionWithName retrieves all ram.Permission items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRAMPermissionWithName(name string) (*ram.Permission, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ram.Permission:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ram.Permission not found", name)
 }
 
 // GetAllRAMResourceShareResources retrieves all ram.ResourceShare items from an AWS CloudFormation template
