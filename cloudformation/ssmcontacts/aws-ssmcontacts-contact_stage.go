@@ -11,9 +11,14 @@ import (
 type Contact_Stage struct {
 
 	// DurationInMinutes AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
-	DurationInMinutes int `json:"DurationInMinutes"`
+	DurationInMinutes *int `json:"DurationInMinutes,omitempty"`
+
+	// RotationIds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-rotationids
+	RotationIds []string `json:"RotationIds,omitempty"`
 
 	// Targets AWS CloudFormation Property
 	// Required: false

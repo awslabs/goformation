@@ -15,14 +15,14 @@ import (
 type User struct {
 
 	// AccessString AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html#cfn-memorydb-user-accessstring
-	AccessString string `json:"AccessString"`
+	AccessString *string `json:"AccessString,omitempty"`
 
 	// AuthenticationMode AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html#cfn-memorydb-user-authenticationmode
-	AuthenticationMode *User_AuthenticationMode `json:"AuthenticationMode"`
+	AuthenticationMode *User_AuthenticationMode `json:"AuthenticationMode,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
