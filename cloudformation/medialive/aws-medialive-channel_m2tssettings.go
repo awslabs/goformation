@@ -210,6 +210,11 @@ type Channel_M2tsSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html#cfn-medialive-channel-m2tssettings-scte35pid
 	Scte35Pid *string `json:"Scte35Pid,omitempty"`
 
+	// Scte35PrerollPullupMilliseconds AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html#cfn-medialive-channel-m2tssettings-scte35prerollpullupmilliseconds
+	Scte35PrerollPullupMilliseconds *float64 `json:"Scte35PrerollPullupMilliseconds,omitempty"`
+
 	// SegmentationMarkers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html#cfn-medialive-channel-m2tssettings-segmentationmarkers

@@ -488,6 +488,7 @@ func AllResources() map[string]Resource {
 		"AWS::DataSync::LocationObjectStorage":                             &datasync.LocationObjectStorage{},
 		"AWS::DataSync::LocationS3":                                        &datasync.LocationS3{},
 		"AWS::DataSync::LocationSMB":                                       &datasync.LocationSMB{},
+		"AWS::DataSync::StorageSystem":                                     &datasync.StorageSystem{},
 		"AWS::DataSync::Task":                                              &datasync.Task{},
 		"AWS::Detective::Graph":                                            &detective.Graph{},
 		"AWS::Detective::MemberInvitation":                                 &detective.MemberInvitation{},
@@ -904,8 +905,10 @@ func AllResources() map[string]Resource {
 		"AWS::M2::Environment":                                             &m2.Environment{},
 		"AWS::MSK::BatchScramSecret":                                       &msk.BatchScramSecret{},
 		"AWS::MSK::Cluster":                                                &msk.Cluster{},
+		"AWS::MSK::ClusterPolicy":                                          &msk.ClusterPolicy{},
 		"AWS::MSK::Configuration":                                          &msk.Configuration{},
 		"AWS::MSK::ServerlessCluster":                                      &msk.ServerlessCluster{},
+		"AWS::MSK::VpcConnection":                                          &msk.VpcConnection{},
 		"AWS::MWAA::Environment":                                           &mwaa.Environment{},
 		"AWS::Macie::AllowList":                                            &macie.AllowList{},
 		"AWS::Macie::CustomDataIdentifier":                                 &macie.CustomDataIdentifier{},
@@ -7551,6 +7554,30 @@ func (t *Template) GetDataSyncLocationSMBWithName(name string) (*datasync.Locati
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type datasync.LocationSMB not found", name)
+}
+
+// GetAllDataSyncStorageSystemResources retrieves all datasync.StorageSystem items from an AWS CloudFormation template
+func (t *Template) GetAllDataSyncStorageSystemResources() map[string]*datasync.StorageSystem {
+	results := map[string]*datasync.StorageSystem{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datasync.StorageSystem:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataSyncStorageSystemWithName retrieves all datasync.StorageSystem items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataSyncStorageSystemWithName(name string) (*datasync.StorageSystem, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datasync.StorageSystem:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datasync.StorageSystem not found", name)
 }
 
 // GetAllDataSyncTaskResources retrieves all datasync.Task items from an AWS CloudFormation template
@@ -17537,6 +17564,30 @@ func (t *Template) GetMSKClusterWithName(name string) (*msk.Cluster, error) {
 	return nil, fmt.Errorf("resource %q of type msk.Cluster not found", name)
 }
 
+// GetAllMSKClusterPolicyResources retrieves all msk.ClusterPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllMSKClusterPolicyResources() map[string]*msk.ClusterPolicy {
+	results := map[string]*msk.ClusterPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *msk.ClusterPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMSKClusterPolicyWithName retrieves all msk.ClusterPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMSKClusterPolicyWithName(name string) (*msk.ClusterPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *msk.ClusterPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type msk.ClusterPolicy not found", name)
+}
+
 // GetAllMSKConfigurationResources retrieves all msk.Configuration items from an AWS CloudFormation template
 func (t *Template) GetAllMSKConfigurationResources() map[string]*msk.Configuration {
 	results := map[string]*msk.Configuration{}
@@ -17583,6 +17634,30 @@ func (t *Template) GetMSKServerlessClusterWithName(name string) (*msk.Serverless
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type msk.ServerlessCluster not found", name)
+}
+
+// GetAllMSKVpcConnectionResources retrieves all msk.VpcConnection items from an AWS CloudFormation template
+func (t *Template) GetAllMSKVpcConnectionResources() map[string]*msk.VpcConnection {
+	results := map[string]*msk.VpcConnection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *msk.VpcConnection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMSKVpcConnectionWithName retrieves all msk.VpcConnection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMSKVpcConnectionWithName(name string) (*msk.VpcConnection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *msk.VpcConnection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type msk.VpcConnection not found", name)
 }
 
 // GetAllMWAAEnvironmentResources retrieves all mwaa.Environment items from an AWS CloudFormation template
