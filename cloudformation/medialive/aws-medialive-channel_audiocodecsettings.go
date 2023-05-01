@@ -20,6 +20,11 @@ type Channel_AudioCodecSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-ac3settings
 	Ac3Settings *Channel_Ac3Settings `json:"Ac3Settings,omitempty"`
 
+	// Eac3AtmosSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3atmossettings
+	Eac3AtmosSettings *Channel_Eac3AtmosSettings `json:"Eac3AtmosSettings,omitempty"`
+
 	// Eac3Settings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3settings
