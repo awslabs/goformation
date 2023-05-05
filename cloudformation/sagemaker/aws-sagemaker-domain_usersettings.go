@@ -11,9 +11,9 @@ import (
 type Domain_UserSettings struct {
 
 	// ExecutionRole AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
-	ExecutionRole *string `json:"ExecutionRole,omitempty"`
+	ExecutionRole string `json:"ExecutionRole"`
 
 	// JupyterServerAppSettings AWS CloudFormation Property
 	// Required: false

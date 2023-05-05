@@ -27,6 +27,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/autoscaling"
 	"github.com/awslabs/goformation/v7/cloudformation/autoscalingplans"
 	"github.com/awslabs/goformation/v7/cloudformation/backup"
+	"github.com/awslabs/goformation/v7/cloudformation/backupgateway"
 	"github.com/awslabs/goformation/v7/cloudformation/batch"
 	"github.com/awslabs/goformation/v7/cloudformation/billingconductor"
 	"github.com/awslabs/goformation/v7/cloudformation/budgets"
@@ -167,6 +168,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/pinpoint"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpointemail"
 	"github.com/awslabs/goformation/v7/cloudformation/pipes"
+	"github.com/awslabs/goformation/v7/cloudformation/proton"
 	"github.com/awslabs/goformation/v7/cloudformation/qldb"
 	"github.com/awslabs/goformation/v7/cloudformation/quicksight"
 	"github.com/awslabs/goformation/v7/cloudformation/ram"
@@ -340,6 +342,7 @@ func AllResources() map[string]Resource {
 		"AWS::Backup::BackupVault":                                         &backup.BackupVault{},
 		"AWS::Backup::Framework":                                           &backup.Framework{},
 		"AWS::Backup::ReportPlan":                                          &backup.ReportPlan{},
+		"AWS::BackupGateway::Hypervisor":                                   &backupgateway.Hypervisor{},
 		"AWS::Batch::ComputeEnvironment":                                   &batch.ComputeEnvironment{},
 		"AWS::Batch::JobDefinition":                                        &batch.JobDefinition{},
 		"AWS::Batch::JobQueue":                                             &batch.JobQueue{},
@@ -444,6 +447,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::ApprovedOrigin":                                     &connect.ApprovedOrigin{},
 		"AWS::Connect::ContactFlow":                                        &connect.ContactFlow{},
 		"AWS::Connect::ContactFlowModule":                                  &connect.ContactFlowModule{},
+		"AWS::Connect::EvaluationForm":                                     &connect.EvaluationForm{},
 		"AWS::Connect::HoursOfOperation":                                   &connect.HoursOfOperation{},
 		"AWS::Connect::Instance":                                           &connect.Instance{},
 		"AWS::Connect::InstanceStorageConfig":                              &connect.InstanceStorageConfig{},
@@ -589,6 +593,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::VPNConnectionRoute":                                     &ec2.VPNConnectionRoute{},
 		"AWS::EC2::VPNGateway":                                             &ec2.VPNGateway{},
 		"AWS::EC2::VPNGatewayRoutePropagation":                             &ec2.VPNGatewayRoutePropagation{},
+		"AWS::EC2::VerifiedAccessInstance":                                 &ec2.VerifiedAccessInstance{},
 		"AWS::EC2::Volume":                                                 &ec2.Volume{},
 		"AWS::EC2::VolumeAttachment":                                       &ec2.VolumeAttachment{},
 		"AWS::ECR::PublicRepository":                                       &ecr.PublicRepository{},
@@ -1024,6 +1029,9 @@ func AllResources() map[string]Resource {
 		"AWS::PinpointEmail::DedicatedIpPool":                              &pinpointemail.DedicatedIpPool{},
 		"AWS::PinpointEmail::Identity":                                     &pinpointemail.Identity{},
 		"AWS::Pipes::Pipe":                                                 &pipes.Pipe{},
+		"AWS::Proton::EnvironmentAccountConnection":                        &proton.EnvironmentAccountConnection{},
+		"AWS::Proton::EnvironmentTemplate":                                 &proton.EnvironmentTemplate{},
+		"AWS::Proton::ServiceTemplate":                                     &proton.ServiceTemplate{},
 		"AWS::QLDB::Ledger":                                                &qldb.Ledger{},
 		"AWS::QLDB::Stream":                                                &qldb.Stream{},
 		"AWS::QuickSight::Analysis":                                        &quicksight.Analysis{},
@@ -1033,6 +1041,7 @@ func AllResources() map[string]Resource {
 		"AWS::QuickSight::RefreshSchedule":                                 &quicksight.RefreshSchedule{},
 		"AWS::QuickSight::Template":                                        &quicksight.Template{},
 		"AWS::QuickSight::Theme":                                           &quicksight.Theme{},
+		"AWS::QuickSight::VPCConnection":                                   &quicksight.VPCConnection{},
 		"AWS::RAM::Permission":                                             &ram.Permission{},
 		"AWS::RAM::ResourceShare":                                          &ram.ResourceShare{},
 		"AWS::RDS::DBCluster":                                              &rds.DBCluster{},
@@ -4004,6 +4013,30 @@ func (t *Template) GetBackupReportPlanWithName(name string) (*backup.ReportPlan,
 	return nil, fmt.Errorf("resource %q of type backup.ReportPlan not found", name)
 }
 
+// GetAllBackupGatewayHypervisorResources retrieves all backupgateway.Hypervisor items from an AWS CloudFormation template
+func (t *Template) GetAllBackupGatewayHypervisorResources() map[string]*backupgateway.Hypervisor {
+	results := map[string]*backupgateway.Hypervisor{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *backupgateway.Hypervisor:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBackupGatewayHypervisorWithName retrieves all backupgateway.Hypervisor items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBackupGatewayHypervisorWithName(name string) (*backupgateway.Hypervisor, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *backupgateway.Hypervisor:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type backupgateway.Hypervisor not found", name)
+}
+
 // GetAllBatchComputeEnvironmentResources retrieves all batch.ComputeEnvironment items from an AWS CloudFormation template
 func (t *Template) GetAllBatchComputeEnvironmentResources() map[string]*batch.ComputeEnvironment {
 	results := map[string]*batch.ComputeEnvironment{}
@@ -6498,6 +6531,30 @@ func (t *Template) GetConnectContactFlowModuleWithName(name string) (*connect.Co
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.ContactFlowModule not found", name)
+}
+
+// GetAllConnectEvaluationFormResources retrieves all connect.EvaluationForm items from an AWS CloudFormation template
+func (t *Template) GetAllConnectEvaluationFormResources() map[string]*connect.EvaluationForm {
+	results := map[string]*connect.EvaluationForm{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.EvaluationForm:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectEvaluationFormWithName retrieves all connect.EvaluationForm items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectEvaluationFormWithName(name string) (*connect.EvaluationForm, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.EvaluationForm:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.EvaluationForm not found", name)
 }
 
 // GetAllConnectHoursOfOperationResources retrieves all connect.HoursOfOperation items from an AWS CloudFormation template
@@ -9978,6 +10035,30 @@ func (t *Template) GetEC2VPNGatewayRoutePropagationWithName(name string) (*ec2.V
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.VPNGatewayRoutePropagation not found", name)
+}
+
+// GetAllEC2VerifiedAccessInstanceResources retrieves all ec2.VerifiedAccessInstance items from an AWS CloudFormation template
+func (t *Template) GetAllEC2VerifiedAccessInstanceResources() map[string]*ec2.VerifiedAccessInstance {
+	results := map[string]*ec2.VerifiedAccessInstance{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessInstance:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2VerifiedAccessInstanceWithName retrieves all ec2.VerifiedAccessInstance items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2VerifiedAccessInstanceWithName(name string) (*ec2.VerifiedAccessInstance, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessInstance:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.VerifiedAccessInstance not found", name)
 }
 
 // GetAllEC2VolumeResources retrieves all ec2.Volume items from an AWS CloudFormation template
@@ -20420,6 +20501,78 @@ func (t *Template) GetPipesPipeWithName(name string) (*pipes.Pipe, error) {
 	return nil, fmt.Errorf("resource %q of type pipes.Pipe not found", name)
 }
 
+// GetAllProtonEnvironmentAccountConnectionResources retrieves all proton.EnvironmentAccountConnection items from an AWS CloudFormation template
+func (t *Template) GetAllProtonEnvironmentAccountConnectionResources() map[string]*proton.EnvironmentAccountConnection {
+	results := map[string]*proton.EnvironmentAccountConnection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *proton.EnvironmentAccountConnection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetProtonEnvironmentAccountConnectionWithName retrieves all proton.EnvironmentAccountConnection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetProtonEnvironmentAccountConnectionWithName(name string) (*proton.EnvironmentAccountConnection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *proton.EnvironmentAccountConnection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type proton.EnvironmentAccountConnection not found", name)
+}
+
+// GetAllProtonEnvironmentTemplateResources retrieves all proton.EnvironmentTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllProtonEnvironmentTemplateResources() map[string]*proton.EnvironmentTemplate {
+	results := map[string]*proton.EnvironmentTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *proton.EnvironmentTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetProtonEnvironmentTemplateWithName retrieves all proton.EnvironmentTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetProtonEnvironmentTemplateWithName(name string) (*proton.EnvironmentTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *proton.EnvironmentTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type proton.EnvironmentTemplate not found", name)
+}
+
+// GetAllProtonServiceTemplateResources retrieves all proton.ServiceTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllProtonServiceTemplateResources() map[string]*proton.ServiceTemplate {
+	results := map[string]*proton.ServiceTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *proton.ServiceTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetProtonServiceTemplateWithName retrieves all proton.ServiceTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetProtonServiceTemplateWithName(name string) (*proton.ServiceTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *proton.ServiceTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type proton.ServiceTemplate not found", name)
+}
+
 // GetAllQLDBLedgerResources retrieves all qldb.Ledger items from an AWS CloudFormation template
 func (t *Template) GetAllQLDBLedgerResources() map[string]*qldb.Ledger {
 	results := map[string]*qldb.Ledger{}
@@ -20634,6 +20787,30 @@ func (t *Template) GetQuickSightThemeWithName(name string) (*quicksight.Theme, e
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type quicksight.Theme not found", name)
+}
+
+// GetAllQuickSightVPCConnectionResources retrieves all quicksight.VPCConnection items from an AWS CloudFormation template
+func (t *Template) GetAllQuickSightVPCConnectionResources() map[string]*quicksight.VPCConnection {
+	results := map[string]*quicksight.VPCConnection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *quicksight.VPCConnection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQuickSightVPCConnectionWithName retrieves all quicksight.VPCConnection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQuickSightVPCConnectionWithName(name string) (*quicksight.VPCConnection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *quicksight.VPCConnection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type quicksight.VPCConnection not found", name)
 }
 
 // GetAllRAMPermissionResources retrieves all ram.Permission items from an AWS CloudFormation template

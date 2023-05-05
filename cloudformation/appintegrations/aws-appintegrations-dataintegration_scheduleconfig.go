@@ -11,14 +11,14 @@ import (
 type DataIntegration_ScheduleConfig struct {
 
 	// FirstExecutionFrom AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-scheduleconfig.html#cfn-appintegrations-dataintegration-scheduleconfig-firstexecutionfrom
-	FirstExecutionFrom string `json:"FirstExecutionFrom"`
+	FirstExecutionFrom *string `json:"FirstExecutionFrom,omitempty"`
 
 	// Object AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-scheduleconfig.html#cfn-appintegrations-dataintegration-scheduleconfig-object
-	Object string `json:"Object"`
+	Object *string `json:"Object,omitempty"`
 
 	// ScheduleExpression AWS CloudFormation Property
 	// Required: true
