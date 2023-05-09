@@ -11,9 +11,9 @@ import (
 type Domain_DefaultSpaceSettings struct {
 
 	// ExecutionRole AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-executionrole
-	ExecutionRole *string `json:"ExecutionRole,omitempty"`
+	ExecutionRole string `json:"ExecutionRole"`
 
 	// JupyterServerAppSettings AWS CloudFormation Property
 	// Required: false

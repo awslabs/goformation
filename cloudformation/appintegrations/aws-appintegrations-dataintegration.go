@@ -19,6 +19,11 @@ type DataIntegration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-description
 	Description *string `json:"Description,omitempty"`
 
+	// FileConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-fileconfiguration
+	FileConfiguration *DataIntegration_FileConfiguration `json:"FileConfiguration,omitempty"`
+
 	// KmsKey AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-kmskey
@@ -28,6 +33,11 @@ type DataIntegration struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-name
 	Name string `json:"Name"`
+
+	// ObjectConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-objectconfiguration
+	ObjectConfiguration interface{} `json:"ObjectConfiguration,omitempty"`
 
 	// ScheduleConfig AWS CloudFormation Property
 	// Required: true

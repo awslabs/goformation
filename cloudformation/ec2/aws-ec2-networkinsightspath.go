@@ -29,6 +29,16 @@ type NetworkInsightsPath struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
 	DestinationPort *int `json:"DestinationPort,omitempty"`
 
+	// FilterAtDestination AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-filteratdestination
+	FilterAtDestination *NetworkInsightsPath_PathFilter `json:"FilterAtDestination,omitempty"`
+
+	// FilterAtSource AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-filteratsource
+	FilterAtSource *NetworkInsightsPath_PathFilter `json:"FilterAtSource,omitempty"`
+
 	// Protocol AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol

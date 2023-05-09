@@ -18,7 +18,7 @@ type Environment_FederationParameters struct {
 	// AttributeMap AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
-	AttributeMap interface{} `json:"AttributeMap,omitempty"`
+	AttributeMap []Environment_AttributeMapItems `json:"AttributeMap,omitempty"`
 
 	// FederationProviderName AWS CloudFormation Property
 	// Required: false
