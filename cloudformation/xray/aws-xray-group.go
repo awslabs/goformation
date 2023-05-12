@@ -20,9 +20,9 @@ type Group struct {
 	FilterExpression *string `json:"FilterExpression,omitempty"`
 
 	// GroupName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
-	GroupName *string `json:"GroupName,omitempty"`
+	GroupName string `json:"GroupName"`
 
 	// InsightsConfiguration AWS CloudFormation Property
 	// Required: false

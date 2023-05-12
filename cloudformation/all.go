@@ -163,6 +163,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/opsworks"
 	"github.com/awslabs/goformation/v7/cloudformation/opsworkscm"
 	"github.com/awslabs/goformation/v7/cloudformation/organizations"
+	"github.com/awslabs/goformation/v7/cloudformation/osis"
 	"github.com/awslabs/goformation/v7/cloudformation/panorama"
 	"github.com/awslabs/goformation/v7/cloudformation/personalize"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpoint"
@@ -593,7 +594,10 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::VPNConnectionRoute":                                     &ec2.VPNConnectionRoute{},
 		"AWS::EC2::VPNGateway":                                             &ec2.VPNGateway{},
 		"AWS::EC2::VPNGatewayRoutePropagation":                             &ec2.VPNGatewayRoutePropagation{},
+		"AWS::EC2::VerifiedAccessEndpoint":                                 &ec2.VerifiedAccessEndpoint{},
+		"AWS::EC2::VerifiedAccessGroup":                                    &ec2.VerifiedAccessGroup{},
 		"AWS::EC2::VerifiedAccessInstance":                                 &ec2.VerifiedAccessInstance{},
+		"AWS::EC2::VerifiedAccessTrustProvider":                            &ec2.VerifiedAccessTrustProvider{},
 		"AWS::EC2::Volume":                                                 &ec2.Volume{},
 		"AWS::EC2::VolumeAttachment":                                       &ec2.VolumeAttachment{},
 		"AWS::ECR::PublicRepository":                                       &ecr.PublicRepository{},
@@ -776,6 +780,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoT1Click::Project":                                          &iot1click.Project{},
 		"AWS::IoT::AccountAuditConfiguration":                              &iot.AccountAuditConfiguration{},
 		"AWS::IoT::Authorizer":                                             &iot.Authorizer{},
+		"AWS::IoT::BillingGroup":                                           &iot.BillingGroup{},
 		"AWS::IoT::CACertificate":                                          &iot.CACertificate{},
 		"AWS::IoT::Certificate":                                            &iot.Certificate{},
 		"AWS::IoT::CustomMetric":                                           &iot.CustomMetric{},
@@ -793,7 +798,9 @@ func AllResources() map[string]Resource {
 		"AWS::IoT::ScheduledAudit":                                         &iot.ScheduledAudit{},
 		"AWS::IoT::SecurityProfile":                                        &iot.SecurityProfile{},
 		"AWS::IoT::Thing":                                                  &iot.Thing{},
+		"AWS::IoT::ThingGroup":                                             &iot.ThingGroup{},
 		"AWS::IoT::ThingPrincipalAttachment":                               &iot.ThingPrincipalAttachment{},
+		"AWS::IoT::ThingType":                                              &iot.ThingType{},
 		"AWS::IoT::TopicRule":                                              &iot.TopicRule{},
 		"AWS::IoT::TopicRuleDestination":                                   &iot.TopicRuleDestination{},
 		"AWS::IoTAnalytics::Channel":                                       &iotanalytics.Channel{},
@@ -972,6 +979,7 @@ func AllResources() map[string]Resource {
 		"AWS::NimbleStudio::StreamingImage":                                &nimblestudio.StreamingImage{},
 		"AWS::NimbleStudio::Studio":                                        &nimblestudio.Studio{},
 		"AWS::NimbleStudio::StudioComponent":                               &nimblestudio.StudioComponent{},
+		"AWS::OSIS::Pipeline":                                              &osis.Pipeline{},
 		"AWS::Oam::Link":                                                   &oam.Link{},
 		"AWS::Oam::Sink":                                                   &oam.Sink{},
 		"AWS::Omics::AnnotationStore":                                      &omics.AnnotationStore{},
@@ -10037,6 +10045,54 @@ func (t *Template) GetEC2VPNGatewayRoutePropagationWithName(name string) (*ec2.V
 	return nil, fmt.Errorf("resource %q of type ec2.VPNGatewayRoutePropagation not found", name)
 }
 
+// GetAllEC2VerifiedAccessEndpointResources retrieves all ec2.VerifiedAccessEndpoint items from an AWS CloudFormation template
+func (t *Template) GetAllEC2VerifiedAccessEndpointResources() map[string]*ec2.VerifiedAccessEndpoint {
+	results := map[string]*ec2.VerifiedAccessEndpoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessEndpoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2VerifiedAccessEndpointWithName retrieves all ec2.VerifiedAccessEndpoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2VerifiedAccessEndpointWithName(name string) (*ec2.VerifiedAccessEndpoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessEndpoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.VerifiedAccessEndpoint not found", name)
+}
+
+// GetAllEC2VerifiedAccessGroupResources retrieves all ec2.VerifiedAccessGroup items from an AWS CloudFormation template
+func (t *Template) GetAllEC2VerifiedAccessGroupResources() map[string]*ec2.VerifiedAccessGroup {
+	results := map[string]*ec2.VerifiedAccessGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2VerifiedAccessGroupWithName retrieves all ec2.VerifiedAccessGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2VerifiedAccessGroupWithName(name string) (*ec2.VerifiedAccessGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.VerifiedAccessGroup not found", name)
+}
+
 // GetAllEC2VerifiedAccessInstanceResources retrieves all ec2.VerifiedAccessInstance items from an AWS CloudFormation template
 func (t *Template) GetAllEC2VerifiedAccessInstanceResources() map[string]*ec2.VerifiedAccessInstance {
 	results := map[string]*ec2.VerifiedAccessInstance{}
@@ -10059,6 +10115,30 @@ func (t *Template) GetEC2VerifiedAccessInstanceWithName(name string) (*ec2.Verif
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.VerifiedAccessInstance not found", name)
+}
+
+// GetAllEC2VerifiedAccessTrustProviderResources retrieves all ec2.VerifiedAccessTrustProvider items from an AWS CloudFormation template
+func (t *Template) GetAllEC2VerifiedAccessTrustProviderResources() map[string]*ec2.VerifiedAccessTrustProvider {
+	results := map[string]*ec2.VerifiedAccessTrustProvider{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessTrustProvider:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2VerifiedAccessTrustProviderWithName retrieves all ec2.VerifiedAccessTrustProvider items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2VerifiedAccessTrustProviderWithName(name string) (*ec2.VerifiedAccessTrustProvider, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.VerifiedAccessTrustProvider:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.VerifiedAccessTrustProvider not found", name)
 }
 
 // GetAllEC2VolumeResources retrieves all ec2.Volume items from an AWS CloudFormation template
@@ -14429,6 +14509,30 @@ func (t *Template) GetIoTAuthorizerWithName(name string) (*iot.Authorizer, error
 	return nil, fmt.Errorf("resource %q of type iot.Authorizer not found", name)
 }
 
+// GetAllIoTBillingGroupResources retrieves all iot.BillingGroup items from an AWS CloudFormation template
+func (t *Template) GetAllIoTBillingGroupResources() map[string]*iot.BillingGroup {
+	results := map[string]*iot.BillingGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.BillingGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTBillingGroupWithName retrieves all iot.BillingGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTBillingGroupWithName(name string) (*iot.BillingGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.BillingGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.BillingGroup not found", name)
+}
+
 // GetAllIoTCACertificateResources retrieves all iot.CACertificate items from an AWS CloudFormation template
 func (t *Template) GetAllIoTCACertificateResources() map[string]*iot.CACertificate {
 	results := map[string]*iot.CACertificate{}
@@ -14837,6 +14941,30 @@ func (t *Template) GetIoTThingWithName(name string) (*iot.Thing, error) {
 	return nil, fmt.Errorf("resource %q of type iot.Thing not found", name)
 }
 
+// GetAllIoTThingGroupResources retrieves all iot.ThingGroup items from an AWS CloudFormation template
+func (t *Template) GetAllIoTThingGroupResources() map[string]*iot.ThingGroup {
+	results := map[string]*iot.ThingGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.ThingGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTThingGroupWithName retrieves all iot.ThingGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTThingGroupWithName(name string) (*iot.ThingGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.ThingGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.ThingGroup not found", name)
+}
+
 // GetAllIoTThingPrincipalAttachmentResources retrieves all iot.ThingPrincipalAttachment items from an AWS CloudFormation template
 func (t *Template) GetAllIoTThingPrincipalAttachmentResources() map[string]*iot.ThingPrincipalAttachment {
 	results := map[string]*iot.ThingPrincipalAttachment{}
@@ -14859,6 +14987,30 @@ func (t *Template) GetIoTThingPrincipalAttachmentWithName(name string) (*iot.Thi
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iot.ThingPrincipalAttachment not found", name)
+}
+
+// GetAllIoTThingTypeResources retrieves all iot.ThingType items from an AWS CloudFormation template
+func (t *Template) GetAllIoTThingTypeResources() map[string]*iot.ThingType {
+	results := map[string]*iot.ThingType{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.ThingType:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTThingTypeWithName retrieves all iot.ThingType items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTThingTypeWithName(name string) (*iot.ThingType, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.ThingType:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.ThingType not found", name)
 }
 
 // GetAllIoTTopicRuleResources retrieves all iot.TopicRule items from an AWS CloudFormation template
@@ -19131,6 +19283,30 @@ func (t *Template) GetNimbleStudioStudioComponentWithName(name string) (*nimbles
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type nimblestudio.StudioComponent not found", name)
+}
+
+// GetAllOSISPipelineResources retrieves all osis.Pipeline items from an AWS CloudFormation template
+func (t *Template) GetAllOSISPipelineResources() map[string]*osis.Pipeline {
+	results := map[string]*osis.Pipeline{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *osis.Pipeline:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOSISPipelineWithName retrieves all osis.Pipeline items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOSISPipelineWithName(name string) (*osis.Pipeline, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *osis.Pipeline:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type osis.Pipeline not found", name)
 }
 
 // GetAllOamLinkResources retrieves all oam.Link items from an AWS CloudFormation template

@@ -11,9 +11,9 @@ import (
 type FlowSource_Encryption struct {
 
 	// Algorithm AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-algorithm
-	Algorithm string `json:"Algorithm"`
+	Algorithm *string `json:"Algorithm,omitempty"`
 
 	// ConstantInitializationVector AWS CloudFormation Property
 	// Required: false
