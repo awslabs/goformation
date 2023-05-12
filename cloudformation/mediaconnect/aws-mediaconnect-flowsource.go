@@ -48,6 +48,11 @@ type FlowSource struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
 	MaxLatency *int `json:"MaxLatency,omitempty"`
 
+	// MinLatency AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-minlatency
+	MinLatency *int `json:"MinLatency,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
@@ -57,6 +62,26 @@ type FlowSource struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
 	Protocol *string `json:"Protocol,omitempty"`
+
+	// SenderControlPort AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-sendercontrolport
+	SenderControlPort *int `json:"SenderControlPort,omitempty"`
+
+	// SenderIpAddress AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-senderipaddress
+	SenderIpAddress *string `json:"SenderIpAddress,omitempty"`
+
+	// SourceListenerAddress AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-sourcelisteneraddress
+	SourceListenerAddress *string `json:"SourceListenerAddress,omitempty"`
+
+	// SourceListenerPort AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-sourcelistenerport
+	SourceListenerPort *int `json:"SourceListenerPort,omitempty"`
 
 	// StreamId AWS CloudFormation Property
 	// Required: false

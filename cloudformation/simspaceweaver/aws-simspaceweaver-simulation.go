@@ -13,20 +13,30 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html
 type Simulation struct {
 
-	// Name AWS CloudFormation Property
+	// MaximumDuration AWS CloudFormation Property
 	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-maximumduration
+	MaximumDuration *string `json:"MaximumDuration,omitempty"`
+
+	// Name AWS CloudFormation Property
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// RoleArn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-rolearn
-	RoleArn *string `json:"RoleArn,omitempty"`
+	RoleArn string `json:"RoleArn"`
 
 	// SchemaS3Location AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-schemas3location
 	SchemaS3Location *Simulation_S3Location `json:"SchemaS3Location,omitempty"`
+
+	// SnapshotS3Location AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-snapshots3location
+	SnapshotS3Location *Simulation_S3Location `json:"SnapshotS3Location,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

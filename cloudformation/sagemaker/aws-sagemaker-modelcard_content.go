@@ -35,6 +35,11 @@ type ModelCard_Content struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-modeloverview
 	ModelOverview *ModelCard_ModelOverview `json:"ModelOverview,omitempty"`
 
+	// ModelPackageDetails AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-modelpackagedetails
+	ModelPackageDetails *ModelCard_ModelPackageDetails `json:"ModelPackageDetails,omitempty"`
+
 	// TrainingDetails AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-trainingdetails

@@ -29,11 +29,6 @@ type Canary struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
 	Code *Canary_Code `json:"Code"`
 
-	// DeleteLambdaResourcesOnCanaryDeletion AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-deletelambdaresourcesoncanarydeletion
-	DeleteLambdaResourcesOnCanaryDeletion *bool `json:"DeleteLambdaResourcesOnCanaryDeletion,omitempty"`
-
 	// ExecutionRoleArn AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
@@ -65,9 +60,9 @@ type Canary struct {
 	Schedule *Canary_Schedule `json:"Schedule"`
 
 	// StartCanaryAfterCreation AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
-	StartCanaryAfterCreation bool `json:"StartCanaryAfterCreation"`
+	StartCanaryAfterCreation *bool `json:"StartCanaryAfterCreation,omitempty"`
 
 	// SuccessRetentionPeriod AWS CloudFormation Property
 	// Required: false
