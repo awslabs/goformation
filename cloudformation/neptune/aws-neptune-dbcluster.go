@@ -29,6 +29,11 @@ type DBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backupretentionperiod
 	BackupRetentionPeriod *int `json:"BackupRetentionPeriod,omitempty"`
 
+	// CopyTagsToSnapshot AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-copytagstosnapshot
+	CopyTagsToSnapshot *bool `json:"CopyTagsToSnapshot,omitempty"`
+
 	// DBClusterIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusteridentifier
@@ -38,6 +43,11 @@ type DBCluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusterparametergroupname
 	DBClusterParameterGroupName *string `json:"DBClusterParameterGroupName,omitempty"`
+
+	// DBInstanceParameterGroupName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbinstanceparametergroupname
+	DBInstanceParameterGroupName *string `json:"DBInstanceParameterGroupName,omitempty"`
 
 	// DBSubnetGroupName AWS CloudFormation Property
 	// Required: false
@@ -88,6 +98,11 @@ type DBCluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretype
 	RestoreType *string `json:"RestoreType,omitempty"`
+
+	// ServerlessScalingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-serverlessscalingconfiguration
+	ServerlessScalingConfiguration *DBCluster_ServerlessScalingConfiguration `json:"ServerlessScalingConfiguration,omitempty"`
 
 	// SnapshotIdentifier AWS CloudFormation Property
 	// Required: false
