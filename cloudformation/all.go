@@ -201,6 +201,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/servicecatalogappregistry"
 	"github.com/awslabs/goformation/v7/cloudformation/servicediscovery"
 	"github.com/awslabs/goformation/v7/cloudformation/ses"
+	"github.com/awslabs/goformation/v7/cloudformation/shield"
 	"github.com/awslabs/goformation/v7/cloudformation/signer"
 	"github.com/awslabs/goformation/v7/cloudformation/simspaceweaver"
 	"github.com/awslabs/goformation/v7/cloudformation/sns"
@@ -454,6 +455,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::InstanceStorageConfig":                              &connect.InstanceStorageConfig{},
 		"AWS::Connect::IntegrationAssociation":                             &connect.IntegrationAssociation{},
 		"AWS::Connect::PhoneNumber":                                        &connect.PhoneNumber{},
+		"AWS::Connect::Prompt":                                             &connect.Prompt{},
 		"AWS::Connect::QuickConnect":                                       &connect.QuickConnect{},
 		"AWS::Connect::Rule":                                               &connect.Rule{},
 		"AWS::Connect::SecurityKey":                                        &connect.SecurityKey{},
@@ -1049,6 +1051,7 @@ func AllResources() map[string]Resource {
 		"AWS::QuickSight::RefreshSchedule":                                 &quicksight.RefreshSchedule{},
 		"AWS::QuickSight::Template":                                        &quicksight.Template{},
 		"AWS::QuickSight::Theme":                                           &quicksight.Theme{},
+		"AWS::QuickSight::Topic":                                           &quicksight.Topic{},
 		"AWS::QuickSight::VPCConnection":                                   &quicksight.VPCConnection{},
 		"AWS::RAM::Permission":                                             &ram.Permission{},
 		"AWS::RAM::ResourceShare":                                          &ram.ResourceShare{},
@@ -1237,6 +1240,10 @@ func AllResources() map[string]Resource {
 		"AWS::ServiceDiscovery::PrivateDnsNamespace":                       &servicediscovery.PrivateDnsNamespace{},
 		"AWS::ServiceDiscovery::PublicDnsNamespace":                        &servicediscovery.PublicDnsNamespace{},
 		"AWS::ServiceDiscovery::Service":                                   &servicediscovery.Service{},
+		"AWS::Shield::DRTAccess":                                           &shield.DRTAccess{},
+		"AWS::Shield::ProactiveEngagement":                                 &shield.ProactiveEngagement{},
+		"AWS::Shield::Protection":                                          &shield.Protection{},
+		"AWS::Shield::ProtectionGroup":                                     &shield.ProtectionGroup{},
 		"AWS::Signer::ProfilePermission":                                   &signer.ProfilePermission{},
 		"AWS::Signer::SigningProfile":                                      &signer.SigningProfile{},
 		"AWS::SimSpaceWeaver::Simulation":                                  &simspaceweaver.Simulation{},
@@ -6683,6 +6690,30 @@ func (t *Template) GetConnectPhoneNumberWithName(name string) (*connect.PhoneNum
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.PhoneNumber not found", name)
+}
+
+// GetAllConnectPromptResources retrieves all connect.Prompt items from an AWS CloudFormation template
+func (t *Template) GetAllConnectPromptResources() map[string]*connect.Prompt {
+	results := map[string]*connect.Prompt{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.Prompt:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectPromptWithName retrieves all connect.Prompt items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectPromptWithName(name string) (*connect.Prompt, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.Prompt:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.Prompt not found", name)
 }
 
 // GetAllConnectQuickConnectResources retrieves all connect.QuickConnect items from an AWS CloudFormation template
@@ -20965,6 +20996,30 @@ func (t *Template) GetQuickSightThemeWithName(name string) (*quicksight.Theme, e
 	return nil, fmt.Errorf("resource %q of type quicksight.Theme not found", name)
 }
 
+// GetAllQuickSightTopicResources retrieves all quicksight.Topic items from an AWS CloudFormation template
+func (t *Template) GetAllQuickSightTopicResources() map[string]*quicksight.Topic {
+	results := map[string]*quicksight.Topic{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *quicksight.Topic:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQuickSightTopicWithName retrieves all quicksight.Topic items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQuickSightTopicWithName(name string) (*quicksight.Topic, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *quicksight.Topic:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type quicksight.Topic not found", name)
+}
+
 // GetAllQuickSightVPCConnectionResources retrieves all quicksight.VPCConnection items from an AWS CloudFormation template
 func (t *Template) GetAllQuickSightVPCConnectionResources() map[string]*quicksight.VPCConnection {
 	results := map[string]*quicksight.VPCConnection{}
@@ -25475,6 +25530,102 @@ func (t *Template) GetServiceDiscoveryServiceWithName(name string) (*servicedisc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type servicediscovery.Service not found", name)
+}
+
+// GetAllShieldDRTAccessResources retrieves all shield.DRTAccess items from an AWS CloudFormation template
+func (t *Template) GetAllShieldDRTAccessResources() map[string]*shield.DRTAccess {
+	results := map[string]*shield.DRTAccess{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *shield.DRTAccess:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetShieldDRTAccessWithName retrieves all shield.DRTAccess items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetShieldDRTAccessWithName(name string) (*shield.DRTAccess, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *shield.DRTAccess:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type shield.DRTAccess not found", name)
+}
+
+// GetAllShieldProactiveEngagementResources retrieves all shield.ProactiveEngagement items from an AWS CloudFormation template
+func (t *Template) GetAllShieldProactiveEngagementResources() map[string]*shield.ProactiveEngagement {
+	results := map[string]*shield.ProactiveEngagement{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *shield.ProactiveEngagement:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetShieldProactiveEngagementWithName retrieves all shield.ProactiveEngagement items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetShieldProactiveEngagementWithName(name string) (*shield.ProactiveEngagement, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *shield.ProactiveEngagement:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type shield.ProactiveEngagement not found", name)
+}
+
+// GetAllShieldProtectionResources retrieves all shield.Protection items from an AWS CloudFormation template
+func (t *Template) GetAllShieldProtectionResources() map[string]*shield.Protection {
+	results := map[string]*shield.Protection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *shield.Protection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetShieldProtectionWithName retrieves all shield.Protection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetShieldProtectionWithName(name string) (*shield.Protection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *shield.Protection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type shield.Protection not found", name)
+}
+
+// GetAllShieldProtectionGroupResources retrieves all shield.ProtectionGroup items from an AWS CloudFormation template
+func (t *Template) GetAllShieldProtectionGroupResources() map[string]*shield.ProtectionGroup {
+	results := map[string]*shield.ProtectionGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *shield.ProtectionGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetShieldProtectionGroupWithName retrieves all shield.ProtectionGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetShieldProtectionGroupWithName(name string) (*shield.ProtectionGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *shield.ProtectionGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type shield.ProtectionGroup not found", name)
 }
 
 // GetAllSignerProfilePermissionResources retrieves all signer.ProfilePermission items from an AWS CloudFormation template
