@@ -19,6 +19,11 @@ type GraphQLApi struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
 	AdditionalAuthenticationProviders []GraphQLApi_AdditionalAuthenticationProvider `json:"AdditionalAuthenticationProviders,omitempty"`
 
+	// ApiType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-apitype
+	ApiType *string `json:"ApiType,omitempty"`
+
 	// AuthenticationType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
@@ -34,6 +39,11 @@ type GraphQLApi struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig
 	LogConfig *GraphQLApi_LogConfig `json:"LogConfig,omitempty"`
 
+	// MergedApiExecutionRoleArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-mergedapiexecutionrolearn
+	MergedApiExecutionRoleArn *string `json:"MergedApiExecutionRoleArn,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
@@ -43,6 +53,11 @@ type GraphQLApi struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
 	OpenIDConnectConfig *GraphQLApi_OpenIDConnectConfig `json:"OpenIDConnectConfig,omitempty"`
+
+	// OwnerContact AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-ownercontact
+	OwnerContact *string `json:"OwnerContact,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

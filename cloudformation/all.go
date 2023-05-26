@@ -324,6 +324,7 @@ func AllResources() map[string]Resource {
 		"AWS::AppSync::GraphQLApi":                                         &appsync.GraphQLApi{},
 		"AWS::AppSync::GraphQLSchema":                                      &appsync.GraphQLSchema{},
 		"AWS::AppSync::Resolver":                                           &appsync.Resolver{},
+		"AWS::AppSync::SourceApiAssociation":                               &appsync.SourceApiAssociation{},
 		"AWS::ApplicationAutoScaling::ScalableTarget":                      &applicationautoscaling.ScalableTarget{},
 		"AWS::ApplicationAutoScaling::ScalingPolicy":                       &applicationautoscaling.ScalingPolicy{},
 		"AWS::ApplicationInsights::Application":                            &applicationinsights.Application{},
@@ -424,6 +425,7 @@ func AllResources() map[string]Resource {
 		"AWS::CodeStarConnections::Connection":                             &codestarconnections.Connection{},
 		"AWS::CodeStarNotifications::NotificationRule":                     &codestarnotifications.NotificationRule{},
 		"AWS::Cognito::IdentityPool":                                       &cognito.IdentityPool{},
+		"AWS::Cognito::IdentityPoolPrincipalTag":                           &cognito.IdentityPoolPrincipalTag{},
 		"AWS::Cognito::IdentityPoolRoleAttachment":                         &cognito.IdentityPoolRoleAttachment{},
 		"AWS::Cognito::UserPool":                                           &cognito.UserPool{},
 		"AWS::Cognito::UserPoolClient":                                     &cognito.UserPoolClient{},
@@ -3548,6 +3550,30 @@ func (t *Template) GetAppSyncResolverWithName(name string) (*appsync.Resolver, e
 	return nil, fmt.Errorf("resource %q of type appsync.Resolver not found", name)
 }
 
+// GetAllAppSyncSourceApiAssociationResources retrieves all appsync.SourceApiAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllAppSyncSourceApiAssociationResources() map[string]*appsync.SourceApiAssociation {
+	results := map[string]*appsync.SourceApiAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appsync.SourceApiAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppSyncSourceApiAssociationWithName retrieves all appsync.SourceApiAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppSyncSourceApiAssociationWithName(name string) (*appsync.SourceApiAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appsync.SourceApiAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appsync.SourceApiAssociation not found", name)
+}
+
 // GetAllApplicationAutoScalingScalableTargetResources retrieves all applicationautoscaling.ScalableTarget items from an AWS CloudFormation template
 func (t *Template) GetAllApplicationAutoScalingScalableTargetResources() map[string]*applicationautoscaling.ScalableTarget {
 	results := map[string]*applicationautoscaling.ScalableTarget{}
@@ -5946,6 +5972,30 @@ func (t *Template) GetCognitoIdentityPoolWithName(name string) (*cognito.Identit
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cognito.IdentityPool not found", name)
+}
+
+// GetAllCognitoIdentityPoolPrincipalTagResources retrieves all cognito.IdentityPoolPrincipalTag items from an AWS CloudFormation template
+func (t *Template) GetAllCognitoIdentityPoolPrincipalTagResources() map[string]*cognito.IdentityPoolPrincipalTag {
+	results := map[string]*cognito.IdentityPoolPrincipalTag{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cognito.IdentityPoolPrincipalTag:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCognitoIdentityPoolPrincipalTagWithName retrieves all cognito.IdentityPoolPrincipalTag items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCognitoIdentityPoolPrincipalTagWithName(name string) (*cognito.IdentityPoolPrincipalTag, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cognito.IdentityPoolPrincipalTag:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cognito.IdentityPoolPrincipalTag not found", name)
 }
 
 // GetAllCognitoIdentityPoolRoleAttachmentResources retrieves all cognito.IdentityPoolRoleAttachment items from an AWS CloudFormation template
