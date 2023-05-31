@@ -72,10 +72,10 @@ func str3Wrap(fn func(interface{}, interface{}, interface{}) string) intrinsics.
 	}
 }
 
-func strVarArgsWrap(fn func(string, string, string, ...string) string) intrinsics.IntrinsicHandler {
+func strVarArgsWrap(fn func(...interface{}) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
-		if arr, ok := input.([]string); ok && len(arr) >= 3 {
-			return fn(arr[0], arr[1], arr[2], arr[3:]...)
+		if arr, ok := input.([]interface{}); ok {
+			return fn(arr...)
 		}
 		return nil
 	}
@@ -234,21 +234,24 @@ func CIDRPtr(ipBlock, count, cidrBits interface{}) *string {
 	return String(CIDR(ipBlock, count, cidrBits))
 }
 
-func FindInMap(mapName, topLevelKey, secondLevelKey string, defaultValue ...string) string {
-	var defaultVal string
-	if len(defaultValue) > 0 {
-		defaultVal = defaultValue[0]
+func FindInMap(args ...interface{}) string {
+	mapName := args[0]
+	topLevelKey := args[1]
+	secondLevelKey := args[2]
+	var defaultValue interface{}
+	if len(args) == 4 {
+		defaultValue = args[3]
 	}
 
-	if defaultVal == "" {
-		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ "%s", "%s", "%s" ] }`, mapName, topLevelKey, secondLevelKey))
+	if defaultValue == nil {
+		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q ] }`, mapName, topLevelKey, secondLevelKey))
 	} else {
-		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ "%s", "%s", "%s", { "DefaultValue": "%s" }] }`, mapName, topLevelKey, secondLevelKey, defaultVal))
+		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q, { "DefaultValue": %q }] }`, mapName, topLevelKey, secondLevelKey, defaultValue))
 	}
 }
 
-func FindInMapPtr(mapName, topLevelKey, secondLevelKey string, defaultValue ...string) *string {
-	return String(FindInMap(mapName, topLevelKey, secondLevelKey, defaultValue...))
+func FindInMapPtr(args ...interface{}) *string {
+	return String(FindInMap(args))
 }
 
 // If returns one value if the specified condition evaluates to true and another value if the specified condition evaluates to false. Currently, AWS CloudFormation supports the Fn::If intrinsic function in the metadata attribute, update policy attribute, and property values in the Resources section and Outputs sections of a template. You can use the AWS::NoValue pseudo parameter as a return value to remove the corresponding property.
