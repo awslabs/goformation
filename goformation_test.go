@@ -1047,7 +1047,7 @@ var _ = Describe("Goformation", func() {
 			},
 			{
 				Name:  "Fn::FindInMap",
-				Input: cloudformation.FindInMap("test-map", "test-top-level-key", "test-second-level-key", nil),
+				Input: cloudformation.FindInMap("test-map", "test-top-level-key", "test-second-level-key"),
 				Expected: map[string]interface{}{
 					"Fn::FindInMap": []interface{}{"test-map", "test-top-level-key", "test-second-level-key"},
 				},
