@@ -250,8 +250,8 @@ func FindInMap(args ...interface{}) string {
 	}
 }
 
-func FindInMapPtr(mapName, topLevelKey, secondLevelKey, defaultValue interface{}) *string {
-	return String(FindInMap(mapName, topLevelKey, secondLevelKey, defaultValue))
+func FindInMapPtr(args ...interface{}) *string {
+	return String(FindInMap(args))
 }
 
 // If returns one value if the specified condition evaluates to true and another value if the specified condition evaluates to false. Currently, AWS CloudFormation supports the Fn::If intrinsic function in the metadata attribute, update policy attribute, and property values in the Resources section and Outputs sections of a template. You can use the AWS::NoValue pseudo parameter as a return value to remove the corresponding property.
