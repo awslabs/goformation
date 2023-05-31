@@ -72,16 +72,10 @@ func str3Wrap(fn func(interface{}, interface{}, interface{}) string) intrinsics.
 	}
 }
 
-func str3Optional4Wrap(fn func(interface{}, interface{}, interface{}, interface{}) string) intrinsics.IntrinsicHandler {
+func strVarArgsWrap(fn func(...interface{}) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
 		if arr, ok := input.([]interface{}); ok {
-			switch len(arr) {
-			case 3:
-				return fn(arr[0], arr[1], arr[2], nil)
-			case 4:
-				return fn(arr[0], arr[1], arr[2], arr[3])
-			}
-			return nil
+			return fn(arr...)
 		}
 		return nil
 	}
@@ -122,7 +116,7 @@ var EncoderIntrinsics = map[string]intrinsics.IntrinsicHandler{
 	"Fn::If":          str3Wrap(If),
 	"Fn::Not":         strAWrap(Not),
 	"Fn::Or":          strAWrap(Or),
-	"Fn::FindInMap":   str3Optional4Wrap(FindInMap),
+	"Fn::FindInMap":   strVarArgsWrap(FindInMap),
 	"Fn::GetAtt":      strSplit2Wrap(GetAtt),
 	"Fn::GetAZs":      strWrap(GetAZs),
 	"Fn::ImportValue": strWrap(ImportValue),
@@ -240,10 +234,17 @@ func CIDRPtr(ipBlock, count, cidrBits interface{}) *string {
 	return String(CIDR(ipBlock, count, cidrBits))
 }
 
-// FindInMap returns the value corresponding to keys in a two-level map that is declared in the Mappings section.
-func FindInMap(mapName, topLevelKey, secondLevelKey, defaultValue interface{}) string {
+func FindInMap(args ...interface{}) string {
+	mapName := args[0]
+	topLevelKey := args[1]
+	secondLevelKey := args[2]
+	var defaultValue interface{}
+	if len(args) == 4 {
+		defaultValue = args[3]
+	}
+
 	if defaultValue == nil {
-		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q] }`, mapName, topLevelKey, secondLevelKey))
+		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q ] }`, mapName, topLevelKey, secondLevelKey))
 	} else {
 		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q, { "DefaultValue": %q }] }`, mapName, topLevelKey, secondLevelKey, defaultValue))
 	}
