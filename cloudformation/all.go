@@ -501,6 +501,7 @@ func AllResources() map[string]Resource {
 		"AWS::DataSync::Task":                                              &datasync.Task{},
 		"AWS::Detective::Graph":                                            &detective.Graph{},
 		"AWS::Detective::MemberInvitation":                                 &detective.MemberInvitation{},
+		"AWS::Detective::OrganizationAdmin":                                &detective.OrganizationAdmin{},
 		"AWS::DevOpsGuru::LogAnomalyDetectionIntegration":                  &devopsguru.LogAnomalyDetectionIntegration{},
 		"AWS::DevOpsGuru::NotificationChannel":                             &devopsguru.NotificationChannel{},
 		"AWS::DevOpsGuru::ResourceCollection":                              &devopsguru.ResourceCollection{},
@@ -7796,6 +7797,30 @@ func (t *Template) GetDetectiveMemberInvitationWithName(name string) (*detective
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type detective.MemberInvitation not found", name)
+}
+
+// GetAllDetectiveOrganizationAdminResources retrieves all detective.OrganizationAdmin items from an AWS CloudFormation template
+func (t *Template) GetAllDetectiveOrganizationAdminResources() map[string]*detective.OrganizationAdmin {
+	results := map[string]*detective.OrganizationAdmin{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *detective.OrganizationAdmin:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDetectiveOrganizationAdminWithName retrieves all detective.OrganizationAdmin items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDetectiveOrganizationAdminWithName(name string) (*detective.OrganizationAdmin, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *detective.OrganizationAdmin:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type detective.OrganizationAdmin not found", name)
 }
 
 // GetAllDevOpsGuruLogAnomalyDetectionIntegrationResources retrieves all devopsguru.LogAnomalyDetectionIntegration items from an AWS CloudFormation template
