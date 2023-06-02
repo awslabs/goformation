@@ -25,6 +25,11 @@ type DataSet_TransformOperation struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
 	FilterOperation *DataSet_FilterOperation `json:"FilterOperation,omitempty"`
 
+	// OverrideDatasetParameterOperation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-overridedatasetparameteroperation
+	OverrideDatasetParameterOperation *DataSet_OverrideDatasetParameterOperation `json:"OverrideDatasetParameterOperation,omitempty"`
+
 	// ProjectOperation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation

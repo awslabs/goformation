@@ -34,10 +34,20 @@ type DataSet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
 	DataSetId *string `json:"DataSetId,omitempty"`
 
+	// DataSetRefreshProperties AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetrefreshproperties
+	DataSetRefreshProperties *DataSet_DataSetRefreshProperties `json:"DataSetRefreshProperties,omitempty"`
+
 	// DataSetUsageConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetusageconfiguration
 	DataSetUsageConfiguration *DataSet_DataSetUsageConfiguration `json:"DataSetUsageConfiguration,omitempty"`
+
+	// DatasetParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetparameters
+	DatasetParameters []DataSet_DatasetParameter `json:"DatasetParameters,omitempty"`
 
 	// FieldFolders AWS CloudFormation Property
 	// Required: false
@@ -78,6 +88,11 @@ type DataSet struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
 	RowLevelPermissionDataSet *DataSet_RowLevelPermissionDataSet `json:"RowLevelPermissionDataSet,omitempty"`
+
+	// RowLevelPermissionTagConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration
+	RowLevelPermissionTagConfiguration *DataSet_RowLevelPermissionTagConfiguration `json:"RowLevelPermissionTagConfiguration,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

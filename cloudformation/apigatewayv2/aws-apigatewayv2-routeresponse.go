@@ -31,7 +31,7 @@ type RouteResponse struct {
 	// ResponseParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responseparameters
-	ResponseParameters interface{} `json:"ResponseParameters,omitempty"`
+	ResponseParameters map[string]RouteResponse_ParameterConstraints `json:"ResponseParameters,omitempty"`
 
 	// RouteId AWS CloudFormation Property
 	// Required: true
