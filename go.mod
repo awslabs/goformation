@@ -2,7 +2,7 @@ module github.com/awslabs/goformation/v7
 
 require (
 	github.com/onsi/ginkgo/v2 v2.10.0
-	github.com/onsi/gomega v1.27.7
+	github.com/onsi/gomega v1.27.8
 	github.com/xeipuuv/gojsonschema v1.2.0
 	gopkg.in/yaml.v3 v3.0.1
 )
