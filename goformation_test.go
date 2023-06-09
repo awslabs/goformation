@@ -1053,6 +1053,13 @@ var _ = Describe("Goformation", func() {
 				},
 			},
 			{
+				Name:  "Fn::FindInMap with DefaultValue",
+				Input: cloudformation.FindInMap("test-map", "test-top-level-key", "test-second-level-key", "test-default-value"),
+				Expected: map[string]interface{}{
+					"Fn::FindInMap": []interface{}{"test-map", "test-top-level-key", "test-second-level-key", map[string]interface{}{"DefaultValue": "test-default-value"}},
+				},
+			},
+			{
 				Name:  "Fn::GetAZs",
 				Input: cloudformation.GetAZs("test-region"),
 				Expected: map[string]interface{}{

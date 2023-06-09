@@ -72,6 +72,24 @@ func str3Wrap(fn func(interface{}, interface{}, interface{}) string) intrinsics.
 	}
 }
 
+func findInMapWrap(fn func(interface{}, interface{}, interface{}, ...interface{}) string) intrinsics.IntrinsicHandler {
+	return func(name string, input interface{}, template interface{}) interface{} {
+		if arr, ok := input.([]interface{}); ok {
+			if len(arr) < 3 {
+				return nil
+			}
+
+			mapName := arr[0]
+			topLevelKey := arr[1]
+			secondLevelKey := arr[2]
+			additional := arr[3:]
+
+			return fn(mapName, topLevelKey, secondLevelKey, additional...)
+		}
+		return nil
+	}
+}
+
 func str2AWrap(fn func(interface{}, []string) string) intrinsics.IntrinsicHandler {
 	return func(name string, input interface{}, template interface{}) interface{} {
 		if arr, ok := input.([]interface{}); ok {
@@ -107,7 +125,7 @@ var EncoderIntrinsics = map[string]intrinsics.IntrinsicHandler{
 	"Fn::If":          str3Wrap(If),
 	"Fn::Not":         strAWrap(Not),
 	"Fn::Or":          strAWrap(Or),
-	"Fn::FindInMap":   str3Wrap(FindInMap),
+	"Fn::FindInMap":   findInMapWrap(FindInMap),
 	"Fn::GetAtt":      strSplit2Wrap(GetAtt),
 	"Fn::GetAZs":      strWrap(GetAZs),
 	"Fn::ImportValue": strWrap(ImportValue),
@@ -225,13 +243,21 @@ func CIDRPtr(ipBlock, count, cidrBits interface{}) *string {
 	return String(CIDR(ipBlock, count, cidrBits))
 }
 
-// FindInMap returns the value corresponding to keys in a two-level map that is declared in the Mappings section.
-func FindInMap(mapName, topLevelKey, secondLevelKey interface{}) string {
-	return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q ] }`, mapName, topLevelKey, secondLevelKey))
+func FindInMap(mapName, topLevelKey, secondLevelKey interface{}, additional ...interface{}) string {
+	var defaultValue interface{}
+	if len(additional) > 0 {
+		defaultValue = additional[0]
+	}
+
+	if defaultValue == nil {
+		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q ] }`, mapName, topLevelKey, secondLevelKey))
+	} else {
+		return encode(fmt.Sprintf(`{ "Fn::FindInMap" : [ %q, %q, %q, { "DefaultValue": %q }] }`, mapName, topLevelKey, secondLevelKey, defaultValue))
+	}
 }
 
-func FindInMapPtr(mapName, topLevelKey, secondLevelKey interface{}) *string {
-	return String(FindInMap(mapName, topLevelKey, secondLevelKey))
+func FindInMapPtr(mapName, topLevelKey, secondLevelKey interface{}, additional ...interface{}) *string {
+	return String(FindInMap(mapName, topLevelKey, secondLevelKey, additional...))
 }
 
 // If returns one value if the specified condition evaluates to true and another value if the specified condition evaluates to false. Currently, AWS CloudFormation supports the Fn::If intrinsic function in the metadata attribute, update policy attribute, and property values in the Resources section and Outputs sections of a template. You can use the AWS::NoValue pseudo parameter as a return value to remove the corresponding property.
