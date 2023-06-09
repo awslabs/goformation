@@ -41,14 +41,20 @@ func addTagResolver(tag string, resolver func(*yaml.Node) (*yaml.Node, error)) {
 }
 
 func resolveTags(node *yaml.Node) (*yaml.Node, error) {
+	var err error
+
 	for tag, fn := range tagResolvers {
+		// Transform the node if it has the tag
+		// But keep processing the children
 		if node.Tag == tag {
-			return fn(node)
+			node, err = fn(node)
+			if err != nil {
+				return nil, err
+			}
 		}
 	}
 
 	if node.Kind == yaml.SequenceNode || node.Kind == yaml.MappingNode {
-		var err error
 		for i := range node.Content {
 			node.Content[i], err = resolveTags(node.Content[i])
 			if err != nil {
