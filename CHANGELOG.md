@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.8.0](https://github.com/awslabs/goformation/compare/v7.7.11...v7.8.0) (2023-06-09)
+
+
+### Features
+
+* **intrinsics:** add support for FindInMap default ([#546](https://github.com/awslabs/goformation/issues/546)) ([5f27b01](https://github.com/awslabs/goformation/commit/5f27b011a112783e665c9edf0337d1e4d6666289))
+
 ## [7.7.11](https://github.com/awslabs/goformation/compare/v7.7.10...v7.7.11) (2023-06-09)
 
 
