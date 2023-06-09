@@ -328,6 +328,7 @@ func AllResources() map[string]Resource {
 		"AWS::ApplicationAutoScaling::ScalableTarget":                      &applicationautoscaling.ScalableTarget{},
 		"AWS::ApplicationAutoScaling::ScalingPolicy":                       &applicationautoscaling.ScalingPolicy{},
 		"AWS::ApplicationInsights::Application":                            &applicationinsights.Application{},
+		"AWS::Athena::CapacityReservation":                                 &athena.CapacityReservation{},
 		"AWS::Athena::DataCatalog":                                         &athena.DataCatalog{},
 		"AWS::Athena::NamedQuery":                                          &athena.NamedQuery{},
 		"AWS::Athena::PreparedStatement":                                   &athena.PreparedStatement{},
@@ -466,6 +467,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::UserHierarchyGroup":                                 &connect.UserHierarchyGroup{},
 		"AWS::ConnectCampaigns::Campaign":                                  &connectcampaigns.Campaign{},
 		"AWS::ControlTower::EnabledControl":                                &controltower.EnabledControl{},
+		"AWS::CustomerProfiles::CalculatedAttributeDefinition":             &customerprofiles.CalculatedAttributeDefinition{},
 		"AWS::CustomerProfiles::Domain":                                    &customerprofiles.Domain{},
 		"AWS::CustomerProfiles::Integration":                               &customerprofiles.Integration{},
 		"AWS::CustomerProfiles::ObjectType":                                &customerprofiles.ObjectType{},
@@ -3645,6 +3647,30 @@ func (t *Template) GetApplicationInsightsApplicationWithName(name string) (*appl
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type applicationinsights.Application not found", name)
+}
+
+// GetAllAthenaCapacityReservationResources retrieves all athena.CapacityReservation items from an AWS CloudFormation template
+func (t *Template) GetAllAthenaCapacityReservationResources() map[string]*athena.CapacityReservation {
+	results := map[string]*athena.CapacityReservation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *athena.CapacityReservation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAthenaCapacityReservationWithName retrieves all athena.CapacityReservation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAthenaCapacityReservationWithName(name string) (*athena.CapacityReservation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *athena.CapacityReservation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type athena.CapacityReservation not found", name)
 }
 
 // GetAllAthenaDataCatalogResources retrieves all athena.DataCatalog items from an AWS CloudFormation template
@@ -6957,6 +6983,30 @@ func (t *Template) GetControlTowerEnabledControlWithName(name string) (*controlt
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type controltower.EnabledControl not found", name)
+}
+
+// GetAllCustomerProfilesCalculatedAttributeDefinitionResources retrieves all customerprofiles.CalculatedAttributeDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllCustomerProfilesCalculatedAttributeDefinitionResources() map[string]*customerprofiles.CalculatedAttributeDefinition {
+	results := map[string]*customerprofiles.CalculatedAttributeDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *customerprofiles.CalculatedAttributeDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCustomerProfilesCalculatedAttributeDefinitionWithName retrieves all customerprofiles.CalculatedAttributeDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCustomerProfilesCalculatedAttributeDefinitionWithName(name string) (*customerprofiles.CalculatedAttributeDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *customerprofiles.CalculatedAttributeDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type customerprofiles.CalculatedAttributeDefinition not found", name)
 }
 
 // GetAllCustomerProfilesDomainResources retrieves all customerprofiles.Domain items from an AWS CloudFormation template

@@ -29,9 +29,9 @@ type ScalableTarget struct {
 	ResourceId string `json:"ResourceId"`
 
 	// RoleARN AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn
-	RoleARN string `json:"RoleARN"`
+	RoleARN *string `json:"RoleARN,omitempty"`
 
 	// ScalableDimension AWS CloudFormation Property
 	// Required: true
