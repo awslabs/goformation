@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [7.8.1](https://github.com/awslabs/goformation/compare/v7.8.0...v7.8.1) (2023-06-09)
+
+
+### Bug Fixes
+
+* **intrinsics:** continue to process children when transforming ([#599](https://github.com/awslabs/goformation/issues/599)) ([396f0fe](https://github.com/awslabs/goformation/commit/396f0fee8dd69af088d7573d7d2c5cf02df04c4c))
+
 # [7.8.0](https://github.com/awslabs/goformation/compare/v7.7.11...v7.8.0) (2023-06-09)
 
 
