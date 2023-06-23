@@ -713,6 +713,7 @@ func AllResources() map[string]Resource {
 		"AWS::Glue::Connection":                                            &glue.Connection{},
 		"AWS::Glue::Crawler":                                               &glue.Crawler{},
 		"AWS::Glue::DataCatalogEncryptionSettings":                         &glue.DataCatalogEncryptionSettings{},
+		"AWS::Glue::DataQualityRuleset":                                    &glue.DataQualityRuleset{},
 		"AWS::Glue::Database":                                              &glue.Database{},
 		"AWS::Glue::DevEndpoint":                                           &glue.DevEndpoint{},
 		"AWS::Glue::Job":                                                   &glue.Job{},
@@ -1020,6 +1021,7 @@ func AllResources() map[string]Resource {
 		"AWS::OpsWorks::Volume":                                            &opsworks.Volume{},
 		"AWS::OpsWorksCM::Server":                                          &opsworkscm.Server{},
 		"AWS::Organizations::Account":                                      &organizations.Account{},
+		"AWS::Organizations::Organization":                                 &organizations.Organization{},
 		"AWS::Organizations::OrganizationalUnit":                           &organizations.OrganizationalUnit{},
 		"AWS::Organizations::Policy":                                       &organizations.Policy{},
 		"AWS::Organizations::ResourcePolicy":                               &organizations.ResourcePolicy{},
@@ -1267,6 +1269,8 @@ func AllResources() map[string]Resource {
 		"AWS::SimSpaceWeaver::Simulation":                                  &simspaceweaver.Simulation{},
 		"AWS::StepFunctions::Activity":                                     &stepfunctions.Activity{},
 		"AWS::StepFunctions::StateMachine":                                 &stepfunctions.StateMachine{},
+		"AWS::StepFunctions::StateMachineAlias":                            &stepfunctions.StateMachineAlias{},
+		"AWS::StepFunctions::StateMachineVersion":                          &stepfunctions.StateMachineVersion{},
 		"AWS::SupportApp::AccountAlias":                                    &supportapp.AccountAlias{},
 		"AWS::SupportApp::SlackChannelConfiguration":                       &supportapp.SlackChannelConfiguration{},
 		"AWS::SupportApp::SlackWorkspaceConfiguration":                     &supportapp.SlackWorkspaceConfiguration{},
@@ -12878,6 +12882,30 @@ func (t *Template) GetGlueDataCatalogEncryptionSettingsWithName(name string) (*g
 	return nil, fmt.Errorf("resource %q of type glue.DataCatalogEncryptionSettings not found", name)
 }
 
+// GetAllGlueDataQualityRulesetResources retrieves all glue.DataQualityRuleset items from an AWS CloudFormation template
+func (t *Template) GetAllGlueDataQualityRulesetResources() map[string]*glue.DataQualityRuleset {
+	results := map[string]*glue.DataQualityRuleset{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *glue.DataQualityRuleset:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGlueDataQualityRulesetWithName retrieves all glue.DataQualityRuleset items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGlueDataQualityRulesetWithName(name string) (*glue.DataQualityRuleset, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *glue.DataQualityRuleset:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type glue.DataQualityRuleset not found", name)
+}
+
 // GetAllGlueDatabaseResources retrieves all glue.Database items from an AWS CloudFormation template
 func (t *Template) GetAllGlueDatabaseResources() map[string]*glue.Database {
 	results := map[string]*glue.Database{}
@@ -20246,6 +20274,30 @@ func (t *Template) GetOrganizationsAccountWithName(name string) (*organizations.
 	return nil, fmt.Errorf("resource %q of type organizations.Account not found", name)
 }
 
+// GetAllOrganizationsOrganizationResources retrieves all organizations.Organization items from an AWS CloudFormation template
+func (t *Template) GetAllOrganizationsOrganizationResources() map[string]*organizations.Organization {
+	results := map[string]*organizations.Organization{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *organizations.Organization:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetOrganizationsOrganizationWithName retrieves all organizations.Organization items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetOrganizationsOrganizationWithName(name string) (*organizations.Organization, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *organizations.Organization:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type organizations.Organization not found", name)
+}
+
 // GetAllOrganizationsOrganizationalUnitResources retrieves all organizations.OrganizationalUnit items from an AWS CloudFormation template
 func (t *Template) GetAllOrganizationsOrganizationalUnitResources() map[string]*organizations.OrganizationalUnit {
 	results := map[string]*organizations.OrganizationalUnit{}
@@ -26172,6 +26224,54 @@ func (t *Template) GetStepFunctionsStateMachineWithName(name string) (*stepfunct
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type stepfunctions.StateMachine not found", name)
+}
+
+// GetAllStepFunctionsStateMachineAliasResources retrieves all stepfunctions.StateMachineAlias items from an AWS CloudFormation template
+func (t *Template) GetAllStepFunctionsStateMachineAliasResources() map[string]*stepfunctions.StateMachineAlias {
+	results := map[string]*stepfunctions.StateMachineAlias{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *stepfunctions.StateMachineAlias:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetStepFunctionsStateMachineAliasWithName retrieves all stepfunctions.StateMachineAlias items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetStepFunctionsStateMachineAliasWithName(name string) (*stepfunctions.StateMachineAlias, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *stepfunctions.StateMachineAlias:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type stepfunctions.StateMachineAlias not found", name)
+}
+
+// GetAllStepFunctionsStateMachineVersionResources retrieves all stepfunctions.StateMachineVersion items from an AWS CloudFormation template
+func (t *Template) GetAllStepFunctionsStateMachineVersionResources() map[string]*stepfunctions.StateMachineVersion {
+	results := map[string]*stepfunctions.StateMachineVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *stepfunctions.StateMachineVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetStepFunctionsStateMachineVersionWithName retrieves all stepfunctions.StateMachineVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetStepFunctionsStateMachineVersionWithName(name string) (*stepfunctions.StateMachineVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *stepfunctions.StateMachineVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type stepfunctions.StateMachineVersion not found", name)
 }
 
 // GetAllSupportAppAccountAliasResources retrieves all supportapp.AccountAlias items from an AWS CloudFormation template
