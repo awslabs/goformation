@@ -15,10 +15,20 @@ type VerifiedAccessInstance_VerifiedAccessLogs struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-cloudwatchlogs
 	CloudWatchLogs *VerifiedAccessInstance_CloudWatchLogs `json:"CloudWatchLogs,omitempty"`
 
+	// IncludeTrustContext AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-includetrustcontext
+	IncludeTrustContext *bool `json:"IncludeTrustContext,omitempty"`
+
 	// KinesisDataFirehose AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-kinesisdatafirehose
 	KinesisDataFirehose *VerifiedAccessInstance_KinesisDataFirehose `json:"KinesisDataFirehose,omitempty"`
+
+	// LogVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-logversion
+	LogVersion *string `json:"LogVersion,omitempty"`
 
 	// S3 AWS CloudFormation Property
 	// Required: false

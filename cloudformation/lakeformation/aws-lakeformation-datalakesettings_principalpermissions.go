@@ -11,14 +11,14 @@ import (
 type DataLakeSettings_PrincipalPermissions struct {
 
 	// Permissions AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html#cfn-lakeformation-datalakesettings-principalpermissions-permissions
-	Permissions *DataLakeSettings_Permissions `json:"Permissions,omitempty"`
+	Permissions []string `json:"Permissions"`
 
 	// Principal AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html#cfn-lakeformation-datalakesettings-principalpermissions-principal
-	Principal *DataLakeSettings_DataLakePrincipal `json:"Principal,omitempty"`
+	Principal *DataLakeSettings_DataLakePrincipal `json:"Principal"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

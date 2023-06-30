@@ -217,6 +217,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/systemsmanagersap"
 	"github.com/awslabs/goformation/v7/cloudformation/timestream"
 	"github.com/awslabs/goformation/v7/cloudformation/transfer"
+	"github.com/awslabs/goformation/v7/cloudformation/verifiedpermissions"
 	"github.com/awslabs/goformation/v7/cloudformation/voiceid"
 	"github.com/awslabs/goformation/v7/cloudformation/vpclattice"
 	"github.com/awslabs/goformation/v7/cloudformation/waf"
@@ -300,11 +301,13 @@ func AllResources() map[string]Resource {
 		"AWS::AppMesh::VirtualNode":                                        &appmesh.VirtualNode{},
 		"AWS::AppMesh::VirtualRouter":                                      &appmesh.VirtualRouter{},
 		"AWS::AppMesh::VirtualService":                                     &appmesh.VirtualService{},
+		"AWS::AppRunner::AutoScalingConfiguration":                         &apprunner.AutoScalingConfiguration{},
 		"AWS::AppRunner::ObservabilityConfiguration":                       &apprunner.ObservabilityConfiguration{},
 		"AWS::AppRunner::Service":                                          &apprunner.Service{},
 		"AWS::AppRunner::VpcConnector":                                     &apprunner.VpcConnector{},
 		"AWS::AppRunner::VpcIngressConnection":                             &apprunner.VpcIngressConnection{},
 		"AWS::AppStream::AppBlock":                                         &appstream.AppBlock{},
+		"AWS::AppStream::AppBlockBuilder":                                  &appstream.AppBlockBuilder{},
 		"AWS::AppStream::Application":                                      &appstream.Application{},
 		"AWS::AppStream::ApplicationEntitlementAssociation":                &appstream.ApplicationEntitlementAssociation{},
 		"AWS::AppStream::ApplicationFleetAssociation":                      &appstream.ApplicationFleetAssociation{},
@@ -443,6 +446,7 @@ func AllResources() map[string]Resource {
 		"AWS::Cognito::UserPoolUICustomizationAttachment":                  &cognito.UserPoolUICustomizationAttachment{},
 		"AWS::Cognito::UserPoolUser":                                       &cognito.UserPoolUser{},
 		"AWS::Cognito::UserPoolUserToGroupAttachment":                      &cognito.UserPoolUserToGroupAttachment{},
+		"AWS::Comprehend::DocumentClassifier":                              &comprehend.DocumentClassifier{},
 		"AWS::Comprehend::Flywheel":                                        &comprehend.Flywheel{},
 		"AWS::Config::AggregationAuthorization":                            &config.AggregationAuthorization{},
 		"AWS::Config::ConfigRule":                                          &config.ConfigRule{},
@@ -1287,6 +1291,10 @@ func AllResources() map[string]Resource {
 		"AWS::Transfer::Server":                                            &transfer.Server{},
 		"AWS::Transfer::User":                                              &transfer.User{},
 		"AWS::Transfer::Workflow":                                          &transfer.Workflow{},
+		"AWS::VerifiedPermissions::IdentitySource":                         &verifiedpermissions.IdentitySource{},
+		"AWS::VerifiedPermissions::Policy":                                 &verifiedpermissions.Policy{},
+		"AWS::VerifiedPermissions::PolicyStore":                            &verifiedpermissions.PolicyStore{},
+		"AWS::VerifiedPermissions::PolicyTemplate":                         &verifiedpermissions.PolicyTemplate{},
 		"AWS::VoiceID::Domain":                                             &voiceid.Domain{},
 		"AWS::VpcLattice::AccessLogSubscription":                           &vpclattice.AccessLogSubscription{},
 		"AWS::VpcLattice::AuthPolicy":                                      &vpclattice.AuthPolicy{},
@@ -2970,6 +2978,30 @@ func (t *Template) GetAppMeshVirtualServiceWithName(name string) (*appmesh.Virtu
 	return nil, fmt.Errorf("resource %q of type appmesh.VirtualService not found", name)
 }
 
+// GetAllAppRunnerAutoScalingConfigurationResources retrieves all apprunner.AutoScalingConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllAppRunnerAutoScalingConfigurationResources() map[string]*apprunner.AutoScalingConfiguration {
+	results := map[string]*apprunner.AutoScalingConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *apprunner.AutoScalingConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppRunnerAutoScalingConfigurationWithName retrieves all apprunner.AutoScalingConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppRunnerAutoScalingConfigurationWithName(name string) (*apprunner.AutoScalingConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *apprunner.AutoScalingConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type apprunner.AutoScalingConfiguration not found", name)
+}
+
 // GetAllAppRunnerObservabilityConfigurationResources retrieves all apprunner.ObservabilityConfiguration items from an AWS CloudFormation template
 func (t *Template) GetAllAppRunnerObservabilityConfigurationResources() map[string]*apprunner.ObservabilityConfiguration {
 	results := map[string]*apprunner.ObservabilityConfiguration{}
@@ -3088,6 +3120,30 @@ func (t *Template) GetAppStreamAppBlockWithName(name string) (*appstream.AppBloc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type appstream.AppBlock not found", name)
+}
+
+// GetAllAppStreamAppBlockBuilderResources retrieves all appstream.AppBlockBuilder items from an AWS CloudFormation template
+func (t *Template) GetAllAppStreamAppBlockBuilderResources() map[string]*appstream.AppBlockBuilder {
+	results := map[string]*appstream.AppBlockBuilder{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *appstream.AppBlockBuilder:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppStreamAppBlockBuilderWithName retrieves all appstream.AppBlockBuilder items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppStreamAppBlockBuilderWithName(name string) (*appstream.AppBlockBuilder, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *appstream.AppBlockBuilder:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type appstream.AppBlockBuilder not found", name)
 }
 
 // GetAllAppStreamApplicationResources retrieves all appstream.Application items from an AWS CloudFormation template
@@ -6400,6 +6456,30 @@ func (t *Template) GetCognitoUserPoolUserToGroupAttachmentWithName(name string) 
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cognito.UserPoolUserToGroupAttachment not found", name)
+}
+
+// GetAllComprehendDocumentClassifierResources retrieves all comprehend.DocumentClassifier items from an AWS CloudFormation template
+func (t *Template) GetAllComprehendDocumentClassifierResources() map[string]*comprehend.DocumentClassifier {
+	results := map[string]*comprehend.DocumentClassifier{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *comprehend.DocumentClassifier:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetComprehendDocumentClassifierWithName retrieves all comprehend.DocumentClassifier items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetComprehendDocumentClassifierWithName(name string) (*comprehend.DocumentClassifier, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *comprehend.DocumentClassifier:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type comprehend.DocumentClassifier not found", name)
 }
 
 // GetAllComprehendFlywheelResources retrieves all comprehend.Flywheel items from an AWS CloudFormation template
@@ -26656,6 +26736,102 @@ func (t *Template) GetTransferWorkflowWithName(name string) (*transfer.Workflow,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type transfer.Workflow not found", name)
+}
+
+// GetAllVerifiedPermissionsIdentitySourceResources retrieves all verifiedpermissions.IdentitySource items from an AWS CloudFormation template
+func (t *Template) GetAllVerifiedPermissionsIdentitySourceResources() map[string]*verifiedpermissions.IdentitySource {
+	results := map[string]*verifiedpermissions.IdentitySource{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.IdentitySource:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVerifiedPermissionsIdentitySourceWithName retrieves all verifiedpermissions.IdentitySource items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVerifiedPermissionsIdentitySourceWithName(name string) (*verifiedpermissions.IdentitySource, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.IdentitySource:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type verifiedpermissions.IdentitySource not found", name)
+}
+
+// GetAllVerifiedPermissionsPolicyResources retrieves all verifiedpermissions.Policy items from an AWS CloudFormation template
+func (t *Template) GetAllVerifiedPermissionsPolicyResources() map[string]*verifiedpermissions.Policy {
+	results := map[string]*verifiedpermissions.Policy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.Policy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVerifiedPermissionsPolicyWithName retrieves all verifiedpermissions.Policy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVerifiedPermissionsPolicyWithName(name string) (*verifiedpermissions.Policy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.Policy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type verifiedpermissions.Policy not found", name)
+}
+
+// GetAllVerifiedPermissionsPolicyStoreResources retrieves all verifiedpermissions.PolicyStore items from an AWS CloudFormation template
+func (t *Template) GetAllVerifiedPermissionsPolicyStoreResources() map[string]*verifiedpermissions.PolicyStore {
+	results := map[string]*verifiedpermissions.PolicyStore{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.PolicyStore:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVerifiedPermissionsPolicyStoreWithName retrieves all verifiedpermissions.PolicyStore items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVerifiedPermissionsPolicyStoreWithName(name string) (*verifiedpermissions.PolicyStore, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.PolicyStore:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type verifiedpermissions.PolicyStore not found", name)
+}
+
+// GetAllVerifiedPermissionsPolicyTemplateResources retrieves all verifiedpermissions.PolicyTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllVerifiedPermissionsPolicyTemplateResources() map[string]*verifiedpermissions.PolicyTemplate {
+	results := map[string]*verifiedpermissions.PolicyTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.PolicyTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetVerifiedPermissionsPolicyTemplateWithName retrieves all verifiedpermissions.PolicyTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetVerifiedPermissionsPolicyTemplateWithName(name string) (*verifiedpermissions.PolicyTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *verifiedpermissions.PolicyTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type verifiedpermissions.PolicyTemplate not found", name)
 }
 
 // GetAllVoiceIDDomainResources retrieves all voiceid.Domain items from an AWS CloudFormation template

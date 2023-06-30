@@ -21,9 +21,9 @@ type Analysis_ReferenceLineDynamicDataConfiguration struct {
 	Column *Analysis_ColumnIdentifier `json:"Column"`
 
 	// MeasureAggregationFunction AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html#cfn-quicksight-analysis-referencelinedynamicdataconfiguration-measureaggregationfunction
-	MeasureAggregationFunction *Analysis_AggregationFunction `json:"MeasureAggregationFunction"`
+	MeasureAggregationFunction *Analysis_AggregationFunction `json:"MeasureAggregationFunction,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

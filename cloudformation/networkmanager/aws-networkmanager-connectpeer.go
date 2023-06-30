@@ -30,9 +30,9 @@ type ConnectPeer struct {
 	CoreNetworkAddress *string `json:"CoreNetworkAddress,omitempty"`
 
 	// InsideCidrBlocks AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html#cfn-networkmanager-connectpeer-insidecidrblocks
-	InsideCidrBlocks []string `json:"InsideCidrBlocks"`
+	InsideCidrBlocks []string `json:"InsideCidrBlocks,omitempty"`
 
 	// PeerAddress AWS CloudFormation Property
 	// Required: true
