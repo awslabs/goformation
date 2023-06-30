@@ -11,9 +11,9 @@ import (
 type Dashboard_AggregationSortConfiguration struct {
 
 	// AggregationFunction AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-aggregationsortconfiguration.html#cfn-quicksight-dashboard-aggregationsortconfiguration-aggregationfunction
-	AggregationFunction *Dashboard_AggregationFunction `json:"AggregationFunction"`
+	AggregationFunction *Dashboard_AggregationFunction `json:"AggregationFunction,omitempty"`
 
 	// Column AWS CloudFormation Property
 	// Required: true

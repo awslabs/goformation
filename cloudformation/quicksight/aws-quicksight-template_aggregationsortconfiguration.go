@@ -11,9 +11,9 @@ import (
 type Template_AggregationSortConfiguration struct {
 
 	// AggregationFunction AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-aggregationsortconfiguration.html#cfn-quicksight-template-aggregationsortconfiguration-aggregationfunction
-	AggregationFunction *Template_AggregationFunction `json:"AggregationFunction"`
+	AggregationFunction *Template_AggregationFunction `json:"AggregationFunction,omitempty"`
 
 	// Column AWS CloudFormation Property
 	// Required: true

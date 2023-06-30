@@ -16,9 +16,9 @@ type AppBlock_S3Location struct {
 	S3Bucket string `json:"S3Bucket"`
 
 	// S3Key AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-s3location.html#cfn-appstream-appblock-s3location-s3key
-	S3Key string `json:"S3Key"`
+	S3Key *string `json:"S3Key,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -20,19 +20,19 @@ type Theme struct {
 	AwsAccountId string `json:"AwsAccountId"`
 
 	// BaseThemeId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
-	BaseThemeId *string `json:"BaseThemeId,omitempty"`
+	BaseThemeId string `json:"BaseThemeId"`
 
 	// Configuration AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-	Configuration *Theme_ThemeConfiguration `json:"Configuration,omitempty"`
+	Configuration *Theme_ThemeConfiguration `json:"Configuration"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Permissions AWS CloudFormation Property
 	// Required: false

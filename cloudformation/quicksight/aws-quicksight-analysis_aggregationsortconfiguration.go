@@ -11,9 +11,9 @@ import (
 type Analysis_AggregationSortConfiguration struct {
 
 	// AggregationFunction AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-aggregationsortconfiguration.html#cfn-quicksight-analysis-aggregationsortconfiguration-aggregationfunction
-	AggregationFunction *Analysis_AggregationFunction `json:"AggregationFunction"`
+	AggregationFunction *Analysis_AggregationFunction `json:"AggregationFunction,omitempty"`
 
 	// Column AWS CloudFormation Property
 	// Required: true

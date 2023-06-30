@@ -29,11 +29,6 @@ type ApplicationInstance struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-description
 	Description *string `json:"Description,omitempty"`
 
-	// DeviceId AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-deviceid
-	DeviceId *string `json:"DeviceId,omitempty"`
-
 	// ManifestOverridesPayload AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-manifestoverridespayload
@@ -53,11 +48,6 @@ type ApplicationInstance struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-runtimerolearn
 	RuntimeRoleArn *string `json:"RuntimeRoleArn,omitempty"`
-
-	// StatusFilter AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html#cfn-panorama-applicationinstance-statusfilter
-	StatusFilter *string `json:"StatusFilter,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

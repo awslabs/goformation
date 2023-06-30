@@ -21,9 +21,9 @@ type Template_ReferenceLineDynamicDataConfiguration struct {
 	Column *Template_ColumnIdentifier `json:"Column"`
 
 	// MeasureAggregationFunction AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinedynamicdataconfiguration.html#cfn-quicksight-template-referencelinedynamicdataconfiguration-measureaggregationfunction
-	MeasureAggregationFunction *Template_AggregationFunction `json:"MeasureAggregationFunction"`
+	MeasureAggregationFunction *Template_AggregationFunction `json:"MeasureAggregationFunction,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
