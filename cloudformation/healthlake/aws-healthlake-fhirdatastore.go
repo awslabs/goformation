@@ -24,6 +24,11 @@ type FHIRDatastore struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastoretypeversion
 	DatastoreTypeVersion string `json:"DatastoreTypeVersion"`
 
+	// IdentityProviderConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration
+	IdentityProviderConfiguration *FHIRDatastore_IdentityProviderConfiguration `json:"IdentityProviderConfiguration,omitempty"`
+
 	// PreloadDataConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-preloaddataconfig
