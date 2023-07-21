@@ -33,6 +33,16 @@ type Broker struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration
 	Configuration *Broker_ConfigurationId `json:"Configuration,omitempty"`
 
+	// DataReplicationMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-datareplicationmode
+	DataReplicationMode *string `json:"DataReplicationMode,omitempty"`
+
+	// DataReplicationPrimaryBrokerArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-datareplicationprimarybrokerarn
+	DataReplicationPrimaryBrokerArn *string `json:"DataReplicationPrimaryBrokerArn,omitempty"`
+
 	// DeploymentMode AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode

@@ -468,7 +468,9 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::IntegrationAssociation":                             &connect.IntegrationAssociation{},
 		"AWS::Connect::PhoneNumber":                                        &connect.PhoneNumber{},
 		"AWS::Connect::Prompt":                                             &connect.Prompt{},
+		"AWS::Connect::Queue":                                              &connect.Queue{},
 		"AWS::Connect::QuickConnect":                                       &connect.QuickConnect{},
+		"AWS::Connect::RoutingProfile":                                     &connect.RoutingProfile{},
 		"AWS::Connect::Rule":                                               &connect.Rule{},
 		"AWS::Connect::SecurityKey":                                        &connect.SecurityKey{},
 		"AWS::Connect::TaskTemplate":                                       &connect.TaskTemplate{},
@@ -762,15 +764,18 @@ func AllResources() map[string]Resource {
 		"AWS::HealthLake::FHIRDatastore":                                   &healthlake.FHIRDatastore{},
 		"AWS::IAM::AccessKey":                                              &iam.AccessKey{},
 		"AWS::IAM::Group":                                                  &iam.Group{},
+		"AWS::IAM::GroupPolicy":                                            &iam.GroupPolicy{},
 		"AWS::IAM::InstanceProfile":                                        &iam.InstanceProfile{},
 		"AWS::IAM::ManagedPolicy":                                          &iam.ManagedPolicy{},
 		"AWS::IAM::OIDCProvider":                                           &iam.OIDCProvider{},
 		"AWS::IAM::Policy":                                                 &iam.Policy{},
 		"AWS::IAM::Role":                                                   &iam.Role{},
+		"AWS::IAM::RolePolicy":                                             &iam.RolePolicy{},
 		"AWS::IAM::SAMLProvider":                                           &iam.SAMLProvider{},
 		"AWS::IAM::ServerCertificate":                                      &iam.ServerCertificate{},
 		"AWS::IAM::ServiceLinkedRole":                                      &iam.ServiceLinkedRole{},
 		"AWS::IAM::User":                                                   &iam.User{},
+		"AWS::IAM::UserPolicy":                                             &iam.UserPolicy{},
 		"AWS::IAM::UserToGroupAddition":                                    &iam.UserToGroupAddition{},
 		"AWS::IAM::VirtualMFADevice":                                       &iam.VirtualMFADevice{},
 		"AWS::IVS::Channel":                                                &ivs.Channel{},
@@ -920,6 +925,7 @@ func AllResources() map[string]Resource {
 		"AWS::Location::RouteCalculator":                                   &location.RouteCalculator{},
 		"AWS::Location::Tracker":                                           &location.Tracker{},
 		"AWS::Location::TrackerConsumer":                                   &location.TrackerConsumer{},
+		"AWS::Logs::AccountPolicy":                                         &logs.AccountPolicy{},
 		"AWS::Logs::Destination":                                           &logs.Destination{},
 		"AWS::Logs::LogGroup":                                              &logs.LogGroup{},
 		"AWS::Logs::LogStream":                                             &logs.LogStream{},
@@ -1174,6 +1180,7 @@ func AllResources() map[string]Resource {
 		"AWS::SES::VdmAttributes":                                          &ses.VdmAttributes{},
 		"AWS::SNS::Subscription":                                           &sns.Subscription{},
 		"AWS::SNS::Topic":                                                  &sns.Topic{},
+		"AWS::SNS::TopicInlinePolicy":                                      &sns.TopicInlinePolicy{},
 		"AWS::SNS::TopicPolicy":                                            &sns.TopicPolicy{},
 		"AWS::SQS::Queue":                                                  &sqs.Queue{},
 		"AWS::SQS::QueuePolicy":                                            &sqs.QueuePolicy{},
@@ -6986,6 +6993,30 @@ func (t *Template) GetConnectPromptWithName(name string) (*connect.Prompt, error
 	return nil, fmt.Errorf("resource %q of type connect.Prompt not found", name)
 }
 
+// GetAllConnectQueueResources retrieves all connect.Queue items from an AWS CloudFormation template
+func (t *Template) GetAllConnectQueueResources() map[string]*connect.Queue {
+	results := map[string]*connect.Queue{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.Queue:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectQueueWithName retrieves all connect.Queue items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectQueueWithName(name string) (*connect.Queue, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.Queue:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.Queue not found", name)
+}
+
 // GetAllConnectQuickConnectResources retrieves all connect.QuickConnect items from an AWS CloudFormation template
 func (t *Template) GetAllConnectQuickConnectResources() map[string]*connect.QuickConnect {
 	results := map[string]*connect.QuickConnect{}
@@ -7008,6 +7039,30 @@ func (t *Template) GetConnectQuickConnectWithName(name string) (*connect.QuickCo
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.QuickConnect not found", name)
+}
+
+// GetAllConnectRoutingProfileResources retrieves all connect.RoutingProfile items from an AWS CloudFormation template
+func (t *Template) GetAllConnectRoutingProfileResources() map[string]*connect.RoutingProfile {
+	results := map[string]*connect.RoutingProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.RoutingProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectRoutingProfileWithName retrieves all connect.RoutingProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectRoutingProfileWithName(name string) (*connect.RoutingProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.RoutingProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.RoutingProfile not found", name)
 }
 
 // GetAllConnectRuleResources retrieves all connect.Rule items from an AWS CloudFormation template
@@ -14042,6 +14097,30 @@ func (t *Template) GetIAMGroupWithName(name string) (*iam.Group, error) {
 	return nil, fmt.Errorf("resource %q of type iam.Group not found", name)
 }
 
+// GetAllIAMGroupPolicyResources retrieves all iam.GroupPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllIAMGroupPolicyResources() map[string]*iam.GroupPolicy {
+	results := map[string]*iam.GroupPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iam.GroupPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIAMGroupPolicyWithName retrieves all iam.GroupPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIAMGroupPolicyWithName(name string) (*iam.GroupPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iam.GroupPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iam.GroupPolicy not found", name)
+}
+
 // GetAllIAMInstanceProfileResources retrieves all iam.InstanceProfile items from an AWS CloudFormation template
 func (t *Template) GetAllIAMInstanceProfileResources() map[string]*iam.InstanceProfile {
 	results := map[string]*iam.InstanceProfile{}
@@ -14162,6 +14241,30 @@ func (t *Template) GetIAMRoleWithName(name string) (*iam.Role, error) {
 	return nil, fmt.Errorf("resource %q of type iam.Role not found", name)
 }
 
+// GetAllIAMRolePolicyResources retrieves all iam.RolePolicy items from an AWS CloudFormation template
+func (t *Template) GetAllIAMRolePolicyResources() map[string]*iam.RolePolicy {
+	results := map[string]*iam.RolePolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iam.RolePolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIAMRolePolicyWithName retrieves all iam.RolePolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIAMRolePolicyWithName(name string) (*iam.RolePolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iam.RolePolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iam.RolePolicy not found", name)
+}
+
 // GetAllIAMSAMLProviderResources retrieves all iam.SAMLProvider items from an AWS CloudFormation template
 func (t *Template) GetAllIAMSAMLProviderResources() map[string]*iam.SAMLProvider {
 	results := map[string]*iam.SAMLProvider{}
@@ -14256,6 +14359,30 @@ func (t *Template) GetIAMUserWithName(name string) (*iam.User, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iam.User not found", name)
+}
+
+// GetAllIAMUserPolicyResources retrieves all iam.UserPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllIAMUserPolicyResources() map[string]*iam.UserPolicy {
+	results := map[string]*iam.UserPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iam.UserPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIAMUserPolicyWithName retrieves all iam.UserPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIAMUserPolicyWithName(name string) (*iam.UserPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iam.UserPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iam.UserPolicy not found", name)
 }
 
 // GetAllIAMUserToGroupAdditionResources retrieves all iam.UserToGroupAddition items from an AWS CloudFormation template
@@ -17832,6 +17959,30 @@ func (t *Template) GetLocationTrackerConsumerWithName(name string) (*location.Tr
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type location.TrackerConsumer not found", name)
+}
+
+// GetAllLogsAccountPolicyResources retrieves all logs.AccountPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllLogsAccountPolicyResources() map[string]*logs.AccountPolicy {
+	results := map[string]*logs.AccountPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *logs.AccountPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLogsAccountPolicyWithName retrieves all logs.AccountPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLogsAccountPolicyWithName(name string) (*logs.AccountPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *logs.AccountPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type logs.AccountPolicy not found", name)
 }
 
 // GetAllLogsDestinationResources retrieves all logs.Destination items from an AWS CloudFormation template
@@ -23928,6 +24079,30 @@ func (t *Template) GetSNSTopicWithName(name string) (*sns.Topic, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type sns.Topic not found", name)
+}
+
+// GetAllSNSTopicInlinePolicyResources retrieves all sns.TopicInlinePolicy items from an AWS CloudFormation template
+func (t *Template) GetAllSNSTopicInlinePolicyResources() map[string]*sns.TopicInlinePolicy {
+	results := map[string]*sns.TopicInlinePolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sns.TopicInlinePolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSNSTopicInlinePolicyWithName retrieves all sns.TopicInlinePolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSNSTopicInlinePolicyWithName(name string) (*sns.TopicInlinePolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sns.TopicInlinePolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sns.TopicInlinePolicy not found", name)
 }
 
 // GetAllSNSTopicPolicyResources retrieves all sns.TopicPolicy items from an AWS CloudFormation template
