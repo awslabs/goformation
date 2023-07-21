@@ -90,6 +90,11 @@ type JobDefinition_ContainerProperties struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
 	ResourceRequirements []JobDefinition_ResourceRequirement `json:"ResourceRequirements,omitempty"`
 
+	// RuntimePlatform AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-runtimeplatform
+	RuntimePlatform *JobDefinition_RuntimePlatform `json:"RuntimePlatform,omitempty"`
+
 	// Secrets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets
