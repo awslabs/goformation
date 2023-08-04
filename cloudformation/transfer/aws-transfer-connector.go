@@ -20,14 +20,19 @@ type Connector struct {
 	AccessRole string `json:"AccessRole"`
 
 	// As2Config AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-as2config
-	As2Config *Connector_As2Config `json:"As2Config"`
+	As2Config *Connector_As2Config `json:"As2Config,omitempty"`
 
 	// LoggingRole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-loggingrole
 	LoggingRole *string `json:"LoggingRole,omitempty"`
+
+	// SftpConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-sftpconfig
+	SftpConfig *Connector_SftpConfig `json:"SftpConfig,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
