@@ -13,6 +13,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
 type ConfigRule struct {
 
+	// Compliance AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-compliance
+	Compliance *ConfigRule_Compliance `json:"Compliance,omitempty"`
+
 	// ConfigRuleName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-configrulename
@@ -22,6 +27,11 @@ type ConfigRule struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description
 	Description *string `json:"Description,omitempty"`
+
+	// EvaluationModes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-evaluationmodes
+	EvaluationModes []ConfigRule_EvaluationModeConfiguration `json:"EvaluationModes,omitempty"`
 
 	// InputParameters AWS CloudFormation Property
 	// Required: false

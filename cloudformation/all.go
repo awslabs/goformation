@@ -490,6 +490,7 @@ func AllResources() map[string]Resource {
 		"AWS::DMS::Certificate":                                            &dms.Certificate{},
 		"AWS::DMS::Endpoint":                                               &dms.Endpoint{},
 		"AWS::DMS::EventSubscription":                                      &dms.EventSubscription{},
+		"AWS::DMS::ReplicationConfig":                                      &dms.ReplicationConfig{},
 		"AWS::DMS::ReplicationInstance":                                    &dms.ReplicationInstance{},
 		"AWS::DMS::ReplicationSubnetGroup":                                 &dms.ReplicationSubnetGroup{},
 		"AWS::DMS::ReplicationTask":                                        &dms.ReplicationTask{},
@@ -1183,6 +1184,7 @@ func AllResources() map[string]Resource {
 		"AWS::SNS::TopicInlinePolicy":                                      &sns.TopicInlinePolicy{},
 		"AWS::SNS::TopicPolicy":                                            &sns.TopicPolicy{},
 		"AWS::SQS::Queue":                                                  &sqs.Queue{},
+		"AWS::SQS::QueueInlinePolicy":                                      &sqs.QueueInlinePolicy{},
 		"AWS::SQS::QueuePolicy":                                            &sqs.QueuePolicy{},
 		"AWS::SSM::Association":                                            &ssm.Association{},
 		"AWS::SSM::Document":                                               &ssm.Document{},
@@ -7519,6 +7521,30 @@ func (t *Template) GetDMSEventSubscriptionWithName(name string) (*dms.EventSubsc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type dms.EventSubscription not found", name)
+}
+
+// GetAllDMSReplicationConfigResources retrieves all dms.ReplicationConfig items from an AWS CloudFormation template
+func (t *Template) GetAllDMSReplicationConfigResources() map[string]*dms.ReplicationConfig {
+	results := map[string]*dms.ReplicationConfig{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *dms.ReplicationConfig:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDMSReplicationConfigWithName retrieves all dms.ReplicationConfig items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDMSReplicationConfigWithName(name string) (*dms.ReplicationConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *dms.ReplicationConfig:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type dms.ReplicationConfig not found", name)
 }
 
 // GetAllDMSReplicationInstanceResources retrieves all dms.ReplicationInstance items from an AWS CloudFormation template
@@ -24151,6 +24177,30 @@ func (t *Template) GetSQSQueueWithName(name string) (*sqs.Queue, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type sqs.Queue not found", name)
+}
+
+// GetAllSQSQueueInlinePolicyResources retrieves all sqs.QueueInlinePolicy items from an AWS CloudFormation template
+func (t *Template) GetAllSQSQueueInlinePolicyResources() map[string]*sqs.QueueInlinePolicy {
+	results := map[string]*sqs.QueueInlinePolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sqs.QueueInlinePolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSQSQueueInlinePolicyWithName retrieves all sqs.QueueInlinePolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSQSQueueInlinePolicyWithName(name string) (*sqs.QueueInlinePolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sqs.QueueInlinePolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sqs.QueueInlinePolicy not found", name)
 }
 
 // GetAllSQSQueuePolicyResources retrieves all sqs.QueuePolicy items from an AWS CloudFormation template

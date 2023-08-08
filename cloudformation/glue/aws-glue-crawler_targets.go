@@ -25,6 +25,11 @@ type Crawler_Targets struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
 	DynamoDBTargets []Crawler_DynamoDBTarget `json:"DynamoDBTargets,omitempty"`
 
+	// IcebergTargets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-icebergtargets
+	IcebergTargets []Crawler_IcebergTarget `json:"IcebergTargets,omitempty"`
+
 	// JdbcTargets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
