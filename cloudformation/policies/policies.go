@@ -39,7 +39,7 @@ type DeletionPolicy string
 // see: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html
 type UpdateReplacePolicy string
 
-// UpdatePolicy specifies how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup or AWS::Lambda::Alias resource.
+// UpdatePolicy specifies how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup or AWS::Lambda::Alias or AWS::ElastiCache::ReplicationGroup resource.
 // For AWS::AutoScaling::AutoScalingGroup resources, AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
 // The AutoScalingReplacingUpdate and AutoScalingRollingUpdate policies apply only when you do one or more of the following:
 // - Change the Auto Scaling group's AWS::AutoScaling::LaunchConfiguration.
@@ -62,6 +62,9 @@ type UpdatePolicy struct {
 
 	// CodeDeployLambdaAliasUpdate performs an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource.
 	CodeDeployLambdaAliasUpdate *CodeDeployLambdaAliasUpdate `json:"CodeDeployLambdaAliasUpdate,omitempty"`
+
+	// UseOnlineResharding if set to true updates the AWS::ElastiCache::ReplicationGroup without replacement.
+	UseOnlineResharding bool `json:"UseOnlineResharding,omitempty"`
 }
 
 // AutoScalingScheduledAction specifies how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy.
