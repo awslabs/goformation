@@ -10,10 +10,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html
 type Monitor_HealthEventsConfig struct {
 
+	// AvailabilityLocalHealthEventsConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-availabilitylocalhealtheventsconfig
+	AvailabilityLocalHealthEventsConfig *Monitor_LocalHealthEventsConfig `json:"AvailabilityLocalHealthEventsConfig,omitempty"`
+
 	// AvailabilityScoreThreshold AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-availabilityscorethreshold
 	AvailabilityScoreThreshold *float64 `json:"AvailabilityScoreThreshold,omitempty"`
+
+	// PerformanceLocalHealthEventsConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-performancelocalhealtheventsconfig
+	PerformanceLocalHealthEventsConfig *Monitor_LocalHealthEventsConfig `json:"PerformanceLocalHealthEventsConfig,omitempty"`
 
 	// PerformanceScoreThreshold AWS CloudFormation Property
 	// Required: false
