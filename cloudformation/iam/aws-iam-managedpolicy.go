@@ -30,7 +30,7 @@ type ManagedPolicy struct {
 
 	// Path AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-ec2-dhcpoptions-path
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-path
 	Path *string `json:"Path,omitempty"`
 
 	// PolicyDocument AWS CloudFormation Property

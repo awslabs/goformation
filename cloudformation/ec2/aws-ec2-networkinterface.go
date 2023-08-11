@@ -29,6 +29,16 @@ type NetworkInterface struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-interfacetype
 	InterfaceType *string `json:"InterfaceType,omitempty"`
 
+	// Ipv4PrefixCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv4prefixcount
+	Ipv4PrefixCount *int `json:"Ipv4PrefixCount,omitempty"`
+
+	// Ipv4Prefixes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv4prefixes
+	Ipv4Prefixes []NetworkInterface_Ipv4PrefixSpecification `json:"Ipv4Prefixes,omitempty"`
+
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6addresscount
@@ -38,6 +48,16 @@ type NetworkInterface struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6addresses
 	Ipv6Addresses []NetworkInterface_InstanceIpv6Address `json:"Ipv6Addresses,omitempty"`
+
+	// Ipv6PrefixCount AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6prefixcount
+	Ipv6PrefixCount *int `json:"Ipv6PrefixCount,omitempty"`
+
+	// Ipv6Prefixes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6prefixes
+	Ipv6Prefixes []NetworkInterface_Ipv6PrefixSpecification `json:"Ipv6Prefixes,omitempty"`
 
 	// PrivateIpAddress AWS CloudFormation Property
 	// Required: false

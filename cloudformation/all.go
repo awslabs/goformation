@@ -474,6 +474,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::Rule":                                               &connect.Rule{},
 		"AWS::Connect::SecurityKey":                                        &connect.SecurityKey{},
 		"AWS::Connect::TaskTemplate":                                       &connect.TaskTemplate{},
+		"AWS::Connect::TrafficDistributionGroup":                           &connect.TrafficDistributionGroup{},
 		"AWS::Connect::User":                                               &connect.User{},
 		"AWS::Connect::UserHierarchyGroup":                                 &connect.UserHierarchyGroup{},
 		"AWS::ConnectCampaigns::Campaign":                                  &connectcampaigns.Campaign{},
@@ -502,6 +503,7 @@ func AllResources() map[string]Resource {
 		"AWS::DataBrew::Schedule":                                          &databrew.Schedule{},
 		"AWS::DataPipeline::Pipeline":                                      &datapipeline.Pipeline{},
 		"AWS::DataSync::Agent":                                             &datasync.Agent{},
+		"AWS::DataSync::LocationAzureBlob":                                 &datasync.LocationAzureBlob{},
 		"AWS::DataSync::LocationEFS":                                       &datasync.LocationEFS{},
 		"AWS::DataSync::LocationFSxLustre":                                 &datasync.LocationFSxLustre{},
 		"AWS::DataSync::LocationFSxONTAP":                                  &datasync.LocationFSxONTAP{},
@@ -975,7 +977,11 @@ func AllResources() map[string]Resource {
 		"AWS::MediaPackage::PackagingConfiguration":                        &mediapackage.PackagingConfiguration{},
 		"AWS::MediaPackage::PackagingGroup":                                &mediapackage.PackagingGroup{},
 		"AWS::MediaStore::Container":                                       &mediastore.Container{},
+		"AWS::MediaTailor::Channel":                                        &mediatailor.Channel{},
+		"AWS::MediaTailor::ChannelPolicy":                                  &mediatailor.ChannelPolicy{},
+		"AWS::MediaTailor::LiveSource":                                     &mediatailor.LiveSource{},
 		"AWS::MediaTailor::PlaybackConfiguration":                          &mediatailor.PlaybackConfiguration{},
+		"AWS::MediaTailor::VodSource":                                      &mediatailor.VodSource{},
 		"AWS::MemoryDB::ACL":                                               &memorydb.ACL{},
 		"AWS::MemoryDB::Cluster":                                           &memorydb.Cluster{},
 		"AWS::MemoryDB::ParameterGroup":                                    &memorydb.ParameterGroup{},
@@ -7139,6 +7145,30 @@ func (t *Template) GetConnectTaskTemplateWithName(name string) (*connect.TaskTem
 	return nil, fmt.Errorf("resource %q of type connect.TaskTemplate not found", name)
 }
 
+// GetAllConnectTrafficDistributionGroupResources retrieves all connect.TrafficDistributionGroup items from an AWS CloudFormation template
+func (t *Template) GetAllConnectTrafficDistributionGroupResources() map[string]*connect.TrafficDistributionGroup {
+	results := map[string]*connect.TrafficDistributionGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.TrafficDistributionGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectTrafficDistributionGroupWithName retrieves all connect.TrafficDistributionGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectTrafficDistributionGroupWithName(name string) (*connect.TrafficDistributionGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.TrafficDistributionGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.TrafficDistributionGroup not found", name)
+}
+
 // GetAllConnectUserResources retrieves all connect.User items from an AWS CloudFormation template
 func (t *Template) GetAllConnectUserResources() map[string]*connect.User {
 	results := map[string]*connect.User{}
@@ -7809,6 +7839,30 @@ func (t *Template) GetDataSyncAgentWithName(name string) (*datasync.Agent, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type datasync.Agent not found", name)
+}
+
+// GetAllDataSyncLocationAzureBlobResources retrieves all datasync.LocationAzureBlob items from an AWS CloudFormation template
+func (t *Template) GetAllDataSyncLocationAzureBlobResources() map[string]*datasync.LocationAzureBlob {
+	results := map[string]*datasync.LocationAzureBlob{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datasync.LocationAzureBlob:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataSyncLocationAzureBlobWithName retrieves all datasync.LocationAzureBlob items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataSyncLocationAzureBlobWithName(name string) (*datasync.LocationAzureBlob, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datasync.LocationAzureBlob:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datasync.LocationAzureBlob not found", name)
 }
 
 // GetAllDataSyncLocationEFSResources retrieves all datasync.LocationEFS items from an AWS CloudFormation template
@@ -19163,6 +19217,78 @@ func (t *Template) GetMediaStoreContainerWithName(name string) (*mediastore.Cont
 	return nil, fmt.Errorf("resource %q of type mediastore.Container not found", name)
 }
 
+// GetAllMediaTailorChannelResources retrieves all mediatailor.Channel items from an AWS CloudFormation template
+func (t *Template) GetAllMediaTailorChannelResources() map[string]*mediatailor.Channel {
+	results := map[string]*mediatailor.Channel{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediatailor.Channel:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaTailorChannelWithName retrieves all mediatailor.Channel items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaTailorChannelWithName(name string) (*mediatailor.Channel, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediatailor.Channel:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediatailor.Channel not found", name)
+}
+
+// GetAllMediaTailorChannelPolicyResources retrieves all mediatailor.ChannelPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllMediaTailorChannelPolicyResources() map[string]*mediatailor.ChannelPolicy {
+	results := map[string]*mediatailor.ChannelPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediatailor.ChannelPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaTailorChannelPolicyWithName retrieves all mediatailor.ChannelPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaTailorChannelPolicyWithName(name string) (*mediatailor.ChannelPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediatailor.ChannelPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediatailor.ChannelPolicy not found", name)
+}
+
+// GetAllMediaTailorLiveSourceResources retrieves all mediatailor.LiveSource items from an AWS CloudFormation template
+func (t *Template) GetAllMediaTailorLiveSourceResources() map[string]*mediatailor.LiveSource {
+	results := map[string]*mediatailor.LiveSource{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediatailor.LiveSource:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaTailorLiveSourceWithName retrieves all mediatailor.LiveSource items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaTailorLiveSourceWithName(name string) (*mediatailor.LiveSource, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediatailor.LiveSource:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediatailor.LiveSource not found", name)
+}
+
 // GetAllMediaTailorPlaybackConfigurationResources retrieves all mediatailor.PlaybackConfiguration items from an AWS CloudFormation template
 func (t *Template) GetAllMediaTailorPlaybackConfigurationResources() map[string]*mediatailor.PlaybackConfiguration {
 	results := map[string]*mediatailor.PlaybackConfiguration{}
@@ -19185,6 +19311,30 @@ func (t *Template) GetMediaTailorPlaybackConfigurationWithName(name string) (*me
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type mediatailor.PlaybackConfiguration not found", name)
+}
+
+// GetAllMediaTailorVodSourceResources retrieves all mediatailor.VodSource items from an AWS CloudFormation template
+func (t *Template) GetAllMediaTailorVodSourceResources() map[string]*mediatailor.VodSource {
+	results := map[string]*mediatailor.VodSource{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediatailor.VodSource:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaTailorVodSourceWithName retrieves all mediatailor.VodSource items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaTailorVodSourceWithName(name string) (*mediatailor.VodSource, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediatailor.VodSource:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediatailor.VodSource not found", name)
 }
 
 // GetAllMemoryDBACLResources retrieves all memorydb.ACL items from an AWS CloudFormation template
