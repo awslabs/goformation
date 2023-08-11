@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.9.0](https://github.com/awslabs/goformation/compare/v7.8.7...v7.9.0) (2023-08-11)
+
+
+### Features
+
+* force release ([354d4cb](https://github.com/awslabs/goformation/commit/354d4cbc14e3a7f6ea3b0d77d8fed02b9e9ba213))
+
 ## [7.8.7](https://github.com/awslabs/goformation/compare/v7.8.6...v7.8.7) (2023-08-11)
 
 
