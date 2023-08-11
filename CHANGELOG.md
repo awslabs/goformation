@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [7.9.1](https://github.com/awslabs/goformation/compare/v7.9.0...v7.9.1) (2023-08-11)
+
+
+### Bug Fixes
+
+* **alexa:** use the correct SkillId field ([#613](https://github.com/awslabs/goformation/issues/613)) ([0841bbe](https://github.com/awslabs/goformation/commit/0841bbe9fd8680d389f069f8b1420e81e6c94276))
+
 # [7.9.0](https://github.com/awslabs/goformation/compare/v7.8.7...v7.9.0) (2023-08-11)
 
 
