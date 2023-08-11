@@ -10,10 +10,10 @@ import (
 // See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill
 type Function_AlexaSkillEvent struct {
 
-	// Variables AWS CloudFormation Property
+	// SkillId AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill
-	Variables map[string]string `json:"Variables,omitempty"`
+	SkillId *string `json:"SkillId,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

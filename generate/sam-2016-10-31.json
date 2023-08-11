@@ -1459,11 +1459,10 @@
         "AWS::Serverless::Function.AlexaSkillEvent": {
             "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill",
             "Properties": {
-                "Variables": {
+                "SkillId": {
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill",
                     "Required": false,
-                    "Type": "Map",
-                    "PrimitiveItemType": "String",
+                    "PrimitiveType": "String",
                     "UpdateType": "Immutable"
                 }
             }
