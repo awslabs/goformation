@@ -556,6 +556,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::IPAMResourceDiscoveryAssociation":                       &ec2.IPAMResourceDiscoveryAssociation{},
 		"AWS::EC2::IPAMScope":                                              &ec2.IPAMScope{},
 		"AWS::EC2::Instance":                                               &ec2.Instance{},
+		"AWS::EC2::InstanceConnectEndpoint":                                &ec2.InstanceConnectEndpoint{},
 		"AWS::EC2::InternetGateway":                                        &ec2.InternetGateway{},
 		"AWS::EC2::KeyPair":                                                &ec2.KeyPair{},
 		"AWS::EC2::LaunchTemplate":                                         &ec2.LaunchTemplate{},
@@ -981,6 +982,7 @@ func AllResources() map[string]Resource {
 		"AWS::MediaTailor::ChannelPolicy":                                  &mediatailor.ChannelPolicy{},
 		"AWS::MediaTailor::LiveSource":                                     &mediatailor.LiveSource{},
 		"AWS::MediaTailor::PlaybackConfiguration":                          &mediatailor.PlaybackConfiguration{},
+		"AWS::MediaTailor::SourceLocation":                                 &mediatailor.SourceLocation{},
 		"AWS::MediaTailor::VodSource":                                      &mediatailor.VodSource{},
 		"AWS::MemoryDB::ACL":                                               &memorydb.ACL{},
 		"AWS::MemoryDB::Cluster":                                           &memorydb.Cluster{},
@@ -1155,6 +1157,7 @@ func AllResources() map[string]Resource {
 		"AWS::Route53Resolver::FirewallDomainList":                         &route53resolver.FirewallDomainList{},
 		"AWS::Route53Resolver::FirewallRuleGroup":                          &route53resolver.FirewallRuleGroup{},
 		"AWS::Route53Resolver::FirewallRuleGroupAssociation":               &route53resolver.FirewallRuleGroupAssociation{},
+		"AWS::Route53Resolver::OutpostResolver":                            &route53resolver.OutpostResolver{},
 		"AWS::Route53Resolver::ResolverConfig":                             &route53resolver.ResolverConfig{},
 		"AWS::Route53Resolver::ResolverDNSSECConfig":                       &route53resolver.ResolverDNSSECConfig{},
 		"AWS::Route53Resolver::ResolverEndpoint":                           &route53resolver.ResolverEndpoint{},
@@ -9111,6 +9114,30 @@ func (t *Template) GetEC2InstanceWithName(name string) (*ec2.Instance, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ec2.Instance not found", name)
+}
+
+// GetAllEC2InstanceConnectEndpointResources retrieves all ec2.InstanceConnectEndpoint items from an AWS CloudFormation template
+func (t *Template) GetAllEC2InstanceConnectEndpointResources() map[string]*ec2.InstanceConnectEndpoint {
+	results := map[string]*ec2.InstanceConnectEndpoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.InstanceConnectEndpoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2InstanceConnectEndpointWithName retrieves all ec2.InstanceConnectEndpoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2InstanceConnectEndpointWithName(name string) (*ec2.InstanceConnectEndpoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.InstanceConnectEndpoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.InstanceConnectEndpoint not found", name)
 }
 
 // GetAllEC2InternetGatewayResources retrieves all ec2.InternetGateway items from an AWS CloudFormation template
@@ -19313,6 +19340,30 @@ func (t *Template) GetMediaTailorPlaybackConfigurationWithName(name string) (*me
 	return nil, fmt.Errorf("resource %q of type mediatailor.PlaybackConfiguration not found", name)
 }
 
+// GetAllMediaTailorSourceLocationResources retrieves all mediatailor.SourceLocation items from an AWS CloudFormation template
+func (t *Template) GetAllMediaTailorSourceLocationResources() map[string]*mediatailor.SourceLocation {
+	results := map[string]*mediatailor.SourceLocation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *mediatailor.SourceLocation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaTailorSourceLocationWithName retrieves all mediatailor.SourceLocation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaTailorSourceLocationWithName(name string) (*mediatailor.SourceLocation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *mediatailor.SourceLocation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type mediatailor.SourceLocation not found", name)
+}
+
 // GetAllMediaTailorVodSourceResources retrieves all mediatailor.VodSource items from an AWS CloudFormation template
 func (t *Template) GetAllMediaTailorVodSourceResources() map[string]*mediatailor.VodSource {
 	results := map[string]*mediatailor.VodSource{}
@@ -23487,6 +23538,30 @@ func (t *Template) GetRoute53ResolverFirewallRuleGroupAssociationWithName(name s
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type route53resolver.FirewallRuleGroupAssociation not found", name)
+}
+
+// GetAllRoute53ResolverOutpostResolverResources retrieves all route53resolver.OutpostResolver items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53ResolverOutpostResolverResources() map[string]*route53resolver.OutpostResolver {
+	results := map[string]*route53resolver.OutpostResolver{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53resolver.OutpostResolver:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53ResolverOutpostResolverWithName retrieves all route53resolver.OutpostResolver items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53ResolverOutpostResolverWithName(name string) (*route53resolver.OutpostResolver, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53resolver.OutpostResolver:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53resolver.OutpostResolver not found", name)
 }
 
 // GetAllRoute53ResolverResolverConfigResources retrieves all route53resolver.ResolverConfig items from an AWS CloudFormation template
