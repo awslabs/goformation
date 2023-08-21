@@ -15,6 +15,11 @@ type Api struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
 	AccessLogSetting *serverless.Api_AccessLogSetting `json:"AccessLogSetting,omitempty"`
 
+	// AlwaysDeploy AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-alwaysdeploy
+	AlwaysDeploy *bool `json:"AlwaysDeploy,omitempty"`
+
 	// Auth AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
