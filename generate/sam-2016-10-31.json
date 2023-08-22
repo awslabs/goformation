@@ -423,6 +423,12 @@
                     "Required": false,
                     "PrimitiveType": "Boolean",
                     "UpdateType": "Immutable"
+                },
+                "AlwaysDeploy": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-alwaysdeploy",
+                    "Required": false,
+                    "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
                 }
             }
         },
