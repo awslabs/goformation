@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.10.0](https://github.com/awslabs/goformation/compare/v7.9.2...v7.10.0) (2023-08-22)
+
+
+### Features
+
+* **serverless:** add AlwaysDeploy option ([#615](https://github.com/awslabs/goformation/issues/615)) ([e38c3b8](https://github.com/awslabs/goformation/commit/e38c3b87b2640781fd5c8f3730e57aa1a31a21fd))
+
 ## [7.9.2](https://github.com/awslabs/goformation/compare/v7.9.1...v7.9.2) (2023-08-18)
 
 
