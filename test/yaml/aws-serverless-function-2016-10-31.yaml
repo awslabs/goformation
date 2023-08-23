@@ -7,6 +7,9 @@ Resources:
       Runtime: nodejs
       CodeUri: s3://bucket/path/key
       FunctionName: functionname
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+        InvokeMode: BUFFERED
       Description: description
       MemorySize: 128
       Timeout: 30
