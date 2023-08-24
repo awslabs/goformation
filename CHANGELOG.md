@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.11.0](https://github.com/awslabs/goformation/compare/v7.10.0...v7.11.0) (2023-08-24)
+
+
+### Features
+
+* **lambda_function:** add FunctionUrlConfig property ([25103fc](https://github.com/awslabs/goformation/commit/25103fcd21b490021ee8cfd23674599afc1f0a14))
+
 # [7.10.0](https://github.com/awslabs/goformation/compare/v7.9.2...v7.10.0) (2023-08-22)
 
 
