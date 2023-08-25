@@ -28,10 +28,20 @@ type App struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description
 	Description *string `json:"Description,omitempty"`
 
+	// EventSubscriptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-eventsubscriptions
+	EventSubscriptions []App_EventSubscription `json:"EventSubscriptions,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-name
 	Name string `json:"Name"`
+
+	// PermissionModel AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-permissionmodel
+	PermissionModel *App_PermissionModel `json:"PermissionModel,omitempty"`
 
 	// ResiliencyPolicyArn AWS CloudFormation Property
 	// Required: false

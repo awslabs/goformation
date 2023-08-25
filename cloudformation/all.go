@@ -85,6 +85,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/emr"
 	"github.com/awslabs/goformation/v7/cloudformation/emrcontainers"
 	"github.com/awslabs/goformation/v7/cloudformation/emrserverless"
+	"github.com/awslabs/goformation/v7/cloudformation/entityresolution"
 	"github.com/awslabs/goformation/v7/cloudformation/events"
 	"github.com/awslabs/goformation/v7/cloudformation/eventschemas"
 	"github.com/awslabs/goformation/v7/cloudformation/evidently"
@@ -225,6 +226,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/wafv2"
 	"github.com/awslabs/goformation/v7/cloudformation/wisdom"
 	"github.com/awslabs/goformation/v7/cloudformation/workspaces"
+	"github.com/awslabs/goformation/v7/cloudformation/workspacesweb"
 	"github.com/awslabs/goformation/v7/cloudformation/xray"
 
 	"github.com/awslabs/goformation/v7/cloudformation/global"
@@ -650,6 +652,7 @@ func AllResources() map[string]Resource {
 		"AWS::EMR::Step":                                                   &emr.Step{},
 		"AWS::EMR::Studio":                                                 &emr.Studio{},
 		"AWS::EMR::StudioSessionMapping":                                   &emr.StudioSessionMapping{},
+		"AWS::EMR::WALWorkspace":                                           &emr.WALWorkspace{},
 		"AWS::EMRContainers::VirtualCluster":                               &emrcontainers.VirtualCluster{},
 		"AWS::EMRServerless::Application":                                  &emrserverless.Application{},
 		"AWS::ElastiCache::CacheCluster":                                   &elasticache.CacheCluster{},
@@ -672,6 +675,8 @@ func AllResources() map[string]Resource {
 		"AWS::ElasticLoadBalancingV2::LoadBalancer":                        &elasticloadbalancingv2.LoadBalancer{},
 		"AWS::ElasticLoadBalancingV2::TargetGroup":                         &elasticloadbalancingv2.TargetGroup{},
 		"AWS::Elasticsearch::Domain":                                       &elasticsearch.Domain{},
+		"AWS::EntityResolution::MatchingWorkflow":                          &entityresolution.MatchingWorkflow{},
+		"AWS::EntityResolution::SchemaMapping":                             &entityresolution.SchemaMapping{},
 		"AWS::EventSchemas::Discoverer":                                    &eventschemas.Discoverer{},
 		"AWS::EventSchemas::Registry":                                      &eventschemas.Registry{},
 		"AWS::EventSchemas::RegistryPolicy":                                &eventschemas.RegistryPolicy{},
@@ -1353,6 +1358,14 @@ func AllResources() map[string]Resource {
 		"AWS::Wisdom::KnowledgeBase":                                       &wisdom.KnowledgeBase{},
 		"AWS::WorkSpaces::ConnectionAlias":                                 &workspaces.ConnectionAlias{},
 		"AWS::WorkSpaces::Workspace":                                       &workspaces.Workspace{},
+		"AWS::WorkSpacesWeb::BrowserSettings":                              &workspacesweb.BrowserSettings{},
+		"AWS::WorkSpacesWeb::IdentityProvider":                             &workspacesweb.IdentityProvider{},
+		"AWS::WorkSpacesWeb::IpAccessSettings":                             &workspacesweb.IpAccessSettings{},
+		"AWS::WorkSpacesWeb::NetworkSettings":                              &workspacesweb.NetworkSettings{},
+		"AWS::WorkSpacesWeb::Portal":                                       &workspacesweb.Portal{},
+		"AWS::WorkSpacesWeb::TrustStore":                                   &workspacesweb.TrustStore{},
+		"AWS::WorkSpacesWeb::UserAccessLoggingSettings":                    &workspacesweb.UserAccessLoggingSettings{},
+		"AWS::WorkSpacesWeb::UserSettings":                                 &workspacesweb.UserSettings{},
 		"AWS::XRay::Group":                                                 &xray.Group{},
 		"AWS::XRay::ResourcePolicy":                                        &xray.ResourcePolicy{},
 		"AWS::XRay::SamplingRule":                                          &xray.SamplingRule{},
@@ -11372,6 +11385,30 @@ func (t *Template) GetEMRStudioSessionMappingWithName(name string) (*emr.StudioS
 	return nil, fmt.Errorf("resource %q of type emr.StudioSessionMapping not found", name)
 }
 
+// GetAllEMRWALWorkspaceResources retrieves all emr.WALWorkspace items from an AWS CloudFormation template
+func (t *Template) GetAllEMRWALWorkspaceResources() map[string]*emr.WALWorkspace {
+	results := map[string]*emr.WALWorkspace{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *emr.WALWorkspace:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEMRWALWorkspaceWithName retrieves all emr.WALWorkspace items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEMRWALWorkspaceWithName(name string) (*emr.WALWorkspace, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *emr.WALWorkspace:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type emr.WALWorkspace not found", name)
+}
+
 // GetAllEMRContainersVirtualClusterResources retrieves all emrcontainers.VirtualCluster items from an AWS CloudFormation template
 func (t *Template) GetAllEMRContainersVirtualClusterResources() map[string]*emrcontainers.VirtualCluster {
 	results := map[string]*emrcontainers.VirtualCluster{}
@@ -11898,6 +11935,54 @@ func (t *Template) GetElasticsearchDomainWithName(name string) (*elasticsearch.D
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type elasticsearch.Domain not found", name)
+}
+
+// GetAllEntityResolutionMatchingWorkflowResources retrieves all entityresolution.MatchingWorkflow items from an AWS CloudFormation template
+func (t *Template) GetAllEntityResolutionMatchingWorkflowResources() map[string]*entityresolution.MatchingWorkflow {
+	results := map[string]*entityresolution.MatchingWorkflow{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *entityresolution.MatchingWorkflow:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEntityResolutionMatchingWorkflowWithName retrieves all entityresolution.MatchingWorkflow items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEntityResolutionMatchingWorkflowWithName(name string) (*entityresolution.MatchingWorkflow, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *entityresolution.MatchingWorkflow:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type entityresolution.MatchingWorkflow not found", name)
+}
+
+// GetAllEntityResolutionSchemaMappingResources retrieves all entityresolution.SchemaMapping items from an AWS CloudFormation template
+func (t *Template) GetAllEntityResolutionSchemaMappingResources() map[string]*entityresolution.SchemaMapping {
+	results := map[string]*entityresolution.SchemaMapping{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *entityresolution.SchemaMapping:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEntityResolutionSchemaMappingWithName retrieves all entityresolution.SchemaMapping items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEntityResolutionSchemaMappingWithName(name string) (*entityresolution.SchemaMapping, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *entityresolution.SchemaMapping:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type entityresolution.SchemaMapping not found", name)
 }
 
 // GetAllEventSchemasDiscovererResources retrieves all eventschemas.Discoverer items from an AWS CloudFormation template
@@ -28242,6 +28327,198 @@ func (t *Template) GetWorkSpacesWorkspaceWithName(name string) (*workspaces.Work
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type workspaces.Workspace not found", name)
+}
+
+// GetAllWorkSpacesWebBrowserSettingsResources retrieves all workspacesweb.BrowserSettings items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebBrowserSettingsResources() map[string]*workspacesweb.BrowserSettings {
+	results := map[string]*workspacesweb.BrowserSettings{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.BrowserSettings:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebBrowserSettingsWithName retrieves all workspacesweb.BrowserSettings items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebBrowserSettingsWithName(name string) (*workspacesweb.BrowserSettings, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.BrowserSettings:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.BrowserSettings not found", name)
+}
+
+// GetAllWorkSpacesWebIdentityProviderResources retrieves all workspacesweb.IdentityProvider items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebIdentityProviderResources() map[string]*workspacesweb.IdentityProvider {
+	results := map[string]*workspacesweb.IdentityProvider{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.IdentityProvider:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebIdentityProviderWithName retrieves all workspacesweb.IdentityProvider items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebIdentityProviderWithName(name string) (*workspacesweb.IdentityProvider, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.IdentityProvider:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.IdentityProvider not found", name)
+}
+
+// GetAllWorkSpacesWebIpAccessSettingsResources retrieves all workspacesweb.IpAccessSettings items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebIpAccessSettingsResources() map[string]*workspacesweb.IpAccessSettings {
+	results := map[string]*workspacesweb.IpAccessSettings{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.IpAccessSettings:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebIpAccessSettingsWithName retrieves all workspacesweb.IpAccessSettings items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebIpAccessSettingsWithName(name string) (*workspacesweb.IpAccessSettings, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.IpAccessSettings:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.IpAccessSettings not found", name)
+}
+
+// GetAllWorkSpacesWebNetworkSettingsResources retrieves all workspacesweb.NetworkSettings items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebNetworkSettingsResources() map[string]*workspacesweb.NetworkSettings {
+	results := map[string]*workspacesweb.NetworkSettings{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.NetworkSettings:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebNetworkSettingsWithName retrieves all workspacesweb.NetworkSettings items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebNetworkSettingsWithName(name string) (*workspacesweb.NetworkSettings, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.NetworkSettings:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.NetworkSettings not found", name)
+}
+
+// GetAllWorkSpacesWebPortalResources retrieves all workspacesweb.Portal items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebPortalResources() map[string]*workspacesweb.Portal {
+	results := map[string]*workspacesweb.Portal{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.Portal:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebPortalWithName retrieves all workspacesweb.Portal items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebPortalWithName(name string) (*workspacesweb.Portal, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.Portal:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.Portal not found", name)
+}
+
+// GetAllWorkSpacesWebTrustStoreResources retrieves all workspacesweb.TrustStore items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebTrustStoreResources() map[string]*workspacesweb.TrustStore {
+	results := map[string]*workspacesweb.TrustStore{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.TrustStore:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebTrustStoreWithName retrieves all workspacesweb.TrustStore items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebTrustStoreWithName(name string) (*workspacesweb.TrustStore, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.TrustStore:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.TrustStore not found", name)
+}
+
+// GetAllWorkSpacesWebUserAccessLoggingSettingsResources retrieves all workspacesweb.UserAccessLoggingSettings items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebUserAccessLoggingSettingsResources() map[string]*workspacesweb.UserAccessLoggingSettings {
+	results := map[string]*workspacesweb.UserAccessLoggingSettings{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.UserAccessLoggingSettings:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebUserAccessLoggingSettingsWithName retrieves all workspacesweb.UserAccessLoggingSettings items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebUserAccessLoggingSettingsWithName(name string) (*workspacesweb.UserAccessLoggingSettings, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.UserAccessLoggingSettings:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.UserAccessLoggingSettings not found", name)
+}
+
+// GetAllWorkSpacesWebUserSettingsResources retrieves all workspacesweb.UserSettings items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWebUserSettingsResources() map[string]*workspacesweb.UserSettings {
+	results := map[string]*workspacesweb.UserSettings{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesweb.UserSettings:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWebUserSettingsWithName retrieves all workspacesweb.UserSettings items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWebUserSettingsWithName(name string) (*workspacesweb.UserSettings, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesweb.UserSettings:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesweb.UserSettings not found", name)
 }
 
 // GetAllXRayGroupResources retrieves all xray.Group items from an AWS CloudFormation template
