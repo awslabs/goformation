@@ -270,6 +270,12 @@
                     "Required": false,
                     "Type": "FunctionUrlConfig",
                     "UpdateType": "Immutable"
+                },
+                "EphemeralStorage": {
+                    "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-ephemeralstorage",
+                    "Required": false,
+                    "Type": "EphemeralStorage",
+                    "UpdateType": "Immutable"
                 }
             }
         },
@@ -2154,6 +2160,17 @@
                     "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cors-configuration",
                     "Required": false,
                     "PrimitiveType": "Boolean",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Function.EphemeralStorage": {
+            "Documentation": "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-ephemeralstorage",
+            "Properties": {
+                "Size": {
+                    "Documentation": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-ephemeralstorage.html#cfn-lambda-function-ephemeralstorage-size",
+                    "Required": true,
+                    "PrimitiveType": "Integer",
                     "UpdateType": "Immutable"
                 }
             }

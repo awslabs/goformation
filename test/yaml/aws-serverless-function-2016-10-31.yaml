@@ -6,6 +6,8 @@ Resources:
       Handler: file.method
       Runtime: nodejs
       CodeUri: s3://bucket/path/key
+      EphemeralStorage:
+        Size: 1024
       FunctionName: functionname
       FunctionUrlConfig:
         AuthType: AWS_IAM
