@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.12.0](https://github.com/awslabs/goformation/compare/v7.11.1...v7.12.0) (2023-08-30)
+
+
+### Features
+
+* **lambda_function:** add EphemeralStorage property ([#619](https://github.com/awslabs/goformation/issues/619)) ([73f7eb2](https://github.com/awslabs/goformation/commit/73f7eb22da964fdfe797f1af80001cdcc5eb2b24))
+
 ## [7.11.1](https://github.com/awslabs/goformation/compare/v7.11.0...v7.11.1) (2023-08-25)
 
 
