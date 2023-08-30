@@ -63,6 +63,11 @@ type Function struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 	Environment *Function_FunctionEnvironment `json:"Environment,omitempty"`
 
+	// EphemeralStorage AWS CloudFormation Property
+	// Required: false
+	// See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-ephemeralstorage
+	EphemeralStorage *Function_EphemeralStorage `json:"EphemeralStorage,omitempty"`
+
 	// EventInvokeConfig AWS CloudFormation Property
 	// Required: false
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
