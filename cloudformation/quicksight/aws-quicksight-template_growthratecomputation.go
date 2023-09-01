@@ -26,9 +26,9 @@ type Template_GrowthRateComputation struct {
 	PeriodSize *float64 `json:"PeriodSize,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-growthratecomputation.html#cfn-quicksight-template-growthratecomputation-time
-	Time *Template_DimensionField `json:"Time"`
+	Time *Template_DimensionField `json:"Time,omitempty"`
 
 	// Value AWS CloudFormation Property
 	// Required: false

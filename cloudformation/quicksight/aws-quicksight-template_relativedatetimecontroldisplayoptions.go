@@ -15,6 +15,11 @@ type Template_RelativeDateTimeControlDisplayOptions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html#cfn-quicksight-template-relativedatetimecontroldisplayoptions-datetimeformat
 	DateTimeFormat *string `json:"DateTimeFormat,omitempty"`
 
+	// InfoIconLabelOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html#cfn-quicksight-template-relativedatetimecontroldisplayoptions-infoiconlabeloptions
+	InfoIconLabelOptions *Template_SheetControlInfoIconLabelOptions `json:"InfoIconLabelOptions,omitempty"`
+
 	// TitleOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html#cfn-quicksight-template-relativedatetimecontroldisplayoptions-titleoptions

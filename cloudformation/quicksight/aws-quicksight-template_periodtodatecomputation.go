@@ -26,9 +26,9 @@ type Template_PeriodToDateComputation struct {
 	PeriodTimeGranularity *string `json:"PeriodTimeGranularity,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html#cfn-quicksight-template-periodtodatecomputation-time
-	Time *Template_DimensionField `json:"Time"`
+	Time *Template_DimensionField `json:"Time,omitempty"`
 
 	// Value AWS CloudFormation Property
 	// Required: false

@@ -11,9 +11,9 @@ import (
 type Analysis_UniqueValuesComputation struct {
 
 	// Category AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-uniquevaluescomputation.html#cfn-quicksight-analysis-uniquevaluescomputation-category
-	Category *Analysis_DimensionField `json:"Category"`
+	Category *Analysis_DimensionField `json:"Category,omitempty"`
 
 	// ComputationId AWS CloudFormation Property
 	// Required: true

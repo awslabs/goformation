@@ -11,9 +11,9 @@ import (
 type Template_TopBottomRankedComputation struct {
 
 	// Category AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomrankedcomputation.html#cfn-quicksight-template-topbottomrankedcomputation-category
-	Category *Template_DimensionField `json:"Category"`
+	Category *Template_DimensionField `json:"Category,omitempty"`
 
 	// ComputationId AWS CloudFormation Property
 	// Required: true

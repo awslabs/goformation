@@ -10,6 +10,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dropdowncontroldisplayoptions.html
 type Template_DropDownControlDisplayOptions struct {
 
+	// InfoIconLabelOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dropdowncontroldisplayoptions.html#cfn-quicksight-template-dropdowncontroldisplayoptions-infoiconlabeloptions
+	InfoIconLabelOptions *Template_SheetControlInfoIconLabelOptions `json:"InfoIconLabelOptions,omitempty"`
+
 	// SelectAllOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dropdowncontroldisplayoptions.html#cfn-quicksight-template-dropdowncontroldisplayoptions-selectalloptions
