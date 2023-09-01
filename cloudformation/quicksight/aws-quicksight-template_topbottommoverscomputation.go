@@ -11,9 +11,9 @@ import (
 type Template_TopBottomMoversComputation struct {
 
 	// Category AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottommoverscomputation.html#cfn-quicksight-template-topbottommoverscomputation-category
-	Category *Template_DimensionField `json:"Category"`
+	Category *Template_DimensionField `json:"Category,omitempty"`
 
 	// ComputationId AWS CloudFormation Property
 	// Required: true
@@ -36,9 +36,9 @@ type Template_TopBottomMoversComputation struct {
 	SortOrder *string `json:"SortOrder,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottommoverscomputation.html#cfn-quicksight-template-topbottommoverscomputation-time
-	Time *Template_DimensionField `json:"Time"`
+	Time *Template_DimensionField `json:"Time,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

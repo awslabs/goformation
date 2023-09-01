@@ -60,6 +60,11 @@ type Channel_EncoderSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-outputgroups
 	OutputGroups []Channel_OutputGroup `json:"OutputGroups,omitempty"`
 
+	// ThumbnailConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-thumbnailconfiguration
+	ThumbnailConfiguration *Channel_ThumbnailConfiguration `json:"ThumbnailConfiguration,omitempty"`
+
 	// TimecodeConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-timecodeconfig

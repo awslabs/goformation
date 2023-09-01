@@ -65,6 +65,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/datasync"
 	"github.com/awslabs/goformation/v7/cloudformation/dax"
 	"github.com/awslabs/goformation/v7/cloudformation/detective"
+	"github.com/awslabs/goformation/v7/cloudformation/devbatch"
 	"github.com/awslabs/goformation/v7/cloudformation/devopsguru"
 	"github.com/awslabs/goformation/v7/cloudformation/directoryservice"
 	"github.com/awslabs/goformation/v7/cloudformation/dlm"
@@ -167,6 +168,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/organizations"
 	"github.com/awslabs/goformation/v7/cloudformation/osis"
 	"github.com/awslabs/goformation/v7/cloudformation/panorama"
+	"github.com/awslabs/goformation/v7/cloudformation/pcaconnectorad"
 	"github.com/awslabs/goformation/v7/cloudformation/personalize"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpoint"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpointemail"
@@ -374,6 +376,7 @@ func AllResources() map[string]Resource {
 		"AWS::CertificateManager::Certificate":                             &certificatemanager.Certificate{},
 		"AWS::Chatbot::MicrosoftTeamsChannelConfiguration":                 &chatbot.MicrosoftTeamsChannelConfiguration{},
 		"AWS::Chatbot::SlackChannelConfiguration":                          &chatbot.SlackChannelConfiguration{},
+		"AWS::CleanRooms::AnalysisTemplate":                                &cleanrooms.AnalysisTemplate{},
 		"AWS::CleanRooms::Collaboration":                                   &cleanrooms.Collaboration{},
 		"AWS::CleanRooms::ConfiguredTable":                                 &cleanrooms.ConfiguredTable{},
 		"AWS::CleanRooms::ConfiguredTableAssociation":                      &cleanrooms.ConfiguredTableAssociation{},
@@ -521,6 +524,7 @@ func AllResources() map[string]Resource {
 		"AWS::Detective::Graph":                                            &detective.Graph{},
 		"AWS::Detective::MemberInvitation":                                 &detective.MemberInvitation{},
 		"AWS::Detective::OrganizationAdmin":                                &detective.OrganizationAdmin{},
+		"AWS::DevBatch::JobDefinition":                                     &devbatch.JobDefinition{},
 		"AWS::DevOpsGuru::LogAnomalyDetectionIntegration":                  &devopsguru.LogAnomalyDetectionIntegration{},
 		"AWS::DevOpsGuru::NotificationChannel":                             &devopsguru.NotificationChannel{},
 		"AWS::DevOpsGuru::ResourceCollection":                              &devopsguru.ResourceCollection{},
@@ -1049,6 +1053,11 @@ func AllResources() map[string]Resource {
 		"AWS::Organizations::OrganizationalUnit":                           &organizations.OrganizationalUnit{},
 		"AWS::Organizations::Policy":                                       &organizations.Policy{},
 		"AWS::Organizations::ResourcePolicy":                               &organizations.ResourcePolicy{},
+		"AWS::PCAConnectorAD::Connector":                                   &pcaconnectorad.Connector{},
+		"AWS::PCAConnectorAD::DirectoryRegistration":                       &pcaconnectorad.DirectoryRegistration{},
+		"AWS::PCAConnectorAD::ServicePrincipalName":                        &pcaconnectorad.ServicePrincipalName{},
+		"AWS::PCAConnectorAD::Template":                                    &pcaconnectorad.Template{},
+		"AWS::PCAConnectorAD::TemplateGroupAccessControlEntry":             &pcaconnectorad.TemplateGroupAccessControlEntry{},
 		"AWS::Panorama::ApplicationInstance":                               &panorama.ApplicationInstance{},
 		"AWS::Panorama::Package":                                           &panorama.Package{},
 		"AWS::Panorama::PackageVersion":                                    &panorama.PackageVersion{},
@@ -4713,6 +4722,30 @@ func (t *Template) GetChatbotSlackChannelConfigurationWithName(name string) (*ch
 	return nil, fmt.Errorf("resource %q of type chatbot.SlackChannelConfiguration not found", name)
 }
 
+// GetAllCleanRoomsAnalysisTemplateResources retrieves all cleanrooms.AnalysisTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllCleanRoomsAnalysisTemplateResources() map[string]*cleanrooms.AnalysisTemplate {
+	results := map[string]*cleanrooms.AnalysisTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cleanrooms.AnalysisTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCleanRoomsAnalysisTemplateWithName retrieves all cleanrooms.AnalysisTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCleanRoomsAnalysisTemplateWithName(name string) (*cleanrooms.AnalysisTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cleanrooms.AnalysisTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cleanrooms.AnalysisTemplate not found", name)
+}
+
 // GetAllCleanRoomsCollaborationResources retrieves all cleanrooms.Collaboration items from an AWS CloudFormation template
 func (t *Template) GetAllCleanRoomsCollaborationResources() map[string]*cleanrooms.Collaboration {
 	results := map[string]*cleanrooms.Collaboration{}
@@ -8239,6 +8272,30 @@ func (t *Template) GetDetectiveOrganizationAdminWithName(name string) (*detectiv
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type detective.OrganizationAdmin not found", name)
+}
+
+// GetAllDevBatchJobDefinitionResources retrieves all devbatch.JobDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllDevBatchJobDefinitionResources() map[string]*devbatch.JobDefinition {
+	results := map[string]*devbatch.JobDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *devbatch.JobDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDevBatchJobDefinitionWithName retrieves all devbatch.JobDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDevBatchJobDefinitionWithName(name string) (*devbatch.JobDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *devbatch.JobDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type devbatch.JobDefinition not found", name)
 }
 
 // GetAllDevOpsGuruLogAnomalyDetectionIntegrationResources retrieves all devopsguru.LogAnomalyDetectionIntegration items from an AWS CloudFormation template
@@ -20911,6 +20968,126 @@ func (t *Template) GetOrganizationsResourcePolicyWithName(name string) (*organiz
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type organizations.ResourcePolicy not found", name)
+}
+
+// GetAllPCAConnectorADConnectorResources retrieves all pcaconnectorad.Connector items from an AWS CloudFormation template
+func (t *Template) GetAllPCAConnectorADConnectorResources() map[string]*pcaconnectorad.Connector {
+	results := map[string]*pcaconnectorad.Connector{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.Connector:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPCAConnectorADConnectorWithName retrieves all pcaconnectorad.Connector items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPCAConnectorADConnectorWithName(name string) (*pcaconnectorad.Connector, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.Connector:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pcaconnectorad.Connector not found", name)
+}
+
+// GetAllPCAConnectorADDirectoryRegistrationResources retrieves all pcaconnectorad.DirectoryRegistration items from an AWS CloudFormation template
+func (t *Template) GetAllPCAConnectorADDirectoryRegistrationResources() map[string]*pcaconnectorad.DirectoryRegistration {
+	results := map[string]*pcaconnectorad.DirectoryRegistration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.DirectoryRegistration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPCAConnectorADDirectoryRegistrationWithName retrieves all pcaconnectorad.DirectoryRegistration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPCAConnectorADDirectoryRegistrationWithName(name string) (*pcaconnectorad.DirectoryRegistration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.DirectoryRegistration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pcaconnectorad.DirectoryRegistration not found", name)
+}
+
+// GetAllPCAConnectorADServicePrincipalNameResources retrieves all pcaconnectorad.ServicePrincipalName items from an AWS CloudFormation template
+func (t *Template) GetAllPCAConnectorADServicePrincipalNameResources() map[string]*pcaconnectorad.ServicePrincipalName {
+	results := map[string]*pcaconnectorad.ServicePrincipalName{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.ServicePrincipalName:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPCAConnectorADServicePrincipalNameWithName retrieves all pcaconnectorad.ServicePrincipalName items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPCAConnectorADServicePrincipalNameWithName(name string) (*pcaconnectorad.ServicePrincipalName, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.ServicePrincipalName:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pcaconnectorad.ServicePrincipalName not found", name)
+}
+
+// GetAllPCAConnectorADTemplateResources retrieves all pcaconnectorad.Template items from an AWS CloudFormation template
+func (t *Template) GetAllPCAConnectorADTemplateResources() map[string]*pcaconnectorad.Template {
+	results := map[string]*pcaconnectorad.Template{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.Template:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPCAConnectorADTemplateWithName retrieves all pcaconnectorad.Template items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPCAConnectorADTemplateWithName(name string) (*pcaconnectorad.Template, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.Template:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pcaconnectorad.Template not found", name)
+}
+
+// GetAllPCAConnectorADTemplateGroupAccessControlEntryResources retrieves all pcaconnectorad.TemplateGroupAccessControlEntry items from an AWS CloudFormation template
+func (t *Template) GetAllPCAConnectorADTemplateGroupAccessControlEntryResources() map[string]*pcaconnectorad.TemplateGroupAccessControlEntry {
+	results := map[string]*pcaconnectorad.TemplateGroupAccessControlEntry{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.TemplateGroupAccessControlEntry:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPCAConnectorADTemplateGroupAccessControlEntryWithName retrieves all pcaconnectorad.TemplateGroupAccessControlEntry items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPCAConnectorADTemplateGroupAccessControlEntryWithName(name string) (*pcaconnectorad.TemplateGroupAccessControlEntry, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pcaconnectorad.TemplateGroupAccessControlEntry:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pcaconnectorad.TemplateGroupAccessControlEntry not found", name)
 }
 
 // GetAllPanoramaApplicationInstanceResources retrieves all panorama.ApplicationInstance items from an AWS CloudFormation template

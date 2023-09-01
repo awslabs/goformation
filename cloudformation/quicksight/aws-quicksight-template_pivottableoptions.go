@@ -30,6 +30,11 @@ type Template_PivotTableOptions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableoptions.html#cfn-quicksight-template-pivottableoptions-columnnamesvisibility
 	ColumnNamesVisibility *string `json:"ColumnNamesVisibility,omitempty"`
 
+	// DefaultCellWidth AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableoptions.html#cfn-quicksight-template-pivottableoptions-defaultcellwidth
+	DefaultCellWidth *string `json:"DefaultCellWidth,omitempty"`
+
 	// MetricPlacement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableoptions.html#cfn-quicksight-template-pivottableoptions-metricplacement
@@ -49,6 +54,16 @@ type Template_PivotTableOptions struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableoptions.html#cfn-quicksight-template-pivottableoptions-rowheaderstyle
 	RowHeaderStyle *Template_TableCellStyle `json:"RowHeaderStyle,omitempty"`
+
+	// RowsLabelOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableoptions.html#cfn-quicksight-template-pivottableoptions-rowslabeloptions
+	RowsLabelOptions *Template_PivotTableRowsLabelOptions `json:"RowsLabelOptions,omitempty"`
+
+	// RowsLayout AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableoptions.html#cfn-quicksight-template-pivottableoptions-rowslayout
+	RowsLayout *string `json:"RowsLayout,omitempty"`
 
 	// SingleMetricVisibility AWS CloudFormation Property
 	// Required: false

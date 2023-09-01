@@ -21,9 +21,9 @@ type Analysis_TotalAggregationComputation struct {
 	Name *string `json:"Name,omitempty"`
 
 	// Value AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-totalaggregationcomputation.html#cfn-quicksight-analysis-totalaggregationcomputation-value
-	Value *Analysis_MeasureField `json:"Value"`
+	Value *Analysis_MeasureField `json:"Value,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

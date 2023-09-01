@@ -21,9 +21,9 @@ type Template_MaximumMinimumComputation struct {
 	Name *string `json:"Name,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-maximumminimumcomputation.html#cfn-quicksight-template-maximumminimumcomputation-time
-	Time *Template_DimensionField `json:"Time"`
+	Time *Template_DimensionField `json:"Time,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

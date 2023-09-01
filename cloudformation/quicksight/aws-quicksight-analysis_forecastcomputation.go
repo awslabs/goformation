@@ -51,9 +51,9 @@ type Analysis_ForecastComputation struct {
 	Seasonality *string `json:"Seasonality,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-forecastcomputation.html#cfn-quicksight-analysis-forecastcomputation-time
-	Time *Analysis_DimensionField `json:"Time"`
+	Time *Analysis_DimensionField `json:"Time,omitempty"`
 
 	// UpperBoundary AWS CloudFormation Property
 	// Required: false
