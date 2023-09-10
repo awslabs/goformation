@@ -20,15 +20,20 @@ type TargetGroup_TargetGroupConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-ipaddresstype
 	IpAddressType *string `json:"IpAddressType,omitempty"`
 
+	// LambdaEventStructureVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-lambdaeventstructureversion
+	LambdaEventStructureVersion *string `json:"LambdaEventStructureVersion,omitempty"`
+
 	// Port AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-port
-	Port int `json:"Port"`
+	Port *int `json:"Port,omitempty"`
 
 	// Protocol AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-protocol
-	Protocol string `json:"Protocol"`
+	Protocol *string `json:"Protocol,omitempty"`
 
 	// ProtocolVersion AWS CloudFormation Property
 	// Required: false
@@ -36,9 +41,9 @@ type TargetGroup_TargetGroupConfig struct {
 	ProtocolVersion *string `json:"ProtocolVersion,omitempty"`
 
 	// VpcIdentifier AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html#cfn-vpclattice-targetgroup-targetgroupconfig-vpcidentifier
-	VpcIdentifier string `json:"VpcIdentifier"`
+	VpcIdentifier *string `json:"VpcIdentifier,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

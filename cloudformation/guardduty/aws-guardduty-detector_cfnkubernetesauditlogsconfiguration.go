@@ -11,9 +11,9 @@ import (
 type Detector_CFNKubernetesAuditLogsConfiguration struct {
 
 	// Enable AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html#cfn-guardduty-detector-cfnkubernetesauditlogsconfiguration-enable
-	Enable *bool `json:"Enable,omitempty"`
+	Enable bool `json:"Enable"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
