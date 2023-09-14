@@ -35,9 +35,9 @@ type Destination struct {
 	Name string `json:"Name"`
 
 	// RoleArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-rolearn
-	RoleArn string `json:"RoleArn"`
+	RoleArn *string `json:"RoleArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

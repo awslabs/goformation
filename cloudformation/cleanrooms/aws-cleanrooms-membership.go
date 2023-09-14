@@ -19,6 +19,11 @@ type Membership struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-collaborationidentifier
 	CollaborationIdentifier string `json:"CollaborationIdentifier"`
 
+	// DefaultResultConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-defaultresultconfiguration
+	DefaultResultConfiguration *Membership_MembershipProtectedQueryResultConfiguration `json:"DefaultResultConfiguration,omitempty"`
+
 	// QueryLogStatus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-querylogstatus

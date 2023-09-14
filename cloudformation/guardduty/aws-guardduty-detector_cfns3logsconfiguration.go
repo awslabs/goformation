@@ -11,9 +11,9 @@ import (
 type Detector_CFNS3LogsConfiguration struct {
 
 	// Enable AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable
-	Enable *bool `json:"Enable,omitempty"`
+	Enable bool `json:"Enable"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

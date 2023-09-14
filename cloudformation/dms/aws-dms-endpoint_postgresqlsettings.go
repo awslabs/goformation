@@ -15,10 +15,20 @@ type Endpoint_PostgreSqlSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-afterconnectscript
 	AfterConnectScript *string `json:"AfterConnectScript,omitempty"`
 
+	// BabelfishDatabaseName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-babelfishdatabasename
+	BabelfishDatabaseName *string `json:"BabelfishDatabaseName,omitempty"`
+
 	// CaptureDdls AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-captureddls
 	CaptureDdls *bool `json:"CaptureDdls,omitempty"`
+
+	// DatabaseMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-databasemode
+	DatabaseMode *string `json:"DatabaseMode,omitempty"`
 
 	// DdlArtifactsSchema AWS CloudFormation Property
 	// Required: false
