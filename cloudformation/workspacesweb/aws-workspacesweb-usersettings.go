@@ -14,10 +14,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html
 type UserSettings struct {
 
+	// AdditionalEncryptionContext AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-additionalencryptioncontext
+	AdditionalEncryptionContext map[string]string `json:"AdditionalEncryptionContext,omitempty"`
+
+	// CookieSynchronizationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-cookiesynchronizationconfiguration
+	CookieSynchronizationConfiguration *UserSettings_CookieSynchronizationConfiguration `json:"CookieSynchronizationConfiguration,omitempty"`
+
 	// CopyAllowed AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-copyallowed
 	CopyAllowed string `json:"CopyAllowed"`
+
+	// CustomerManagedKey AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-customermanagedkey
+	CustomerManagedKey *string `json:"CustomerManagedKey,omitempty"`
 
 	// DisconnectTimeoutInMinutes AWS CloudFormation Property
 	// Required: false
