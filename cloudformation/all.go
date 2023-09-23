@@ -478,6 +478,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::RoutingProfile":                                     &connect.RoutingProfile{},
 		"AWS::Connect::Rule":                                               &connect.Rule{},
 		"AWS::Connect::SecurityKey":                                        &connect.SecurityKey{},
+		"AWS::Connect::SecurityProfile":                                    &connect.SecurityProfile{},
 		"AWS::Connect::TaskTemplate":                                       &connect.TaskTemplate{},
 		"AWS::Connect::TrafficDistributionGroup":                           &connect.TrafficDistributionGroup{},
 		"AWS::Connect::User":                                               &connect.User{},
@@ -7174,6 +7175,30 @@ func (t *Template) GetConnectSecurityKeyWithName(name string) (*connect.Security
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.SecurityKey not found", name)
+}
+
+// GetAllConnectSecurityProfileResources retrieves all connect.SecurityProfile items from an AWS CloudFormation template
+func (t *Template) GetAllConnectSecurityProfileResources() map[string]*connect.SecurityProfile {
+	results := map[string]*connect.SecurityProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.SecurityProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectSecurityProfileWithName retrieves all connect.SecurityProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectSecurityProfileWithName(name string) (*connect.SecurityProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.SecurityProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.SecurityProfile not found", name)
 }
 
 // GetAllConnectTaskTemplateResources retrieves all connect.TaskTemplate items from an AWS CloudFormation template
