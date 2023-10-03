@@ -21,9 +21,9 @@ type Dashboard_MaximumMinimumComputation struct {
 	Name *string `json:"Name,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-maximumminimumcomputation.html#cfn-quicksight-dashboard-maximumminimumcomputation-time
-	Time *Dashboard_DimensionField `json:"Time"`
+	Time *Dashboard_DimensionField `json:"Time,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

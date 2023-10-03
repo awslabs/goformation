@@ -16,9 +16,9 @@ type Dashboard_MetricComparisonComputation struct {
 	ComputationId string `json:"ComputationId"`
 
 	// FromValue AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-metriccomparisoncomputation.html#cfn-quicksight-dashboard-metriccomparisoncomputation-fromvalue
-	FromValue *Dashboard_MeasureField `json:"FromValue"`
+	FromValue *Dashboard_MeasureField `json:"FromValue,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -26,14 +26,14 @@ type Dashboard_MetricComparisonComputation struct {
 	Name *string `json:"Name,omitempty"`
 
 	// TargetValue AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-metriccomparisoncomputation.html#cfn-quicksight-dashboard-metriccomparisoncomputation-targetvalue
-	TargetValue *Dashboard_MeasureField `json:"TargetValue"`
+	TargetValue *Dashboard_MeasureField `json:"TargetValue,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-metriccomparisoncomputation.html#cfn-quicksight-dashboard-metriccomparisoncomputation-time
-	Time *Dashboard_DimensionField `json:"Time"`
+	Time *Dashboard_DimensionField `json:"Time,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

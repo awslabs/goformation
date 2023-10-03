@@ -30,6 +30,11 @@ type Dashboard_PivotTableOptions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-columnnamesvisibility
 	ColumnNamesVisibility *string `json:"ColumnNamesVisibility,omitempty"`
 
+	// DefaultCellWidth AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-defaultcellwidth
+	DefaultCellWidth *string `json:"DefaultCellWidth,omitempty"`
+
 	// MetricPlacement AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-metricplacement
@@ -49,6 +54,16 @@ type Dashboard_PivotTableOptions struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowheaderstyle
 	RowHeaderStyle *Dashboard_TableCellStyle `json:"RowHeaderStyle,omitempty"`
+
+	// RowsLabelOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowslabeloptions
+	RowsLabelOptions *Dashboard_PivotTableRowsLabelOptions `json:"RowsLabelOptions,omitempty"`
+
+	// RowsLayout AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottableoptions.html#cfn-quicksight-dashboard-pivottableoptions-rowslayout
+	RowsLayout *string `json:"RowsLayout,omitempty"`
 
 	// SingleMetricVisibility AWS CloudFormation Property
 	// Required: false
