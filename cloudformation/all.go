@@ -103,6 +103,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/greengrassv2"
 	"github.com/awslabs/goformation/v7/cloudformation/groundstation"
 	"github.com/awslabs/goformation/v7/cloudformation/guardduty"
+	"github.com/awslabs/goformation/v7/cloudformation/healthimaging"
 	"github.com/awslabs/goformation/v7/cloudformation/healthlake"
 	"github.com/awslabs/goformation/v7/cloudformation/iam"
 	"github.com/awslabs/goformation/v7/cloudformation/identitystore"
@@ -776,6 +777,7 @@ func AllResources() map[string]Resource {
 		"AWS::GuardDuty::Master":                                           &guardduty.Master{},
 		"AWS::GuardDuty::Member":                                           &guardduty.Member{},
 		"AWS::GuardDuty::ThreatIntelSet":                                   &guardduty.ThreatIntelSet{},
+		"AWS::HealthImaging::Datastore":                                    &healthimaging.Datastore{},
 		"AWS::HealthLake::FHIRDatastore":                                   &healthlake.FHIRDatastore{},
 		"AWS::IAM::AccessKey":                                              &iam.AccessKey{},
 		"AWS::IAM::Group":                                                  &iam.Group{},
@@ -14327,6 +14329,30 @@ func (t *Template) GetGuardDutyThreatIntelSetWithName(name string) (*guardduty.T
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type guardduty.ThreatIntelSet not found", name)
+}
+
+// GetAllHealthImagingDatastoreResources retrieves all healthimaging.Datastore items from an AWS CloudFormation template
+func (t *Template) GetAllHealthImagingDatastoreResources() map[string]*healthimaging.Datastore {
+	results := map[string]*healthimaging.Datastore{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *healthimaging.Datastore:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetHealthImagingDatastoreWithName retrieves all healthimaging.Datastore items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetHealthImagingDatastoreWithName(name string) (*healthimaging.Datastore, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *healthimaging.Datastore:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type healthimaging.Datastore not found", name)
 }
 
 // GetAllHealthLakeFHIRDatastoreResources retrieves all healthlake.FHIRDatastore items from an AWS CloudFormation template

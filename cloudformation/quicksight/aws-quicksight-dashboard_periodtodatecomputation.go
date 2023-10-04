@@ -26,9 +26,9 @@ type Dashboard_PeriodToDateComputation struct {
 	PeriodTimeGranularity *string `json:"PeriodTimeGranularity,omitempty"`
 
 	// Time AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-periodtodatecomputation.html#cfn-quicksight-dashboard-periodtodatecomputation-time
-	Time *Dashboard_DimensionField `json:"Time"`
+	Time *Dashboard_DimensionField `json:"Time,omitempty"`
 
 	// Value AWS CloudFormation Property
 	// Required: false

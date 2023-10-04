@@ -21,9 +21,9 @@ type Dashboard_TotalAggregationComputation struct {
 	Name *string `json:"Name,omitempty"`
 
 	// Value AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-totalaggregationcomputation.html#cfn-quicksight-dashboard-totalaggregationcomputation-value
-	Value *Dashboard_MeasureField `json:"Value"`
+	Value *Dashboard_MeasureField `json:"Value,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
