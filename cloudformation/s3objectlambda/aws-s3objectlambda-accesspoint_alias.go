@@ -11,9 +11,9 @@ import (
 type AccessPoint_Alias struct {
 
 	// Status AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html#cfn-s3objectlambda-accesspoint-alias-status
-	Status string `json:"Status"`
+	Status *string `json:"Status,omitempty"`
 
 	// Value AWS CloudFormation Property
 	// Required: true

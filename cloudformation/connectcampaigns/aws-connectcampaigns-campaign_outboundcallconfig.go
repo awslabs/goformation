@@ -21,9 +21,9 @@ type Campaign_OutboundCallConfig struct {
 	ConnectContactFlowArn string `json:"ConnectContactFlowArn"`
 
 	// ConnectQueueArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html#cfn-connectcampaigns-campaign-outboundcallconfig-connectqueuearn
-	ConnectQueueArn string `json:"ConnectQueueArn"`
+	ConnectQueueArn *string `json:"ConnectQueueArn,omitempty"`
 
 	// ConnectSourcePhoneNumber AWS CloudFormation Property
 	// Required: false

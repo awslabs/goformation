@@ -837,6 +837,8 @@ func AllResources() map[string]Resource {
 		"AWS::IoT::RoleAlias":                                              &iot.RoleAlias{},
 		"AWS::IoT::ScheduledAudit":                                         &iot.ScheduledAudit{},
 		"AWS::IoT::SecurityProfile":                                        &iot.SecurityProfile{},
+		"AWS::IoT::SoftwarePackage":                                        &iot.SoftwarePackage{},
+		"AWS::IoT::SoftwarePackageVersion":                                 &iot.SoftwarePackageVersion{},
 		"AWS::IoT::Thing":                                                  &iot.Thing{},
 		"AWS::IoT::ThingGroup":                                             &iot.ThingGroup{},
 		"AWS::IoT::ThingPrincipalAttachment":                               &iot.ThingPrincipalAttachment{},
@@ -15769,6 +15771,54 @@ func (t *Template) GetIoTSecurityProfileWithName(name string) (*iot.SecurityProf
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iot.SecurityProfile not found", name)
+}
+
+// GetAllIoTSoftwarePackageResources retrieves all iot.SoftwarePackage items from an AWS CloudFormation template
+func (t *Template) GetAllIoTSoftwarePackageResources() map[string]*iot.SoftwarePackage {
+	results := map[string]*iot.SoftwarePackage{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.SoftwarePackage:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTSoftwarePackageWithName retrieves all iot.SoftwarePackage items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTSoftwarePackageWithName(name string) (*iot.SoftwarePackage, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.SoftwarePackage:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.SoftwarePackage not found", name)
+}
+
+// GetAllIoTSoftwarePackageVersionResources retrieves all iot.SoftwarePackageVersion items from an AWS CloudFormation template
+func (t *Template) GetAllIoTSoftwarePackageVersionResources() map[string]*iot.SoftwarePackageVersion {
+	results := map[string]*iot.SoftwarePackageVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.SoftwarePackageVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTSoftwarePackageVersionWithName retrieves all iot.SoftwarePackageVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTSoftwarePackageVersionWithName(name string) (*iot.SoftwarePackageVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.SoftwarePackageVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.SoftwarePackageVersion not found", name)
 }
 
 // GetAllIoTThingResources retrieves all iot.Thing items from an AWS CloudFormation template

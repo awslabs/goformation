@@ -40,10 +40,20 @@ type Dashboard_KPIOptions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-secondaryvaluefontconfiguration
 	SecondaryValueFontConfiguration *Dashboard_FontConfiguration `json:"SecondaryValueFontConfiguration,omitempty"`
 
+	// Sparkline AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-sparkline
+	Sparkline *Dashboard_KPISparklineOptions `json:"Sparkline,omitempty"`
+
 	// TrendArrows AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-trendarrows
 	TrendArrows *Dashboard_TrendArrowOptions `json:"TrendArrows,omitempty"`
+
+	// VisualLayoutOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpioptions.html#cfn-quicksight-dashboard-kpioptions-visuallayoutoptions
+	VisualLayoutOptions *Dashboard_KPIVisualLayoutOptions `json:"VisualLayoutOptions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
