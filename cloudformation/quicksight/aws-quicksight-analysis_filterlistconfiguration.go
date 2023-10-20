@@ -20,6 +20,11 @@ type Analysis_FilterListConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistconfiguration.html#cfn-quicksight-analysis-filterlistconfiguration-matchoperator
 	MatchOperator string `json:"MatchOperator"`
 
+	// NullOption AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistconfiguration.html#cfn-quicksight-analysis-filterlistconfiguration-nulloption
+	NullOption *string `json:"NullOption,omitempty"`
+
 	// SelectAllOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistconfiguration.html#cfn-quicksight-analysis-filterlistconfiguration-selectalloptions

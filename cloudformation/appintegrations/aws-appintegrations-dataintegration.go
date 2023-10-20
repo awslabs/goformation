@@ -40,9 +40,9 @@ type DataIntegration struct {
 	ObjectConfiguration interface{} `json:"ObjectConfiguration,omitempty"`
 
 	// ScheduleConfig AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-scheduleconfig
-	ScheduleConfig *DataIntegration_ScheduleConfig `json:"ScheduleConfig"`
+	ScheduleConfig *DataIntegration_ScheduleConfig `json:"ScheduleConfig,omitempty"`
 
 	// SourceURI AWS CloudFormation Property
 	// Required: true
