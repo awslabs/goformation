@@ -26,7 +26,7 @@ type UserPoolGroup struct {
 	// Precedence AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-precedence
-	Precedence *float64 `json:"Precedence,omitempty"`
+	Precedence *int `json:"Precedence,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: false

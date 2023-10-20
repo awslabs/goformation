@@ -442,6 +442,7 @@ func AllResources() map[string]Resource {
 		"AWS::Cognito::IdentityPool":                                       &cognito.IdentityPool{},
 		"AWS::Cognito::IdentityPoolPrincipalTag":                           &cognito.IdentityPoolPrincipalTag{},
 		"AWS::Cognito::IdentityPoolRoleAttachment":                         &cognito.IdentityPoolRoleAttachment{},
+		"AWS::Cognito::LogDeliveryConfiguration":                           &cognito.LogDeliveryConfiguration{},
 		"AWS::Cognito::UserPool":                                           &cognito.UserPool{},
 		"AWS::Cognito::UserPoolClient":                                     &cognito.UserPoolClient{},
 		"AWS::Cognito::UserPoolDomain":                                     &cognito.UserPoolDomain{},
@@ -682,6 +683,7 @@ func AllResources() map[string]Resource {
 		"AWS::ElasticLoadBalancingV2::LoadBalancer":                        &elasticloadbalancingv2.LoadBalancer{},
 		"AWS::ElasticLoadBalancingV2::TargetGroup":                         &elasticloadbalancingv2.TargetGroup{},
 		"AWS::Elasticsearch::Domain":                                       &elasticsearch.Domain{},
+		"AWS::EntityResolution::IdMappingWorkflow":                         &entityresolution.IdMappingWorkflow{},
 		"AWS::EntityResolution::MatchingWorkflow":                          &entityresolution.MatchingWorkflow{},
 		"AWS::EntityResolution::SchemaMapping":                             &entityresolution.SchemaMapping{},
 		"AWS::EventSchemas::Discoverer":                                    &eventschemas.Discoverer{},
@@ -6291,6 +6293,30 @@ func (t *Template) GetCognitoIdentityPoolRoleAttachmentWithName(name string) (*c
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cognito.IdentityPoolRoleAttachment not found", name)
+}
+
+// GetAllCognitoLogDeliveryConfigurationResources retrieves all cognito.LogDeliveryConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllCognitoLogDeliveryConfigurationResources() map[string]*cognito.LogDeliveryConfiguration {
+	results := map[string]*cognito.LogDeliveryConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cognito.LogDeliveryConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCognitoLogDeliveryConfigurationWithName retrieves all cognito.LogDeliveryConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCognitoLogDeliveryConfigurationWithName(name string) (*cognito.LogDeliveryConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cognito.LogDeliveryConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cognito.LogDeliveryConfiguration not found", name)
 }
 
 // GetAllCognitoUserPoolResources retrieves all cognito.UserPool items from an AWS CloudFormation template
@@ -12051,6 +12077,30 @@ func (t *Template) GetElasticsearchDomainWithName(name string) (*elasticsearch.D
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type elasticsearch.Domain not found", name)
+}
+
+// GetAllEntityResolutionIdMappingWorkflowResources retrieves all entityresolution.IdMappingWorkflow items from an AWS CloudFormation template
+func (t *Template) GetAllEntityResolutionIdMappingWorkflowResources() map[string]*entityresolution.IdMappingWorkflow {
+	results := map[string]*entityresolution.IdMappingWorkflow{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *entityresolution.IdMappingWorkflow:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEntityResolutionIdMappingWorkflowWithName retrieves all entityresolution.IdMappingWorkflow items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEntityResolutionIdMappingWorkflowWithName(name string) (*entityresolution.IdMappingWorkflow, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *entityresolution.IdMappingWorkflow:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type entityresolution.IdMappingWorkflow not found", name)
 }
 
 // GetAllEntityResolutionMatchingWorkflowResources retrieves all entityresolution.MatchingWorkflow items from an AWS CloudFormation template
