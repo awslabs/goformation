@@ -964,6 +964,7 @@ func AllResources() map[string]Resource {
 		"AWS::MSK::Cluster":                                                &msk.Cluster{},
 		"AWS::MSK::ClusterPolicy":                                          &msk.ClusterPolicy{},
 		"AWS::MSK::Configuration":                                          &msk.Configuration{},
+		"AWS::MSK::Replicator":                                             &msk.Replicator{},
 		"AWS::MSK::ServerlessCluster":                                      &msk.ServerlessCluster{},
 		"AWS::MSK::VpcConnection":                                          &msk.VpcConnection{},
 		"AWS::MWAA::Environment":                                           &mwaa.Environment{},
@@ -18821,6 +18822,30 @@ func (t *Template) GetMSKConfigurationWithName(name string) (*msk.Configuration,
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type msk.Configuration not found", name)
+}
+
+// GetAllMSKReplicatorResources retrieves all msk.Replicator items from an AWS CloudFormation template
+func (t *Template) GetAllMSKReplicatorResources() map[string]*msk.Replicator {
+	results := map[string]*msk.Replicator{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *msk.Replicator:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMSKReplicatorWithName retrieves all msk.Replicator items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMSKReplicatorWithName(name string) (*msk.Replicator, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *msk.Replicator:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type msk.Replicator not found", name)
 }
 
 // GetAllMSKServerlessClusterResources retrieves all msk.ServerlessCluster items from an AWS CloudFormation template

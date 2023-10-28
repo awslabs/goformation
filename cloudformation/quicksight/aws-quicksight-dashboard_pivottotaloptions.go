@@ -30,6 +30,11 @@ type Dashboard_PivotTotalOptions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottotaloptions.html#cfn-quicksight-dashboard-pivottotaloptions-scrollstatus
 	ScrollStatus *string `json:"ScrollStatus,omitempty"`
 
+	// TotalAggregationOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottotaloptions.html#cfn-quicksight-dashboard-pivottotaloptions-totalaggregationoptions
+	TotalAggregationOptions []Dashboard_TotalAggregationOption `json:"TotalAggregationOptions,omitempty"`
+
 	// TotalCellStyle AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivottotaloptions.html#cfn-quicksight-dashboard-pivottotaloptions-totalcellstyle
