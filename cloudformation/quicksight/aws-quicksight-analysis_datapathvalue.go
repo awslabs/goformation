@@ -10,15 +10,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html
 type Analysis_DataPathValue struct {
 
+	// DataPathType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html#cfn-quicksight-analysis-datapathvalue-datapathtype
+	DataPathType *Analysis_DataPathType `json:"DataPathType,omitempty"`
+
 	// FieldId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html#cfn-quicksight-analysis-datapathvalue-fieldid
-	FieldId string `json:"FieldId"`
+	FieldId *string `json:"FieldId,omitempty"`
 
 	// FieldValue AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datapathvalue.html#cfn-quicksight-analysis-datapathvalue-fieldvalue
-	FieldValue string `json:"FieldValue"`
+	FieldValue *string `json:"FieldValue,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

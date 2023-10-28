@@ -116,7 +116,7 @@ type UserPool struct {
 	// UserPoolTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooltags
-	UserPoolTags interface{} `json:"UserPoolTags,omitempty"`
+	UserPoolTags map[string]string `json:"UserPoolTags,omitempty"`
 
 	// UsernameAttributes AWS CloudFormation Property
 	// Required: false

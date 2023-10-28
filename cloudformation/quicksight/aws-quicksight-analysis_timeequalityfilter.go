@@ -25,6 +25,11 @@ type Analysis_TimeEqualityFilter struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timeequalityfilter.html#cfn-quicksight-analysis-timeequalityfilter-parametername
 	ParameterName *string `json:"ParameterName,omitempty"`
 
+	// RollingDate AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timeequalityfilter.html#cfn-quicksight-analysis-timeequalityfilter-rollingdate
+	RollingDate *Analysis_RollingDateConfiguration `json:"RollingDate,omitempty"`
+
 	// TimeGranularity AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timeequalityfilter.html#cfn-quicksight-analysis-timeequalityfilter-timegranularity
