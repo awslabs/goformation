@@ -16,9 +16,9 @@ type Project_Environment struct {
 	Certificate *string `json:"Certificate,omitempty"`
 
 	// ComputeType AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
-	ComputeType string `json:"ComputeType"`
+	ComputeType *string `json:"ComputeType,omitempty"`
 
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
@@ -46,9 +46,9 @@ type Project_Environment struct {
 	RegistryCredential *Project_RegistryCredential `json:"RegistryCredential,omitempty"`
 
 	// Type AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
-	Type string `json:"Type"`
+	Type *string `json:"Type,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

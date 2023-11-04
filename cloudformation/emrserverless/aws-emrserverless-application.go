@@ -44,6 +44,11 @@ type Application struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-maximumcapacity
 	MaximumCapacity *Application_MaximumAllowedResources `json:"MaximumCapacity,omitempty"`
 
+	// MonitoringConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-monitoringconfiguration
+	MonitoringConfiguration *Application_MonitoringConfiguration `json:"MonitoringConfiguration,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-name
@@ -58,6 +63,11 @@ type Application struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-releaselabel
 	ReleaseLabel string `json:"ReleaseLabel"`
+
+	// RuntimeConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-runtimeconfiguration
+	RuntimeConfiguration []Application_ConfigurationObject `json:"RuntimeConfiguration,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
