@@ -35,6 +35,11 @@ type StorageLens_AccountLevel struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-detailedstatuscodesmetrics
 	DetailedStatusCodesMetrics *StorageLens_DetailedStatusCodesMetrics `json:"DetailedStatusCodesMetrics,omitempty"`
 
+	// StorageLensGroupLevel AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-storagelensgrouplevel
+	StorageLensGroupLevel *StorageLens_StorageLensGroupLevel `json:"StorageLensGroupLevel,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
