@@ -990,6 +990,8 @@ func AllResources() map[string]Resource {
 		"AWS::MediaLive::Channel":                                          &medialive.Channel{},
 		"AWS::MediaLive::Input":                                            &medialive.Input{},
 		"AWS::MediaLive::InputSecurityGroup":                               &medialive.InputSecurityGroup{},
+		"AWS::MediaLive::Multiplex":                                        &medialive.Multiplex{},
+		"AWS::MediaLive::Multiplexprogram":                                 &medialive.Multiplexprogram{},
 		"AWS::MediaPackage::Asset":                                         &mediapackage.Asset{},
 		"AWS::MediaPackage::Channel":                                       &mediapackage.Channel{},
 		"AWS::MediaPackage::OriginEndpoint":                                &mediapackage.OriginEndpoint{},
@@ -19446,6 +19448,54 @@ func (t *Template) GetMediaLiveInputSecurityGroupWithName(name string) (*mediali
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type medialive.InputSecurityGroup not found", name)
+}
+
+// GetAllMediaLiveMultiplexResources retrieves all medialive.Multiplex items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveMultiplexResources() map[string]*medialive.Multiplex {
+	results := map[string]*medialive.Multiplex{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.Multiplex:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveMultiplexWithName retrieves all medialive.Multiplex items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveMultiplexWithName(name string) (*medialive.Multiplex, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.Multiplex:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.Multiplex not found", name)
+}
+
+// GetAllMediaLiveMultiplexprogramResources retrieves all medialive.Multiplexprogram items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveMultiplexprogramResources() map[string]*medialive.Multiplexprogram {
+	results := map[string]*medialive.Multiplexprogram{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.Multiplexprogram:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveMultiplexprogramWithName retrieves all medialive.Multiplexprogram items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveMultiplexprogramWithName(name string) (*medialive.Multiplexprogram, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.Multiplexprogram:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.Multiplexprogram not found", name)
 }
 
 // GetAllMediaPackageAssetResources retrieves all mediapackage.Asset items from an AWS CloudFormation template

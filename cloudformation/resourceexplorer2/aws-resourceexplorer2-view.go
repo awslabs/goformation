@@ -16,7 +16,7 @@ type View struct {
 	// Filters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-filters
-	Filters *View_Filters `json:"Filters,omitempty"`
+	Filters *View_SearchFilter `json:"Filters,omitempty"`
 
 	// IncludedProperties AWS CloudFormation Property
 	// Required: false

@@ -18,6 +18,11 @@ type Fleet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
 	AnywhereConfiguration *Fleet_AnywhereConfiguration `json:"AnywhereConfiguration,omitempty"`
 
+	// ApplyCapacity AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-applycapacity
+	ApplyCapacity *string `json:"ApplyCapacity,omitempty"`
+
 	// BuildId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
@@ -117,6 +122,11 @@ type Fleet struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
 	RuntimeConfiguration *Fleet_RuntimeConfiguration `json:"RuntimeConfiguration,omitempty"`
+
+	// ScalingPolicies AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scalingpolicies
+	ScalingPolicies []Fleet_ScalingPolicy `json:"ScalingPolicies,omitempty"`
 
 	// ScriptId AWS CloudFormation Property
 	// Required: false
