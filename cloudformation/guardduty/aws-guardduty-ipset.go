@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
-	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // IPSet AWS CloudFormation Resource (AWS::GuardDuty::IPSet)
@@ -15,14 +14,14 @@ import (
 type IPSet struct {
 
 	// Activate AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
-	Activate bool `json:"Activate"`
+	Activate *bool `json:"Activate,omitempty"`
 
 	// DetectorId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid
-	DetectorId string `json:"DetectorId"`
+	DetectorId *string `json:"DetectorId,omitempty"`
 
 	// Format AWS CloudFormation Property
 	// Required: true
@@ -35,14 +34,14 @@ type IPSet struct {
 	Location string `json:"Location"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags []IPSet_TagItem `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

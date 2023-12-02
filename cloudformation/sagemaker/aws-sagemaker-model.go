@@ -25,9 +25,9 @@ type Model struct {
 	EnableNetworkIsolation *bool `json:"EnableNetworkIsolation,omitempty"`
 
 	// ExecutionRoleArn AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
-	ExecutionRoleArn string `json:"ExecutionRoleArn"`
+	ExecutionRoleArn *string `json:"ExecutionRoleArn,omitempty"`
 
 	// InferenceExecutionConfig AWS CloudFormation Property
 	// Required: false

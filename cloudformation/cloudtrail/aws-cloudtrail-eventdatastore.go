@@ -19,10 +19,25 @@ type EventDataStore struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-advancedeventselectors
 	AdvancedEventSelectors []EventDataStore_AdvancedEventSelector `json:"AdvancedEventSelectors,omitempty"`
 
+	// BillingMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-billingmode
+	BillingMode *string `json:"BillingMode,omitempty"`
+
 	// IngestionEnabled AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-ingestionenabled
 	IngestionEnabled *bool `json:"IngestionEnabled,omitempty"`
+
+	// InsightSelectors AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-insightselectors
+	InsightSelectors []EventDataStore_InsightSelector `json:"InsightSelectors,omitempty"`
+
+	// InsightsDestination AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-insightsdestination
+	InsightsDestination *string `json:"InsightsDestination,omitempty"`
 
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false

@@ -24,10 +24,20 @@ type EndpointConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig
 	DataCaptureConfig *EndpointConfig_DataCaptureConfig `json:"DataCaptureConfig,omitempty"`
 
+	// EnableNetworkIsolation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-enablenetworkisolation
+	EnableNetworkIsolation *bool `json:"EnableNetworkIsolation,omitempty"`
+
 	// EndpointConfigName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
 	EndpointConfigName *string `json:"EndpointConfigName,omitempty"`
+
+	// ExecutionRoleArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-executionrolearn
+	ExecutionRoleArn *string `json:"ExecutionRoleArn,omitempty"`
 
 	// ExplainerConfig AWS CloudFormation Property
 	// Required: false
@@ -53,6 +63,11 @@ type EndpointConfig struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// VpcConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-vpcconfig
+	VpcConfig *EndpointConfig_VpcConfig `json:"VpcConfig,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

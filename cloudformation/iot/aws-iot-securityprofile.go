@@ -29,6 +29,11 @@ type SecurityProfile struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
 	Behaviors []SecurityProfile_Behavior `json:"Behaviors,omitempty"`
 
+	// MetricsExportConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-metricsexportconfig
+	MetricsExportConfig *SecurityProfile_MetricsExportConfig `json:"MetricsExportConfig,omitempty"`
+
 	// SecurityProfileDescription AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription

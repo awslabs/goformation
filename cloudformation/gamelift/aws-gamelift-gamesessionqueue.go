@@ -22,7 +22,7 @@ type GameSessionQueue struct {
 	// Destinations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-destinations
-	Destinations []GameSessionQueue_Destination `json:"Destinations,omitempty"`
+	Destinations []GameSessionQueue_GameSessionQueueDestination `json:"Destinations,omitempty"`
 
 	// FilterConfiguration AWS CloudFormation Property
 	// Required: false
