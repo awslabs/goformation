@@ -38,6 +38,11 @@ type FileSystem struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
 	FileSystemPolicy interface{} `json:"FileSystemPolicy,omitempty"`
 
+	// FileSystemProtection AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemprotection
+	FileSystemProtection *FileSystem_FileSystemProtection `json:"FileSystemProtection,omitempty"`
+
 	// FileSystemTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags

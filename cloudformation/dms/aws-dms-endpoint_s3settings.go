@@ -15,6 +15,11 @@ type Endpoint_S3Settings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-addcolumnname
 	AddColumnName *bool `json:"AddColumnName,omitempty"`
 
+	// AddTrailingPaddingCharacter AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-addtrailingpaddingcharacter
+	AddTrailingPaddingCharacter *bool `json:"AddTrailingPaddingCharacter,omitempty"`
+
 	// BucketFolder AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-bucketfolder
@@ -130,10 +135,20 @@ type Endpoint_S3Settings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-encryptionmode
 	EncryptionMode *string `json:"EncryptionMode,omitempty"`
 
+	// ExpectedBucketOwner AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-expectedbucketowner
+	ExpectedBucketOwner *string `json:"ExpectedBucketOwner,omitempty"`
+
 	// ExternalTableDefinition AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-externaltabledefinition
 	ExternalTableDefinition *string `json:"ExternalTableDefinition,omitempty"`
+
+	// GlueCatalogGeneration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-gluecataloggeneration
+	GlueCatalogGeneration *bool `json:"GlueCatalogGeneration,omitempty"`
 
 	// IgnoreHeaderRows AWS CloudFormation Property
 	// Required: false

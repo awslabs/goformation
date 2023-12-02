@@ -13,10 +13,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html
 type PullThroughCacheRule struct {
 
+	// CredentialArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-credentialarn
+	CredentialArn *string `json:"CredentialArn,omitempty"`
+
 	// EcrRepositoryPrefix AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-ecrrepositoryprefix
 	EcrRepositoryPrefix *string `json:"EcrRepositoryPrefix,omitempty"`
+
+	// UpstreamRegistry AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-upstreamregistry
+	UpstreamRegistry *string `json:"UpstreamRegistry,omitempty"`
 
 	// UpstreamRegistryUrl AWS CloudFormation Property
 	// Required: false

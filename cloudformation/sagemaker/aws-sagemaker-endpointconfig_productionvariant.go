@@ -31,14 +31,19 @@ type EndpointConfig_ProductionVariant struct {
 	InitialInstanceCount *int `json:"InitialInstanceCount,omitempty"`
 
 	// InitialVariantWeight AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
-	InitialVariantWeight float64 `json:"InitialVariantWeight"`
+	InitialVariantWeight *float64 `json:"InitialVariantWeight,omitempty"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
 	InstanceType *string `json:"InstanceType,omitempty"`
+
+	// ManagedInstanceScaling AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-managedinstancescaling
+	ManagedInstanceScaling *EndpointConfig_ManagedInstanceScaling `json:"ManagedInstanceScaling,omitempty"`
 
 	// ModelDataDownloadTimeoutInSeconds AWS CloudFormation Property
 	// Required: false
@@ -46,9 +51,14 @@ type EndpointConfig_ProductionVariant struct {
 	ModelDataDownloadTimeoutInSeconds *int `json:"ModelDataDownloadTimeoutInSeconds,omitempty"`
 
 	// ModelName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
-	ModelName string `json:"ModelName"`
+	ModelName *string `json:"ModelName,omitempty"`
+
+	// RoutingConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-routingconfig
+	RoutingConfig *EndpointConfig_RoutingConfig `json:"RoutingConfig,omitempty"`
 
 	// ServerlessConfig AWS CloudFormation Property
 	// Required: false

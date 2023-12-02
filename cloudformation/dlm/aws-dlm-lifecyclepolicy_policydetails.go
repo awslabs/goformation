@@ -16,15 +16,45 @@ type LifecyclePolicy_PolicyDetails struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
 	Actions []LifecyclePolicy_Action `json:"Actions,omitempty"`
 
+	// CopyTags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-copytags
+	CopyTags *bool `json:"CopyTags,omitempty"`
+
+	// CreateInterval AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-createinterval
+	CreateInterval *int `json:"CreateInterval,omitempty"`
+
+	// CrossRegionCopyTargets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-crossregioncopytargets
+	CrossRegionCopyTargets *LifecyclePolicy_CrossRegionCopyTargets `json:"CrossRegionCopyTargets,omitempty"`
+
 	// EventSource AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
 	EventSource *LifecyclePolicy_EventSource `json:"EventSource,omitempty"`
 
+	// Exclusions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-exclusions
+	Exclusions *LifecyclePolicy_Exclusions `json:"Exclusions,omitempty"`
+
+	// ExtendDeletion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-extenddeletion
+	ExtendDeletion *bool `json:"ExtendDeletion,omitempty"`
+
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
 	Parameters *LifecyclePolicy_Parameters `json:"Parameters,omitempty"`
+
+	// PolicyLanguage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policylanguage
+	PolicyLanguage *string `json:"PolicyLanguage,omitempty"`
 
 	// PolicyType AWS CloudFormation Property
 	// Required: false
@@ -36,10 +66,20 @@ type LifecyclePolicy_PolicyDetails struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcelocations
 	ResourceLocations []string `json:"ResourceLocations,omitempty"`
 
+	// ResourceType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetype
+	ResourceType *string `json:"ResourceType,omitempty"`
+
 	// ResourceTypes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes
 	ResourceTypes []string `json:"ResourceTypes,omitempty"`
+
+	// RetainInterval AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-retaininterval
+	RetainInterval *int `json:"RetainInterval,omitempty"`
 
 	// Schedules AWS CloudFormation Property
 	// Required: false
