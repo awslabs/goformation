@@ -29,10 +29,25 @@ type Studio struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-description
 	Description *string `json:"Description,omitempty"`
 
+	// EncryptionKeyArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-encryptionkeyarn
+	EncryptionKeyArn *string `json:"EncryptionKeyArn,omitempty"`
+
 	// EngineSecurityGroupId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-enginesecuritygroupid
 	EngineSecurityGroupId string `json:"EngineSecurityGroupId"`
+
+	// IdcInstanceArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idcinstancearn
+	IdcInstanceArn *string `json:"IdcInstanceArn,omitempty"`
+
+	// IdcUserAssignment AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idcuserassignment
+	IdcUserAssignment *string `json:"IdcUserAssignment,omitempty"`
 
 	// IdpAuthUrl AWS CloudFormation Property
 	// Required: false
@@ -63,6 +78,11 @@ type Studio struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// TrustedIdentityPropagationEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-trustedidentitypropagationenabled
+	TrustedIdentityPropagationEnabled *bool `json:"TrustedIdentityPropagationEnabled,omitempty"`
 
 	// UserRole AWS CloudFormation Property
 	// Required: false

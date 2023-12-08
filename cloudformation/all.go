@@ -231,6 +231,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/wafv2"
 	"github.com/awslabs/goformation/v7/cloudformation/wisdom"
 	"github.com/awslabs/goformation/v7/cloudformation/workspaces"
+	"github.com/awslabs/goformation/v7/cloudformation/workspacesthinclient"
 	"github.com/awslabs/goformation/v7/cloudformation/workspacesweb"
 	"github.com/awslabs/goformation/v7/cloudformation/xray"
 
@@ -507,8 +508,11 @@ func AllResources() map[string]Resource {
 		"AWS::DAX::SubnetGroup":                                            &dax.SubnetGroup{},
 		"AWS::DLM::LifecyclePolicy":                                        &dlm.LifecyclePolicy{},
 		"AWS::DMS::Certificate":                                            &dms.Certificate{},
+		"AWS::DMS::DataProvider":                                           &dms.DataProvider{},
 		"AWS::DMS::Endpoint":                                               &dms.Endpoint{},
 		"AWS::DMS::EventSubscription":                                      &dms.EventSubscription{},
+		"AWS::DMS::InstanceProfile":                                        &dms.InstanceProfile{},
+		"AWS::DMS::MigrationProject":                                       &dms.MigrationProject{},
 		"AWS::DMS::ReplicationConfig":                                      &dms.ReplicationConfig{},
 		"AWS::DMS::ReplicationInstance":                                    &dms.ReplicationInstance{},
 		"AWS::DMS::ReplicationSubnetGroup":                                 &dms.ReplicationSubnetGroup{},
@@ -716,6 +720,7 @@ func AllResources() map[string]Resource {
 		"AWS::Evidently::Project":                                          &evidently.Project{},
 		"AWS::Evidently::Segment":                                          &evidently.Segment{},
 		"AWS::FIS::ExperimentTemplate":                                     &fis.ExperimentTemplate{},
+		"AWS::FIS::TargetAccountConfiguration":                             &fis.TargetAccountConfiguration{},
 		"AWS::FMS::NotificationChannel":                                    &fms.NotificationChannel{},
 		"AWS::FMS::Policy":                                                 &fms.Policy{},
 		"AWS::FMS::ResourceSet":                                            &fms.ResourceSet{},
@@ -1409,6 +1414,7 @@ func AllResources() map[string]Resource {
 		"AWS::Wisdom::KnowledgeBase":                                       &wisdom.KnowledgeBase{},
 		"AWS::WorkSpaces::ConnectionAlias":                                 &workspaces.ConnectionAlias{},
 		"AWS::WorkSpaces::Workspace":                                       &workspaces.Workspace{},
+		"AWS::WorkSpacesThinClient::Environment":                           &workspacesthinclient.Environment{},
 		"AWS::WorkSpacesWeb::BrowserSettings":                              &workspacesweb.BrowserSettings{},
 		"AWS::WorkSpacesWeb::IdentityProvider":                             &workspacesweb.IdentityProvider{},
 		"AWS::WorkSpacesWeb::IpAccessSettings":                             &workspacesweb.IpAccessSettings{},
@@ -7836,6 +7842,30 @@ func (t *Template) GetDMSCertificateWithName(name string) (*dms.Certificate, err
 	return nil, fmt.Errorf("resource %q of type dms.Certificate not found", name)
 }
 
+// GetAllDMSDataProviderResources retrieves all dms.DataProvider items from an AWS CloudFormation template
+func (t *Template) GetAllDMSDataProviderResources() map[string]*dms.DataProvider {
+	results := map[string]*dms.DataProvider{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *dms.DataProvider:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDMSDataProviderWithName retrieves all dms.DataProvider items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDMSDataProviderWithName(name string) (*dms.DataProvider, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *dms.DataProvider:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type dms.DataProvider not found", name)
+}
+
 // GetAllDMSEndpointResources retrieves all dms.Endpoint items from an AWS CloudFormation template
 func (t *Template) GetAllDMSEndpointResources() map[string]*dms.Endpoint {
 	results := map[string]*dms.Endpoint{}
@@ -7882,6 +7912,54 @@ func (t *Template) GetDMSEventSubscriptionWithName(name string) (*dms.EventSubsc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type dms.EventSubscription not found", name)
+}
+
+// GetAllDMSInstanceProfileResources retrieves all dms.InstanceProfile items from an AWS CloudFormation template
+func (t *Template) GetAllDMSInstanceProfileResources() map[string]*dms.InstanceProfile {
+	results := map[string]*dms.InstanceProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *dms.InstanceProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDMSInstanceProfileWithName retrieves all dms.InstanceProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDMSInstanceProfileWithName(name string) (*dms.InstanceProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *dms.InstanceProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type dms.InstanceProfile not found", name)
+}
+
+// GetAllDMSMigrationProjectResources retrieves all dms.MigrationProject items from an AWS CloudFormation template
+func (t *Template) GetAllDMSMigrationProjectResources() map[string]*dms.MigrationProject {
+	results := map[string]*dms.MigrationProject{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *dms.MigrationProject:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDMSMigrationProjectWithName retrieves all dms.MigrationProject items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDMSMigrationProjectWithName(name string) (*dms.MigrationProject, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *dms.MigrationProject:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type dms.MigrationProject not found", name)
 }
 
 // GetAllDMSReplicationConfigResources retrieves all dms.ReplicationConfig items from an AWS CloudFormation template
@@ -12850,6 +12928,30 @@ func (t *Template) GetFISExperimentTemplateWithName(name string) (*fis.Experimen
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type fis.ExperimentTemplate not found", name)
+}
+
+// GetAllFISTargetAccountConfigurationResources retrieves all fis.TargetAccountConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllFISTargetAccountConfigurationResources() map[string]*fis.TargetAccountConfiguration {
+	results := map[string]*fis.TargetAccountConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *fis.TargetAccountConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetFISTargetAccountConfigurationWithName retrieves all fis.TargetAccountConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetFISTargetAccountConfigurationWithName(name string) (*fis.TargetAccountConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *fis.TargetAccountConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type fis.TargetAccountConfiguration not found", name)
 }
 
 // GetAllFMSNotificationChannelResources retrieves all fms.NotificationChannel items from an AWS CloudFormation template
@@ -29482,6 +29584,30 @@ func (t *Template) GetWorkSpacesWorkspaceWithName(name string) (*workspaces.Work
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type workspaces.Workspace not found", name)
+}
+
+// GetAllWorkSpacesThinClientEnvironmentResources retrieves all workspacesthinclient.Environment items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesThinClientEnvironmentResources() map[string]*workspacesthinclient.Environment {
+	results := map[string]*workspacesthinclient.Environment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspacesthinclient.Environment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesThinClientEnvironmentWithName retrieves all workspacesthinclient.Environment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesThinClientEnvironmentWithName(name string) (*workspacesthinclient.Environment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspacesthinclient.Environment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspacesthinclient.Environment not found", name)
 }
 
 // GetAllWorkSpacesWebBrowserSettingsResources retrieves all workspacesweb.BrowserSettings items from an AWS CloudFormation template
