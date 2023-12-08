@@ -20,6 +20,11 @@ type LaunchTemplate_NetworkInterface struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
 	AssociatePublicIpAddress *bool `json:"AssociatePublicIpAddress,omitempty"`
 
+	// ConnectionTrackingSpecification AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-connectiontrackingspecification
+	ConnectionTrackingSpecification *LaunchTemplate_ConnectionTrackingSpecification `json:"ConnectionTrackingSpecification,omitempty"`
+
 	// DeleteOnTermination AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination

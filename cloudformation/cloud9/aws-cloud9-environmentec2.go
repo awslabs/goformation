@@ -30,9 +30,9 @@ type EnvironmentEC2 struct {
 	Description *string `json:"Description,omitempty"`
 
 	// ImageId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-imageid
-	ImageId *string `json:"ImageId,omitempty"`
+	ImageId string `json:"ImageId"`
 
 	// InstanceType AWS CloudFormation Property
 	// Required: true

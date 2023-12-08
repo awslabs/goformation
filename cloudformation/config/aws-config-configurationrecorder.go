@@ -23,6 +23,11 @@ type ConfigurationRecorder struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordinggroup
 	RecordingGroup *ConfigurationRecorder_RecordingGroup `json:"RecordingGroup,omitempty"`
 
+	// RecordingMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordingmode
+	RecordingMode *ConfigurationRecorder_RecordingMode `json:"RecordingMode,omitempty"`
+
 	// RoleARN AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn

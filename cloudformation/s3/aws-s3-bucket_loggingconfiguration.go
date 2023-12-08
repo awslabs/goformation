@@ -20,6 +20,11 @@ type Bucket_LoggingConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-logfileprefix
 	LogFilePrefix *string `json:"LogFilePrefix,omitempty"`
 
+	// TargetObjectKeyFormat AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-targetobjectkeyformat
+	TargetObjectKeyFormat *Bucket_TargetObjectKeyFormat `json:"TargetObjectKeyFormat,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

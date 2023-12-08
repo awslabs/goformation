@@ -24,6 +24,11 @@ type Membership struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-defaultresultconfiguration
 	DefaultResultConfiguration *Membership_MembershipProtectedQueryResultConfiguration `json:"DefaultResultConfiguration,omitempty"`
 
+	// PaymentConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-paymentconfiguration
+	PaymentConfiguration *Membership_MembershipPaymentConfiguration `json:"PaymentConfiguration,omitempty"`
+
 	// QueryLogStatus AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-querylogstatus

@@ -61,7 +61,7 @@ type Method struct {
 	// RequestParameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters
-	RequestParameters map[string]bool `json:"RequestParameters,omitempty"`
+	RequestParameters map[string]string `json:"RequestParameters,omitempty"`
 
 	// RequestValidatorId AWS CloudFormation Property
 	// Required: false

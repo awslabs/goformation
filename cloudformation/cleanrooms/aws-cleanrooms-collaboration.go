@@ -24,6 +24,11 @@ type Collaboration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatormemberabilities
 	CreatorMemberAbilities []string `json:"CreatorMemberAbilities"`
 
+	// CreatorPaymentConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatorpaymentconfiguration
+	CreatorPaymentConfiguration *Collaboration_PaymentConfiguration `json:"CreatorPaymentConfiguration,omitempty"`
+
 	// DataEncryptionMetadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-dataencryptionmetadata

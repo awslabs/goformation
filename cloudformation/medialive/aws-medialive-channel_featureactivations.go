@@ -15,6 +15,11 @@ type Channel_FeatureActivations struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html#cfn-medialive-channel-featureactivations-inputpreparescheduleactions
 	InputPrepareScheduleActions *string `json:"InputPrepareScheduleActions,omitempty"`
 
+	// OutputStaticImageOverlayScheduleActions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html#cfn-medialive-channel-featureactivations-outputstaticimageoverlayscheduleactions
+	OutputStaticImageOverlayScheduleActions *string `json:"OutputStaticImageOverlayScheduleActions,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
