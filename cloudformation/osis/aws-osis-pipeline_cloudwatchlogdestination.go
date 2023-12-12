@@ -11,9 +11,9 @@ import (
 type Pipeline_CloudWatchLogDestination struct {
 
 	// LogGroup AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html#cfn-osis-pipeline-cloudwatchlogdestination-loggroup
-	LogGroup *string `json:"LogGroup,omitempty"`
+	LogGroup string `json:"LogGroup"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

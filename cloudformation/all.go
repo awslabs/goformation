@@ -411,6 +411,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudFront::Distribution":                                    &cloudfront.Distribution{},
 		"AWS::CloudFront::Function":                                        &cloudfront.Function{},
 		"AWS::CloudFront::KeyGroup":                                        &cloudfront.KeyGroup{},
+		"AWS::CloudFront::KeyValueStore":                                   &cloudfront.KeyValueStore{},
 		"AWS::CloudFront::MonitoringSubscription":                          &cloudfront.MonitoringSubscription{},
 		"AWS::CloudFront::OriginAccessControl":                             &cloudfront.OriginAccessControl{},
 		"AWS::CloudFront::OriginRequestPolicy":                             &cloudfront.OriginRequestPolicy{},
@@ -5512,6 +5513,30 @@ func (t *Template) GetCloudFrontKeyGroupWithName(name string) (*cloudfront.KeyGr
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cloudfront.KeyGroup not found", name)
+}
+
+// GetAllCloudFrontKeyValueStoreResources retrieves all cloudfront.KeyValueStore items from an AWS CloudFormation template
+func (t *Template) GetAllCloudFrontKeyValueStoreResources() map[string]*cloudfront.KeyValueStore {
+	results := map[string]*cloudfront.KeyValueStore{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudfront.KeyValueStore:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudFrontKeyValueStoreWithName retrieves all cloudfront.KeyValueStore items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudFrontKeyValueStoreWithName(name string) (*cloudfront.KeyValueStore, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudfront.KeyValueStore:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudfront.KeyValueStore not found", name)
 }
 
 // GetAllCloudFrontMonitoringSubscriptionResources retrieves all cloudfront.MonitoringSubscription items from an AWS CloudFormation template
