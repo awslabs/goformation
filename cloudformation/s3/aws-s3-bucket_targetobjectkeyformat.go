@@ -7,17 +7,17 @@ import (
 )
 
 // Bucket_TargetObjectKeyFormat AWS CloudFormation Resource (AWS::S3::Bucket.TargetObjectKeyFormat)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html
 type Bucket_TargetObjectKeyFormat struct {
 
 	// PartitionedPrefix AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat.html#cfn-s3-bucket-loggingconfig-targetobjectkeyformat-partitionedprefix
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html#cfn-s3-bucket-targetobjectkeyformat-partitionedprefix
 	PartitionedPrefix *Bucket_PartitionedPrefix `json:"PartitionedPrefix,omitempty"`
 
 	// SimplePrefix AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat.html#cfn-s3-bucket-loggingconfig-targetobjectkeyformat-simpleprefix
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html#cfn-s3-bucket-targetobjectkeyformat-simpleprefix
 	SimplePrefix interface{} `json:"SimplePrefix,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

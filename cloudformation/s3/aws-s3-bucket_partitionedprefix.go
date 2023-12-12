@@ -7,12 +7,12 @@ import (
 )
 
 // Bucket_PartitionedPrefix AWS CloudFormation Resource (AWS::S3::Bucket.PartitionedPrefix)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat-partitionedprefix.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-partitionedprefix.html
 type Bucket_PartitionedPrefix struct {
 
 	// PartitionDateSource AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat-partitionedprefix.html#cfn-s3-bucket-loggingconfig-targetobjectkeyformat-partitionedprefix-partitiondatesource
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-partitionedprefix.html#cfn-s3-bucket-partitionedprefix-partitiondatesource
 	PartitionDateSource *string `json:"PartitionDateSource,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

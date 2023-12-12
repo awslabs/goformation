@@ -29,6 +29,11 @@ type ServerlessCache struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-description
 	Description *string `json:"Description,omitempty"`
 
+	// Endpoint AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-endpoint
+	Endpoint *ServerlessCache_Endpoint `json:"Endpoint,omitempty"`
+
 	// Engine AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-engine
@@ -48,6 +53,11 @@ type ServerlessCache struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-majorengineversion
 	MajorEngineVersion *string `json:"MajorEngineVersion,omitempty"`
+
+	// ReaderEndpoint AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-readerendpoint
+	ReaderEndpoint *ServerlessCache_Endpoint `json:"ReaderEndpoint,omitempty"`
 
 	// SecurityGroupIds AWS CloudFormation Property
 	// Required: false

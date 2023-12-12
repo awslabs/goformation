@@ -11,9 +11,9 @@ import (
 type InstanceStorageConfig_KinesisVideoStreamConfig struct {
 
 	// EncryptionConfig AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-encryptionconfig
-	EncryptionConfig *InstanceStorageConfig_EncryptionConfig `json:"EncryptionConfig,omitempty"`
+	EncryptionConfig *InstanceStorageConfig_EncryptionConfig `json:"EncryptionConfig"`
 
 	// Prefix AWS CloudFormation Property
 	// Required: true
