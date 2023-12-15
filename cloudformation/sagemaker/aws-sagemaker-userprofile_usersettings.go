@@ -10,10 +10,35 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
 type UserProfile_UserSettings struct {
 
+	// CodeEditorAppSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-codeeditorappsettings
+	CodeEditorAppSettings *UserProfile_CodeEditorAppSettings `json:"CodeEditorAppSettings,omitempty"`
+
+	// CustomFileSystemConfigs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-customfilesystemconfigs
+	CustomFileSystemConfigs []UserProfile_CustomFileSystemConfig `json:"CustomFileSystemConfigs,omitempty"`
+
+	// CustomPosixUserConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-customposixuserconfig
+	CustomPosixUserConfig *UserProfile_CustomPosixUserConfig `json:"CustomPosixUserConfig,omitempty"`
+
+	// DefaultLandingUri AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-defaultlandinguri
+	DefaultLandingUri *string `json:"DefaultLandingUri,omitempty"`
+
 	// ExecutionRole AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
 	ExecutionRole *string `json:"ExecutionRole,omitempty"`
+
+	// JupyterLabAppSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterlabappsettings
+	JupyterLabAppSettings *UserProfile_JupyterLabAppSettings `json:"JupyterLabAppSettings,omitempty"`
 
 	// JupyterServerAppSettings AWS CloudFormation Property
 	// Required: false
@@ -39,6 +64,16 @@ type UserProfile_UserSettings struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
 	SharingSettings *UserProfile_SharingSettings `json:"SharingSettings,omitempty"`
+
+	// SpaceStorageSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-spacestoragesettings
+	SpaceStorageSettings *UserProfile_DefaultSpaceStorageSettings `json:"SpaceStorageSettings,omitempty"`
+
+	// StudioWebPortal AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-studiowebportal
+	StudioWebPortal *string `json:"StudioWebPortal,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -49,10 +49,20 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-customamiid
 	CustomAmiId *string `json:"CustomAmiId,omitempty"`
 
+	// EbsRootVolumeIops AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-ebsrootvolumeiops
+	EbsRootVolumeIops *int `json:"EbsRootVolumeIops,omitempty"`
+
 	// EbsRootVolumeSize AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-ebsrootvolumesize
 	EbsRootVolumeSize *int `json:"EbsRootVolumeSize,omitempty"`
+
+	// EbsRootVolumeThroughput AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-ebsrootvolumethroughput
+	EbsRootVolumeThroughput *int `json:"EbsRootVolumeThroughput,omitempty"`
 
 	// Instances AWS CloudFormation Property
 	// Required: true
@@ -93,6 +103,11 @@ type Cluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-osreleaselabel
 	OSReleaseLabel *string `json:"OSReleaseLabel,omitempty"`
+
+	// PlacementGroupConfigs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-placementgroupconfigs
+	PlacementGroupConfigs []Cluster_PlacementGroupConfig `json:"PlacementGroupConfigs,omitempty"`
 
 	// ReleaseLabel AWS CloudFormation Property
 	// Required: false
