@@ -27,6 +27,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/auditmanager"
 	"github.com/awslabs/goformation/v7/cloudformation/autoscaling"
 	"github.com/awslabs/goformation/v7/cloudformation/autoscalingplans"
+	"github.com/awslabs/goformation/v7/cloudformation/b2bi"
 	"github.com/awslabs/goformation/v7/cloudformation/backup"
 	"github.com/awslabs/goformation/v7/cloudformation/backupgateway"
 	"github.com/awslabs/goformation/v7/cloudformation/batch"
@@ -354,6 +355,8 @@ func AllResources() map[string]Resource {
 		"AWS::AutoScaling::ScheduledAction":                                &autoscaling.ScheduledAction{},
 		"AWS::AutoScaling::WarmPool":                                       &autoscaling.WarmPool{},
 		"AWS::AutoScalingPlans::ScalingPlan":                               &autoscalingplans.ScalingPlan{},
+		"AWS::B2BI::Profile":                                               &b2bi.Profile{},
+		"AWS::B2BI::Transformer":                                           &b2bi.Transformer{},
 		"AWS::Backup::BackupPlan":                                          &backup.BackupPlan{},
 		"AWS::Backup::BackupSelection":                                     &backup.BackupSelection{},
 		"AWS::Backup::BackupVault":                                         &backup.BackupVault{},
@@ -606,6 +609,7 @@ func AllResources() map[string]Resource {
 		"AWS::EC2::SecurityGroup":                                          &ec2.SecurityGroup{},
 		"AWS::EC2::SecurityGroupEgress":                                    &ec2.SecurityGroupEgress{},
 		"AWS::EC2::SecurityGroupIngress":                                   &ec2.SecurityGroupIngress{},
+		"AWS::EC2::SnapshotBlockPublicAccess":                              &ec2.SnapshotBlockPublicAccess{},
 		"AWS::EC2::SpotFleet":                                              &ec2.SpotFleet{},
 		"AWS::EC2::Subnet":                                                 &ec2.Subnet{},
 		"AWS::EC2::SubnetCidrBlock":                                        &ec2.SubnetCidrBlock{},
@@ -755,6 +759,7 @@ func AllResources() map[string]Resource {
 		"AWS::Glue::Classifier":                                            &glue.Classifier{},
 		"AWS::Glue::Connection":                                            &glue.Connection{},
 		"AWS::Glue::Crawler":                                               &glue.Crawler{},
+		"AWS::Glue::CustomEntityType":                                      &glue.CustomEntityType{},
 		"AWS::Glue::DataCatalogEncryptionSettings":                         &glue.DataCatalogEncryptionSettings{},
 		"AWS::Glue::DataQualityRuleset":                                    &glue.DataQualityRuleset{},
 		"AWS::Glue::Database":                                              &glue.Database{},
@@ -4145,6 +4150,54 @@ func (t *Template) GetAutoScalingPlansScalingPlanWithName(name string) (*autosca
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type autoscalingplans.ScalingPlan not found", name)
+}
+
+// GetAllB2BIProfileResources retrieves all b2bi.Profile items from an AWS CloudFormation template
+func (t *Template) GetAllB2BIProfileResources() map[string]*b2bi.Profile {
+	results := map[string]*b2bi.Profile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *b2bi.Profile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetB2BIProfileWithName retrieves all b2bi.Profile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetB2BIProfileWithName(name string) (*b2bi.Profile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *b2bi.Profile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type b2bi.Profile not found", name)
+}
+
+// GetAllB2BITransformerResources retrieves all b2bi.Transformer items from an AWS CloudFormation template
+func (t *Template) GetAllB2BITransformerResources() map[string]*b2bi.Transformer {
+	results := map[string]*b2bi.Transformer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *b2bi.Transformer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetB2BITransformerWithName retrieves all b2bi.Transformer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetB2BITransformerWithName(name string) (*b2bi.Transformer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *b2bi.Transformer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type b2bi.Transformer not found", name)
 }
 
 // GetAllBackupBackupPlanResources retrieves all backup.BackupPlan items from an AWS CloudFormation template
@@ -10195,6 +10248,30 @@ func (t *Template) GetEC2SecurityGroupIngressWithName(name string) (*ec2.Securit
 	return nil, fmt.Errorf("resource %q of type ec2.SecurityGroupIngress not found", name)
 }
 
+// GetAllEC2SnapshotBlockPublicAccessResources retrieves all ec2.SnapshotBlockPublicAccess items from an AWS CloudFormation template
+func (t *Template) GetAllEC2SnapshotBlockPublicAccessResources() map[string]*ec2.SnapshotBlockPublicAccess {
+	results := map[string]*ec2.SnapshotBlockPublicAccess{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ec2.SnapshotBlockPublicAccess:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEC2SnapshotBlockPublicAccessWithName retrieves all ec2.SnapshotBlockPublicAccess items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEC2SnapshotBlockPublicAccessWithName(name string) (*ec2.SnapshotBlockPublicAccess, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ec2.SnapshotBlockPublicAccess:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ec2.SnapshotBlockPublicAccess not found", name)
+}
+
 // GetAllEC2SpotFleetResources retrieves all ec2.SpotFleet items from an AWS CloudFormation template
 func (t *Template) GetAllEC2SpotFleetResources() map[string]*ec2.SpotFleet {
 	results := map[string]*ec2.SpotFleet{}
@@ -13769,6 +13846,30 @@ func (t *Template) GetGlueCrawlerWithName(name string) (*glue.Crawler, error) {
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type glue.Crawler not found", name)
+}
+
+// GetAllGlueCustomEntityTypeResources retrieves all glue.CustomEntityType items from an AWS CloudFormation template
+func (t *Template) GetAllGlueCustomEntityTypeResources() map[string]*glue.CustomEntityType {
+	results := map[string]*glue.CustomEntityType{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *glue.CustomEntityType:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGlueCustomEntityTypeWithName retrieves all glue.CustomEntityType items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGlueCustomEntityTypeWithName(name string) (*glue.CustomEntityType, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *glue.CustomEntityType:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type glue.CustomEntityType not found", name)
 }
 
 // GetAllGlueDataCatalogEncryptionSettingsResources retrieves all glue.DataCatalogEncryptionSettings items from an AWS CloudFormation template

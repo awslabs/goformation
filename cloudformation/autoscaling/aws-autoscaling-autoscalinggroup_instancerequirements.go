@@ -86,9 +86,9 @@ type AutoScalingGroup_InstanceRequirements struct {
 	MemoryGiBPerVCpu *AutoScalingGroup_MemoryGiBPerVCpuRequest `json:"MemoryGiBPerVCpu,omitempty"`
 
 	// MemoryMiB AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
-	MemoryMiB *AutoScalingGroup_MemoryMiBRequest `json:"MemoryMiB,omitempty"`
+	MemoryMiB *AutoScalingGroup_MemoryMiBRequest `json:"MemoryMiB"`
 
 	// NetworkBandwidthGbps AWS CloudFormation Property
 	// Required: false
@@ -121,9 +121,9 @@ type AutoScalingGroup_InstanceRequirements struct {
 	TotalLocalStorageGB *AutoScalingGroup_TotalLocalStorageGBRequest `json:"TotalLocalStorageGB,omitempty"`
 
 	// VCpuCount AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-vcpucount
-	VCpuCount *AutoScalingGroup_VCpuCountRequest `json:"VCpuCount,omitempty"`
+	VCpuCount *AutoScalingGroup_VCpuCountRequest `json:"VCpuCount"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
