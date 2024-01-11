@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+## [7.12.16](https://github.com/awslabs/goformation/compare/v7.12.15...v7.12.16) (2024-01-11)
+
+
+### Bug Fixes
+
+* remove file that doesn't exist anymore ([cc386b7](https://github.com/awslabs/goformation/commit/cc386b71459ce11781f444d2065afee94faeeeba))
+
 ## [7.12.15](https://github.com/awslabs/goformation/compare/v7.12.14...v7.12.15) (2023-12-15)
 
 
