@@ -15,6 +15,11 @@ type Model_S3DataSource struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-compressiontype
 	CompressionType string `json:"CompressionType"`
 
+	// ModelAccessConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-modelaccessconfig
+	ModelAccessConfig *Model_ModelAccessConfig `json:"ModelAccessConfig,omitempty"`
+
 	// S3DataType AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-s3datatype

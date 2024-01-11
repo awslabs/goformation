@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // RouteCalculator AWS CloudFormation Resource (AWS::Location::RouteCalculator)
@@ -32,6 +33,11 @@ type RouteCalculator struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
 	PricingPlan *string `json:"PricingPlan,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

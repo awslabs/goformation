@@ -29,6 +29,11 @@ type GraphQLApi struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
 	AuthenticationType string `json:"AuthenticationType"`
 
+	// IntrospectionConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-introspectionconfig
+	IntrospectionConfig *string `json:"IntrospectionConfig,omitempty"`
+
 	// LambdaAuthorizerConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig
@@ -58,6 +63,16 @@ type GraphQLApi struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-ownercontact
 	OwnerContact *string `json:"OwnerContact,omitempty"`
+
+	// QueryDepthLimit AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-querydepthlimit
+	QueryDepthLimit *int `json:"QueryDepthLimit,omitempty"`
+
+	// ResolverCountLimit AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-resolvercountlimit
+	ResolverCountLimit *int `json:"ResolverCountLimit,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

@@ -18,7 +18,7 @@ type PatchBaseline_Rule struct {
 	// ApproveUntilDate AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
-	ApproveUntilDate *PatchBaseline_PatchStringDate `json:"ApproveUntilDate,omitempty"`
+	ApproveUntilDate *string `json:"ApproveUntilDate,omitempty"`
 
 	// ComplianceLevel AWS CloudFormation Property
 	// Required: false

@@ -68,7 +68,7 @@ type JobDefinition_ContainerProperties struct {
 	// MountPoints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
-	MountPoints []JobDefinition_MountPoints `json:"MountPoints,omitempty"`
+	MountPoints []JobDefinition_MountPoint `json:"MountPoints,omitempty"`
 
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
@@ -118,7 +118,7 @@ type JobDefinition_ContainerProperties struct {
 	// Volumes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes
-	Volumes []JobDefinition_Volumes `json:"Volumes,omitempty"`
+	Volumes []JobDefinition_Volume `json:"Volumes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
