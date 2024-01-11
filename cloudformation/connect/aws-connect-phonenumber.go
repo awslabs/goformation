@@ -15,9 +15,9 @@ import (
 type PhoneNumber struct {
 
 	// CountryCode AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-countrycode
-	CountryCode string `json:"CountryCode"`
+	CountryCode *string `json:"CountryCode,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -28,6 +28,11 @@ type PhoneNumber struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-prefix
 	Prefix *string `json:"Prefix,omitempty"`
+
+	// SourcePhoneNumberArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-sourcephonenumberarn
+	SourcePhoneNumberArn *string `json:"SourcePhoneNumberArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -40,9 +45,9 @@ type PhoneNumber struct {
 	TargetArn string `json:"TargetArn"`
 
 	// Type AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-type
-	Type string `json:"Type"`
+	Type *string `json:"Type,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

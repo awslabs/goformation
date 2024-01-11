@@ -159,6 +159,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/msk"
 	"github.com/awslabs/goformation/v7/cloudformation/mwaa"
 	"github.com/awslabs/goformation/v7/cloudformation/neptune"
+	"github.com/awslabs/goformation/v7/cloudformation/neptunegraph"
 	"github.com/awslabs/goformation/v7/cloudformation/networkfirewall"
 	"github.com/awslabs/goformation/v7/cloudformation/networkmanager"
 	"github.com/awslabs/goformation/v7/cloudformation/nimblestudio"
@@ -355,6 +356,8 @@ func AllResources() map[string]Resource {
 		"AWS::AutoScaling::ScheduledAction":                                &autoscaling.ScheduledAction{},
 		"AWS::AutoScaling::WarmPool":                                       &autoscaling.WarmPool{},
 		"AWS::AutoScalingPlans::ScalingPlan":                               &autoscalingplans.ScalingPlan{},
+		"AWS::B2BI::Capability":                                            &b2bi.Capability{},
+		"AWS::B2BI::Partnership":                                           &b2bi.Partnership{},
 		"AWS::B2BI::Profile":                                               &b2bi.Profile{},
 		"AWS::B2BI::Transformer":                                           &b2bi.Transformer{},
 		"AWS::Backup::BackupPlan":                                          &backup.BackupPlan{},
@@ -486,6 +489,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::InstanceStorageConfig":                              &connect.InstanceStorageConfig{},
 		"AWS::Connect::IntegrationAssociation":                             &connect.IntegrationAssociation{},
 		"AWS::Connect::PhoneNumber":                                        &connect.PhoneNumber{},
+		"AWS::Connect::PredefinedAttribute":                                &connect.PredefinedAttribute{},
 		"AWS::Connect::Prompt":                                             &connect.Prompt{},
 		"AWS::Connect::Queue":                                              &connect.Queue{},
 		"AWS::Connect::QuickConnect":                                       &connect.QuickConnect{},
@@ -666,6 +670,7 @@ func AllResources() map[string]Resource {
 		"AWS::EFS::AccessPoint":                                            &efs.AccessPoint{},
 		"AWS::EFS::FileSystem":                                             &efs.FileSystem{},
 		"AWS::EFS::MountTarget":                                            &efs.MountTarget{},
+		"AWS::EKS::AccessEntry":                                            &eks.AccessEntry{},
 		"AWS::EKS::Addon":                                                  &eks.Addon{},
 		"AWS::EKS::Cluster":                                                &eks.Cluster{},
 		"AWS::EKS::FargateProfile":                                         &eks.FargateProfile{},
@@ -837,6 +842,7 @@ func AllResources() map[string]Resource {
 		"AWS::ImageBuilder::ImageRecipe":                                   &imagebuilder.ImageRecipe{},
 		"AWS::ImageBuilder::InfrastructureConfiguration":                   &imagebuilder.InfrastructureConfiguration{},
 		"AWS::ImageBuilder::LifecyclePolicy":                               &imagebuilder.LifecyclePolicy{},
+		"AWS::ImageBuilder::Workflow":                                      &imagebuilder.Workflow{},
 		"AWS::Inspector::AssessmentTarget":                                 &inspector.AssessmentTarget{},
 		"AWS::Inspector::AssessmentTemplate":                               &inspector.AssessmentTemplate{},
 		"AWS::Inspector::ResourceGroup":                                    &inspector.ResourceGroup{},
@@ -850,6 +856,7 @@ func AllResources() map[string]Resource {
 		"AWS::IoT::BillingGroup":                                           &iot.BillingGroup{},
 		"AWS::IoT::CACertificate":                                          &iot.CACertificate{},
 		"AWS::IoT::Certificate":                                            &iot.Certificate{},
+		"AWS::IoT::CertificateProvider":                                    &iot.CertificateProvider{},
 		"AWS::IoT::CustomMetric":                                           &iot.CustomMetric{},
 		"AWS::IoT::Dimension":                                              &iot.Dimension{},
 		"AWS::IoT::DomainConfiguration":                                    &iot.DomainConfiguration{},
@@ -965,6 +972,7 @@ func AllResources() map[string]Resource {
 		"AWS::Lightsail::LoadBalancer":                                     &lightsail.LoadBalancer{},
 		"AWS::Lightsail::LoadBalancerTlsCertificate":                       &lightsail.LoadBalancerTlsCertificate{},
 		"AWS::Lightsail::StaticIp":                                         &lightsail.StaticIp{},
+		"AWS::Location::APIKey":                                            &location.APIKey{},
 		"AWS::Location::GeofenceCollection":                                &location.GeofenceCollection{},
 		"AWS::Location::Map":                                               &location.Map{},
 		"AWS::Location::PlaceIndex":                                        &location.PlaceIndex{},
@@ -1048,10 +1056,13 @@ func AllResources() map[string]Resource {
 		"AWS::Neptune::DBInstance":                                         &neptune.DBInstance{},
 		"AWS::Neptune::DBParameterGroup":                                   &neptune.DBParameterGroup{},
 		"AWS::Neptune::DBSubnetGroup":                                      &neptune.DBSubnetGroup{},
+		"AWS::NeptuneGraph::Graph":                                         &neptunegraph.Graph{},
+		"AWS::NeptuneGraph::PrivateGraphEndpoint":                          &neptunegraph.PrivateGraphEndpoint{},
 		"AWS::NetworkFirewall::Firewall":                                   &networkfirewall.Firewall{},
 		"AWS::NetworkFirewall::FirewallPolicy":                             &networkfirewall.FirewallPolicy{},
 		"AWS::NetworkFirewall::LoggingConfiguration":                       &networkfirewall.LoggingConfiguration{},
 		"AWS::NetworkFirewall::RuleGroup":                                  &networkfirewall.RuleGroup{},
+		"AWS::NetworkFirewall::TLSInspectionConfiguration":                 &networkfirewall.TLSInspectionConfiguration{},
 		"AWS::NetworkManager::ConnectAttachment":                           &networkmanager.ConnectAttachment{},
 		"AWS::NetworkManager::ConnectPeer":                                 &networkmanager.ConnectPeer{},
 		"AWS::NetworkManager::CoreNetwork":                                 &networkmanager.CoreNetwork{},
@@ -4150,6 +4161,54 @@ func (t *Template) GetAutoScalingPlansScalingPlanWithName(name string) (*autosca
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type autoscalingplans.ScalingPlan not found", name)
+}
+
+// GetAllB2BICapabilityResources retrieves all b2bi.Capability items from an AWS CloudFormation template
+func (t *Template) GetAllB2BICapabilityResources() map[string]*b2bi.Capability {
+	results := map[string]*b2bi.Capability{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *b2bi.Capability:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetB2BICapabilityWithName retrieves all b2bi.Capability items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetB2BICapabilityWithName(name string) (*b2bi.Capability, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *b2bi.Capability:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type b2bi.Capability not found", name)
+}
+
+// GetAllB2BIPartnershipResources retrieves all b2bi.Partnership items from an AWS CloudFormation template
+func (t *Template) GetAllB2BIPartnershipResources() map[string]*b2bi.Partnership {
+	results := map[string]*b2bi.Partnership{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *b2bi.Partnership:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetB2BIPartnershipWithName retrieves all b2bi.Partnership items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetB2BIPartnershipWithName(name string) (*b2bi.Partnership, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *b2bi.Partnership:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type b2bi.Partnership not found", name)
 }
 
 // GetAllB2BIProfileResources retrieves all b2bi.Profile items from an AWS CloudFormation template
@@ -7294,6 +7353,30 @@ func (t *Template) GetConnectPhoneNumberWithName(name string) (*connect.PhoneNum
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.PhoneNumber not found", name)
+}
+
+// GetAllConnectPredefinedAttributeResources retrieves all connect.PredefinedAttribute items from an AWS CloudFormation template
+func (t *Template) GetAllConnectPredefinedAttributeResources() map[string]*connect.PredefinedAttribute {
+	results := map[string]*connect.PredefinedAttribute{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.PredefinedAttribute:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectPredefinedAttributeWithName retrieves all connect.PredefinedAttribute items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectPredefinedAttributeWithName(name string) (*connect.PredefinedAttribute, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.PredefinedAttribute:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.PredefinedAttribute not found", name)
 }
 
 // GetAllConnectPromptResources retrieves all connect.Prompt items from an AWS CloudFormation template
@@ -11616,6 +11699,30 @@ func (t *Template) GetEFSMountTargetWithName(name string) (*efs.MountTarget, err
 	return nil, fmt.Errorf("resource %q of type efs.MountTarget not found", name)
 }
 
+// GetAllEKSAccessEntryResources retrieves all eks.AccessEntry items from an AWS CloudFormation template
+func (t *Template) GetAllEKSAccessEntryResources() map[string]*eks.AccessEntry {
+	results := map[string]*eks.AccessEntry{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *eks.AccessEntry:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetEKSAccessEntryWithName retrieves all eks.AccessEntry items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetEKSAccessEntryWithName(name string) (*eks.AccessEntry, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *eks.AccessEntry:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type eks.AccessEntry not found", name)
+}
+
 // GetAllEKSAddonResources retrieves all eks.Addon items from an AWS CloudFormation template
 func (t *Template) GetAllEKSAddonResources() map[string]*eks.Addon {
 	results := map[string]*eks.Addon{}
@@ -15720,6 +15827,30 @@ func (t *Template) GetImageBuilderLifecyclePolicyWithName(name string) (*imagebu
 	return nil, fmt.Errorf("resource %q of type imagebuilder.LifecyclePolicy not found", name)
 }
 
+// GetAllImageBuilderWorkflowResources retrieves all imagebuilder.Workflow items from an AWS CloudFormation template
+func (t *Template) GetAllImageBuilderWorkflowResources() map[string]*imagebuilder.Workflow {
+	results := map[string]*imagebuilder.Workflow{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *imagebuilder.Workflow:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetImageBuilderWorkflowWithName retrieves all imagebuilder.Workflow items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetImageBuilderWorkflowWithName(name string) (*imagebuilder.Workflow, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *imagebuilder.Workflow:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type imagebuilder.Workflow not found", name)
+}
+
 // GetAllInspectorAssessmentTargetResources retrieves all inspector.AssessmentTarget items from an AWS CloudFormation template
 func (t *Template) GetAllInspectorAssessmentTargetResources() map[string]*inspector.AssessmentTarget {
 	results := map[string]*inspector.AssessmentTarget{}
@@ -16030,6 +16161,30 @@ func (t *Template) GetIoTCertificateWithName(name string) (*iot.Certificate, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type iot.Certificate not found", name)
+}
+
+// GetAllIoTCertificateProviderResources retrieves all iot.CertificateProvider items from an AWS CloudFormation template
+func (t *Template) GetAllIoTCertificateProviderResources() map[string]*iot.CertificateProvider {
+	results := map[string]*iot.CertificateProvider{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *iot.CertificateProvider:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIoTCertificateProviderWithName retrieves all iot.CertificateProvider items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIoTCertificateProviderWithName(name string) (*iot.CertificateProvider, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *iot.CertificateProvider:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type iot.CertificateProvider not found", name)
 }
 
 // GetAllIoTCustomMetricResources retrieves all iot.CustomMetric items from an AWS CloudFormation template
@@ -18792,6 +18947,30 @@ func (t *Template) GetLightsailStaticIpWithName(name string) (*lightsail.StaticI
 	return nil, fmt.Errorf("resource %q of type lightsail.StaticIp not found", name)
 }
 
+// GetAllLocationAPIKeyResources retrieves all location.APIKey items from an AWS CloudFormation template
+func (t *Template) GetAllLocationAPIKeyResources() map[string]*location.APIKey {
+	results := map[string]*location.APIKey{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *location.APIKey:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLocationAPIKeyWithName retrieves all location.APIKey items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLocationAPIKeyWithName(name string) (*location.APIKey, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *location.APIKey:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type location.APIKey not found", name)
+}
+
 // GetAllLocationGeofenceCollectionResources retrieves all location.GeofenceCollection items from an AWS CloudFormation template
 func (t *Template) GetAllLocationGeofenceCollectionResources() map[string]*location.GeofenceCollection {
 	results := map[string]*location.GeofenceCollection{}
@@ -20784,6 +20963,54 @@ func (t *Template) GetNeptuneDBSubnetGroupWithName(name string) (*neptune.DBSubn
 	return nil, fmt.Errorf("resource %q of type neptune.DBSubnetGroup not found", name)
 }
 
+// GetAllNeptuneGraphGraphResources retrieves all neptunegraph.Graph items from an AWS CloudFormation template
+func (t *Template) GetAllNeptuneGraphGraphResources() map[string]*neptunegraph.Graph {
+	results := map[string]*neptunegraph.Graph{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *neptunegraph.Graph:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNeptuneGraphGraphWithName retrieves all neptunegraph.Graph items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNeptuneGraphGraphWithName(name string) (*neptunegraph.Graph, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *neptunegraph.Graph:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type neptunegraph.Graph not found", name)
+}
+
+// GetAllNeptuneGraphPrivateGraphEndpointResources retrieves all neptunegraph.PrivateGraphEndpoint items from an AWS CloudFormation template
+func (t *Template) GetAllNeptuneGraphPrivateGraphEndpointResources() map[string]*neptunegraph.PrivateGraphEndpoint {
+	results := map[string]*neptunegraph.PrivateGraphEndpoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *neptunegraph.PrivateGraphEndpoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNeptuneGraphPrivateGraphEndpointWithName retrieves all neptunegraph.PrivateGraphEndpoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNeptuneGraphPrivateGraphEndpointWithName(name string) (*neptunegraph.PrivateGraphEndpoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *neptunegraph.PrivateGraphEndpoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type neptunegraph.PrivateGraphEndpoint not found", name)
+}
+
 // GetAllNetworkFirewallFirewallResources retrieves all networkfirewall.Firewall items from an AWS CloudFormation template
 func (t *Template) GetAllNetworkFirewallFirewallResources() map[string]*networkfirewall.Firewall {
 	results := map[string]*networkfirewall.Firewall{}
@@ -20878,6 +21105,30 @@ func (t *Template) GetNetworkFirewallRuleGroupWithName(name string) (*networkfir
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type networkfirewall.RuleGroup not found", name)
+}
+
+// GetAllNetworkFirewallTLSInspectionConfigurationResources retrieves all networkfirewall.TLSInspectionConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllNetworkFirewallTLSInspectionConfigurationResources() map[string]*networkfirewall.TLSInspectionConfiguration {
+	results := map[string]*networkfirewall.TLSInspectionConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *networkfirewall.TLSInspectionConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNetworkFirewallTLSInspectionConfigurationWithName retrieves all networkfirewall.TLSInspectionConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNetworkFirewallTLSInspectionConfigurationWithName(name string) (*networkfirewall.TLSInspectionConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *networkfirewall.TLSInspectionConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type networkfirewall.TLSInspectionConfiguration not found", name)
 }
 
 // GetAllNetworkManagerConnectAttachmentResources retrieves all networkmanager.ConnectAttachment items from an AWS CloudFormation template

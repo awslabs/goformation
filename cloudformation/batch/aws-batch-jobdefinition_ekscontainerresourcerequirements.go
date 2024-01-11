@@ -13,12 +13,12 @@ type JobDefinition_EksContainerResourceRequirements struct {
 	// Limits AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerresourcerequirements.html#cfn-batch-jobdefinition-ekscontainerresourcerequirements-limits
-	Limits interface{} `json:"Limits,omitempty"`
+	Limits map[string]string `json:"Limits,omitempty"`
 
 	// Requests AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerresourcerequirements.html#cfn-batch-jobdefinition-ekscontainerresourcerequirements-requests
-	Requests interface{} `json:"Requests,omitempty"`
+	Requests map[string]string `json:"Requests,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

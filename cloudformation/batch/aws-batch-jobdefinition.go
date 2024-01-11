@@ -36,7 +36,7 @@ type JobDefinition struct {
 	// Parameters AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
-	Parameters interface{} `json:"Parameters,omitempty"`
+	Parameters map[string]string `json:"Parameters,omitempty"`
 
 	// PlatformCapabilities AWS CloudFormation Property
 	// Required: false
@@ -61,12 +61,12 @@ type JobDefinition struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
-	Tags interface{} `json:"Tags,omitempty"`
+	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Timeout AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
-	Timeout *JobDefinition_Timeout `json:"Timeout,omitempty"`
+	Timeout *JobDefinition_JobTimeout `json:"Timeout,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

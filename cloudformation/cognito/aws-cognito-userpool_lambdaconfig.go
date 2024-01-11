@@ -65,6 +65,11 @@ type UserPool_LambdaConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengeneration
 	PreTokenGeneration *string `json:"PreTokenGeneration,omitempty"`
 
+	// PreTokenGenerationConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengenerationconfig
+	PreTokenGenerationConfig *UserPool_PreTokenGenerationConfig `json:"PreTokenGenerationConfig,omitempty"`
+
 	// UserMigration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-usermigration

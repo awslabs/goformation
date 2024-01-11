@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Tracker AWS CloudFormation Resource (AWS::Location::Tracker)
@@ -18,6 +19,16 @@ type Tracker struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
 	Description *string `json:"Description,omitempty"`
 
+	// EventBridgeEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-eventbridgeenabled
+	EventBridgeEnabled *bool `json:"EventBridgeEnabled,omitempty"`
+
+	// KmsKeyEnableGeospatialQueries AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyenablegeospatialqueries
+	KmsKeyEnableGeospatialQueries *bool `json:"KmsKeyEnableGeospatialQueries,omitempty"`
+
 	// KmsKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
@@ -27,6 +38,11 @@ type Tracker struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-positionfiltering
 	PositionFiltering *string `json:"PositionFiltering,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TrackerName AWS CloudFormation Property
 	// Required: true
