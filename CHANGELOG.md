@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.13.0](https://github.com/awslabs/goformation/compare/v7.12.17...v7.13.0) (2024-01-11)
+
+
+### Features
+
+* remove Go entities that don't exist anymore ([87cd632](https://github.com/awslabs/goformation/commit/87cd6321d61cf69851882d0b7766ae8146e8bdfa))
+
 ## [7.12.17](https://github.com/awslabs/goformation/compare/v7.12.16...v7.12.17) (2024-01-11)
 
 
