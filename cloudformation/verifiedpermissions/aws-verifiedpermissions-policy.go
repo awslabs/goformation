@@ -19,9 +19,9 @@ type Policy struct {
 	Definition *Policy_PolicyDefinition `json:"Definition"`
 
 	// PolicyStoreId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-policystoreid
-	PolicyStoreId *string `json:"PolicyStoreId,omitempty"`
+	PolicyStoreId string `json:"PolicyStoreId"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

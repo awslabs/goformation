@@ -35,6 +35,11 @@ type Channel_EncoderSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-captiondescriptions
 	CaptionDescriptions []Channel_CaptionDescription `json:"CaptionDescriptions,omitempty"`
 
+	// ColorCorrectionSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-colorcorrectionsettings
+	ColorCorrectionSettings *Channel_ColorCorrectionSettings `json:"ColorCorrectionSettings,omitempty"`
+
 	// FeatureActivations AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-featureactivations

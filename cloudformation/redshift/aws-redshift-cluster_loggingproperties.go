@@ -11,9 +11,9 @@ import (
 type Cluster_LoggingProperties struct {
 
 	// BucketName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname
-	BucketName string `json:"BucketName"`
+	BucketName *string `json:"BucketName,omitempty"`
 
 	// S3KeyPrefix AWS CloudFormation Property
 	// Required: false
