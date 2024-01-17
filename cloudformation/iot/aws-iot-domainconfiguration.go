@@ -39,11 +39,6 @@ type DomainConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
 	ServerCertificateArns []string `json:"ServerCertificateArns,omitempty"`
 
-	// ServerCertificateConfig AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificateconfig
-	ServerCertificateConfig *DomainConfiguration_ServerCertificateConfig `json:"ServerCertificateConfig,omitempty"`
-
 	// ServiceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype

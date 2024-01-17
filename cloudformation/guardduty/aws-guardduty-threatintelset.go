@@ -34,9 +34,9 @@ type ThreatIntelSet struct {
 	Location string `json:"Location"`
 
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-name
-	Name string `json:"Name"`
+	Name *string `json:"Name,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

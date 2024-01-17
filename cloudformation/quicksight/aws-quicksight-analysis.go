@@ -29,6 +29,11 @@ type Analysis struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-definition
 	Definition *Analysis_AnalysisDefinition `json:"Definition,omitempty"`
 
+	// Errors AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+	Errors []Analysis_AnalysisError `json:"Errors,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
@@ -43,6 +48,11 @@ type Analysis struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
 	Permissions []Analysis_ResourcePermission `json:"Permissions,omitempty"`
+
+	// Sheets AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sheets
+	Sheets []Analysis_Sheet `json:"Sheets,omitempty"`
 
 	// SourceEntity AWS CloudFormation Property
 	// Required: false

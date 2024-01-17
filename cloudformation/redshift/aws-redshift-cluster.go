@@ -159,15 +159,25 @@ type Cluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
 	MaintenanceTrackName *string `json:"MaintenanceTrackName,omitempty"`
 
+	// ManageMasterPassword AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-managemasterpassword
+	ManageMasterPassword *bool `json:"ManageMasterPassword,omitempty"`
+
 	// ManualSnapshotRetentionPeriod AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
 	ManualSnapshotRetentionPeriod *int `json:"ManualSnapshotRetentionPeriod,omitempty"`
 
+	// MasterPasswordSecretKmsKeyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterpasswordsecretkmskeyid
+	MasterPasswordSecretKmsKeyId *string `json:"MasterPasswordSecretKmsKeyId,omitempty"`
+
 	// MasterUserPassword AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
-	MasterUserPassword string `json:"MasterUserPassword"`
+	MasterUserPassword *string `json:"MasterUserPassword,omitempty"`
 
 	// MasterUsername AWS CloudFormation Property
 	// Required: true
@@ -178,6 +188,11 @@ type Cluster struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-multiaz
 	MultiAZ *bool `json:"MultiAZ,omitempty"`
+
+	// NamespaceResourcePolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-namespaceresourcepolicy
+	NamespaceResourcePolicy interface{} `json:"NamespaceResourcePolicy,omitempty"`
 
 	// NodeType AWS CloudFormation Property
 	// Required: true
