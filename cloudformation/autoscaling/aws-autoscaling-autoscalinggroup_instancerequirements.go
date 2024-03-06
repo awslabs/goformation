@@ -80,6 +80,11 @@ type AutoScalingGroup_InstanceRequirements struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstoragetypes
 	LocalStorageTypes []string `json:"LocalStorageTypes,omitempty"`
 
+	// MaxSpotPriceAsPercentageOfOptimalOnDemandPrice AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-maxspotpriceaspercentageofoptimalondemandprice
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `json:"MaxSpotPriceAsPercentageOfOptimalOnDemandPrice,omitempty"`
+
 	// MemoryGiBPerVCpu AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorygibpervcpu

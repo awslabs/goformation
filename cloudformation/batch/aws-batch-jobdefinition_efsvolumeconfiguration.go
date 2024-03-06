@@ -6,14 +6,14 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
 )
 
-// JobDefinition_EFSVolumeConfiguration AWS CloudFormation Resource (AWS::Batch::JobDefinition.EFSVolumeConfiguration)
+// JobDefinition_EfsVolumeConfiguration AWS CloudFormation Resource (AWS::Batch::JobDefinition.EfsVolumeConfiguration)
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html
-type JobDefinition_EFSVolumeConfiguration struct {
+type JobDefinition_EfsVolumeConfiguration struct {
 
 	// AuthorizationConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html#cfn-batch-jobdefinition-efsvolumeconfiguration-authorizationconfig
-	AuthorizationConfig *JobDefinition_EFSAuthorizationConfig `json:"AuthorizationConfig,omitempty"`
+	AuthorizationConfig *JobDefinition_AuthorizationConfig `json:"AuthorizationConfig,omitempty"`
 
 	// FileSystemId AWS CloudFormation Property
 	// Required: true
@@ -52,6 +52,6 @@ type JobDefinition_EFSVolumeConfiguration struct {
 }
 
 // AWSCloudFormationType returns the AWS CloudFormation resource type
-func (r *JobDefinition_EFSVolumeConfiguration) AWSCloudFormationType() string {
-	return "AWS::Batch::JobDefinition.EFSVolumeConfiguration"
+func (r *JobDefinition_EfsVolumeConfiguration) AWSCloudFormationType() string {
+	return "AWS::Batch::JobDefinition.EfsVolumeConfiguration"
 }

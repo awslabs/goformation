@@ -74,6 +74,11 @@ type DeliveryStream struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
 	S3DestinationConfiguration *DeliveryStream_S3DestinationConfiguration `json:"S3DestinationConfiguration,omitempty"`
 
+	// SnowflakeDestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration
+	SnowflakeDestinationConfiguration *DeliveryStream_SnowflakeDestinationConfiguration `json:"SnowflakeDestinationConfiguration,omitempty"`
+
 	// SplunkDestinationConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration

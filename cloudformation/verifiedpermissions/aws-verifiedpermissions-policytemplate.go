@@ -19,9 +19,9 @@ type PolicyTemplate struct {
 	Description *string `json:"Description,omitempty"`
 
 	// PolicyStoreId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-policystoreid
-	PolicyStoreId *string `json:"PolicyStoreId,omitempty"`
+	PolicyStoreId string `json:"PolicyStoreId"`
 
 	// Statement AWS CloudFormation Property
 	// Required: true

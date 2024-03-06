@@ -15,9 +15,9 @@ import (
 type ChannelGroup struct {
 
 	// ChannelGroupName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html#cfn-mediapackagev2-channelgroup-channelgroupname
-	ChannelGroupName *string `json:"ChannelGroupName,omitempty"`
+	ChannelGroupName string `json:"ChannelGroupName"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

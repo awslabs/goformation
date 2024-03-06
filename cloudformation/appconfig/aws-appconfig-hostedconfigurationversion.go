@@ -41,7 +41,7 @@ type HostedConfigurationVersion struct {
 	// LatestVersionNumber AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-latestversionnumber
-	LatestVersionNumber *float64 `json:"LatestVersionNumber,omitempty"`
+	LatestVersionNumber *int `json:"LatestVersionNumber,omitempty"`
 
 	// VersionLabel AWS CloudFormation Property
 	// Required: false

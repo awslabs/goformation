@@ -20,6 +20,11 @@ type BackupPlan_LifecycleResourceType struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
 	MoveToColdStorageAfterDays *float64 `json:"MoveToColdStorageAfterDays,omitempty"`
 
+	// OptInToArchiveForSupportedResources AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-optintoarchiveforsupportedresources
+	OptInToArchiveForSupportedResources *bool `json:"OptInToArchiveForSupportedResources,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

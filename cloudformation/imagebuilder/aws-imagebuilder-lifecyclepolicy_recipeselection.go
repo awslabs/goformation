@@ -16,9 +16,9 @@ type LifecyclePolicy_RecipeSelection struct {
 	Name string `json:"Name"`
 
 	// SemanticVersion AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-recipeselection.html#cfn-imagebuilder-lifecyclepolicy-recipeselection-semanticversion
-	SemanticVersion *string `json:"SemanticVersion,omitempty"`
+	SemanticVersion string `json:"SemanticVersion"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

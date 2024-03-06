@@ -80,6 +80,11 @@ type LaunchTemplate_InstanceRequirements struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-localstoragetypes
 	LocalStorageTypes []string `json:"LocalStorageTypes,omitempty"`
 
+	// MaxSpotPriceAsPercentageOfOptimalOnDemandPrice AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-maxspotpriceaspercentageofoptimalondemandprice
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `json:"MaxSpotPriceAsPercentageOfOptimalOnDemandPrice,omitempty"`
+
 	// MemoryGiBPerVCpu AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-memorygibpervcpu

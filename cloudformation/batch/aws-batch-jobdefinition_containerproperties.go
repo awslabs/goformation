@@ -68,7 +68,7 @@ type JobDefinition_ContainerProperties struct {
 	// MountPoints AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
-	MountPoints []JobDefinition_MountPoint `json:"MountPoints,omitempty"`
+	MountPoints []JobDefinition_MountPoints `json:"MountPoints,omitempty"`
 
 	// NetworkConfiguration AWS CloudFormation Property
 	// Required: false
@@ -84,6 +84,11 @@ type JobDefinition_ContainerProperties struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
 	ReadonlyRootFilesystem *bool `json:"ReadonlyRootFilesystem,omitempty"`
+
+	// RepositoryCredentials AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-repositorycredentials
+	RepositoryCredentials *JobDefinition_RepositoryCredentials `json:"RepositoryCredentials,omitempty"`
 
 	// ResourceRequirements AWS CloudFormation Property
 	// Required: false
@@ -118,7 +123,7 @@ type JobDefinition_ContainerProperties struct {
 	// Volumes AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes
-	Volumes []JobDefinition_Volume `json:"Volumes,omitempty"`
+	Volumes []JobDefinition_Volumes `json:"Volumes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

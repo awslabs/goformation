@@ -80,6 +80,11 @@ type SpotFleet_InstanceRequirementsRequest struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-localstoragetypes
 	LocalStorageTypes []string `json:"LocalStorageTypes,omitempty"`
 
+	// MaxSpotPriceAsPercentageOfOptimalOnDemandPrice AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-maxspotpriceaspercentageofoptimalondemandprice
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `json:"MaxSpotPriceAsPercentageOfOptimalOnDemandPrice,omitempty"`
+
 	// MemoryGiBPerVCpu AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-memorygibpervcpu

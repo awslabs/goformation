@@ -14,6 +14,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
 type Table struct {
 
+	// AutoScalingSpecifications AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-autoscalingspecifications
+	AutoScalingSpecifications *Table_AutoScalingSpecification `json:"AutoScalingSpecifications,omitempty"`
+
 	// BillingMode AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
@@ -58,6 +63,11 @@ type Table struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
 	RegularColumns []Table_Column `json:"RegularColumns,omitempty"`
+
+	// ReplicaSpecifications AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-replicaspecifications
+	ReplicaSpecifications []Table_ReplicaSpecification `json:"ReplicaSpecifications,omitempty"`
 
 	// TableName AWS CloudFormation Property
 	// Required: false

@@ -24,9 +24,9 @@ type Theme struct {
 	EnvironmentName *string `json:"EnvironmentName,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-name
-	Name string `json:"Name"`
+	Name *string `json:"Name,omitempty"`
 
 	// Overrides AWS CloudFormation Property
 	// Required: false
@@ -39,9 +39,9 @@ type Theme struct {
 	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Values AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#cfn-amplifyuibuilder-theme-values
-	Values []Theme_ThemeValues `json:"Values"`
+	Values []Theme_ThemeValues `json:"Values,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

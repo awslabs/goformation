@@ -10,6 +10,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-configuration.html
 type Pipeline_GitConfiguration struct {
 
+	// PullRequest AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-configuration.html#aws-properties-codepipeline-pipeline-triggers-git-configuration-pull-request
+	PullRequest []Pipeline_GitPullRequestFilter `json:"PullRequest,omitempty"`
+
 	// Push AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-configuration.html#aws-properties-codepipeline-pipeline-triggers-git-configuration-push

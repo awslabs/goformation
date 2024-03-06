@@ -11,14 +11,14 @@ import (
 type IdentityPool_CognitoIdentityProvider struct {
 
 	// ClientId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-clientid
-	ClientId *string `json:"ClientId,omitempty"`
+	ClientId string `json:"ClientId"`
 
 	// ProviderName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-providername
-	ProviderName *string `json:"ProviderName,omitempty"`
+	ProviderName string `json:"ProviderName"`
 
 	// ServerSideTokenCheck AWS CloudFormation Property
 	// Required: false

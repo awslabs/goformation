@@ -29,6 +29,16 @@ type GraphQLApi struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
 	AuthenticationType string `json:"AuthenticationType"`
 
+	// EnhancedMetricsConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-enhancedmetricsconfig
+	EnhancedMetricsConfig *GraphQLApi_EnhancedMetricsConfig `json:"EnhancedMetricsConfig,omitempty"`
+
+	// EnvironmentVariables AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-environmentvariables
+	EnvironmentVariables interface{} `json:"EnvironmentVariables,omitempty"`
+
 	// IntrospectionConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-introspectionconfig

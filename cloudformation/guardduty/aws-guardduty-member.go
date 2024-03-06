@@ -14,9 +14,9 @@ import (
 type Member struct {
 
 	// DetectorId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-detectorid
-	DetectorId string `json:"DetectorId"`
+	DetectorId *string `json:"DetectorId,omitempty"`
 
 	// DisableEmailNotification AWS CloudFormation Property
 	// Required: false
@@ -29,9 +29,9 @@ type Member struct {
 	Email string `json:"Email"`
 
 	// MemberId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-memberid
-	MemberId string `json:"MemberId"`
+	MemberId *string `json:"MemberId,omitempty"`
 
 	// Message AWS CloudFormation Property
 	// Required: false

@@ -16,14 +16,19 @@ type Project_Environment struct {
 	Certificate *string `json:"Certificate,omitempty"`
 
 	// ComputeType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
-	ComputeType *string `json:"ComputeType,omitempty"`
+	ComputeType string `json:"ComputeType"`
 
 	// EnvironmentVariables AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-environmentvariables
 	EnvironmentVariables []Project_EnvironmentVariable `json:"EnvironmentVariables,omitempty"`
+
+	// Fleet AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-fleet
+	Fleet *Project_ProjectFleet `json:"Fleet,omitempty"`
 
 	// Image AWS CloudFormation Property
 	// Required: true
@@ -46,9 +51,9 @@ type Project_Environment struct {
 	RegistryCredential *Project_RegistryCredential `json:"RegistryCredential,omitempty"`
 
 	// Type AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
-	Type *string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

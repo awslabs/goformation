@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // EnabledControl AWS CloudFormation Resource (AWS::ControlTower::EnabledControl)
@@ -22,6 +23,11 @@ type EnabledControl struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-parameters
 	Parameters []EnabledControl_EnabledControlParameter `json:"Parameters,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TargetIdentifier AWS CloudFormation Property
 	// Required: true

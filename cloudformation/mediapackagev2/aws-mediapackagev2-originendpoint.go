@@ -15,19 +15,19 @@ import (
 type OriginEndpoint struct {
 
 	// ChannelGroupName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelgroupname
-	ChannelGroupName *string `json:"ChannelGroupName,omitempty"`
+	ChannelGroupName string `json:"ChannelGroupName"`
 
 	// ChannelName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelname
-	ChannelName *string `json:"ChannelName,omitempty"`
+	ChannelName string `json:"ChannelName"`
 
 	// ContainerType AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
-	ContainerType string `json:"ContainerType"`
+	ContainerType *string `json:"ContainerType,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
@@ -45,9 +45,9 @@ type OriginEndpoint struct {
 	LowLatencyHlsManifests []OriginEndpoint_LowLatencyHlsManifestConfiguration `json:"LowLatencyHlsManifests,omitempty"`
 
 	// OriginEndpointName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-originendpointname
-	OriginEndpointName *string `json:"OriginEndpointName,omitempty"`
+	OriginEndpointName string `json:"OriginEndpointName"`
 
 	// Segment AWS CloudFormation Property
 	// Required: false

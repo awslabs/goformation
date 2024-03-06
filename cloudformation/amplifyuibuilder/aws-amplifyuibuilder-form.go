@@ -24,9 +24,9 @@ type Form struct {
 	Cta *Form_FormCTA `json:"Cta,omitempty"`
 
 	// DataType AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-datatype
-	DataType *Form_FormDataTypeConfig `json:"DataType"`
+	DataType *Form_FormDataTypeConfig `json:"DataType,omitempty"`
 
 	// EnvironmentName AWS CloudFormation Property
 	// Required: false
@@ -34,14 +34,14 @@ type Form struct {
 	EnvironmentName *string `json:"EnvironmentName,omitempty"`
 
 	// Fields AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-fields
-	Fields map[string]Form_FieldConfig `json:"Fields"`
+	Fields map[string]Form_FieldConfig `json:"Fields,omitempty"`
 
 	// FormActionType AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-formactiontype
-	FormActionType string `json:"FormActionType"`
+	FormActionType *string `json:"FormActionType,omitempty"`
 
 	// LabelDecorator AWS CloudFormation Property
 	// Required: false
@@ -49,24 +49,24 @@ type Form struct {
 	LabelDecorator *string `json:"LabelDecorator,omitempty"`
 
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-name
-	Name string `json:"Name"`
+	Name *string `json:"Name,omitempty"`
 
 	// SchemaVersion AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-schemaversion
-	SchemaVersion string `json:"SchemaVersion"`
+	SchemaVersion *string `json:"SchemaVersion,omitempty"`
 
 	// SectionalElements AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-sectionalelements
-	SectionalElements map[string]Form_SectionalElement `json:"SectionalElements"`
+	SectionalElements map[string]Form_SectionalElement `json:"SectionalElements,omitempty"`
 
 	// Style AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-style
-	Style *Form_FormStyle `json:"Style"`
+	Style *Form_FormStyle `json:"Style,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

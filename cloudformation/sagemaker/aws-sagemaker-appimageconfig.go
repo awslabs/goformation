@@ -19,6 +19,11 @@ type AppImageConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
 	AppImageConfigName string `json:"AppImageConfigName"`
 
+	// JupyterLabAppImageConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-jupyterlabappimageconfig
+	JupyterLabAppImageConfig *AppImageConfig_JupyterLabAppImageConfig `json:"JupyterLabAppImageConfig,omitempty"`
+
 	// KernelGatewayImageConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig

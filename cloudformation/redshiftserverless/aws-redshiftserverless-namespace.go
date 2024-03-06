@@ -14,6 +14,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html
 type Namespace struct {
 
+	// AdminPasswordSecretKmsKeyId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-adminpasswordsecretkmskeyid
+	AdminPasswordSecretKmsKeyId *string `json:"AdminPasswordSecretKmsKeyId,omitempty"`
+
 	// AdminUserPassword AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-adminuserpassword
@@ -59,10 +64,25 @@ type Namespace struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-logexports
 	LogExports []string `json:"LogExports,omitempty"`
 
+	// ManageAdminPassword AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-manageadminpassword
+	ManageAdminPassword *bool `json:"ManageAdminPassword,omitempty"`
+
 	// NamespaceName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-namespacename
 	NamespaceName string `json:"NamespaceName"`
+
+	// NamespaceResourcePolicy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-namespaceresourcepolicy
+	NamespaceResourcePolicy interface{} `json:"NamespaceResourcePolicy,omitempty"`
+
+	// RedshiftIdcApplicationArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-redshiftidcapplicationarn
+	RedshiftIdcApplicationArn *string `json:"RedshiftIdcApplicationArn,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

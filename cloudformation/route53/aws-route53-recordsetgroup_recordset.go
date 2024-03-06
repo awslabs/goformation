@@ -30,6 +30,11 @@ type RecordSetGroup_RecordSet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-geolocation
 	GeoLocation *RecordSetGroup_GeoLocation `json:"GeoLocation,omitempty"`
 
+	// GeoProximityLocation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-geoproximitylocation
+	GeoProximityLocation *RecordSetGroup_GeoProximityLocation `json:"GeoProximityLocation,omitempty"`
+
 	// HealthCheckId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-healthcheckid

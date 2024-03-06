@@ -20,9 +20,9 @@ type ObjectType struct {
 	AllowProfileCreation *bool `json:"AllowProfileCreation,omitempty"`
 
 	// Description AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
-	Description *string `json:"Description,omitempty"`
+	Description string `json:"Description"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: true
@@ -50,9 +50,9 @@ type ObjectType struct {
 	Keys []ObjectType_KeyMap `json:"Keys,omitempty"`
 
 	// ObjectTypeName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
-	ObjectTypeName *string `json:"ObjectTypeName,omitempty"`
+	ObjectTypeName string `json:"ObjectTypeName"`
 
 	// SourceLastUpdatedTimestampFormat AWS CloudFormation Property
 	// Required: false

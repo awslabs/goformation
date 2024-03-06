@@ -25,9 +25,9 @@ type Domain struct {
 	DefaultEncryptionKey *string `json:"DefaultEncryptionKey,omitempty"`
 
 	// DefaultExpirationDays AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
-	DefaultExpirationDays *int `json:"DefaultExpirationDays,omitempty"`
+	DefaultExpirationDays int `json:"DefaultExpirationDays"`
 
 	// DomainName AWS CloudFormation Property
 	// Required: true

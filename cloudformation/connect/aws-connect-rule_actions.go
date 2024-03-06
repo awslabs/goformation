@@ -15,6 +15,16 @@ type Rule_Actions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-assigncontactcategoryactions
 	AssignContactCategoryActions []interface{} `json:"AssignContactCategoryActions,omitempty"`
 
+	// CreateCaseActions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-createcaseactions
+	CreateCaseActions []Rule_CreateCaseAction `json:"CreateCaseActions,omitempty"`
+
+	// EndAssociatedTasksActions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-endassociatedtasksactions
+	EndAssociatedTasksActions []interface{} `json:"EndAssociatedTasksActions,omitempty"`
+
 	// EventBridgeActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-eventbridgeactions
@@ -29,6 +39,11 @@ type Rule_Actions struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-taskactions
 	TaskActions []Rule_TaskAction `json:"TaskActions,omitempty"`
+
+	// UpdateCaseActions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-updatecaseactions
+	UpdateCaseActions []Rule_UpdateCaseAction `json:"UpdateCaseActions,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

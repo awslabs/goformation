@@ -10,6 +10,16 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html
 type Pipeline_GitPushFilter struct {
 
+	// Branches AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html#aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria
+	Branches *Pipeline_GitBranchFilterCriteria `json:"Branches,omitempty"`
+
+	// FilePaths AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html#aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria
+	FilePaths *Pipeline_GitFilePathFilterCriteria `json:"FilePaths,omitempty"`
+
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html#aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria

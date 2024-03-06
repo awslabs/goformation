@@ -25,9 +25,9 @@ type PrefixList struct {
 	Entries []PrefixList_Entry `json:"Entries,omitempty"`
 
 	// MaxEntries AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
-	MaxEntries int `json:"MaxEntries"`
+	MaxEntries *int `json:"MaxEntries,omitempty"`
 
 	// PrefixListName AWS CloudFormation Property
 	// Required: true

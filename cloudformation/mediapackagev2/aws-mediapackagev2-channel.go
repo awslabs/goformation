@@ -15,14 +15,14 @@ import (
 type Channel struct {
 
 	// ChannelGroupName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-channelgroupname
-	ChannelGroupName *string `json:"ChannelGroupName,omitempty"`
+	ChannelGroupName string `json:"ChannelGroupName"`
 
 	// ChannelName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-channelname
-	ChannelName *string `json:"ChannelName,omitempty"`
+	ChannelName string `json:"ChannelName"`
 
 	// Description AWS CloudFormation Property
 	// Required: false

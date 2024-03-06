@@ -14,19 +14,19 @@ import (
 type OriginEndpointPolicy struct {
 
 	// ChannelGroupName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-channelgroupname
-	ChannelGroupName *string `json:"ChannelGroupName,omitempty"`
+	ChannelGroupName string `json:"ChannelGroupName"`
 
 	// ChannelName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-channelname
-	ChannelName *string `json:"ChannelName,omitempty"`
+	ChannelName string `json:"ChannelName"`
 
 	// OriginEndpointName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-originendpointname
-	OriginEndpointName *string `json:"OriginEndpointName,omitempty"`
+	OriginEndpointName string `json:"OriginEndpointName"`
 
 	// Policy AWS CloudFormation Property
 	// Required: true

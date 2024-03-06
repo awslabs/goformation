@@ -13,7 +13,7 @@ type JobDefinition_EksProperties struct {
 	// PodProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html#cfn-batch-jobdefinition-eksproperties-podproperties
-	PodProperties *JobDefinition_EksPodProperties `json:"PodProperties,omitempty"`
+	PodProperties *JobDefinition_PodProperties `json:"PodProperties,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // TaskSet AWS CloudFormation Resource (AWS::ECS::TaskSet)
@@ -57,6 +58,11 @@ type TaskSet struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
 	ServiceRegistries []TaskSet_ServiceRegistry `json:"ServiceRegistries,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TaskDefinition AWS CloudFormation Property
 	// Required: true

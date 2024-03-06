@@ -19,6 +19,16 @@ type Space struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-domainid
 	DomainId string `json:"DomainId"`
 
+	// OwnershipSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-ownershipsettings
+	OwnershipSettings *Space_OwnershipSettings `json:"OwnershipSettings,omitempty"`
+
+	// SpaceDisplayName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacedisplayname
+	SpaceDisplayName *string `json:"SpaceDisplayName,omitempty"`
+
 	// SpaceName AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacename
@@ -28,6 +38,11 @@ type Space struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacesettings
 	SpaceSettings *Space_SpaceSettings `json:"SpaceSettings,omitempty"`
+
+	// SpaceSharingSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacesharingsettings
+	SpaceSharingSettings *Space_SpaceSharingSettings `json:"SpaceSharingSettings,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

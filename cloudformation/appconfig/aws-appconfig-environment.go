@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Environment AWS CloudFormation Resource (AWS::AppConfig::Environment)
@@ -26,7 +27,7 @@ type Environment struct {
 	// Monitors AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-monitors
-	Monitors []Environment_Monitors `json:"Monitors,omitempty"`
+	Monitors []Environment_Monitor `json:"Monitors,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true
@@ -36,7 +37,7 @@ type Environment struct {
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-tags
-	Tags []Environment_Tags `json:"Tags,omitempty"`
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

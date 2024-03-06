@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
-	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Filter AWS CloudFormation Resource (AWS::GuardDuty::Filter)
@@ -15,19 +14,19 @@ import (
 type Filter struct {
 
 	// Action AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-action
-	Action string `json:"Action"`
+	Action *string `json:"Action,omitempty"`
 
 	// Description AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-description
-	Description string `json:"Description"`
+	Description *string `json:"Description,omitempty"`
 
 	// DetectorId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
-	DetectorId string `json:"DetectorId"`
+	DetectorId *string `json:"DetectorId,omitempty"`
 
 	// FindingCriteria AWS CloudFormation Property
 	// Required: true
@@ -35,19 +34,19 @@ type Filter struct {
 	FindingCriteria *Filter_FindingCriteria `json:"FindingCriteria"`
 
 	// Name AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
-	Name string `json:"Name"`
+	Name *string `json:"Name,omitempty"`
 
 	// Rank AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-rank
-	Rank int `json:"Rank"`
+	Rank *int `json:"Rank,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-tags
-	Tags []tags.Tag `json:"Tags,omitempty"`
+	Tags []Filter_TagItem `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

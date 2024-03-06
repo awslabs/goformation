@@ -19,9 +19,9 @@ type IdentitySource struct {
 	Configuration *IdentitySource_IdentitySourceConfiguration `json:"Configuration"`
 
 	// PolicyStoreId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-policystoreid
-	PolicyStoreId *string `json:"PolicyStoreId,omitempty"`
+	PolicyStoreId string `json:"PolicyStoreId"`
 
 	// PrincipalEntityType AWS CloudFormation Property
 	// Required: false
