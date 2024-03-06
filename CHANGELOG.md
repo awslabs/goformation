@@ -1,5 +1,12 @@
 # GoFormation Versioning Changelog
 
+# [7.14.0](https://github.com/awslabs/goformation/compare/v7.13.2...v7.14.0) (2024-03-06)
+
+
+### Features
+
+* bump Golang versions ([#654](https://github.com/awslabs/goformation/issues/654)) ([9765e0a](https://github.com/awslabs/goformation/commit/9765e0a9463be738a96b86385780a555294ae110))
+
 ## [7.13.2](https://github.com/awslabs/goformation/compare/v7.13.1...v7.13.2) (2024-03-06)
 
 
