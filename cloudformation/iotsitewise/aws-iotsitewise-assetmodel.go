@@ -24,6 +24,11 @@ type AssetModel struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
 	AssetModelDescription *string `json:"AssetModelDescription,omitempty"`
 
+	// AssetModelExternalId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelexternalid
+	AssetModelExternalId *string `json:"AssetModelExternalId,omitempty"`
+
 	// AssetModelHierarchies AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
@@ -38,6 +43,11 @@ type AssetModel struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
 	AssetModelProperties []AssetModel_AssetModelProperty `json:"AssetModelProperties,omitempty"`
+
+	// AssetModelType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeltype
+	AssetModelType *string `json:"AssetModelType,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

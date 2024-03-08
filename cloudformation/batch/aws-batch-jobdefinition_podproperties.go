@@ -25,6 +25,11 @@ type JobDefinition_PodProperties struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-hostnetwork
 	HostNetwork *bool `json:"HostNetwork,omitempty"`
 
+	// InitContainers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-initcontainers
+	InitContainers []JobDefinition_EksContainer `json:"InitContainers,omitempty"`
+
 	// Metadata AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-metadata
@@ -34,6 +39,11 @@ type JobDefinition_PodProperties struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-serviceaccountname
 	ServiceAccountName *string `json:"ServiceAccountName,omitempty"`
+
+	// ShareProcessNamespace AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-shareprocessnamespace
+	ShareProcessNamespace *bool `json:"ShareProcessNamespace,omitempty"`
 
 	// Volumes AWS CloudFormation Property
 	// Required: false
