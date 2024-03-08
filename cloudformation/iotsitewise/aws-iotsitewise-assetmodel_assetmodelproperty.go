@@ -20,10 +20,20 @@ type AssetModel_AssetModelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
 	DataTypeSpec *string `json:"DataTypeSpec,omitempty"`
 
+	// ExternalId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-externalid
+	ExternalId *string `json:"ExternalId,omitempty"`
+
+	// Id AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-id
+	Id *string `json:"Id,omitempty"`
+
 	// LogicalId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
-	LogicalId string `json:"LogicalId"`
+	LogicalId *string `json:"LogicalId,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

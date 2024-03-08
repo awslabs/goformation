@@ -15,10 +15,20 @@ type Asset_AssetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
 	Alias *string `json:"Alias,omitempty"`
 
+	// ExternalId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-externalid
+	ExternalId *string `json:"ExternalId,omitempty"`
+
+	// Id AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-id
+	Id *string `json:"Id,omitempty"`
+
 	// LogicalId AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-logicalid
-	LogicalId string `json:"LogicalId"`
+	LogicalId *string `json:"LogicalId,omitempty"`
 
 	// NotificationState AWS CloudFormation Property
 	// Required: false

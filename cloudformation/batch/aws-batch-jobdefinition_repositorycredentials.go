@@ -7,12 +7,12 @@ import (
 )
 
 // JobDefinition_RepositoryCredentials AWS CloudFormation Resource (AWS::Batch::JobDefinition.RepositoryCredentials)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-repositorycredentials.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-repositorycredentials.html
 type JobDefinition_RepositoryCredentials struct {
 
 	// CredentialsParameter AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-repositorycredentials.html#cfn-batch-jobdefinition-containerproperties-repositorycredentials-credentialsparameter
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-repositorycredentials.html#cfn-batch-jobdefinition-taskcontainerproperties-repositorycredentials-credentialsparameter
 	CredentialsParameter string `json:"CredentialsParameter"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
