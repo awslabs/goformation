@@ -13,7 +13,7 @@ type Function_IAMPolicyDocument struct {
 	// Statement AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
-	Statement []interface{} `json:"Statement"`
+	Statement *Function_Statement `json:"Statement"`
 
 	// Version AWS CloudFormation Property
 	// Required: false

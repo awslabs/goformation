@@ -1585,8 +1585,8 @@
                 "Statement": {
                     "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
                     "Required": true,
-                    "Type": "List",
-                    "ItemType": "Json",
+                    "PrimitiveTypes": ["Json"],
+                    "PrimitiveItemTypes": ["Json"],
                     "UpdateType": "Immutable"
                 },
                 "Version": {
@@ -2760,8 +2760,8 @@
                 "Statement": {
                     "Documentation": "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html",
                     "Required": true,
-                    "Type": "List",
-                    "ItemType": "Json",
+                    "PrimitiveTypes": ["Json"],
+                    "PrimitiveItemTypes": ["Json"],
                     "UpdateType": "Immutable"
                 },
                 "Version": {
