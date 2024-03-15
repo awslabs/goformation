@@ -19,10 +19,20 @@ type Monitor struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-healtheventsconfig
 	HealthEventsConfig *Monitor_HealthEventsConfig `json:"HealthEventsConfig,omitempty"`
 
+	// IncludeLinkedAccounts AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-includelinkedaccounts
+	IncludeLinkedAccounts *bool `json:"IncludeLinkedAccounts,omitempty"`
+
 	// InternetMeasurementsLogDelivery AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-internetmeasurementslogdelivery
 	InternetMeasurementsLogDelivery *Monitor_InternetMeasurementsLogDelivery `json:"InternetMeasurementsLogDelivery,omitempty"`
+
+	// LinkedAccountId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-linkedaccountid
+	LinkedAccountId *string `json:"LinkedAccountId,omitempty"`
 
 	// MaxCityNetworksToMonitor AWS CloudFormation Property
 	// Required: false

@@ -25,6 +25,11 @@ type Replicator_TopicReplication struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-detectandcopynewtopics
 	DetectAndCopyNewTopics *bool `json:"DetectAndCopyNewTopics,omitempty"`
 
+	// StartingPosition AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-startingposition
+	StartingPosition *Replicator_ReplicationStartingPosition `json:"StartingPosition,omitempty"`
+
 	// TopicsToExclude AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicstoexclude

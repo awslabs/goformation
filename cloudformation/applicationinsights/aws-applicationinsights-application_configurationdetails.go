@@ -40,6 +40,21 @@ type Application_ConfigurationDetails struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
 	Logs []Application_Log `json:"Logs,omitempty"`
 
+	// NetWeaverPrometheusExporter AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-netweaverprometheusexporter
+	NetWeaverPrometheusExporter *Application_NetWeaverPrometheusExporter `json:"NetWeaverPrometheusExporter,omitempty"`
+
+	// Processes AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-processes
+	Processes []Application_Process `json:"Processes,omitempty"`
+
+	// SQLServerPrometheusExporter AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-sqlserverprometheusexporter
+	SQLServerPrometheusExporter *Application_SQLServerPrometheusExporter `json:"SQLServerPrometheusExporter,omitempty"`
+
 	// WindowsEvents AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
