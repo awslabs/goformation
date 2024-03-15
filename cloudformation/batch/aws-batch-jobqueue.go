@@ -23,6 +23,11 @@ type JobQueue struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename
 	JobQueueName *string `json:"JobQueueName,omitempty"`
 
+	// JobStateTimeLimitActions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobstatetimelimitactions
+	JobStateTimeLimitActions []JobQueue_JobStateTimeLimitAction `json:"JobStateTimeLimitActions,omitempty"`
+
 	// Priority AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-priority
