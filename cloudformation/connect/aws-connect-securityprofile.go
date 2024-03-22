@@ -14,15 +14,30 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html
 type SecurityProfile struct {
 
+	// AllowedAccessControlHierarchyGroupId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedaccesscontrolhierarchygroupid
+	AllowedAccessControlHierarchyGroupId *string `json:"AllowedAccessControlHierarchyGroupId,omitempty"`
+
 	// AllowedAccessControlTags AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedaccesscontroltags
 	AllowedAccessControlTags []tags.Tag `json:"AllowedAccessControlTags,omitempty"`
 
+	// Applications AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-applications
+	Applications []SecurityProfile_Application `json:"Applications,omitempty"`
+
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-description
 	Description *string `json:"Description,omitempty"`
+
+	// HierarchyRestrictedResources AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-hierarchyrestrictedresources
+	HierarchyRestrictedResources []string `json:"HierarchyRestrictedResources,omitempty"`
 
 	// InstanceArn AWS CloudFormation Property
 	// Required: true

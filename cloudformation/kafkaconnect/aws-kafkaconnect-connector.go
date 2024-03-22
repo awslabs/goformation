@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // Connector AWS CloudFormation Resource (AWS::KafkaConnect::Connector)
@@ -67,6 +68,11 @@ type Connector struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-serviceexecutionrolearn
 	ServiceExecutionRoleArn string `json:"ServiceExecutionRoleArn"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// WorkerConfiguration AWS CloudFormation Property
 	// Required: false

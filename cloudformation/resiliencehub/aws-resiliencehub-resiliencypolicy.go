@@ -21,7 +21,7 @@ type ResiliencyPolicy struct {
 	// Policy AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-policy
-	Policy map[string]ResiliencyPolicy_FailurePolicy `json:"Policy"`
+	Policy *ResiliencyPolicy_PolicyMap `json:"Policy"`
 
 	// PolicyDescription AWS CloudFormation Property
 	// Required: false
