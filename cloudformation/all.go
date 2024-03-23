@@ -937,6 +937,8 @@ func AllResources() map[string]Resource {
 		"AWS::KMS::Key":                                                    &kms.Key{},
 		"AWS::KMS::ReplicaKey":                                             &kms.ReplicaKey{},
 		"AWS::KafkaConnect::Connector":                                     &kafkaconnect.Connector{},
+		"AWS::KafkaConnect::CustomPlugin":                                  &kafkaconnect.CustomPlugin{},
+		"AWS::KafkaConnect::WorkerConfiguration":                           &kafkaconnect.WorkerConfiguration{},
 		"AWS::Kendra::DataSource":                                          &kendra.DataSource{},
 		"AWS::Kendra::Faq":                                                 &kendra.Faq{},
 		"AWS::Kendra::Index":                                               &kendra.Index{},
@@ -1342,10 +1344,7 @@ func AllResources() map[string]Resource {
 		"AWS::SecretsManager::Secret":                                      &secretsmanager.Secret{},
 		"AWS::SecretsManager::SecretTargetAttachment":                      &secretsmanager.SecretTargetAttachment{},
 		"AWS::SecurityHub::AutomationRule":                                 &securityhub.AutomationRule{},
-		"AWS::SecurityHub::DelegatedAdmin":                                 &securityhub.DelegatedAdmin{},
 		"AWS::SecurityHub::Hub":                                            &securityhub.Hub{},
-		"AWS::SecurityHub::Insight":                                        &securityhub.Insight{},
-		"AWS::SecurityHub::ProductSubscription":                            &securityhub.ProductSubscription{},
 		"AWS::SecurityHub::Standard":                                       &securityhub.Standard{},
 		"AWS::Serverless::Api":                                             &serverless.Api{},
 		"AWS::Serverless::Application":                                     &serverless.Application{},
@@ -18102,6 +18101,54 @@ func (t *Template) GetKafkaConnectConnectorWithName(name string) (*kafkaconnect.
 	return nil, fmt.Errorf("resource %q of type kafkaconnect.Connector not found", name)
 }
 
+// GetAllKafkaConnectCustomPluginResources retrieves all kafkaconnect.CustomPlugin items from an AWS CloudFormation template
+func (t *Template) GetAllKafkaConnectCustomPluginResources() map[string]*kafkaconnect.CustomPlugin {
+	results := map[string]*kafkaconnect.CustomPlugin{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *kafkaconnect.CustomPlugin:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetKafkaConnectCustomPluginWithName retrieves all kafkaconnect.CustomPlugin items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetKafkaConnectCustomPluginWithName(name string) (*kafkaconnect.CustomPlugin, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *kafkaconnect.CustomPlugin:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type kafkaconnect.CustomPlugin not found", name)
+}
+
+// GetAllKafkaConnectWorkerConfigurationResources retrieves all kafkaconnect.WorkerConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllKafkaConnectWorkerConfigurationResources() map[string]*kafkaconnect.WorkerConfiguration {
+	results := map[string]*kafkaconnect.WorkerConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *kafkaconnect.WorkerConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetKafkaConnectWorkerConfigurationWithName retrieves all kafkaconnect.WorkerConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetKafkaConnectWorkerConfigurationWithName(name string) (*kafkaconnect.WorkerConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *kafkaconnect.WorkerConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type kafkaconnect.WorkerConfiguration not found", name)
+}
+
 // GetAllKendraDataSourceResources retrieves all kendra.DataSource items from an AWS CloudFormation template
 func (t *Template) GetAllKendraDataSourceResources() map[string]*kendra.DataSource {
 	results := map[string]*kendra.DataSource{}
@@ -27822,30 +27869,6 @@ func (t *Template) GetSecurityHubAutomationRuleWithName(name string) (*securityh
 	return nil, fmt.Errorf("resource %q of type securityhub.AutomationRule not found", name)
 }
 
-// GetAllSecurityHubDelegatedAdminResources retrieves all securityhub.DelegatedAdmin items from an AWS CloudFormation template
-func (t *Template) GetAllSecurityHubDelegatedAdminResources() map[string]*securityhub.DelegatedAdmin {
-	results := map[string]*securityhub.DelegatedAdmin{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case *securityhub.DelegatedAdmin:
-			results[name] = resource
-		}
-	}
-	return results
-}
-
-// GetSecurityHubDelegatedAdminWithName retrieves all securityhub.DelegatedAdmin items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetSecurityHubDelegatedAdminWithName(name string) (*securityhub.DelegatedAdmin, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case *securityhub.DelegatedAdmin:
-			return resource, nil
-		}
-	}
-	return nil, fmt.Errorf("resource %q of type securityhub.DelegatedAdmin not found", name)
-}
-
 // GetAllSecurityHubHubResources retrieves all securityhub.Hub items from an AWS CloudFormation template
 func (t *Template) GetAllSecurityHubHubResources() map[string]*securityhub.Hub {
 	results := map[string]*securityhub.Hub{}
@@ -27868,54 +27891,6 @@ func (t *Template) GetSecurityHubHubWithName(name string) (*securityhub.Hub, err
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type securityhub.Hub not found", name)
-}
-
-// GetAllSecurityHubInsightResources retrieves all securityhub.Insight items from an AWS CloudFormation template
-func (t *Template) GetAllSecurityHubInsightResources() map[string]*securityhub.Insight {
-	results := map[string]*securityhub.Insight{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case *securityhub.Insight:
-			results[name] = resource
-		}
-	}
-	return results
-}
-
-// GetSecurityHubInsightWithName retrieves all securityhub.Insight items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetSecurityHubInsightWithName(name string) (*securityhub.Insight, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case *securityhub.Insight:
-			return resource, nil
-		}
-	}
-	return nil, fmt.Errorf("resource %q of type securityhub.Insight not found", name)
-}
-
-// GetAllSecurityHubProductSubscriptionResources retrieves all securityhub.ProductSubscription items from an AWS CloudFormation template
-func (t *Template) GetAllSecurityHubProductSubscriptionResources() map[string]*securityhub.ProductSubscription {
-	results := map[string]*securityhub.ProductSubscription{}
-	for name, untyped := range t.Resources {
-		switch resource := untyped.(type) {
-		case *securityhub.ProductSubscription:
-			results[name] = resource
-		}
-	}
-	return results
-}
-
-// GetSecurityHubProductSubscriptionWithName retrieves all securityhub.ProductSubscription items from an AWS CloudFormation template
-// whose logical ID matches the provided name. Returns an error if not found.
-func (t *Template) GetSecurityHubProductSubscriptionWithName(name string) (*securityhub.ProductSubscription, error) {
-	if untyped, ok := t.Resources[name]; ok {
-		switch resource := untyped.(type) {
-		case *securityhub.ProductSubscription:
-			return resource, nil
-		}
-	}
-	return nil, fmt.Errorf("resource %q of type securityhub.ProductSubscription not found", name)
 }
 
 // GetAllSecurityHubStandardResources retrieves all securityhub.Standard items from an AWS CloudFormation template
