@@ -20,6 +20,11 @@ type ConfiguredTable_AnalysisRuleCustom struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalysisproviders
 	AllowedAnalysisProviders []string `json:"AllowedAnalysisProviders,omitempty"`
 
+	// DifferentialPrivacy AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-differentialprivacy
+	DifferentialPrivacy *ConfiguredTable_DifferentialPrivacy `json:"DifferentialPrivacy,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 
