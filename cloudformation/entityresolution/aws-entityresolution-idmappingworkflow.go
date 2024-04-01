@@ -30,9 +30,9 @@ type IdMappingWorkflow struct {
 	InputSourceConfig []IdMappingWorkflow_IdMappingWorkflowInputSource `json:"InputSourceConfig"`
 
 	// OutputSourceConfig AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-outputsourceconfig
-	OutputSourceConfig []IdMappingWorkflow_IdMappingWorkflowOutputSource `json:"OutputSourceConfig"`
+	OutputSourceConfig []IdMappingWorkflow_IdMappingWorkflowOutputSource `json:"OutputSourceConfig,omitempty"`
 
 	// RoleArn AWS CloudFormation Property
 	// Required: true

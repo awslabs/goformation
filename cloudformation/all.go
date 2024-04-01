@@ -31,6 +31,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/backup"
 	"github.com/awslabs/goformation/v7/cloudformation/backupgateway"
 	"github.com/awslabs/goformation/v7/cloudformation/batch"
+	"github.com/awslabs/goformation/v7/cloudformation/bcmdataexports"
 	"github.com/awslabs/goformation/v7/cloudformation/billingconductor"
 	"github.com/awslabs/goformation/v7/cloudformation/budgets"
 	"github.com/awslabs/goformation/v7/cloudformation/cassandra"
@@ -206,6 +207,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/sdb"
 	"github.com/awslabs/goformation/v7/cloudformation/secretsmanager"
 	"github.com/awslabs/goformation/v7/cloudformation/securityhub"
+	"github.com/awslabs/goformation/v7/cloudformation/securitylake"
 	"github.com/awslabs/goformation/v7/cloudformation/serverless"
 	"github.com/awslabs/goformation/v7/cloudformation/servicecatalog"
 	"github.com/awslabs/goformation/v7/cloudformation/servicecatalogappregistry"
@@ -249,6 +251,7 @@ func AllResources() map[string]Resource {
 		"AWS::ACMPCA::CertificateAuthorityActivation":                      &acmpca.CertificateAuthorityActivation{},
 		"AWS::ACMPCA::Permission":                                          &acmpca.Permission{},
 		"AWS::APS::RuleGroupsNamespace":                                    &aps.RuleGroupsNamespace{},
+		"AWS::APS::Scraper":                                                &aps.Scraper{},
 		"AWS::APS::Workspace":                                              &aps.Workspace{},
 		"AWS::ARCZonalShift::ZonalAutoshiftConfiguration":                  &arczonalshift.ZonalAutoshiftConfiguration{},
 		"AWS::AccessAnalyzer::Analyzer":                                    &accessanalyzer.Analyzer{},
@@ -362,6 +365,7 @@ func AllResources() map[string]Resource {
 		"AWS::B2BI::Partnership":                                           &b2bi.Partnership{},
 		"AWS::B2BI::Profile":                                               &b2bi.Profile{},
 		"AWS::B2BI::Transformer":                                           &b2bi.Transformer{},
+		"AWS::BCMDataExports::Export":                                      &bcmdataexports.Export{},
 		"AWS::Backup::BackupPlan":                                          &backup.BackupPlan{},
 		"AWS::Backup::BackupSelection":                                     &backup.BackupSelection{},
 		"AWS::Backup::BackupVault":                                         &backup.BackupVault{},
@@ -1346,6 +1350,7 @@ func AllResources() map[string]Resource {
 		"AWS::SecurityHub::AutomationRule":                                 &securityhub.AutomationRule{},
 		"AWS::SecurityHub::Hub":                                            &securityhub.Hub{},
 		"AWS::SecurityHub::Standard":                                       &securityhub.Standard{},
+		"AWS::SecurityLake::DataLake":                                      &securitylake.DataLake{},
 		"AWS::Serverless::Api":                                             &serverless.Api{},
 		"AWS::Serverless::Application":                                     &serverless.Application{},
 		"AWS::Serverless::Function":                                        &serverless.Function{},
@@ -1587,6 +1592,30 @@ func (t *Template) GetAPSRuleGroupsNamespaceWithName(name string) (*aps.RuleGrou
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type aps.RuleGroupsNamespace not found", name)
+}
+
+// GetAllAPSScraperResources retrieves all aps.Scraper items from an AWS CloudFormation template
+func (t *Template) GetAllAPSScraperResources() map[string]*aps.Scraper {
+	results := map[string]*aps.Scraper{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *aps.Scraper:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAPSScraperWithName retrieves all aps.Scraper items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAPSScraperWithName(name string) (*aps.Scraper, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *aps.Scraper:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type aps.Scraper not found", name)
 }
 
 // GetAllAPSWorkspaceResources retrieves all aps.Workspace items from an AWS CloudFormation template
@@ -4299,6 +4328,30 @@ func (t *Template) GetB2BITransformerWithName(name string) (*b2bi.Transformer, e
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type b2bi.Transformer not found", name)
+}
+
+// GetAllBCMDataExportsExportResources retrieves all bcmdataexports.Export items from an AWS CloudFormation template
+func (t *Template) GetAllBCMDataExportsExportResources() map[string]*bcmdataexports.Export {
+	results := map[string]*bcmdataexports.Export{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bcmdataexports.Export:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBCMDataExportsExportWithName retrieves all bcmdataexports.Export items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBCMDataExportsExportWithName(name string) (*bcmdataexports.Export, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bcmdataexports.Export:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bcmdataexports.Export not found", name)
 }
 
 // GetAllBackupBackupPlanResources retrieves all backup.BackupPlan items from an AWS CloudFormation template
@@ -27915,6 +27968,30 @@ func (t *Template) GetSecurityHubStandardWithName(name string) (*securityhub.Sta
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type securityhub.Standard not found", name)
+}
+
+// GetAllSecurityLakeDataLakeResources retrieves all securitylake.DataLake items from an AWS CloudFormation template
+func (t *Template) GetAllSecurityLakeDataLakeResources() map[string]*securitylake.DataLake {
+	results := map[string]*securitylake.DataLake{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *securitylake.DataLake:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSecurityLakeDataLakeWithName retrieves all securitylake.DataLake items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSecurityLakeDataLakeWithName(name string) (*securitylake.DataLake, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *securitylake.DataLake:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type securitylake.DataLake not found", name)
 }
 
 // GetAllServerlessApiResources retrieves all serverless.Api items from an AWS CloudFormation template
