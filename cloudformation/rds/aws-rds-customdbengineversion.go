@@ -15,9 +15,9 @@ import (
 type CustomDBEngineVersion struct {
 
 	// DatabaseInstallationFilesS3BucketName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-databaseinstallationfiless3bucketname
-	DatabaseInstallationFilesS3BucketName string `json:"DatabaseInstallationFilesS3BucketName"`
+	DatabaseInstallationFilesS3BucketName *string `json:"DatabaseInstallationFilesS3BucketName,omitempty"`
 
 	// DatabaseInstallationFilesS3Prefix AWS CloudFormation Property
 	// Required: false
@@ -39,6 +39,11 @@ type CustomDBEngineVersion struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-engineversion
 	EngineVersion string `json:"EngineVersion"`
 
+	// ImageId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-imageid
+	ImageId *string `json:"ImageId,omitempty"`
+
 	// KMSKeyId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-kmskeyid
@@ -49,6 +54,11 @@ type CustomDBEngineVersion struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-manifest
 	Manifest *string `json:"Manifest,omitempty"`
 
+	// SourceCustomDbEngineVersionIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-sourcecustomdbengineversionidentifier
+	SourceCustomDbEngineVersionIdentifier *string `json:"SourceCustomDbEngineVersionIdentifier,omitempty"`
+
 	// Status AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-status
@@ -58,6 +68,11 @@ type CustomDBEngineVersion struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-tags
 	Tags []tags.Tag `json:"Tags,omitempty"`
+
+	// UseAwsProvidedLatestImage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-useawsprovidedlatestimage
+	UseAwsProvidedLatestImage *bool `json:"UseAwsProvidedLatestImage,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
