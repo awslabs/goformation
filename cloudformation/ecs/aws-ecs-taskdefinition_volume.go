@@ -25,6 +25,11 @@ type TaskDefinition_Volume struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
 	EFSVolumeConfiguration *TaskDefinition_EFSVolumeConfiguration `json:"EFSVolumeConfiguration,omitempty"`
 
+	// FSxWindowsFileServerVolumeConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-fsxwindowsfileservervolumeconfiguration
+	FSxWindowsFileServerVolumeConfiguration *TaskDefinition_FSxWindowsFileServerVolumeConfiguration `json:"FSxWindowsFileServerVolumeConfiguration,omitempty"`
+
 	// Host AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-host

@@ -11,9 +11,14 @@ import (
 type ServerlessCache_DataStorage struct {
 
 	// Maximum AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html#cfn-elasticache-serverlesscache-datastorage-maximum
-	Maximum int `json:"Maximum"`
+	Maximum *int `json:"Maximum,omitempty"`
+
+	// Minimum AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html#cfn-elasticache-serverlesscache-datastorage-minimum
+	Minimum *int `json:"Minimum,omitempty"`
 
 	// Unit AWS CloudFormation Property
 	// Required: true

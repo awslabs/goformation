@@ -11,9 +11,9 @@ import (
 type Insight_IpFilter struct {
 
 	// Cidr AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-ipfilter.html#cfn-securityhub-insight-ipfilter-cidr
-	Cidr *string `json:"Cidr,omitempty"`
+	Cidr string `json:"Cidr"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
