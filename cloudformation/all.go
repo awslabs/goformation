@@ -408,6 +408,7 @@ func AllResources() map[string]Resource {
 		"AWS::CleanRooms::ConfiguredTable":                                 &cleanrooms.ConfiguredTable{},
 		"AWS::CleanRooms::ConfiguredTableAssociation":                      &cleanrooms.ConfiguredTableAssociation{},
 		"AWS::CleanRooms::Membership":                                      &cleanrooms.Membership{},
+		"AWS::CleanRooms::PrivacyBudgetTemplate":                           &cleanrooms.PrivacyBudgetTemplate{},
 		"AWS::CleanRoomsML::TrainingDataset":                               &cleanroomsml.TrainingDataset{},
 		"AWS::Cloud9::EnvironmentEC2":                                      &cloud9.EnvironmentEC2{},
 		"AWS::CloudFormation::CustomResource":                              &cloudformation.CustomResource{},
@@ -5293,6 +5294,30 @@ func (t *Template) GetCleanRoomsMembershipWithName(name string) (*cleanrooms.Mem
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cleanrooms.Membership not found", name)
+}
+
+// GetAllCleanRoomsPrivacyBudgetTemplateResources retrieves all cleanrooms.PrivacyBudgetTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllCleanRoomsPrivacyBudgetTemplateResources() map[string]*cleanrooms.PrivacyBudgetTemplate {
+	results := map[string]*cleanrooms.PrivacyBudgetTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cleanrooms.PrivacyBudgetTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCleanRoomsPrivacyBudgetTemplateWithName retrieves all cleanrooms.PrivacyBudgetTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCleanRoomsPrivacyBudgetTemplateWithName(name string) (*cleanrooms.PrivacyBudgetTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cleanrooms.PrivacyBudgetTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cleanrooms.PrivacyBudgetTemplate not found", name)
 }
 
 // GetAllCleanRoomsMLTrainingDatasetResources retrieves all cleanroomsml.TrainingDataset items from an AWS CloudFormation template
