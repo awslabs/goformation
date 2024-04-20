@@ -16,9 +16,9 @@ type Application_ExternalUrlConfig struct {
 	AccessUrl string `json:"AccessUrl"`
 
 	// ApprovedOrigins AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-externalurlconfig.html#cfn-appintegrations-application-externalurlconfig-approvedorigins
-	ApprovedOrigins []string `json:"ApprovedOrigins"`
+	ApprovedOrigins []string `json:"ApprovedOrigins,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
