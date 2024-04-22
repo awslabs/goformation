@@ -695,6 +695,7 @@ func AllResources() map[string]Resource {
 		"AWS::ECR::RegistryPolicy":                                         &ecr.RegistryPolicy{},
 		"AWS::ECR::ReplicationConfiguration":                               &ecr.ReplicationConfiguration{},
 		"AWS::ECR::Repository":                                             &ecr.Repository{},
+		"AWS::ECR::RepositoryCreationTemplate":                             &ecr.RepositoryCreationTemplate{},
 		"AWS::ECS::CapacityProvider":                                       &ecs.CapacityProvider{},
 		"AWS::ECS::Cluster":                                                &ecs.Cluster{},
 		"AWS::ECS::ClusterCapacityProviderAssociations":                    &ecs.ClusterCapacityProviderAssociations{},
@@ -1431,6 +1432,7 @@ func AllResources() map[string]Resource {
 		"AWS::Synthetics::Group":                                           &synthetics.Group{},
 		"AWS::SystemsManagerSAP::Application":                              &systemsmanagersap.Application{},
 		"AWS::Timestream::Database":                                        &timestream.Database{},
+		"AWS::Timestream::InfluxDBInstance":                                &timestream.InfluxDBInstance{},
 		"AWS::Timestream::ScheduledQuery":                                  &timestream.ScheduledQuery{},
 		"AWS::Timestream::Table":                                           &timestream.Table{},
 		"AWS::Transfer::Agreement":                                         &transfer.Agreement{},
@@ -12182,6 +12184,30 @@ func (t *Template) GetECRRepositoryWithName(name string) (*ecr.Repository, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ecr.Repository not found", name)
+}
+
+// GetAllECRRepositoryCreationTemplateResources retrieves all ecr.RepositoryCreationTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllECRRepositoryCreationTemplateResources() map[string]*ecr.RepositoryCreationTemplate {
+	results := map[string]*ecr.RepositoryCreationTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ecr.RepositoryCreationTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetECRRepositoryCreationTemplateWithName retrieves all ecr.RepositoryCreationTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetECRRepositoryCreationTemplateWithName(name string) (*ecr.RepositoryCreationTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ecr.RepositoryCreationTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ecr.RepositoryCreationTemplate not found", name)
 }
 
 // GetAllECSCapacityProviderResources retrieves all ecs.CapacityProvider items from an AWS CloudFormation template
@@ -29846,6 +29872,30 @@ func (t *Template) GetTimestreamDatabaseWithName(name string) (*timestream.Datab
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type timestream.Database not found", name)
+}
+
+// GetAllTimestreamInfluxDBInstanceResources retrieves all timestream.InfluxDBInstance items from an AWS CloudFormation template
+func (t *Template) GetAllTimestreamInfluxDBInstanceResources() map[string]*timestream.InfluxDBInstance {
+	results := map[string]*timestream.InfluxDBInstance{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *timestream.InfluxDBInstance:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetTimestreamInfluxDBInstanceWithName retrieves all timestream.InfluxDBInstance items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetTimestreamInfluxDBInstanceWithName(name string) (*timestream.InfluxDBInstance, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *timestream.InfluxDBInstance:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type timestream.InfluxDBInstance not found", name)
 }
 
 // GetAllTimestreamScheduledQueryResources retrieves all timestream.ScheduledQuery items from an AWS CloudFormation template
