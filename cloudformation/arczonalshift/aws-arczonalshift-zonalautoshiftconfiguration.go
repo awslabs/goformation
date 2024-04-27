@@ -19,9 +19,9 @@ type ZonalAutoshiftConfiguration struct {
 	PracticeRunConfiguration *ZonalAutoshiftConfiguration_PracticeRunConfiguration `json:"PracticeRunConfiguration,omitempty"`
 
 	// ResourceIdentifier AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-resourceidentifier
-	ResourceIdentifier *string `json:"ResourceIdentifier,omitempty"`
+	ResourceIdentifier string `json:"ResourceIdentifier"`
 
 	// ZonalAutoshiftStatus AWS CloudFormation Property
 	// Required: false

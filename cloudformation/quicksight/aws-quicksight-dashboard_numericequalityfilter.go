@@ -20,6 +20,11 @@ type Dashboard_NumericEqualityFilter struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericequalityfilter.html#cfn-quicksight-dashboard-numericequalityfilter-column
 	Column *Dashboard_ColumnIdentifier `json:"Column"`
 
+	// DefaultFilterControlConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericequalityfilter.html#cfn-quicksight-dashboard-numericequalityfilter-defaultfiltercontrolconfiguration
+	DefaultFilterControlConfiguration *Dashboard_DefaultFilterControlConfiguration `json:"DefaultFilterControlConfiguration,omitempty"`
+
 	// FilterId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericequalityfilter.html#cfn-quicksight-dashboard-numericequalityfilter-filterid

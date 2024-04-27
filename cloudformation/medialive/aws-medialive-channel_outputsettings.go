@@ -15,6 +15,11 @@ type Channel_OutputSettings struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-archiveoutputsettings
 	ArchiveOutputSettings *Channel_ArchiveOutputSettings `json:"ArchiveOutputSettings,omitempty"`
 
+	// CmafIngestOutputSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-cmafingestoutputsettings
+	CmafIngestOutputSettings *Channel_CmafIngestOutputSettings `json:"CmafIngestOutputSettings,omitempty"`
+
 	// FrameCaptureOutputSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-framecaptureoutputsettings

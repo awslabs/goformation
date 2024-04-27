@@ -178,6 +178,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/organizations"
 	"github.com/awslabs/goformation/v7/cloudformation/osis"
 	"github.com/awslabs/goformation/v7/cloudformation/panorama"
+	"github.com/awslabs/goformation/v7/cloudformation/paymentcryptography"
 	"github.com/awslabs/goformation/v7/cloudformation/pcaconnectorad"
 	"github.com/awslabs/goformation/v7/cloudformation/personalize"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpoint"
@@ -198,6 +199,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/robomaker"
 	"github.com/awslabs/goformation/v7/cloudformation/rolesanywhere"
 	"github.com/awslabs/goformation/v7/cloudformation/route53"
+	"github.com/awslabs/goformation/v7/cloudformation/route53profiles"
 	"github.com/awslabs/goformation/v7/cloudformation/route53recoverycontrol"
 	"github.com/awslabs/goformation/v7/cloudformation/route53recoveryreadiness"
 	"github.com/awslabs/goformation/v7/cloudformation/route53resolver"
@@ -385,6 +387,7 @@ func AllResources() map[string]Resource {
 		"AWS::Bedrock::Agent":                                              &bedrock.Agent{},
 		"AWS::Bedrock::AgentAlias":                                         &bedrock.AgentAlias{},
 		"AWS::Bedrock::DataSource":                                         &bedrock.DataSource{},
+		"AWS::Bedrock::Guardrail":                                          &bedrock.Guardrail{},
 		"AWS::Bedrock::KnowledgeBase":                                      &bedrock.KnowledgeBase{},
 		"AWS::BillingConductor::BillingGroup":                              &billingconductor.BillingGroup{},
 		"AWS::BillingConductor::CustomLineItem":                            &billingconductor.CustomLineItem{},
@@ -789,6 +792,7 @@ func AllResources() map[string]Resource {
 		"AWS::FraudDetector::Variable":                                     &frauddetector.Variable{},
 		"AWS::GameLift::Alias":                                             &gamelift.Alias{},
 		"AWS::GameLift::Build":                                             &gamelift.Build{},
+		"AWS::GameLift::ContainerGroupDefinition":                          &gamelift.ContainerGroupDefinition{},
 		"AWS::GameLift::Fleet":                                             &gamelift.Fleet{},
 		"AWS::GameLift::GameServerGroup":                                   &gamelift.GameServerGroup{},
 		"AWS::GameLift::GameSessionQueue":                                  &gamelift.GameSessionQueue{},
@@ -1165,6 +1169,8 @@ func AllResources() map[string]Resource {
 		"AWS::Panorama::ApplicationInstance":                               &panorama.ApplicationInstance{},
 		"AWS::Panorama::Package":                                           &panorama.Package{},
 		"AWS::Panorama::PackageVersion":                                    &panorama.PackageVersion{},
+		"AWS::PaymentCryptography::Alias":                                  &paymentcryptography.Alias{},
+		"AWS::PaymentCryptography::Key":                                    &paymentcryptography.Key{},
 		"AWS::Personalize::Dataset":                                        &personalize.Dataset{},
 		"AWS::Personalize::DatasetGroup":                                   &personalize.DatasetGroup{},
 		"AWS::Personalize::Schema":                                         &personalize.Schema{},
@@ -1265,6 +1271,9 @@ func AllResources() map[string]Resource {
 		"AWS::Route53::KeySigningKey":                                      &route53.KeySigningKey{},
 		"AWS::Route53::RecordSet":                                          &route53.RecordSet{},
 		"AWS::Route53::RecordSetGroup":                                     &route53.RecordSetGroup{},
+		"AWS::Route53Profiles::Profile":                                    &route53profiles.Profile{},
+		"AWS::Route53Profiles::ProfileAssociation":                         &route53profiles.ProfileAssociation{},
+		"AWS::Route53Profiles::ProfileResourceAssociation":                 &route53profiles.ProfileResourceAssociation{},
 		"AWS::Route53RecoveryControl::Cluster":                             &route53recoverycontrol.Cluster{},
 		"AWS::Route53RecoveryControl::ControlPanel":                        &route53recoverycontrol.ControlPanel{},
 		"AWS::Route53RecoveryControl::RoutingControl":                      &route53recoverycontrol.RoutingControl{},
@@ -4744,6 +4753,30 @@ func (t *Template) GetBedrockDataSourceWithName(name string) (*bedrock.DataSourc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type bedrock.DataSource not found", name)
+}
+
+// GetAllBedrockGuardrailResources retrieves all bedrock.Guardrail items from an AWS CloudFormation template
+func (t *Template) GetAllBedrockGuardrailResources() map[string]*bedrock.Guardrail {
+	results := map[string]*bedrock.Guardrail{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bedrock.Guardrail:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBedrockGuardrailWithName retrieves all bedrock.Guardrail items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBedrockGuardrailWithName(name string) (*bedrock.Guardrail, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bedrock.Guardrail:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bedrock.Guardrail not found", name)
 }
 
 // GetAllBedrockKnowledgeBaseResources retrieves all bedrock.KnowledgeBase items from an AWS CloudFormation template
@@ -14442,6 +14475,30 @@ func (t *Template) GetGameLiftBuildWithName(name string) (*gamelift.Build, error
 	return nil, fmt.Errorf("resource %q of type gamelift.Build not found", name)
 }
 
+// GetAllGameLiftContainerGroupDefinitionResources retrieves all gamelift.ContainerGroupDefinition items from an AWS CloudFormation template
+func (t *Template) GetAllGameLiftContainerGroupDefinitionResources() map[string]*gamelift.ContainerGroupDefinition {
+	results := map[string]*gamelift.ContainerGroupDefinition{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *gamelift.ContainerGroupDefinition:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGameLiftContainerGroupDefinitionWithName retrieves all gamelift.ContainerGroupDefinition items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGameLiftContainerGroupDefinitionWithName(name string) (*gamelift.ContainerGroupDefinition, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *gamelift.ContainerGroupDefinition:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type gamelift.ContainerGroupDefinition not found", name)
+}
+
 // GetAllGameLiftFleetResources retrieves all gamelift.Fleet items from an AWS CloudFormation template
 func (t *Template) GetAllGameLiftFleetResources() map[string]*gamelift.Fleet {
 	results := map[string]*gamelift.Fleet{}
@@ -23466,6 +23523,54 @@ func (t *Template) GetPanoramaPackageVersionWithName(name string) (*panorama.Pac
 	return nil, fmt.Errorf("resource %q of type panorama.PackageVersion not found", name)
 }
 
+// GetAllPaymentCryptographyAliasResources retrieves all paymentcryptography.Alias items from an AWS CloudFormation template
+func (t *Template) GetAllPaymentCryptographyAliasResources() map[string]*paymentcryptography.Alias {
+	results := map[string]*paymentcryptography.Alias{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *paymentcryptography.Alias:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPaymentCryptographyAliasWithName retrieves all paymentcryptography.Alias items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPaymentCryptographyAliasWithName(name string) (*paymentcryptography.Alias, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *paymentcryptography.Alias:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type paymentcryptography.Alias not found", name)
+}
+
+// GetAllPaymentCryptographyKeyResources retrieves all paymentcryptography.Key items from an AWS CloudFormation template
+func (t *Template) GetAllPaymentCryptographyKeyResources() map[string]*paymentcryptography.Key {
+	results := map[string]*paymentcryptography.Key{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *paymentcryptography.Key:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPaymentCryptographyKeyWithName retrieves all paymentcryptography.Key items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPaymentCryptographyKeyWithName(name string) (*paymentcryptography.Key, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *paymentcryptography.Key:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type paymentcryptography.Key not found", name)
+}
+
 // GetAllPersonalizeDatasetResources retrieves all personalize.Dataset items from an AWS CloudFormation template
 func (t *Template) GetAllPersonalizeDatasetResources() map[string]*personalize.Dataset {
 	results := map[string]*personalize.Dataset{}
@@ -25864,6 +25969,78 @@ func (t *Template) GetRoute53RecordSetGroupWithName(name string) (*route53.Recor
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type route53.RecordSetGroup not found", name)
+}
+
+// GetAllRoute53ProfilesProfileResources retrieves all route53profiles.Profile items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53ProfilesProfileResources() map[string]*route53profiles.Profile {
+	results := map[string]*route53profiles.Profile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53profiles.Profile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53ProfilesProfileWithName retrieves all route53profiles.Profile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53ProfilesProfileWithName(name string) (*route53profiles.Profile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53profiles.Profile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53profiles.Profile not found", name)
+}
+
+// GetAllRoute53ProfilesProfileAssociationResources retrieves all route53profiles.ProfileAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53ProfilesProfileAssociationResources() map[string]*route53profiles.ProfileAssociation {
+	results := map[string]*route53profiles.ProfileAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53profiles.ProfileAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53ProfilesProfileAssociationWithName retrieves all route53profiles.ProfileAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53ProfilesProfileAssociationWithName(name string) (*route53profiles.ProfileAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53profiles.ProfileAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53profiles.ProfileAssociation not found", name)
+}
+
+// GetAllRoute53ProfilesProfileResourceAssociationResources retrieves all route53profiles.ProfileResourceAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllRoute53ProfilesProfileResourceAssociationResources() map[string]*route53profiles.ProfileResourceAssociation {
+	results := map[string]*route53profiles.ProfileResourceAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *route53profiles.ProfileResourceAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetRoute53ProfilesProfileResourceAssociationWithName retrieves all route53profiles.ProfileResourceAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetRoute53ProfilesProfileResourceAssociationWithName(name string) (*route53profiles.ProfileResourceAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *route53profiles.ProfileResourceAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type route53profiles.ProfileResourceAssociation not found", name)
 }
 
 // GetAllRoute53RecoveryControlClusterResources retrieves all route53recoverycontrol.Cluster items from an AWS CloudFormation template
