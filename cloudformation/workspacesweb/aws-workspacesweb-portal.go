@@ -39,10 +39,20 @@ type Portal struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-displayname
 	DisplayName *string `json:"DisplayName,omitempty"`
 
+	// InstanceType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-instancetype
+	InstanceType *string `json:"InstanceType,omitempty"`
+
 	// IpAccessSettingsArn AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-ipaccesssettingsarn
 	IpAccessSettingsArn *string `json:"IpAccessSettingsArn,omitempty"`
+
+	// MaxConcurrentSessions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-maxconcurrentsessions
+	MaxConcurrentSessions *float64 `json:"MaxConcurrentSessions,omitempty"`
 
 	// NetworkSettingsArn AWS CloudFormation Property
 	// Required: false

@@ -20,6 +20,11 @@ type Template_NumericRangeFilter struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefilter.html#cfn-quicksight-template-numericrangefilter-column
 	Column *Template_ColumnIdentifier `json:"Column"`
 
+	// DefaultFilterControlConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefilter.html#cfn-quicksight-template-numericrangefilter-defaultfiltercontrolconfiguration
+	DefaultFilterControlConfiguration *Template_DefaultFilterControlConfiguration `json:"DefaultFilterControlConfiguration,omitempty"`
+
 	// FilterId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefilter.html#cfn-quicksight-template-numericrangefilter-filterid

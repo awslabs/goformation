@@ -15,6 +15,11 @@ type Template_TimeEqualityFilter struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-column
 	Column *Template_ColumnIdentifier `json:"Column"`
 
+	// DefaultFilterControlConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-defaultfiltercontrolconfiguration
+	DefaultFilterControlConfiguration *Template_DefaultFilterControlConfiguration `json:"DefaultFilterControlConfiguration,omitempty"`
+
 	// FilterId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html#cfn-quicksight-template-timeequalityfilter-filterid

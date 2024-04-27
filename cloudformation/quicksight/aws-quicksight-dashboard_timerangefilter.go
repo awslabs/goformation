@@ -15,6 +15,11 @@ type Dashboard_TimeRangeFilter struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-column
 	Column *Dashboard_ColumnIdentifier `json:"Column"`
 
+	// DefaultFilterControlConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-defaultfiltercontrolconfiguration
+	DefaultFilterControlConfiguration *Dashboard_DefaultFilterControlConfiguration `json:"DefaultFilterControlConfiguration,omitempty"`
+
 	// ExcludePeriodConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-timerangefilter.html#cfn-quicksight-dashboard-timerangefilter-excludeperiodconfiguration

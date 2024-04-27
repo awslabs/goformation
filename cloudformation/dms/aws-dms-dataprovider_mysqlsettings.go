@@ -16,19 +16,19 @@ type DataProvider_MySqlSettings struct {
 	CertificateArn *string `json:"CertificateArn,omitempty"`
 
 	// Port AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mysqlsettings.html#cfn-dms-dataprovider-mysqlsettings-port
-	Port *int `json:"Port,omitempty"`
+	Port int `json:"Port"`
 
 	// ServerName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mysqlsettings.html#cfn-dms-dataprovider-mysqlsettings-servername
-	ServerName *string `json:"ServerName,omitempty"`
+	ServerName string `json:"ServerName"`
 
 	// SslMode AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mysqlsettings.html#cfn-dms-dataprovider-mysqlsettings-sslmode
-	SslMode *string `json:"SslMode,omitempty"`
+	SslMode string `json:"SslMode"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

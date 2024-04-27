@@ -10,6 +10,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html
 type Channel_AudioDescription struct {
 
+	// AudioDashRoles AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audiodashroles
+	AudioDashRoles []string `json:"AudioDashRoles,omitempty"`
+
 	// AudioNormalizationSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audionormalizationsettings
@@ -39,6 +44,11 @@ type Channel_AudioDescription struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-codecsettings
 	CodecSettings *Channel_AudioCodecSettings `json:"CodecSettings,omitempty"`
+
+	// DvbDashAccessibility AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-dvbdashaccessibility
+	DvbDashAccessibility *string `json:"DvbDashAccessibility,omitempty"`
 
 	// LanguageCode AWS CloudFormation Property
 	// Required: false

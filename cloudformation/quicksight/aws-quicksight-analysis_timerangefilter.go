@@ -15,6 +15,11 @@ type Analysis_TimeRangeFilter struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangefilter.html#cfn-quicksight-analysis-timerangefilter-column
 	Column *Analysis_ColumnIdentifier `json:"Column"`
 
+	// DefaultFilterControlConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangefilter.html#cfn-quicksight-analysis-timerangefilter-defaultfiltercontrolconfiguration
+	DefaultFilterControlConfiguration *Analysis_DefaultFilterControlConfiguration `json:"DefaultFilterControlConfiguration,omitempty"`
+
 	// ExcludePeriodConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-timerangefilter.html#cfn-quicksight-analysis-timerangefilter-excludeperiodconfiguration

@@ -21,14 +21,14 @@ type DataProvider_OracleSettings struct {
 	CertificateArn *string `json:"CertificateArn,omitempty"`
 
 	// DatabaseName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-oraclesettings.html#cfn-dms-dataprovider-oraclesettings-databasename
-	DatabaseName *string `json:"DatabaseName,omitempty"`
+	DatabaseName string `json:"DatabaseName"`
 
 	// Port AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-oraclesettings.html#cfn-dms-dataprovider-oraclesettings-port
-	Port *int `json:"Port,omitempty"`
+	Port int `json:"Port"`
 
 	// SecretsManagerOracleAsmAccessRoleArn AWS CloudFormation Property
 	// Required: false
@@ -51,14 +51,14 @@ type DataProvider_OracleSettings struct {
 	SecretsManagerSecurityDbEncryptionSecretId *string `json:"SecretsManagerSecurityDbEncryptionSecretId,omitempty"`
 
 	// ServerName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-oraclesettings.html#cfn-dms-dataprovider-oraclesettings-servername
-	ServerName *string `json:"ServerName,omitempty"`
+	ServerName string `json:"ServerName"`
 
 	// SslMode AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-oraclesettings.html#cfn-dms-dataprovider-oraclesettings-sslmode
-	SslMode *string `json:"SslMode,omitempty"`
+	SslMode string `json:"SslMode"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

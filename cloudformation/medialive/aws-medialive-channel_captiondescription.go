@@ -15,6 +15,11 @@ type Channel_CaptionDescription struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-accessibility
 	Accessibility *string `json:"Accessibility,omitempty"`
 
+	// CaptionDashRoles AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-captiondashroles
+	CaptionDashRoles []string `json:"CaptionDashRoles,omitempty"`
+
 	// CaptionSelectorName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-captionselectorname
@@ -24,6 +29,11 @@ type Channel_CaptionDescription struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-destinationsettings
 	DestinationSettings *Channel_CaptionDestinationSettings `json:"DestinationSettings,omitempty"`
+
+	// DvbDashAccessibility AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-dvbdashaccessibility
+	DvbDashAccessibility *string `json:"DvbDashAccessibility,omitempty"`
 
 	// LanguageCode AWS CloudFormation Property
 	// Required: false
