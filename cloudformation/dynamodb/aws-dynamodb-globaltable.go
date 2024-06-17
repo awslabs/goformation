@@ -63,6 +63,11 @@ type GlobalTable struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
 	TimeToLiveSpecification *GlobalTable_TimeToLiveSpecification `json:"TimeToLiveSpecification,omitempty"`
 
+	// WriteOnDemandThroughputSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
+	WriteOnDemandThroughputSettings *GlobalTable_WriteOnDemandThroughputSettings `json:"WriteOnDemandThroughputSettings,omitempty"`
+
 	// WriteProvisionedThroughputSettings AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings

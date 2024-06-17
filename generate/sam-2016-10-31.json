@@ -2264,6 +2264,94 @@
                     "Required": false,
                     "PrimitiveType": "Boolean",
                     "UpdateType": "Immutable"
+                },
+                "ResourcePolicy": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "AuthResourcePolicy",
+                    "UpdateType": "Immutable"
+                }
+            }
+        },
+        "AWS::Serverless::Api.AuthResourcePolicy": {
+            "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+            "Properties": {
+                "CustomStatements": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "Map",
+                    "UpdateType": "Immutable"
+                },
+                "AwsAccountBlacklist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "AwsAccountWhitelist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "IntrinsicVpcBlacklist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "IntrinsicVpcWhitelist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "IntrinsicVpceBlacklist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "IntrinsicVpceWhitelist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "IpRangeBlacklist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "IpRangeWhitelist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "SourceVpcBlacklist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
+                },
+                "SourceVpcWhitelist": {
+                    "Documentation": "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object",
+                    "Required": false,
+                    "Type": "List",
+                    "PrimitiveItemType": "String",
+                    "UpdateType": "Immutable"
                 }
             }
         },

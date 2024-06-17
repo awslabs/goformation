@@ -25,6 +25,11 @@ type Api_Auth struct {
 	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object
 	DefaultAuthorizer *string `json:"DefaultAuthorizer,omitempty"`
 
+	// ResourcePolicy AWS CloudFormation Property
+	// Required: false
+	// See: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api-auth-object
+	ResourcePolicy *Api_AuthResourcePolicy `json:"ResourcePolicy,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

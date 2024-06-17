@@ -11,9 +11,9 @@ import (
 type DataSet_DataSetRefreshProperties struct {
 
 	// RefreshConfiguration AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html#cfn-quicksight-dataset-datasetrefreshproperties-refreshconfiguration
-	RefreshConfiguration *DataSet_RefreshConfiguration `json:"RefreshConfiguration,omitempty"`
+	RefreshConfiguration *DataSet_RefreshConfiguration `json:"RefreshConfiguration"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
