@@ -10,10 +10,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html
 type Domain_DefaultSpaceSettings struct {
 
+	// CustomFileSystemConfigs AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customfilesystemconfigs
+	CustomFileSystemConfigs []Domain_CustomFileSystemConfig `json:"CustomFileSystemConfigs,omitempty"`
+
+	// CustomPosixUserConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customposixuserconfig
+	CustomPosixUserConfig *Domain_CustomPosixUserConfig `json:"CustomPosixUserConfig,omitempty"`
+
 	// ExecutionRole AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-executionrole
 	ExecutionRole string `json:"ExecutionRole"`
+
+	// JupyterLabAppSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-jupyterlabappsettings
+	JupyterLabAppSettings *Domain_JupyterLabAppSettings `json:"JupyterLabAppSettings,omitempty"`
 
 	// JupyterServerAppSettings AWS CloudFormation Property
 	// Required: false
@@ -29,6 +44,11 @@ type Domain_DefaultSpaceSettings struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-securitygroups
 	SecurityGroups []string `json:"SecurityGroups,omitempty"`
+
+	// SpaceStorageSettings AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-spacestoragesettings
+	SpaceStorageSettings *Domain_DefaultSpaceStorageSettings `json:"SpaceStorageSettings,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

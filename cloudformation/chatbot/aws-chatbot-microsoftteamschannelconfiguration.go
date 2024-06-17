@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // MicrosoftTeamsChannelConfiguration AWS CloudFormation Resource (AWS::Chatbot::MicrosoftTeamsChannelConfiguration)
@@ -37,6 +38,11 @@ type MicrosoftTeamsChannelConfiguration struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-snstopicarns
 	SnsTopicArns []string `json:"SnsTopicArns,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TeamId AWS CloudFormation Property
 	// Required: true

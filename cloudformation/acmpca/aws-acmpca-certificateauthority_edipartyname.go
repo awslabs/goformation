@@ -11,9 +11,9 @@ import (
 type CertificateAuthority_EdiPartyName struct {
 
 	// NameAssigner AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
-	NameAssigner string `json:"NameAssigner"`
+	NameAssigner *string `json:"NameAssigner,omitempty"`
 
 	// PartyName AWS CloudFormation Property
 	// Required: true
