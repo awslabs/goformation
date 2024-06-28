@@ -36,9 +36,9 @@ type DeliveryStream_SplunkDestinationConfiguration struct {
 	HECEndpointType string `json:"HECEndpointType"`
 
 	// HECToken AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
-	HECToken string `json:"HECToken"`
+	HECToken *string `json:"HECToken,omitempty"`
 
 	// ProcessingConfiguration AWS CloudFormation Property
 	// Required: false
@@ -59,6 +59,11 @@ type DeliveryStream_SplunkDestinationConfiguration struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
 	S3Configuration *DeliveryStream_S3DestinationConfiguration `json:"S3Configuration"`
+
+	// SecretsManagerConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-secretsmanagerconfiguration
+	SecretsManagerConfiguration *DeliveryStream_SecretsManagerConfiguration `json:"SecretsManagerConfiguration,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

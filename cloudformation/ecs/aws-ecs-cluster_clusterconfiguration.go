@@ -15,6 +15,11 @@ type Cluster_ClusterConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
 	ExecuteCommandConfiguration *Cluster_ExecuteCommandConfiguration `json:"ExecuteCommandConfiguration,omitempty"`
 
+	// ManagedStorageConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-managedstorageconfiguration
+	ManagedStorageConfiguration *Cluster_ManagedStorageConfiguration `json:"ManagedStorageConfiguration,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

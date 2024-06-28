@@ -19,11 +19,6 @@ type ReplicationConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-computeconfig
 	ComputeConfig *ReplicationConfig_ComputeConfig `json:"ComputeConfig,omitempty"`
 
-	// ReplicationConfigArn AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-replicationconfigarn
-	ReplicationConfigArn *string `json:"ReplicationConfigArn,omitempty"`
-
 	// ReplicationConfigIdentifier AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-replicationconfigidentifier

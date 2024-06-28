@@ -70,6 +70,11 @@ type Pipe_PipeTargetParameters struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-stepfunctionstatemachineparameters
 	StepFunctionStateMachineParameters *Pipe_PipeTargetStateMachineParameters `json:"StepFunctionStateMachineParameters,omitempty"`
 
+	// TimestreamParameters AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-timestreamparameters
+	TimestreamParameters *Pipe_PipeTargetTimestreamParameters `json:"TimestreamParameters,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

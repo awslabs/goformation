@@ -14,10 +14,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html
 type EventBus struct {
 
+	// DeadLetterConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-deadletterconfig
+	DeadLetterConfig *EventBus_DeadLetterConfig `json:"DeadLetterConfig,omitempty"`
+
+	// Description AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-description
+	Description *string `json:"Description,omitempty"`
+
 	// EventSourceName AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-eventsourcename
 	EventSourceName *string `json:"EventSourceName,omitempty"`
+
+	// KmsKeyIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-kmskeyidentifier
+	KmsKeyIdentifier *string `json:"KmsKeyIdentifier,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

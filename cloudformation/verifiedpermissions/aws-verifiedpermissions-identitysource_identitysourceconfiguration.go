@@ -11,9 +11,14 @@ import (
 type IdentitySource_IdentitySourceConfiguration struct {
 
 	// CognitoUserPoolConfiguration AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html#cfn-verifiedpermissions-identitysource-identitysourceconfiguration-cognitouserpoolconfiguration
-	CognitoUserPoolConfiguration *IdentitySource_CognitoUserPoolConfiguration `json:"CognitoUserPoolConfiguration"`
+	CognitoUserPoolConfiguration *IdentitySource_CognitoUserPoolConfiguration `json:"CognitoUserPoolConfiguration,omitempty"`
+
+	// OpenIdConnectConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html#cfn-verifiedpermissions-identitysource-identitysourceconfiguration-openidconnectconfiguration
+	OpenIdConnectConfiguration *IdentitySource_OpenIdConnectConfiguration `json:"OpenIdConnectConfiguration,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

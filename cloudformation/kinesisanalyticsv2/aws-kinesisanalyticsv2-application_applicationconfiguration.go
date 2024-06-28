@@ -20,6 +20,11 @@ type Application_ApplicationConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration
 	ApplicationSnapshotConfiguration *Application_ApplicationSnapshotConfiguration `json:"ApplicationSnapshotConfiguration,omitempty"`
 
+	// ApplicationSystemRollbackConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsystemrollbackconfiguration
+	ApplicationSystemRollbackConfiguration *Application_ApplicationSystemRollbackConfiguration `json:"ApplicationSystemRollbackConfiguration,omitempty"`
+
 	// EnvironmentProperties AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-environmentproperties

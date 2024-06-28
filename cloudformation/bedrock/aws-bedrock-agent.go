@@ -48,6 +48,11 @@ type Agent struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-foundationmodel
 	FoundationModel *string `json:"FoundationModel,omitempty"`
 
+	// GuardrailConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-guardrailconfiguration
+	GuardrailConfiguration *Agent_GuardrailConfiguration `json:"GuardrailConfiguration,omitempty"`
+
 	// IdleSessionTTLInSeconds AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-idlesessionttlinseconds

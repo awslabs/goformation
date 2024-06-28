@@ -119,10 +119,20 @@ type DBCluster struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
 	EnableIAMDatabaseAuthentication *bool `json:"EnableIAMDatabaseAuthentication,omitempty"`
 
+	// EnableLocalWriteForwarding AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablelocalwriteforwarding
+	EnableLocalWriteForwarding *bool `json:"EnableLocalWriteForwarding,omitempty"`
+
 	// Engine AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
 	Engine *string `json:"Engine,omitempty"`
+
+	// EngineLifecycleSupport AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginelifecyclesupport
+	EngineLifecycleSupport *string `json:"EngineLifecycleSupport,omitempty"`
 
 	// EngineMode AWS CloudFormation Property
 	// Required: false
