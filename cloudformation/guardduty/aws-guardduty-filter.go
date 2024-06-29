@@ -24,9 +24,9 @@ type Filter struct {
 	Description *string `json:"Description,omitempty"`
 
 	// DetectorId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
-	DetectorId *string `json:"DetectorId,omitempty"`
+	DetectorId string `json:"DetectorId"`
 
 	// FindingCriteria AWS CloudFormation Property
 	// Required: true
@@ -34,9 +34,9 @@ type Filter struct {
 	FindingCriteria *Filter_FindingCriteria `json:"FindingCriteria"`
 
 	// Name AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
-	Name *string `json:"Name,omitempty"`
+	Name string `json:"Name"`
 
 	// Rank AWS CloudFormation Property
 	// Required: false

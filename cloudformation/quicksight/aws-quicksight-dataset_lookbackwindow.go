@@ -11,19 +11,19 @@ import (
 type DataSet_LookbackWindow struct {
 
 	// ColumnName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-columnname
-	ColumnName *string `json:"ColumnName,omitempty"`
+	ColumnName string `json:"ColumnName"`
 
 	// Size AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-size
-	Size *float64 `json:"Size,omitempty"`
+	Size float64 `json:"Size"`
 
 	// SizeUnit AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-sizeunit
-	SizeUnit *string `json:"SizeUnit,omitempty"`
+	SizeUnit string `json:"SizeUnit"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

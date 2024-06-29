@@ -20,6 +20,11 @@ type ConfigurationSetEventDestination_EventDestination struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-enabled
 	Enabled *bool `json:"Enabled,omitempty"`
 
+	// EventBridgeDestination AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-eventbridgedestination
+	EventBridgeDestination *ConfigurationSetEventDestination_EventBridgeDestination `json:"EventBridgeDestination,omitempty"`
+
 	// KinesisFirehoseDestination AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-kinesisfirehosedestination

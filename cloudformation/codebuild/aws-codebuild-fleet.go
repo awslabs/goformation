@@ -29,10 +29,25 @@ type Fleet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-environmenttype
 	EnvironmentType *string `json:"EnvironmentType,omitempty"`
 
+	// FleetServiceRole AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetservicerole
+	FleetServiceRole *string `json:"FleetServiceRole,omitempty"`
+
+	// FleetVpcConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetvpcconfig
+	FleetVpcConfig *Fleet_VpcConfig `json:"FleetVpcConfig,omitempty"`
+
 	// Name AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-name
 	Name *string `json:"Name,omitempty"`
+
+	// OverflowBehavior AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-overflowbehavior
+	OverflowBehavior *string `json:"OverflowBehavior,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

@@ -23,6 +23,11 @@ type Budget struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-notificationswithsubscribers
 	NotificationsWithSubscribers []Budget_NotificationWithSubscribers `json:"NotificationsWithSubscribers,omitempty"`
 
+	// ResourceTags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-resourcetags
+	ResourceTags []Budget_ResourceTag `json:"ResourceTags,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

@@ -21,9 +21,9 @@ type CertificateAuthority_CrlConfiguration struct {
 	CustomCname *string `json:"CustomCname,omitempty"`
 
 	// Enabled AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
-	Enabled *bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// ExpirationInDays AWS CloudFormation Property
 	// Required: false

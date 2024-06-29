@@ -19,9 +19,9 @@ type Broker struct {
 	AuthenticationStrategy *string `json:"AuthenticationStrategy,omitempty"`
 
 	// AutoMinorVersionUpgrade AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
-	AutoMinorVersionUpgrade bool `json:"AutoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `json:"AutoMinorVersionUpgrade,omitempty"`
 
 	// BrokerName AWS CloudFormation Property
 	// Required: true
@@ -59,9 +59,9 @@ type Broker struct {
 	EngineType string `json:"EngineType"`
 
 	// EngineVersion AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion
-	EngineVersion string `json:"EngineVersion"`
+	EngineVersion *string `json:"EngineVersion,omitempty"`
 
 	// HostInstanceType AWS CloudFormation Property
 	// Required: true
