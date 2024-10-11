@@ -25,14 +25,24 @@ type OriginEndpoint struct {
 	ChannelName string `json:"ChannelName"`
 
 	// ContainerType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
-	ContainerType *string `json:"ContainerType,omitempty"`
+	ContainerType string `json:"ContainerType"`
+
+	// DashManifests AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-dashmanifests
+	DashManifests []OriginEndpoint_DashManifestConfiguration `json:"DashManifests,omitempty"`
 
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-description
 	Description *string `json:"Description,omitempty"`
+
+	// ForceEndpointErrorConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-forceendpointerrorconfiguration
+	ForceEndpointErrorConfiguration *OriginEndpoint_ForceEndpointErrorConfiguration `json:"ForceEndpointErrorConfiguration,omitempty"`
 
 	// HlsManifests AWS CloudFormation Property
 	// Required: false

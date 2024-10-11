@@ -53,10 +53,20 @@ type Environment struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
 	LoggingConfiguration *Environment_LoggingConfiguration `json:"LoggingConfiguration,omitempty"`
 
+	// MaxWebservers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxwebservers
+	MaxWebservers *int `json:"MaxWebservers,omitempty"`
+
 	// MaxWorkers AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
 	MaxWorkers *int `json:"MaxWorkers,omitempty"`
+
+	// MinWebservers AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minwebservers
+	MinWebservers *int `json:"MinWebservers,omitempty"`
 
 	// MinWorkers AWS CloudFormation Property
 	// Required: false

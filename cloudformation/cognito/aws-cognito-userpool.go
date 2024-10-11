@@ -43,6 +43,16 @@ type UserPool struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-deviceconfiguration
 	DeviceConfiguration *UserPool_DeviceConfiguration `json:"DeviceConfiguration,omitempty"`
 
+	// EmailAuthenticationMessage AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailauthenticationmessage
+	EmailAuthenticationMessage *string `json:"EmailAuthenticationMessage,omitempty"`
+
+	// EmailAuthenticationSubject AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailauthenticationsubject
+	EmailAuthenticationSubject *string `json:"EmailAuthenticationSubject,omitempty"`
+
 	// EmailConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailconfiguration

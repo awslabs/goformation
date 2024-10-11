@@ -7,22 +7,22 @@ import (
 )
 
 // Pipeline_GitPushFilter AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.GitPushFilter)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html
 type Pipeline_GitPushFilter struct {
 
 	// Branches AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html#aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html#cfn-codepipeline-pipeline-gitpushfilter-branches
 	Branches *Pipeline_GitBranchFilterCriteria `json:"Branches,omitempty"`
 
 	// FilePaths AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html#aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html#cfn-codepipeline-pipeline-gitpushfilter-filepaths
 	FilePaths *Pipeline_GitFilePathFilterCriteria `json:"FilePaths,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html#aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html#cfn-codepipeline-pipeline-gitpushfilter-tags
 	Tags *Pipeline_GitTagFilterCriteria `json:"Tags,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

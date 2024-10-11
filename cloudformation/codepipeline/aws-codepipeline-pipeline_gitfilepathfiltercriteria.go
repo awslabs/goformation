@@ -7,17 +7,17 @@ import (
 )
 
 // Pipeline_GitFilePathFilterCriteria AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.GitFilePathFilterCriteria)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitfilepathfiltercriteria.html
 type Pipeline_GitFilePathFilterCriteria struct {
 
 	// Excludes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria.html#aws-properties-codepipeline-pipeline-triggers-git-file-path-pattern
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitfilepathfiltercriteria.html#cfn-codepipeline-pipeline-gitfilepathfiltercriteria-excludes
 	Excludes []string `json:"Excludes,omitempty"`
 
 	// Includes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria.html#aws-properties-codepipeline-pipeline-triggers-git-file-path-pattern
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitfilepathfiltercriteria.html#cfn-codepipeline-pipeline-gitfilepathfiltercriteria-includes
 	Includes []string `json:"Includes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

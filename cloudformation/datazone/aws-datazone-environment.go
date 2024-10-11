@@ -23,10 +23,25 @@ type Environment struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-domainidentifier
 	DomainIdentifier string `json:"DomainIdentifier"`
 
+	// EnvironmentAccountIdentifier AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentaccountidentifier
+	EnvironmentAccountIdentifier *string `json:"EnvironmentAccountIdentifier,omitempty"`
+
+	// EnvironmentAccountRegion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentaccountregion
+	EnvironmentAccountRegion *string `json:"EnvironmentAccountRegion,omitempty"`
+
 	// EnvironmentProfileIdentifier AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier
-	EnvironmentProfileIdentifier string `json:"EnvironmentProfileIdentifier"`
+	EnvironmentProfileIdentifier *string `json:"EnvironmentProfileIdentifier,omitempty"`
+
+	// EnvironmentRoleArn AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn
+	EnvironmentRoleArn *string `json:"EnvironmentRoleArn,omitempty"`
 
 	// GlossaryTerms AWS CloudFormation Property
 	// Required: false

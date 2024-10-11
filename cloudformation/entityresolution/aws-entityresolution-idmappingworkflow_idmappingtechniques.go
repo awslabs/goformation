@@ -20,6 +20,11 @@ type IdMappingWorkflow_IdMappingTechniques struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-providerproperties
 	ProviderProperties *IdMappingWorkflow_ProviderProperties `json:"ProviderProperties,omitempty"`
 
+	// RuleBasedProperties AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-rulebasedproperties
+	RuleBasedProperties *IdMappingWorkflow_IdMappingRuleBasedProperties `json:"RuleBasedProperties,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

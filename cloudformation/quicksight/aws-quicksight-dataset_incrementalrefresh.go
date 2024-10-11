@@ -11,9 +11,9 @@ import (
 type DataSet_IncrementalRefresh struct {
 
 	// LookbackWindow AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html#cfn-quicksight-dataset-incrementalrefresh-lookbackwindow
-	LookbackWindow *DataSet_LookbackWindow `json:"LookbackWindow,omitempty"`
+	LookbackWindow *DataSet_LookbackWindow `json:"LookbackWindow"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

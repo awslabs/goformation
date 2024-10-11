@@ -7,12 +7,12 @@ import (
 )
 
 // Model_ModelAccessConfig AWS CloudFormation Resource (AWS::SageMaker::Model.ModelAccessConfig)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource-modelaccessconfig.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-modelaccessconfig.html
 type Model_ModelAccessConfig struct {
 
 	// AcceptEula AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource-modelaccessconfig.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-modelaccessconfig-accepteula
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-modelaccessconfig.html#cfn-sagemaker-model-s3datasource-modelaccessconfig-accepteula
 	AcceptEula bool `json:"AcceptEula"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

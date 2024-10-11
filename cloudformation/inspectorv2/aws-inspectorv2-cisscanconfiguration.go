@@ -14,19 +14,19 @@ import (
 type CisScanConfiguration struct {
 
 	// ScanName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-scanname
-	ScanName *string `json:"ScanName,omitempty"`
+	ScanName string `json:"ScanName"`
 
 	// Schedule AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-schedule
-	Schedule *CisScanConfiguration_Schedule `json:"Schedule,omitempty"`
+	Schedule *CisScanConfiguration_Schedule `json:"Schedule"`
 
 	// SecurityLevel AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-securitylevel
-	SecurityLevel *string `json:"SecurityLevel,omitempty"`
+	SecurityLevel string `json:"SecurityLevel"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -34,9 +34,9 @@ type CisScanConfiguration struct {
 	Tags map[string]string `json:"Tags,omitempty"`
 
 	// Targets AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-targets
-	Targets *CisScanConfiguration_CisTargets `json:"Targets,omitempty"`
+	Targets *CisScanConfiguration_CisTargets `json:"Targets"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

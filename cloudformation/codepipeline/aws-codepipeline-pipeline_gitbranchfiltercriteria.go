@@ -7,17 +7,17 @@ import (
 )
 
 // Pipeline_GitBranchFilterCriteria AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.GitBranchFilterCriteria)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html
 type Pipeline_GitBranchFilterCriteria struct {
 
 	// Excludes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria.html#aws-properties-codepipeline-pipeline-triggers-git-push-branch-pattern
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html#cfn-codepipeline-pipeline-gitbranchfiltercriteria-excludes
 	Excludes []string `json:"Excludes,omitempty"`
 
 	// Includes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria.html#aws-properties-codepipeline-pipeline-triggers-git-push-branch-pattern
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html#cfn-codepipeline-pipeline-gitbranchfiltercriteria-includes
 	Includes []string `json:"Includes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

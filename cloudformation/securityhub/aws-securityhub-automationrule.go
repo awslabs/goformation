@@ -14,19 +14,19 @@ import (
 type AutomationRule struct {
 
 	// Actions AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-actions
-	Actions []AutomationRule_AutomationRulesAction `json:"Actions,omitempty"`
+	Actions []AutomationRule_AutomationRulesAction `json:"Actions"`
 
 	// Criteria AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-criteria
-	Criteria *AutomationRule_AutomationRulesFindingFilters `json:"Criteria,omitempty"`
+	Criteria *AutomationRule_AutomationRulesFindingFilters `json:"Criteria"`
 
 	// Description AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-description
-	Description *string `json:"Description,omitempty"`
+	Description string `json:"Description"`
 
 	// IsTerminal AWS CloudFormation Property
 	// Required: false
@@ -34,14 +34,14 @@ type AutomationRule struct {
 	IsTerminal *bool `json:"IsTerminal,omitempty"`
 
 	// RuleName AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-rulename
-	RuleName *string `json:"RuleName,omitempty"`
+	RuleName string `json:"RuleName"`
 
 	// RuleOrder AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-ruleorder
-	RuleOrder *int `json:"RuleOrder,omitempty"`
+	RuleOrder int `json:"RuleOrder"`
 
 	// RuleStatus AWS CloudFormation Property
 	// Required: false

@@ -74,6 +74,11 @@ type ModelPackage struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelapprovalstatus
 	ModelApprovalStatus *string `json:"ModelApprovalStatus,omitempty"`
 
+	// ModelCard AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelcard
+	ModelCard *ModelPackage_ModelCard `json:"ModelCard,omitempty"`
+
 	// ModelMetrics AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelmetrics
@@ -109,6 +114,11 @@ type ModelPackage struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-samplepayloadurl
 	SamplePayloadUrl *string `json:"SamplePayloadUrl,omitempty"`
 
+	// SecurityConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-securityconfig
+	SecurityConfig *ModelPackage_SecurityConfig `json:"SecurityConfig,omitempty"`
+
 	// SkipModelValidation AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-skipmodelvalidation
@@ -118,6 +128,11 @@ type ModelPackage struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-sourcealgorithmspecification
 	SourceAlgorithmSpecification *ModelPackage_SourceAlgorithmSpecification `json:"SourceAlgorithmSpecification,omitempty"`
+
+	// SourceUri AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-sourceuri
+	SourceUri *string `json:"SourceUri,omitempty"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false

@@ -19,9 +19,9 @@ type StorageProfile struct {
 	DisplayName string `json:"DisplayName"`
 
 	// FarmId AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html#cfn-deadline-storageprofile-farmid
-	FarmId *string `json:"FarmId,omitempty"`
+	FarmId string `json:"FarmId"`
 
 	// FileSystemLocations AWS CloudFormation Property
 	// Required: false

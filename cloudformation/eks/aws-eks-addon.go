@@ -34,6 +34,11 @@ type Addon struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-configurationvalues
 	ConfigurationValues *string `json:"ConfigurationValues,omitempty"`
 
+	// PodIdentityAssociations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-podidentityassociations
+	PodIdentityAssociations []Addon_PodIdentityAssociation `json:"PodIdentityAssociations,omitempty"`
+
 	// PreserveOnDelete AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-preserveondelete

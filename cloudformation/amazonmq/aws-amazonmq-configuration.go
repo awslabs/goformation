@@ -34,9 +34,9 @@ type Configuration struct {
 	EngineType string `json:"EngineType"`
 
 	// EngineVersion AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-engineversion
-	EngineVersion string `json:"EngineVersion"`
+	EngineVersion *string `json:"EngineVersion,omitempty"`
 
 	// Name AWS CloudFormation Property
 	// Required: true

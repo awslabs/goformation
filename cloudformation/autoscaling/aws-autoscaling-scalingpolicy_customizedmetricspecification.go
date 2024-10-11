@@ -16,19 +16,24 @@ type ScalingPolicy_CustomizedMetricSpecification struct {
 	Dimensions []ScalingPolicy_MetricDimension `json:"Dimensions,omitempty"`
 
 	// MetricName AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metricname
-	MetricName string `json:"MetricName"`
+	MetricName *string `json:"MetricName,omitempty"`
+
+	// Metrics AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metrics
+	Metrics []ScalingPolicy_TargetTrackingMetricDataQuery `json:"Metrics,omitempty"`
 
 	// Namespace AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-namespace
-	Namespace string `json:"Namespace"`
+	Namespace *string `json:"Namespace,omitempty"`
 
 	// Statistic AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-statistic
-	Statistic string `json:"Statistic"`
+	Statistic *string `json:"Statistic,omitempty"`
 
 	// Unit AWS CloudFormation Property
 	// Required: false

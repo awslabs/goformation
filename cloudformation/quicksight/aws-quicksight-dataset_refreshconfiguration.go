@@ -11,9 +11,9 @@ import (
 type DataSet_RefreshConfiguration struct {
 
 	// IncrementalRefresh AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshconfiguration.html#cfn-quicksight-dataset-refreshconfiguration-incrementalrefresh
-	IncrementalRefresh *DataSet_IncrementalRefresh `json:"IncrementalRefresh,omitempty"`
+	IncrementalRefresh *DataSet_IncrementalRefresh `json:"IncrementalRefresh"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
