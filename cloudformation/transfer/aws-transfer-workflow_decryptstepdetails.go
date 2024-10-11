@@ -11,9 +11,9 @@ import (
 type Workflow_DecryptStepDetails struct {
 
 	// DestinationFileLocation AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-destinationfilelocation
-	DestinationFileLocation *Workflow_InputFileLocation `json:"DestinationFileLocation,omitempty"`
+	DestinationFileLocation *Workflow_InputFileLocation `json:"DestinationFileLocation"`
 
 	// Name AWS CloudFormation Property
 	// Required: false
@@ -31,9 +31,9 @@ type Workflow_DecryptStepDetails struct {
 	SourceFileLocation *string `json:"SourceFileLocation,omitempty"`
 
 	// Type AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-type
-	Type *string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

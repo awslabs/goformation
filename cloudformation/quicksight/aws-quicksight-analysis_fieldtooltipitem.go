@@ -20,6 +20,11 @@ type Analysis_FieldTooltipItem struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fieldtooltipitem.html#cfn-quicksight-analysis-fieldtooltipitem-label
 	Label *string `json:"Label,omitempty"`
 
+	// TooltipTarget AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fieldtooltipitem.html#cfn-quicksight-analysis-fieldtooltipitem-tooltiptarget
+	TooltipTarget *string `json:"TooltipTarget,omitempty"`
+
 	// Visibility AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-fieldtooltipitem.html#cfn-quicksight-analysis-fieldtooltipitem-visibility

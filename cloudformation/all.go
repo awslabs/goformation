@@ -16,10 +16,12 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/appintegrations"
 	"github.com/awslabs/goformation/v7/cloudformation/applicationautoscaling"
 	"github.com/awslabs/goformation/v7/cloudformation/applicationinsights"
+	"github.com/awslabs/goformation/v7/cloudformation/applicationsignals"
 	"github.com/awslabs/goformation/v7/cloudformation/appmesh"
 	"github.com/awslabs/goformation/v7/cloudformation/apprunner"
 	"github.com/awslabs/goformation/v7/cloudformation/appstream"
 	"github.com/awslabs/goformation/v7/cloudformation/appsync"
+	"github.com/awslabs/goformation/v7/cloudformation/apptest"
 	"github.com/awslabs/goformation/v7/cloudformation/aps"
 	"github.com/awslabs/goformation/v7/cloudformation/arczonalshift"
 	"github.com/awslabs/goformation/v7/cloudformation/ask"
@@ -143,6 +145,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/kms"
 	"github.com/awslabs/goformation/v7/cloudformation/lakeformation"
 	"github.com/awslabs/goformation/v7/cloudformation/lambda"
+	"github.com/awslabs/goformation/v7/cloudformation/launchwizard"
 	"github.com/awslabs/goformation/v7/cloudformation/lex"
 	"github.com/awslabs/goformation/v7/cloudformation/licensemanager"
 	"github.com/awslabs/goformation/v7/cloudformation/lightsail"
@@ -180,11 +183,13 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/panorama"
 	"github.com/awslabs/goformation/v7/cloudformation/paymentcryptography"
 	"github.com/awslabs/goformation/v7/cloudformation/pcaconnectorad"
+	"github.com/awslabs/goformation/v7/cloudformation/pcaconnectorscep"
 	"github.com/awslabs/goformation/v7/cloudformation/personalize"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpoint"
 	"github.com/awslabs/goformation/v7/cloudformation/pinpointemail"
 	"github.com/awslabs/goformation/v7/cloudformation/pipes"
 	"github.com/awslabs/goformation/v7/cloudformation/proton"
+	"github.com/awslabs/goformation/v7/cloudformation/qbusiness"
 	"github.com/awslabs/goformation/v7/cloudformation/qldb"
 	"github.com/awslabs/goformation/v7/cloudformation/quicksight"
 	"github.com/awslabs/goformation/v7/cloudformation/ram"
@@ -227,6 +232,7 @@ import (
 	"github.com/awslabs/goformation/v7/cloudformation/ssm"
 	"github.com/awslabs/goformation/v7/cloudformation/ssmcontacts"
 	"github.com/awslabs/goformation/v7/cloudformation/ssmincidents"
+	"github.com/awslabs/goformation/v7/cloudformation/ssmquicksetup"
 	"github.com/awslabs/goformation/v7/cloudformation/sso"
 	"github.com/awslabs/goformation/v7/cloudformation/stepfunctions"
 	"github.com/awslabs/goformation/v7/cloudformation/supportapp"
@@ -259,6 +265,7 @@ func AllResources() map[string]Resource {
 		"AWS::APS::RuleGroupsNamespace":                                    &aps.RuleGroupsNamespace{},
 		"AWS::APS::Scraper":                                                &aps.Scraper{},
 		"AWS::APS::Workspace":                                              &aps.Workspace{},
+		"AWS::ARCZonalShift::AutoshiftObserverNotificationStatus":          &arczonalshift.AutoshiftObserverNotificationStatus{},
 		"AWS::ARCZonalShift::ZonalAutoshiftConfiguration":                  &arczonalshift.ZonalAutoshiftConfiguration{},
 		"AWS::AccessAnalyzer::Analyzer":                                    &accessanalyzer.Analyzer{},
 		"AWS::AmazonMQ::Broker":                                            &amazonmq.Broker{},
@@ -351,9 +358,11 @@ func AllResources() map[string]Resource {
 		"AWS::AppSync::GraphQLSchema":                                      &appsync.GraphQLSchema{},
 		"AWS::AppSync::Resolver":                                           &appsync.Resolver{},
 		"AWS::AppSync::SourceApiAssociation":                               &appsync.SourceApiAssociation{},
+		"AWS::AppTest::TestCase":                                           &apptest.TestCase{},
 		"AWS::ApplicationAutoScaling::ScalableTarget":                      &applicationautoscaling.ScalableTarget{},
 		"AWS::ApplicationAutoScaling::ScalingPolicy":                       &applicationautoscaling.ScalingPolicy{},
 		"AWS::ApplicationInsights::Application":                            &applicationinsights.Application{},
+		"AWS::ApplicationSignals::ServiceLevelObjective":                   &applicationsignals.ServiceLevelObjective{},
 		"AWS::Athena::CapacityReservation":                                 &athena.CapacityReservation{},
 		"AWS::Athena::DataCatalog":                                         &athena.DataCatalog{},
 		"AWS::Athena::NamedQuery":                                          &athena.NamedQuery{},
@@ -387,8 +396,14 @@ func AllResources() map[string]Resource {
 		"AWS::Bedrock::Agent":                                              &bedrock.Agent{},
 		"AWS::Bedrock::AgentAlias":                                         &bedrock.AgentAlias{},
 		"AWS::Bedrock::DataSource":                                         &bedrock.DataSource{},
+		"AWS::Bedrock::Flow":                                               &bedrock.Flow{},
+		"AWS::Bedrock::FlowAlias":                                          &bedrock.FlowAlias{},
+		"AWS::Bedrock::FlowVersion":                                        &bedrock.FlowVersion{},
 		"AWS::Bedrock::Guardrail":                                          &bedrock.Guardrail{},
+		"AWS::Bedrock::GuardrailVersion":                                   &bedrock.GuardrailVersion{},
 		"AWS::Bedrock::KnowledgeBase":                                      &bedrock.KnowledgeBase{},
+		"AWS::Bedrock::Prompt":                                             &bedrock.Prompt{},
+		"AWS::Bedrock::PromptVersion":                                      &bedrock.PromptVersion{},
 		"AWS::BillingConductor::BillingGroup":                              &billingconductor.BillingGroup{},
 		"AWS::BillingConductor::CustomLineItem":                            &billingconductor.CustomLineItem{},
 		"AWS::BillingConductor::PricingPlan":                               &billingconductor.PricingPlan{},
@@ -410,6 +425,8 @@ func AllResources() map[string]Resource {
 		"AWS::CleanRooms::Collaboration":                                   &cleanrooms.Collaboration{},
 		"AWS::CleanRooms::ConfiguredTable":                                 &cleanrooms.ConfiguredTable{},
 		"AWS::CleanRooms::ConfiguredTableAssociation":                      &cleanrooms.ConfiguredTableAssociation{},
+		"AWS::CleanRooms::IdMappingTable":                                  &cleanrooms.IdMappingTable{},
+		"AWS::CleanRooms::IdNamespaceAssociation":                          &cleanrooms.IdNamespaceAssociation{},
 		"AWS::CleanRooms::Membership":                                      &cleanrooms.Membership{},
 		"AWS::CleanRooms::PrivacyBudgetTemplate":                           &cleanrooms.PrivacyBudgetTemplate{},
 		"AWS::CleanRoomsML::TrainingDataset":                               &cleanroomsml.TrainingDataset{},
@@ -502,6 +519,7 @@ func AllResources() map[string]Resource {
 		"AWS::Config::OrganizationConformancePack":                         &config.OrganizationConformancePack{},
 		"AWS::Config::RemediationConfiguration":                            &config.RemediationConfiguration{},
 		"AWS::Config::StoredQuery":                                         &config.StoredQuery{},
+		"AWS::Connect::AgentStatus":                                        &connect.AgentStatus{},
 		"AWS::Connect::ApprovedOrigin":                                     &connect.ApprovedOrigin{},
 		"AWS::Connect::ContactFlow":                                        &connect.ContactFlow{},
 		"AWS::Connect::ContactFlowModule":                                  &connect.ContactFlowModule{},
@@ -523,6 +541,7 @@ func AllResources() map[string]Resource {
 		"AWS::Connect::TrafficDistributionGroup":                           &connect.TrafficDistributionGroup{},
 		"AWS::Connect::User":                                               &connect.User{},
 		"AWS::Connect::UserHierarchyGroup":                                 &connect.UserHierarchyGroup{},
+		"AWS::Connect::UserHierarchyStructure":                             &connect.UserHierarchyStructure{},
 		"AWS::Connect::View":                                               &connect.View{},
 		"AWS::Connect::ViewVersion":                                        &connect.ViewVersion{},
 		"AWS::ConnectCampaigns::Campaign":                                  &connectcampaigns.Campaign{},
@@ -572,14 +591,19 @@ func AllResources() map[string]Resource {
 		"AWS::DataZone::DataSource":                                        &datazone.DataSource{},
 		"AWS::DataZone::Domain":                                            &datazone.Domain{},
 		"AWS::DataZone::Environment":                                       &datazone.Environment{},
+		"AWS::DataZone::EnvironmentActions":                                &datazone.EnvironmentActions{},
 		"AWS::DataZone::EnvironmentBlueprintConfiguration":                 &datazone.EnvironmentBlueprintConfiguration{},
 		"AWS::DataZone::EnvironmentProfile":                                &datazone.EnvironmentProfile{},
+		"AWS::DataZone::GroupProfile":                                      &datazone.GroupProfile{},
 		"AWS::DataZone::Project":                                           &datazone.Project{},
+		"AWS::DataZone::ProjectMembership":                                 &datazone.ProjectMembership{},
 		"AWS::DataZone::SubscriptionTarget":                                &datazone.SubscriptionTarget{},
+		"AWS::DataZone::UserProfile":                                       &datazone.UserProfile{},
 		"AWS::Deadline::Farm":                                              &deadline.Farm{},
 		"AWS::Deadline::Fleet":                                             &deadline.Fleet{},
 		"AWS::Deadline::LicenseEndpoint":                                   &deadline.LicenseEndpoint{},
 		"AWS::Deadline::MeteredProduct":                                    &deadline.MeteredProduct{},
+		"AWS::Deadline::Monitor":                                           &deadline.Monitor{},
 		"AWS::Deadline::Queue":                                             &deadline.Queue{},
 		"AWS::Deadline::QueueEnvironment":                                  &deadline.QueueEnvironment{},
 		"AWS::Deadline::QueueFleetAssociation":                             &deadline.QueueFleetAssociation{},
@@ -823,6 +847,7 @@ func AllResources() map[string]Resource {
 		"AWS::Glue::Table":                                                 &glue.Table{},
 		"AWS::Glue::TableOptimizer":                                        &glue.TableOptimizer{},
 		"AWS::Glue::Trigger":                                               &glue.Trigger{},
+		"AWS::Glue::UsageProfile":                                          &glue.UsageProfile{},
 		"AWS::Glue::Workflow":                                              &glue.Workflow{},
 		"AWS::Grafana::Workspace":                                          &grafana.Workspace{},
 		"AWS::Greengrass::ConnectorDefinition":                             &greengrass.ConnectorDefinition{},
@@ -849,6 +874,7 @@ func AllResources() map[string]Resource {
 		"AWS::GuardDuty::Detector":                                         &guardduty.Detector{},
 		"AWS::GuardDuty::Filter":                                           &guardduty.Filter{},
 		"AWS::GuardDuty::IPSet":                                            &guardduty.IPSet{},
+		"AWS::GuardDuty::MalwareProtectionPlan":                            &guardduty.MalwareProtectionPlan{},
 		"AWS::GuardDuty::Master":                                           &guardduty.Master{},
 		"AWS::GuardDuty::Member":                                           &guardduty.Member{},
 		"AWS::GuardDuty::ThreatIntelSet":                                   &guardduty.ThreatIntelSet{},
@@ -874,6 +900,7 @@ func AllResources() map[string]Resource {
 		"AWS::IVS::EncoderConfiguration":                                   &ivs.EncoderConfiguration{},
 		"AWS::IVS::PlaybackKeyPair":                                        &ivs.PlaybackKeyPair{},
 		"AWS::IVS::PlaybackRestrictionPolicy":                              &ivs.PlaybackRestrictionPolicy{},
+		"AWS::IVS::PublicKey":                                              &ivs.PublicKey{},
 		"AWS::IVS::RecordingConfiguration":                                 &ivs.RecordingConfiguration{},
 		"AWS::IVS::Stage":                                                  &ivs.Stage{},
 		"AWS::IVS::StorageConfiguration":                                   &ivs.StorageConfiguration{},
@@ -977,6 +1004,7 @@ func AllResources() map[string]Resource {
 		"AWS::Kendra::Faq":                                                 &kendra.Faq{},
 		"AWS::Kendra::Index":                                               &kendra.Index{},
 		"AWS::KendraRanking::ExecutionPlan":                                &kendraranking.ExecutionPlan{},
+		"AWS::Kinesis::ResourcePolicy":                                     &kinesis.ResourcePolicy{},
 		"AWS::Kinesis::Stream":                                             &kinesis.Stream{},
 		"AWS::Kinesis::StreamConsumer":                                     &kinesis.StreamConsumer{},
 		"AWS::KinesisAnalytics::Application":                               &kinesisanalytics.Application{},
@@ -1006,6 +1034,7 @@ func AllResources() map[string]Resource {
 		"AWS::Lambda::Permission":                                          &lambda.Permission{},
 		"AWS::Lambda::Url":                                                 &lambda.Url{},
 		"AWS::Lambda::Version":                                             &lambda.Version{},
+		"AWS::LaunchWizard::Deployment":                                    &launchwizard.Deployment{},
 		"AWS::Lex::Bot":                                                    &lex.Bot{},
 		"AWS::Lex::BotAlias":                                               &lex.BotAlias{},
 		"AWS::Lex::BotVersion":                                             &lex.BotVersion{},
@@ -1076,10 +1105,19 @@ func AllResources() map[string]Resource {
 		"AWS::MediaConvert::Preset":                                        &mediaconvert.Preset{},
 		"AWS::MediaConvert::Queue":                                         &mediaconvert.Queue{},
 		"AWS::MediaLive::Channel":                                          &medialive.Channel{},
+		"AWS::MediaLive::ChannelPlacementGroup":                            &medialive.ChannelPlacementGroup{},
+		"AWS::MediaLive::CloudWatchAlarmTemplate":                          &medialive.CloudWatchAlarmTemplate{},
+		"AWS::MediaLive::CloudWatchAlarmTemplateGroup":                     &medialive.CloudWatchAlarmTemplateGroup{},
+		"AWS::MediaLive::Cluster":                                          &medialive.Cluster{},
+		"AWS::MediaLive::EventBridgeRuleTemplate":                          &medialive.EventBridgeRuleTemplate{},
+		"AWS::MediaLive::EventBridgeRuleTemplateGroup":                     &medialive.EventBridgeRuleTemplateGroup{},
 		"AWS::MediaLive::Input":                                            &medialive.Input{},
 		"AWS::MediaLive::InputSecurityGroup":                               &medialive.InputSecurityGroup{},
 		"AWS::MediaLive::Multiplex":                                        &medialive.Multiplex{},
 		"AWS::MediaLive::Multiplexprogram":                                 &medialive.Multiplexprogram{},
+		"AWS::MediaLive::Network":                                          &medialive.Network{},
+		"AWS::MediaLive::SdiSource":                                        &medialive.SdiSource{},
+		"AWS::MediaLive::SignalMap":                                        &medialive.SignalMap{},
 		"AWS::MediaPackage::Asset":                                         &mediapackage.Asset{},
 		"AWS::MediaPackage::Channel":                                       &mediapackage.Channel{},
 		"AWS::MediaPackage::OriginEndpoint":                                &mediapackage.OriginEndpoint{},
@@ -1107,6 +1145,7 @@ func AllResources() map[string]Resource {
 		"AWS::Neptune::DBInstance":                                         &neptune.DBInstance{},
 		"AWS::Neptune::DBParameterGroup":                                   &neptune.DBParameterGroup{},
 		"AWS::Neptune::DBSubnetGroup":                                      &neptune.DBSubnetGroup{},
+		"AWS::Neptune::EventSubscription":                                  &neptune.EventSubscription{},
 		"AWS::NeptuneGraph::Graph":                                         &neptunegraph.Graph{},
 		"AWS::NeptuneGraph::PrivateGraphEndpoint":                          &neptunegraph.PrivateGraphEndpoint{},
 		"AWS::NetworkFirewall::Firewall":                                   &networkfirewall.Firewall{},
@@ -1166,6 +1205,8 @@ func AllResources() map[string]Resource {
 		"AWS::PCAConnectorAD::ServicePrincipalName":                        &pcaconnectorad.ServicePrincipalName{},
 		"AWS::PCAConnectorAD::Template":                                    &pcaconnectorad.Template{},
 		"AWS::PCAConnectorAD::TemplateGroupAccessControlEntry":             &pcaconnectorad.TemplateGroupAccessControlEntry{},
+		"AWS::PCAConnectorSCEP::Challenge":                                 &pcaconnectorscep.Challenge{},
+		"AWS::PCAConnectorSCEP::Connector":                                 &pcaconnectorscep.Connector{},
 		"AWS::Panorama::ApplicationInstance":                               &panorama.ApplicationInstance{},
 		"AWS::Panorama::Package":                                           &panorama.Package{},
 		"AWS::Panorama::PackageVersion":                                    &panorama.PackageVersion{},
@@ -1202,12 +1243,19 @@ func AllResources() map[string]Resource {
 		"AWS::Proton::EnvironmentAccountConnection":                        &proton.EnvironmentAccountConnection{},
 		"AWS::Proton::EnvironmentTemplate":                                 &proton.EnvironmentTemplate{},
 		"AWS::Proton::ServiceTemplate":                                     &proton.ServiceTemplate{},
+		"AWS::QBusiness::Application":                                      &qbusiness.Application{},
+		"AWS::QBusiness::DataSource":                                       &qbusiness.DataSource{},
+		"AWS::QBusiness::Index":                                            &qbusiness.Index{},
+		"AWS::QBusiness::Plugin":                                           &qbusiness.Plugin{},
+		"AWS::QBusiness::Retriever":                                        &qbusiness.Retriever{},
+		"AWS::QBusiness::WebExperience":                                    &qbusiness.WebExperience{},
 		"AWS::QLDB::Ledger":                                                &qldb.Ledger{},
 		"AWS::QLDB::Stream":                                                &qldb.Stream{},
 		"AWS::QuickSight::Analysis":                                        &quicksight.Analysis{},
 		"AWS::QuickSight::Dashboard":                                       &quicksight.Dashboard{},
 		"AWS::QuickSight::DataSet":                                         &quicksight.DataSet{},
 		"AWS::QuickSight::DataSource":                                      &quicksight.DataSource{},
+		"AWS::QuickSight::Folder":                                          &quicksight.Folder{},
 		"AWS::QuickSight::RefreshSchedule":                                 &quicksight.RefreshSchedule{},
 		"AWS::QuickSight::Template":                                        &quicksight.Template{},
 		"AWS::QuickSight::Theme":                                           &quicksight.Theme{},
@@ -1317,6 +1365,13 @@ func AllResources() map[string]Resource {
 		"AWS::SES::ContactList":                                            &ses.ContactList{},
 		"AWS::SES::DedicatedIpPool":                                        &ses.DedicatedIpPool{},
 		"AWS::SES::EmailIdentity":                                          &ses.EmailIdentity{},
+		"AWS::SES::MailManagerAddonInstance":                               &ses.MailManagerAddonInstance{},
+		"AWS::SES::MailManagerAddonSubscription":                           &ses.MailManagerAddonSubscription{},
+		"AWS::SES::MailManagerArchive":                                     &ses.MailManagerArchive{},
+		"AWS::SES::MailManagerIngressPoint":                                &ses.MailManagerIngressPoint{},
+		"AWS::SES::MailManagerRelay":                                       &ses.MailManagerRelay{},
+		"AWS::SES::MailManagerRuleSet":                                     &ses.MailManagerRuleSet{},
+		"AWS::SES::MailManagerTrafficPolicy":                               &ses.MailManagerTrafficPolicy{},
 		"AWS::SES::ReceiptFilter":                                          &ses.ReceiptFilter{},
 		"AWS::SES::ReceiptRule":                                            &ses.ReceiptRule{},
 		"AWS::SES::ReceiptRuleSet":                                         &ses.ReceiptRuleSet{},
@@ -1344,11 +1399,16 @@ func AllResources() map[string]Resource {
 		"AWS::SSMContacts::Rotation":                                       &ssmcontacts.Rotation{},
 		"AWS::SSMIncidents::ReplicationSet":                                &ssmincidents.ReplicationSet{},
 		"AWS::SSMIncidents::ResponsePlan":                                  &ssmincidents.ResponsePlan{},
+		"AWS::SSMQuickSetup::ConfigurationManager":                         &ssmquicksetup.ConfigurationManager{},
+		"AWS::SSO::Application":                                            &sso.Application{},
+		"AWS::SSO::ApplicationAssignment":                                  &sso.ApplicationAssignment{},
 		"AWS::SSO::Assignment":                                             &sso.Assignment{},
+		"AWS::SSO::Instance":                                               &sso.Instance{},
 		"AWS::SSO::InstanceAccessControlAttributeConfiguration":            &sso.InstanceAccessControlAttributeConfiguration{},
 		"AWS::SSO::PermissionSet":                                          &sso.PermissionSet{},
 		"AWS::SageMaker::App":                                              &sagemaker.App{},
 		"AWS::SageMaker::AppImageConfig":                                   &sagemaker.AppImageConfig{},
+		"AWS::SageMaker::Cluster":                                          &sagemaker.Cluster{},
 		"AWS::SageMaker::CodeRepository":                                   &sagemaker.CodeRepository{},
 		"AWS::SageMaker::DataQualityJobDefinition":                         &sagemaker.DataQualityJobDefinition{},
 		"AWS::SageMaker::Device":                                           &sagemaker.Device{},
@@ -1361,6 +1421,7 @@ func AllResources() map[string]Resource {
 		"AWS::SageMaker::ImageVersion":                                     &sagemaker.ImageVersion{},
 		"AWS::SageMaker::InferenceComponent":                               &sagemaker.InferenceComponent{},
 		"AWS::SageMaker::InferenceExperiment":                              &sagemaker.InferenceExperiment{},
+		"AWS::SageMaker::MlflowTrackingServer":                             &sagemaker.MlflowTrackingServer{},
 		"AWS::SageMaker::Model":                                            &sagemaker.Model{},
 		"AWS::SageMaker::ModelBiasJobDefinition":                           &sagemaker.ModelBiasJobDefinition{},
 		"AWS::SageMaker::ModelCard":                                        &sagemaker.ModelCard{},
@@ -1374,6 +1435,7 @@ func AllResources() map[string]Resource {
 		"AWS::SageMaker::Pipeline":                                         &sagemaker.Pipeline{},
 		"AWS::SageMaker::Project":                                          &sagemaker.Project{},
 		"AWS::SageMaker::Space":                                            &sagemaker.Space{},
+		"AWS::SageMaker::StudioLifecycleConfig":                            &sagemaker.StudioLifecycleConfig{},
 		"AWS::SageMaker::UserProfile":                                      &sagemaker.UserProfile{},
 		"AWS::SageMaker::Workteam":                                         &sagemaker.Workteam{},
 		"AWS::Scheduler::Schedule":                                         &scheduler.Schedule{},
@@ -1383,14 +1445,20 @@ func AllResources() map[string]Resource {
 		"AWS::SecretsManager::Secret":                                      &secretsmanager.Secret{},
 		"AWS::SecretsManager::SecretTargetAttachment":                      &secretsmanager.SecretTargetAttachment{},
 		"AWS::SecurityHub::AutomationRule":                                 &securityhub.AutomationRule{},
+		"AWS::SecurityHub::ConfigurationPolicy":                            &securityhub.ConfigurationPolicy{},
 		"AWS::SecurityHub::DelegatedAdmin":                                 &securityhub.DelegatedAdmin{},
+		"AWS::SecurityHub::FindingAggregator":                              &securityhub.FindingAggregator{},
 		"AWS::SecurityHub::Hub":                                            &securityhub.Hub{},
 		"AWS::SecurityHub::Insight":                                        &securityhub.Insight{},
+		"AWS::SecurityHub::OrganizationConfiguration":                      &securityhub.OrganizationConfiguration{},
+		"AWS::SecurityHub::PolicyAssociation":                              &securityhub.PolicyAssociation{},
 		"AWS::SecurityHub::ProductSubscription":                            &securityhub.ProductSubscription{},
+		"AWS::SecurityHub::SecurityControl":                                &securityhub.SecurityControl{},
 		"AWS::SecurityHub::Standard":                                       &securityhub.Standard{},
 		"AWS::SecurityLake::AwsLogSource":                                  &securitylake.AwsLogSource{},
 		"AWS::SecurityLake::DataLake":                                      &securitylake.DataLake{},
 		"AWS::SecurityLake::Subscriber":                                    &securitylake.Subscriber{},
+		"AWS::SecurityLake::SubscriberNotification":                        &securitylake.SubscriberNotification{},
 		"AWS::Serverless::Api":                                             &serverless.Api{},
 		"AWS::Serverless::Application":                                     &serverless.Application{},
 		"AWS::Serverless::Function":                                        &serverless.Function{},
@@ -1495,6 +1563,7 @@ func AllResources() map[string]Resource {
 		"AWS::Wisdom::KnowledgeBase":                                       &wisdom.KnowledgeBase{},
 		"AWS::WorkSpaces::ConnectionAlias":                                 &workspaces.ConnectionAlias{},
 		"AWS::WorkSpaces::Workspace":                                       &workspaces.Workspace{},
+		"AWS::WorkSpaces::WorkspacesPool":                                  &workspaces.WorkspacesPool{},
 		"AWS::WorkSpacesThinClient::Environment":                           &workspacesthinclient.Environment{},
 		"AWS::WorkSpacesWeb::BrowserSettings":                              &workspacesweb.BrowserSettings{},
 		"AWS::WorkSpacesWeb::IdentityProvider":                             &workspacesweb.IdentityProvider{},
@@ -1681,6 +1750,30 @@ func (t *Template) GetAPSWorkspaceWithName(name string) (*aps.Workspace, error) 
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type aps.Workspace not found", name)
+}
+
+// GetAllARCZonalShiftAutoshiftObserverNotificationStatusResources retrieves all arczonalshift.AutoshiftObserverNotificationStatus items from an AWS CloudFormation template
+func (t *Template) GetAllARCZonalShiftAutoshiftObserverNotificationStatusResources() map[string]*arczonalshift.AutoshiftObserverNotificationStatus {
+	results := map[string]*arczonalshift.AutoshiftObserverNotificationStatus{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *arczonalshift.AutoshiftObserverNotificationStatus:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetARCZonalShiftAutoshiftObserverNotificationStatusWithName retrieves all arczonalshift.AutoshiftObserverNotificationStatus items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetARCZonalShiftAutoshiftObserverNotificationStatusWithName(name string) (*arczonalshift.AutoshiftObserverNotificationStatus, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *arczonalshift.AutoshiftObserverNotificationStatus:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type arczonalshift.AutoshiftObserverNotificationStatus not found", name)
 }
 
 // GetAllARCZonalShiftZonalAutoshiftConfigurationResources retrieves all arczonalshift.ZonalAutoshiftConfiguration items from an AWS CloudFormation template
@@ -3891,6 +3984,30 @@ func (t *Template) GetAppSyncSourceApiAssociationWithName(name string) (*appsync
 	return nil, fmt.Errorf("resource %q of type appsync.SourceApiAssociation not found", name)
 }
 
+// GetAllAppTestTestCaseResources retrieves all apptest.TestCase items from an AWS CloudFormation template
+func (t *Template) GetAllAppTestTestCaseResources() map[string]*apptest.TestCase {
+	results := map[string]*apptest.TestCase{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *apptest.TestCase:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAppTestTestCaseWithName retrieves all apptest.TestCase items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAppTestTestCaseWithName(name string) (*apptest.TestCase, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *apptest.TestCase:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type apptest.TestCase not found", name)
+}
+
 // GetAllApplicationAutoScalingScalableTargetResources retrieves all applicationautoscaling.ScalableTarget items from an AWS CloudFormation template
 func (t *Template) GetAllApplicationAutoScalingScalableTargetResources() map[string]*applicationautoscaling.ScalableTarget {
 	results := map[string]*applicationautoscaling.ScalableTarget{}
@@ -3961,6 +4078,30 @@ func (t *Template) GetApplicationInsightsApplicationWithName(name string) (*appl
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type applicationinsights.Application not found", name)
+}
+
+// GetAllApplicationSignalsServiceLevelObjectiveResources retrieves all applicationsignals.ServiceLevelObjective items from an AWS CloudFormation template
+func (t *Template) GetAllApplicationSignalsServiceLevelObjectiveResources() map[string]*applicationsignals.ServiceLevelObjective {
+	results := map[string]*applicationsignals.ServiceLevelObjective{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *applicationsignals.ServiceLevelObjective:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetApplicationSignalsServiceLevelObjectiveWithName retrieves all applicationsignals.ServiceLevelObjective items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetApplicationSignalsServiceLevelObjectiveWithName(name string) (*applicationsignals.ServiceLevelObjective, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *applicationsignals.ServiceLevelObjective:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type applicationsignals.ServiceLevelObjective not found", name)
 }
 
 // GetAllAthenaCapacityReservationResources retrieves all athena.CapacityReservation items from an AWS CloudFormation template
@@ -4755,6 +4896,78 @@ func (t *Template) GetBedrockDataSourceWithName(name string) (*bedrock.DataSourc
 	return nil, fmt.Errorf("resource %q of type bedrock.DataSource not found", name)
 }
 
+// GetAllBedrockFlowResources retrieves all bedrock.Flow items from an AWS CloudFormation template
+func (t *Template) GetAllBedrockFlowResources() map[string]*bedrock.Flow {
+	results := map[string]*bedrock.Flow{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bedrock.Flow:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBedrockFlowWithName retrieves all bedrock.Flow items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBedrockFlowWithName(name string) (*bedrock.Flow, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bedrock.Flow:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bedrock.Flow not found", name)
+}
+
+// GetAllBedrockFlowAliasResources retrieves all bedrock.FlowAlias items from an AWS CloudFormation template
+func (t *Template) GetAllBedrockFlowAliasResources() map[string]*bedrock.FlowAlias {
+	results := map[string]*bedrock.FlowAlias{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bedrock.FlowAlias:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBedrockFlowAliasWithName retrieves all bedrock.FlowAlias items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBedrockFlowAliasWithName(name string) (*bedrock.FlowAlias, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bedrock.FlowAlias:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bedrock.FlowAlias not found", name)
+}
+
+// GetAllBedrockFlowVersionResources retrieves all bedrock.FlowVersion items from an AWS CloudFormation template
+func (t *Template) GetAllBedrockFlowVersionResources() map[string]*bedrock.FlowVersion {
+	results := map[string]*bedrock.FlowVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bedrock.FlowVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBedrockFlowVersionWithName retrieves all bedrock.FlowVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBedrockFlowVersionWithName(name string) (*bedrock.FlowVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bedrock.FlowVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bedrock.FlowVersion not found", name)
+}
+
 // GetAllBedrockGuardrailResources retrieves all bedrock.Guardrail items from an AWS CloudFormation template
 func (t *Template) GetAllBedrockGuardrailResources() map[string]*bedrock.Guardrail {
 	results := map[string]*bedrock.Guardrail{}
@@ -4779,6 +4992,30 @@ func (t *Template) GetBedrockGuardrailWithName(name string) (*bedrock.Guardrail,
 	return nil, fmt.Errorf("resource %q of type bedrock.Guardrail not found", name)
 }
 
+// GetAllBedrockGuardrailVersionResources retrieves all bedrock.GuardrailVersion items from an AWS CloudFormation template
+func (t *Template) GetAllBedrockGuardrailVersionResources() map[string]*bedrock.GuardrailVersion {
+	results := map[string]*bedrock.GuardrailVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bedrock.GuardrailVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBedrockGuardrailVersionWithName retrieves all bedrock.GuardrailVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBedrockGuardrailVersionWithName(name string) (*bedrock.GuardrailVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bedrock.GuardrailVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bedrock.GuardrailVersion not found", name)
+}
+
 // GetAllBedrockKnowledgeBaseResources retrieves all bedrock.KnowledgeBase items from an AWS CloudFormation template
 func (t *Template) GetAllBedrockKnowledgeBaseResources() map[string]*bedrock.KnowledgeBase {
 	results := map[string]*bedrock.KnowledgeBase{}
@@ -4801,6 +5038,54 @@ func (t *Template) GetBedrockKnowledgeBaseWithName(name string) (*bedrock.Knowle
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type bedrock.KnowledgeBase not found", name)
+}
+
+// GetAllBedrockPromptResources retrieves all bedrock.Prompt items from an AWS CloudFormation template
+func (t *Template) GetAllBedrockPromptResources() map[string]*bedrock.Prompt {
+	results := map[string]*bedrock.Prompt{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bedrock.Prompt:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBedrockPromptWithName retrieves all bedrock.Prompt items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBedrockPromptWithName(name string) (*bedrock.Prompt, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bedrock.Prompt:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bedrock.Prompt not found", name)
+}
+
+// GetAllBedrockPromptVersionResources retrieves all bedrock.PromptVersion items from an AWS CloudFormation template
+func (t *Template) GetAllBedrockPromptVersionResources() map[string]*bedrock.PromptVersion {
+	results := map[string]*bedrock.PromptVersion{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *bedrock.PromptVersion:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetBedrockPromptVersionWithName retrieves all bedrock.PromptVersion items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetBedrockPromptVersionWithName(name string) (*bedrock.PromptVersion, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *bedrock.PromptVersion:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type bedrock.PromptVersion not found", name)
 }
 
 // GetAllBillingConductorBillingGroupResources retrieves all billingconductor.BillingGroup items from an AWS CloudFormation template
@@ -5305,6 +5590,54 @@ func (t *Template) GetCleanRoomsConfiguredTableAssociationWithName(name string) 
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cleanrooms.ConfiguredTableAssociation not found", name)
+}
+
+// GetAllCleanRoomsIdMappingTableResources retrieves all cleanrooms.IdMappingTable items from an AWS CloudFormation template
+func (t *Template) GetAllCleanRoomsIdMappingTableResources() map[string]*cleanrooms.IdMappingTable {
+	results := map[string]*cleanrooms.IdMappingTable{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cleanrooms.IdMappingTable:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCleanRoomsIdMappingTableWithName retrieves all cleanrooms.IdMappingTable items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCleanRoomsIdMappingTableWithName(name string) (*cleanrooms.IdMappingTable, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cleanrooms.IdMappingTable:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cleanrooms.IdMappingTable not found", name)
+}
+
+// GetAllCleanRoomsIdNamespaceAssociationResources retrieves all cleanrooms.IdNamespaceAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllCleanRoomsIdNamespaceAssociationResources() map[string]*cleanrooms.IdNamespaceAssociation {
+	results := map[string]*cleanrooms.IdNamespaceAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cleanrooms.IdNamespaceAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCleanRoomsIdNamespaceAssociationWithName retrieves all cleanrooms.IdNamespaceAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCleanRoomsIdNamespaceAssociationWithName(name string) (*cleanrooms.IdNamespaceAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cleanrooms.IdNamespaceAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cleanrooms.IdNamespaceAssociation not found", name)
 }
 
 // GetAllCleanRoomsMembershipResources retrieves all cleanrooms.Membership items from an AWS CloudFormation template
@@ -7515,6 +7848,30 @@ func (t *Template) GetConfigStoredQueryWithName(name string) (*config.StoredQuer
 	return nil, fmt.Errorf("resource %q of type config.StoredQuery not found", name)
 }
 
+// GetAllConnectAgentStatusResources retrieves all connect.AgentStatus items from an AWS CloudFormation template
+func (t *Template) GetAllConnectAgentStatusResources() map[string]*connect.AgentStatus {
+	results := map[string]*connect.AgentStatus{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.AgentStatus:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectAgentStatusWithName retrieves all connect.AgentStatus items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectAgentStatusWithName(name string) (*connect.AgentStatus, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.AgentStatus:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.AgentStatus not found", name)
+}
+
 // GetAllConnectApprovedOriginResources retrieves all connect.ApprovedOrigin items from an AWS CloudFormation template
 func (t *Template) GetAllConnectApprovedOriginResources() map[string]*connect.ApprovedOrigin {
 	results := map[string]*connect.ApprovedOrigin{}
@@ -8017,6 +8374,30 @@ func (t *Template) GetConnectUserHierarchyGroupWithName(name string) (*connect.U
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type connect.UserHierarchyGroup not found", name)
+}
+
+// GetAllConnectUserHierarchyStructureResources retrieves all connect.UserHierarchyStructure items from an AWS CloudFormation template
+func (t *Template) GetAllConnectUserHierarchyStructureResources() map[string]*connect.UserHierarchyStructure {
+	results := map[string]*connect.UserHierarchyStructure{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *connect.UserHierarchyStructure:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetConnectUserHierarchyStructureWithName retrieves all connect.UserHierarchyStructure items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetConnectUserHierarchyStructureWithName(name string) (*connect.UserHierarchyStructure, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *connect.UserHierarchyStructure:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type connect.UserHierarchyStructure not found", name)
 }
 
 // GetAllConnectViewResources retrieves all connect.View items from an AWS CloudFormation template
@@ -9195,6 +9576,30 @@ func (t *Template) GetDataZoneEnvironmentWithName(name string) (*datazone.Enviro
 	return nil, fmt.Errorf("resource %q of type datazone.Environment not found", name)
 }
 
+// GetAllDataZoneEnvironmentActionsResources retrieves all datazone.EnvironmentActions items from an AWS CloudFormation template
+func (t *Template) GetAllDataZoneEnvironmentActionsResources() map[string]*datazone.EnvironmentActions {
+	results := map[string]*datazone.EnvironmentActions{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datazone.EnvironmentActions:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataZoneEnvironmentActionsWithName retrieves all datazone.EnvironmentActions items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataZoneEnvironmentActionsWithName(name string) (*datazone.EnvironmentActions, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datazone.EnvironmentActions:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datazone.EnvironmentActions not found", name)
+}
+
 // GetAllDataZoneEnvironmentBlueprintConfigurationResources retrieves all datazone.EnvironmentBlueprintConfiguration items from an AWS CloudFormation template
 func (t *Template) GetAllDataZoneEnvironmentBlueprintConfigurationResources() map[string]*datazone.EnvironmentBlueprintConfiguration {
 	results := map[string]*datazone.EnvironmentBlueprintConfiguration{}
@@ -9243,6 +9648,30 @@ func (t *Template) GetDataZoneEnvironmentProfileWithName(name string) (*datazone
 	return nil, fmt.Errorf("resource %q of type datazone.EnvironmentProfile not found", name)
 }
 
+// GetAllDataZoneGroupProfileResources retrieves all datazone.GroupProfile items from an AWS CloudFormation template
+func (t *Template) GetAllDataZoneGroupProfileResources() map[string]*datazone.GroupProfile {
+	results := map[string]*datazone.GroupProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datazone.GroupProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataZoneGroupProfileWithName retrieves all datazone.GroupProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataZoneGroupProfileWithName(name string) (*datazone.GroupProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datazone.GroupProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datazone.GroupProfile not found", name)
+}
+
 // GetAllDataZoneProjectResources retrieves all datazone.Project items from an AWS CloudFormation template
 func (t *Template) GetAllDataZoneProjectResources() map[string]*datazone.Project {
 	results := map[string]*datazone.Project{}
@@ -9267,6 +9696,30 @@ func (t *Template) GetDataZoneProjectWithName(name string) (*datazone.Project, e
 	return nil, fmt.Errorf("resource %q of type datazone.Project not found", name)
 }
 
+// GetAllDataZoneProjectMembershipResources retrieves all datazone.ProjectMembership items from an AWS CloudFormation template
+func (t *Template) GetAllDataZoneProjectMembershipResources() map[string]*datazone.ProjectMembership {
+	results := map[string]*datazone.ProjectMembership{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datazone.ProjectMembership:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataZoneProjectMembershipWithName retrieves all datazone.ProjectMembership items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataZoneProjectMembershipWithName(name string) (*datazone.ProjectMembership, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datazone.ProjectMembership:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datazone.ProjectMembership not found", name)
+}
+
 // GetAllDataZoneSubscriptionTargetResources retrieves all datazone.SubscriptionTarget items from an AWS CloudFormation template
 func (t *Template) GetAllDataZoneSubscriptionTargetResources() map[string]*datazone.SubscriptionTarget {
 	results := map[string]*datazone.SubscriptionTarget{}
@@ -9289,6 +9742,30 @@ func (t *Template) GetDataZoneSubscriptionTargetWithName(name string) (*datazone
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type datazone.SubscriptionTarget not found", name)
+}
+
+// GetAllDataZoneUserProfileResources retrieves all datazone.UserProfile items from an AWS CloudFormation template
+func (t *Template) GetAllDataZoneUserProfileResources() map[string]*datazone.UserProfile {
+	results := map[string]*datazone.UserProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *datazone.UserProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDataZoneUserProfileWithName retrieves all datazone.UserProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDataZoneUserProfileWithName(name string) (*datazone.UserProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *datazone.UserProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type datazone.UserProfile not found", name)
 }
 
 // GetAllDeadlineFarmResources retrieves all deadline.Farm items from an AWS CloudFormation template
@@ -9385,6 +9862,30 @@ func (t *Template) GetDeadlineMeteredProductWithName(name string) (*deadline.Met
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type deadline.MeteredProduct not found", name)
+}
+
+// GetAllDeadlineMonitorResources retrieves all deadline.Monitor items from an AWS CloudFormation template
+func (t *Template) GetAllDeadlineMonitorResources() map[string]*deadline.Monitor {
+	results := map[string]*deadline.Monitor{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *deadline.Monitor:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetDeadlineMonitorWithName retrieves all deadline.Monitor items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetDeadlineMonitorWithName(name string) (*deadline.Monitor, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *deadline.Monitor:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type deadline.Monitor not found", name)
 }
 
 // GetAllDeadlineQueueResources retrieves all deadline.Queue items from an AWS CloudFormation template
@@ -15219,6 +15720,30 @@ func (t *Template) GetGlueTriggerWithName(name string) (*glue.Trigger, error) {
 	return nil, fmt.Errorf("resource %q of type glue.Trigger not found", name)
 }
 
+// GetAllGlueUsageProfileResources retrieves all glue.UsageProfile items from an AWS CloudFormation template
+func (t *Template) GetAllGlueUsageProfileResources() map[string]*glue.UsageProfile {
+	results := map[string]*glue.UsageProfile{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *glue.UsageProfile:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGlueUsageProfileWithName retrieves all glue.UsageProfile items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGlueUsageProfileWithName(name string) (*glue.UsageProfile, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *glue.UsageProfile:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type glue.UsageProfile not found", name)
+}
+
 // GetAllGlueWorkflowResources retrieves all glue.Workflow items from an AWS CloudFormation template
 func (t *Template) GetAllGlueWorkflowResources() map[string]*glue.Workflow {
 	results := map[string]*glue.Workflow{}
@@ -15843,6 +16368,30 @@ func (t *Template) GetGuardDutyIPSetWithName(name string) (*guardduty.IPSet, err
 	return nil, fmt.Errorf("resource %q of type guardduty.IPSet not found", name)
 }
 
+// GetAllGuardDutyMalwareProtectionPlanResources retrieves all guardduty.MalwareProtectionPlan items from an AWS CloudFormation template
+func (t *Template) GetAllGuardDutyMalwareProtectionPlanResources() map[string]*guardduty.MalwareProtectionPlan {
+	results := map[string]*guardduty.MalwareProtectionPlan{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *guardduty.MalwareProtectionPlan:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetGuardDutyMalwareProtectionPlanWithName retrieves all guardduty.MalwareProtectionPlan items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetGuardDutyMalwareProtectionPlanWithName(name string) (*guardduty.MalwareProtectionPlan, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *guardduty.MalwareProtectionPlan:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type guardduty.MalwareProtectionPlan not found", name)
+}
+
 // GetAllGuardDutyMasterResources retrieves all guardduty.Master items from an AWS CloudFormation template
 func (t *Template) GetAllGuardDutyMasterResources() map[string]*guardduty.Master {
 	results := map[string]*guardduty.Master{}
@@ -16441,6 +16990,30 @@ func (t *Template) GetIVSPlaybackRestrictionPolicyWithName(name string) (*ivs.Pl
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type ivs.PlaybackRestrictionPolicy not found", name)
+}
+
+// GetAllIVSPublicKeyResources retrieves all ivs.PublicKey items from an AWS CloudFormation template
+func (t *Template) GetAllIVSPublicKeyResources() map[string]*ivs.PublicKey {
+	results := map[string]*ivs.PublicKey{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ivs.PublicKey:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetIVSPublicKeyWithName retrieves all ivs.PublicKey items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetIVSPublicKeyWithName(name string) (*ivs.PublicKey, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ivs.PublicKey:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ivs.PublicKey not found", name)
 }
 
 // GetAllIVSRecordingConfigurationResources retrieves all ivs.RecordingConfiguration items from an AWS CloudFormation template
@@ -18915,6 +19488,30 @@ func (t *Template) GetKendraRankingExecutionPlanWithName(name string) (*kendrara
 	return nil, fmt.Errorf("resource %q of type kendraranking.ExecutionPlan not found", name)
 }
 
+// GetAllKinesisResourcePolicyResources retrieves all kinesis.ResourcePolicy items from an AWS CloudFormation template
+func (t *Template) GetAllKinesisResourcePolicyResources() map[string]*kinesis.ResourcePolicy {
+	results := map[string]*kinesis.ResourcePolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *kinesis.ResourcePolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetKinesisResourcePolicyWithName retrieves all kinesis.ResourcePolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetKinesisResourcePolicyWithName(name string) (*kinesis.ResourcePolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *kinesis.ResourcePolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type kinesis.ResourcePolicy not found", name)
+}
+
 // GetAllKinesisStreamResources retrieves all kinesis.Stream items from an AWS CloudFormation template
 func (t *Template) GetAllKinesisStreamResources() map[string]*kinesis.Stream {
 	results := map[string]*kinesis.Stream{}
@@ -19609,6 +20206,30 @@ func (t *Template) GetLambdaVersionWithName(name string) (*lambda.Version, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type lambda.Version not found", name)
+}
+
+// GetAllLaunchWizardDeploymentResources retrieves all launchwizard.Deployment items from an AWS CloudFormation template
+func (t *Template) GetAllLaunchWizardDeploymentResources() map[string]*launchwizard.Deployment {
+	results := map[string]*launchwizard.Deployment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *launchwizard.Deployment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetLaunchWizardDeploymentWithName retrieves all launchwizard.Deployment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetLaunchWizardDeploymentWithName(name string) (*launchwizard.Deployment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *launchwizard.Deployment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type launchwizard.Deployment not found", name)
 }
 
 // GetAllLexBotResources retrieves all lex.Bot items from an AWS CloudFormation template
@@ -21291,6 +21912,150 @@ func (t *Template) GetMediaLiveChannelWithName(name string) (*medialive.Channel,
 	return nil, fmt.Errorf("resource %q of type medialive.Channel not found", name)
 }
 
+// GetAllMediaLiveChannelPlacementGroupResources retrieves all medialive.ChannelPlacementGroup items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveChannelPlacementGroupResources() map[string]*medialive.ChannelPlacementGroup {
+	results := map[string]*medialive.ChannelPlacementGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.ChannelPlacementGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveChannelPlacementGroupWithName retrieves all medialive.ChannelPlacementGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveChannelPlacementGroupWithName(name string) (*medialive.ChannelPlacementGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.ChannelPlacementGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.ChannelPlacementGroup not found", name)
+}
+
+// GetAllMediaLiveCloudWatchAlarmTemplateResources retrieves all medialive.CloudWatchAlarmTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveCloudWatchAlarmTemplateResources() map[string]*medialive.CloudWatchAlarmTemplate {
+	results := map[string]*medialive.CloudWatchAlarmTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.CloudWatchAlarmTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveCloudWatchAlarmTemplateWithName retrieves all medialive.CloudWatchAlarmTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveCloudWatchAlarmTemplateWithName(name string) (*medialive.CloudWatchAlarmTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.CloudWatchAlarmTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.CloudWatchAlarmTemplate not found", name)
+}
+
+// GetAllMediaLiveCloudWatchAlarmTemplateGroupResources retrieves all medialive.CloudWatchAlarmTemplateGroup items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveCloudWatchAlarmTemplateGroupResources() map[string]*medialive.CloudWatchAlarmTemplateGroup {
+	results := map[string]*medialive.CloudWatchAlarmTemplateGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.CloudWatchAlarmTemplateGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveCloudWatchAlarmTemplateGroupWithName retrieves all medialive.CloudWatchAlarmTemplateGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveCloudWatchAlarmTemplateGroupWithName(name string) (*medialive.CloudWatchAlarmTemplateGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.CloudWatchAlarmTemplateGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.CloudWatchAlarmTemplateGroup not found", name)
+}
+
+// GetAllMediaLiveClusterResources retrieves all medialive.Cluster items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveClusterResources() map[string]*medialive.Cluster {
+	results := map[string]*medialive.Cluster{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.Cluster:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveClusterWithName retrieves all medialive.Cluster items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveClusterWithName(name string) (*medialive.Cluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.Cluster:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.Cluster not found", name)
+}
+
+// GetAllMediaLiveEventBridgeRuleTemplateResources retrieves all medialive.EventBridgeRuleTemplate items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveEventBridgeRuleTemplateResources() map[string]*medialive.EventBridgeRuleTemplate {
+	results := map[string]*medialive.EventBridgeRuleTemplate{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.EventBridgeRuleTemplate:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveEventBridgeRuleTemplateWithName retrieves all medialive.EventBridgeRuleTemplate items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveEventBridgeRuleTemplateWithName(name string) (*medialive.EventBridgeRuleTemplate, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.EventBridgeRuleTemplate:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.EventBridgeRuleTemplate not found", name)
+}
+
+// GetAllMediaLiveEventBridgeRuleTemplateGroupResources retrieves all medialive.EventBridgeRuleTemplateGroup items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveEventBridgeRuleTemplateGroupResources() map[string]*medialive.EventBridgeRuleTemplateGroup {
+	results := map[string]*medialive.EventBridgeRuleTemplateGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.EventBridgeRuleTemplateGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveEventBridgeRuleTemplateGroupWithName retrieves all medialive.EventBridgeRuleTemplateGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveEventBridgeRuleTemplateGroupWithName(name string) (*medialive.EventBridgeRuleTemplateGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.EventBridgeRuleTemplateGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.EventBridgeRuleTemplateGroup not found", name)
+}
+
 // GetAllMediaLiveInputResources retrieves all medialive.Input items from an AWS CloudFormation template
 func (t *Template) GetAllMediaLiveInputResources() map[string]*medialive.Input {
 	results := map[string]*medialive.Input{}
@@ -21385,6 +22150,78 @@ func (t *Template) GetMediaLiveMultiplexprogramWithName(name string) (*medialive
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type medialive.Multiplexprogram not found", name)
+}
+
+// GetAllMediaLiveNetworkResources retrieves all medialive.Network items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveNetworkResources() map[string]*medialive.Network {
+	results := map[string]*medialive.Network{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.Network:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveNetworkWithName retrieves all medialive.Network items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveNetworkWithName(name string) (*medialive.Network, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.Network:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.Network not found", name)
+}
+
+// GetAllMediaLiveSdiSourceResources retrieves all medialive.SdiSource items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveSdiSourceResources() map[string]*medialive.SdiSource {
+	results := map[string]*medialive.SdiSource{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.SdiSource:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveSdiSourceWithName retrieves all medialive.SdiSource items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveSdiSourceWithName(name string) (*medialive.SdiSource, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.SdiSource:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.SdiSource not found", name)
+}
+
+// GetAllMediaLiveSignalMapResources retrieves all medialive.SignalMap items from an AWS CloudFormation template
+func (t *Template) GetAllMediaLiveSignalMapResources() map[string]*medialive.SignalMap {
+	results := map[string]*medialive.SignalMap{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *medialive.SignalMap:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetMediaLiveSignalMapWithName retrieves all medialive.SignalMap items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetMediaLiveSignalMapWithName(name string) (*medialive.SignalMap, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *medialive.SignalMap:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type medialive.SignalMap not found", name)
 }
 
 // GetAllMediaPackageAssetResources retrieves all mediapackage.Asset items from an AWS CloudFormation template
@@ -22033,6 +22870,30 @@ func (t *Template) GetNeptuneDBSubnetGroupWithName(name string) (*neptune.DBSubn
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type neptune.DBSubnetGroup not found", name)
+}
+
+// GetAllNeptuneEventSubscriptionResources retrieves all neptune.EventSubscription items from an AWS CloudFormation template
+func (t *Template) GetAllNeptuneEventSubscriptionResources() map[string]*neptune.EventSubscription {
+	results := map[string]*neptune.EventSubscription{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *neptune.EventSubscription:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetNeptuneEventSubscriptionWithName retrieves all neptune.EventSubscription items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetNeptuneEventSubscriptionWithName(name string) (*neptune.EventSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *neptune.EventSubscription:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type neptune.EventSubscription not found", name)
 }
 
 // GetAllNeptuneGraphGraphResources retrieves all neptunegraph.Graph items from an AWS CloudFormation template
@@ -23451,6 +24312,54 @@ func (t *Template) GetPCAConnectorADTemplateGroupAccessControlEntryWithName(name
 	return nil, fmt.Errorf("resource %q of type pcaconnectorad.TemplateGroupAccessControlEntry not found", name)
 }
 
+// GetAllPCAConnectorSCEPChallengeResources retrieves all pcaconnectorscep.Challenge items from an AWS CloudFormation template
+func (t *Template) GetAllPCAConnectorSCEPChallengeResources() map[string]*pcaconnectorscep.Challenge {
+	results := map[string]*pcaconnectorscep.Challenge{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pcaconnectorscep.Challenge:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPCAConnectorSCEPChallengeWithName retrieves all pcaconnectorscep.Challenge items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPCAConnectorSCEPChallengeWithName(name string) (*pcaconnectorscep.Challenge, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pcaconnectorscep.Challenge:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pcaconnectorscep.Challenge not found", name)
+}
+
+// GetAllPCAConnectorSCEPConnectorResources retrieves all pcaconnectorscep.Connector items from an AWS CloudFormation template
+func (t *Template) GetAllPCAConnectorSCEPConnectorResources() map[string]*pcaconnectorscep.Connector {
+	results := map[string]*pcaconnectorscep.Connector{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *pcaconnectorscep.Connector:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetPCAConnectorSCEPConnectorWithName retrieves all pcaconnectorscep.Connector items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetPCAConnectorSCEPConnectorWithName(name string) (*pcaconnectorscep.Connector, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *pcaconnectorscep.Connector:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type pcaconnectorscep.Connector not found", name)
+}
+
 // GetAllPanoramaApplicationInstanceResources retrieves all panorama.ApplicationInstance items from an AWS CloudFormation template
 func (t *Template) GetAllPanoramaApplicationInstanceResources() map[string]*panorama.ApplicationInstance {
 	results := map[string]*panorama.ApplicationInstance{}
@@ -24315,6 +25224,150 @@ func (t *Template) GetProtonServiceTemplateWithName(name string) (*proton.Servic
 	return nil, fmt.Errorf("resource %q of type proton.ServiceTemplate not found", name)
 }
 
+// GetAllQBusinessApplicationResources retrieves all qbusiness.Application items from an AWS CloudFormation template
+func (t *Template) GetAllQBusinessApplicationResources() map[string]*qbusiness.Application {
+	results := map[string]*qbusiness.Application{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *qbusiness.Application:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQBusinessApplicationWithName retrieves all qbusiness.Application items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQBusinessApplicationWithName(name string) (*qbusiness.Application, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *qbusiness.Application:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type qbusiness.Application not found", name)
+}
+
+// GetAllQBusinessDataSourceResources retrieves all qbusiness.DataSource items from an AWS CloudFormation template
+func (t *Template) GetAllQBusinessDataSourceResources() map[string]*qbusiness.DataSource {
+	results := map[string]*qbusiness.DataSource{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *qbusiness.DataSource:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQBusinessDataSourceWithName retrieves all qbusiness.DataSource items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQBusinessDataSourceWithName(name string) (*qbusiness.DataSource, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *qbusiness.DataSource:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type qbusiness.DataSource not found", name)
+}
+
+// GetAllQBusinessIndexResources retrieves all qbusiness.Index items from an AWS CloudFormation template
+func (t *Template) GetAllQBusinessIndexResources() map[string]*qbusiness.Index {
+	results := map[string]*qbusiness.Index{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *qbusiness.Index:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQBusinessIndexWithName retrieves all qbusiness.Index items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQBusinessIndexWithName(name string) (*qbusiness.Index, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *qbusiness.Index:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type qbusiness.Index not found", name)
+}
+
+// GetAllQBusinessPluginResources retrieves all qbusiness.Plugin items from an AWS CloudFormation template
+func (t *Template) GetAllQBusinessPluginResources() map[string]*qbusiness.Plugin {
+	results := map[string]*qbusiness.Plugin{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *qbusiness.Plugin:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQBusinessPluginWithName retrieves all qbusiness.Plugin items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQBusinessPluginWithName(name string) (*qbusiness.Plugin, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *qbusiness.Plugin:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type qbusiness.Plugin not found", name)
+}
+
+// GetAllQBusinessRetrieverResources retrieves all qbusiness.Retriever items from an AWS CloudFormation template
+func (t *Template) GetAllQBusinessRetrieverResources() map[string]*qbusiness.Retriever {
+	results := map[string]*qbusiness.Retriever{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *qbusiness.Retriever:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQBusinessRetrieverWithName retrieves all qbusiness.Retriever items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQBusinessRetrieverWithName(name string) (*qbusiness.Retriever, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *qbusiness.Retriever:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type qbusiness.Retriever not found", name)
+}
+
+// GetAllQBusinessWebExperienceResources retrieves all qbusiness.WebExperience items from an AWS CloudFormation template
+func (t *Template) GetAllQBusinessWebExperienceResources() map[string]*qbusiness.WebExperience {
+	results := map[string]*qbusiness.WebExperience{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *qbusiness.WebExperience:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQBusinessWebExperienceWithName retrieves all qbusiness.WebExperience items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQBusinessWebExperienceWithName(name string) (*qbusiness.WebExperience, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *qbusiness.WebExperience:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type qbusiness.WebExperience not found", name)
+}
+
 // GetAllQLDBLedgerResources retrieves all qldb.Ledger items from an AWS CloudFormation template
 func (t *Template) GetAllQLDBLedgerResources() map[string]*qldb.Ledger {
 	results := map[string]*qldb.Ledger{}
@@ -24457,6 +25510,30 @@ func (t *Template) GetQuickSightDataSourceWithName(name string) (*quicksight.Dat
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type quicksight.DataSource not found", name)
+}
+
+// GetAllQuickSightFolderResources retrieves all quicksight.Folder items from an AWS CloudFormation template
+func (t *Template) GetAllQuickSightFolderResources() map[string]*quicksight.Folder {
+	results := map[string]*quicksight.Folder{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *quicksight.Folder:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetQuickSightFolderWithName retrieves all quicksight.Folder items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetQuickSightFolderWithName(name string) (*quicksight.Folder, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *quicksight.Folder:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type quicksight.Folder not found", name)
 }
 
 // GetAllQuickSightRefreshScheduleResources retrieves all quicksight.RefreshSchedule items from an AWS CloudFormation template
@@ -27075,6 +28152,174 @@ func (t *Template) GetSESEmailIdentityWithName(name string) (*ses.EmailIdentity,
 	return nil, fmt.Errorf("resource %q of type ses.EmailIdentity not found", name)
 }
 
+// GetAllSESMailManagerAddonInstanceResources retrieves all ses.MailManagerAddonInstance items from an AWS CloudFormation template
+func (t *Template) GetAllSESMailManagerAddonInstanceResources() map[string]*ses.MailManagerAddonInstance {
+	results := map[string]*ses.MailManagerAddonInstance{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerAddonInstance:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESMailManagerAddonInstanceWithName retrieves all ses.MailManagerAddonInstance items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESMailManagerAddonInstanceWithName(name string) (*ses.MailManagerAddonInstance, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerAddonInstance:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.MailManagerAddonInstance not found", name)
+}
+
+// GetAllSESMailManagerAddonSubscriptionResources retrieves all ses.MailManagerAddonSubscription items from an AWS CloudFormation template
+func (t *Template) GetAllSESMailManagerAddonSubscriptionResources() map[string]*ses.MailManagerAddonSubscription {
+	results := map[string]*ses.MailManagerAddonSubscription{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerAddonSubscription:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESMailManagerAddonSubscriptionWithName retrieves all ses.MailManagerAddonSubscription items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESMailManagerAddonSubscriptionWithName(name string) (*ses.MailManagerAddonSubscription, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerAddonSubscription:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.MailManagerAddonSubscription not found", name)
+}
+
+// GetAllSESMailManagerArchiveResources retrieves all ses.MailManagerArchive items from an AWS CloudFormation template
+func (t *Template) GetAllSESMailManagerArchiveResources() map[string]*ses.MailManagerArchive {
+	results := map[string]*ses.MailManagerArchive{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerArchive:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESMailManagerArchiveWithName retrieves all ses.MailManagerArchive items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESMailManagerArchiveWithName(name string) (*ses.MailManagerArchive, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerArchive:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.MailManagerArchive not found", name)
+}
+
+// GetAllSESMailManagerIngressPointResources retrieves all ses.MailManagerIngressPoint items from an AWS CloudFormation template
+func (t *Template) GetAllSESMailManagerIngressPointResources() map[string]*ses.MailManagerIngressPoint {
+	results := map[string]*ses.MailManagerIngressPoint{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerIngressPoint:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESMailManagerIngressPointWithName retrieves all ses.MailManagerIngressPoint items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESMailManagerIngressPointWithName(name string) (*ses.MailManagerIngressPoint, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerIngressPoint:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.MailManagerIngressPoint not found", name)
+}
+
+// GetAllSESMailManagerRelayResources retrieves all ses.MailManagerRelay items from an AWS CloudFormation template
+func (t *Template) GetAllSESMailManagerRelayResources() map[string]*ses.MailManagerRelay {
+	results := map[string]*ses.MailManagerRelay{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerRelay:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESMailManagerRelayWithName retrieves all ses.MailManagerRelay items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESMailManagerRelayWithName(name string) (*ses.MailManagerRelay, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerRelay:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.MailManagerRelay not found", name)
+}
+
+// GetAllSESMailManagerRuleSetResources retrieves all ses.MailManagerRuleSet items from an AWS CloudFormation template
+func (t *Template) GetAllSESMailManagerRuleSetResources() map[string]*ses.MailManagerRuleSet {
+	results := map[string]*ses.MailManagerRuleSet{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerRuleSet:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESMailManagerRuleSetWithName retrieves all ses.MailManagerRuleSet items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESMailManagerRuleSetWithName(name string) (*ses.MailManagerRuleSet, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerRuleSet:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.MailManagerRuleSet not found", name)
+}
+
+// GetAllSESMailManagerTrafficPolicyResources retrieves all ses.MailManagerTrafficPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllSESMailManagerTrafficPolicyResources() map[string]*ses.MailManagerTrafficPolicy {
+	results := map[string]*ses.MailManagerTrafficPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerTrafficPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSESMailManagerTrafficPolicyWithName retrieves all ses.MailManagerTrafficPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSESMailManagerTrafficPolicyWithName(name string) (*ses.MailManagerTrafficPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ses.MailManagerTrafficPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ses.MailManagerTrafficPolicy not found", name)
+}
+
 // GetAllSESReceiptFilterResources retrieves all ses.ReceiptFilter items from an AWS CloudFormation template
 func (t *Template) GetAllSESReceiptFilterResources() map[string]*ses.ReceiptFilter {
 	results := map[string]*ses.ReceiptFilter{}
@@ -27723,6 +28968,78 @@ func (t *Template) GetSSMIncidentsResponsePlanWithName(name string) (*ssminciden
 	return nil, fmt.Errorf("resource %q of type ssmincidents.ResponsePlan not found", name)
 }
 
+// GetAllSSMQuickSetupConfigurationManagerResources retrieves all ssmquicksetup.ConfigurationManager items from an AWS CloudFormation template
+func (t *Template) GetAllSSMQuickSetupConfigurationManagerResources() map[string]*ssmquicksetup.ConfigurationManager {
+	results := map[string]*ssmquicksetup.ConfigurationManager{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *ssmquicksetup.ConfigurationManager:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSSMQuickSetupConfigurationManagerWithName retrieves all ssmquicksetup.ConfigurationManager items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSSMQuickSetupConfigurationManagerWithName(name string) (*ssmquicksetup.ConfigurationManager, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *ssmquicksetup.ConfigurationManager:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type ssmquicksetup.ConfigurationManager not found", name)
+}
+
+// GetAllSSOApplicationResources retrieves all sso.Application items from an AWS CloudFormation template
+func (t *Template) GetAllSSOApplicationResources() map[string]*sso.Application {
+	results := map[string]*sso.Application{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sso.Application:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSSOApplicationWithName retrieves all sso.Application items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSSOApplicationWithName(name string) (*sso.Application, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sso.Application:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sso.Application not found", name)
+}
+
+// GetAllSSOApplicationAssignmentResources retrieves all sso.ApplicationAssignment items from an AWS CloudFormation template
+func (t *Template) GetAllSSOApplicationAssignmentResources() map[string]*sso.ApplicationAssignment {
+	results := map[string]*sso.ApplicationAssignment{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sso.ApplicationAssignment:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSSOApplicationAssignmentWithName retrieves all sso.ApplicationAssignment items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSSOApplicationAssignmentWithName(name string) (*sso.ApplicationAssignment, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sso.ApplicationAssignment:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sso.ApplicationAssignment not found", name)
+}
+
 // GetAllSSOAssignmentResources retrieves all sso.Assignment items from an AWS CloudFormation template
 func (t *Template) GetAllSSOAssignmentResources() map[string]*sso.Assignment {
 	results := map[string]*sso.Assignment{}
@@ -27745,6 +29062,30 @@ func (t *Template) GetSSOAssignmentWithName(name string) (*sso.Assignment, error
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type sso.Assignment not found", name)
+}
+
+// GetAllSSOInstanceResources retrieves all sso.Instance items from an AWS CloudFormation template
+func (t *Template) GetAllSSOInstanceResources() map[string]*sso.Instance {
+	results := map[string]*sso.Instance{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sso.Instance:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSSOInstanceWithName retrieves all sso.Instance items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSSOInstanceWithName(name string) (*sso.Instance, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sso.Instance:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sso.Instance not found", name)
 }
 
 // GetAllSSOInstanceAccessControlAttributeConfigurationResources retrieves all sso.InstanceAccessControlAttributeConfiguration items from an AWS CloudFormation template
@@ -27841,6 +29182,30 @@ func (t *Template) GetSageMakerAppImageConfigWithName(name string) (*sagemaker.A
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type sagemaker.AppImageConfig not found", name)
+}
+
+// GetAllSageMakerClusterResources retrieves all sagemaker.Cluster items from an AWS CloudFormation template
+func (t *Template) GetAllSageMakerClusterResources() map[string]*sagemaker.Cluster {
+	results := map[string]*sagemaker.Cluster{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sagemaker.Cluster:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSageMakerClusterWithName retrieves all sagemaker.Cluster items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSageMakerClusterWithName(name string) (*sagemaker.Cluster, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sagemaker.Cluster:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sagemaker.Cluster not found", name)
 }
 
 // GetAllSageMakerCodeRepositoryResources retrieves all sagemaker.CodeRepository items from an AWS CloudFormation template
@@ -28129,6 +29494,30 @@ func (t *Template) GetSageMakerInferenceExperimentWithName(name string) (*sagema
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type sagemaker.InferenceExperiment not found", name)
+}
+
+// GetAllSageMakerMlflowTrackingServerResources retrieves all sagemaker.MlflowTrackingServer items from an AWS CloudFormation template
+func (t *Template) GetAllSageMakerMlflowTrackingServerResources() map[string]*sagemaker.MlflowTrackingServer {
+	results := map[string]*sagemaker.MlflowTrackingServer{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sagemaker.MlflowTrackingServer:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSageMakerMlflowTrackingServerWithName retrieves all sagemaker.MlflowTrackingServer items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSageMakerMlflowTrackingServerWithName(name string) (*sagemaker.MlflowTrackingServer, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sagemaker.MlflowTrackingServer:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sagemaker.MlflowTrackingServer not found", name)
 }
 
 // GetAllSageMakerModelResources retrieves all sagemaker.Model items from an AWS CloudFormation template
@@ -28443,6 +29832,30 @@ func (t *Template) GetSageMakerSpaceWithName(name string) (*sagemaker.Space, err
 	return nil, fmt.Errorf("resource %q of type sagemaker.Space not found", name)
 }
 
+// GetAllSageMakerStudioLifecycleConfigResources retrieves all sagemaker.StudioLifecycleConfig items from an AWS CloudFormation template
+func (t *Template) GetAllSageMakerStudioLifecycleConfigResources() map[string]*sagemaker.StudioLifecycleConfig {
+	results := map[string]*sagemaker.StudioLifecycleConfig{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *sagemaker.StudioLifecycleConfig:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSageMakerStudioLifecycleConfigWithName retrieves all sagemaker.StudioLifecycleConfig items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSageMakerStudioLifecycleConfigWithName(name string) (*sagemaker.StudioLifecycleConfig, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *sagemaker.StudioLifecycleConfig:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type sagemaker.StudioLifecycleConfig not found", name)
+}
+
 // GetAllSageMakerUserProfileResources retrieves all sagemaker.UserProfile items from an AWS CloudFormation template
 func (t *Template) GetAllSageMakerUserProfileResources() map[string]*sagemaker.UserProfile {
 	results := map[string]*sagemaker.UserProfile{}
@@ -28659,6 +30072,30 @@ func (t *Template) GetSecurityHubAutomationRuleWithName(name string) (*securityh
 	return nil, fmt.Errorf("resource %q of type securityhub.AutomationRule not found", name)
 }
 
+// GetAllSecurityHubConfigurationPolicyResources retrieves all securityhub.ConfigurationPolicy items from an AWS CloudFormation template
+func (t *Template) GetAllSecurityHubConfigurationPolicyResources() map[string]*securityhub.ConfigurationPolicy {
+	results := map[string]*securityhub.ConfigurationPolicy{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *securityhub.ConfigurationPolicy:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSecurityHubConfigurationPolicyWithName retrieves all securityhub.ConfigurationPolicy items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSecurityHubConfigurationPolicyWithName(name string) (*securityhub.ConfigurationPolicy, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *securityhub.ConfigurationPolicy:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type securityhub.ConfigurationPolicy not found", name)
+}
+
 // GetAllSecurityHubDelegatedAdminResources retrieves all securityhub.DelegatedAdmin items from an AWS CloudFormation template
 func (t *Template) GetAllSecurityHubDelegatedAdminResources() map[string]*securityhub.DelegatedAdmin {
 	results := map[string]*securityhub.DelegatedAdmin{}
@@ -28681,6 +30118,30 @@ func (t *Template) GetSecurityHubDelegatedAdminWithName(name string) (*securityh
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type securityhub.DelegatedAdmin not found", name)
+}
+
+// GetAllSecurityHubFindingAggregatorResources retrieves all securityhub.FindingAggregator items from an AWS CloudFormation template
+func (t *Template) GetAllSecurityHubFindingAggregatorResources() map[string]*securityhub.FindingAggregator {
+	results := map[string]*securityhub.FindingAggregator{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *securityhub.FindingAggregator:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSecurityHubFindingAggregatorWithName retrieves all securityhub.FindingAggregator items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSecurityHubFindingAggregatorWithName(name string) (*securityhub.FindingAggregator, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *securityhub.FindingAggregator:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type securityhub.FindingAggregator not found", name)
 }
 
 // GetAllSecurityHubHubResources retrieves all securityhub.Hub items from an AWS CloudFormation template
@@ -28731,6 +30192,54 @@ func (t *Template) GetSecurityHubInsightWithName(name string) (*securityhub.Insi
 	return nil, fmt.Errorf("resource %q of type securityhub.Insight not found", name)
 }
 
+// GetAllSecurityHubOrganizationConfigurationResources retrieves all securityhub.OrganizationConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllSecurityHubOrganizationConfigurationResources() map[string]*securityhub.OrganizationConfiguration {
+	results := map[string]*securityhub.OrganizationConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *securityhub.OrganizationConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSecurityHubOrganizationConfigurationWithName retrieves all securityhub.OrganizationConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSecurityHubOrganizationConfigurationWithName(name string) (*securityhub.OrganizationConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *securityhub.OrganizationConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type securityhub.OrganizationConfiguration not found", name)
+}
+
+// GetAllSecurityHubPolicyAssociationResources retrieves all securityhub.PolicyAssociation items from an AWS CloudFormation template
+func (t *Template) GetAllSecurityHubPolicyAssociationResources() map[string]*securityhub.PolicyAssociation {
+	results := map[string]*securityhub.PolicyAssociation{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *securityhub.PolicyAssociation:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSecurityHubPolicyAssociationWithName retrieves all securityhub.PolicyAssociation items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSecurityHubPolicyAssociationWithName(name string) (*securityhub.PolicyAssociation, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *securityhub.PolicyAssociation:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type securityhub.PolicyAssociation not found", name)
+}
+
 // GetAllSecurityHubProductSubscriptionResources retrieves all securityhub.ProductSubscription items from an AWS CloudFormation template
 func (t *Template) GetAllSecurityHubProductSubscriptionResources() map[string]*securityhub.ProductSubscription {
 	results := map[string]*securityhub.ProductSubscription{}
@@ -28753,6 +30262,30 @@ func (t *Template) GetSecurityHubProductSubscriptionWithName(name string) (*secu
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type securityhub.ProductSubscription not found", name)
+}
+
+// GetAllSecurityHubSecurityControlResources retrieves all securityhub.SecurityControl items from an AWS CloudFormation template
+func (t *Template) GetAllSecurityHubSecurityControlResources() map[string]*securityhub.SecurityControl {
+	results := map[string]*securityhub.SecurityControl{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *securityhub.SecurityControl:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSecurityHubSecurityControlWithName retrieves all securityhub.SecurityControl items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSecurityHubSecurityControlWithName(name string) (*securityhub.SecurityControl, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *securityhub.SecurityControl:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type securityhub.SecurityControl not found", name)
 }
 
 // GetAllSecurityHubStandardResources retrieves all securityhub.Standard items from an AWS CloudFormation template
@@ -28849,6 +30382,30 @@ func (t *Template) GetSecurityLakeSubscriberWithName(name string) (*securitylake
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type securitylake.Subscriber not found", name)
+}
+
+// GetAllSecurityLakeSubscriberNotificationResources retrieves all securitylake.SubscriberNotification items from an AWS CloudFormation template
+func (t *Template) GetAllSecurityLakeSubscriberNotificationResources() map[string]*securitylake.SubscriberNotification {
+	results := map[string]*securitylake.SubscriberNotification{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *securitylake.SubscriberNotification:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetSecurityLakeSubscriberNotificationWithName retrieves all securitylake.SubscriberNotification items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetSecurityLakeSubscriberNotificationWithName(name string) (*securitylake.SubscriberNotification, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *securitylake.SubscriberNotification:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type securitylake.SubscriberNotification not found", name)
 }
 
 // GetAllServerlessApiResources retrieves all serverless.Api items from an AWS CloudFormation template
@@ -31345,6 +32902,30 @@ func (t *Template) GetWorkSpacesWorkspaceWithName(name string) (*workspaces.Work
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type workspaces.Workspace not found", name)
+}
+
+// GetAllWorkSpacesWorkspacesPoolResources retrieves all workspaces.WorkspacesPool items from an AWS CloudFormation template
+func (t *Template) GetAllWorkSpacesWorkspacesPoolResources() map[string]*workspaces.WorkspacesPool {
+	results := map[string]*workspaces.WorkspacesPool{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *workspaces.WorkspacesPool:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetWorkSpacesWorkspacesPoolWithName retrieves all workspaces.WorkspacesPool items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetWorkSpacesWorkspacesPoolWithName(name string) (*workspaces.WorkspacesPool, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *workspaces.WorkspacesPool:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type workspaces.WorkspacesPool not found", name)
 }
 
 // GetAllWorkSpacesThinClientEnvironmentResources retrieves all workspacesthinclient.Environment items from an AWS CloudFormation template

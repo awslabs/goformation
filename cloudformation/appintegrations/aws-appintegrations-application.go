@@ -30,9 +30,9 @@ type Application struct {
 	Name string `json:"Name"`
 
 	// Namespace AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-namespace
-	Namespace *string `json:"Namespace,omitempty"`
+	Namespace string `json:"Namespace"`
 
 	// Permissions AWS CloudFormation Property
 	// Required: false

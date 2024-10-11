@@ -54,6 +54,11 @@ type DeliveryStream struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
 	HttpEndpointDestinationConfiguration *DeliveryStream_HttpEndpointDestinationConfiguration `json:"HttpEndpointDestinationConfiguration,omitempty"`
 
+	// IcebergDestinationConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration
+	IcebergDestinationConfiguration *DeliveryStream_IcebergDestinationConfiguration `json:"IcebergDestinationConfiguration,omitempty"`
+
 	// KinesisStreamSourceConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration

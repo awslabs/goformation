@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // SlackChannelConfiguration AWS CloudFormation Resource (AWS::Chatbot::SlackChannelConfiguration)
@@ -47,6 +48,11 @@ type SlackChannelConfiguration struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
 	SnsTopicArns []string `json:"SnsTopicArns,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// UserRoleRequired AWS CloudFormation Property
 	// Required: false

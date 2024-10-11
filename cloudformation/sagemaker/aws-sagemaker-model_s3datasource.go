@@ -7,27 +7,32 @@ import (
 )
 
 // Model_S3DataSource AWS CloudFormation Resource (AWS::SageMaker::Model.S3DataSource)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html
 type Model_S3DataSource struct {
 
 	// CompressionType AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-compressiontype
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-compressiontype
 	CompressionType string `json:"CompressionType"`
+
+	// HubAccessConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-hubaccessconfig
+	HubAccessConfig *Model_HubAccessConfig `json:"HubAccessConfig,omitempty"`
 
 	// ModelAccessConfig AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-modelaccessconfig
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-modelaccessconfig
 	ModelAccessConfig *Model_ModelAccessConfig `json:"ModelAccessConfig,omitempty"`
 
 	// S3DataType AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-s3datatype
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-s3datatype
 	S3DataType string `json:"S3DataType"`
 
 	// S3Uri AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource.html#cfn-sagemaker-model-containerdefinition-modeldatasource-s3datasource-s3uri
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-s3uri
 	S3Uri string `json:"S3Uri"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

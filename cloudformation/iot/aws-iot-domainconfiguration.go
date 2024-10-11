@@ -14,10 +14,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
 type DomainConfiguration struct {
 
+	// ApplicationProtocol AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-applicationprotocol
+	ApplicationProtocol *string `json:"ApplicationProtocol,omitempty"`
+
+	// AuthenticationType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authenticationtype
+	AuthenticationType *string `json:"AuthenticationType,omitempty"`
+
 	// AuthorizerConfig AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
 	AuthorizerConfig *DomainConfiguration_AuthorizerConfig `json:"AuthorizerConfig,omitempty"`
+
+	// ClientCertificateConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-clientcertificateconfig
+	ClientCertificateConfig *DomainConfiguration_ClientCertificateConfig `json:"ClientCertificateConfig,omitempty"`
 
 	// DomainConfigurationName AWS CloudFormation Property
 	// Required: false

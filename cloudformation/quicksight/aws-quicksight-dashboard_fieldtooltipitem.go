@@ -20,6 +20,11 @@ type Dashboard_FieldTooltipItem struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html#cfn-quicksight-dashboard-fieldtooltipitem-label
 	Label *string `json:"Label,omitempty"`
 
+	// TooltipTarget AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html#cfn-quicksight-dashboard-fieldtooltipitem-tooltiptarget
+	TooltipTarget *string `json:"TooltipTarget,omitempty"`
+
 	// Visibility AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html#cfn-quicksight-dashboard-fieldtooltipitem-visibility

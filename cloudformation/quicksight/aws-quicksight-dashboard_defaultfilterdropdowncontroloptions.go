@@ -10,6 +10,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfilterdropdowncontroloptions.html
 type Dashboard_DefaultFilterDropDownControlOptions struct {
 
+	// CommitMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfilterdropdowncontroloptions.html#cfn-quicksight-dashboard-defaultfilterdropdowncontroloptions-commitmode
+	CommitMode *string `json:"CommitMode,omitempty"`
+
 	// DisplayOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfilterdropdowncontroloptions.html#cfn-quicksight-dashboard-defaultfilterdropdowncontroloptions-displayoptions

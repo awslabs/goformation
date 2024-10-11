@@ -10,6 +10,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html
 type Dashboard_FilterDateTimePickerControl struct {
 
+	// CommitMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html#cfn-quicksight-dashboard-filterdatetimepickercontrol-commitmode
+	CommitMode *string `json:"CommitMode,omitempty"`
+
 	// DisplayOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterdatetimepickercontrol.html#cfn-quicksight-dashboard-filterdatetimepickercontrol-displayoptions

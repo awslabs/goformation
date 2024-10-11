@@ -21,9 +21,9 @@ type DataSet_LogicalTable struct {
 	DataTransforms []DataSet_TransformOperation `json:"DataTransforms,omitempty"`
 
 	// Source AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-	Source *DataSet_LogicalTableSource `json:"Source"`
+	Source *DataSet_LogicalTableSource `json:"Source,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

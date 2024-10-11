@@ -20,6 +20,16 @@ type DataSource_ChunkingConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-fixedsizechunkingconfiguration
 	FixedSizeChunkingConfiguration *DataSource_FixedSizeChunkingConfiguration `json:"FixedSizeChunkingConfiguration,omitempty"`
 
+	// HierarchicalChunkingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-hierarchicalchunkingconfiguration
+	HierarchicalChunkingConfiguration *DataSource_HierarchicalChunkingConfiguration `json:"HierarchicalChunkingConfiguration,omitempty"`
+
+	// SemanticChunkingConfiguration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-semanticchunkingconfiguration
+	SemanticChunkingConfiguration *DataSource_SemanticChunkingConfiguration `json:"SemanticChunkingConfiguration,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

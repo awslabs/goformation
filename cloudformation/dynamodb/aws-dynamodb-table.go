@@ -59,6 +59,11 @@ type Table struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes
 	LocalSecondaryIndexes []Table_LocalSecondaryIndex `json:"LocalSecondaryIndexes,omitempty"`
 
+	// OnDemandThroughput AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ondemandthroughput
+	OnDemandThroughput *Table_OnDemandThroughput `json:"OnDemandThroughput,omitempty"`
+
 	// PointInTimeRecoverySpecification AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification

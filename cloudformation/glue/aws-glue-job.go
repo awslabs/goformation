@@ -53,10 +53,25 @@ type Job struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-glueversion
 	GlueVersion *string `json:"GlueVersion,omitempty"`
 
+	// JobMode AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-jobmode
+	JobMode *string `json:"JobMode,omitempty"`
+
+	// JobRunQueuingEnabled AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-jobrunqueuingenabled
+	JobRunQueuingEnabled *bool `json:"JobRunQueuingEnabled,omitempty"`
+
 	// LogUri AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-loguri
 	LogUri *string `json:"LogUri,omitempty"`
+
+	// MaintenanceWindow AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maintenancewindow
+	MaintenanceWindow *string `json:"MaintenanceWindow,omitempty"`
 
 	// MaxCapacity AWS CloudFormation Property
 	// Required: false

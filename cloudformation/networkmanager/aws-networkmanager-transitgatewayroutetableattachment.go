@@ -14,10 +14,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html
 type TransitGatewayRouteTableAttachment struct {
 
+	// NetworkFunctionGroupName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-networkfunctiongroupname
+	NetworkFunctionGroupName *string `json:"NetworkFunctionGroupName,omitempty"`
+
 	// PeeringId AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-peeringid
 	PeeringId string `json:"PeeringId"`
+
+	// ProposedNetworkFunctionGroupChange AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-proposednetworkfunctiongroupchange
+	ProposedNetworkFunctionGroupChange *TransitGatewayRouteTableAttachment_ProposedNetworkFunctionGroupChange `json:"ProposedNetworkFunctionGroupChange,omitempty"`
 
 	// ProposedSegmentChange AWS CloudFormation Property
 	// Required: false

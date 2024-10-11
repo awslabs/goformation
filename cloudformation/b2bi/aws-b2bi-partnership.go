@@ -15,9 +15,14 @@ import (
 type Partnership struct {
 
 	// Capabilities AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilities
-	Capabilities []string `json:"Capabilities,omitempty"`
+	Capabilities []string `json:"Capabilities"`
+
+	// CapabilityOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilityoptions
+	CapabilityOptions *Partnership_CapabilityOptions `json:"CapabilityOptions,omitempty"`
 
 	// Email AWS CloudFormation Property
 	// Required: true

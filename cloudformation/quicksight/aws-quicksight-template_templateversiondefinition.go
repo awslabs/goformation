@@ -45,6 +45,11 @@ type Template_TemplateVersionDefinition struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-parameterdeclarations
 	ParameterDeclarations []Template_ParameterDeclaration `json:"ParameterDeclarations,omitempty"`
 
+	// QueryExecutionOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-queryexecutionoptions
+	QueryExecutionOptions *Template_QueryExecutionOptions `json:"QueryExecutionOptions,omitempty"`
+
 	// Sheets AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-sheets

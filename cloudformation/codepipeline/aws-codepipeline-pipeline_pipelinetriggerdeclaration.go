@@ -7,17 +7,17 @@ import (
 )
 
 // Pipeline_PipelineTriggerDeclaration AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.PipelineTriggerDeclaration)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html
 type Pipeline_PipelineTriggerDeclaration struct {
 
 	// GitConfiguration AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers.html#cfn-codepipeline-pipeline-triggers-git-configuration
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html#cfn-codepipeline-pipeline-pipelinetriggerdeclaration-gitconfiguration
 	GitConfiguration *Pipeline_GitConfiguration `json:"GitConfiguration,omitempty"`
 
 	// ProviderType AWS CloudFormation Property
 	// Required: true
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers.html#cfn-codepipeline-pipeline-triggers-provider-type
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html#cfn-codepipeline-pipeline-pipelinetriggerdeclaration-providertype
 	ProviderType string `json:"ProviderType"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

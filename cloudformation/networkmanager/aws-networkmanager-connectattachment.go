@@ -24,10 +24,20 @@ type ConnectAttachment struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-edgelocation
 	EdgeLocation string `json:"EdgeLocation"`
 
+	// NetworkFunctionGroupName AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-networkfunctiongroupname
+	NetworkFunctionGroupName *string `json:"NetworkFunctionGroupName,omitempty"`
+
 	// Options AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-options
 	Options *ConnectAttachment_ConnectAttachmentOptions `json:"Options"`
+
+	// ProposedNetworkFunctionGroupChange AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-proposednetworkfunctiongroupchange
+	ProposedNetworkFunctionGroupChange *ConnectAttachment_ProposedNetworkFunctionGroupChange `json:"ProposedNetworkFunctionGroupChange,omitempty"`
 
 	// ProposedSegmentChange AWS CloudFormation Property
 	// Required: false

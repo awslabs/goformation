@@ -43,6 +43,11 @@ type FlowOutput struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
 	MaxLatency *int `json:"MaxLatency,omitempty"`
 
+	// MediaStreamOutputConfigurations AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfigurations
+	MediaStreamOutputConfigurations []FlowOutput_MediaStreamOutputConfiguration `json:"MediaStreamOutputConfigurations,omitempty"`
+
 	// MinLatency AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-minlatency
@@ -52,6 +57,11 @@ type FlowOutput struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
 	Name *string `json:"Name,omitempty"`
+
+	// OutputStatus AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-outputstatus
+	OutputStatus *string `json:"OutputStatus,omitempty"`
 
 	// Port AWS CloudFormation Property
 	// Required: false

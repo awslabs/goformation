@@ -45,6 +45,11 @@ type DataSet_TransformOperation struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
 	TagColumnOperation *DataSet_TagColumnOperation `json:"TagColumnOperation,omitempty"`
 
+	// UntagColumnOperation AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-untagcolumnoperation
+	UntagColumnOperation *DataSet_UntagColumnOperation `json:"UntagColumnOperation,omitempty"`
+
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`
 

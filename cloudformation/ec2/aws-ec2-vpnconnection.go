@@ -19,6 +19,36 @@ type VPNConnection struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-customergatewayid
 	CustomerGatewayId string `json:"CustomerGatewayId"`
 
+	// EnableAcceleration AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-enableacceleration
+	EnableAcceleration *bool `json:"EnableAcceleration,omitempty"`
+
+	// LocalIpv4NetworkCidr AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-localipv4networkcidr
+	LocalIpv4NetworkCidr *string `json:"LocalIpv4NetworkCidr,omitempty"`
+
+	// LocalIpv6NetworkCidr AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-localipv6networkcidr
+	LocalIpv6NetworkCidr *string `json:"LocalIpv6NetworkCidr,omitempty"`
+
+	// OutsideIpAddressType AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-outsideipaddresstype
+	OutsideIpAddressType *string `json:"OutsideIpAddressType,omitempty"`
+
+	// RemoteIpv4NetworkCidr AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-remoteipv4networkcidr
+	RemoteIpv4NetworkCidr *string `json:"RemoteIpv4NetworkCidr,omitempty"`
+
+	// RemoteIpv6NetworkCidr AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-remoteipv6networkcidr
+	RemoteIpv6NetworkCidr *string `json:"RemoteIpv6NetworkCidr,omitempty"`
+
 	// StaticRoutesOnly AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-staticroutesonly
@@ -33,6 +63,16 @@ type VPNConnection struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transitgatewayid
 	TransitGatewayId *string `json:"TransitGatewayId,omitempty"`
+
+	// TransportTransitGatewayAttachmentId AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transporttransitgatewayattachmentid
+	TransportTransitGatewayAttachmentId *string `json:"TransportTransitGatewayAttachmentId,omitempty"`
+
+	// TunnelInsideIpVersion AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-tunnelinsideipversion
+	TunnelInsideIpVersion *string `json:"TunnelInsideIpVersion,omitempty"`
 
 	// Type AWS CloudFormation Property
 	// Required: true

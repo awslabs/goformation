@@ -75,6 +75,11 @@ type Template_ComboChartConfiguration struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartconfiguration.html#cfn-quicksight-template-combochartconfiguration-secondaryyaxislabeloptions
 	SecondaryYAxisLabelOptions *Template_ChartAxisLabelOptions `json:"SecondaryYAxisLabelOptions,omitempty"`
 
+	// SingleAxisOptions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartconfiguration.html#cfn-quicksight-template-combochartconfiguration-singleaxisoptions
+	SingleAxisOptions *Template_SingleAxisOptions `json:"SingleAxisOptions,omitempty"`
+
 	// SortConfiguration AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartconfiguration.html#cfn-quicksight-template-combochartconfiguration-sortconfiguration

@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // TrafficMirrorFilterRule AWS CloudFormation Resource (AWS::EC2::TrafficMirrorFilterRule)
@@ -52,6 +53,11 @@ type TrafficMirrorFilterRule struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourceportrange
 	SourcePortRange *TrafficMirrorFilterRule_TrafficMirrorPortRange `json:"SourcePortRange,omitempty"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TrafficDirection AWS CloudFormation Property
 	// Required: true

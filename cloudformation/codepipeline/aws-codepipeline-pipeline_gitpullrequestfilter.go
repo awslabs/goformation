@@ -7,22 +7,22 @@ import (
 )
 
 // Pipeline_GitPullRequestFilter AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.GitPullRequestFilter)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-pull-request-filter.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html
 type Pipeline_GitPullRequestFilter struct {
 
 	// Branches AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-pull-request-filter.html#aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-branches
 	Branches *Pipeline_GitBranchFilterCriteria `json:"Branches,omitempty"`
 
 	// Events AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-pull-request-filter.html#aws-properties-codepipeline-pipeline-triggers-git-pull-request-event-filter-criteria
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-events
 	Events []string `json:"Events,omitempty"`
 
 	// FilePaths AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-pull-request-filter.html#aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-filepaths
 	FilePaths *Pipeline_GitFilePathFilterCriteria `json:"FilePaths,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy

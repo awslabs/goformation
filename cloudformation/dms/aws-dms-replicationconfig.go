@@ -15,19 +15,14 @@ import (
 type ReplicationConfig struct {
 
 	// ComputeConfig AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-computeconfig
-	ComputeConfig *ReplicationConfig_ComputeConfig `json:"ComputeConfig,omitempty"`
-
-	// ReplicationConfigArn AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-replicationconfigarn
-	ReplicationConfigArn *string `json:"ReplicationConfigArn,omitempty"`
+	ComputeConfig *ReplicationConfig_ComputeConfig `json:"ComputeConfig"`
 
 	// ReplicationConfigIdentifier AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-replicationconfigidentifier
-	ReplicationConfigIdentifier *string `json:"ReplicationConfigIdentifier,omitempty"`
+	ReplicationConfigIdentifier string `json:"ReplicationConfigIdentifier"`
 
 	// ReplicationSettings AWS CloudFormation Property
 	// Required: false
@@ -35,9 +30,9 @@ type ReplicationConfig struct {
 	ReplicationSettings interface{} `json:"ReplicationSettings,omitempty"`
 
 	// ReplicationType AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-replicationtype
-	ReplicationType *string `json:"ReplicationType,omitempty"`
+	ReplicationType string `json:"ReplicationType"`
 
 	// ResourceIdentifier AWS CloudFormation Property
 	// Required: false
@@ -45,9 +40,9 @@ type ReplicationConfig struct {
 	ResourceIdentifier *string `json:"ResourceIdentifier,omitempty"`
 
 	// SourceEndpointArn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-sourceendpointarn
-	SourceEndpointArn *string `json:"SourceEndpointArn,omitempty"`
+	SourceEndpointArn string `json:"SourceEndpointArn"`
 
 	// SupplementalSettings AWS CloudFormation Property
 	// Required: false
@@ -55,9 +50,9 @@ type ReplicationConfig struct {
 	SupplementalSettings interface{} `json:"SupplementalSettings,omitempty"`
 
 	// TableMappings AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-tablemappings
-	TableMappings interface{} `json:"TableMappings,omitempty"`
+	TableMappings interface{} `json:"TableMappings"`
 
 	// Tags AWS CloudFormation Property
 	// Required: false
@@ -65,9 +60,9 @@ type ReplicationConfig struct {
 	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// TargetEndpointArn AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#cfn-dms-replicationconfig-targetendpointarn
-	TargetEndpointArn *string `json:"TargetEndpointArn,omitempty"`
+	TargetEndpointArn string `json:"TargetEndpointArn"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
 	AWSCloudFormationDeletionPolicy policies.DeletionPolicy `json:"-"`

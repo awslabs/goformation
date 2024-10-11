@@ -35,6 +35,11 @@ type Rule_Actions struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-sendnotificationactions
 	SendNotificationActions []Rule_SendNotificationAction `json:"SendNotificationActions,omitempty"`
 
+	// SubmitAutoEvaluationActions AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-submitautoevaluationactions
+	SubmitAutoEvaluationActions []Rule_SubmitAutoEvaluationAction `json:"SubmitAutoEvaluationActions,omitempty"`
+
 	// TaskActions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-taskactions

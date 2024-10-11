@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // LicenseEndpoint AWS CloudFormation Resource (AWS::Deadline::LicenseEndpoint)
@@ -22,6 +23,11 @@ type LicenseEndpoint struct {
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-subnetids
 	SubnetIds []string `json:"SubnetIds"`
+
+	// Tags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-tags
+	Tags []tags.Tag `json:"Tags,omitempty"`
 
 	// VpcId AWS CloudFormation Property
 	// Required: true

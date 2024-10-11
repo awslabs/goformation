@@ -29,6 +29,11 @@ type Guardrail struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contentpolicyconfig
 	ContentPolicyConfig *Guardrail_ContentPolicyConfig `json:"ContentPolicyConfig,omitempty"`
 
+	// ContextualGroundingPolicyConfig AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contextualgroundingpolicyconfig
+	ContextualGroundingPolicyConfig *Guardrail_ContextualGroundingPolicyConfig `json:"ContextualGroundingPolicyConfig,omitempty"`
+
 	// Description AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-description

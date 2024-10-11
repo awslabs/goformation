@@ -11,9 +11,9 @@ import (
 type CertificateAuthority_OcspConfiguration struct {
 
 	// Enabled AWS CloudFormation Property
-	// Required: false
+	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
-	Enabled *bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 
 	// OcspCustomCname AWS CloudFormation Property
 	// Required: false

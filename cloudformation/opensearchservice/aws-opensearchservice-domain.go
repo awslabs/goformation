@@ -84,6 +84,11 @@ type Domain struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-offpeakwindowoptions
 	OffPeakWindowOptions *Domain_OffPeakWindowOptions `json:"OffPeakWindowOptions,omitempty"`
 
+	// SkipShardMigrationWait AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-skipshardmigrationwait
+	SkipShardMigrationWait *bool `json:"SkipShardMigrationWait,omitempty"`
+
 	// SnapshotOptions AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-snapshotoptions

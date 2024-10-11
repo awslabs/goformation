@@ -15,9 +15,9 @@ import (
 type Campaign struct {
 
 	// Action AWS CloudFormation Property
-	// Required: true
+	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-action
-	Action string `json:"Action"`
+	Action *string `json:"Action,omitempty"`
 
 	// CollectionScheme AWS CloudFormation Property
 	// Required: true
@@ -78,6 +78,11 @@ type Campaign struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-signalstocollect
 	SignalsToCollect []Campaign_SignalInformation `json:"SignalsToCollect,omitempty"`
+
+	// SignalsToFetch AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-signalstofetch
+	SignalsToFetch []Campaign_SignalFetchInformation `json:"SignalsToFetch,omitempty"`
 
 	// SpoolingMode AWS CloudFormation Property
 	// Required: false

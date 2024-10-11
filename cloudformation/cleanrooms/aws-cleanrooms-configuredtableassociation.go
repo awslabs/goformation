@@ -14,6 +14,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html
 type ConfiguredTableAssociation struct {
 
+	// ConfiguredTableAssociationAnalysisRules AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrules
+	ConfiguredTableAssociationAnalysisRules []ConfiguredTableAssociation_ConfiguredTableAssociationAnalysisRule `json:"ConfiguredTableAssociationAnalysisRules,omitempty"`
+
 	// ConfiguredTableIdentifier AWS CloudFormation Property
 	// Required: true
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-configuredtableidentifier

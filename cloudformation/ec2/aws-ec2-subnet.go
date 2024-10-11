@@ -59,11 +59,6 @@ type Subnet struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblock
 	Ipv6CidrBlock *string `json:"Ipv6CidrBlock,omitempty"`
 
-	// Ipv6CidrBlocks AWS CloudFormation Property
-	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblocks
-	Ipv6CidrBlocks []string `json:"Ipv6CidrBlocks,omitempty"`
-
 	// Ipv6IpamPoolId AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6ipampoolid

@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 
 	"github.com/awslabs/goformation/v7/cloudformation/policies"
+	"github.com/awslabs/goformation/v7/cloudformation/tags"
 )
 
 // IdentityPool AWS CloudFormation Resource (AWS::Cognito::IdentityPool)
@@ -47,6 +48,11 @@ type IdentityPool struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname
 	IdentityPoolName *string `json:"IdentityPoolName,omitempty"`
+
+	// IdentityPoolTags AWS CloudFormation Property
+	// Required: false
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypooltags
+	IdentityPoolTags []tags.Tag `json:"IdentityPoolTags,omitempty"`
 
 	// OpenIdConnectProviderARNs AWS CloudFormation Property
 	// Required: false

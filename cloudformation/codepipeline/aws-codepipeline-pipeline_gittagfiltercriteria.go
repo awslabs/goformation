@@ -7,17 +7,17 @@ import (
 )
 
 // Pipeline_GitTagFilterCriteria AWS CloudFormation Resource (AWS::CodePipeline::Pipeline.GitTagFilterCriteria)
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria.html
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gittagfiltercriteria.html
 type Pipeline_GitTagFilterCriteria struct {
 
 	// Excludes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria.html#aws-properties-codepipeline-pipeline-triggers-git-tag-pattern
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gittagfiltercriteria.html#cfn-codepipeline-pipeline-gittagfiltercriteria-excludes
 	Excludes []string `json:"Excludes,omitempty"`
 
 	// Includes AWS CloudFormation Property
 	// Required: false
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria.html#aws-properties-codepipeline-pipeline-triggers-git-tag-pattern
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gittagfiltercriteria.html#cfn-codepipeline-pipeline-gittagfiltercriteria-includes
 	Includes []string `json:"Includes,omitempty"`
 
 	// AWSCloudFormationDeletionPolicy represents a CloudFormation DeletionPolicy
